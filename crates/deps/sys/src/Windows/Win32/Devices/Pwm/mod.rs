@@ -1,3 +1,47 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
+pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1619151692, data2: 61137, data3: 19612, data4: [180, 156, 27, 150, 20, 97, 168, 25] };
+pub const IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD: u32 = 262148u32;
+pub const IOCTL_PWM_CONTROLLER_GET_INFO: u32 = 262144u32;
+pub const IOCTL_PWM_CONTROLLER_SET_DESIRED_PERIOD: u32 = 294920u32;
+pub const IOCTL_PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE: u32 = 262544u32;
+pub const IOCTL_PWM_PIN_GET_POLARITY: u32 = 262552u32;
+pub const IOCTL_PWM_PIN_IS_STARTED: u32 = 262568u32;
+pub const IOCTL_PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE: u32 = 295316u32;
+pub const IOCTL_PWM_PIN_SET_POLARITY: u32 = 295324u32;
+pub const IOCTL_PWM_PIN_START: u32 = 295331u32;
+pub const IOCTL_PWM_PIN_STOP: u32 = 295335u32;
+#[repr(C)]
+pub struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT(i32);
+#[repr(C)]
+pub struct PWM_CONTROLLER_INFO(i32);
+#[repr(C)]
+pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT(i32);
+#[repr(C)]
+pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT(i32);
+pub const PWM_IOCTL_ID_CONTROLLER_GET_ACTUAL_PERIOD: i32 = 1i32;
+pub const PWM_IOCTL_ID_CONTROLLER_GET_INFO: i32 = 0i32;
+pub const PWM_IOCTL_ID_CONTROLLER_SET_DESIRED_PERIOD: i32 = 2i32;
+pub const PWM_IOCTL_ID_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE: i32 = 100i32;
+pub const PWM_IOCTL_ID_PIN_GET_POLARITY: i32 = 102i32;
+pub const PWM_IOCTL_ID_PIN_IS_STARTED: i32 = 106i32;
+pub const PWM_IOCTL_ID_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE: i32 = 101i32;
+pub const PWM_IOCTL_ID_PIN_SET_POLARITY: i32 = 103i32;
+pub const PWM_IOCTL_ID_PIN_START: i32 = 104i32;
+pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
+#[repr(C)]
+pub struct PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT(i32);
+#[repr(C)]
+pub struct PWM_PIN_GET_POLARITY_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct PWM_PIN_IS_STARTED_OUTPUT(i32);
+#[repr(C)]
+pub struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT(i32);
+#[repr(C)]
+pub struct PWM_PIN_SET_POLARITY_INPUT(i32);
+#[repr(transparent)]
+pub struct PWM_POLARITY(pub i32);
+pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);
+pub const PWM_ACTIVE_LOW: PWM_POLARITY = PWM_POLARITY(1i32);

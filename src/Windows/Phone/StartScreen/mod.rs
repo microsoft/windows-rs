@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Phone_StartScreen`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DualSimTile(pub ::windows::core::IInspectable);
@@ -11,12 +10,10 @@ impl DualSimTile {
         static mut SHARED: ::windows::core::FactoryCache<DualSimTile, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Phone_StartScreen`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Phone_StartScreen`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -24,7 +21,6 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_StartScreen`*"]
     pub fn IsPinnedToStart(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -33,7 +29,6 @@ impl DualSimTile {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_StartScreen`, `Foundation`*"]
     pub fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -42,7 +37,6 @@ impl DualSimTile {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_StartScreen`, `Foundation`*"]
     pub fn UpdateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -51,7 +45,6 @@ impl DualSimTile {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_StartScreen`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -59,7 +52,6 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_StartScreen`*"]
     pub fn GetTileForSim2() -> ::windows::core::Result<DualSimTile> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -67,7 +59,6 @@ impl DualSimTile {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_StartScreen`, `Foundation`*"]
     pub fn UpdateDisplayNameForSim1Async<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -75,7 +66,6 @@ impl DualSimTile {
         })
     }
     #[cfg(feature = "UI_Notifications")]
-    #[doc = "*Required features: `Phone_StartScreen`, `UI_Notifications`*"]
     pub fn CreateTileUpdaterForSim1() -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -83,7 +73,6 @@ impl DualSimTile {
         })
     }
     #[cfg(feature = "UI_Notifications")]
-    #[doc = "*Required features: `Phone_StartScreen`, `UI_Notifications`*"]
     pub fn CreateTileUpdaterForSim2() -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -91,7 +80,6 @@ impl DualSimTile {
         })
     }
     #[cfg(feature = "UI_Notifications")]
-    #[doc = "*Required features: `Phone_StartScreen`, `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForSim1() -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -99,7 +87,6 @@ impl DualSimTile {
         })
     }
     #[cfg(feature = "UI_Notifications")]
-    #[doc = "*Required features: `Phone_StartScreen`, `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForSim2() -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -107,7 +94,6 @@ impl DualSimTile {
         })
     }
     #[cfg(feature = "UI_Notifications")]
-    #[doc = "*Required features: `Phone_StartScreen`, `UI_Notifications`*"]
     pub fn CreateToastNotifierForSim1() -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -115,7 +101,6 @@ impl DualSimTile {
         })
     }
     #[cfg(feature = "UI_Notifications")]
-    #[doc = "*Required features: `Phone_StartScreen`, `UI_Notifications`*"]
     pub fn CreateToastNotifierForSim2() -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -240,7 +225,6 @@ pub struct IDualSimTileStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Phone_StartScreen`*"]
 pub struct IToastNotificationManagerStatics3(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics3 {
     type Vtable = IToastNotificationManagerStatics3_abi;
@@ -248,7 +232,6 @@ unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics3 {
 }
 impl IToastNotificationManagerStatics3 {
     #[cfg(feature = "UI_Notifications")]
-    #[doc = "*Required features: `Phone_StartScreen`, `UI_Notifications`*"]
     pub fn CreateToastNotifierForSecondaryTile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         let this = self;
         unsafe {

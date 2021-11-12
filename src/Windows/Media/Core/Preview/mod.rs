@@ -21,10 +21,8 @@ pub struct ISoundLevelBrokerStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[doc = "*Required features: `Media_Core_Preview`*"]
 pub struct SoundLevelBroker {}
 impl SoundLevelBroker {
-    #[doc = "*Required features: `Media_Core_Preview`*"]
     pub fn SoundLevel() -> ::windows::core::Result<super::super::SoundLevel> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__: super::super::SoundLevel = ::core::mem::zeroed();
@@ -32,7 +30,6 @@ impl SoundLevelBroker {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Core_Preview`, `Foundation`*"]
     pub fn SoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
@@ -40,7 +37,6 @@ impl SoundLevelBroker {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Core_Preview`, `Foundation`*"]
     pub fn RemoveSoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::ISoundLevelBrokerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }

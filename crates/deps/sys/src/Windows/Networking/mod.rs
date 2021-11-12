@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Networking_BackgroundTransfer")]
 pub mod BackgroundTransfer;
 #[cfg(feature = "Networking_Connectivity")]
@@ -19,3 +19,37 @@ pub mod Vpn;
 pub mod XboxLive;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
+pub struct DomainNameType(pub i32);
+impl DomainNameType {
+    pub const Suffix: Self = Self(0i32);
+    pub const FullyQualified: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct EndpointPair(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HostName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HostNameSortOptions(pub u32);
+impl HostNameSortOptions {
+    pub const None: Self = Self(0u32);
+    pub const OptimizeForLongConnections: Self = Self(2u32);
+}
+#[repr(transparent)]
+pub struct HostNameType(pub i32);
+impl HostNameType {
+    pub const DomainName: Self = Self(0i32);
+    pub const Ipv4: Self = Self(1i32);
+    pub const Ipv6: Self = Self(2i32);
+    pub const Bluetooth: Self = Self(3i32);
+}
+#[repr(transparent)]
+pub struct IEndpointPair(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEndpointPairFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IHostName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IHostNameFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IHostNameStatics(pub *mut ::core::ffi::c_void);

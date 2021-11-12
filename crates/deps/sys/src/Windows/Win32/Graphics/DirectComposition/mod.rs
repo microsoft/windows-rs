@@ -1,34 +1,168 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DCompositionAttachMouseDragToHwnd();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+    pub fn DCompositionAttachMouseDragToHwnd(visual: IDCompositionVisual, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DCompositionAttachMouseWheelToHwnd();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+    pub fn DCompositionAttachMouseWheelToHwnd(visual: IDCompositionVisual, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DCompositionBoostCompositorClock();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Graphics_Dxgi`*"]
+    pub fn DCompositionBoostCompositorClock(enable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn DCompositionCreateDevice();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
-    pub fn DCompositionCreateDevice2();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
-    pub fn DCompositionCreateDevice3();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`, `Win32_Security`*"]
+    pub fn DCompositionCreateDevice(dxgidevice: super::Dxgi::IDXGIDevice, iid: *const ::windows_sys::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DCompositionCreateDevice2(renderingdevice: ::windows_sys::core::IUnknown, iid: *const ::windows_sys::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DCompositionCreateDevice3(renderingdevice: ::windows_sys::core::IUnknown, iid: *const ::windows_sys::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn DCompositionCreateSurfaceHandle();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
-    pub fn DCompositionGetFrameId();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+    pub fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, surfacehandle: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+    pub fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE, frameid: *mut u64) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DCompositionGetStatistics();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+    pub fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DCompositionGetTargetStatistics();
-    #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
+    pub fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DCompositionWaitForCompositorClock();
+    pub fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32;
 }
+pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
+pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
+#[repr(transparent)]
+pub struct COMPOSITION_FRAME_ID_TYPE(pub i32);
+pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(0i32);
+pub const COMPOSITION_FRAME_ID_CONFIRMED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(1i32);
+pub const COMPOSITION_FRAME_ID_COMPLETED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(2i32);
+#[repr(C)]
+pub struct COMPOSITION_FRAME_STATS(i32);
+#[repr(C)]
+pub struct COMPOSITION_STATS(i32);
+pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct COMPOSITION_TARGET_ID(i32);
+#[repr(C)]
+pub struct COMPOSITION_TARGET_STATS(i32);
+#[repr(transparent)]
+pub struct DCOMPOSITION_BACKFACE_VISIBILITY(pub i32);
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(0i32);
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(1i32);
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_INHERIT: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(-1i32);
+#[repr(transparent)]
+pub struct DCOMPOSITION_BITMAP_INTERPOLATION_MODE(pub i32);
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(0i32);
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_LINEAR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(1i32);
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_INHERIT: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(-1i32);
+#[repr(transparent)]
+pub struct DCOMPOSITION_BORDER_MODE(pub i32);
+pub const DCOMPOSITION_BORDER_MODE_SOFT: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(0i32);
+pub const DCOMPOSITION_BORDER_MODE_HARD: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(1i32);
+pub const DCOMPOSITION_BORDER_MODE_INHERIT: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(-1i32);
+#[repr(transparent)]
+pub struct DCOMPOSITION_COMPOSITE_MODE(pub i32);
+pub const DCOMPOSITION_COMPOSITE_MODE_SOURCE_OVER: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(0i32);
+pub const DCOMPOSITION_COMPOSITE_MODE_DESTINATION_INVERT: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(1i32);
+pub const DCOMPOSITION_COMPOSITE_MODE_MIN_BLEND: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(2i32);
+pub const DCOMPOSITION_COMPOSITE_MODE_INHERIT: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(-1i32);
+#[repr(transparent)]
+pub struct DCOMPOSITION_DEPTH_MODE(pub i32);
+pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(0i32);
+pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(1i32);
+pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(3i32);
+pub const DCOMPOSITION_DEPTH_MODE_INHERIT: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(-1i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
+pub struct DCOMPOSITION_FRAME_STATISTICS(i32);
+pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
+#[repr(transparent)]
+pub struct DCOMPOSITION_OPACITY_MODE(pub i32);
+pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(0i32);
+pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(1i32);
+pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(-1i32);
+#[repr(C)]
+pub struct DCompositionInkTrailPoint(i32);
+#[repr(transparent)]
+pub struct IDCompositionAffineTransform2DEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionAnimation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionArithmeticCompositeEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionBlendEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionBrightnessEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionClip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionColorMatrixEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionCompositeEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionDelegatedInkTrail(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionDesktopDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionDevice3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionDeviceDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionEffectGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionFilterEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionGaussianBlurEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionHueRotationEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionInkTrailDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionLinearTransferEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionMatrixTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionMatrixTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionRectangleClip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionRotateTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionRotateTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionSaturationEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionScaleTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionScaleTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionShadowEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionSkewTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionSurfaceFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionTableTransferEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionTranslateTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionTranslateTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionTurbulenceEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionVirtualSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionVisual(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionVisual2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionVisual3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDCompositionVisualDebug(pub *mut ::core::ffi::c_void);

@@ -1,3 +1,5 @@
+// TODO: remove this and windows-sys rather than generated bindings
+
 fn main() -> std::io::Result<()> {
     let tokens = macros::generate! {
         Windows::Foundation::{IReference, IStringable, PropertyValue},

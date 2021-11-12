@@ -1,3 +1,53 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
+pub struct AuthenticationProtocol(pub i32);
+impl AuthenticationProtocol {
+    pub const Basic: Self = Self(0i32);
+    pub const Digest: Self = Self(1i32);
+    pub const Ntlm: Self = Self(2i32);
+    pub const Kerberos: Self = Self(3i32);
+    pub const Negotiate: Self = Self(4i32);
+    pub const CredSsp: Self = Self(5i32);
+    pub const Custom: Self = Self(6i32);
+}
+#[repr(transparent)]
+pub struct CredentialPickerOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CredentialPickerResults(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CredentialSaveOption(pub i32);
+impl CredentialSaveOption {
+    pub const Unselected: Self = Self(0i32);
+    pub const Selected: Self = Self(1i32);
+    pub const Hidden: Self = Self(2i32);
+}
+#[repr(transparent)]
+pub struct ICredentialPickerOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICredentialPickerResults(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICredentialPickerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IUserConsentVerifierStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserConsentVerificationResult(pub i32);
+impl UserConsentVerificationResult {
+    pub const Verified: Self = Self(0i32);
+    pub const DeviceNotPresent: Self = Self(1i32);
+    pub const NotConfiguredForUser: Self = Self(2i32);
+    pub const DisabledByPolicy: Self = Self(3i32);
+    pub const DeviceBusy: Self = Self(4i32);
+    pub const RetriesExhausted: Self = Self(5i32);
+    pub const Canceled: Self = Self(6i32);
+}
+#[repr(transparent)]
+pub struct UserConsentVerifierAvailability(pub i32);
+impl UserConsentVerifierAvailability {
+    pub const Available: Self = Self(0i32);
+    pub const DeviceNotPresent: Self = Self(1i32);
+    pub const NotConfiguredForUser: Self = Self(2i32);
+    pub const DisabledByPolicy: Self = Self(3i32);
+    pub const DeviceBusy: Self = Self(4i32);
+}

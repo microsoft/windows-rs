@@ -2,7 +2,6 @@
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Shell_Common`, `Win32_Foundation`*"]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: super::super::super::Foundation::PWSTR,
     pub pszSpec: super::super::super::Foundation::PWSTR,
@@ -33,7 +32,6 @@ impl ::core::cmp::Eq for COMDLG_FILTERSPEC {}
 unsafe impl ::windows::core::Abi for COMDLG_FILTERSPEC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
@@ -62,17 +60,14 @@ impl ::core::convert::From<i32> for DEVICE_SCALE_FACTOR {
 unsafe impl ::windows::core::Abi for DEVICE_SCALE_FACTOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IObjectArray(pub ::windows::core::IUnknown);
 impl IObjectArray {
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn GetAt<T: ::windows::core::Interface>(&self, uiindex: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -111,34 +106,27 @@ pub struct IObjectArray_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcobjects: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IObjectCollection(pub ::windows::core::IUnknown);
 impl IObjectCollection {
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn GetAt<T: ::windows::core::Interface>(&self, uiindex: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn AddObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn AddFromArray<'a, Param0: ::windows::core::IntoParam<'a, IObjectArray>>(&self, poasource: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), poasource.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Shell_Common`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
@@ -202,7 +190,6 @@ pub struct IObjectCollection_abi(
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
@@ -221,7 +208,6 @@ impl ::core::cmp::Eq for ITEMIDLIST {}
 unsafe impl ::windows::core::Abi for ITEMIDLIST {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PERCEIVED(pub i32);
@@ -249,21 +235,13 @@ impl ::core::convert::From<i32> for PERCEIVED {
 unsafe impl ::windows::core::Abi for PERCEIVED {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_SOFTCODED: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_WMSDK: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_ZIPFOLDER: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHCOLSTATE(pub i32);
@@ -298,7 +276,6 @@ unsafe impl ::windows::core::Abi for SHCOLSTATE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Shell_Common`, `Win32_Foundation`*"]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
@@ -326,7 +303,6 @@ unsafe impl ::windows::core::Abi for SHELLDETAILS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
@@ -349,7 +325,6 @@ unsafe impl ::windows::core::Abi for SHITEMID {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Shell_Common`, `Win32_Foundation`*"]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
@@ -402,7 +377,6 @@ impl ::core::cmp::Eq for STRRET_0 {}
 unsafe impl ::windows::core::Abi for STRRET_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STRRET_TYPE(pub i32);

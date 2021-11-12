@@ -4,15 +4,16 @@ pub struct Gen {
     pub relative: &'static str,
     pub root: &'static str,
     pub ignore_windows_features: bool,
+    pub docs: bool,
 }
 
 impl Gen {
     pub fn absolute() -> Self {
-        Gen { relative: "", root: "", ignore_windows_features: false }
+        Gen { relative: "", root: "", ignore_windows_features: false, docs: false }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
-        Gen { relative: namespace, root: "", ignore_windows_features: false }
+        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -98,7 +99,7 @@ impl Gen {
     }
 
     pub fn gen_cfg_doc(&self, features: &BTreeSet<&'static str>) -> TokenStream {
-        if self.root.is_empty() {
+        if !self.docs || self.root.is_empty() {
             return TokenStream::new();
         }
 
@@ -235,12 +236,13 @@ mod tests {
     fn test_features() {
         let mut features = BTreeSet::new();
         features.insert("Windows.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false, docs: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
         assert_eq!(
             Gen {
                 root: "Microsoft",
                 relative: "Microsoft.UI.Composition.Diagnostics",
-                ignore_windows_features: false
+                ignore_windows_features: false,
+                docs: true
             }
             .gen_cfg_doc(&features)
             .as_str(),
@@ -249,12 +251,13 @@ mod tests {
 
         let mut features = BTreeSet::new();
         features.insert("Microsoft.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false, docs: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
         assert_eq!(
             Gen {
                 root: "Microsoft",
                 relative: "Microsoft.UI.Composition.Diagnostics",
-                ignore_windows_features: false
+                ignore_windows_features: false,
+                docs: true
             }
             .gen_cfg_doc(&features)
             .as_str(),

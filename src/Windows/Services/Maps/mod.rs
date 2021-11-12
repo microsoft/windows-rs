@@ -5,13 +5,11 @@ pub mod Guidance;
 pub mod LocalSearch;
 #[cfg(feature = "Services_Maps_OfflineMaps")]
 pub mod OfflineMaps;
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EnhancedWaypoint(pub ::windows::core::IInspectable);
 impl EnhancedWaypoint {
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn Point(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
@@ -19,7 +17,6 @@ impl EnhancedWaypoint {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Kind(&self) -> ::windows::core::Result<WaypointKind> {
         let this = self;
         unsafe {
@@ -28,7 +25,6 @@ impl EnhancedWaypoint {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(point: Param0, kind: WaypointKind) -> ::windows::core::Result<EnhancedWaypoint> {
         Self::IEnhancedWaypointFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -831,12 +827,10 @@ pub struct IPlaceInfoStatics2_abi(
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct LocalSearchContract(pub u8);
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ManeuverWarning(pub ::windows::core::IInspectable);
 impl ManeuverWarning {
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ManeuverWarningKind> {
         let this = self;
         unsafe {
@@ -844,7 +838,6 @@ impl ManeuverWarning {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ManeuverWarningKind>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Severity(&self) -> ::windows::core::Result<ManeuverWarningSeverity> {
         let this = self;
         unsafe {
@@ -905,7 +898,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for ManeuverWarning {}
 unsafe impl ::core::marker::Sync for ManeuverWarning {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ManeuverWarningKind(pub i32);
@@ -961,7 +953,6 @@ unsafe impl ::windows::core::RuntimeType for ManeuverWarningKind {
 impl ::windows::core::DefaultType for ManeuverWarningKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ManeuverWarningSeverity(pub i32);
@@ -986,12 +977,10 @@ unsafe impl ::windows::core::RuntimeType for ManeuverWarningSeverity {
 impl ::windows::core::DefaultType for ManeuverWarningSeverity {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapAddress(pub ::windows::core::IInspectable);
 impl MapAddress {
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn BuildingName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -999,7 +988,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn BuildingFloor(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1007,7 +995,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn BuildingRoom(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1015,7 +1002,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn BuildingWing(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1023,7 +1009,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn StreetNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1031,7 +1016,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Street(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1039,7 +1023,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Neighborhood(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1047,7 +1030,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn District(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1055,7 +1037,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Town(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1063,7 +1044,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Region(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1071,7 +1051,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn RegionCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1079,7 +1058,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1087,7 +1065,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn CountryCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1095,7 +1072,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn PostCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1103,7 +1079,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Continent(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1111,7 +1086,6 @@ impl MapAddress {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn FormattedAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMapAddress2>(self)?;
         unsafe {
@@ -1172,13 +1146,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapAddress {}
 unsafe impl ::core::marker::Sync for MapAddress {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapLocation(pub ::windows::core::IInspectable);
 impl MapLocation {
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn Point(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
@@ -1186,7 +1158,6 @@ impl MapLocation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1194,7 +1165,6 @@ impl MapLocation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1202,7 +1172,6 @@ impl MapLocation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Address(&self) -> ::windows::core::Result<MapAddress> {
         let this = self;
         unsafe {
@@ -1263,7 +1232,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapLocation {}
 unsafe impl ::core::marker::Sync for MapLocation {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapLocationDesiredAccuracy(pub i32);
@@ -1285,11 +1253,9 @@ unsafe impl ::windows::core::RuntimeType for MapLocationDesiredAccuracy {
 impl ::windows::core::DefaultType for MapLocationDesiredAccuracy {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 pub struct MapLocationFinder {}
 impl MapLocationFinder {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn FindLocationsAtAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(querypoint: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1297,7 +1263,6 @@ impl MapLocationFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn FindLocationsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(searchtext: Param0, referencepoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1305,7 +1270,6 @@ impl MapLocationFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn FindLocationsWithMaxCountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(searchtext: Param0, referencepoint: Param1, maxcount: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1313,7 +1277,6 @@ impl MapLocationFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn FindLocationsAtWithAccuracyAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(querypoint: Param0, accuracy: MapLocationDesiredAccuracy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1332,13 +1295,11 @@ impl MapLocationFinder {
 impl ::windows::core::RuntimeName for MapLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinder";
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapLocationFinderResult(pub ::windows::core::IInspectable);
 impl MapLocationFinderResult {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation_Collections`*"]
     pub fn Locations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MapLocation>> {
         let this = self;
         unsafe {
@@ -1346,7 +1307,6 @@ impl MapLocationFinderResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MapLocation>>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Status(&self) -> ::windows::core::Result<MapLocationFinderStatus> {
         let this = self;
         unsafe {
@@ -1407,7 +1367,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapLocationFinderResult {}
 unsafe impl ::core::marker::Sync for MapLocationFinderResult {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapLocationFinderStatus(pub i32);
@@ -1434,14 +1393,11 @@ unsafe impl ::windows::core::RuntimeType for MapLocationFinderStatus {
 impl ::windows::core::DefaultType for MapLocationFinderStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 pub struct MapManager {}
 impl MapManager {
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn ShowDownloadedMapsUI() -> ::windows::core::Result<()> {
         Self::IMapManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn ShowMapsUpdateUI() -> ::windows::core::Result<()> {
         Self::IMapManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
@@ -1453,7 +1409,6 @@ impl MapManager {
 impl ::windows::core::RuntimeName for MapManager {
     const NAME: &'static str = "Windows.Services.Maps.MapManager";
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapManeuverNotices(pub u32);
@@ -1504,13 +1459,11 @@ impl ::core::ops::Not for MapManeuverNotices {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapRoute(pub ::windows::core::IInspectable);
 impl MapRoute {
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn BoundingBox(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
         let this = self;
         unsafe {
@@ -1518,7 +1471,6 @@ impl MapRoute {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Geolocation::GeoboundingBox>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn LengthInMeters(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1527,7 +1479,6 @@ impl MapRoute {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn EstimatedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1536,7 +1487,6 @@ impl MapRoute {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn Path(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::Geopath> {
         let this = self;
         unsafe {
@@ -1545,7 +1495,6 @@ impl MapRoute {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation_Collections`*"]
     pub fn Legs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MapRouteLeg>> {
         let this = self;
         unsafe {
@@ -1553,7 +1502,6 @@ impl MapRoute {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MapRouteLeg>>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn IsTrafficBased(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1561,7 +1509,6 @@ impl MapRoute {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn ViolatedRestrictions(&self) -> ::windows::core::Result<MapRouteRestrictions> {
         let this = &::windows::core::Interface::cast::<IMapRoute2>(self)?;
         unsafe {
@@ -1569,7 +1516,6 @@ impl MapRoute {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapRouteRestrictions>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn HasBlockedRoads(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapRoute2>(self)?;
         unsafe {
@@ -1578,7 +1524,6 @@ impl MapRoute {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn DurationWithoutTraffic(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
@@ -1586,7 +1531,6 @@ impl MapRoute {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn TrafficCongestion(&self) -> ::windows::core::Result<TrafficCongestion> {
         let this = &::windows::core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
@@ -1594,7 +1538,6 @@ impl MapRoute {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TrafficCongestion>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn IsScenic(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapRoute4>(self)?;
         unsafe {
@@ -1655,7 +1598,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapRoute {}
 unsafe impl ::core::marker::Sync for MapRoute {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapRouteDrivingOptions(pub ::windows::core::IInspectable);
@@ -1667,7 +1609,6 @@ impl MapRouteDrivingOptions {
         static mut SHARED: ::windows::core::FactoryCache<MapRouteDrivingOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn MaxAlternateRouteCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1675,13 +1616,11 @@ impl MapRouteDrivingOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn SetMaxAlternateRouteCount(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn InitialHeading(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -1690,12 +1629,10 @@ impl MapRouteDrivingOptions {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn SetInitialHeading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn RouteOptimization(&self) -> ::windows::core::Result<MapRouteOptimization> {
         let this = self;
         unsafe {
@@ -1703,12 +1640,10 @@ impl MapRouteDrivingOptions {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapRouteOptimization>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn SetRouteOptimization(&self, value: MapRouteOptimization) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn RouteRestrictions(&self) -> ::windows::core::Result<MapRouteRestrictions> {
         let this = self;
         unsafe {
@@ -1716,13 +1651,11 @@ impl MapRouteDrivingOptions {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapRouteRestrictions>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn DepartureTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows::core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe {
@@ -1731,7 +1664,6 @@ impl MapRouteDrivingOptions {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn SetDepartureTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1789,11 +1721,9 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapRouteDrivingOptions {}
 unsafe impl ::core::marker::Sync for MapRouteDrivingOptions {}
-#[doc = "*Required features: `Services_Maps`*"]
 pub struct MapRouteFinder {}
 impl MapRouteFinder {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn GetDrivingRouteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1801,7 +1731,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn GetDrivingRouteWithOptimizationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1809,7 +1738,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1817,7 +1745,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1825,7 +1752,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetDrivingRouteFromWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1833,7 +1759,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1841,7 +1766,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1849,7 +1773,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1857,7 +1780,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn GetWalkingRouteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1865,7 +1787,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetWalkingRouteFromWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1873,7 +1794,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`, `Foundation`*"]
     pub fn GetDrivingRouteWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param2: ::windows::core::IntoParam<'a, MapRouteDrivingOptions>>(startpoint: Param0, endpoint: Param1, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1881,7 +1801,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetDrivingRouteFromEnhancedWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1889,7 +1808,6 @@ impl MapRouteFinder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>, Param1: ::windows::core::IntoParam<'a, MapRouteDrivingOptions>>(waypoints: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1912,12 +1830,10 @@ impl MapRouteFinder {
 impl ::windows::core::RuntimeName for MapRouteFinder {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinder";
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapRouteFinderResult(pub ::windows::core::IInspectable);
 impl MapRouteFinderResult {
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Route(&self) -> ::windows::core::Result<MapRoute> {
         let this = self;
         unsafe {
@@ -1925,7 +1841,6 @@ impl MapRouteFinderResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapRoute>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Status(&self) -> ::windows::core::Result<MapRouteFinderStatus> {
         let this = self;
         unsafe {
@@ -1934,7 +1849,6 @@ impl MapRouteFinderResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation_Collections`*"]
     pub fn AlternateRoutes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MapRoute>> {
         let this = &::windows::core::Interface::cast::<IMapRouteFinderResult2>(self)?;
         unsafe {
@@ -1995,7 +1909,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapRouteFinderResult {}
 unsafe impl ::core::marker::Sync for MapRouteFinderResult {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapRouteFinderStatus(pub i32);
@@ -2025,13 +1938,11 @@ unsafe impl ::windows::core::RuntimeType for MapRouteFinderStatus {
 impl ::windows::core::DefaultType for MapRouteFinderStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapRouteLeg(pub ::windows::core::IInspectable);
 impl MapRouteLeg {
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn BoundingBox(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
         let this = self;
         unsafe {
@@ -2040,7 +1951,6 @@ impl MapRouteLeg {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn Path(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::Geopath> {
         let this = self;
         unsafe {
@@ -2048,7 +1958,6 @@ impl MapRouteLeg {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Geolocation::Geopath>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn LengthInMeters(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2057,7 +1966,6 @@ impl MapRouteLeg {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn EstimatedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2066,7 +1974,6 @@ impl MapRouteLeg {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation_Collections`*"]
     pub fn Maneuvers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MapRouteManeuver>> {
         let this = self;
         unsafe {
@@ -2075,7 +1982,6 @@ impl MapRouteLeg {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn DurationWithoutTraffic(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
@@ -2083,7 +1989,6 @@ impl MapRouteLeg {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn TrafficCongestion(&self) -> ::windows::core::Result<TrafficCongestion> {
         let this = &::windows::core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
@@ -2144,13 +2049,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapRouteLeg {}
 unsafe impl ::core::marker::Sync for MapRouteLeg {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapRouteManeuver(pub ::windows::core::IInspectable);
 impl MapRouteManeuver {
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn StartingPoint(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
@@ -2158,7 +2061,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn LengthInMeters(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2166,7 +2068,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn InstructionText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2174,7 +2075,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Kind(&self) -> ::windows::core::Result<MapRouteManeuverKind> {
         let this = self;
         unsafe {
@@ -2182,7 +2082,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapRouteManeuverKind>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn ExitNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2190,7 +2089,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn ManeuverNotices(&self) -> ::windows::core::Result<MapManeuverNotices> {
         let this = self;
         unsafe {
@@ -2198,7 +2096,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapManeuverNotices>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn StartHeading(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
@@ -2206,7 +2103,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn EndHeading(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
@@ -2214,7 +2110,6 @@ impl MapRouteManeuver {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn StreetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
@@ -2223,7 +2118,6 @@ impl MapRouteManeuver {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation_Collections`*"]
     pub fn Warnings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ManeuverWarning>> {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver3>(self)?;
         unsafe {
@@ -2284,7 +2178,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MapRouteManeuver {}
 unsafe impl ::core::marker::Sync for MapRouteManeuver {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapRouteManeuverKind(pub i32);
@@ -2329,7 +2222,6 @@ unsafe impl ::windows::core::RuntimeType for MapRouteManeuverKind {
 impl ::windows::core::DefaultType for MapRouteManeuverKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapRouteOptimization(pub i32);
@@ -2353,7 +2245,6 @@ unsafe impl ::windows::core::RuntimeType for MapRouteOptimization {
 impl ::windows::core::DefaultType for MapRouteOptimization {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapRouteRestrictions(pub u32);
@@ -2408,39 +2299,32 @@ impl ::core::ops::Not for MapRouteRestrictions {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Services_Maps`*"]
 pub struct MapService {}
 impl MapService {
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn SetServiceToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
         Self::IMapServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn ServiceToken() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapServiceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn WorldViewRegionCode() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn DataAttributions() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapServiceStatics3(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn SetDataUsagePreference(value: MapServiceDataUsagePreference) -> ::windows::core::Result<()> {
         Self::IMapServiceStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn DataUsagePreference() -> ::windows::core::Result<MapServiceDataUsagePreference> {
         Self::IMapServiceStatics4(|this| unsafe {
             let mut result__: MapServiceDataUsagePreference = ::core::mem::zeroed();
@@ -2467,7 +2351,6 @@ impl MapService {
 impl ::windows::core::RuntimeName for MapService {
     const NAME: &'static str = "Windows.Services.Maps.MapService";
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MapServiceDataUsagePreference(pub i32);
@@ -2489,24 +2372,20 @@ unsafe impl ::windows::core::RuntimeType for MapServiceDataUsagePreference {
 impl ::windows::core::DefaultType for MapServiceDataUsagePreference {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlaceInfo(pub ::windows::core::IInspectable);
 impl PlaceInfo {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`*"]
     pub fn Show<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), selection.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    #[doc = "*Required features: `Services_Maps`, `Foundation`, `UI_Popups`*"]
     pub fn ShowWithPreferredPlacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), selection.into_param().abi(), preferredplacement).ok() }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn Identifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2514,7 +2393,6 @@ impl PlaceInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2522,7 +2400,6 @@ impl PlaceInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn DisplayAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2531,7 +2408,6 @@ impl PlaceInfo {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn Geoshape(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::IGeoshape> {
         let this = self;
         unsafe {
@@ -2540,7 +2416,6 @@ impl PlaceInfo {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(referencepoint: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2548,14 +2423,12 @@ impl PlaceInfo {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn CreateWithGeopointAndOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, PlaceInfoCreateOptions>>(referencepoint: Param0, options: Param1) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), referencepoint.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<PlaceInfo>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn CreateFromIdentifier<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identifier: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2563,35 +2436,30 @@ impl PlaceInfo {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    #[doc = "*Required features: `Services_Maps`, `Devices_Geolocation`*"]
     pub fn CreateFromIdentifierWithOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param2: ::windows::core::IntoParam<'a, PlaceInfoCreateOptions>>(identifier: Param0, defaultpoint: Param1, options: Param2) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), identifier.into_param().abi(), defaultpoint.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<PlaceInfo>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn CreateFromMapLocation<'a, Param0: ::windows::core::IntoParam<'a, MapLocation>>(location: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), location.into_param().abi(), &mut result__).from_abi::<PlaceInfo>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn IsShowSupported() -> ::windows::core::Result<bool> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn CreateFromAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displayaddress: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), displayaddress.into_param().abi(), &mut result__).from_abi::<PlaceInfo>(result__)
         })
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn CreateFromAddressWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displayaddress: Param0, displayname: Param1) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2659,7 +2527,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PlaceInfo {}
 unsafe impl ::core::marker::Sync for PlaceInfo {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlaceInfoCreateOptions(pub ::windows::core::IInspectable);
@@ -2671,12 +2538,10 @@ impl PlaceInfoCreateOptions {
         static mut SHARED: ::windows::core::FactoryCache<PlaceInfoCreateOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2684,12 +2549,10 @@ impl PlaceInfoCreateOptions {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn SetDisplayAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Services_Maps`*"]
     pub fn DisplayAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2750,7 +2613,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TrafficCongestion(pub i32);
@@ -2775,7 +2637,6 @@ unsafe impl ::windows::core::RuntimeType for TrafficCongestion {
 impl ::windows::core::DefaultType for TrafficCongestion {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WaypointKind(pub i32);

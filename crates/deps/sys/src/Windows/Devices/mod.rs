@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Devices_Adc")]
 pub mod Adc;
 #[cfg(feature = "Devices_AllJoyn")]
@@ -63,3 +63,17 @@ pub mod WiFi;
 pub mod WiFiDirect;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
+pub struct DevicesLowLevelContract(i32);
+#[repr(transparent)]
+pub struct ILowLevelDevicesAggregateProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ILowLevelDevicesAggregateProviderFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ILowLevelDevicesController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ILowLevelDevicesControllerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct LowLevelDevicesAggregateProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct LowLevelDevicesController(pub *mut ::core::ffi::c_void);

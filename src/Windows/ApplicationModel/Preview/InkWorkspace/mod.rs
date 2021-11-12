@@ -36,13 +36,11 @@ pub struct IInkWorkspaceHostedAppManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkWorkspaceHostedAppManager(pub ::windows::core::IInspectable);
 impl InkWorkspaceHostedAppManager {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    #[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`, `Foundation`, `Graphics_Imaging`*"]
     pub fn SetThumbnailAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -50,7 +48,6 @@ impl InkWorkspaceHostedAppManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`*"]
     pub fn GetForCurrentApp() -> ::windows::core::Result<InkWorkspaceHostedAppManager> {
         Self::IInkWorkspaceHostedAppManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

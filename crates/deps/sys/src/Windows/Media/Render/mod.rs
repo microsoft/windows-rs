@@ -1,3 +1,19 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
+pub struct AudioRenderCategory(pub i32);
+impl AudioRenderCategory {
+    pub const Other: Self = Self(0i32);
+    pub const ForegroundOnlyMedia: Self = Self(1i32);
+    pub const BackgroundCapableMedia: Self = Self(2i32);
+    pub const Communications: Self = Self(3i32);
+    pub const Alerts: Self = Self(4i32);
+    pub const SoundEffects: Self = Self(5i32);
+    pub const GameEffects: Self = Self(6i32);
+    pub const GameMedia: Self = Self(7i32);
+    pub const GameChat: Self = Self(8i32);
+    pub const Speech: Self = Self(9i32);
+    pub const Movie: Self = Self(10i32);
+    pub const Media: Self = Self(11i32);
+}

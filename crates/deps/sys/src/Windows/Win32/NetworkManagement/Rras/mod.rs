@@ -1,742 +1,1812 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmAddGroupMembershipEntry();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmDeRegisterMProtocol();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmDeleteGroupMembershipEntry();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MgmGetFirstMfe();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MgmGetFirstMfeStats();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
+    pub fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
+    pub fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
+    pub fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
     #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetMfe();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
+    pub fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32;
     #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetMfeStats();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
+    pub fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
     #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetNextMfe();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
+    pub fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetNextMfeStats();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MgmGetProtocolOnInterface();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
+    pub fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmGroupEnumerationEnd();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmGroupEnumerationGetNext();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmGroupEnumerationStart();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmRegisterMProtocol();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmReleaseInterfaceOwnership();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmTakeInterfaceOwnership();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminBufferFree();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+    pub fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminConnectionClearStats();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminConnectionEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminConnectionClearStats(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE) -> u32;
+    pub fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminConnectionEnumEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminConnectionGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminConnectionGetInfo(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminConnectionGetInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminConnectionGetInfoEx(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasconnection: *mut RAS_CONNECTION_EX) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminConnectionRemoveQuarantine();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminConnectionRemoveQuarantine(hrasserver: super::super::Foundation::HANDLE, hrasconnection: super::super::Foundation::HANDLE, fisipaddress: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminDeregisterConnectionNotification();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminDeviceEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminDeregisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
+    pub fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminEstablishDomainRasServer();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminEstablishDomainRasServer(pszdomain: super::super::Foundation::PWSTR, pszmachine: super::super::Foundation::PWSTR, benable: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminGetErrorString();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminGetPDCServer();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminGetPDCServer(lpszdomain: super::super::Foundation::PWSTR, lpszserver: super::super::Foundation::PWSTR, lpszpdcserver: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceConnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceCreate();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceDelete();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceDelete(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceDeviceGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceDeviceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceDeviceSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceDeviceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceDisconnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminInterfaceEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceDisconnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
+    pub fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceGetCredentials();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceGetCredentials(lpwsserver: super::super::Foundation::PWSTR, lpwsinterfacename: super::super::Foundation::PWSTR, lpwsusername: super::super::Foundation::PWSTR, lpwspassword: super::super::Foundation::PWSTR, lpwsdomainname: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceGetCredentialsEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
+    pub fn MprAdminInterfaceGetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-    pub fn MprAdminInterfaceGetCustomInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceGetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceGetHandle();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceGetHandle(hmprserver: isize, lpwsinterfacename: super::super::Foundation::PWSTR, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceQueryUpdateResult();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceQueryUpdateResult(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceSetCredentials();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceSetCredentials(lpwsserver: super::super::Foundation::PWSTR, lpwsinterfacename: super::super::Foundation::PWSTR, lpwsusername: super::super::Foundation::PWSTR, lpwsdomainname: super::super::Foundation::PWSTR, lpwspassword: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceSetCredentialsEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
+    pub fn MprAdminInterfaceSetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-    pub fn MprAdminInterfaceSetCustomInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceSetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceTransportAdd();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceTransportAdd(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceTransportGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceTransportGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceTransportRemove();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceTransportRemove(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceTransportSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceTransportSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceUpdatePhonebookInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminInterfaceUpdateRoutes();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminInterfaceUpdateRoutes(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, hevent: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminIsDomainRasServer();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminIsDomainRasServer(pszdomain: super::super::Foundation::PWSTR, pszmachine: super::super::Foundation::PWSTR, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminIsServiceInitialized();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminIsServiceInitialized(lpwsservername: super::super::Foundation::PWSTR, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminIsServiceRunning();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBBufferFree();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBEntryCreate();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBEntryDelete();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBEntryGet();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBEntryGetFirst();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBEntryGetNext();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBEntrySet();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminIsServiceRunning(lpwsservername: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn MprAdminMIBBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
+    pub fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
+    pub fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
+    pub fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
+    pub fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
+    pub fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
+    pub fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminMIBServerConnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminMIBServerDisconnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminMIBServerConnect(lpwsservername: super::super::Foundation::PWSTR, phmibserver: *mut isize) -> u32;
+    pub fn MprAdminMIBServerDisconnect(hmibserver: isize);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminPortClearStats();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminPortClearStats(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminPortDisconnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminPortDisconnect(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminPortEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminPortEnum(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminPortGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminPortGetInfo(hrasserver: isize, dwlevel: u32, hport: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminPortReset();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminPortReset(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminRegisterConnectionNotification();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminRegisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminSendUserMessage();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminSendUserMessage(hmprserver: isize, hconnection: super::super::Foundation::HANDLE, lpwszmessage: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminServerConnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminServerDisconnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminServerGetCredentials();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminServerGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+    pub fn MprAdminServerConnect(lpwsservername: super::super::Foundation::PWSTR, phmprserver: *mut isize) -> u32;
+    pub fn MprAdminServerDisconnect(hmprserver: isize);
+    pub fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
+    pub fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn MprAdminServerGetInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminServerSetCredentials();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminServerSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+    pub fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
+    pub fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
+    pub fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn MprAdminServerSetInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminTransportCreate();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminTransportGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprAdminTransportSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminTransportCreate(hmprserver: isize, dwtransportid: u32, lpwstransportname: super::super::Foundation::PWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: super::super::Foundation::PWSTR) -> u32;
+    pub fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32;
+    pub fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminUpdateConnection();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminUpdateConnection(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminUserGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminUserGetInfo(lpszserver: super::super::Foundation::PWSTR, lpszuser: super::super::Foundation::PWSTR, dwlevel: u32, lpbbuffer: *mut u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprAdminUserSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprConfigBufferFree();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprAdminUserSetInfo(lpszserver: super::super::Foundation::PWSTR, lpszuser: super::super::Foundation::PWSTR, dwlevel: u32, lpbbuffer: *const u8) -> u32;
+    pub fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigFilterGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigFilterGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigFilterSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigFilterSetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigGetFriendlyName();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigGetFriendlyName(hmprconfig: super::super::Foundation::HANDLE, pszguidname: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigGetGuidName();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigGetGuidName(hmprconfig: super::super::Foundation::HANDLE, pszfriendlyname: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceCreate();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceCreate(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceDelete();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceDelete(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
+    pub fn MprConfigInterfaceEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-    pub fn MprConfigInterfaceGetCustomInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceGetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceGetHandle();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceGetHandle(hmprconfig: super::super::Foundation::HANDLE, lpwsinterfacename: super::super::Foundation::PWSTR, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
+    pub fn MprConfigInterfaceGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-    pub fn MprConfigInterfaceSetCustomInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceSetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceTransportAdd();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceTransportAdd(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: super::super::Foundation::PWSTR, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceTransportEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceTransportEnum(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceTransportGetHandle();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceTransportGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceTransportRemove();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceTransportRemove(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigInterfaceTransportSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigServerBackup();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigServerBackup(hmprconfig: super::super::Foundation::HANDLE, lpwspath: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigServerConnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigServerConnect(lpwsservername: super::super::Foundation::PWSTR, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigServerDisconnect();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigServerGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+    pub fn MprConfigServerGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn MprConfigServerGetInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprConfigServerInstall();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigServerGetInfoEx(hmprconfig: super::super::Foundation::HANDLE, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
+    pub fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigServerRefresh();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigServerRefresh(hmprconfig: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigServerRestore();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprConfigServerSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+    pub fn MprConfigServerRestore(hmprconfig: super::super::Foundation::HANDLE, lpwspath: super::super::Foundation::PWSTR) -> u32;
+    pub fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn MprConfigServerSetInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigServerSetInfoEx(hmprconfig: super::super::Foundation::HANDLE, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigTransportCreate();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigTransportCreate(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: super::super::Foundation::PWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: super::super::Foundation::PWSTR, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigTransportDelete();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigTransportDelete(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigTransportEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigTransportEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigTransportGetHandle();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigTransportGetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MprConfigTransportSetInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoBlockAdd();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoBlockFind();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoBlockQuerySize();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoBlockRemove();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoBlockSet();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoCreate();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoDelete();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoDuplicate();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn MprInfoRemoveAll();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasClearConnectionStatistics();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasClearLinkStatistics();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn MprConfigTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: super::super::Foundation::PWSTR) -> u32;
+    pub fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
+    pub fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32;
+    pub fn MprInfoBlockQuerySize(lpheader: *const ::core::ffi::c_void) -> u32;
+    pub fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
+    pub fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
+    pub fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
+    pub fn MprInfoDelete(lpheader: *const ::core::ffi::c_void) -> u32;
+    pub fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
+    pub fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
+    pub fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
+    pub fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasConnectionNotificationA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasConnectionNotificationA(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasConnectionNotificationW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasConnectionNotificationW(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasCreatePhonebookEntryA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasCreatePhonebookEntryA(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasCreatePhonebookEntryW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasCreatePhonebookEntryW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDeleteEntryA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDeleteEntryA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDeleteEntryW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDeleteEntryW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDeleteSubEntryA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDeleteSubEntryA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, dwsubentryid: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDeleteSubEntryW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDeleteSubEntryW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, dwsubentryid: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDialA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: super::super::Foundation::PSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDialDlgA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDialDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpszphonenumber: super::super::Foundation::PSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDialDlgW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDialDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpszphonenumber: super::super::Foundation::PWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDialW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: super::super::Foundation::PWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEditPhonebookEntryA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEditPhonebookEntryA(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEditPhonebookEntryW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEditPhonebookEntryW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEntryDlgA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEntryDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEntryDlgW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEntryDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEnumAutodialAddressesA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut super::super::Foundation::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEnumAutodialAddressesW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut super::super::Foundation::PWSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEnumConnectionsA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param2: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEnumConnectionsW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param2: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEnumDevicesA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasEnumDevicesW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32;
+    pub fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEnumEntriesA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEnumEntriesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEnumEntriesW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasEnumEntriesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasFreeEapUserIdentityA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasFreeEapUserIdentityW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA);
+    pub fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetAutodialAddressA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetAutodialAddressA(param0: super::super::Foundation::PSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetAutodialAddressW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetAutodialEnableA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetAutodialEnableW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetAutodialParamA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetAutodialParamW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+    pub fn RasGetAutodialAddressW(param0: super::super::Foundation::PWSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32;
+    pub fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32;
+    pub fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32;
+    pub fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
+    pub fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn RasGetConnectStatusA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
+    pub fn RasGetConnectStatusA(param0: HRASCONN, param1: *mut RASCONNSTATUSA) -> u32;
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub fn RasGetConnectStatusW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetConnectionStatistics();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetCountryInfoA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetCountryInfoW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetConnectStatusW(param0: HRASCONN, param1: *mut RASCONNSTATUSW) -> u32;
+    pub fn RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: *mut RAS_STATS) -> u32;
+    pub fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
+    pub fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetCredentialsA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetCredentialsA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASCREDENTIALSA) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetCredentialsW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetCredentialsW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASCREDENTIALSW) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetCustomAuthDataA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetCustomAuthDataA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetCustomAuthDataW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetCustomAuthDataW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetEapUserDataA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetEapUserDataW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetEapUserIdentityA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetEapUserIdentityA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetEapUserIdentityW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetEapUserIdentityW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetEntryDialParamsA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetEntryDialParamsA(param0: super::super::Foundation::PSTR, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetEntryDialParamsW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+    pub fn RasGetEntryDialParamsW(param0: super::super::Foundation::PWSTR, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn RasGetEntryPropertiesA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+    pub fn RasGetEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn RasGetEntryPropertiesW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetErrorStringA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetErrorStringA(resourceid: u32, lpszstring: super::super::Foundation::PSTR, inbufsize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetErrorStringW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetLinkStatistics();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetErrorStringW(resourceid: u32, lpszstring: super::super::Foundation::PWSTR, inbufsize: u32) -> u32;
+    pub fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetPCscf();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetProjectionInfoA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+    pub fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32;
+    pub fn RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn RasGetProjectionInfoEx();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetProjectionInfoW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetSubEntryHandleA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasGetSubEntryHandleW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32;
+    pub fn RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
+    pub fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
+    pub fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetSubEntryPropertiesA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetSubEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasGetSubEntryPropertiesW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasHangUpA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasHangUpW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasGetSubEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
+    pub fn RasHangUpA(param0: HRASCONN) -> u32;
+    pub fn RasHangUpW(param0: HRASCONN) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasInvokeEapUI();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const RASDIALEXTENSIONS, param3: super::super::Foundation::HWND) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasPhonebookDlgA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasPhonebookDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasPhonebookDlgW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasPhonebookDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasRenameEntryA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasRenameEntryA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasRenameEntryW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasRenameEntryW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetAutodialAddressA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetAutodialAddressA(param0: super::super::Foundation::PSTR, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetAutodialAddressW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetAutodialAddressW(param0: super::super::Foundation::PWSTR, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetAutodialEnableA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetAutodialEnableA(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetAutodialEnableW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasSetAutodialParamA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RasSetAutodialParamW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetAutodialEnableW(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
+    pub fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
+    pub fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetCredentialsA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetCredentialsA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *const RASCREDENTIALSA, param3: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetCredentialsW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetCredentialsW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *const RASCREDENTIALSW, param3: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetCustomAuthDataA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetCustomAuthDataA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetCustomAuthDataW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetCustomAuthDataW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetEapUserDataA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetEapUserDataW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetEntryDialParamsA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetEntryDialParamsA(param0: super::super::Foundation::PSTR, param1: *const RASDIALPARAMSA, param2: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetEntryDialParamsW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+    pub fn RasSetEntryDialParamsW(param0: super::super::Foundation::PWSTR, param1: *const RASDIALPARAMSW, param2: super::super::Foundation::BOOL) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn RasSetEntryPropertiesA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+    pub fn RasSetEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn RasSetEntryPropertiesW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetSubEntryPropertiesA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasSetSubEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasSetSubEntryPropertiesW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
+    pub fn RasSetSubEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32;
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub fn RasUpdateConnection();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const RASUPDATECONN) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasValidateEntryNameA();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasValidateEntryNameA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasValidateEntryNameW();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmAddNextHop();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmAddRouteToDest();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RasValidateEntryNameW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> u32;
+    pub fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32;
+    pub fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmBlockMethods();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
+    pub fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub fn RtmConvertIpv6AddressAndLengthToNetAddress();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
+    pub fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub fn RtmConvertNetAddressToIpv6AddressAndLength();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmCreateDestEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmCreateNextHopEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmCreateRouteEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmCreateRouteList();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmCreateRouteListEnum();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmDeleteEnumHandle();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmDeleteNextHop();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmDeleteRouteList();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmDeleteRouteToDest();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmDeregisterEntity();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmDeregisterFromChangeNotification();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmFindNextHop();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
+    pub fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32;
+    pub fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32;
+    pub fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32;
+    pub fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32;
+    pub fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32;
+    pub fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32;
+    pub fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
+    pub fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32;
+    pub fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32;
+    pub fn RtmDeregisterEntity(rtmreghandle: isize) -> u32;
+    pub fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32;
+    pub fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmGetChangeStatus();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmGetChangedDests();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmGetDestInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetEntityInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetEntityMethods();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
+    pub fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
+    pub fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut RTM_ENTITY_EXPORT_METHOD) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmGetEnumDests();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetEnumNextHops();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetEnumRoutes();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32;
+    pub fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32;
+    pub fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmGetExactMatchDestination();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetExactMatchRoute();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
+    pub fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmGetLessSpecificDestination();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetListEnumRoutes();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
+    pub fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmGetMostSpecificDestination();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetNextHopInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetNextHopPointer();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetOpaqueInformationPointer();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetRegisteredEntities();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetRouteInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmGetRoutePointer();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmHoldDestination();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmIgnoreChangedDests();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmInsertInRouteList();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmInvokeMethod();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmIsBestRoute();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
+    pub fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
+    pub fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
+    pub fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::core::ffi::c_void) -> u32;
+    pub fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32;
+    pub fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32;
+    pub fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
+    pub fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32;
+    pub fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32;
+    pub fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
+    pub fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32;
+    pub fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmIsMarkedForChangeNotification();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmLockDestination();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmLockDestination(rtmreghandle: isize, desthandle: isize, exclusive: super::super::Foundation::BOOL, lockdest: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmLockNextHop();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmLockNextHop(rtmreghandle: isize, nexthophandle: isize, exclusive: super::super::Foundation::BOOL, locknexthop: super::super::Foundation::BOOL, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmLockRoute();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmLockRoute(rtmreghandle: isize, routehandle: isize, exclusive: super::super::Foundation::BOOL, lockroute: super::super::Foundation::BOOL, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmMarkDestForChangeNotification();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmMarkDestForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: super::super::Foundation::BOOL) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmReferenceHandles();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmRegisterEntity();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmRegisterForChangeNotification();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: super::super::Foundation::BOOL, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32;
+    pub fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::core::ffi::c_void, notifyhandle: *mut isize) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmReleaseChangedDests();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmReleaseDestInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
+    pub fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtmReleaseDests();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmReleaseEntities();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmReleaseEntityInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmReleaseNextHopInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmReleaseNextHops();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmReleaseRouteInfo();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmReleaseRoutes();
-    #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
-    pub fn RtmUpdateAndUnlockRoute();
+    pub fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32;
+    pub fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32;
+    pub fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
+    pub fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
+    pub fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32;
+    pub fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32;
+    pub fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
+    pub fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
 }
+pub const ALLOW_NO_AUTH: u32 = 1u32;
+pub const ATADDRESSLEN: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct AUTH_VALIDATION_EX(i32);
+pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
+pub const ERROR_ACCESSING_TCPCFGDLL: u32 = 727u32;
+pub const ERROR_ACCT_DISABLED: u32 = 647u32;
+pub const ERROR_ACCT_EXPIRED: u32 = 708u32;
+pub const ERROR_ACTION_REQUIRED: u32 = 877u32;
+pub const ERROR_ALLOCATING_MEMORY: u32 = 664u32;
+pub const ERROR_ALREADY_DISCONNECTING: u32 = 617u32;
+pub const ERROR_ASYNC_REQUEST_PENDING: u32 = 616u32;
+pub const ERROR_AUTHENTICATION_FAILURE: u32 = 691u32;
+pub const ERROR_AUTH_INTERNAL: u32 = 645u32;
+pub const ERROR_AUTOMATIC_VPN_FAILED: u32 = 800u32;
+pub const ERROR_BAD_ADDRESS_SPECIFIED: u32 = 769u32;
+pub const ERROR_BAD_CALLBACK_NUMBER: u32 = 704u32;
+pub const ERROR_BAD_PHONE_NUMBER: u32 = 749u32;
+pub const ERROR_BAD_STRING: u32 = 637u32;
+pub const ERROR_BAD_USAGE_IN_INI_FILE: u32 = 669u32;
+pub const ERROR_BIPLEX_PORT_NOT_AVAILABLE: u32 = 712u32;
+pub const ERROR_BLOCKED: u32 = 775u32;
+pub const ERROR_BROADBAND_ACTIVE: u32 = 813u32;
+pub const ERROR_BROADBAND_NO_NIC: u32 = 814u32;
+pub const ERROR_BROADBAND_TIMEOUT: u32 = 815u32;
+pub const ERROR_BUFFER_INVALID: u32 = 610u32;
+pub const ERROR_BUFFER_TOO_SMALL: u32 = 603u32;
+pub const ERROR_BUNDLE_NOT_FOUND: u32 = 754u32;
+pub const ERROR_CANNOT_DELETE: u32 = 817u32;
+pub const ERROR_CANNOT_DO_CUSTOMDIAL: u32 = 755u32;
+pub const ERROR_CANNOT_FIND_PHONEBOOK_ENTRY: u32 = 623u32;
+pub const ERROR_CANNOT_GET_LANA: u32 = 639u32;
+pub const ERROR_CANNOT_INITIATE_MOBIKE_UPDATE: u32 = 844u32;
+pub const ERROR_CANNOT_LOAD_PHONEBOOK: u32 = 622u32;
+pub const ERROR_CANNOT_LOAD_STRING: u32 = 626u32;
+pub const ERROR_CANNOT_OPEN_PHONEBOOK: u32 = 621u32;
+pub const ERROR_CANNOT_PROJECT_CLIENT: u32 = 634u32;
+pub const ERROR_CANNOT_SET_PORT_INFO: u32 = 605u32;
+pub const ERROR_CANNOT_SHARE_CONNECTION: u32 = 763u32;
+pub const ERROR_CANNOT_USE_LOGON_CREDENTIALS: u32 = 739u32;
+pub const ERROR_CANNOT_WRITE_PHONEBOOK: u32 = 624u32;
+pub const ERROR_CERT_FOR_ENCRYPTION_NOT_FOUND: u32 = 781u32;
+pub const ERROR_CHANGING_PASSWORD: u32 = 709u32;
+pub const ERROR_CMD_TOO_LONG: u32 = 700u32;
+pub const ERROR_CONGESTION: u32 = 771u32;
+pub const ERROR_CONNECTING_DEVICE_NOT_FOUND: u32 = 797u32;
+pub const ERROR_CONNECTION_ALREADY_SHARED: u32 = 758u32;
+pub const ERROR_CONNECTION_REJECT: u32 = 770u32;
+pub const ERROR_CORRUPT_PHONEBOOK: u32 = 625u32;
+pub const ERROR_DCB_NOT_FOUND: u32 = 694u32;
+pub const ERROR_DEFAULTOFF_MACRO_NOT_FOUND: u32 = 656u32;
+pub const ERROR_DEVICENAME_NOT_FOUND: u32 = 659u32;
+pub const ERROR_DEVICENAME_TOO_LONG: u32 = 658u32;
+pub const ERROR_DEVICETYPE_DOES_NOT_EXIST: u32 = 609u32;
+pub const ERROR_DEVICE_COMPLIANCE: u32 = 875u32;
+pub const ERROR_DEVICE_DOES_NOT_EXIST: u32 = 608u32;
+pub const ERROR_DEVICE_NOT_READY: u32 = 666u32;
+pub const ERROR_DIAL_ALREADY_IN_PROGRESS: u32 = 756u32;
+pub const ERROR_DISCONNECTION: u32 = 628u32;
+pub const ERROR_DNSNAME_NOT_RESOLVABLE: u32 = 868u32;
+pub const ERROR_DONOTDISTURB: u32 = 776u32;
+pub const ERROR_EAPTLS_CACHE_CREDENTIALS_INVALID: u32 = 826u32;
+pub const ERROR_EAPTLS_PASSWD_INVALID: u32 = 869u32;
+pub const ERROR_EAPTLS_SCARD_CACHE_CREDENTIALS_INVALID: u32 = 847u32;
+pub const ERROR_EAP_METHOD_DOES_NOT_SUPPORT_SSO: u32 = 851u32;
+pub const ERROR_EAP_METHOD_NOT_INSTALLED: u32 = 850u32;
+pub const ERROR_EAP_METHOD_OPERATION_NOT_SUPPORTED: u32 = 852u32;
+pub const ERROR_EAP_SERVER_CERT_EXPIRED: u32 = 858u32;
+pub const ERROR_EAP_SERVER_CERT_INVALID: u32 = 857u32;
+pub const ERROR_EAP_SERVER_CERT_OTHER_ERROR: u32 = 860u32;
+pub const ERROR_EAP_SERVER_CERT_REVOKED: u32 = 859u32;
+pub const ERROR_EAP_SERVER_ROOT_CERT_INVALID: u32 = 865u32;
+pub const ERROR_EAP_SERVER_ROOT_CERT_NAME_REQUIRED: u32 = 866u32;
+pub const ERROR_EAP_SERVER_ROOT_CERT_NOT_FOUND: u32 = 864u32;
+pub const ERROR_EAP_USER_CERT_EXPIRED: u32 = 854u32;
+pub const ERROR_EAP_USER_CERT_INVALID: u32 = 853u32;
+pub const ERROR_EAP_USER_CERT_OTHER_ERROR: u32 = 856u32;
+pub const ERROR_EAP_USER_CERT_REVOKED: u32 = 855u32;
+pub const ERROR_EAP_USER_ROOT_CERT_EXPIRED: u32 = 863u32;
+pub const ERROR_EAP_USER_ROOT_CERT_INVALID: u32 = 862u32;
+pub const ERROR_EAP_USER_ROOT_CERT_NOT_FOUND: u32 = 861u32;
+pub const ERROR_EMPTY_INI_FILE: u32 = 690u32;
+pub const ERROR_EVENT_INVALID: u32 = 607u32;
+pub const ERROR_FAILED_CP_REQUIRED: u32 = 841u32;
+pub const ERROR_FAILED_TO_ENCRYPT: u32 = 768u32;
+pub const ERROR_FAST_USER_SWITCH: u32 = 831u32;
+pub const ERROR_FEATURE_DEPRECATED: u32 = 816u32;
+pub const ERROR_FILE_COULD_NOT_BE_OPENED: u32 = 657u32;
+pub const ERROR_FROM_DEVICE: u32 = 651u32;
+pub const ERROR_HANGUP_FAILED: u32 = 753u32;
+pub const ERROR_HARDWARE_FAILURE: u32 = 630u32;
+pub const ERROR_HIBERNATION: u32 = 832u32;
+pub const ERROR_IDLE_TIMEOUT: u32 = 828u32;
+pub const ERROR_IKEV2_PSK_INTERFACE_ALREADY_EXISTS: u32 = 870u32;
+pub const ERROR_INCOMPATIBLE: u32 = 772u32;
+pub const ERROR_INTERACTIVE_MODE: u32 = 703u32;
+pub const ERROR_INTERNAL_ADDRESS_FAILURE: u32 = 840u32;
+pub const ERROR_INVALID_AUTH_STATE: u32 = 705u32;
+pub const ERROR_INVALID_CALLBACK_NUMBER: u32 = 751u32;
+pub const ERROR_INVALID_COMPRESSION_SPECIFIED: u32 = 613u32;
+pub const ERROR_INVALID_DESTINATION_IP: u32 = 871u32;
+pub const ERROR_INVALID_FUNCTION_FOR_ENTRY: u32 = 780u32;
+pub const ERROR_INVALID_INTERFACE_CONFIG: u32 = 872u32;
+pub const ERROR_INVALID_MSCHAPV2_CONFIG: u32 = 805u32;
+pub const ERROR_INVALID_PEAP_COOKIE_ATTRIBUTES: u32 = 849u32;
+pub const ERROR_INVALID_PEAP_COOKIE_CONFIG: u32 = 803u32;
+pub const ERROR_INVALID_PEAP_COOKIE_USER: u32 = 804u32;
+pub const ERROR_INVALID_PORT_HANDLE: u32 = 601u32;
+pub const ERROR_INVALID_PREFERENCES: u32 = 846u32;
+pub const ERROR_INVALID_SERVER_CERT: u32 = 835u32;
+pub const ERROR_INVALID_SIZE: u32 = 632u32;
+pub const ERROR_INVALID_SMM: u32 = 745u32;
+pub const ERROR_INVALID_TUNNELID: u32 = 837u32;
+pub const ERROR_INVALID_VPNSTRATEGY: u32 = 825u32;
+pub const ERROR_IN_COMMAND: u32 = 681u32;
+pub const ERROR_IPSEC_SERVICE_STOPPED: u32 = 827u32;
+pub const ERROR_IPXCP_DIALOUT_ALREADY_ACTIVE: u32 = 726u32;
+pub const ERROR_IPXCP_NET_NUMBER_CONFLICT: u32 = 744u32;
+pub const ERROR_IPXCP_NO_DIALIN_CONFIGURED: u32 = 725u32;
+pub const ERROR_IPXCP_NO_DIALOUT_CONFIGURED: u32 = 724u32;
+pub const ERROR_IP_CONFIGURATION: u32 = 716u32;
+pub const ERROR_KEY_NOT_FOUND: u32 = 627u32;
+pub const ERROR_LINE_BUSY: u32 = 676u32;
+pub const ERROR_LINK_FAILURE: u32 = 829u32;
+pub const ERROR_MACRO_NOT_DEFINED: u32 = 654u32;
+pub const ERROR_MACRO_NOT_FOUND: u32 = 653u32;
+pub const ERROR_MESSAGE_MACRO_NOT_FOUND: u32 = 655u32;
+pub const ERROR_MOBIKE_DISABLED: u32 = 843u32;
+pub const ERROR_NAME_EXISTS_ON_NET: u32 = 642u32;
+pub const ERROR_NETBIOS_ERROR: u32 = 640u32;
+pub const ERROR_NOT_BINARY_MACRO: u32 = 693u32;
+pub const ERROR_NOT_NAP_CAPABLE: u32 = 836u32;
+pub const ERROR_NO_ACTIVE_ISDN_LINES: u32 = 713u32;
+pub const ERROR_NO_ANSWER: u32 = 678u32;
+pub const ERROR_NO_CARRIER: u32 = 679u32;
+pub const ERROR_NO_CERTIFICATE: u32 = 766u32;
+pub const ERROR_NO_COMMAND_FOUND: u32 = 661u32;
+pub const ERROR_NO_CONNECTION: u32 = 668u32;
+pub const ERROR_NO_DIALIN_PERMISSION: u32 = 649u32;
+pub const ERROR_NO_DIALTONE: u32 = 680u32;
+pub const ERROR_NO_DIFF_USER_AT_LOGON: u32 = 784u32;
+pub const ERROR_NO_EAPTLS_CERTIFICATE: u32 = 798u32;
+pub const ERROR_NO_ENDPOINTS: u32 = 620u32;
+pub const ERROR_NO_IP_ADDRESSES: u32 = 717u32;
+pub const ERROR_NO_IP_RAS_ADAPTER: u32 = 728u32;
+pub const ERROR_NO_ISDN_CHANNELS_AVAILABLE: u32 = 714u32;
+pub const ERROR_NO_LOCAL_ENCRYPTION: u32 = 741u32;
+pub const ERROR_NO_MAC_FOR_PORT: u32 = 747u32;
+pub const ERROR_NO_REG_CERT_AT_LOGON: u32 = 785u32;
+pub const ERROR_NO_REMOTE_ENCRYPTION: u32 = 742u32;
+pub const ERROR_NO_RESPONSES: u32 = 660u32;
+pub const ERROR_NO_SMART_CARD_READER: u32 = 764u32;
+pub const ERROR_NUMBERCHANGED: u32 = 773u32;
+pub const ERROR_OAKLEY_ATTRIB_FAIL: u32 = 788u32;
+pub const ERROR_OAKLEY_AUTH_FAIL: u32 = 787u32;
+pub const ERROR_OAKLEY_ERROR: u32 = 793u32;
+pub const ERROR_OAKLEY_GENERAL_PROCESSING: u32 = 789u32;
+pub const ERROR_OAKLEY_NO_CERT: u32 = 786u32;
+pub const ERROR_OAKLEY_NO_PEER_CERT: u32 = 790u32;
+pub const ERROR_OAKLEY_NO_POLICY: u32 = 791u32;
+pub const ERROR_OAKLEY_TIMED_OUT: u32 = 792u32;
+pub const ERROR_OUTOFORDER: u32 = 777u32;
+pub const ERROR_OUT_OF_BUFFERS: u32 = 614u32;
+pub const ERROR_OVERRUN: u32 = 710u32;
+pub const ERROR_PARTIAL_RESPONSE_LOOPING: u32 = 697u32;
+pub const ERROR_PASSWD_EXPIRED: u32 = 648u32;
+pub const ERROR_PEAP_CRYPTOBINDING_INVALID: u32 = 823u32;
+pub const ERROR_PEAP_CRYPTOBINDING_NOTRECEIVED: u32 = 824u32;
+pub const ERROR_PEAP_IDENTITY_MISMATCH: u32 = 867u32;
+pub const ERROR_PEAP_SERVER_REJECTED_CLIENT_TLV: u32 = 845u32;
+pub const ERROR_PHONE_NUMBER_TOO_LONG: u32 = 723u32;
+pub const ERROR_PLUGIN_NOT_INSTALLED: u32 = 876u32;
+pub const ERROR_PORT_ALREADY_OPEN: u32 = 602u32;
+pub const ERROR_PORT_DISCONNECTED: u32 = 619u32;
+pub const ERROR_PORT_NOT_AVAILABLE: u32 = 633u32;
+pub const ERROR_PORT_NOT_CONFIGURED: u32 = 665u32;
+pub const ERROR_PORT_NOT_CONNECTED: u32 = 606u32;
+pub const ERROR_PORT_NOT_FOUND: u32 = 615u32;
+pub const ERROR_PORT_NOT_OPEN: u32 = 618u32;
+pub const ERROR_PORT_OR_DEVICE: u32 = 692u32;
+pub const ERROR_PPP_CP_REJECTED: u32 = 733u32;
+pub const ERROR_PPP_INVALID_PACKET: u32 = 722u32;
+pub const ERROR_PPP_LCP_TERMINATED: u32 = 734u32;
+pub const ERROR_PPP_LOOPBACK_DETECTED: u32 = 737u32;
+pub const ERROR_PPP_NCP_TERMINATED: u32 = 736u32;
+pub const ERROR_PPP_NOT_CONVERGING: u32 = 732u32;
+pub const ERROR_PPP_NO_ADDRESS_ASSIGNED: u32 = 738u32;
+pub const ERROR_PPP_NO_PROTOCOLS_CONFIGURED: u32 = 720u32;
+pub const ERROR_PPP_NO_RESPONSE: u32 = 721u32;
+pub const ERROR_PPP_REMOTE_TERMINATED: u32 = 719u32;
+pub const ERROR_PPP_REQUIRED_ADDRESS_REJECTED: u32 = 735u32;
+pub const ERROR_PPP_TIMEOUT: u32 = 718u32;
+pub const ERROR_PROJECTION_NOT_COMPLETE: u32 = 730u32;
+pub const ERROR_PROTOCOL_ENGINE_DISABLED: u32 = 839u32;
+pub const ERROR_PROTOCOL_NOT_CONFIGURED: u32 = 731u32;
+pub const ERROR_RASAUTO_CANNOT_INITIALIZE: u32 = 757u32;
+pub const ERROR_RASMAN_CANNOT_INITIALIZE: u32 = 711u32;
+pub const ERROR_RASMAN_SERVICE_STOPPED: u32 = 834u32;
+pub const ERROR_RASQEC_CONN_DOESNOTEXIST: u32 = 821u32;
+pub const ERROR_RASQEC_NAPAGENT_NOT_CONNECTED: u32 = 820u32;
+pub const ERROR_RASQEC_NAPAGENT_NOT_ENABLED: u32 = 819u32;
+pub const ERROR_RASQEC_RESOURCE_CREATION_FAILED: u32 = 818u32;
+pub const ERROR_RASQEC_TIMEOUT: u32 = 822u32;
+pub const ERROR_READING_DEFAULTOFF: u32 = 689u32;
+pub const ERROR_READING_DEVICENAME: u32 = 672u32;
+pub const ERROR_READING_DEVICETYPE: u32 = 671u32;
+pub const ERROR_READING_INI_FILE: u32 = 667u32;
+pub const ERROR_READING_MAXCARRIERBPS: u32 = 675u32;
+pub const ERROR_READING_MAXCONNECTBPS: u32 = 674u32;
+pub const ERROR_READING_SCARD: u32 = 802u32;
+pub const ERROR_READING_SECTIONNAME: u32 = 670u32;
+pub const ERROR_READING_USAGE: u32 = 673u32;
+pub const ERROR_RECV_BUF_FULL: u32 = 699u32;
+pub const ERROR_REMOTE_DISCONNECTION: u32 = 629u32;
+pub const ERROR_REMOTE_REQUIRES_ENCRYPTION: u32 = 743u32;
+pub const ERROR_REQUEST_TIMEOUT: u32 = 638u32;
+pub const ERROR_RESTRICTED_LOGON_HOURS: u32 = 646u32;
+pub const ERROR_ROUTE_NOT_ALLOCATED: u32 = 612u32;
+pub const ERROR_ROUTE_NOT_AVAILABLE: u32 = 611u32;
+pub const ERROR_SCRIPT_SYNTAX: u32 = 752u32;
+pub const ERROR_SERVER_GENERAL_NET_FAILURE: u32 = 643u32;
+pub const ERROR_SERVER_NOT_RESPONDING: u32 = 650u32;
+pub const ERROR_SERVER_OUT_OF_RESOURCES: u32 = 641u32;
+pub const ERROR_SERVER_POLICY: u32 = 812u32;
+pub const ERROR_SHARE_CONNECTION_FAILED: u32 = 761u32;
+pub const ERROR_SHARING_ADDRESS_EXISTS: u32 = 765u32;
+pub const ERROR_SHARING_CHANGE_FAILED: u32 = 759u32;
+pub const ERROR_SHARING_HOST_ADDRESS_CONFLICT: u32 = 799u32;
+pub const ERROR_SHARING_MULTIPLE_ADDRESSES: u32 = 767u32;
+pub const ERROR_SHARING_NO_PRIVATE_LAN: u32 = 783u32;
+pub const ERROR_SHARING_PRIVATE_INSTALL: u32 = 762u32;
+pub const ERROR_SHARING_ROUTER_INSTALL: u32 = 760u32;
+pub const ERROR_SHARING_RRAS_CONFLICT: u32 = 782u32;
+pub const ERROR_SLIP_REQUIRES_IP: u32 = 729u32;
+pub const ERROR_SMART_CARD_REQUIRED: u32 = 779u32;
+pub const ERROR_SMM_TIMEOUT: u32 = 748u32;
+pub const ERROR_SMM_UNINITIALIZED: u32 = 746u32;
+pub const ERROR_SSO_CERT_MISSING: u32 = 874u32;
+pub const ERROR_SSTP_COOKIE_SET_FAILURE: u32 = 848u32;
+pub const ERROR_STATE_MACHINES_ALREADY_STARTED: u32 = 696u32;
+pub const ERROR_STATE_MACHINES_NOT_STARTED: u32 = 695u32;
+pub const ERROR_SYSTEM_SUSPENDED: u32 = 833u32;
+pub const ERROR_TAPI_CONFIGURATION: u32 = 740u32;
+pub const ERROR_TEMPFAILURE: u32 = 774u32;
+pub const ERROR_TOO_MANY_LINE_ERRORS: u32 = 715u32;
+pub const ERROR_TS_UNACCEPTABLE: u32 = 842u32;
+pub const ERROR_UNABLE_TO_AUTHENTICATE_SERVER: u32 = 778u32;
+pub const ERROR_UNEXPECTED_RESPONSE: u32 = 702u32;
+pub const ERROR_UNKNOWN: u32 = 635u32;
+pub const ERROR_UNKNOWN_DEVICE_TYPE: u32 = 663u32;
+pub const ERROR_UNKNOWN_FRAMED_PROTOCOL: u32 = 794u32;
+pub const ERROR_UNKNOWN_RESPONSE_KEY: u32 = 698u32;
+pub const ERROR_UNKNOWN_SERVICE_TYPE: u32 = 796u32;
+pub const ERROR_UNRECOGNIZED_RESPONSE: u32 = 652u32;
+pub const ERROR_UNSUPPORTED_BPS: u32 = 701u32;
+pub const ERROR_UPDATECONNECTION_REQUEST_IN_PROCESS: u32 = 838u32;
+pub const ERROR_USER_DISCONNECTION: u32 = 631u32;
+pub const ERROR_USER_LOGOFF: u32 = 830u32;
+pub const ERROR_VALIDATING_SERVER_CERT: u32 = 801u32;
+pub const ERROR_VOICE_ANSWER: u32 = 677u32;
+pub const ERROR_VPN_BAD_CERT: u32 = 810u32;
+pub const ERROR_VPN_BAD_PSK: u32 = 811u32;
+pub const ERROR_VPN_DISCONNECT: u32 = 807u32;
+pub const ERROR_VPN_GRE_BLOCKED: u32 = 806u32;
+pub const ERROR_VPN_PLUGIN_GENERIC: u32 = 873u32;
+pub const ERROR_VPN_REFUSED: u32 = 808u32;
+pub const ERROR_VPN_TIMEOUT: u32 = 809u32;
+pub const ERROR_WRITING_DEFAULTOFF: u32 = 688u32;
+pub const ERROR_WRITING_DEVICENAME: u32 = 684u32;
+pub const ERROR_WRITING_DEVICETYPE: u32 = 683u32;
+pub const ERROR_WRITING_INITBPS: u32 = 706u32;
+pub const ERROR_WRITING_MAXCARRIERBPS: u32 = 686u32;
+pub const ERROR_WRITING_MAXCONNECTBPS: u32 = 685u32;
+pub const ERROR_WRITING_SECTIONNAME: u32 = 682u32;
+pub const ERROR_WRITING_USAGE: u32 = 687u32;
+pub const ERROR_WRONG_DEVICE_ATTACHED: u32 = 636u32;
+pub const ERROR_WRONG_INFO_SPECIFIED: u32 = 604u32;
+pub const ERROR_WRONG_KEY_SPECIFIED: u32 = 662u32;
+pub const ERROR_WRONG_MODULE: u32 = 750u32;
+pub const ERROR_WRONG_TUNNEL_TYPE: u32 = 795u32;
+pub const ERROR_X25_DIAGNOSTIC: u32 = 707u32;
+pub const ET_None: u32 = 0u32;
+pub const ET_Optional: u32 = 3u32;
+pub const ET_Require: u32 = 1u32;
+pub const ET_RequireMax: u32 = 2u32;
+#[repr(C)]
+pub struct GRE_CONFIG_PARAMS0(i32);
+#[repr(C)]
+pub struct HRASCONN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct IKEV2_CONFIG_PARAMS(i32);
+#[repr(transparent)]
+pub struct IKEV2_ID_PAYLOAD_TYPE(pub i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(0i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(1i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(2i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(3i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(4i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(5i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(6i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(7i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(8i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(9i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(10i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(11i32);
+pub const IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(12i32);
+#[repr(C)]
+pub struct IKEV2_PROJECTION_INFO(i32);
+#[repr(C)]
+pub struct IKEV2_PROJECTION_INFO2(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
+pub struct IKEV2_TUNNEL_CONFIG_PARAMS2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct IKEV2_TUNNEL_CONFIG_PARAMS3(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct IKEV2_TUNNEL_CONFIG_PARAMS4(i32);
+pub const IPADDRESSLEN: u32 = 15u32;
+pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
+pub const IPXADDRESSLEN: u32 = 22u32;
+#[repr(C)]
+pub struct L2TP_CONFIG_PARAMS0(i32);
+#[repr(C)]
+pub struct L2TP_CONFIG_PARAMS1(i32);
+#[repr(C)]
+pub struct L2TP_TUNNEL_CONFIG_PARAMS1(i32);
+#[repr(C)]
+pub struct L2TP_TUNNEL_CONFIG_PARAMS2(i32);
+pub const MAXIPADRESSLEN: u32 = 64u32;
+pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
+pub const METHOD_BGP4_AS_PATH: u32 = 1u32;
+pub const METHOD_BGP4_NEXTHOP_ATTR: u32 = 8u32;
+pub const METHOD_BGP4_PA_ORIGIN: u32 = 4u32;
+pub const METHOD_BGP4_PEER_ID: u32 = 2u32;
+pub const METHOD_RIP2_NEIGHBOUR_ADDR: u32 = 1u32;
+pub const METHOD_RIP2_OUTBOUND_INTF: u32 = 2u32;
+pub const METHOD_RIP2_ROUTE_TAG: u32 = 4u32;
+pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
+pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
+#[repr(transparent)]
+pub struct MGM_ENUM_TYPES(pub i32);
+pub const ANY_SOURCE: MGM_ENUM_TYPES = MGM_ENUM_TYPES(0i32);
+pub const ALL_SOURCES: MGM_ENUM_TYPES = MGM_ENUM_TYPES(1i32);
+pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MGM_IF_ENTRY(i32);
+pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
+pub const MGM_MFE_STATS_0: u32 = 1u32;
+pub const MGM_MFE_STATS_1: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
+pub struct MPRAPI_ADMIN_DLL_CALLBACKS(i32);
+pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
+pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
+pub const MPRAPI_IF_CUSTOM_CONFIG_FOR_IKEV2: u32 = 1u32;
+pub const MPRAPI_IKEV2_AUTH_USING_CERT: u32 = 1u32;
+pub const MPRAPI_IKEV2_AUTH_USING_EAP: u32 = 2u32;
+pub const MPRAPI_IKEV2_PROJECTION_INFO_TYPE: u32 = 2u32;
+pub const MPRAPI_IKEV2_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
+pub const MPRAPI_L2TP_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
+pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_2: u32 = 2u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_3: u32 = 3u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_4: u32 = 4u32;
+pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_5: u32 = 5u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4u32;
+pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5u32;
+#[repr(C)]
+pub struct MPRAPI_OBJECT_HEADER(i32);
+#[repr(transparent)]
+pub struct MPRAPI_OBJECT_TYPE(pub i32);
+pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(1i32);
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(2i32);
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(3i32);
+pub const MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(4i32);
+pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(5i32);
+pub const MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(6i32);
+pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
+pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_GRE: u32 = 16u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: u32 = 8u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
+pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1(i32);
+pub const MPRET_Direct: u32 = 3u32;
+pub const MPRET_Phone: u32 = 1u32;
+pub const MPRET_Vpn: u32 = 2u32;
+pub const MPRIDS_Disabled: u32 = 4294967295u32;
+pub const MPRIDS_UseGlobalValue: u32 = 0u32;
+pub const MPRIO_DisableLcpExtensions: u32 = 32u32;
+pub const MPRIO_IpHeaderCompression: u32 = 8u32;
+pub const MPRIO_IpSecPreSharedKey: u32 = 2147483648u32;
+pub const MPRIO_NetworkLogon: u32 = 8192u32;
+pub const MPRIO_PromoteAlternates: u32 = 32768u32;
+pub const MPRIO_RemoteDefaultGateway: u32 = 16u32;
+pub const MPRIO_RequireCHAP: u32 = 134217728u32;
+pub const MPRIO_RequireDataEncryption: u32 = 4096u32;
+pub const MPRIO_RequireEAP: u32 = 131072u32;
+pub const MPRIO_RequireEncryptedPw: u32 = 1024u32;
+pub const MPRIO_RequireMachineCertificates: u32 = 16777216u32;
+pub const MPRIO_RequireMsCHAP: u32 = 268435456u32;
+pub const MPRIO_RequireMsCHAP2: u32 = 536870912u32;
+pub const MPRIO_RequireMsEncryptedPw: u32 = 2048u32;
+pub const MPRIO_RequirePAP: u32 = 262144u32;
+pub const MPRIO_RequireSPAP: u32 = 524288u32;
+pub const MPRIO_SecureLocalFiles: u32 = 65536u32;
+pub const MPRIO_SharedPhoneNumbers: u32 = 8388608u32;
+pub const MPRIO_SpecificIpAddr: u32 = 2u32;
+pub const MPRIO_SpecificNameServers: u32 = 4u32;
+pub const MPRIO_SwCompression: u32 = 512u32;
+pub const MPRIO_UsePreSharedKeyForIkev2Initiator: u32 = 33554432u32;
+pub const MPRIO_UsePreSharedKeyForIkev2Responder: u32 = 67108864u32;
+pub const MPRNP_Ip: u32 = 4u32;
+pub const MPRNP_Ipv6: u32 = 8u32;
+pub const MPRNP_Ipx: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_CERT_EKU(i32);
+#[repr(C)]
+pub struct MPR_CREDENTIALSEX_0(i32);
+#[repr(C)]
+pub struct MPR_CREDENTIALSEX_1(i32);
+#[repr(C)]
+pub struct MPR_DEVICE_0(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_DEVICE_1(i32);
+pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
+pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
+#[repr(transparent)]
+pub struct MPR_ET(pub u32);
+pub const MPR_ET_None: MPR_ET = MPR_ET(0u32);
+pub const MPR_ET_Require: MPR_ET = MPR_ET(1u32);
+pub const MPR_ET_RequireMax: MPR_ET = MPR_ET(2u32);
+pub const MPR_ET_Optional: MPR_ET = MPR_ET(3u32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_FILTER_0(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_IFTRANSPORT_0(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
+pub struct MPR_IF_CUSTOMINFOEX0(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
+pub struct MPR_IF_CUSTOMINFOEX1(i32);
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct MPR_IF_CUSTOMINFOEX2(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_INTERFACE_0(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_INTERFACE_1(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_INTERFACE_2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
+pub struct MPR_INTERFACE_3(i32);
+pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
+pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
+pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
+#[repr(transparent)]
+pub struct MPR_INTERFACE_DIAL_MODE(pub u32);
+pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(0u32);
+pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(1u32);
+pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(2u32);
+pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
+pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32u32;
+pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1u32;
+pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8u32;
+#[repr(C)]
+pub struct MPR_IPINIP_INTERFACE_0(i32);
+pub const MPR_MaxAreaCode: u32 = 10u32;
+pub const MPR_MaxCallbackNumber: u32 = 128u32;
+pub const MPR_MaxDeviceName: u32 = 128u32;
+pub const MPR_MaxDeviceType: u32 = 16u32;
+pub const MPR_MaxEntryName: u32 = 256u32;
+pub const MPR_MaxFacilities: u32 = 200u32;
+pub const MPR_MaxIpAddress: u32 = 15u32;
+pub const MPR_MaxIpxAddress: u32 = 21u32;
+pub const MPR_MaxPadType: u32 = 32u32;
+pub const MPR_MaxPhoneNumber: u32 = 128u32;
+pub const MPR_MaxUserData: u32 = 200u32;
+pub const MPR_MaxX25Address: u32 = 200u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_SERVER_0(i32);
+#[repr(C)]
+pub struct MPR_SERVER_1(i32);
+#[repr(C)]
+pub struct MPR_SERVER_2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct MPR_SERVER_EX0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct MPR_SERVER_EX1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct MPR_SERVER_SET_CONFIG_EX0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct MPR_SERVER_SET_CONFIG_EX1(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct MPR_TRANSPORT_0(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
+pub struct MPR_VPN_TRAFFIC_SELECTORS(i32);
+#[repr(transparent)]
+pub struct MPR_VPN_TS_TYPE(pub i32);
+pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(7i32);
+pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(8i32);
+#[repr(transparent)]
+pub struct MPR_VS(pub u32);
+pub const MPR_VS_Default: MPR_VS = MPR_VS(0u32);
+pub const MPR_VS_PptpOnly: MPR_VS = MPR_VS(1u32);
+pub const MPR_VS_PptpFirst: MPR_VS = MPR_VS(2u32);
+pub const MPR_VS_L2tpOnly: MPR_VS = MPR_VS(3u32);
+pub const MPR_VS_L2tpFirst: MPR_VS = MPR_VS(4u32);
+pub const MPR_VS_Ikev2First: u32 = 8u32;
+pub const MPR_VS_Ikev2Only: u32 = 7u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type ORASADFUNC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL;
+pub const PENDING: u32 = 600u32;
+pub type PFNRASFREEBUFFER = unsafe extern "system" fn(pbufer: *mut u8) -> u32;
+pub type PFNRASGETBUFFER = unsafe extern "system" fn(ppbuffer: *mut *mut u8, pdwsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASRECEIVEBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32, dwtimeout: u32, hevent: super::super::Foundation::HANDLE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASRETRIEVEBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASSENDBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASSETCOMMSETTINGS = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, prascommsettings: *mut RASCOMMSETTINGS, pvreserved: *mut ::core::ffi::c_void) -> u32;
+pub const PID_ATALK: u32 = 41u32;
+pub const PID_IP: u32 = 33u32;
+pub const PID_IPV6: u32 = 87u32;
+pub const PID_IPX: u32 = 43u32;
+pub const PID_NBF: u32 = 63u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMGM_CREATION_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwinifindex: u32, dwinifnexthopaddr: u32, dwifcount: u32, pmieoutiflist: *mut MGM_IF_ENTRY) -> u32;
+pub type PMGM_DISABLE_IGMP_CALLBACK = unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+pub type PMGM_ENABLE_IGMP_CALLBACK = unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMGM_JOIN_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, bmemberupdate: super::super::Foundation::BOOL) -> u32;
+pub type PMGM_LOCAL_JOIN_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+pub type PMGM_LOCAL_LEAVE_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMGM_PRUNE_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32, bmemberdelete: super::super::Foundation::BOOL, pdwtimeout: *mut u32) -> u32;
+pub type PMGM_RPF_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, pdwinifindex: *mut u32, pdwinifnexthopaddr: *mut u32, pdwupstreamnbr: *mut u32, dwhdrsize: u32, pbpackethdr: *mut u8, pbroute: *mut u8) -> u32;
+pub type PMGM_WRONG_IF_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwgroupaddr: u32, dwifindex: u32, dwifnexthopaddr: u32, dwhdrsize: u32, pbpackethdr: *mut u8) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTION2 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTION3 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWLINK = unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTREAUTHENTICATION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTREAUTHENTICATIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION2 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: RAS_CONNECTION_3);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINGETIPADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PMPRADMINGETIPV6ADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINLINKHANGUPNOTIFICATION = unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = unsafe extern "system" fn(param0: *mut AUTH_VALIDATION_EX) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINRELEASEIPADRESS = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut u32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR);
+pub type PMPRADMINTERMINATEDLL = unsafe extern "system" fn() -> u32;
+#[repr(C)]
+pub struct PPP_ATCP_INFO(i32);
+pub const PPP_CCP_COMPRESSION: u32 = 1u32;
+pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
+pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
+pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16u32;
+pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128u32;
+pub const PPP_CCP_HISTORYLESS: u32 = 16777216u32;
+#[repr(C)]
+pub struct PPP_CCP_INFO(i32);
+#[repr(C)]
+pub struct PPP_INFO(i32);
+#[repr(C)]
+pub struct PPP_INFO_2(i32);
+#[repr(C)]
+pub struct PPP_INFO_3(i32);
+#[repr(C)]
+pub struct PPP_IPCP_INFO(i32);
+#[repr(C)]
+pub struct PPP_IPCP_INFO2(i32);
+pub const PPP_IPCP_VJ: u32 = 1u32;
+#[repr(C)]
+pub struct PPP_IPV6_CP_INFO(i32);
+#[repr(C)]
+pub struct PPP_IPXCP_INFO(i32);
+#[repr(transparent)]
+pub struct PPP_LCP(pub u32);
+pub const PPP_LCP_PAP: PPP_LCP = PPP_LCP(49187u32);
+pub const PPP_LCP_CHAP: PPP_LCP = PPP_LCP(49699u32);
+pub const PPP_LCP_EAP: PPP_LCP = PPP_LCP(49703u32);
+pub const PPP_LCP_SPAP: PPP_LCP = PPP_LCP(49191u32);
+pub const PPP_LCP_3_DES: u32 = 32u32;
+pub const PPP_LCP_ACFC: u32 = 4u32;
+pub const PPP_LCP_AES_128: u32 = 64u32;
+pub const PPP_LCP_AES_192: u32 = 256u32;
+pub const PPP_LCP_AES_256: u32 = 128u32;
+pub const PPP_LCP_DES_56: u32 = 16u32;
+pub const PPP_LCP_GCM_AES_128: u32 = 512u32;
+pub const PPP_LCP_GCM_AES_192: u32 = 1024u32;
+pub const PPP_LCP_GCM_AES_256: u32 = 2048u32;
+#[repr(C)]
+pub struct PPP_LCP_INFO(i32);
+#[repr(transparent)]
+pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
+pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(5u32);
+pub const PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(128u32);
+pub const PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(129u32);
+pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1u32;
+pub const PPP_LCP_PFC: u32 = 2u32;
+pub const PPP_LCP_SSHF: u32 = 8u32;
+#[repr(C)]
+pub struct PPP_NBFCP_INFO(i32);
+#[repr(C)]
+pub struct PPP_PROJECTION_INFO(i32);
+#[repr(C)]
+pub struct PPP_PROJECTION_INFO2(i32);
+#[repr(C)]
+pub struct PPTP_CONFIG_PARAMS(i32);
+#[repr(C)]
+pub struct PROJECTION_INFO(i32);
+#[repr(C)]
+pub struct PROJECTION_INFO2(i32);
+pub const RASADFLG_PositionDlg: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RASADFUNCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type RASADFUNCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASADPARAMS(i32);
+pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
+pub const RASADP_DisableConnectionQuery: u32 = 0u32;
+pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
+pub const RASADP_LoginSessionDisable: u32 = 1u32;
+pub const RASADP_SavedAddressesLimit: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASAMBA(i32);
+#[repr(C)]
+pub struct RASAMBW(i32);
+#[repr(transparent)]
+pub struct RASAPIVERSION(pub i32);
+pub const RASAPIVERSION_500: RASAPIVERSION = RASAPIVERSION(1i32);
+pub const RASAPIVERSION_501: RASAPIVERSION = RASAPIVERSION(2i32);
+pub const RASAPIVERSION_600: RASAPIVERSION = RASAPIVERSION(3i32);
+pub const RASAPIVERSION_601: RASAPIVERSION = RASAPIVERSION(4i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASAUTODIALENTRYA(i32);
+#[repr(C)]
+pub struct RASAUTODIALENTRYW(i32);
+pub const RASBASE: u32 = 600u32;
+pub const RASBASEEND: u32 = 877u32;
+pub const RASCCPCA_MPPC: u32 = 6u32;
+pub const RASCCPCA_STAC: u32 = 5u32;
+pub const RASCCPO_Compression: u32 = 1u32;
+pub const RASCCPO_Encryption128bit: u32 = 64u32;
+pub const RASCCPO_Encryption40bit: u32 = 32u32;
+pub const RASCCPO_Encryption56bit: u32 = 16u32;
+pub const RASCCPO_HistoryLess: u32 = 2u32;
+pub const RASCF_AllUsers: u32 = 1u32;
+pub const RASCF_GlobalCreds: u32 = 2u32;
+pub const RASCF_OwnerKnown: u32 = 4u32;
+pub const RASCF_OwnerMatch: u32 = 8u32;
+pub const RASCM_DDMPreSharedKey: u32 = 64u32;
+pub const RASCM_DefaultCreds: u32 = 8u32;
+pub const RASCM_Domain: u32 = 4u32;
+pub const RASCM_Password: u32 = 2u32;
+pub const RASCM_PreSharedKey: u32 = 16u32;
+pub const RASCM_ServerPreSharedKey: u32 = 32u32;
+pub const RASCM_UserName: u32 = 1u32;
+pub const RASCN_BandwidthAdded: u32 = 4u32;
+pub const RASCN_BandwidthRemoved: u32 = 8u32;
+pub const RASCN_Connection: u32 = 1u32;
+pub const RASCN_Disconnection: u32 = 2u32;
+pub const RASCN_Dormant: u32 = 16u32;
+pub const RASCN_EPDGPacketArrival: u32 = 64u32;
+pub const RASCN_ReConnection: u32 = 32u32;
+#[repr(C)]
+pub struct RASCOMMSETTINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASCONNA(i32);
+#[repr(transparent)]
+pub struct RASCONNSTATE(pub i32);
+pub const RASCS_OpenPort: RASCONNSTATE = RASCONNSTATE(0i32);
+pub const RASCS_PortOpened: RASCONNSTATE = RASCONNSTATE(1i32);
+pub const RASCS_ConnectDevice: RASCONNSTATE = RASCONNSTATE(2i32);
+pub const RASCS_DeviceConnected: RASCONNSTATE = RASCONNSTATE(3i32);
+pub const RASCS_AllDevicesConnected: RASCONNSTATE = RASCONNSTATE(4i32);
+pub const RASCS_Authenticate: RASCONNSTATE = RASCONNSTATE(5i32);
+pub const RASCS_AuthNotify: RASCONNSTATE = RASCONNSTATE(6i32);
+pub const RASCS_AuthRetry: RASCONNSTATE = RASCONNSTATE(7i32);
+pub const RASCS_AuthCallback: RASCONNSTATE = RASCONNSTATE(8i32);
+pub const RASCS_AuthChangePassword: RASCONNSTATE = RASCONNSTATE(9i32);
+pub const RASCS_AuthProject: RASCONNSTATE = RASCONNSTATE(10i32);
+pub const RASCS_AuthLinkSpeed: RASCONNSTATE = RASCONNSTATE(11i32);
+pub const RASCS_AuthAck: RASCONNSTATE = RASCONNSTATE(12i32);
+pub const RASCS_ReAuthenticate: RASCONNSTATE = RASCONNSTATE(13i32);
+pub const RASCS_Authenticated: RASCONNSTATE = RASCONNSTATE(14i32);
+pub const RASCS_PrepareForCallback: RASCONNSTATE = RASCONNSTATE(15i32);
+pub const RASCS_WaitForModemReset: RASCONNSTATE = RASCONNSTATE(16i32);
+pub const RASCS_WaitForCallback: RASCONNSTATE = RASCONNSTATE(17i32);
+pub const RASCS_Projected: RASCONNSTATE = RASCONNSTATE(18i32);
+pub const RASCS_StartAuthentication: RASCONNSTATE = RASCONNSTATE(19i32);
+pub const RASCS_CallbackComplete: RASCONNSTATE = RASCONNSTATE(20i32);
+pub const RASCS_LogonNetwork: RASCONNSTATE = RASCONNSTATE(21i32);
+pub const RASCS_SubEntryConnected: RASCONNSTATE = RASCONNSTATE(22i32);
+pub const RASCS_SubEntryDisconnected: RASCONNSTATE = RASCONNSTATE(23i32);
+pub const RASCS_ApplySettings: RASCONNSTATE = RASCONNSTATE(24i32);
+pub const RASCS_Interactive: RASCONNSTATE = RASCONNSTATE(4096i32);
+pub const RASCS_RetryAuthentication: RASCONNSTATE = RASCONNSTATE(4097i32);
+pub const RASCS_CallbackSetByCaller: RASCONNSTATE = RASCONNSTATE(4098i32);
+pub const RASCS_PasswordExpired: RASCONNSTATE = RASCONNSTATE(4099i32);
+pub const RASCS_InvokeEapUI: RASCONNSTATE = RASCONNSTATE(4100i32);
+pub const RASCS_Connected: RASCONNSTATE = RASCONNSTATE(8192i32);
+pub const RASCS_Disconnected: RASCONNSTATE = RASCONNSTATE(8193i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
+pub struct RASCONNSTATUSA(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
+pub struct RASCONNSTATUSW(i32);
+#[repr(transparent)]
+pub struct RASCONNSUBSTATE(pub i32);
+pub const RASCSS_None: RASCONNSUBSTATE = RASCONNSUBSTATE(0i32);
+pub const RASCSS_Dormant: RASCONNSUBSTATE = RASCONNSUBSTATE(1i32);
+pub const RASCSS_Reconnecting: RASCONNSUBSTATE = RASCONNSUBSTATE(2i32);
+pub const RASCSS_Reconnected: RASCONNSUBSTATE = RASCONNSUBSTATE(8192i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASCONNW(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASCREDENTIALSA(i32);
+#[repr(C)]
+pub struct RASCREDENTIALSW(i32);
+pub const RASCSS_DONE: u32 = 8192u32;
+pub const RASCS_DONE: u32 = 8192u32;
+pub const RASCS_PAUSED: u32 = 4096u32;
+#[repr(C)]
+pub struct RASCTRYINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASCUSTOMSCRIPTEXTENSIONS(i32);
+pub const RASDDFLAG_AoacRedial: u32 = 4u32;
+pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
+pub const RASDDFLAG_NoPrompt: u32 = 2u32;
+pub const RASDDFLAG_PositionDlg: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASDEVINFOA(i32);
+#[repr(C)]
+pub struct RASDEVINFOW(i32);
+#[repr(C)]
+pub struct RASDEVSPECIFICINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASDIALDLG(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASDIALEXTENSIONS(i32);
+pub type RASDIALFUNC = unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32);
+pub type RASDIALFUNC1 = unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32);
+pub type RASDIALFUNC2 = unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASDIALPARAMSA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASDIALPARAMSW(i32);
+pub const RASEAPF_Logon: u32 = 4u32;
+pub const RASEAPF_NonInteractive: u32 = 2u32;
+pub const RASEAPF_Preview: u32 = 8u32;
+#[repr(C)]
+pub struct RASEAPINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASEAPUSERIDENTITYA(i32);
+#[repr(C)]
+pub struct RASEAPUSERIDENTITYW(i32);
+pub const RASEDFLAG_CloneEntry: u32 = 4u32;
+pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
+pub const RASEDFLAG_InternetEntry: u32 = 256u32;
+pub const RASEDFLAG_NAT: u32 = 512u32;
+pub const RASEDFLAG_NewBroadbandEntry: u32 = 128u32;
+pub const RASEDFLAG_NewDirectEntry: u32 = 64u32;
+pub const RASEDFLAG_NewEntry: u32 = 2u32;
+pub const RASEDFLAG_NewPhoneEntry: u32 = 16u32;
+pub const RASEDFLAG_NewTunnelEntry: u32 = 32u32;
+pub const RASEDFLAG_NoRename: u32 = 8u32;
+pub const RASEDFLAG_PositionDlg: u32 = 1u32;
+pub const RASEDFLAG_ShellOwned: u32 = 1073741824u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
+pub struct RASENTRYA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASENTRYDLGA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASENTRYDLGW(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASENTRYNAMEA(i32);
+#[repr(C)]
+pub struct RASENTRYNAMEW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
+pub struct RASENTRYW(i32);
+#[repr(transparent)]
+pub struct RASENTRY_DIAL_MODE(pub u32);
+pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = RASENTRY_DIAL_MODE(1u32);
+pub const RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = RASENTRY_DIAL_MODE(2u32);
+pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
+pub const RASEO2_AutoTriggerCapable: u32 = 67108864u32;
+pub const RASEO2_CacheCredentials: u32 = 33554432u32;
+pub const RASEO2_DisableClassBasedStaticRoute: u32 = 524288u32;
+pub const RASEO2_DisableIKENameEkuCheck: u32 = 262144u32;
+pub const RASEO2_DisableMobility: u32 = 2097152u32;
+pub const RASEO2_DisableNbtOverIP: u32 = 64u32;
+pub const RASEO2_DontNegotiateMultilink: u32 = 4u32;
+pub const RASEO2_DontUseRasCredentials: u32 = 8u32;
+pub const RASEO2_IPv4ExplicitMetric: u32 = 65536u32;
+pub const RASEO2_IPv6ExplicitMetric: u32 = 131072u32;
+pub const RASEO2_IPv6RemoteDefaultGateway: u32 = 8192u32;
+pub const RASEO2_IPv6SpecificNameServers: u32 = 4096u32;
+pub const RASEO2_Internet: u32 = 32u32;
+pub const RASEO2_IsAlwaysOn: u32 = 536870912u32;
+pub const RASEO2_IsPrivateNetwork: u32 = 1073741824u32;
+pub const RASEO2_IsThirdPartyProfile: u32 = 134217728u32;
+pub const RASEO2_PlumbIKEv2TSAsRoutes: u32 = 2147483648u32;
+pub const RASEO2_ReconnectIfDropped: u32 = 256u32;
+pub const RASEO2_RegisterIpWithDNS: u32 = 16384u32;
+pub const RASEO2_RequireMachineCertificates: u32 = 4194304u32;
+pub const RASEO2_SecureClientForMSNet: u32 = 2u32;
+pub const RASEO2_SecureFileAndPrint: u32 = 1u32;
+pub const RASEO2_SecureRoutingCompartment: u32 = 1024u32;
+pub const RASEO2_SharePhoneNumbers: u32 = 512u32;
+pub const RASEO2_SpecificIPv6Addr: u32 = 1048576u32;
+pub const RASEO2_UseDNSSuffixForRegistration: u32 = 32768u32;
+pub const RASEO2_UseGlobalDeviceSettings: u32 = 128u32;
+pub const RASEO2_UsePreSharedKey: u32 = 16u32;
+pub const RASEO2_UsePreSharedKeyForIkev2Initiator: u32 = 8388608u32;
+pub const RASEO2_UsePreSharedKeyForIkev2Responder: u32 = 16777216u32;
+pub const RASEO2_UseTypicalSettings: u32 = 2048u32;
+pub const RASEO_Custom: u32 = 1048576u32;
+pub const RASEO_CustomScript: u32 = 2147483648u32;
+pub const RASEO_DisableLcpExtensions: u32 = 32u32;
+pub const RASEO_IpHeaderCompression: u32 = 8u32;
+pub const RASEO_ModemLights: u32 = 256u32;
+pub const RASEO_NetworkLogon: u32 = 8192u32;
+pub const RASEO_PreviewDomain: u32 = 33554432u32;
+pub const RASEO_PreviewPhoneNumber: u32 = 2097152u32;
+pub const RASEO_PreviewUserPw: u32 = 16777216u32;
+pub const RASEO_PromoteAlternates: u32 = 32768u32;
+pub const RASEO_RemoteDefaultGateway: u32 = 16u32;
+pub const RASEO_RequireCHAP: u32 = 134217728u32;
+pub const RASEO_RequireDataEncryption: u32 = 4096u32;
+pub const RASEO_RequireEAP: u32 = 131072u32;
+pub const RASEO_RequireEncryptedPw: u32 = 1024u32;
+pub const RASEO_RequireMsCHAP: u32 = 268435456u32;
+pub const RASEO_RequireMsCHAP2: u32 = 536870912u32;
+pub const RASEO_RequireMsEncryptedPw: u32 = 2048u32;
+pub const RASEO_RequirePAP: u32 = 262144u32;
+pub const RASEO_RequireSPAP: u32 = 524288u32;
+pub const RASEO_RequireW95MSCHAP: u32 = 1073741824u32;
+pub const RASEO_SecureLocalFiles: u32 = 65536u32;
+pub const RASEO_SharedPhoneNumbers: u32 = 8388608u32;
+pub const RASEO_ShowDialingProgress: u32 = 67108864u32;
+pub const RASEO_SpecificIpAddr: u32 = 2u32;
+pub const RASEO_SpecificNameServers: u32 = 4u32;
+pub const RASEO_SwCompression: u32 = 512u32;
+pub const RASEO_TerminalAfterDial: u32 = 128u32;
+pub const RASEO_TerminalBeforeDial: u32 = 64u32;
+pub const RASEO_UseCountryAndAreaCodes: u32 = 1u32;
+pub const RASEO_UseLogonCredentials: u32 = 16384u32;
+pub const RASET_Broadband: u32 = 5u32;
+pub const RASET_Direct: u32 = 3u32;
+pub const RASET_Internet: u32 = 4u32;
+pub const RASET_Phone: u32 = 1u32;
+pub const RASET_Vpn: u32 = 2u32;
+pub const RASFP_Ppp: u32 = 1u32;
+pub const RASFP_Ras: u32 = 4u32;
+pub const RASFP_Slip: u32 = 2u32;
+pub const RASIDS_Disabled: u32 = 4294967295u32;
+pub const RASIDS_UseGlobalValue: u32 = 0u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
+pub struct RASIKEV2_PROJECTION_INFO(i32);
+#[repr(transparent)]
+pub struct RASIKEV_PROJECTION_INFO_FLAGS(pub u32);
+pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(1u32);
+pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(2u32);
+pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(4u32);
+pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
+pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
+pub const RASIKEv2_AUTH_PSK: u32 = 3u32;
+#[repr(C)]
+pub struct RASIPADDR(i32);
+pub const RASIPO_VJ: u32 = 1u32;
+#[repr(C)]
+pub struct RASIPXW(i32);
+pub const RASLCPO_3_DES: u32 = 16u32;
+pub const RASLCPO_ACFC: u32 = 2u32;
+pub const RASLCPO_AES_128: u32 = 32u32;
+pub const RASLCPO_AES_192: u32 = 128u32;
+pub const RASLCPO_AES_256: u32 = 64u32;
+pub const RASLCPO_DES_56: u32 = 8u32;
+pub const RASLCPO_GCM_AES_128: u32 = 256u32;
+pub const RASLCPO_GCM_AES_192: u32 = 512u32;
+pub const RASLCPO_GCM_AES_256: u32 = 1024u32;
+pub const RASLCPO_PFC: u32 = 1u32;
+pub const RASLCPO_SSHF: u32 = 4u32;
+pub const RASNAP_ProbationTime: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASNOUSERA(i32);
+#[repr(C)]
+pub struct RASNOUSERW(i32);
+pub const RASNOUSER_SmartCard: u32 = 1u32;
+pub const RASNP_Ip: u32 = 4u32;
+pub const RASNP_Ipv6: u32 = 8u32;
+pub const RASNP_Ipx: u32 = 2u32;
+pub const RASNP_NetBEUI: u32 = 1u32;
+pub const RASPBDEVENT_AddEntry: u32 = 1u32;
+pub const RASPBDEVENT_DialEntry: u32 = 4u32;
+pub const RASPBDEVENT_EditEntry: u32 = 2u32;
+pub const RASPBDEVENT_EditGlobals: u32 = 5u32;
+pub const RASPBDEVENT_NoUser: u32 = 6u32;
+pub const RASPBDEVENT_NoUserEdit: u32 = 7u32;
+pub const RASPBDEVENT_RemoveEntry: u32 = 3u32;
+pub const RASPBDFLAG_ForceCloseOnDial: u32 = 2u32;
+pub const RASPBDFLAG_NoUser: u32 = 16u32;
+pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
+pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASPBDLGA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type RASPBDLGFUNCA = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type RASPBDLGFUNCW = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASPBDLGW(i32);
+#[repr(C)]
+pub struct RASPPPCCP(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASPPPIPA(i32);
+#[repr(C)]
+pub struct RASPPPIPV6(i32);
+#[repr(C)]
+pub struct RASPPPIPW(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASPPPIPXA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASPPPLCPA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASPPPLCPW(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASPPPNBFA(i32);
+#[repr(C)]
+pub struct RASPPPNBFW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
+pub struct RASPPP_PROJECTION_INFO(i32);
+#[repr(transparent)]
+pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(pub u32);
+pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(5u32);
+pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(128u32);
+pub const RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(129u32);
+#[repr(transparent)]
+pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(pub u32);
+pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49187u32);
+pub const RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49191u32);
+pub const RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49699u32);
+pub const RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49703u32);
+pub const RASPRIV2_DialinPolicy: u32 = 1u32;
+pub const RASPRIV_AdminSetCallback: u32 = 2u32;
+pub const RASPRIV_CallerSetCallback: u32 = 4u32;
+pub const RASPRIV_DialinPrivilege: u32 = 8u32;
+pub const RASPRIV_NoCallback: u32 = 1u32;
+#[repr(transparent)]
+pub struct RASPROJECTION(pub i32);
+pub const RASP_Amb: RASPROJECTION = RASPROJECTION(65536i32);
+pub const RASP_PppNbf: RASPROJECTION = RASPROJECTION(32831i32);
+pub const RASP_PppIpx: RASPROJECTION = RASPROJECTION(32811i32);
+pub const RASP_PppIp: RASPROJECTION = RASPROJECTION(32801i32);
+pub const RASP_PppCcp: RASPROJECTION = RASPROJECTION(33021i32);
+pub const RASP_PppLcp: RASPROJECTION = RASPROJECTION(49185i32);
+pub const RASP_PppIpv6: RASPROJECTION = RASPROJECTION(32855i32);
+#[repr(transparent)]
+pub struct RASPROJECTION_INFO_TYPE(pub i32);
+pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(1i32);
+pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(2i32);
+pub type RASSECURITYPROC = unsafe extern "system" fn() -> u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RASSUBENTRYA(i32);
+#[repr(C)]
+pub struct RASSUBENTRYW(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
+pub struct RASTUNNELENDPOINT(i32);
+pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
+pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
+pub const RASTUNNELENDPOINT_UNKNOWN: u32 = 0u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
+pub struct RASUPDATECONN(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_CONNECTION_0(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_CONNECTION_1(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_CONNECTION_2(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_CONNECTION_3(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_CONNECTION_4(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_CONNECTION_EX(i32);
+#[repr(transparent)]
+pub struct RAS_FLAGS(pub u32);
+pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = RAS_FLAGS(1u32);
+pub const RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = RAS_FLAGS(2u32);
+pub const RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = RAS_FLAGS(8u32);
+pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = RAS_FLAGS(16u32);
+pub const RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = RAS_FLAGS(16u32);
+pub const RAS_FLAGS_DORMANT: RAS_FLAGS = RAS_FLAGS(32u32);
+pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
+#[repr(transparent)]
+pub struct RAS_HARDWARE_CONDITION(pub i32);
+pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = RAS_HARDWARE_CONDITION(0i32);
+pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = RAS_HARDWARE_CONDITION(1i32);
+pub const RAS_MaxAreaCode: u32 = 10u32;
+pub const RAS_MaxCallbackNumber: u32 = 128u32;
+pub const RAS_MaxDeviceName: u32 = 128u32;
+pub const RAS_MaxDeviceType: u32 = 16u32;
+pub const RAS_MaxDnsSuffix: u32 = 256u32;
+pub const RAS_MaxEntryName: u32 = 256u32;
+pub const RAS_MaxFacilities: u32 = 200u32;
+pub const RAS_MaxIDSize: u32 = 256u32;
+pub const RAS_MaxIpAddress: u32 = 15u32;
+pub const RAS_MaxIpxAddress: u32 = 21u32;
+pub const RAS_MaxPadType: u32 = 32u32;
+pub const RAS_MaxPhoneNumber: u32 = 128u32;
+pub const RAS_MaxReplyMessage: u32 = 1024u32;
+pub const RAS_MaxUserData: u32 = 200u32;
+pub const RAS_MaxX25Address: u32 = 200u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_PORT_0(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_PORT_1(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_PORT_2(i32);
+#[repr(transparent)]
+pub struct RAS_PORT_CONDITION(pub i32);
+pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = RAS_PORT_CONDITION(0i32);
+pub const RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = RAS_PORT_CONDITION(1i32);
+pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = RAS_PORT_CONDITION(2i32);
+pub const RAS_PORT_LISTENING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(3i32);
+pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(4i32);
+pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = RAS_PORT_CONDITION(5i32);
+pub const RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(6i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
+pub struct RAS_PROJECTION_INFO(i32);
+#[repr(transparent)]
+pub struct RAS_QUARANTINE_STATE(pub i32);
+pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(0i32);
+pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(1i32);
+pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(2i32);
+pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(3i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RAS_SECURITY_INFO(i32);
+#[repr(C)]
+pub struct RAS_STATS(i32);
+#[repr(C)]
+pub struct RAS_UPDATE_CONNECTION(i32);
+#[repr(C)]
+pub struct RAS_USER_0(i32);
+#[repr(C)]
+pub struct RAS_USER_1(i32);
+pub const RCD_AllUsers: u32 = 1u32;
+pub const RCD_Eap: u32 = 2u32;
+pub const RCD_Logon: u32 = 4u32;
+pub const RCD_SingleUser: u32 = 0u32;
+pub const RDEOPT_CustomDial: u32 = 4096u32;
+pub const RDEOPT_DisableConnectedUI: u32 = 64u32;
+pub const RDEOPT_DisableReconnect: u32 = 256u32;
+pub const RDEOPT_DisableReconnectUI: u32 = 128u32;
+pub const RDEOPT_EapInfoCryptInCapable: u32 = 32768u32;
+pub const RDEOPT_IgnoreModemSpeaker: u32 = 4u32;
+pub const RDEOPT_IgnoreSoftwareCompression: u32 = 16u32;
+pub const RDEOPT_InvokeAutoTriggerCredentialUI: u32 = 16384u32;
+pub const RDEOPT_NoUser: u32 = 512u32;
+pub const RDEOPT_PauseOnScript: u32 = 1024u32;
+pub const RDEOPT_PausedStates: u32 = 2u32;
+pub const RDEOPT_Router: u32 = 2048u32;
+pub const RDEOPT_SetModemSpeaker: u32 = 8u32;
+pub const RDEOPT_SetSoftwareCompression: u32 = 32u32;
+pub const RDEOPT_UseCustomScripting: u32 = 8192u32;
+pub const RDEOPT_UsePrefixSuffix: u32 = 1u32;
+pub const REN_AllUsers: u32 = 1u32;
+pub const REN_User: u32 = 0u32;
+#[repr(transparent)]
+pub struct ROUTER_CONNECTION_STATE(pub i32);
+pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(0i32);
+pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(1i32);
+pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(2i32);
+pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(3i32);
+#[repr(C)]
+pub struct ROUTER_CUSTOM_IKEv2_POLICY0(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
+pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
+pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1(i32);
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2(i32);
+#[repr(transparent)]
+pub struct ROUTER_INTERFACE_TYPE(pub i32);
+pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(0i32);
+pub const ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(1i32);
+pub const ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(2i32);
+pub const ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(3i32);
+pub const ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(4i32);
+pub const ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(5i32);
+pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(6i32);
+pub const ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(7i32);
+pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(8i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct ROUTING_PROTOCOL_CONFIG(i32);
+pub const RTM_BLOCK_METHODS: u32 = 1u32;
+pub const RTM_CHANGE_TYPE_ALL: u32 = 1u32;
+pub const RTM_CHANGE_TYPE_BEST: u32 = 2u32;
+pub const RTM_CHANGE_TYPE_FORWARDING: u32 = 4u32;
+pub const RTM_DEST_FLAG_DONT_FORWARD: u32 = 4u32;
+pub const RTM_DEST_FLAG_FWD_ENGIN_ADD: u32 = 2u32;
+pub const RTM_DEST_FLAG_NATURAL_NET: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct RTM_DEST_INFO(i32);
+pub type RTM_ENTITY_EXPORT_METHOD = unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT);
+#[repr(C)]
+pub struct RTM_ENTITY_EXPORT_METHODS(i32);
+#[repr(C)]
+pub struct RTM_ENTITY_ID(i32);
+#[repr(C)]
+pub struct RTM_ENTITY_INFO(i32);
+#[repr(C)]
+pub struct RTM_ENTITY_METHOD_INPUT(i32);
+#[repr(C)]
+pub struct RTM_ENTITY_METHOD_OUTPUT(i32);
+pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
+pub const RTM_ENUM_ALL_ROUTES: u32 = 0u32;
+pub const RTM_ENUM_NEXT: u32 = 1u32;
+pub const RTM_ENUM_OWN_DESTS: u32 = 16777216u32;
+pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
+pub const RTM_ENUM_RANGE: u32 = 2u32;
+pub const RTM_ENUM_START: u32 = 0u32;
+pub type RTM_EVENT_CALLBACK = unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::core::ffi::c_void, context2: *mut ::core::ffi::c_void) -> u32;
+#[repr(transparent)]
+pub struct RTM_EVENT_TYPE(pub i32);
+pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(0i32);
+pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(1i32);
+pub const RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(2i32);
+pub const RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = RTM_EVENT_TYPE(3i32);
+pub const RTM_MATCH_FULL: u32 = 65535u32;
+pub const RTM_MATCH_INTERFACE: u32 = 16u32;
+pub const RTM_MATCH_NEIGHBOUR: u32 = 2u32;
+pub const RTM_MATCH_NEXTHOP: u32 = 8u32;
+pub const RTM_MATCH_NONE: u32 = 0u32;
+pub const RTM_MATCH_OWNER: u32 = 1u32;
+pub const RTM_MATCH_PREF: u32 = 4u32;
+pub const RTM_MAX_ADDRESS_SIZE: u32 = 16u32;
+pub const RTM_MAX_VIEWS: u32 = 32u32;
+#[repr(C)]
+pub struct RTM_NET_ADDRESS(i32);
+pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
+pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
+pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
+#[repr(C)]
+pub struct RTM_NEXTHOP_INFO(i32);
+#[repr(C)]
+pub struct RTM_NEXTHOP_LIST(i32);
+pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
+pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
+pub const RTM_NOTIFY_ONLY_MARKED_DESTS: u32 = 65536u32;
+pub const RTM_NUM_CHANGE_TYPES: u32 = 3u32;
+#[repr(C)]
+pub struct RTM_PREF_INFO(i32);
+#[repr(C)]
+pub struct RTM_REGN_PROFILE(i32);
+pub const RTM_RESUME_METHODS: u32 = 0u32;
+pub const RTM_ROUTE_CHANGE_BEST: u32 = 65536u32;
+pub const RTM_ROUTE_CHANGE_FIRST: u32 = 1u32;
+pub const RTM_ROUTE_CHANGE_NEW: u32 = 2u32;
+pub const RTM_ROUTE_FLAGS_BLACKHOLE: u32 = 2u32;
+pub const RTM_ROUTE_FLAGS_DISCARD: u32 = 4u32;
+pub const RTM_ROUTE_FLAGS_INACTIVE: u32 = 8u32;
+pub const RTM_ROUTE_FLAGS_LIMITED_BC: u32 = 1024u32;
+pub const RTM_ROUTE_FLAGS_LOCAL: u32 = 16u32;
+pub const RTM_ROUTE_FLAGS_LOCAL_MCAST: u32 = 512u32;
+pub const RTM_ROUTE_FLAGS_LOOPBACK: u32 = 128u32;
+pub const RTM_ROUTE_FLAGS_MARTIAN: u32 = 1u32;
+pub const RTM_ROUTE_FLAGS_MCAST: u32 = 256u32;
+pub const RTM_ROUTE_FLAGS_MYSELF: u32 = 64u32;
+pub const RTM_ROUTE_FLAGS_ONES_NETBC: u32 = 16384u32;
+pub const RTM_ROUTE_FLAGS_ONES_SUBNETBC: u32 = 32768u32;
+pub const RTM_ROUTE_FLAGS_REMOTE: u32 = 32u32;
+pub const RTM_ROUTE_FLAGS_ZEROS_NETBC: u32 = 4096u32;
+pub const RTM_ROUTE_FLAGS_ZEROS_SUBNETBC: u32 = 8192u32;
+#[repr(C)]
+pub struct RTM_ROUTE_INFO(i32);
+pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
+pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
+pub const RTM_ROUTE_STATE_DELETING: u32 = 1u32;
+pub const RTM_VIEW_ID_MCAST: u32 = 1u32;
+pub const RTM_VIEW_ID_UCAST: u32 = 0u32;
+pub const RTM_VIEW_MASK_ALL: u32 = 4294967295u32;
+pub const RTM_VIEW_MASK_ANY: u32 = 0u32;
+pub const RTM_VIEW_MASK_MCAST: u32 = 2u32;
+pub const RTM_VIEW_MASK_NONE: u32 = 0u32;
+pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
+pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomDeleteEntryNotifyFn = unsafe extern "system" fn(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, dwflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomDialDlgFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, dwflags: u32, lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpszphonenumber: super::super::Foundation::PWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomDialFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: super::super::Foundation::PWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomEntryDlgFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL;
+pub type RasCustomHangUpFn = unsafe extern "system" fn(hrasconn: HRASCONN) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomScriptExecuteFn =
+    unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: super::super::Foundation::PWSTR, lpszentryname: super::super::Foundation::PWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct SECURITY_MESSAGE(i32);
+#[repr(transparent)]
+pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
+pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(1u32);
+pub const SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(2u32);
+pub const SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(3u32);
+#[repr(C)]
+pub struct SOURCE_GROUP_ENTRY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct SSTP_CERT_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
+pub struct SSTP_CONFIG_PARAMS(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
+pub struct VPN_TS_IP_ADDRESS(i32);
+pub const VS_Default: u32 = 0u32;
+pub const VS_GREOnly: u32 = 9u32;
+pub const VS_Ikev2First: u32 = 8u32;
+pub const VS_Ikev2Only: u32 = 7u32;
+pub const VS_Ikev2Sstp: u32 = 14u32;
+pub const VS_L2tpFirst: u32 = 4u32;
+pub const VS_L2tpOnly: u32 = 3u32;
+pub const VS_L2tpSstp: u32 = 13u32;
+pub const VS_PptpFirst: u32 = 2u32;
+pub const VS_PptpOnly: u32 = 1u32;
+pub const VS_PptpSstp: u32 = 12u32;
+pub const VS_ProtocolList: u32 = 15u32;
+pub const VS_SstpFirst: u32 = 6u32;
+pub const VS_SstpOnly: u32 = 5u32;
+pub const WARNING_MSG_ALIAS_NOT_ADDED: u32 = 644u32;
+pub const WM_RASDIALEVENT: u32 = 52429u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
+pub struct _MPR_VPN_SELECTOR(i32);

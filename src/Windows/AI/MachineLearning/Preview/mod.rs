@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FeatureElementKindPreview(pub i32);
@@ -217,7 +216,6 @@ pub struct ILearningModelPreviewStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 pub struct ILearningModelVariableDescriptorPreview(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILearningModelVariableDescriptorPreview {
     type Vtable = ILearningModelVariableDescriptorPreview_abi;
@@ -225,7 +223,6 @@ unsafe impl ::windows::core::Interface for ILearningModelVariableDescriptorPrevi
 }
 impl ILearningModelVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -234,7 +231,6 @@ impl ILearningModelVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -243,7 +239,6 @@ impl ILearningModelVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
         let this = self;
         unsafe {
@@ -252,7 +247,6 @@ impl ILearningModelVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -379,14 +373,12 @@ pub struct ITensorVariableDescriptorPreview_abi(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ImageVariableDescriptorPreview(pub ::windows::core::IInspectable);
 impl ImageVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Graphics_Imaging")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Graphics_Imaging`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -395,7 +387,6 @@ impl ImageVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -404,7 +395,6 @@ impl ImageVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -413,7 +403,6 @@ impl ImageVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -422,7 +411,6 @@ impl ImageVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -431,7 +419,6 @@ impl ImageVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -440,7 +427,6 @@ impl ImageVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -521,13 +507,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
         ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InferencingOptionsPreview(pub ::windows::core::IInspectable);
 impl InferencingOptionsPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn PreferredDeviceKind(&self) -> ::windows::core::Result<LearningModelDeviceKindPreview> {
         let this = self;
         unsafe {
@@ -536,13 +520,11 @@ impl InferencingOptionsPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn SetPreferredDeviceKind(&self, value: LearningModelDeviceKindPreview) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn IsTracingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -551,13 +533,11 @@ impl InferencingOptionsPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn SetIsTracingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -566,13 +546,11 @@ impl InferencingOptionsPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn SetMaxBatchSize(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn MinimizeMemoryAllocation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -581,13 +559,11 @@ impl InferencingOptionsPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn SetMinimizeMemoryAllocation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ReclaimMemoryAfterEvaluation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -596,7 +572,6 @@ impl InferencingOptionsPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn SetReclaimMemoryAfterEvaluation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
@@ -652,32 +627,27 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelBindingPreview(pub ::windows::core::IInspectable);
 impl LearningModelBindingPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Bind<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn BindWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>>(&self, name: Param0, value: Param1, metadata: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi(), metadata.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
@@ -686,7 +656,6 @@ impl LearningModelBindingPreview {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -695,7 +664,6 @@ impl LearningModelBindingPreview {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -704,7 +672,6 @@ impl LearningModelBindingPreview {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -713,13 +680,11 @@ impl LearningModelBindingPreview {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn Split(&self, first: &mut ::core::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, second: &mut ::core::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn CreateFromModel<'a, Param0: ::windows::core::IntoParam<'a, LearningModelPreview>>(model: Param0) -> ::windows::core::Result<LearningModelBindingPreview> {
         Self::ILearningModelBindingPreviewFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -849,13 +814,11 @@ impl ::core::iter::IntoIterator for &LearningModelBindingPreview {
         self.First().unwrap()
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelDescriptionPreview(pub ::windows::core::IInspectable);
 impl LearningModelDescriptionPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -864,7 +827,6 @@ impl LearningModelDescriptionPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -873,7 +835,6 @@ impl LearningModelDescriptionPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -882,7 +843,6 @@ impl LearningModelDescriptionPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -891,7 +851,6 @@ impl LearningModelDescriptionPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Version(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -901,7 +860,6 @@ impl LearningModelDescriptionPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn Metadata(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -911,7 +869,6 @@ impl LearningModelDescriptionPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn InputFeatures(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>> {
         let this = self;
         unsafe {
@@ -921,7 +878,6 @@ impl LearningModelDescriptionPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn OutputFeatures(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>> {
         let this = self;
         unsafe {
@@ -980,7 +936,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LearningModelDeviceKindPreview(pub i32);
@@ -1006,13 +961,11 @@ unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKindPreview {
 impl ::windows::core::DefaultType for LearningModelDeviceKindPreview {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelEvaluationResultPreview(pub ::windows::core::IInspectable);
 impl LearningModelEvaluationResultPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1022,7 +975,6 @@ impl LearningModelEvaluationResultPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn Outputs(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
         unsafe {
@@ -1081,7 +1033,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LearningModelFeatureKindPreview(pub i32);
@@ -1106,14 +1057,12 @@ unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKindPreview {
 impl ::windows::core::DefaultType for LearningModelFeatureKindPreview {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelPreview(pub ::windows::core::IInspectable);
 impl LearningModelPreview {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation`*"]
     pub fn EvaluateAsync<'a, Param0: ::windows::core::IntoParam<'a, LearningModelBindingPreview>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, binding: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>> {
         let this = self;
         unsafe {
@@ -1123,7 +1072,6 @@ impl LearningModelPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation`, `Foundation_Collections`*"]
     pub fn EvaluateFeaturesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>> {
         let this = self;
         unsafe {
@@ -1132,7 +1080,6 @@ impl LearningModelPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<LearningModelDescriptionPreview> {
         let this = self;
         unsafe {
@@ -1141,7 +1088,6 @@ impl LearningModelPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn InferencingOptions(&self) -> ::windows::core::Result<InferencingOptionsPreview> {
         let this = self;
         unsafe {
@@ -1150,14 +1096,12 @@ impl LearningModelPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn SetInferencingOptions<'a, Param0: ::windows::core::IntoParam<'a, InferencingOptionsPreview>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation`, `Storage`*"]
     pub fn LoadModelFromStorageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(modelfile: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
         Self::ILearningModelPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1166,7 +1110,6 @@ impl LearningModelPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation`, `Storage_Streams`*"]
     pub fn LoadModelFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamReference>>(modelstream: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
         Self::ILearningModelPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1228,13 +1171,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelVariableDescriptorPreview(pub ::windows::core::IInspectable);
 impl LearningModelVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1243,7 +1184,6 @@ impl LearningModelVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1252,7 +1192,6 @@ impl LearningModelVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
         let this = self;
         unsafe {
@@ -1261,7 +1200,6 @@ impl LearningModelVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1343,13 +1281,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct MachineLearningPreviewContract(pub u8);
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapVariableDescriptorPreview(pub ::windows::core::IInspectable);
 impl MapVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn KeyKind(&self) -> ::windows::core::Result<FeatureElementKindPreview> {
         let this = self;
         unsafe {
@@ -1359,7 +1295,6 @@ impl MapVariableDescriptorPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn ValidStringKeys(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -1369,7 +1304,6 @@ impl MapVariableDescriptorPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn ValidIntegerKeys(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<i64>> {
         let this = self;
         unsafe {
@@ -1378,7 +1312,6 @@ impl MapVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Fields(&self) -> ::windows::core::Result<ILearningModelVariableDescriptorPreview> {
         let this = self;
         unsafe {
@@ -1387,7 +1320,6 @@ impl MapVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1396,7 +1328,6 @@ impl MapVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1405,7 +1336,6 @@ impl MapVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1414,7 +1344,6 @@ impl MapVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1495,13 +1424,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
         ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SequenceVariableDescriptorPreview(pub ::windows::core::IInspectable);
 impl SequenceVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ElementType(&self) -> ::windows::core::Result<ILearningModelVariableDescriptorPreview> {
         let this = self;
         unsafe {
@@ -1510,7 +1437,6 @@ impl SequenceVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1519,7 +1445,6 @@ impl SequenceVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1528,7 +1453,6 @@ impl SequenceVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1537,7 +1461,6 @@ impl SequenceVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1618,13 +1541,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
         ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorVariableDescriptorPreview(pub ::windows::core::IInspectable);
 impl TensorVariableDescriptorPreview {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn DataType(&self) -> ::windows::core::Result<FeatureElementKindPreview> {
         let this = self;
         unsafe {
@@ -1634,7 +1555,6 @@ impl TensorVariableDescriptorPreview {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<i64>> {
         let this = self;
         unsafe {
@@ -1643,7 +1563,6 @@ impl TensorVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1652,7 +1571,6 @@ impl TensorVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1661,7 +1579,6 @@ impl TensorVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
@@ -1670,7 +1587,6 @@ impl TensorVariableDescriptorPreview {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {

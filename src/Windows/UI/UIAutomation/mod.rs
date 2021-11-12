@@ -1,12 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "UI_UIAutomation_Core")]
 pub mod Core;
-#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AutomationConnection(pub ::windows::core::IInspectable);
 impl AutomationConnection {
-    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn IsRemoteSystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -14,7 +12,6 @@ impl AutomationConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -22,7 +19,6 @@ impl AutomationConnection {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -83,12 +79,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AutomationConnection {}
 unsafe impl ::core::marker::Sync for AutomationConnection {}
-#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AutomationConnectionBoundObject(pub ::windows::core::IInspectable);
 impl AutomationConnectionBoundObject {
-    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn Connection(&self) -> ::windows::core::Result<AutomationConnection> {
         let this = self;
         unsafe {
@@ -149,12 +143,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
-#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AutomationElement(pub ::windows::core::IInspectable);
 impl AutomationElement {
-    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn IsRemoteSystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -162,7 +154,6 @@ impl AutomationElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -170,7 +161,6 @@ impl AutomationElement {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -231,7 +221,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AutomationElement {}
 unsafe impl ::core::marker::Sync for AutomationElement {}
-#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AutomationTextRange(pub ::windows::core::IInspectable);

@@ -1,10 +1,10 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_System_WinRT_Direct3D11`, `Win32_Graphics_Dxgi`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn CreateDirect3D11DeviceFromDXGIDevice();
-    #[doc = "*Required features: `Win32_System_WinRT_Direct3D11`, `Win32_Graphics_Dxgi`*"]
+    pub fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice: super::super::super::Graphics::Dxgi::IDXGIDevice, graphicsdevice: *mut ::windows_sys::core::IInspectable) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn CreateDirect3D11SurfaceFromDXGISurface();
+    pub fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface: super::super::super::Graphics::Dxgi::IDXGISurface, graphicssurface: *mut ::windows_sys::core::IInspectable) -> ::windows_sys::core::HRESULT;
 }
+#[repr(transparent)]
+pub struct IDirect3DDxgiInterfaceAccess(pub *mut ::core::ffi::c_void);

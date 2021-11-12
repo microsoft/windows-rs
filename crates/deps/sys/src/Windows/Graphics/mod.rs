@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Graphics_Capture")]
 pub mod Capture;
 #[cfg(feature = "Graphics_DirectX")]
@@ -17,3 +17,15 @@ pub mod Printing;
 pub mod Printing3D;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
+pub struct DisplayAdapterId(i32);
+#[repr(C)]
+pub struct DisplayId(i32);
+#[repr(transparent)]
+pub struct IGeometrySource2D(pub *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct PointInt32(i32);
+#[repr(C)]
+pub struct RectInt32(i32);
+#[repr(C)]
+pub struct SizeInt32(i32);

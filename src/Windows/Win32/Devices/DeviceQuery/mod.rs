@@ -2,7 +2,6 @@
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 pub struct DEVPROP_FILTER_EXPRESSION {
     pub Operator: DEVPROP_OPERATOR,
     pub Property: super::Properties::DEVPROPERTY,
@@ -33,7 +32,6 @@ impl ::core::cmp::Eq for DEVPROP_FILTER_EXPRESSION {}
 unsafe impl ::windows::core::Abi for DEVPROP_FILTER_EXPRESSION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVPROP_OPERATOR(pub u32);
@@ -118,7 +116,6 @@ impl ::core::ops::Not for DEVPROP_OPERATOR {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 pub struct DEV_OBJECT {
     pub ObjectType: DEV_OBJECT_TYPE,
     pub pszObjectId: super::super::Foundation::PWSTR,
@@ -151,7 +148,6 @@ impl ::core::cmp::Eq for DEV_OBJECT {}
 unsafe impl ::windows::core::Abi for DEV_OBJECT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_OBJECT_TYPE(pub i32);
@@ -175,7 +171,6 @@ impl ::core::convert::From<i32> for DEV_OBJECT_TYPE {
 unsafe impl ::windows::core::Abi for DEV_OBJECT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_QUERY_FLAGS(pub i32);
@@ -195,7 +190,6 @@ unsafe impl ::windows::core::Abi for DEV_QUERY_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`*"]
 pub struct DEV_QUERY_PARAMETER {
     pub Key: super::Properties::DEVPROPKEY,
     pub Type: u32,
@@ -228,7 +222,6 @@ impl ::core::cmp::Eq for DEV_QUERY_PARAMETER {}
 unsafe impl ::windows::core::Abi for DEV_QUERY_PARAMETER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_QUERY_RESULT_ACTION(pub i32);
@@ -247,7 +240,6 @@ unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Action: DEV_QUERY_RESULT_ACTION,
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
@@ -299,7 +291,6 @@ impl ::core::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA_0 {}
 unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_QUERY_STATE(pub i32);
@@ -315,7 +306,6 @@ impl ::core::convert::From<i32> for DEV_QUERY_STATE {
 unsafe impl ::windows::core::Abi for DEV_QUERY_STATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[inline]
 pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
     #[cfg(windows)]
@@ -329,7 +319,6 @@ pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: ::core::option::Option<PDEV_QUERY_RESULT_CALLBACK>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut HDEVQUERY__> {
@@ -356,7 +345,6 @@ pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: ::core::option::Option<PDEV_QUERY_RESULT_CALLBACK>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut HDEVQUERY__> {
@@ -385,7 +373,6 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromId<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(objecttype: DEV_OBJECT_TYPE, pszobjectid: Param1, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: ::core::option::Option<PDEV_QUERY_RESULT_CALLBACK>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut HDEVQUERY__> {
@@ -413,7 +400,6 @@ pub unsafe fn DevCreateObjectQueryFromId<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromIdEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
@@ -468,7 +454,6 @@ pub unsafe fn DevCreateObjectQueryFromIdEx<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromIds<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(objecttype: DEV_OBJECT_TYPE, pszzobjectids: Param1, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: ::core::option::Option<PDEV_QUERY_RESULT_CALLBACK>, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut HDEVQUERY__> {
@@ -496,7 +481,6 @@ pub unsafe fn DevCreateObjectQueryFromIds<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromIdsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
@@ -551,7 +535,6 @@ pub unsafe fn DevCreateObjectQueryFromIdsEx<'a, Param1: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevFindProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pkey: *const super::Properties::DEVPROPKEY, store: super::Properties::DEVPROPSTORE, pszlocalename: Param2, cproperties: u32, pproperties: *const super::Properties::DEVPROPERTY) -> *mut super::Properties::DEVPROPERTY {
@@ -566,7 +549,6 @@ pub unsafe fn DevFindProperty<'a, Param2: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevFreeObjectProperties(cpropertycount: u32, pproperties: *const super::Properties::DEVPROPERTY) {
@@ -581,7 +563,6 @@ pub unsafe fn DevFreeObjectProperties(cpropertycount: u32, pproperties: *const s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
@@ -596,7 +577,6 @@ pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevGetObjectProperties<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(objecttype: DEV_OBJECT_TYPE, pszobjectid: Param1, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, pcpropertycount: *mut u32, ppproperties: *mut *mut super::Properties::DEVPROPERTY) -> ::windows::core::Result<()> {
@@ -611,7 +591,6 @@ pub unsafe fn DevGetObjectProperties<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevGetObjectPropertiesEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(objecttype: DEV_OBJECT_TYPE, pszobjectid: Param1, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcpropertycount: *mut u32, ppproperties: *mut *mut super::Properties::DEVPROPERTY) -> ::windows::core::Result<()> {
@@ -637,7 +616,6 @@ pub unsafe fn DevGetObjectPropertiesEx<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevGetObjects(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows::core::Result<()> {
@@ -662,7 +640,6 @@ pub unsafe fn DevGetObjects(objecttype: DEV_OBJECT_TYPE, queryflags: u32, creque
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows::core::Result<()> {
@@ -691,7 +668,6 @@ pub unsafe fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, creq
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 pub struct HDEVQUERY__ {
     pub unused: i32,
 }
@@ -715,6 +691,5 @@ impl ::core::cmp::Eq for HDEVQUERY__ {}
 unsafe impl ::windows::core::Abi for HDEVQUERY__ {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub type PDEV_QUERY_RESULT_CALLBACK = unsafe extern "system" fn(hdevquery: *const HDEVQUERY__, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA);

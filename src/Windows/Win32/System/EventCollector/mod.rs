@@ -1,13 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_CREATE_NEW: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_OPEN_ALWAYS: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_OPEN_EXISTING: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_READ_ACCESS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_CONFIGURATION_MODE(pub i32);
@@ -23,7 +18,6 @@ impl ::core::convert::From<i32> for EC_SUBSCRIPTION_CONFIGURATION_MODE {
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_CONFIGURATION_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_CONTENT_FORMAT(pub i32);
@@ -37,7 +31,6 @@ impl ::core::convert::From<i32> for EC_SUBSCRIPTION_CONTENT_FORMAT {
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_CONTENT_FORMAT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_CREDENTIALS_TYPE(pub i32);
@@ -54,7 +47,6 @@ impl ::core::convert::From<i32> for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_DELIVERY_MODE(pub i32);
@@ -68,7 +60,6 @@ impl ::core::convert::From<i32> for EC_SUBSCRIPTION_DELIVERY_MODE {
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_DELIVERY_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_PROPERTY_ID(pub i32);
@@ -113,7 +104,6 @@ impl ::core::convert::From<i32> for EC_SUBSCRIPTION_PROPERTY_ID {
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_PROPERTY_ID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(pub i32);
@@ -129,7 +119,6 @@ impl ::core::convert::From<i32> for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(pub i32);
@@ -149,7 +138,6 @@ impl ::core::convert::From<i32> for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
 unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_SUBSCRIPTION_TYPE(pub i32);
@@ -166,7 +154,6 @@ unsafe impl ::windows::core::Abi for EC_SUBSCRIPTION_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 pub struct EC_VARIANT {
     pub Anonymous: EC_VARIANT_0,
     pub Count: u32,
@@ -226,7 +213,6 @@ impl ::core::cmp::Eq for EC_VARIANT_0 {}
 unsafe impl ::windows::core::Abi for EC_VARIANT_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EC_VARIANT_TYPE(pub i32);
@@ -244,13 +230,9 @@ impl ::core::convert::From<i32> for EC_VARIANT_TYPE {
 unsafe impl ::windows::core::Abi for EC_VARIANT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_WRITE_ACCESS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
@@ -265,7 +247,6 @@ pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcDeleteSubscription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(subscriptionname: Param0, flags: u32) -> super::super::Foundation::BOOL {
@@ -280,7 +261,6 @@ pub unsafe fn EcDeleteSubscription<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebuffersize: u32, subscriptionnamebuffer: super::super::Foundation::PWSTR, subscriptionnamebufferused: *mut u32) -> super::super::Foundation::BOOL {
@@ -295,7 +275,6 @@ pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
@@ -318,7 +297,6 @@ pub unsafe fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL {
@@ -333,7 +311,6 @@ pub unsafe fn EcGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
@@ -348,7 +325,6 @@ pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(subscriptionname: Param0, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: Param2, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
@@ -371,7 +347,6 @@ pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) -> super::super::Foundation::BOOL {
@@ -386,7 +361,6 @@ pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcOpenSubscription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(subscriptionname: Param0, accessmask: u32, flags: u32) -> isize {
@@ -401,7 +375,6 @@ pub unsafe fn EcOpenSubscription<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[inline]
 pub unsafe fn EcOpenSubscriptionEnum(flags: u32) -> isize {
     #[cfg(windows)]
@@ -415,7 +388,6 @@ pub unsafe fn EcOpenSubscriptionEnum(flags: u32) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcRemoveObjectArrayElement(objectarray: isize, arrayindex: u32) -> super::super::Foundation::BOOL {
@@ -430,7 +402,6 @@ pub unsafe fn EcRemoveObjectArrayElement(objectarray: isize, arrayindex: u32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcRetrySubscription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(subscriptionname: Param0, eventsourcename: Param1, flags: u32) -> super::super::Foundation::BOOL {
@@ -445,7 +416,6 @@ pub unsafe fn EcRetrySubscription<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcSaveSubscription(subscription: isize, flags: u32) -> super::super::Foundation::BOOL {
@@ -460,7 +430,6 @@ pub unsafe fn EcSaveSubscription(subscription: isize, flags: u32) -> super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcSetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL {
@@ -475,7 +444,6 @@ pub unsafe fn EcSetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcSetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL {

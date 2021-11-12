@@ -1,13 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 pub const CDB_REPORT_BITS: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 pub const CDB_REPORT_BYTES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
 pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -21,7 +16,6 @@ pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcomdb: Param0, comnumber: u32, forceclaim: Param2, forced: *mut super::super::Foundation::BOOL) -> i32 {
@@ -36,7 +30,6 @@ pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
 pub unsafe fn ComDBClose<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0) -> i32 {
     #[cfg(windows)]
@@ -50,7 +43,6 @@ pub unsafe fn ComDBClose<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
 pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -64,7 +56,6 @@ pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
 pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -78,7 +69,6 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
 pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: u32) -> i32 {
     #[cfg(windows)]
@@ -92,7 +82,6 @@ pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
 #[inline]
 pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, newsize: u32) -> i32 {
     #[cfg(windows)]

@@ -1,1332 +1,1480 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AllJoynAcceptBusConnection();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
+    pub fn AllJoynAcceptBusConnection(serverbushandle: super::super::Foundation::HANDLE, abortevent: super::super::Foundation::HANDLE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AllJoynCloseBusHandle();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
+    pub fn AllJoynCloseBusHandle(bushandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AllJoynConnectToBus();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`, `Win32_Security`*"]
+    pub fn AllJoynConnectToBus(connectionspec: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn AllJoynCreateBus();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AllJoynEnumEvents();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AllJoynEventSelect();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AllJoynReceiveFromBus();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AllJoynSendToBus();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn QCC_StatusText();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_create_empty();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_create_full();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_createfrommsgarg();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
+    pub fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_createfromxml();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
+    pub fn AllJoynEnumEvents(connectedbushandle: super::super::Foundation::HANDLE, eventtoreset: super::super::Foundation::HANDLE, eventtypes: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_getaboutdata();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getajsoftwareversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getannouncedaboutdata();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getappid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_getappname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getdateofmanufacture();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getdefaultlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_getdescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getdeviceid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_getdevicename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_getfield();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getfields();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_getfieldsignature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_gethardwareversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_getmanufacturer();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getmodelnumber();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getsoftwareversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getsupportedlanguages();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_getsupporturl();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_isfieldannounced();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_isfieldlocalized();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_isfieldrequired();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_isvalid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdata_setappid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setappid_fromstring();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setappname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setdateofmanufacture();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setdefaultlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setdescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setdeviceid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setdevicename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setfield();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_sethardwareversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setmanufacturer();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setmodelnumber();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setsoftwareversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setsupportedlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdata_setsupporturl();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutdatalistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutdatalistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticon_clear();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticon_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticon_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticon_getcontent();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticon_geturl();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_abouticon_setcontent();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticon_setcontent_frommsgarg();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_abouticon_seturl();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticonobj_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticonobj_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_abouticonproxy_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticonproxy_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticonproxy_geticon();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_abouticonproxy_getversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutlistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutlistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobj_announce();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobj_announce_using_datalistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobj_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobj_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobj_unannounce();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobjectdescription_clear();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobjectdescription_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobjectdescription_create_full();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobjectdescription_createfrommsgarg();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobjectdescription_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutobjectdescription_getinterfacepaths();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutobjectdescription_getinterfaces();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobjectdescription_getmsgarg();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutobjectdescription_getpaths();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutobjectdescription_hasinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutobjectdescription_hasinterfaceatpath();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutobjectdescription_haspath();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutproxy_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutproxy_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_aboutproxy_getaboutdata();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutproxy_getobjectdescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_aboutproxy_getversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_applicationstatelistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_applicationstatelistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_authlistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_authlistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_authlistener_requestcredentialsresponse();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_authlistener_setsharedsecret();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_authlistener_verifycredentialsresponse();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_authlistenerasync_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_authlistenerasync_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_autopinger_adddestination();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_autopinger_addpinggroup();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_autopinger_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_autopinger_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_autopinger_pause();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_autopinger_removedestination();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_autopinger_removepinggroup();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_autopinger_resume();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_autopinger_setpinginterval();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_addlogonentry();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_addmatch();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_advertisename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_bindsessionport();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_canceladvertisename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_cancelfindadvertisedname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_cancelfindadvertisednamebytransport();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_cancelwhoimplements_interface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_cancelwhoimplements_interfaces();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_clearkeys();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_clearkeystore();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_connect();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_create_concurrency();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_createinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_createinterface_secure();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_createinterfacesfromxml();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_deletedefaultkeystore();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_deleteinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_disconnect();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_enableconcurrentcallbacks();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_enablepeersecurity();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_findadvertisedname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_findadvertisednamebytransport();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_getalljoyndebugobj();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_getalljoynproxyobj();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_getconcurrency();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_getconnectspec();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_getdbusproxyobj();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_getglobalguidstring();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_getinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_getinterfaces();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_getkeyexpiration();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_getpeerguid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_getpermissionconfigurator();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_gettimestamp();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_getuniquename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_isconnected();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_ispeersecurityenabled();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_isstarted();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_isstopping();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_join();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_joinsession();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_joinsessionasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_leavesession();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_namehasowner();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_ping();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_registeraboutlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_registerapplicationstatelistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_registerbuslistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_registerbusobject();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_registerbusobject_secure();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_registerkeystorelistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_registersignalhandler();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_registersignalhandlerwithrule();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_releasename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_reloadkeystore();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_removematch();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_removesessionmember();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_requestname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_secureconnection();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_secureconnectionasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_setdaemondebug();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_setkeyexpiration();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_setlinktimeout();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_setlinktimeoutasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_setsessionlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_start();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_stop();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_unbindsessionport();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_unregisteraboutlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_unregisterallaboutlisteners();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_unregisterallhandlers();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_unregisterapplicationstatelistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_unregisterbuslistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_unregisterbusobject();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_unregistersignalhandler();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_unregistersignalhandlerwithrule();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_whoimplements_interface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busattachment_whoimplements_interfaces();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_buslistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_buslistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_addinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_addinterface_announced();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_addmethodhandler();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_addmethodhandlers();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_cancelsessionlessmessage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_cancelsessionlessmessage_serial();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_emitpropertieschanged();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_emitpropertychanged();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_getannouncedinterfacenames();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_getbusattachment();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_getname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_getpath();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_issecure();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_methodreply_args();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_methodreply_err();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_methodreply_status();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_busobject_setannounceflag();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_signal();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_credentials_clear();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_credentials_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_credentials_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_getcertchain();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_credentials_getexpiration();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_getlogonentry();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_getpassword();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_getprivateKey();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_getusername();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_credentials_isset();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_setcertchain();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_credentials_setexpiration();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_setlogonentry();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_setpassword();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_setprivatekey();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_credentials_setusername();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_getbuildinfo();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_getnumericversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_getversion();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_init();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_activate();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addargannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addmember();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addmemberannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addmethod();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addproperty();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addpropertyannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_addsignal();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_eql();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getannotationatindex();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_getannotationscount();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getargdescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getdescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_getdescriptionlanguages();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getdescriptionlanguages2();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getdescriptiontranslationcallback();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getmember();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getmemberannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getmemberargannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getmemberdescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getmembers();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getmethod();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getproperties();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getproperty();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getpropertyannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getpropertydescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_getsecuritypolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_getsignal();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_hasdescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_hasmember();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_hasproperties();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_hasproperty();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_introspect();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_interfacedescription_issecure();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_member_eql();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_member_getannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_member_getannotationatindex();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_member_getannotationscount();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_member_getargannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_member_getargannotationatindex();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_member_getargannotationscount();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_property_eql();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_property_getannotation();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_property_getannotationatindex();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_property_getannotationscount();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setargdescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setargdescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setdescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setdescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setdescriptionlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setdescriptiontranslationcallback();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setmemberdescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setmemberdescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setpropertydescription();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setpropertydescriptionforlanguage();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_keystorelistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_keystorelistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_keystorelistener_getkeys();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_keystorelistener_putkeys();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_keystorelistener_with_synchronization_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_description();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_eql();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_getarg();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_getargs();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getauthmechanism();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_getcallserial();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_getcompressiontoken();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getdestination();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_geterrorname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_getflags();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getmembername();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getobjectpath();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getreceiveendpointname();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_getreplyserial();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getsender();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_getsessionid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_getsignature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_gettimestamp();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_gettype();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_isbroadcastsignal();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_isencrypted();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_isexpired();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_isglobalbroadcast();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_issessionless();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_isunreliable();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_parseargs();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_message_setendianess();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_message_tostring();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_array_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_array_element();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_array_get();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_array_set();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_array_set_offset();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_array_signature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_array_tostring();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_clear();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_clone();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_copy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_create_and_set();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_equal();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_get();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_array_element();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_get_array_elementsignature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_array_numberofelements();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_bool();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_bool_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_double();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_double_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_int16();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_int16_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_int32();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_int32_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_int64();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_int64_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_objectpath();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_signature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_string();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint16();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint16_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint32();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint32_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint64();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint64_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint8();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_uint8_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_get_variant();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_get_variant_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_getdictelement();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_getkey();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_getmember();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_getnummembers();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_gettype();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_getvalue();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_hassignature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_set();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_set_and_stabilize();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_bool();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_bool_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_double();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_double_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_int16();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_int16_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_int32();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_int32_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_int64();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_int64_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_set_objectpath();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_objectpath_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_set_signature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_signature_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_set_string();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_string_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint16();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint16_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint32();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint32_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint64();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint64_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint8();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_set_uint8_array();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_setdictentry();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_setstruct();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_signature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_msgarg_stabilize();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_msgarg_tostring();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observer_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observer_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_observer_get();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observer_getfirst();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observer_getnext();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observer_registerlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observer_unregisteralllisteners();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observer_unregisterlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observerlistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_observerlistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_passwordmanager_setcredentials();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurationlistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurationlistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_certificatechain_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_certificateid_cleanup();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_certificateidarray_cleanup();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_claim();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_endmanagement();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getapplicationstate();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getclaimcapabilities();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getdefaultpolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getidentity();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getidentitycertificateid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getmanifests();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getmanifesttemplate();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getmembershipsummaries();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getpolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_getpublickey();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_installmanifests();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_installmembership();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_manifestarray_cleanup();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_manifesttemplate_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_policy_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_publickey_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_removemembership();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_reset();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_resetpolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_setapplicationstate();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_setclaimcapabilities();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_startmanagement();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_updateidentity();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_permissionconfigurator_updatepolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_pinglistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_pinglistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_addchild();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_addinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_addinterface_by_name();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_copy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_create_secure();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_enablepropertycaching();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getallproperties();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getallpropertiesasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getchild();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_getchildren();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_getinterfaces();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getpath();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getproperty();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getpropertyasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getservicename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_getsessionid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getuniquename();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_implementsinterface();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_introspectremoteobject();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_introspectremoteobjectasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_issecure();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_isvalid();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcall();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcall_member();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcall_member_noreply();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcall_noreply();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcallasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcallasync_member();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_parsexml();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_ref_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_ref_decref();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_ref_get();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_ref_incref();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_registerpropertieschangedlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_removechild();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_secureconnection();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_proxybusobject_secureconnectionasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_setproperty();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_setpropertyasync();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_unregisterpropertieschangedlistener();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_routerinit();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_routerinitwithconfig();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_routershutdown();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_claim();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_computemanifestdigest();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_digest_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_eccpublickey_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_endmanagement();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_getapplicationstate();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_getclaimcapabilities();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_getdefaultpolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_geteccpublickey();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_getmanifesttemplate();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionport();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_getpolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_installmembership();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_manifest_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_manifesttemplate_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_policy_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_reset();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_resetpolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_setmanifestsignature();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_signmanifest();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_startmanagement();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_updateidentity();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_securityapplicationproxy_updatepolicy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_sessionlistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionlistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_cmp();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_get_multipoint();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_get_proximity();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_get_traffic();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_get_transports();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_iscompatible();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_set_multipoint();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_set_proximity();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_set_traffic();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionopts_set_transports();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_sessionportlistener_create();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_sessionportlistener_destroy();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_shutdown();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_unity_deferred_callbacks_process();
-    #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-    pub fn alljoyn_unity_set_deferred_callback_mainthread_only();
+    pub fn AllJoynEventSelect(connectedbushandle: super::super::Foundation::HANDLE, eventhandle: super::super::Foundation::HANDLE, eventtypes: u32) -> super::super::Foundation::BOOL;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bytestoread: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *const ::core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_create(defaultlanguage: super::super::Foundation::PSTR) -> alljoyn_aboutdata;
+    pub fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_create_full(arg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> alljoyn_aboutdata;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_createfrommsgarg(data: alljoyn_aboutdata, arg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_createfromxml(data: alljoyn_aboutdata, aboutdataxml: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_aboutdata_destroy(data: alljoyn_aboutdata);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_getaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_aboutdata_getajsoftwareversion(data: alljoyn_aboutdata, ajsoftwareversion: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_aboutdata_getannouncedaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg) -> QStatus;
+    pub fn alljoyn_aboutdata_getappid(data: alljoyn_aboutdata, appid: *mut *mut u8, num: *mut usize) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_getappname(data: alljoyn_aboutdata, appname: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_aboutdata_getdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_aboutdata_getdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: *mut *mut i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_getdescription(data: alljoyn_aboutdata, description: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_aboutdata_getdeviceid(data: alljoyn_aboutdata, deviceid: *mut *mut i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_getdevicename(data: alljoyn_aboutdata, devicename: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_getfield(data: alljoyn_aboutdata, name: super::super::Foundation::PSTR, value: *mut alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: *const *const i8, num_fields: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_getfieldsignature(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_aboutdata_gethardwareversion(data: alljoyn_aboutdata, hardwareversion: *mut *mut i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_getmanufacturer(data: alljoyn_aboutdata, manufacturer: *mut *mut i8, language: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_aboutdata_getmodelnumber(data: alljoyn_aboutdata, modelnumber: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_aboutdata_getsoftwareversion(data: alljoyn_aboutdata, softwareversion: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_aboutdata_getsupportedlanguages(data: alljoyn_aboutdata, languagetags: *const *const i8, num: usize) -> usize;
+    pub fn alljoyn_aboutdata_getsupporturl(data: alljoyn_aboutdata, supporturl: *mut *mut i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_isfieldannounced(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> u8;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_isfieldlocalized(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> u8;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_isfieldrequired(data: alljoyn_aboutdata, fieldname: super::super::Foundation::PSTR) -> u8;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_isvalid(data: alljoyn_aboutdata, language: super::super::Foundation::PSTR) -> u8;
+    pub fn alljoyn_aboutdata_setappid(data: alljoyn_aboutdata, appid: *const u8, num: usize) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setappid_fromstring(data: alljoyn_aboutdata, appid: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setappname(data: alljoyn_aboutdata, appname: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setdescription(data: alljoyn_aboutdata, description: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setdeviceid(data: alljoyn_aboutdata, deviceid: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setdevicename(data: alljoyn_aboutdata, devicename: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setfield(data: alljoyn_aboutdata, name: super::super::Foundation::PSTR, value: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_sethardwareversion(data: alljoyn_aboutdata, hardwareversion: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setmanufacturer(data: alljoyn_aboutdata, manufacturer: super::super::Foundation::PSTR, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setmodelnumber(data: alljoyn_aboutdata, modelnumber: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setsoftwareversion(data: alljoyn_aboutdata, softwareversion: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setsupportedlanguage(data: alljoyn_aboutdata, language: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdata_setsupporturl(data: alljoyn_aboutdata, supporturl: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutdatalistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_aboutdatalistener;
+    pub fn alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener);
+    pub fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle);
+    pub fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle;
+    pub fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle);
+    pub fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize);
+    pub fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_abouticon_setcontent(icon: *mut _alljoyn_abouticon_handle, r#type: super::super::Foundation::PSTR, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus;
+    pub fn alljoyn_abouticon_setcontent_frommsgarg(icon: *mut _alljoyn_abouticon_handle, arg: alljoyn_msgarg) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_abouticon_seturl(icon: *mut _alljoyn_abouticon_handle, r#type: super::super::Foundation::PSTR, url: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_abouticonobj_create(bus: alljoyn_busattachment, icon: *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle;
+    pub fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_abouticonproxy_create(bus: alljoyn_busattachment, busname: super::super::Foundation::PSTR, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle;
+    pub fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle);
+    pub fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy_handle, icon: *mut _alljoyn_abouticon_handle) -> QStatus;
+    pub fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonproxy_handle, version: *mut u16) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_aboutlistener;
+    pub fn alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener);
+    pub fn alljoyn_aboutobj_announce(obj: alljoyn_aboutobj, sessionport: u16, aboutdata: alljoyn_aboutdata) -> QStatus;
+    pub fn alljoyn_aboutobj_announce_using_datalistener(obj: alljoyn_aboutobj, sessionport: u16, aboutlistener: alljoyn_aboutdatalistener) -> QStatus;
+    pub fn alljoyn_aboutobj_create(bus: alljoyn_busattachment, isannounced: alljoyn_about_announceflag) -> alljoyn_aboutobj;
+    pub fn alljoyn_aboutobj_destroy(obj: alljoyn_aboutobj);
+    pub fn alljoyn_aboutobj_unannounce(obj: alljoyn_aboutobj) -> QStatus;
+    pub fn alljoyn_aboutobjectdescription_clear(description: alljoyn_aboutobjectdescription);
+    pub fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdescription;
+    pub fn alljoyn_aboutobjectdescription_create_full(arg: alljoyn_msgarg) -> alljoyn_aboutobjectdescription;
+    pub fn alljoyn_aboutobjectdescription_createfrommsgarg(description: alljoyn_aboutobjectdescription, arg: alljoyn_msgarg) -> QStatus;
+    pub fn alljoyn_aboutobjectdescription_destroy(description: alljoyn_aboutobjectdescription);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutobjectdescription_getinterfacepaths(description: alljoyn_aboutobjectdescription, interfacename: super::super::Foundation::PSTR, paths: *const *const i8, numpaths: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutobjectdescription_getinterfaces(description: alljoyn_aboutobjectdescription, path: super::super::Foundation::PSTR, interfaces: *const *const i8, numinterfaces: usize) -> usize;
+    pub fn alljoyn_aboutobjectdescription_getmsgarg(description: alljoyn_aboutobjectdescription, msgarg: alljoyn_msgarg) -> QStatus;
+    pub fn alljoyn_aboutobjectdescription_getpaths(description: alljoyn_aboutobjectdescription, paths: *const *const i8, numpaths: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutobjectdescription_hasinterface(description: alljoyn_aboutobjectdescription, interfacename: super::super::Foundation::PSTR) -> u8;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutobjectdescription_hasinterfaceatpath(description: alljoyn_aboutobjectdescription, path: super::super::Foundation::PSTR, interfacename: super::super::Foundation::PSTR) -> u8;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutobjectdescription_haspath(description: alljoyn_aboutobjectdescription, path: super::super::Foundation::PSTR) -> u8;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutproxy_create(bus: alljoyn_busattachment, busname: super::super::Foundation::PSTR, sessionid: u32) -> alljoyn_aboutproxy;
+    pub fn alljoyn_aboutproxy_destroy(proxy: alljoyn_aboutproxy);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_aboutproxy_getaboutdata(proxy: alljoyn_aboutproxy, language: super::super::Foundation::PSTR, data: alljoyn_msgarg) -> QStatus;
+    pub fn alljoyn_aboutproxy_getobjectdescription(proxy: alljoyn_aboutproxy, objectdesc: alljoyn_msgarg) -> QStatus;
+    pub fn alljoyn_aboutproxy_getversion(proxy: alljoyn_aboutproxy, version: *mut u16) -> QStatus;
+    pub fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener;
+    pub fn alljoyn_applicationstatelistener_destroy(listener: alljoyn_applicationstatelistener);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
+    pub fn alljoyn_authlistener_destroy(listener: alljoyn_authlistener);
+    pub fn alljoyn_authlistener_requestcredentialsresponse(listener: alljoyn_authlistener, authcontext: *mut ::core::ffi::c_void, accept: i32, credentials: alljoyn_credentials) -> QStatus;
+    pub fn alljoyn_authlistener_setsharedsecret(listener: alljoyn_authlistener, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus;
+    pub fn alljoyn_authlistener_verifycredentialsresponse(listener: alljoyn_authlistener, authcontext: *mut ::core::ffi::c_void, accept: i32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlistenerasync_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
+    pub fn alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_autopinger_adddestination(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_autopinger_addpinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, listener: alljoyn_pinglistener, pinginterval: u32);
+    pub fn alljoyn_autopinger_create(bus: alljoyn_busattachment) -> alljoyn_autopinger;
+    pub fn alljoyn_autopinger_destroy(autopinger: alljoyn_autopinger);
+    pub fn alljoyn_autopinger_pause(autopinger: alljoyn_autopinger);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_autopinger_removedestination(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR, removeall: i32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_autopinger_removepinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR);
+    pub fn alljoyn_autopinger_resume(autopinger: alljoyn_autopinger);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_autopinger_setpinginterval(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, pinginterval: u32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_addlogonentry(bus: alljoyn_busattachment, authmechanism: super::super::Foundation::PSTR, username: super::super::Foundation::PSTR, password: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_addmatch(bus: alljoyn_busattachment, rule: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_advertisename(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, transports: u16) -> QStatus;
+    pub fn alljoyn_busattachment_bindsessionport(bus: alljoyn_busattachment, sessionport: *mut u16, opts: alljoyn_sessionopts, listener: alljoyn_sessionportlistener) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_canceladvertisename(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, transports: u16) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_cancelfindadvertisedname(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_cancelfindadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR, transports: u16) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_cancelwhoimplements_interface(bus: alljoyn_busattachment, implementsinterface: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_cancelwhoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_clearkeys(bus: alljoyn_busattachment, guid: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_clearkeystore(bus: alljoyn_busattachment);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_connect(bus: alljoyn_busattachment, connectspec: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_create(applicationname: super::super::Foundation::PSTR, allowremotemessages: i32) -> alljoyn_busattachment;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_create_concurrency(applicationname: super::super::Foundation::PSTR, allowremotemessages: i32, concurrency: u32) -> alljoyn_busattachment;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_createinterface(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, iface: *mut alljoyn_interfacedescription) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_createinterface_secure(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, iface: *mut alljoyn_interfacedescription, secpolicy: alljoyn_interfacedescription_securitypolicy) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_createinterfacesfromxml(bus: alljoyn_busattachment, xml: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_deletedefaultkeystore(applicationname: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_deleteinterface(bus: alljoyn_busattachment, iface: alljoyn_interfacedescription) -> QStatus;
+    pub fn alljoyn_busattachment_destroy(bus: alljoyn_busattachment);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_disconnect(bus: alljoyn_busattachment, unused: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_enableconcurrentcallbacks(bus: alljoyn_busattachment);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_enablepeersecurity(bus: alljoyn_busattachment, authmechanisms: super::super::Foundation::PSTR, listener: alljoyn_authlistener, keystorefilename: super::super::Foundation::PSTR, isshared: i32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus: alljoyn_busattachment, authmechanisms: super::super::Foundation::PSTR, authlistener: alljoyn_authlistener, keystorefilename: super::super::Foundation::PSTR, isshared: i32, permissionconfigurationlistener: alljoyn_permissionconfigurationlistener) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_findadvertisedname(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_findadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: super::super::Foundation::PSTR, transports: u16) -> QStatus;
+    pub fn alljoyn_busattachment_getalljoyndebugobj(bus: alljoyn_busattachment) -> alljoyn_proxybusobject;
+    pub fn alljoyn_busattachment_getalljoynproxyobj(bus: alljoyn_busattachment) -> alljoyn_proxybusobject;
+    pub fn alljoyn_busattachment_getconcurrency(bus: alljoyn_busattachment) -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_getconnectspec(bus: alljoyn_busattachment) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_busattachment_getdbusproxyobj(bus: alljoyn_busattachment) -> alljoyn_proxybusobject;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_getglobalguidstring(bus: alljoyn_busattachment) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_getinterface(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR) -> alljoyn_interfacedescription;
+    pub fn alljoyn_busattachment_getinterfaces(bus: alljoyn_busattachment, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_getkeyexpiration(bus: alljoyn_busattachment, guid: super::super::Foundation::PSTR, timeout: *mut u32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_getpeerguid(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, guid: super::super::Foundation::PSTR, guidsz: *mut usize) -> QStatus;
+    pub fn alljoyn_busattachment_getpermissionconfigurator(bus: alljoyn_busattachment) -> alljoyn_permissionconfigurator;
+    pub fn alljoyn_busattachment_gettimestamp() -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_getuniquename(bus: alljoyn_busattachment) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_busattachment_isconnected(bus: alljoyn_busattachment) -> i32;
+    pub fn alljoyn_busattachment_ispeersecurityenabled(bus: alljoyn_busattachment) -> i32;
+    pub fn alljoyn_busattachment_isstarted(bus: alljoyn_busattachment) -> i32;
+    pub fn alljoyn_busattachment_isstopping(bus: alljoyn_busattachment) -> i32;
+    pub fn alljoyn_busattachment_join(bus: alljoyn_busattachment) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_joinsession(bus: alljoyn_busattachment, sessionhost: super::super::Foundation::PSTR, sessionport: u16, listener: alljoyn_sessionlistener, sessionid: *mut u32, opts: alljoyn_sessionopts) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: super::super::Foundation::PSTR, sessionport: u16, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: alljoyn_busattachment_joinsessioncb_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_busattachment_leavesession(bus: alljoyn_busattachment, sessionid: u32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_namehasowner(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, hasowner: *mut i32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_ping(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, timeout: u32) -> QStatus;
+    pub fn alljoyn_busattachment_registeraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
+    pub fn alljoyn_busattachment_registerapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener) -> QStatus;
+    pub fn alljoyn_busattachment_registerbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
+    pub fn alljoyn_busattachment_registerbusobject(bus: alljoyn_busattachment, obj: alljoyn_busobject) -> QStatus;
+    pub fn alljoyn_busattachment_registerbusobject_secure(bus: alljoyn_busattachment, obj: alljoyn_busobject) -> QStatus;
+    pub fn alljoyn_busattachment_registerkeystorelistener(bus: alljoyn_busattachment, listener: alljoyn_keystorelistener) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_releasename(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_reloadkeystore(bus: alljoyn_busattachment) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_removematch(bus: alljoyn_busattachment, rule: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_removesessionmember(bus: alljoyn_busattachment, sessionid: u32, membername: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_requestname(bus: alljoyn_busattachment, requestedname: super::super::Foundation::PSTR, flags: u32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_secureconnection(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, forceauth: i32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_secureconnectionasync(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, forceauth: i32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_setdaemondebug(bus: alljoyn_busattachment, module: super::super::Foundation::PSTR, level: u32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_setkeyexpiration(bus: alljoyn_busattachment, guid: super::super::Foundation::PSTR, timeout: u32) -> QStatus;
+    pub fn alljoyn_busattachment_setlinktimeout(bus: alljoyn_busattachment, sessionid: u32, linktimeout: *mut u32) -> QStatus;
+    pub fn alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: u32, linktimeout: u32, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_busattachment_setsessionlistener(bus: alljoyn_busattachment, sessionid: u32, listener: alljoyn_sessionlistener) -> QStatus;
+    pub fn alljoyn_busattachment_start(bus: alljoyn_busattachment) -> QStatus;
+    pub fn alljoyn_busattachment_stop(bus: alljoyn_busattachment) -> QStatus;
+    pub fn alljoyn_busattachment_unbindsessionport(bus: alljoyn_busattachment, sessionport: u16) -> QStatus;
+    pub fn alljoyn_busattachment_unregisteraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
+    pub fn alljoyn_busattachment_unregisterallaboutlisteners(bus: alljoyn_busattachment);
+    pub fn alljoyn_busattachment_unregisterallhandlers(bus: alljoyn_busattachment) -> QStatus;
+    pub fn alljoyn_busattachment_unregisterapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener) -> QStatus;
+    pub fn alljoyn_busattachment_unregisterbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
+    pub fn alljoyn_busattachment_unregisterbusobject(bus: alljoyn_busattachment, object: alljoyn_busobject);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busattachment_whoimplements_interface(bus: alljoyn_busattachment, implementsinterface: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_whoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_buslistener;
+    pub fn alljoyn_buslistener_destroy(listener: alljoyn_buslistener);
+    pub fn alljoyn_busobject_addinterface(bus: alljoyn_busobject, iface: alljoyn_interfacedescription) -> QStatus;
+    pub fn alljoyn_busobject_addinterface_announced(bus: alljoyn_busobject, iface: alljoyn_interfacedescription) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: alljoyn_messagereceiver_methodhandler_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus;
+    pub fn alljoyn_busobject_cancelsessionlessmessage(bus: alljoyn_busobject, msg: alljoyn_message) -> QStatus;
+    pub fn alljoyn_busobject_cancelsessionlessmessage_serial(bus: alljoyn_busobject, serialnumber: u32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_create(path: super::super::Foundation::PSTR, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject;
+    pub fn alljoyn_busobject_destroy(bus: alljoyn_busobject);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_emitpropertieschanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propnames: *const *const i8, numprops: usize, id: u32);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_emitpropertychanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg, id: u32);
+    pub fn alljoyn_busobject_getannouncedinterfacenames(bus: alljoyn_busobject, interfaces: *const *const i8, numinterfaces: usize) -> usize;
+    pub fn alljoyn_busobject_getbusattachment(bus: alljoyn_busobject) -> alljoyn_busattachment;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_getname(bus: alljoyn_busobject, buffer: super::super::Foundation::PSTR, buffersz: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_getpath(bus: alljoyn_busobject) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_busobject_issecure(bus: alljoyn_busobject) -> i32;
+    pub fn alljoyn_busobject_methodreply_args(bus: alljoyn_busobject, msg: alljoyn_message, args: alljoyn_msgarg, numargs: usize) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_methodreply_err(bus: alljoyn_busobject, msg: alljoyn_message, error: super::super::Foundation::PSTR, errormessage: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busobject_methodreply_status(bus: alljoyn_busobject, msg: alljoyn_message, status: QStatus) -> QStatus;
+    pub fn alljoyn_busobject_setannounceflag(bus: alljoyn_busobject, iface: alljoyn_interfacedescription, isannounced: alljoyn_about_announceflag) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_busobject_signal(bus: alljoyn_busobject, destination: super::super::Foundation::PSTR, sessionid: u32, signal: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, timetolive: u16, flags: u8, msg: alljoyn_message) -> QStatus;
+    pub fn alljoyn_credentials_clear(cred: alljoyn_credentials);
+    pub fn alljoyn_credentials_create() -> alljoyn_credentials;
+    pub fn alljoyn_credentials_destroy(cred: alljoyn_credentials);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_getcertchain(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_credentials_getexpiration(cred: alljoyn_credentials) -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_getlogonentry(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_getpassword(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_getprivateKey(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_getusername(cred: alljoyn_credentials) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_credentials_isset(cred: alljoyn_credentials, creds: u16) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_setcertchain(cred: alljoyn_credentials, certchain: super::super::Foundation::PSTR);
+    pub fn alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: u32);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_setlogonentry(cred: alljoyn_credentials, logonentry: super::super::Foundation::PSTR);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_setpassword(cred: alljoyn_credentials, pwd: super::super::Foundation::PSTR);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_setprivatekey(cred: alljoyn_credentials, pk: super::super::Foundation::PSTR);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_credentials_setusername(cred: alljoyn_credentials, username: super::super::Foundation::PSTR);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR;
+    pub fn alljoyn_getnumericversion() -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_getversion() -> super::super::Foundation::PSTR;
+    pub fn alljoyn_init() -> QStatus;
+    pub fn alljoyn_interfacedescription_activate(iface: alljoyn_interfacedescription);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addannotation(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addargannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, argname: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addmember(iface: alljoyn_interfacedescription, r#type: alljoyn_messagetype, name: super::super::Foundation::PSTR, inputsig: super::super::Foundation::PSTR, outsig: super::super::Foundation::PSTR, argnames: super::super::Foundation::PSTR, annotation: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addmemberannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addmethod(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, inputsig: super::super::Foundation::PSTR, outsig: super::super::Foundation::PSTR, argnames: super::super::Foundation::PSTR, annotation: u8, accessperms: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addproperty(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, signature: super::super::Foundation::PSTR, access: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addpropertyannotation(iface: alljoyn_interfacedescription, property: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_addsignal(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, sig: super::super::Foundation::PSTR, argnames: super::super::Foundation::PSTR, annotation: u8, accessperms: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_interfacedescription_eql(one: alljoyn_interfacedescription, other: alljoyn_interfacedescription) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getannotation(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getannotationatindex(iface: alljoyn_interfacedescription, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
+    pub fn alljoyn_interfacedescription_getannotationscount(iface: alljoyn_interfacedescription) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, arg: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getdescriptionforlanguage(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
+    pub fn alljoyn_interfacedescription_getdescriptionlanguages(iface: alljoyn_interfacedescription, languages: *const *const i8, size: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getdescriptionlanguages2(iface: alljoyn_interfacedescription, languages: super::super::Foundation::PSTR, languagessize: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getdescriptiontranslationcallback(iface: alljoyn_interfacedescription) -> ::core::option::Option<alljoyn_interfacedescription_translation_callback_ptr>;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getmember(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, member: *mut alljoyn_interfacedescription_member) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getmemberannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getmemberargannotation(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, argname: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getmembers(iface: alljoyn_interfacedescription, members: *mut alljoyn_interfacedescription_member, nummembers: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getmethod(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, member: *mut alljoyn_interfacedescription_member) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getname(iface: alljoyn_interfacedescription) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getproperties(iface: alljoyn_interfacedescription, props: *mut alljoyn_interfacedescription_property, numprops: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getproperty(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, property: *mut alljoyn_interfacedescription_property) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getpropertyannotation(iface: alljoyn_interfacedescription, property: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, str_size: *mut usize) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, property: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, maxlanguagelength: usize, languagetag: super::super::Foundation::PSTR) -> usize;
+    pub fn alljoyn_interfacedescription_getsecuritypolicy(iface: alljoyn_interfacedescription) -> alljoyn_interfacedescription_securitypolicy;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_getsignal(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, member: *mut alljoyn_interfacedescription_member) -> i32;
+    pub fn alljoyn_interfacedescription_hasdescription(iface: alljoyn_interfacedescription) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_hasmember(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, insig: super::super::Foundation::PSTR, outsig: super::super::Foundation::PSTR) -> i32;
+    pub fn alljoyn_interfacedescription_hasproperties(iface: alljoyn_interfacedescription) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_hasproperty(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_introspect(iface: alljoyn_interfacedescription, str: super::super::Foundation::PSTR, buf: usize, indent: usize) -> usize;
+    pub fn alljoyn_interfacedescription_issecure(iface: alljoyn_interfacedescription) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_member_eql(one: alljoyn_interfacedescription_member, other: alljoyn_interfacedescription_member) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_member_getannotation(member: alljoyn_interfacedescription_member, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_member_getannotationatindex(member: alljoyn_interfacedescription_member, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_member_getannotationscount(member: alljoyn_interfacedescription_member) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_member_getargannotation(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_member_getargannotationatindex(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_member_getargannotationscount(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_property_eql(one: alljoyn_interfacedescription_property, other: alljoyn_interfacedescription_property) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_property_getannotation(property: alljoyn_interfacedescription_property, name: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, value_size: *mut usize) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_property_getannotationatindex(property: alljoyn_interfacedescription_property, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_property_getannotationscount(property: alljoyn_interfacedescription_property) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setargdescription(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, argname: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, arg: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setdescription(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setdescriptionforlanguage(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setdescriptionlanguage(iface: alljoyn_interfacedescription, language: super::super::Foundation::PSTR);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: alljoyn_interfacedescription_translation_callback_ptr);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setmemberdescription(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setpropertydescription(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_interfacedescription_setpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, name: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR, languagetag: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener;
+    pub fn alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_keystorelistener_getkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, sink: super::super::Foundation::PSTR, sink_sz: *mut usize) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_keystorelistener_putkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, source: super::super::Foundation::PSTR, password: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener;
+    pub fn alljoyn_message_create(bus: alljoyn_busattachment) -> alljoyn_message;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_description(msg: alljoyn_message, str: super::super::Foundation::PSTR, buf: usize) -> usize;
+    pub fn alljoyn_message_destroy(msg: alljoyn_message);
+    pub fn alljoyn_message_eql(one: alljoyn_message, other: alljoyn_message) -> i32;
+    pub fn alljoyn_message_getarg(msg: alljoyn_message, argn: usize) -> alljoyn_msgarg;
+    pub fn alljoyn_message_getargs(msg: alljoyn_message, numargs: *mut usize, args: *mut alljoyn_msgarg);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getauthmechanism(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_message_getcallserial(msg: alljoyn_message) -> u32;
+    pub fn alljoyn_message_getcompressiontoken(msg: alljoyn_message) -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getdestination(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_geterrorname(msg: alljoyn_message, errormessage: super::super::Foundation::PSTR, errormessage_size: *mut usize) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_message_getflags(msg: alljoyn_message) -> u8;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getinterface(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getmembername(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getobjectpath(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getreceiveendpointname(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_message_getreplyserial(msg: alljoyn_message) -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getsender(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_message_getsessionid(msg: alljoyn_message) -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_getsignature(msg: alljoyn_message) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_message_gettimestamp(msg: alljoyn_message) -> u32;
+    pub fn alljoyn_message_gettype(msg: alljoyn_message) -> alljoyn_messagetype;
+    pub fn alljoyn_message_isbroadcastsignal(msg: alljoyn_message) -> i32;
+    pub fn alljoyn_message_isencrypted(msg: alljoyn_message) -> i32;
+    pub fn alljoyn_message_isexpired(msg: alljoyn_message, tillexpirems: *mut u32) -> i32;
+    pub fn alljoyn_message_isglobalbroadcast(msg: alljoyn_message) -> i32;
+    pub fn alljoyn_message_issessionless(msg: alljoyn_message) -> i32;
+    pub fn alljoyn_message_isunreliable(msg: alljoyn_message) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_parseargs(msg: alljoyn_message, signature: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_message_setendianess(endian: i8);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_message_tostring(msg: alljoyn_message, str: super::super::Foundation::PSTR, buf: usize) -> usize;
+    pub fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg;
+    pub fn alljoyn_msgarg_array_element(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_array_get(args: alljoyn_msgarg, numargs: usize, signature: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_array_set(args: alljoyn_msgarg, numargs: *mut usize, signature: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_array_set_offset(args: alljoyn_msgarg, argoffset: usize, numargs: *mut usize, signature: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_array_signature(values: alljoyn_msgarg, numvalues: usize, str: super::super::Foundation::PSTR, buf: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_array_tostring(args: alljoyn_msgarg, numargs: usize, str: super::super::Foundation::PSTR, buf: usize, indent: usize) -> usize;
+    pub fn alljoyn_msgarg_clear(arg: alljoyn_msgarg);
+    pub fn alljoyn_msgarg_clone(destination: alljoyn_msgarg, source: alljoyn_msgarg);
+    pub fn alljoyn_msgarg_copy(source: alljoyn_msgarg) -> alljoyn_msgarg;
+    pub fn alljoyn_msgarg_create() -> alljoyn_msgarg;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_create_and_set(signature: super::super::Foundation::PSTR) -> alljoyn_msgarg;
+    pub fn alljoyn_msgarg_destroy(arg: alljoyn_msgarg);
+    pub fn alljoyn_msgarg_equal(lhv: alljoyn_msgarg, rhv: alljoyn_msgarg) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_get(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: usize, element: *mut alljoyn_msgarg);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_get_array_elementsignature(arg: alljoyn_msgarg, index: usize) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_msgarg_get_array_numberofelements(arg: alljoyn_msgarg) -> usize;
+    pub fn alljoyn_msgarg_get_bool(arg: alljoyn_msgarg, b: *mut i32) -> QStatus;
+    pub fn alljoyn_msgarg_get_bool_array(arg: alljoyn_msgarg, length: *mut usize, ab: *mut i32) -> QStatus;
+    pub fn alljoyn_msgarg_get_double(arg: alljoyn_msgarg, d: *mut f64) -> QStatus;
+    pub fn alljoyn_msgarg_get_double_array(arg: alljoyn_msgarg, length: *mut usize, ad: *mut f64) -> QStatus;
+    pub fn alljoyn_msgarg_get_int16(arg: alljoyn_msgarg, n: *mut i16) -> QStatus;
+    pub fn alljoyn_msgarg_get_int16_array(arg: alljoyn_msgarg, length: *mut usize, an: *mut i16) -> QStatus;
+    pub fn alljoyn_msgarg_get_int32(arg: alljoyn_msgarg, i: *mut i32) -> QStatus;
+    pub fn alljoyn_msgarg_get_int32_array(arg: alljoyn_msgarg, length: *mut usize, ai: *mut i32) -> QStatus;
+    pub fn alljoyn_msgarg_get_int64(arg: alljoyn_msgarg, x: *mut i64) -> QStatus;
+    pub fn alljoyn_msgarg_get_int64_array(arg: alljoyn_msgarg, length: *mut usize, ax: *mut i64) -> QStatus;
+    pub fn alljoyn_msgarg_get_objectpath(arg: alljoyn_msgarg, o: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_msgarg_get_signature(arg: alljoyn_msgarg, g: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_msgarg_get_string(arg: alljoyn_msgarg, s: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint16(arg: alljoyn_msgarg, q: *mut u16) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint16_array(arg: alljoyn_msgarg, length: *mut usize, aq: *mut u16) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint32(arg: alljoyn_msgarg, u: *mut u32) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint32_array(arg: alljoyn_msgarg, length: *mut usize, au: *mut u32) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint64(arg: alljoyn_msgarg, t: *mut u64) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint64_array(arg: alljoyn_msgarg, length: *mut usize, at: *mut u64) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint8(arg: alljoyn_msgarg, y: *mut u8) -> QStatus;
+    pub fn alljoyn_msgarg_get_uint8_array(arg: alljoyn_msgarg, length: *mut usize, ay: *mut u8) -> QStatus;
+    pub fn alljoyn_msgarg_get_variant(arg: alljoyn_msgarg, v: alljoyn_msgarg) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_get_variant_array(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR, length: *mut usize, av: *mut alljoyn_msgarg) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_getdictelement(arg: alljoyn_msgarg, elemsig: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_msgarg_getkey(arg: alljoyn_msgarg) -> alljoyn_msgarg;
+    pub fn alljoyn_msgarg_getmember(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
+    pub fn alljoyn_msgarg_getnummembers(arg: alljoyn_msgarg) -> usize;
+    pub fn alljoyn_msgarg_gettype(arg: alljoyn_msgarg) -> alljoyn_typeid;
+    pub fn alljoyn_msgarg_getvalue(arg: alljoyn_msgarg) -> alljoyn_msgarg;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_hassignature(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_set(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_set_and_stabilize(arg: alljoyn_msgarg, signature: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_msgarg_set_bool(arg: alljoyn_msgarg, b: i32) -> QStatus;
+    pub fn alljoyn_msgarg_set_bool_array(arg: alljoyn_msgarg, length: usize, ab: *mut i32) -> QStatus;
+    pub fn alljoyn_msgarg_set_double(arg: alljoyn_msgarg, d: f64) -> QStatus;
+    pub fn alljoyn_msgarg_set_double_array(arg: alljoyn_msgarg, length: usize, ad: *mut f64) -> QStatus;
+    pub fn alljoyn_msgarg_set_int16(arg: alljoyn_msgarg, n: i16) -> QStatus;
+    pub fn alljoyn_msgarg_set_int16_array(arg: alljoyn_msgarg, length: usize, an: *mut i16) -> QStatus;
+    pub fn alljoyn_msgarg_set_int32(arg: alljoyn_msgarg, i: i32) -> QStatus;
+    pub fn alljoyn_msgarg_set_int32_array(arg: alljoyn_msgarg, length: usize, ai: *mut i32) -> QStatus;
+    pub fn alljoyn_msgarg_set_int64(arg: alljoyn_msgarg, x: i64) -> QStatus;
+    pub fn alljoyn_msgarg_set_int64_array(arg: alljoyn_msgarg, length: usize, ax: *mut i64) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_set_objectpath(arg: alljoyn_msgarg, o: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_msgarg_set_objectpath_array(arg: alljoyn_msgarg, length: usize, ao: *const *const i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_set_signature(arg: alljoyn_msgarg, g: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_msgarg_set_signature_array(arg: alljoyn_msgarg, length: usize, ag: *const *const i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_set_string(arg: alljoyn_msgarg, s: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_msgarg_set_string_array(arg: alljoyn_msgarg, length: usize, r#as: *const *const i8) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint16(arg: alljoyn_msgarg, q: u16) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint16_array(arg: alljoyn_msgarg, length: usize, aq: *mut u16) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint32(arg: alljoyn_msgarg, u: u32) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint32_array(arg: alljoyn_msgarg, length: usize, au: *mut u32) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint64(arg: alljoyn_msgarg, t: u64) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint64_array(arg: alljoyn_msgarg, length: usize, at: *mut u64) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint8(arg: alljoyn_msgarg, y: u8) -> QStatus;
+    pub fn alljoyn_msgarg_set_uint8_array(arg: alljoyn_msgarg, length: usize, ay: *mut u8) -> QStatus;
+    pub fn alljoyn_msgarg_setdictentry(arg: alljoyn_msgarg, key: alljoyn_msgarg, value: alljoyn_msgarg) -> QStatus;
+    pub fn alljoyn_msgarg_setstruct(arg: alljoyn_msgarg, struct_members: alljoyn_msgarg, num_members: usize) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_signature(arg: alljoyn_msgarg, str: super::super::Foundation::PSTR, buf: usize) -> usize;
+    pub fn alljoyn_msgarg_stabilize(arg: alljoyn_msgarg);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_msgarg_tostring(arg: alljoyn_msgarg, str: super::super::Foundation::PSTR, buf: usize, indent: usize) -> usize;
+    pub fn alljoyn_observer_create(bus: alljoyn_busattachment, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer;
+    pub fn alljoyn_observer_destroy(observer: alljoyn_observer);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_observer_get(observer: alljoyn_observer, uniquebusname: super::super::Foundation::PSTR, objectpath: super::super::Foundation::PSTR) -> alljoyn_proxybusobject_ref;
+    pub fn alljoyn_observer_getfirst(observer: alljoyn_observer) -> alljoyn_proxybusobject_ref;
+    pub fn alljoyn_observer_getnext(observer: alljoyn_observer, proxyref: alljoyn_proxybusobject_ref) -> alljoyn_proxybusobject_ref;
+    pub fn alljoyn_observer_registerlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener, triggeronexisting: i32);
+    pub fn alljoyn_observer_unregisteralllisteners(observer: alljoyn_observer);
+    pub fn alljoyn_observer_unregisterlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener);
+    pub fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener;
+    pub fn alljoyn_observerlistener_destroy(listener: alljoyn_observerlistener);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_passwordmanager_setcredentials(authmechanism: super::super::Foundation::PSTR, password: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener;
+    pub fn alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_permissionconfigurationlistener);
+    pub fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8);
+    pub fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid);
+    pub fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray);
+    pub fn alljoyn_permissionconfigurator_claim(configurator: alljoyn_permissionconfigurator, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_endmanagement(configurator: alljoyn_permissionconfigurator) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getapplicationstate(configurator: alljoyn_permissionconfigurator, state: *mut alljoyn_applicationstate) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: *mut u16) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: *mut u16) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u16;
+    pub fn alljoyn_permissionconfigurator_getdefaultpolicy(configurator: alljoyn_permissionconfigurator, policyxml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getidentitycertificateid(configurator: alljoyn_permissionconfigurator, certificateid: *mut alljoyn_certificateid) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getmanifests(configurator: alljoyn_permissionconfigurator, manifestarray: *mut alljoyn_manifestarray) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getmanifesttemplate(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getmembershipsummaries(configurator: alljoyn_permissionconfigurator, certificateids: *mut alljoyn_certificateidarray) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getpolicy(configurator: alljoyn_permissionconfigurator, policyxml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_getpublickey(configurator: alljoyn_permissionconfigurator, publickey: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_installmanifests(configurator: alljoyn_permissionconfigurator, manifestsxmls: *mut *mut i8, manifestscount: usize, append: i32) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_installmembership(configurator: alljoyn_permissionconfigurator, membershipcertificatechain: *mut i8) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray);
+    pub fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
+    pub fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8);
+    pub fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8);
+    pub fn alljoyn_permissionconfigurator_removemembership(configurator: alljoyn_permissionconfigurator, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_reset(configurator: alljoyn_permissionconfigurator) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_resetpolicy(configurator: alljoyn_permissionconfigurator) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_setapplicationstate(configurator: alljoyn_permissionconfigurator, state: alljoyn_applicationstate) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_setclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: u16) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: u16) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: *mut i8) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_startmanagement(configurator: alljoyn_permissionconfigurator) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_updateidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
+    pub fn alljoyn_permissionconfigurator_updatepolicy(configurator: alljoyn_permissionconfigurator, policyxml: *mut i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_pinglistener;
+    pub fn alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener);
+    pub fn alljoyn_proxybusobject_addchild(proxyobj: alljoyn_proxybusobject, child: alljoyn_proxybusobject) -> QStatus;
+    pub fn alljoyn_proxybusobject_addinterface(proxyobj: alljoyn_proxybusobject, iface: alljoyn_interfacedescription) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_addinterface_by_name(proxyobj: alljoyn_proxybusobject, name: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_proxybusobject_copy(source: alljoyn_proxybusobject) -> alljoyn_proxybusobject;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_create(bus: alljoyn_busattachment, service: super::super::Foundation::PSTR, path: super::super::Foundation::PSTR, sessionid: u32) -> alljoyn_proxybusobject;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_create_secure(bus: alljoyn_busattachment, service: super::super::Foundation::PSTR, path: super::super::Foundation::PSTR, sessionid: u32) -> alljoyn_proxybusobject;
+    pub fn alljoyn_proxybusobject_destroy(proxyobj: alljoyn_proxybusobject);
+    pub fn alljoyn_proxybusobject_enablepropertycaching(proxyobj: alljoyn_proxybusobject);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getallproperties(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, values: alljoyn_msgarg) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getchild(proxyobj: alljoyn_proxybusobject, path: super::super::Foundation::PSTR) -> alljoyn_proxybusobject;
+    pub fn alljoyn_proxybusobject_getchildren(proxyobj: alljoyn_proxybusobject, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getinterface(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR) -> alljoyn_interfacedescription;
+    pub fn alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobject, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getpath(proxyobj: alljoyn_proxybusobject) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getproperty(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getservicename(proxyobj: alljoyn_proxybusobject) -> super::super::Foundation::PSTR;
+    pub fn alljoyn_proxybusobject_getsessionid(proxyobj: alljoyn_proxybusobject) -> u32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_getuniquename(proxyobj: alljoyn_proxybusobject) -> super::super::Foundation::PSTR;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_implementsinterface(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR) -> i32;
+    pub fn alljoyn_proxybusobject_introspectremoteobject(proxyobj: alljoyn_proxybusobject) -> QStatus;
+    pub fn alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_proxybusobject_issecure(proxyobj: alljoyn_proxybusobject) -> i32;
+    pub fn alljoyn_proxybusobject_isvalid(proxyobj: alljoyn_proxybusobject) -> i32;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_methodcall(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, args: alljoyn_msgarg, numargs: usize, replymsg: alljoyn_message, timeout: u32, flags: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_methodcall_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, replymsg: alljoyn_message, timeout: u32, flags: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_methodcall_member_noreply(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: usize, flags: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_methodcall_noreply(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, args: alljoyn_msgarg, numargs: usize, flags: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_parsexml(proxyobj: alljoyn_proxybusobject, xml: super::super::Foundation::PSTR, identifier: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_proxybusobject_ref_create(proxy: alljoyn_proxybusobject) -> alljoyn_proxybusobject_ref;
+    pub fn alljoyn_proxybusobject_ref_decref(r#ref: alljoyn_proxybusobject_ref);
+    pub fn alljoyn_proxybusobject_ref_get(r#ref: alljoyn_proxybusobject_ref) -> alljoyn_proxybusobject;
+    pub fn alljoyn_proxybusobject_ref_incref(r#ref: alljoyn_proxybusobject_ref);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, properties: *const *const i8, numproperties: usize, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_removechild(proxyobj: alljoyn_proxybusobject, path: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_proxybusobject_secureconnection(proxyobj: alljoyn_proxybusobject, forceauth: i32) -> QStatus;
+    pub fn alljoyn_proxybusobject_secureconnectionasync(proxyobj: alljoyn_proxybusobject, forceauth: i32) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_setproperty(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr) -> QStatus;
+    pub fn alljoyn_routerinit() -> QStatus;
+    pub fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus;
+    pub fn alljoyn_routershutdown() -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, digest: *mut *mut u8, digestsize: *mut usize) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_create(bus: alljoyn_busattachment, appbusname: *mut i8, sessionid: u32) -> alljoyn_securityapplicationproxy;
+    pub fn alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityapplicationproxy);
+    pub fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8);
+    pub fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8);
+    pub fn alljoyn_securityapplicationproxy_endmanagement(proxy: alljoyn_securityapplicationproxy) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_getapplicationstate(proxy: alljoyn_securityapplicationproxy, applicationstate: *mut alljoyn_applicationstate) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_getclaimcapabilities(proxy: alljoyn_securityapplicationproxy, capabilities: *mut u16) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(proxy: alljoyn_securityapplicationproxy, additionalinfo: *mut u16) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_getdefaultpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_geteccpublickey(proxy: alljoyn_securityapplicationproxy, eccpublickey: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_getmanifesttemplate(proxy: alljoyn_securityapplicationproxy, manifesttemplatexml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionport() -> u16;
+    pub fn alljoyn_securityapplicationproxy_getpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_installmembership(proxy: alljoyn_securityapplicationproxy, membershipcertificatechain: *mut i8) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8);
+    pub fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
+    pub fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8);
+    pub fn alljoyn_securityapplicationproxy_reset(proxy: alljoyn_securityapplicationproxy) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_resetpolicy(proxy: alljoyn_securityapplicationproxy) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *const u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signingprivatekeypem: *mut i8, signedmanifestxml: *mut *mut i8) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_startmanagement(proxy: alljoyn_securityapplicationproxy) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_updateidentity(proxy: alljoyn_securityapplicationproxy, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
+    pub fn alljoyn_securityapplicationproxy_updatepolicy(proxy: alljoyn_securityapplicationproxy, policyxml: *mut i8) -> QStatus;
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionlistener;
+    pub fn alljoyn_sessionlistener_destroy(listener: alljoyn_sessionlistener);
+    pub fn alljoyn_sessionopts_cmp(one: alljoyn_sessionopts, other: alljoyn_sessionopts) -> i32;
+    pub fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximity: u8, transports: u16) -> alljoyn_sessionopts;
+    pub fn alljoyn_sessionopts_destroy(opts: alljoyn_sessionopts);
+    pub fn alljoyn_sessionopts_get_multipoint(opts: alljoyn_sessionopts) -> i32;
+    pub fn alljoyn_sessionopts_get_proximity(opts: alljoyn_sessionopts) -> u8;
+    pub fn alljoyn_sessionopts_get_traffic(opts: alljoyn_sessionopts) -> u8;
+    pub fn alljoyn_sessionopts_get_transports(opts: alljoyn_sessionopts) -> u16;
+    pub fn alljoyn_sessionopts_iscompatible(one: alljoyn_sessionopts, other: alljoyn_sessionopts) -> i32;
+    pub fn alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: i32);
+    pub fn alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: u8);
+    pub fn alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: u8);
+    pub fn alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: u16);
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessionportlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionportlistener;
+    pub fn alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener);
+    pub fn alljoyn_shutdown() -> QStatus;
+    pub fn alljoyn_unity_deferred_callbacks_process() -> i32;
+    pub fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32);
 }
+pub const ALLJOYN_BIG_ENDIAN: u8 = 66u8;
+pub const ALLJOYN_CRED_CERT_CHAIN: u16 = 4u16;
+pub const ALLJOYN_CRED_EXPIRATION: u16 = 32u16;
+pub const ALLJOYN_CRED_LOGON_ENTRY: u16 = 16u16;
+pub const ALLJOYN_CRED_NEW_PASSWORD: u16 = 4097u16;
+pub const ALLJOYN_CRED_ONE_TIME_PWD: u16 = 8193u16;
+pub const ALLJOYN_CRED_PASSWORD: u16 = 1u16;
+pub const ALLJOYN_CRED_PRIVATE_KEY: u16 = 8u16;
+pub const ALLJOYN_CRED_USER_NAME: u16 = 2u16;
+pub const ALLJOYN_DISCONNECTED: u32 = 4u32;
+pub const ALLJOYN_LITTLE_ENDIAN: u8 = 108u8;
+pub const ALLJOYN_MEMBER_ANNOTATE_DEPRECATED: u8 = 2u8;
+pub const ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST: u8 = 32u8;
+pub const ALLJOYN_MEMBER_ANNOTATE_NO_REPLY: u8 = 1u8;
+pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST: u8 = 4u8;
+pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS: u8 = 8u8;
+pub const ALLJOYN_MEMBER_ANNOTATE_UNICAST: u8 = 16u8;
+pub const ALLJOYN_MESSAGE_DEFAULT_TIMEOUT: u32 = 25000u32;
+pub const ALLJOYN_MESSAGE_FLAG_ALLOW_REMOTE_MSG: u32 = 4u32;
+pub const ALLJOYN_MESSAGE_FLAG_AUTO_START: u32 = 2u32;
+pub const ALLJOYN_MESSAGE_FLAG_ENCRYPTED: u32 = 128u32;
+pub const ALLJOYN_MESSAGE_FLAG_GLOBAL_BROADCAST: u32 = 32u32;
+pub const ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: u32 = 1u32;
+pub const ALLJOYN_MESSAGE_FLAG_SESSIONLESS: u32 = 16u32;
+pub const ALLJOYN_PROP_ACCESS_READ: u8 = 1u8;
+pub const ALLJOYN_PROP_ACCESS_RW: u8 = 3u8;
+pub const ALLJOYN_PROP_ACCESS_WRITE: u8 = 2u8;
+pub const ALLJOYN_PROXIMITY_ANY: u32 = 255u32;
+pub const ALLJOYN_PROXIMITY_NETWORK: u32 = 2u32;
+pub const ALLJOYN_PROXIMITY_PHYSICAL: u32 = 1u32;
+pub const ALLJOYN_READ_READY: u32 = 1u32;
+pub const ALLJOYN_TRAFFIC_TYPE_MESSAGES: u32 = 1u32;
+pub const ALLJOYN_TRAFFIC_TYPE_RAW_RELIABLE: u32 = 4u32;
+pub const ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE: u32 = 2u32;
+pub const ALLJOYN_WRITE_READY: u32 = 2u32;
+pub const QCC_FALSE: u32 = 0u32;
+pub const QCC_TRUE: u32 = 1u32;
+#[repr(transparent)]
+pub struct QStatus(pub i32);
+pub const ER_OK: QStatus = QStatus(0i32);
+pub const ER_FAIL: QStatus = QStatus(1i32);
+pub const ER_UTF_CONVERSION_FAILED: QStatus = QStatus(2i32);
+pub const ER_BUFFER_TOO_SMALL: QStatus = QStatus(3i32);
+pub const ER_OS_ERROR: QStatus = QStatus(4i32);
+pub const ER_OUT_OF_MEMORY: QStatus = QStatus(5i32);
+pub const ER_SOCKET_BIND_ERROR: QStatus = QStatus(6i32);
+pub const ER_INIT_FAILED: QStatus = QStatus(7i32);
+pub const ER_WOULDBLOCK: QStatus = QStatus(8i32);
+pub const ER_NOT_IMPLEMENTED: QStatus = QStatus(9i32);
+pub const ER_TIMEOUT: QStatus = QStatus(10i32);
+pub const ER_SOCK_OTHER_END_CLOSED: QStatus = QStatus(11i32);
+pub const ER_BAD_ARG_1: QStatus = QStatus(12i32);
+pub const ER_BAD_ARG_2: QStatus = QStatus(13i32);
+pub const ER_BAD_ARG_3: QStatus = QStatus(14i32);
+pub const ER_BAD_ARG_4: QStatus = QStatus(15i32);
+pub const ER_BAD_ARG_5: QStatus = QStatus(16i32);
+pub const ER_BAD_ARG_6: QStatus = QStatus(17i32);
+pub const ER_BAD_ARG_7: QStatus = QStatus(18i32);
+pub const ER_BAD_ARG_8: QStatus = QStatus(19i32);
+pub const ER_INVALID_ADDRESS: QStatus = QStatus(20i32);
+pub const ER_INVALID_DATA: QStatus = QStatus(21i32);
+pub const ER_READ_ERROR: QStatus = QStatus(22i32);
+pub const ER_WRITE_ERROR: QStatus = QStatus(23i32);
+pub const ER_OPEN_FAILED: QStatus = QStatus(24i32);
+pub const ER_PARSE_ERROR: QStatus = QStatus(25i32);
+pub const ER_END_OF_DATA: QStatus = QStatus(26i32);
+pub const ER_CONN_REFUSED: QStatus = QStatus(27i32);
+pub const ER_BAD_ARG_COUNT: QStatus = QStatus(28i32);
+pub const ER_WARNING: QStatus = QStatus(29i32);
+pub const ER_EOF: QStatus = QStatus(30i32);
+pub const ER_DEADLOCK: QStatus = QStatus(31i32);
+pub const ER_COMMON_ERRORS: QStatus = QStatus(4096i32);
+pub const ER_STOPPING_THREAD: QStatus = QStatus(4097i32);
+pub const ER_ALERTED_THREAD: QStatus = QStatus(4098i32);
+pub const ER_XML_MALFORMED: QStatus = QStatus(4099i32);
+pub const ER_AUTH_FAIL: QStatus = QStatus(4100i32);
+pub const ER_AUTH_USER_REJECT: QStatus = QStatus(4101i32);
+pub const ER_NO_SUCH_ALARM: QStatus = QStatus(4102i32);
+pub const ER_TIMER_FALLBEHIND: QStatus = QStatus(4103i32);
+pub const ER_SSL_ERRORS: QStatus = QStatus(4104i32);
+pub const ER_SSL_INIT: QStatus = QStatus(4105i32);
+pub const ER_SSL_CONNECT: QStatus = QStatus(4106i32);
+pub const ER_SSL_VERIFY: QStatus = QStatus(4107i32);
+pub const ER_EXTERNAL_THREAD: QStatus = QStatus(4108i32);
+pub const ER_CRYPTO_ERROR: QStatus = QStatus(4109i32);
+pub const ER_CRYPTO_TRUNCATED: QStatus = QStatus(4110i32);
+pub const ER_CRYPTO_KEY_UNAVAILABLE: QStatus = QStatus(4111i32);
+pub const ER_BAD_HOSTNAME: QStatus = QStatus(4112i32);
+pub const ER_CRYPTO_KEY_UNUSABLE: QStatus = QStatus(4113i32);
+pub const ER_EMPTY_KEY_BLOB: QStatus = QStatus(4114i32);
+pub const ER_CORRUPT_KEYBLOB: QStatus = QStatus(4115i32);
+pub const ER_INVALID_KEY_ENCODING: QStatus = QStatus(4116i32);
+pub const ER_DEAD_THREAD: QStatus = QStatus(4117i32);
+pub const ER_THREAD_RUNNING: QStatus = QStatus(4118i32);
+pub const ER_THREAD_STOPPING: QStatus = QStatus(4119i32);
+pub const ER_BAD_STRING_ENCODING: QStatus = QStatus(4120i32);
+pub const ER_CRYPTO_INSUFFICIENT_SECURITY: QStatus = QStatus(4121i32);
+pub const ER_CRYPTO_ILLEGAL_PARAMETERS: QStatus = QStatus(4122i32);
+pub const ER_CRYPTO_HASH_UNINITIALIZED: QStatus = QStatus(4123i32);
+pub const ER_THREAD_NO_WAIT: QStatus = QStatus(4124i32);
+pub const ER_TIMER_EXITING: QStatus = QStatus(4125i32);
+pub const ER_INVALID_GUID: QStatus = QStatus(4126i32);
+pub const ER_THREADPOOL_EXHAUSTED: QStatus = QStatus(4127i32);
+pub const ER_THREADPOOL_STOPPING: QStatus = QStatus(4128i32);
+pub const ER_INVALID_STREAM: QStatus = QStatus(4129i32);
+pub const ER_TIMER_FULL: QStatus = QStatus(4130i32);
+pub const ER_IODISPATCH_STOPPING: QStatus = QStatus(4131i32);
+pub const ER_SLAP_INVALID_PACKET_LEN: QStatus = QStatus(4132i32);
+pub const ER_SLAP_HDR_CHECKSUM_ERROR: QStatus = QStatus(4133i32);
+pub const ER_SLAP_INVALID_PACKET_TYPE: QStatus = QStatus(4134i32);
+pub const ER_SLAP_LEN_MISMATCH: QStatus = QStatus(4135i32);
+pub const ER_SLAP_PACKET_TYPE_MISMATCH: QStatus = QStatus(4136i32);
+pub const ER_SLAP_CRC_ERROR: QStatus = QStatus(4137i32);
+pub const ER_SLAP_ERROR: QStatus = QStatus(4138i32);
+pub const ER_SLAP_OTHER_END_CLOSED: QStatus = QStatus(4139i32);
+pub const ER_TIMER_NOT_ALLOWED: QStatus = QStatus(4140i32);
+pub const ER_NOT_CONN: QStatus = QStatus(4141i32);
+pub const ER_XML_CONVERTER_ERROR: QStatus = QStatus(8192i32);
+pub const ER_XML_INVALID_RULES_COUNT: QStatus = QStatus(8193i32);
+pub const ER_XML_INTERFACE_MEMBERS_MISSING: QStatus = QStatus(8194i32);
+pub const ER_XML_INVALID_MEMBER_TYPE: QStatus = QStatus(8195i32);
+pub const ER_XML_INVALID_MEMBER_ACTION: QStatus = QStatus(8196i32);
+pub const ER_XML_MEMBER_DENY_ACTION_WITH_OTHER: QStatus = QStatus(8197i32);
+pub const ER_XML_INVALID_ANNOTATIONS_COUNT: QStatus = QStatus(8198i32);
+pub const ER_XML_INVALID_ELEMENT_NAME: QStatus = QStatus(8199i32);
+pub const ER_XML_INVALID_ATTRIBUTE_VALUE: QStatus = QStatus(8200i32);
+pub const ER_XML_INVALID_SECURITY_LEVEL_ANNOTATION_VALUE: QStatus = QStatus(8201i32);
+pub const ER_XML_INVALID_ELEMENT_CHILDREN_COUNT: QStatus = QStatus(8202i32);
+pub const ER_XML_INVALID_POLICY_VERSION: QStatus = QStatus(8203i32);
+pub const ER_XML_INVALID_POLICY_SERIAL_NUMBER: QStatus = QStatus(8204i32);
+pub const ER_XML_INVALID_ACL_PEER_TYPE: QStatus = QStatus(8205i32);
+pub const ER_XML_INVALID_ACL_PEER_CHILDREN_COUNT: QStatus = QStatus(8206i32);
+pub const ER_XML_ACL_ALL_TYPE_PEER_WITH_OTHERS: QStatus = QStatus(8207i32);
+pub const ER_XML_INVALID_ACL_PEER_PUBLIC_KEY: QStatus = QStatus(8208i32);
+pub const ER_XML_ACL_PEER_NOT_UNIQUE: QStatus = QStatus(8209i32);
+pub const ER_XML_ACL_PEER_PUBLIC_KEY_SET: QStatus = QStatus(8210i32);
+pub const ER_XML_ACLS_MISSING: QStatus = QStatus(8211i32);
+pub const ER_XML_ACL_PEERS_MISSING: QStatus = QStatus(8212i32);
+pub const ER_XML_INVALID_OBJECT_PATH: QStatus = QStatus(8213i32);
+pub const ER_XML_INVALID_INTERFACE_NAME: QStatus = QStatus(8214i32);
+pub const ER_XML_INVALID_MEMBER_NAME: QStatus = QStatus(8215i32);
+pub const ER_XML_INVALID_MANIFEST_VERSION: QStatus = QStatus(8216i32);
+pub const ER_XML_INVALID_OID: QStatus = QStatus(8217i32);
+pub const ER_XML_INVALID_BASE64: QStatus = QStatus(8218i32);
+pub const ER_XML_INTERFACE_NAME_NOT_UNIQUE: QStatus = QStatus(8219i32);
+pub const ER_XML_MEMBER_NAME_NOT_UNIQUE: QStatus = QStatus(8220i32);
+pub const ER_XML_OBJECT_PATH_NOT_UNIQUE: QStatus = QStatus(8221i32);
+pub const ER_XML_ANNOTATION_NOT_UNIQUE: QStatus = QStatus(8222i32);
+pub const ER_NONE: QStatus = QStatus(65535i32);
+pub const ER_BUS_ERRORS: QStatus = QStatus(36864i32);
+pub const ER_BUS_READ_ERROR: QStatus = QStatus(36865i32);
+pub const ER_BUS_WRITE_ERROR: QStatus = QStatus(36866i32);
+pub const ER_BUS_BAD_VALUE_TYPE: QStatus = QStatus(36867i32);
+pub const ER_BUS_BAD_HEADER_FIELD: QStatus = QStatus(36868i32);
+pub const ER_BUS_BAD_SIGNATURE: QStatus = QStatus(36869i32);
+pub const ER_BUS_BAD_OBJ_PATH: QStatus = QStatus(36870i32);
+pub const ER_BUS_BAD_MEMBER_NAME: QStatus = QStatus(36871i32);
+pub const ER_BUS_BAD_INTERFACE_NAME: QStatus = QStatus(36872i32);
+pub const ER_BUS_BAD_ERROR_NAME: QStatus = QStatus(36873i32);
+pub const ER_BUS_BAD_BUS_NAME: QStatus = QStatus(36874i32);
+pub const ER_BUS_NAME_TOO_LONG: QStatus = QStatus(36875i32);
+pub const ER_BUS_BAD_LENGTH: QStatus = QStatus(36876i32);
+pub const ER_BUS_BAD_VALUE: QStatus = QStatus(36877i32);
+pub const ER_BUS_BAD_HDR_FLAGS: QStatus = QStatus(36878i32);
+pub const ER_BUS_BAD_BODY_LEN: QStatus = QStatus(36879i32);
+pub const ER_BUS_BAD_HEADER_LEN: QStatus = QStatus(36880i32);
+pub const ER_BUS_UNKNOWN_SERIAL: QStatus = QStatus(36881i32);
+pub const ER_BUS_UNKNOWN_PATH: QStatus = QStatus(36882i32);
+pub const ER_BUS_UNKNOWN_INTERFACE: QStatus = QStatus(36883i32);
+pub const ER_BUS_ESTABLISH_FAILED: QStatus = QStatus(36884i32);
+pub const ER_BUS_UNEXPECTED_SIGNATURE: QStatus = QStatus(36885i32);
+pub const ER_BUS_INTERFACE_MISSING: QStatus = QStatus(36886i32);
+pub const ER_BUS_PATH_MISSING: QStatus = QStatus(36887i32);
+pub const ER_BUS_MEMBER_MISSING: QStatus = QStatus(36888i32);
+pub const ER_BUS_REPLY_SERIAL_MISSING: QStatus = QStatus(36889i32);
+pub const ER_BUS_ERROR_NAME_MISSING: QStatus = QStatus(36890i32);
+pub const ER_BUS_INTERFACE_NO_SUCH_MEMBER: QStatus = QStatus(36891i32);
+pub const ER_BUS_NO_SUCH_OBJECT: QStatus = QStatus(36892i32);
+pub const ER_BUS_OBJECT_NO_SUCH_MEMBER: QStatus = QStatus(36893i32);
+pub const ER_BUS_OBJECT_NO_SUCH_INTERFACE: QStatus = QStatus(36894i32);
+pub const ER_BUS_NO_SUCH_INTERFACE: QStatus = QStatus(36895i32);
+pub const ER_BUS_MEMBER_NO_SUCH_SIGNATURE: QStatus = QStatus(36896i32);
+pub const ER_BUS_NOT_NUL_TERMINATED: QStatus = QStatus(36897i32);
+pub const ER_BUS_NO_SUCH_PROPERTY: QStatus = QStatus(36898i32);
+pub const ER_BUS_SET_WRONG_SIGNATURE: QStatus = QStatus(36899i32);
+pub const ER_BUS_PROPERTY_VALUE_NOT_SET: QStatus = QStatus(36900i32);
+pub const ER_BUS_PROPERTY_ACCESS_DENIED: QStatus = QStatus(36901i32);
+pub const ER_BUS_NO_TRANSPORTS: QStatus = QStatus(36902i32);
+pub const ER_BUS_BAD_TRANSPORT_ARGS: QStatus = QStatus(36903i32);
+pub const ER_BUS_NO_ROUTE: QStatus = QStatus(36904i32);
+pub const ER_BUS_NO_ENDPOINT: QStatus = QStatus(36905i32);
+pub const ER_BUS_BAD_SEND_PARAMETER: QStatus = QStatus(36906i32);
+pub const ER_BUS_UNMATCHED_REPLY_SERIAL: QStatus = QStatus(36907i32);
+pub const ER_BUS_BAD_SENDER_ID: QStatus = QStatus(36908i32);
+pub const ER_BUS_TRANSPORT_NOT_STARTED: QStatus = QStatus(36909i32);
+pub const ER_BUS_EMPTY_MESSAGE: QStatus = QStatus(36910i32);
+pub const ER_BUS_NOT_OWNER: QStatus = QStatus(36911i32);
+pub const ER_BUS_SET_PROPERTY_REJECTED: QStatus = QStatus(36912i32);
+pub const ER_BUS_CONNECT_FAILED: QStatus = QStatus(36913i32);
+pub const ER_BUS_REPLY_IS_ERROR_MESSAGE: QStatus = QStatus(36914i32);
+pub const ER_BUS_NOT_AUTHENTICATING: QStatus = QStatus(36915i32);
+pub const ER_BUS_NO_LISTENER: QStatus = QStatus(36916i32);
+pub const ER_BUS_NOT_ALLOWED: QStatus = QStatus(36918i32);
+pub const ER_BUS_WRITE_QUEUE_FULL: QStatus = QStatus(36919i32);
+pub const ER_BUS_ENDPOINT_CLOSING: QStatus = QStatus(36920i32);
+pub const ER_BUS_INTERFACE_MISMATCH: QStatus = QStatus(36921i32);
+pub const ER_BUS_MEMBER_ALREADY_EXISTS: QStatus = QStatus(36922i32);
+pub const ER_BUS_PROPERTY_ALREADY_EXISTS: QStatus = QStatus(36923i32);
+pub const ER_BUS_IFACE_ALREADY_EXISTS: QStatus = QStatus(36924i32);
+pub const ER_BUS_ERROR_RESPONSE: QStatus = QStatus(36925i32);
+pub const ER_BUS_BAD_XML: QStatus = QStatus(36926i32);
+pub const ER_BUS_BAD_CHILD_PATH: QStatus = QStatus(36927i32);
+pub const ER_BUS_OBJ_ALREADY_EXISTS: QStatus = QStatus(36928i32);
+pub const ER_BUS_OBJ_NOT_FOUND: QStatus = QStatus(36929i32);
+pub const ER_BUS_CANNOT_EXPAND_MESSAGE: QStatus = QStatus(36930i32);
+pub const ER_BUS_NOT_COMPRESSED: QStatus = QStatus(36931i32);
+pub const ER_BUS_ALREADY_CONNECTED: QStatus = QStatus(36932i32);
+pub const ER_BUS_NOT_CONNECTED: QStatus = QStatus(36933i32);
+pub const ER_BUS_ALREADY_LISTENING: QStatus = QStatus(36934i32);
+pub const ER_BUS_KEY_UNAVAILABLE: QStatus = QStatus(36935i32);
+pub const ER_BUS_TRUNCATED: QStatus = QStatus(36936i32);
+pub const ER_BUS_KEY_STORE_NOT_LOADED: QStatus = QStatus(36937i32);
+pub const ER_BUS_NO_AUTHENTICATION_MECHANISM: QStatus = QStatus(36938i32);
+pub const ER_BUS_BUS_ALREADY_STARTED: QStatus = QStatus(36939i32);
+pub const ER_BUS_BUS_NOT_STARTED: QStatus = QStatus(36940i32);
+pub const ER_BUS_KEYBLOB_OP_INVALID: QStatus = QStatus(36941i32);
+pub const ER_BUS_INVALID_HEADER_CHECKSUM: QStatus = QStatus(36942i32);
+pub const ER_BUS_MESSAGE_NOT_ENCRYPTED: QStatus = QStatus(36943i32);
+pub const ER_BUS_INVALID_HEADER_SERIAL: QStatus = QStatus(36944i32);
+pub const ER_BUS_TIME_TO_LIVE_EXPIRED: QStatus = QStatus(36945i32);
+pub const ER_BUS_HDR_EXPANSION_INVALID: QStatus = QStatus(36946i32);
+pub const ER_BUS_MISSING_COMPRESSION_TOKEN: QStatus = QStatus(36947i32);
+pub const ER_BUS_NO_PEER_GUID: QStatus = QStatus(36948i32);
+pub const ER_BUS_MESSAGE_DECRYPTION_FAILED: QStatus = QStatus(36949i32);
+pub const ER_BUS_SECURITY_FATAL: QStatus = QStatus(36950i32);
+pub const ER_BUS_KEY_EXPIRED: QStatus = QStatus(36951i32);
+pub const ER_BUS_CORRUPT_KEYSTORE: QStatus = QStatus(36952i32);
+pub const ER_BUS_NO_CALL_FOR_REPLY: QStatus = QStatus(36953i32);
+pub const ER_BUS_NOT_A_COMPLETE_TYPE: QStatus = QStatus(36954i32);
+pub const ER_BUS_POLICY_VIOLATION: QStatus = QStatus(36955i32);
+pub const ER_BUS_NO_SUCH_SERVICE: QStatus = QStatus(36956i32);
+pub const ER_BUS_TRANSPORT_NOT_AVAILABLE: QStatus = QStatus(36957i32);
+pub const ER_BUS_INVALID_AUTH_MECHANISM: QStatus = QStatus(36958i32);
+pub const ER_BUS_KEYSTORE_VERSION_MISMATCH: QStatus = QStatus(36959i32);
+pub const ER_BUS_BLOCKING_CALL_NOT_ALLOWED: QStatus = QStatus(36960i32);
+pub const ER_BUS_SIGNATURE_MISMATCH: QStatus = QStatus(36961i32);
+pub const ER_BUS_STOPPING: QStatus = QStatus(36962i32);
+pub const ER_BUS_METHOD_CALL_ABORTED: QStatus = QStatus(36963i32);
+pub const ER_BUS_CANNOT_ADD_INTERFACE: QStatus = QStatus(36964i32);
+pub const ER_BUS_CANNOT_ADD_HANDLER: QStatus = QStatus(36965i32);
+pub const ER_BUS_KEYSTORE_NOT_LOADED: QStatus = QStatus(36966i32);
+pub const ER_BUS_NO_SUCH_HANDLE: QStatus = QStatus(36971i32);
+pub const ER_BUS_HANDLES_NOT_ENABLED: QStatus = QStatus(36972i32);
+pub const ER_BUS_HANDLES_MISMATCH: QStatus = QStatus(36973i32);
+pub const ER_BUS_NO_SESSION: QStatus = QStatus(36975i32);
+pub const ER_BUS_ELEMENT_NOT_FOUND: QStatus = QStatus(36976i32);
+pub const ER_BUS_NOT_A_DICTIONARY: QStatus = QStatus(36977i32);
+pub const ER_BUS_WAIT_FAILED: QStatus = QStatus(36978i32);
+pub const ER_BUS_BAD_SESSION_OPTS: QStatus = QStatus(36980i32);
+pub const ER_BUS_CONNECTION_REJECTED: QStatus = QStatus(36981i32);
+pub const ER_DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER: QStatus = QStatus(36982i32);
+pub const ER_DBUS_REQUEST_NAME_REPLY_IN_QUEUE: QStatus = QStatus(36983i32);
+pub const ER_DBUS_REQUEST_NAME_REPLY_EXISTS: QStatus = QStatus(36984i32);
+pub const ER_DBUS_REQUEST_NAME_REPLY_ALREADY_OWNER: QStatus = QStatus(36985i32);
+pub const ER_DBUS_RELEASE_NAME_REPLY_RELEASED: QStatus = QStatus(36986i32);
+pub const ER_DBUS_RELEASE_NAME_REPLY_NON_EXISTENT: QStatus = QStatus(36987i32);
+pub const ER_DBUS_RELEASE_NAME_REPLY_NOT_OWNER: QStatus = QStatus(36988i32);
+pub const ER_DBUS_START_REPLY_ALREADY_RUNNING: QStatus = QStatus(36990i32);
+pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_ALREADY_EXISTS: QStatus = QStatus(36992i32);
+pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_FAILED: QStatus = QStatus(36993i32);
+pub const ER_ALLJOYN_JOINSESSION_REPLY_NO_SESSION: QStatus = QStatus(36995i32);
+pub const ER_ALLJOYN_JOINSESSION_REPLY_UNREACHABLE: QStatus = QStatus(36996i32);
+pub const ER_ALLJOYN_JOINSESSION_REPLY_CONNECT_FAILED: QStatus = QStatus(36997i32);
+pub const ER_ALLJOYN_JOINSESSION_REPLY_REJECTED: QStatus = QStatus(36998i32);
+pub const ER_ALLJOYN_JOINSESSION_REPLY_BAD_SESSION_OPTS: QStatus = QStatus(36999i32);
+pub const ER_ALLJOYN_JOINSESSION_REPLY_FAILED: QStatus = QStatus(37000i32);
+pub const ER_ALLJOYN_LEAVESESSION_REPLY_NO_SESSION: QStatus = QStatus(37002i32);
+pub const ER_ALLJOYN_LEAVESESSION_REPLY_FAILED: QStatus = QStatus(37003i32);
+pub const ER_ALLJOYN_ADVERTISENAME_REPLY_TRANSPORT_NOT_AVAILABLE: QStatus = QStatus(37004i32);
+pub const ER_ALLJOYN_ADVERTISENAME_REPLY_ALREADY_ADVERTISING: QStatus = QStatus(37005i32);
+pub const ER_ALLJOYN_ADVERTISENAME_REPLY_FAILED: QStatus = QStatus(37006i32);
+pub const ER_ALLJOYN_CANCELADVERTISENAME_REPLY_FAILED: QStatus = QStatus(37008i32);
+pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_TRANSPORT_NOT_AVAILABLE: QStatus = QStatus(37009i32);
+pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_ALREADY_DISCOVERING: QStatus = QStatus(37010i32);
+pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_FAILED: QStatus = QStatus(37011i32);
+pub const ER_ALLJOYN_CANCELFINDADVERTISEDNAME_REPLY_FAILED: QStatus = QStatus(37013i32);
+pub const ER_BUS_UNEXPECTED_DISPOSITION: QStatus = QStatus(37014i32);
+pub const ER_BUS_INTERFACE_ACTIVATED: QStatus = QStatus(37015i32);
+pub const ER_ALLJOYN_UNBINDSESSIONPORT_REPLY_BAD_PORT: QStatus = QStatus(37016i32);
+pub const ER_ALLJOYN_UNBINDSESSIONPORT_REPLY_FAILED: QStatus = QStatus(37017i32);
+pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_INVALID_OPTS: QStatus = QStatus(37018i32);
+pub const ER_ALLJOYN_JOINSESSION_REPLY_ALREADY_JOINED: QStatus = QStatus(37019i32);
+pub const ER_BUS_SELF_CONNECT: QStatus = QStatus(37020i32);
+pub const ER_BUS_SECURITY_NOT_ENABLED: QStatus = QStatus(37021i32);
+pub const ER_BUS_LISTENER_ALREADY_SET: QStatus = QStatus(37022i32);
+pub const ER_BUS_PEER_AUTH_VERSION_MISMATCH: QStatus = QStatus(37023i32);
+pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NOT_SUPPORTED: QStatus = QStatus(37024i32);
+pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NO_DEST_SUPPORT: QStatus = QStatus(37025i32);
+pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_FAILED: QStatus = QStatus(37026i32);
+pub const ER_ALLJOYN_ACCESS_PERMISSION_WARNING: QStatus = QStatus(37027i32);
+pub const ER_ALLJOYN_ACCESS_PERMISSION_ERROR: QStatus = QStatus(37028i32);
+pub const ER_BUS_DESTINATION_NOT_AUTHENTICATED: QStatus = QStatus(37029i32);
+pub const ER_BUS_ENDPOINT_REDIRECTED: QStatus = QStatus(37030i32);
+pub const ER_BUS_AUTHENTICATION_PENDING: QStatus = QStatus(37031i32);
+pub const ER_BUS_NOT_AUTHORIZED: QStatus = QStatus(37032i32);
+pub const ER_PACKET_BUS_NO_SUCH_CHANNEL: QStatus = QStatus(37033i32);
+pub const ER_PACKET_BAD_FORMAT: QStatus = QStatus(37034i32);
+pub const ER_PACKET_CONNECT_TIMEOUT: QStatus = QStatus(37035i32);
+pub const ER_PACKET_CHANNEL_FAIL: QStatus = QStatus(37036i32);
+pub const ER_PACKET_TOO_LARGE: QStatus = QStatus(37037i32);
+pub const ER_PACKET_BAD_PARAMETER: QStatus = QStatus(37038i32);
+pub const ER_PACKET_BAD_CRC: QStatus = QStatus(37039i32);
+pub const ER_RENDEZVOUS_SERVER_DEACTIVATED_USER: QStatus = QStatus(37067i32);
+pub const ER_RENDEZVOUS_SERVER_UNKNOWN_USER: QStatus = QStatus(37068i32);
+pub const ER_UNABLE_TO_CONNECT_TO_RENDEZVOUS_SERVER: QStatus = QStatus(37069i32);
+pub const ER_NOT_CONNECTED_TO_RENDEZVOUS_SERVER: QStatus = QStatus(37070i32);
+pub const ER_UNABLE_TO_SEND_MESSAGE_TO_RENDEZVOUS_SERVER: QStatus = QStatus(37071i32);
+pub const ER_INVALID_RENDEZVOUS_SERVER_INTERFACE_MESSAGE: QStatus = QStatus(37072i32);
+pub const ER_INVALID_PERSISTENT_CONNECTION_MESSAGE_RESPONSE: QStatus = QStatus(37073i32);
+pub const ER_INVALID_ON_DEMAND_CONNECTION_MESSAGE_RESPONSE: QStatus = QStatus(37074i32);
+pub const ER_INVALID_HTTP_METHOD_USED_FOR_RENDEZVOUS_SERVER_INTERFACE_MESSAGE: QStatus = QStatus(37075i32);
+pub const ER_RENDEZVOUS_SERVER_ERR500_INTERNAL_ERROR: QStatus = QStatus(37076i32);
+pub const ER_RENDEZVOUS_SERVER_ERR503_STATUS_UNAVAILABLE: QStatus = QStatus(37077i32);
+pub const ER_RENDEZVOUS_SERVER_ERR401_UNAUTHORIZED_REQUEST: QStatus = QStatus(37078i32);
+pub const ER_RENDEZVOUS_SERVER_UNRECOVERABLE_ERROR: QStatus = QStatus(37079i32);
+pub const ER_RENDEZVOUS_SERVER_ROOT_CERTIFICATE_UNINITIALIZED: QStatus = QStatus(37080i32);
+pub const ER_BUS_NO_SUCH_ANNOTATION: QStatus = QStatus(37081i32);
+pub const ER_BUS_ANNOTATION_ALREADY_EXISTS: QStatus = QStatus(37082i32);
+pub const ER_SOCK_CLOSING: QStatus = QStatus(37083i32);
+pub const ER_NO_SUCH_DEVICE: QStatus = QStatus(37084i32);
+pub const ER_P2P: QStatus = QStatus(37085i32);
+pub const ER_P2P_TIMEOUT: QStatus = QStatus(37086i32);
+pub const ER_P2P_NOT_CONNECTED: QStatus = QStatus(37087i32);
+pub const ER_BAD_TRANSPORT_MASK: QStatus = QStatus(37088i32);
+pub const ER_PROXIMITY_CONNECTION_ESTABLISH_FAIL: QStatus = QStatus(37089i32);
+pub const ER_PROXIMITY_NO_PEERS_FOUND: QStatus = QStatus(37090i32);
+pub const ER_BUS_OBJECT_NOT_REGISTERED: QStatus = QStatus(37091i32);
+pub const ER_P2P_DISABLED: QStatus = QStatus(37092i32);
+pub const ER_P2P_BUSY: QStatus = QStatus(37093i32);
+pub const ER_BUS_INCOMPATIBLE_DAEMON: QStatus = QStatus(37094i32);
+pub const ER_P2P_NO_GO: QStatus = QStatus(37095i32);
+pub const ER_P2P_NO_STA: QStatus = QStatus(37096i32);
+pub const ER_P2P_FORBIDDEN: QStatus = QStatus(37097i32);
+pub const ER_ALLJOYN_ONAPPSUSPEND_REPLY_FAILED: QStatus = QStatus(37098i32);
+pub const ER_ALLJOYN_ONAPPSUSPEND_REPLY_UNSUPPORTED: QStatus = QStatus(37099i32);
+pub const ER_ALLJOYN_ONAPPRESUME_REPLY_FAILED: QStatus = QStatus(37100i32);
+pub const ER_ALLJOYN_ONAPPRESUME_REPLY_UNSUPPORTED: QStatus = QStatus(37101i32);
+pub const ER_BUS_NO_SUCH_MESSAGE: QStatus = QStatus(37102i32);
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_REPLY_NO_SESSION: QStatus = QStatus(37103i32);
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_BINDER: QStatus = QStatus(37104i32);
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_MULTIPOINT: QStatus = QStatus(37105i32);
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_FOUND: QStatus = QStatus(37106i32);
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_INCOMPATIBLE_REMOTE_DAEMON: QStatus = QStatus(37107i32);
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_REPLY_FAILED: QStatus = QStatus(37108i32);
+pub const ER_BUS_REMOVED_BY_BINDER: QStatus = QStatus(37109i32);
+pub const ER_BUS_MATCH_RULE_NOT_FOUND: QStatus = QStatus(37110i32);
+pub const ER_ALLJOYN_PING_FAILED: QStatus = QStatus(37111i32);
+pub const ER_ALLJOYN_PING_REPLY_UNREACHABLE: QStatus = QStatus(37112i32);
+pub const ER_UDP_MSG_TOO_LONG: QStatus = QStatus(37113i32);
+pub const ER_UDP_DEMUX_NO_ENDPOINT: QStatus = QStatus(37114i32);
+pub const ER_UDP_NO_NETWORK: QStatus = QStatus(37115i32);
+pub const ER_UDP_UNEXPECTED_LENGTH: QStatus = QStatus(37116i32);
+pub const ER_UDP_UNEXPECTED_FLOW: QStatus = QStatus(37117i32);
+pub const ER_UDP_DISCONNECT: QStatus = QStatus(37118i32);
+pub const ER_UDP_NOT_IMPLEMENTED: QStatus = QStatus(37119i32);
+pub const ER_UDP_NO_LISTENER: QStatus = QStatus(37120i32);
+pub const ER_UDP_STOPPING: QStatus = QStatus(37121i32);
+pub const ER_ARDP_BACKPRESSURE: QStatus = QStatus(37122i32);
+pub const ER_UDP_BACKPRESSURE: QStatus = QStatus(37123i32);
+pub const ER_ARDP_INVALID_STATE: QStatus = QStatus(37124i32);
+pub const ER_ARDP_TTL_EXPIRED: QStatus = QStatus(37125i32);
+pub const ER_ARDP_PERSIST_TIMEOUT: QStatus = QStatus(37126i32);
+pub const ER_ARDP_PROBE_TIMEOUT: QStatus = QStatus(37127i32);
+pub const ER_ARDP_REMOTE_CONNECTION_RESET: QStatus = QStatus(37128i32);
+pub const ER_UDP_BUSHELLO: QStatus = QStatus(37129i32);
+pub const ER_UDP_MESSAGE: QStatus = QStatus(37130i32);
+pub const ER_UDP_INVALID: QStatus = QStatus(37131i32);
+pub const ER_UDP_UNSUPPORTED: QStatus = QStatus(37132i32);
+pub const ER_UDP_ENDPOINT_STALLED: QStatus = QStatus(37133i32);
+pub const ER_ARDP_INVALID_RESPONSE: QStatus = QStatus(37134i32);
+pub const ER_ARDP_INVALID_CONNECTION: QStatus = QStatus(37135i32);
+pub const ER_UDP_LOCAL_DISCONNECT: QStatus = QStatus(37136i32);
+pub const ER_UDP_EARLY_EXIT: QStatus = QStatus(37137i32);
+pub const ER_UDP_LOCAL_DISCONNECT_FAIL: QStatus = QStatus(37138i32);
+pub const ER_ARDP_DISCONNECTING: QStatus = QStatus(37139i32);
+pub const ER_ALLJOYN_PING_REPLY_INCOMPATIBLE_REMOTE_ROUTING_NODE: QStatus = QStatus(37140i32);
+pub const ER_ALLJOYN_PING_REPLY_TIMEOUT: QStatus = QStatus(37141i32);
+pub const ER_ALLJOYN_PING_REPLY_UNKNOWN_NAME: QStatus = QStatus(37142i32);
+pub const ER_ALLJOYN_PING_REPLY_FAILED: QStatus = QStatus(37143i32);
+pub const ER_TCP_MAX_UNTRUSTED: QStatus = QStatus(37144i32);
+pub const ER_ALLJOYN_PING_REPLY_IN_PROGRESS: QStatus = QStatus(37145i32);
+pub const ER_LANGUAGE_NOT_SUPPORTED: QStatus = QStatus(37146i32);
+pub const ER_ABOUT_FIELD_ALREADY_SPECIFIED: QStatus = QStatus(37147i32);
+pub const ER_UDP_NOT_DISCONNECTED: QStatus = QStatus(37148i32);
+pub const ER_UDP_ENDPOINT_NOT_STARTED: QStatus = QStatus(37149i32);
+pub const ER_UDP_ENDPOINT_REMOVED: QStatus = QStatus(37150i32);
+pub const ER_ARDP_VERSION_NOT_SUPPORTED: QStatus = QStatus(37151i32);
+pub const ER_CONNECTION_LIMIT_EXCEEDED: QStatus = QStatus(37152i32);
+pub const ER_ARDP_WRITE_BLOCKED: QStatus = QStatus(37153i32);
+pub const ER_PERMISSION_DENIED: QStatus = QStatus(37154i32);
+pub const ER_ABOUT_DEFAULT_LANGUAGE_NOT_SPECIFIED: QStatus = QStatus(37155i32);
+pub const ER_ABOUT_SESSIONPORT_NOT_BOUND: QStatus = QStatus(37156i32);
+pub const ER_ABOUT_ABOUTDATA_MISSING_REQUIRED_FIELD: QStatus = QStatus(37157i32);
+pub const ER_ABOUT_INVALID_ABOUTDATA_LISTENER: QStatus = QStatus(37158i32);
+pub const ER_BUS_PING_GROUP_NOT_FOUND: QStatus = QStatus(37159i32);
+pub const ER_BUS_REMOVED_BY_BINDER_SELF: QStatus = QStatus(37160i32);
+pub const ER_INVALID_CONFIG: QStatus = QStatus(37161i32);
+pub const ER_ABOUT_INVALID_ABOUTDATA_FIELD_VALUE: QStatus = QStatus(37162i32);
+pub const ER_ABOUT_INVALID_ABOUTDATA_FIELD_APPID_SIZE: QStatus = QStatus(37163i32);
+pub const ER_BUS_TRANSPORT_ACCESS_DENIED: QStatus = QStatus(37164i32);
+pub const ER_INVALID_CERTIFICATE: QStatus = QStatus(37165i32);
+pub const ER_CERTIFICATE_NOT_FOUND: QStatus = QStatus(37166i32);
+pub const ER_DUPLICATE_CERTIFICATE: QStatus = QStatus(37167i32);
+pub const ER_UNKNOWN_CERTIFICATE: QStatus = QStatus(37168i32);
+pub const ER_MISSING_DIGEST_IN_CERTIFICATE: QStatus = QStatus(37169i32);
+pub const ER_DIGEST_MISMATCH: QStatus = QStatus(37170i32);
+pub const ER_DUPLICATE_KEY: QStatus = QStatus(37171i32);
+pub const ER_NO_COMMON_TRUST: QStatus = QStatus(37172i32);
+pub const ER_MANIFEST_NOT_FOUND: QStatus = QStatus(37173i32);
+pub const ER_INVALID_CERT_CHAIN: QStatus = QStatus(37174i32);
+pub const ER_NO_TRUST_ANCHOR: QStatus = QStatus(37175i32);
+pub const ER_INVALID_APPLICATION_STATE: QStatus = QStatus(37176i32);
+pub const ER_FEATURE_NOT_AVAILABLE: QStatus = QStatus(37177i32);
+pub const ER_KEY_STORE_ALREADY_INITIALIZED: QStatus = QStatus(37178i32);
+pub const ER_KEY_STORE_ID_NOT_YET_SET: QStatus = QStatus(37179i32);
+pub const ER_POLICY_NOT_NEWER: QStatus = QStatus(37180i32);
+pub const ER_MANIFEST_REJECTED: QStatus = QStatus(37181i32);
+pub const ER_INVALID_CERTIFICATE_USAGE: QStatus = QStatus(37182i32);
+pub const ER_INVALID_SIGNAL_EMISSION_TYPE: QStatus = QStatus(37183i32);
+pub const ER_APPLICATION_STATE_LISTENER_ALREADY_EXISTS: QStatus = QStatus(37184i32);
+pub const ER_APPLICATION_STATE_LISTENER_NO_SUCH_LISTENER: QStatus = QStatus(37185i32);
+pub const ER_MANAGEMENT_ALREADY_STARTED: QStatus = QStatus(37186i32);
+pub const ER_MANAGEMENT_NOT_STARTED: QStatus = QStatus(37187i32);
+pub const ER_BUS_DESCRIPTION_ALREADY_EXISTS: QStatus = QStatus(37188i32);
+#[repr(C)]
+pub struct _alljoyn_abouticon_handle(i32);
+#[repr(C)]
+pub struct _alljoyn_abouticonobj_handle(i32);
+#[repr(C)]
+pub struct _alljoyn_abouticonproxy_handle(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_about_announced_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg);
+#[repr(transparent)]
+pub struct alljoyn_about_announceflag(pub i32);
+pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
+pub const ANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(1i32);
+#[repr(C)]
+pub struct alljoyn_aboutdata(i32);
+#[repr(C)]
+pub struct alljoyn_aboutdatalistener(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_aboutdatalistener_callbacks(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_aboutdatalistener_getaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
+pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus;
+#[repr(C)]
+pub struct alljoyn_aboutlistener(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_aboutlistener_callback(i32);
+#[repr(C)]
+pub struct alljoyn_aboutobj(i32);
+#[repr(C)]
+pub struct alljoyn_aboutobjectdescription(i32);
+#[repr(C)]
+pub struct alljoyn_aboutproxy(i32);
+#[repr(transparent)]
+pub struct alljoyn_applicationstate(pub i32);
+pub const NOT_CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(0i32);
+pub const CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(1i32);
+pub const CLAIMED: alljoyn_applicationstate = alljoyn_applicationstate(2i32);
+pub const NEED_UPDATE: alljoyn_applicationstate = alljoyn_applicationstate(3i32);
+#[repr(C)]
+pub struct alljoyn_applicationstatelistener(i32);
+#[repr(C)]
+pub struct alljoyn_applicationstatelistener_callbacks(i32);
+pub type alljoyn_applicationstatelistener_state_ptr = unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct alljoyn_authlistener(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_authenticationcomplete_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_authlistener_callbacks(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_requestcredentials_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, credentials: alljoyn_credentials) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_requestcredentialsasync_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, authcontext: *mut ::core::ffi::c_void) -> QStatus;
+pub type alljoyn_authlistener_securityviolation_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, status: QStatus, msg: alljoyn_message);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_verifycredentials_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_verifycredentialsasync_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials, authcontext: *mut ::core::ffi::c_void) -> QStatus;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_authlistenerasync_callbacks(i32);
+#[repr(C)]
+pub struct alljoyn_autopinger(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_autopinger_destination_found_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_autopinger_destination_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
+#[repr(C)]
+pub struct alljoyn_busattachment(i32);
+pub type alljoyn_busattachment_joinsessioncb_ptr = unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::core::ffi::c_void);
+pub type alljoyn_busattachment_setlinktimeoutcb_ptr = unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct alljoyn_buslistener(i32);
+pub type alljoyn_buslistener_bus_disconnected_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_bus_prop_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, prop_name: super::super::Foundation::PSTR, prop_value: alljoyn_msgarg);
+pub type alljoyn_buslistener_bus_stopping_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_buslistener_callbacks(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_found_advertised_name_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
+pub type alljoyn_buslistener_listener_registered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, bus: alljoyn_busattachment);
+pub type alljoyn_buslistener_listener_unregistered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_lost_advertised_name_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_name_owner_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR);
+#[repr(C)]
+pub struct alljoyn_busobject(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_busobject_callbacks(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_busobject_methodentry(i32);
+pub type alljoyn_busobject_object_registration_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_busobject_prop_get_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_busobject_prop_set_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
+#[repr(C)]
+pub struct alljoyn_certificateid(i32);
+#[repr(C)]
+pub struct alljoyn_certificateidarray(i32);
+#[repr(transparent)]
+pub struct alljoyn_claimcapability_masks(pub i32);
+pub const CAPABLE_ECDHE_NULL: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(1i32);
+pub const CAPABLE_ECDHE_ECDSA: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(4i32);
+pub const CAPABLE_ECDHE_SPEKE: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(8i32);
+#[repr(transparent)]
+pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
+pub const PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(1i32);
+pub const PASSWORD_GENERATED_BY_APPLICATION: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(2i32);
+#[repr(C)]
+pub struct alljoyn_credentials(i32);
+#[repr(C)]
+pub struct alljoyn_interfacedescription(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_interfacedescription_member(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_interfacedescription_property(i32);
+#[repr(transparent)]
+pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
+pub const AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(0i32);
+pub const AJ_IFC_SECURITY_REQUIRED: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(1i32);
+pub const AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(2i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_interfacedescription_translation_callback_ptr = unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+#[repr(C)]
+pub struct alljoyn_keystore(i32);
+#[repr(C)]
+pub struct alljoyn_keystorelistener(i32);
+pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus;
+#[repr(C)]
+pub struct alljoyn_keystorelistener_callbacks(i32);
+pub type alljoyn_keystorelistener_loadrequest_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
+pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener);
+pub type alljoyn_keystorelistener_storerequest_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
+#[repr(C)]
+pub struct alljoyn_keystorelistener_with_synchronization_callbacks(i32);
+#[repr(C)]
+pub struct alljoyn_manifestarray(i32);
+#[repr(C)]
+pub struct alljoyn_message(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_messagereceiver_methodhandler_ptr = unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message);
+pub type alljoyn_messagereceiver_replyhandler_ptr = unsafe extern "system" fn(message: alljoyn_message, context: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_messagereceiver_signalhandler_ptr = unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR, message: alljoyn_message);
+#[repr(transparent)]
+pub struct alljoyn_messagetype(pub i32);
+pub const ALLJOYN_MESSAGE_INVALID: alljoyn_messagetype = alljoyn_messagetype(0i32);
+pub const ALLJOYN_MESSAGE_METHOD_CALL: alljoyn_messagetype = alljoyn_messagetype(1i32);
+pub const ALLJOYN_MESSAGE_METHOD_RET: alljoyn_messagetype = alljoyn_messagetype(2i32);
+pub const ALLJOYN_MESSAGE_ERROR: alljoyn_messagetype = alljoyn_messagetype(3i32);
+pub const ALLJOYN_MESSAGE_SIGNAL: alljoyn_messagetype = alljoyn_messagetype(4i32);
+#[repr(C)]
+pub struct alljoyn_msgarg(i32);
+#[repr(C)]
+pub struct alljoyn_observer(i32);
+pub type alljoyn_observer_object_discovered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
+pub type alljoyn_observer_object_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
+#[repr(C)]
+pub struct alljoyn_observerlistener(i32);
+#[repr(C)]
+pub struct alljoyn_observerlistener_callback(i32);
+#[repr(C)]
+pub struct alljoyn_permissionconfigurationlistener(i32);
+#[repr(C)]
+pub struct alljoyn_permissionconfigurationlistener_callbacks(i32);
+pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> QStatus;
+pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[repr(C)]
+pub struct alljoyn_permissionconfigurator(i32);
+#[repr(C)]
+pub struct alljoyn_pinglistener(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_pinglistener_callback(i32);
+#[repr(C)]
+pub struct alljoyn_proxybusobject(i32);
+pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_introspectcb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct alljoyn_proxybusobject_ref(i32);
+#[repr(C)]
+pub struct alljoyn_securityapplicationproxy(i32);
+#[repr(C)]
+pub struct alljoyn_sessionlistener(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_sessionlistener_callbacks(i32);
+pub type alljoyn_sessionlistener_sessionlost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionlistener_sessionmemberadded_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
+#[repr(transparent)]
+pub struct alljoyn_sessionlostreason(pub i32);
+pub const ALLJOYN_SESSIONLOST_INVALID: alljoyn_sessionlostreason = alljoyn_sessionlostreason(0i32);
+pub const ALLJOYN_SESSIONLOST_REMOTE_END_LEFT_SESSION: alljoyn_sessionlostreason = alljoyn_sessionlostreason(1i32);
+pub const ALLJOYN_SESSIONLOST_REMOTE_END_CLOSED_ABRUPTLY: alljoyn_sessionlostreason = alljoyn_sessionlostreason(2i32);
+pub const ALLJOYN_SESSIONLOST_REMOVED_BY_BINDER: alljoyn_sessionlostreason = alljoyn_sessionlostreason(3i32);
+pub const ALLJOYN_SESSIONLOST_LINK_TIMEOUT: alljoyn_sessionlostreason = alljoyn_sessionlostreason(4i32);
+pub const ALLJOYN_SESSIONLOST_REASON_OTHER: alljoyn_sessionlostreason = alljoyn_sessionlostreason(5i32);
+#[repr(C)]
+pub struct alljoyn_sessionopts(i32);
+#[repr(C)]
+pub struct alljoyn_sessionportlistener(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct alljoyn_sessionportlistener_callbacks(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionportlistener_sessionjoined_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, id: u32, joiner: super::super::Foundation::PSTR);
+#[repr(transparent)]
+pub struct alljoyn_typeid(pub i32);
+pub const ALLJOYN_INVALID: alljoyn_typeid = alljoyn_typeid(0i32);
+pub const ALLJOYN_ARRAY: alljoyn_typeid = alljoyn_typeid(97i32);
+pub const ALLJOYN_BOOLEAN: alljoyn_typeid = alljoyn_typeid(98i32);
+pub const ALLJOYN_DOUBLE: alljoyn_typeid = alljoyn_typeid(100i32);
+pub const ALLJOYN_DICT_ENTRY: alljoyn_typeid = alljoyn_typeid(101i32);
+pub const ALLJOYN_SIGNATURE: alljoyn_typeid = alljoyn_typeid(103i32);
+pub const ALLJOYN_HANDLE: alljoyn_typeid = alljoyn_typeid(104i32);
+pub const ALLJOYN_INT32: alljoyn_typeid = alljoyn_typeid(105i32);
+pub const ALLJOYN_INT16: alljoyn_typeid = alljoyn_typeid(110i32);
+pub const ALLJOYN_OBJECT_PATH: alljoyn_typeid = alljoyn_typeid(111i32);
+pub const ALLJOYN_UINT16: alljoyn_typeid = alljoyn_typeid(113i32);
+pub const ALLJOYN_STRUCT: alljoyn_typeid = alljoyn_typeid(114i32);
+pub const ALLJOYN_STRING: alljoyn_typeid = alljoyn_typeid(115i32);
+pub const ALLJOYN_UINT64: alljoyn_typeid = alljoyn_typeid(116i32);
+pub const ALLJOYN_UINT32: alljoyn_typeid = alljoyn_typeid(117i32);
+pub const ALLJOYN_VARIANT: alljoyn_typeid = alljoyn_typeid(118i32);
+pub const ALLJOYN_INT64: alljoyn_typeid = alljoyn_typeid(120i32);
+pub const ALLJOYN_BYTE: alljoyn_typeid = alljoyn_typeid(121i32);
+pub const ALLJOYN_STRUCT_OPEN: alljoyn_typeid = alljoyn_typeid(40i32);
+pub const ALLJOYN_STRUCT_CLOSE: alljoyn_typeid = alljoyn_typeid(41i32);
+pub const ALLJOYN_DICT_ENTRY_OPEN: alljoyn_typeid = alljoyn_typeid(123i32);
+pub const ALLJOYN_DICT_ENTRY_CLOSE: alljoyn_typeid = alljoyn_typeid(125i32);
+pub const ALLJOYN_BOOLEAN_ARRAY: alljoyn_typeid = alljoyn_typeid(25185i32);
+pub const ALLJOYN_DOUBLE_ARRAY: alljoyn_typeid = alljoyn_typeid(25697i32);
+pub const ALLJOYN_INT32_ARRAY: alljoyn_typeid = alljoyn_typeid(26977i32);
+pub const ALLJOYN_INT16_ARRAY: alljoyn_typeid = alljoyn_typeid(28257i32);
+pub const ALLJOYN_UINT16_ARRAY: alljoyn_typeid = alljoyn_typeid(29025i32);
+pub const ALLJOYN_UINT64_ARRAY: alljoyn_typeid = alljoyn_typeid(29793i32);
+pub const ALLJOYN_UINT32_ARRAY: alljoyn_typeid = alljoyn_typeid(30049i32);
+pub const ALLJOYN_INT64_ARRAY: alljoyn_typeid = alljoyn_typeid(30817i32);
+pub const ALLJOYN_BYTE_ARRAY: alljoyn_typeid = alljoyn_typeid(31073i32);
+pub const ALLJOYN_WILDCARD: alljoyn_typeid = alljoyn_typeid(42i32);

@@ -1,8 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_Shell`*"]
 pub struct AdaptiveCardBuilder {}
 impl AdaptiveCardBuilder {
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -19,14 +17,12 @@ impl ::windows::core::RuntimeName for AdaptiveCardBuilder {
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCard(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAdaptiveCard {
     type Vtable = IAdaptiveCard_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d0568c_a274_41cd_82a8_989d40b9b05e);
 }
 impl IAdaptiveCard {
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -91,14 +87,12 @@ pub struct IAdaptiveCard_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCardBuilderStatics(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAdaptiveCardBuilderStatics {
     type Vtable = IAdaptiveCardBuilderStatics_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 }
 impl IAdaptiveCardBuilderStatics {
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
         let this = self;
         unsafe {
@@ -317,7 +311,6 @@ pub struct ITaskbarManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `UI_Shell`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecurityAppKind(pub i32);
@@ -338,7 +331,6 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppKind {
 impl ::windows::core::DefaultType for SecurityAppKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SecurityAppManager(pub ::windows::core::IInspectable);
@@ -351,7 +343,6 @@ impl SecurityAppManager {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn Register<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, kind: SecurityAppKind, displayname: Param1, detailsuri: Param2, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -359,13 +350,11 @@ impl SecurityAppManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), kind, displayname.into_param().abi(), detailsuri.into_param().abi(), registerperuser, &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn Unregister<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, kind: SecurityAppKind, guidregistration: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), kind, guidregistration.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn UpdateState<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, kind: SecurityAppKind, guidregistration: Param1, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: Param4) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), kind, guidregistration.into_param().abi(), state, substatus, detailsuri.into_param().abi()).ok() }
@@ -426,7 +415,6 @@ unsafe impl ::core::marker::Sync for SecurityAppManager {}
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct SecurityAppManagerContract(pub u8);
-#[doc = "*Required features: `UI_Shell`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecurityAppState(pub i32);
@@ -448,7 +436,6 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppState {
 impl ::windows::core::DefaultType for SecurityAppState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Shell`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecurityAppSubstatus(pub i32);
@@ -472,7 +459,6 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppSubstatus {
 impl ::windows::core::DefaultType for SecurityAppSubstatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Shell`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ShareWindowCommand(pub i32);
@@ -495,12 +481,10 @@ unsafe impl ::windows::core::RuntimeType for ShareWindowCommand {
 impl ::windows::core::DefaultType for ShareWindowCommand {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ShareWindowCommandEventArgs(pub ::windows::core::IInspectable);
 impl ShareWindowCommandEventArgs {
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn WindowId(&self) -> ::windows::core::Result<super::WindowId> {
         let this = self;
         unsafe {
@@ -508,7 +492,6 @@ impl ShareWindowCommandEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowId>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn Command(&self) -> ::windows::core::Result<ShareWindowCommand> {
         let this = self;
         unsafe {
@@ -516,7 +499,6 @@ impl ShareWindowCommandEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ShareWindowCommand>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn SetCommand(&self, value: ShareWindowCommand) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
@@ -574,28 +556,23 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for ShareWindowCommandEventArgs {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandEventArgs {}
-#[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ShareWindowCommandSource(pub ::windows::core::IInspectable);
 impl ShareWindowCommandSource {
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn ReportCommandChanged(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn CommandRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -604,13 +581,11 @@ impl ShareWindowCommandSource {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn RemoveCommandRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn CommandInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -619,12 +594,10 @@ impl ShareWindowCommandSource {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn RemoveCommandInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<ShareWindowCommandSource> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -688,12 +661,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for ShareWindowCommandSource {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandSource {}
-#[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TaskbarManager(pub ::windows::core::IInspectable);
 impl TaskbarManager {
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn IsSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -701,7 +672,6 @@ impl TaskbarManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn IsPinningAllowed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -710,7 +680,6 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn IsCurrentAppPinnedAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -719,7 +688,6 @@ impl TaskbarManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    #[doc = "*Required features: `UI_Shell`, `ApplicationModel_Core`, `Foundation`*"]
     pub fn IsAppListEntryPinnedAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -728,7 +696,6 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn RequestPinCurrentAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -737,7 +704,6 @@ impl TaskbarManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    #[doc = "*Required features: `UI_Shell`, `ApplicationModel_Core`, `Foundation`*"]
     pub fn RequestPinAppListEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -745,7 +711,6 @@ impl TaskbarManager {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Shell`*"]
     pub fn GetDefault() -> ::windows::core::Result<TaskbarManager> {
         Self::ITaskbarManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -753,7 +718,6 @@ impl TaskbarManager {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn IsSecondaryTilePinnedAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
@@ -762,7 +726,6 @@ impl TaskbarManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_StartScreen"))]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`, `UI_StartScreen`*"]
     pub fn RequestPinSecondaryTileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::StartScreen::SecondaryTile>>(&self, secondarytile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
@@ -771,7 +734,6 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Shell`, `Foundation`*"]
     pub fn TryUnpinSecondaryTileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {

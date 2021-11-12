@@ -148,19 +148,19 @@ impl core::fmt::Debug for HSTRING {
     }
 }
 
-impl From<&str> for HSTRING {
+impl core::convert::From<&str> for HSTRING {
     fn from(value: &str) -> Self {
         unsafe { Self::from_wide_iter(value.encode_utf16(), value.len() as u32) }
     }
 }
 
-impl From<alloc::string::String> for HSTRING {
+impl core::convert::From<alloc::string::String> for HSTRING {
     fn from(value: alloc::string::String) -> Self {
         value.as_str().into()
     }
 }
 
-impl From<&alloc::string::String> for HSTRING {
+impl core::convert::From<&alloc::string::String> for HSTRING {
     fn from(value: &alloc::string::String) -> Self {
         value.as_str().into()
     }

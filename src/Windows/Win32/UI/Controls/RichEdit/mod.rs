@@ -1,32 +1,19 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ATP_CHANGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ATP_NOCHANGE: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ATP_NODELIMITER: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ATP_REPLACEALLTEXT: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_DISABLEMIXEDLGC: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEDRIVELETTERS: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEEA: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEEAURLS: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLETELNO: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEURL: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AutoCorrectProc = unsafe extern "system" fn(langid: u16, pszbefore: super::super::super::Foundation::PWSTR, pszafter: super::super::super::Foundation::PWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct BIDIOPTIONS {
     pub cbSize: u32,
     pub wMask: u16,
@@ -52,37 +39,21 @@ impl ::core::cmp::Eq for BIDIOPTIONS {}
 unsafe impl ::windows::core::Abi for BIDIOPTIONS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_CONTEXTALIGNMENT: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_CONTEXTREADING: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_FORCERECALC: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_LEGACYBIDICLASS: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_NEUTRALOVERRIDE: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_PLAINTEXT: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_RTLDIR: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOE_UNICODEBIDI: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_CONTEXTALIGNMENT: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_CONTEXTREADING: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_DEFPARADIR: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_LEGACYBIDICLASS: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_NEUTRALOVERRIDE: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_PLAINTEXT: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_UNICODEBIDI: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CARET_FLAGS(pub i32);
@@ -103,7 +74,6 @@ unsafe impl ::windows::core::Abi for CARET_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
 pub union CARET_INFO {
     pub hbitmap: super::super::super::Graphics::Gdi::HBITMAP,
     pub caretFlags: CARET_FLAGS,
@@ -128,7 +98,6 @@ impl ::core::cmp::Eq for CARET_INFO {}
 unsafe impl ::windows::core::Abi for CARET_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CFE_EFFECTS(pub u32);
@@ -193,7 +162,6 @@ impl ::core::ops::Not for CFE_EFFECTS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CFM_MASK(pub u32);
@@ -278,7 +246,6 @@ impl ::core::ops::Not for CFM_MASK {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct CHANGENOTIFY {
     pub dwChangeType: CHANGETYPE,
     pub pvCookieData: *mut ::core::ffi::c_void,
@@ -303,7 +270,6 @@ impl ::core::cmp::Eq for CHANGENOTIFY {}
 unsafe impl ::windows::core::Abi for CHANGENOTIFY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGETYPE(pub i32);
@@ -322,7 +288,6 @@ unsafe impl ::windows::core::Abi for CHANGETYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct CHARFORMAT2A {
     pub __AnonymousBase_richedit_L736_C23: CHARFORMATA,
     pub wWeight: u16,
@@ -386,7 +351,6 @@ unsafe impl ::windows::core::Abi for CHARFORMAT2A_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct CHARFORMAT2W {
     pub __AnonymousBase_richedit_L711_C23: CHARFORMATW,
     pub wWeight: u16,
@@ -418,7 +382,6 @@ unsafe impl ::windows::core::Abi for CHARFORMAT2W {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
@@ -441,7 +404,6 @@ unsafe impl ::windows::core::Abi for CHARFORMAT2W_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct CHARFORMATA {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -491,7 +453,6 @@ unsafe impl ::windows::core::Abi for CHARFORMATA {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct CHARFORMATW {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -535,7 +496,6 @@ unsafe impl ::windows::core::Abi for CHARFORMATW {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct CHARRANGE {
     pub cpMin: i32,
     pub cpMax: i32,
@@ -563,7 +523,6 @@ unsafe impl ::windows::core::Abi for CHARRANGE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::NMHDR,
     pub cf: u16,
@@ -590,7 +549,6 @@ unsafe impl ::windows::core::Abi for CLIPBOARDFORMAT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct COMPCOLOR {
     pub crText: u32,
     pub crBackground: u32,
@@ -616,57 +574,31 @@ impl ::core::cmp::Eq for COMPCOLOR {}
 unsafe impl ::windows::core::Abi for COMPCOLOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_CONVERSATION: u32 = 5u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_DATETIME: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_FILENAME: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_FULLWIDTHALPHANUMERIC: u32 = 11u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_HALFWIDTHALPHANUMERIC: u32 = 12u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_HALFWIDTHKATAKANA: u32 = 10u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_HANGUL: u32 = 9u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_HIRAGANA: u32 = 7u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_KATAKANA: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_NAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_NUMERIC: u32 = 6u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const CTFMODEBIAS_READING: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECOOP_AND: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECOOP_OR: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECOOP_SET: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECOOP_XOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_AUTOHSCROLL: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_AUTOVSCROLL: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_AUTOWORDSELECTION: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_NOHIDESEL: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_READONLY: u32 = 2048u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_SAVESEL: u32 = 32768u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_SELECTIONBAR: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_VERTICAL: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ECO_WANTRETURN: u32 = 4096u32;
 impl ::core::clone::Clone for EDITSTREAM {
     fn clone(&self) -> Self {
@@ -674,7 +606,6 @@ impl ::core::clone::Clone for EDITSTREAM {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
@@ -695,259 +626,134 @@ impl ::core::cmp::Eq for EDITSTREAM {}
 unsafe impl ::windows::core::Abi for EDITSTREAM {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub type EDITSTREAMCALLBACK = unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCEX = unsafe extern "system" fn(pchtext: super::super::super::Foundation::PSTR, cchtext: i32, bcharset: u8, action: i32) -> i32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ELLIPSIS_END: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ELLIPSIS_MASK: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ELLIPSIS_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ELLIPSIS_WORD: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_ENTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_EXIT: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_EXPAND: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_EXPANDDOCUMENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_EXPANDSELECTION: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_GETVIEWMODE: u32 = 5u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_MOVESELECTION: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EMO_PROMOTE: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_AUTOURLDETECT: u32 = 1115u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_CALLAUTOCORRECTPROC: u32 = 1279u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_CANPASTE: u32 = 1074u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_CANREDO: u32 = 1109u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_CONVPOSITION: u32 = 1132u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_DISPLAYBAND: u32 = 1075u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_EXGETSEL: u32 = 1076u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_EXLIMITTEXT: u32 = 1077u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_EXLINEFROMCHAR: u32 = 1078u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_EXSETSEL: u32 = 1079u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_FINDTEXT: u32 = 1080u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_FINDTEXTEX: u32 = 1103u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_FINDTEXTEXW: u32 = 1148u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_FINDTEXTW: u32 = 1147u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_FINDWORDBREAK: u32 = 1100u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_FORMATRANGE: u32 = 1081u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETAUTOCORRECTPROC: u32 = 1257u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETAUTOURLDETECT: u32 = 1116u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETBIDIOPTIONS: u32 = 1225u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETCHARFORMAT: u32 = 1082u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETCTFMODEBIAS: u32 = 1261u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETCTFOPENSTATUS: u32 = 1264u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETEDITSTYLE: u32 = 1229u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETEDITSTYLEEX: u32 = 1300u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETELLIPSISMODE: u32 = 1329u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETELLIPSISSTATE: u32 = 1346u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETEVENTMASK: u32 = 1083u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETHYPHENATEINFO: u32 = 1254u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETIMECOLOR: u32 = 1129u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETIMECOMPMODE: u32 = 1146u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETIMECOMPTEXT: u32 = 1266u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETIMEMODEBIAS: u32 = 1151u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETIMEOPTIONS: u32 = 1131u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETIMEPROPERTY: u32 = 1268u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETLANGOPTIONS: u32 = 1145u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETOLEINTERFACE: u32 = 1084u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETOPTIONS: u32 = 1102u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETPAGE: u32 = 1252u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETPAGEROTATE: u32 = 1259u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETPARAFORMAT: u32 = 1085u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETPUNCTUATION: u32 = 1125u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETQUERYRTFOBJ: u32 = 1293u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETREDONAME: u32 = 1111u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETSCROLLPOS: u32 = 1245u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETSELTEXT: u32 = 1086u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETSTORYTYPE: u32 = 1314u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETTABLEPARMS: u32 = 1289u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETTEXTEX: u32 = 1118u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETTEXTLENGTHEX: u32 = 1119u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETTEXTMODE: u32 = 1114u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETTEXTRANGE: u32 = 1099u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETTOUCHOPTIONS: u32 = 1334u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETTYPOGRAPHYOPTIONS: u32 = 1227u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETUNDONAME: u32 = 1110u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETVIEWKIND: u32 = 1250u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETWORDBREAKPROCEX: u32 = 1104u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETWORDWRAPMODE: u32 = 1127u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_GETZOOM: u32 = 1248u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_HIDESELECTION: u32 = 1087u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_INSERTIMAGE: u32 = 1338u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_INSERTTABLE: u32 = 1256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_ISIME: u32 = 1267u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_OUTLINE: u32 = 1244u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_PASTESPECIAL: u32 = 1088u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_RECONVERSION: u32 = 1149u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_REDO: u32 = 1108u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_REQUESTRESIZE: u32 = 1089u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SELECTIONTYPE: u32 = 1090u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETAUTOCORRECTPROC: u32 = 1258u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETBIDIOPTIONS: u32 = 1224u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETBKGNDCOLOR: u32 = 1091u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETCHARFORMAT: u32 = 1092u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETCTFMODEBIAS: u32 = 1262u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETCTFOPENSTATUS: u32 = 1265u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETEDITSTYLE: u32 = 1228u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETEDITSTYLEEX: u32 = 1299u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETELLIPSISMODE: u32 = 1330u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETEVENTMASK: u32 = 1093u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETFONTSIZE: u32 = 1247u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETHYPHENATEINFO: u32 = 1255u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETIMECOLOR: u32 = 1128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETIMEMODEBIAS: u32 = 1150u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETIMEOPTIONS: u32 = 1130u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETLANGOPTIONS: u32 = 1144u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETOLECALLBACK: u32 = 1094u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETOPTIONS: u32 = 1101u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETPAGE: u32 = 1253u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETPAGEROTATE: u32 = 1260u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETPALETTE: u32 = 1117u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETPARAFORMAT: u32 = 1095u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETPUNCTUATION: u32 = 1124u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETQUERYRTFOBJ: u32 = 1294u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETSCROLLPOS: u32 = 1246u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETSTORYTYPE: u32 = 1315u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETTABLEPARMS: u32 = 1331u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETTARGETDEVICE: u32 = 1096u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETTEXTEX: u32 = 1121u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETTEXTMODE: u32 = 1113u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETTOUCHOPTIONS: u32 = 1335u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETTYPOGRAPHYOPTIONS: u32 = 1226u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETUIANAME: u32 = 1344u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETUNDOLIMIT: u32 = 1106u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETVIEWKIND: u32 = 1251u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETWORDBREAKPROCEX: u32 = 1105u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETWORDWRAPMODE: u32 = 1126u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SETZOOM: u32 = 1249u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_SHOWSCROLLBAR: u32 = 1120u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_STOPGROUPTYPING: u32 = 1112u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_STREAMIN: u32 = 1097u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_STREAMOUT: u32 = 1098u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
@@ -976,7 +782,6 @@ unsafe impl ::windows::core::Abi for ENCORRECTTEXT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::NMHDR,
     pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
@@ -1001,7 +806,6 @@ impl ::core::cmp::Eq for ENDCOMPOSITIONNOTIFY {}
 unsafe impl ::windows::core::Abi for ENDCOMPOSITIONNOTIFY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
@@ -1046,7 +850,6 @@ impl ::core::ops::Not for ENDCOMPOSITIONNOTIFY_CODE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::super::super::Foundation::HANDLE,
@@ -1076,7 +879,6 @@ unsafe impl ::windows::core::Abi for ENDROPFILES {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENLINK {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
@@ -1107,7 +909,6 @@ unsafe impl ::windows::core::Abi for ENLINK {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: super::super::super::Foundation::PSTR,
@@ -1132,60 +933,34 @@ impl ::core::cmp::Eq for ENLOWFIRTF {}
 unsafe impl ::windows::core::Abi for ENLOWFIRTF {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_CHANGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_CLIPFORMAT: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_CORRECTTEXT: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_DRAGDROPDONE: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_DROPFILES: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_ENDCOMPOSITION: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_GROUPTYPINGCHANGE: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_HIDELINKTOOLTIP: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_IMECHANGE: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_KEYEVENTS: u32 = 65536u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_LANGCHANGE: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_LINK: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_LOWFIRTF: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_MOUSEEVENTS: u32 = 131072u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_OBJECTPOSITIONS: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_PAGECHANGE: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_PARAGRAPHEXPANDED: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_PROTECTED: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_REQUESTRESIZE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_SCROLL: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_SCROLLEVENTS: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_SELCHANGE: u32 = 524288u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_UPDATE: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::NMHDR,
     pub iob: i32,
@@ -1215,7 +990,6 @@ unsafe impl ::windows::core::Abi for ENOLEOPFAILED {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENPROTECTED {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
@@ -1246,7 +1020,6 @@ unsafe impl ::windows::core::Abi for ENPROTECTED {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
@@ -1272,80 +1045,44 @@ impl ::core::cmp::Eq for ENSAVECLIPBOARD {}
 unsafe impl ::windows::core::Abi for ENSAVECLIPBOARD {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_ALIGNLTR: u32 = 1808u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_ALIGNRTL: u32 = 1809u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_CLIPFORMAT: u32 = 1810u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_CORRECTTEXT: u32 = 1797u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_DRAGDROPDONE: u32 = 1804u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_DROPFILES: u32 = 1795u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_ENDCOMPOSITION: u32 = 1812u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_IMECHANGE: u32 = 1799u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_LINK: u32 = 1803u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_LOWFIRTF: u32 = 1807u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_MSGFILTER: u32 = 1792u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_OBJECTPOSITIONS: u32 = 1802u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_OLEOPFAILED: u32 = 1801u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_PAGECHANGE: u32 = 1806u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_PARAGRAPHEXPANDED: u32 = 1805u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_PROTECTED: u32 = 1796u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_REQUESTRESIZE: u32 = 1793u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_SAVECLIPBOARD: u32 = 1800u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_SELCHANGE: u32 = 1794u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_STARTCOMPOSITION: u32 = 1811u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_STOPNOUNDO: u32 = 1798u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EPR_0: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EPR_180: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EPR_270: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EPR_90: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EPR_SE: u32 = 5u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_DISABLENOSCROLL: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_EX_NOCALLOLEINIT: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_NOIME: u32 = 524288u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_NOOLEDRAGDROP: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_SAVESEL: u32 = 32768u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_SELECTIONBAR: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_SELFIME: u32 = 262144u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_SUNKEN: u32 = 16384u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_VERTICAL: u32 = 4194304u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: super::super::super::Foundation::PSTR,
@@ -1373,7 +1110,6 @@ unsafe impl ::windows::core::Abi for FINDTEXTA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: super::super::super::Foundation::PSTR,
@@ -1402,7 +1138,6 @@ unsafe impl ::windows::core::Abi for FINDTEXTEXA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: super::super::super::Foundation::PWSTR,
@@ -1431,7 +1166,6 @@ unsafe impl ::windows::core::Abi for FINDTEXTEXW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: super::super::super::Foundation::PWSTR,
@@ -1459,7 +1193,6 @@ unsafe impl ::windows::core::Abi for FINDTEXTW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct FORMATRANGE {
     pub hdc: super::super::super::Graphics::Gdi::HDC,
     pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
@@ -1487,28 +1220,18 @@ impl ::core::cmp::Eq for FORMATRANGE {}
 unsafe impl ::windows::core::Abi for FORMATRANGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const FR_MATCHALEFHAMZA: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const FR_MATCHDIAC: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const FR_MATCHKASHIDA: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const GCMF_GRIPPER: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const GCMF_MOUSEMENU: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const GCMF_SPELLING: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const GCMF_TOUCHMENU: u32 = 16384u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const GCM_MOUSEMENU: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const GCM_TOUCHMENU: u32 = 16384u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
@@ -1538,7 +1261,6 @@ unsafe impl ::windows::core::Abi for GETCONTEXTMENUEX {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
@@ -1566,7 +1288,6 @@ impl ::core::cmp::Eq for GETTEXTEX {}
 unsafe impl ::windows::core::Abi for GETTEXTEX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GETTEXTEX_FLAGS(pub u32);
@@ -1613,7 +1334,6 @@ impl ::core::ops::Not for GETTEXTEX_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct GETTEXTLENGTHEX {
     pub flags: GETTEXTLENGTHEX_FLAGS,
     pub codepage: u32,
@@ -1638,7 +1358,6 @@ impl ::core::cmp::Eq for GETTEXTLENGTHEX {}
 unsafe impl ::windows::core::Abi for GETTEXTLENGTHEX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
@@ -1686,7 +1405,6 @@ impl ::core::ops::Not for GETTEXTLENGTHEX_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
@@ -1707,21 +1425,14 @@ impl ::core::cmp::Eq for HYPHENATEINFO {}
 unsafe impl ::windows::core::Abi for HYPHENATEINFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ICM_CTF: u32 = 5u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ICM_LEVEL2: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ICM_LEVEL2_5: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ICM_LEVEL2_SUI: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ICM_LEVEL3: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ICM_NOTOPEN: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct IMECOMPTEXT {
     pub cb: i32,
     pub flags: IMECOMPTEXT_FLAGS,
@@ -1746,7 +1457,6 @@ impl ::core::cmp::Eq for IMECOMPTEXT {}
 unsafe impl ::windows::core::Abi for IMECOMPTEXT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMECOMPTEXT_FLAGS(pub u32);
@@ -1787,131 +1497,90 @@ impl ::core::ops::Not for IMECOMPTEXT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_AUTOFONT: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_AUTOFONTSIZEADJUST: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_AUTOKEYBOARD: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_CLOSESTATUSWINDOW: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_DUALFONT: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_FORCEACTIVE: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_FORCEDISABLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_FORCEENABLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_FORCEINACTIVE: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_FORCENONE: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_FORCEREMEMBER: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_IMEALWAYSSENDNOTIFY: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_IMECANCELCOMPLETE: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_IMEUIINTEGRATION: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_MULTIPLEEDIT: u32 = 1024u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_NOIMPLICITLANG: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_NOKBDLIDFIXUP: u32 = 512u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_NORTFFONTSUBSTITUTE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_SMODE_NONE: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_SMODE_PLAURALCLAUSE: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_SPELLCHECKING: u32 = 2048u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_TKBPREDICTION: u32 = 4096u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_UIFONTS: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_VERTICAL: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IRichEditOle(pub ::windows::core::IUnknown);
 impl IRichEditOle {
     #[cfg(feature = "Win32_System_Ole")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Ole`*"]
     pub unsafe fn GetClientSite(&self) -> ::windows::core::Result<super::super::super::System::Ole::IOleClientSite> {
         let mut result__: <super::super::super::System::Ole::IOleClientSite as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Ole::IOleClientSite>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetObjectCount(&self) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLinkCount(&self) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`*"]
     pub unsafe fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(iob), ::core::mem::transmute(lpreobject), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`*"]
     pub unsafe fn InsertObject(&self, lpreobject: *mut REOBJECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpreobject)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn ConvertObject<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(iob), ::core::mem::transmute(rclsidnew), lpstrusertypenew.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rclsidas)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetHostNames<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, lpstrcontainerapp: Param0, lpstrcontainerobj: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), lpstrcontainerapp.into_param().abi(), lpstrcontainerobj.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetLinkAvailable<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, iob: i32, favailable: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(iob), favailable.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(iob), ::core::mem::transmute(dvaspect)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn HandsOffStorage(&self, iob: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(iob)).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn SaveCompleted<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>(&self, iob: i32, lpstg: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(iob), lpstg.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InPlaceDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpchrg), ::core::mem::transmute(reco), ::core::mem::transmute(lplpdataobj)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn ImportDataObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IDataObject>>(&self, lpdataobj: Param0, cf: u16, hmetapict: isize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), lpdataobj.into_param().abi(), ::core::mem::transmute(cf), ::core::mem::transmute(hmetapict)).ok()
     }
@@ -1973,59 +1642,48 @@ pub struct IRichEditOle_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lpdataobj: ::windows::core::RawPtr, cf: u16, hmetapict: isize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IRichEditOleCallback(pub ::windows::core::IUnknown);
 impl IRichEditOleCallback {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn GetNewStorage(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::IStorage> {
         let mut result__: <super::super::super::System::Com::StructuredStorage::IStorage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::StructuredStorage::IStorage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetInPlaceContext(&self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OIFI) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lplpframe), ::core::mem::transmute(lplpdoc), ::core::mem::transmute(lpframeinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn ShowContainerUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn QueryInsertObject<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>(&self, lpclsid: *mut ::windows::core::GUID, lpstg: Param1, cp: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpclsid), lpstg.into_param().abi(), ::core::mem::transmute(cp)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Ole`*"]
     pub unsafe fn DeleteObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Ole::IOleObject>>(&self, lpoleobj: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), lpoleobj.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn QueryAcceptData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IDataObject>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, lpdataobj: Param0, lpcfformat: *mut u16, reco: u32, freally: Param3, hmetapict: isize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), lpdataobj.into_param().abi(), ::core::mem::transmute(lpcfformat), ::core::mem::transmute(reco), freally.into_param().abi(), ::core::mem::transmute(hmetapict)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpchrg), ::core::mem::transmute(reco), ::core::mem::transmute(lplpdataobj)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetDragDropEffect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fdrag: Param0, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), fdrag.into_param().abi(), ::core::mem::transmute(grfkeystate), ::core::mem::transmute(pdweffect)).ok()
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetContextMenu<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Ole::IOleObject>>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: Param1, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(seltype), lpoleobj.into_param().abi(), ::core::mem::transmute(lpchrg), ::core::mem::transmute(lphmenu)).ok()
     }
@@ -2081,13 +1739,11 @@ pub struct IRichEditOleCallback_abi(
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: ::windows::core::RawPtr, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IRicheditUiaOverrides(pub ::windows::core::IUnknown);
 impl IRicheditUiaOverrides {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(pretvalue)).ok()
     }
@@ -2125,7 +1781,6 @@ pub struct IRicheditUiaOverrides_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, propertyid: i32, pretvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextDisplays(pub ::windows::core::IUnknown);
@@ -2193,98 +1848,78 @@ pub struct ITextDisplays_abi(
     pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextDocument(pub ::windows::core::IUnknown);
 impl ITextDocument {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__: <ITextSelection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextSelection>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryRanges(&self) -> ::windows::core::Result<ITextStoryRanges> {
         let mut result__: <ITextStoryRanges as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStoryRanges>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSaved(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDefaultTabStop(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(flags), ::core::mem::transmute(codepage)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(flags), ::core::mem::transmute(codepage)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Unfreeze(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn BeginEditCollection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndEditCollection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Undo(&self, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Redo(&self, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpactive), ::core::mem::transmute(cpanchor), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), &mut result__).from_abi::<ITextRange>(result__)
@@ -2375,29 +2010,24 @@ pub struct ITextDocument_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cpactive: i32, cpanchor: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, x: i32, y: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextDocument2(pub ::windows::core::IUnknown);
 impl ITextDocument2 {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -2413,206 +2043,163 @@ impl ITextDocument2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__: <ITextSelection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextSelection>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryRanges(&self) -> ::windows::core::Result<ITextStoryRanges> {
         let mut result__: <ITextStoryRanges as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStoryRanges>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSaved(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDefaultTabStop(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(flags), ::core::mem::transmute(codepage)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(flags), ::core::mem::transmute(codepage)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Unfreeze(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn BeginEditCollection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndEditCollection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Undo(&self, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Redo(&self, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpactive), ::core::mem::transmute(cpanchor), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCaretType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCaretType(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDisplays(&self) -> ::windows::core::Result<ITextDisplays> {
         let mut result__: <ITextDisplays as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextDisplays>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__: <ITextFont2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDocumentFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__: <ITextPara2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDocumentPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEastAsianFlags(&self) -> ::windows::core::Result<tomConstants> {
         let mut result__: <tomConstants as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), &mut result__).from_abi::<tomConstants>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetGenerator(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIMEInProgress(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetNotificationMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetNotificationMode(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSelection2(&self) -> ::windows::core::Result<ITextSelection2> {
         let mut result__: <ITextSelection2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextSelection2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryRanges2(&self) -> ::windows::core::Result<ITextStoryRanges2> {
         let mut result__: <ITextStoryRanges2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStoryRanges2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypographyOptions(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<i64> {
         let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn AttachMsgFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), pfilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(cch), ::core::mem::transmute(pcch)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCallManager(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetClientRect(&self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetImmContext(&self) -> ::windows::core::Result<i64> {
         let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut super::super::super::Foundation::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(
             ::core::mem::transmute_copy(self),
@@ -2627,91 +2214,71 @@ impl ITextDocument2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStrings(&self) -> ::windows::core::Result<ITextStrings> {
         let mut result__: <ITextStrings as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStrings>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Notify(&self, notify: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(notify)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Range2(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpactive), ::core::mem::transmute(cpanchor), &mut result__).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn RangeFromPoint2(&self, x: i32, y: i32, r#type: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(r#type), &mut result__).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ReleaseCallManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pvoid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pvoid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ReleaseImmContext(&self, context: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(context)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEffectColor(&self, index: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetTypographyOptions(&self, options: i32, mask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(mask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SysBeep(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Update(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn UpdateWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetMathProperties(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetMathProperties(&self, options: i32, mask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(mask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetActiveStory(&self) -> ::windows::core::Result<ITextStory> {
         let mut result__: <ITextStory as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStory>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetActiveStory<'a, Param0: ::windows::core::IntoParam<'a, ITextStory>>(&self, pstory: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), pstory.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetMainStory(&self) -> ::windows::core::Result<ITextStory> {
         let mut result__: <ITextStory as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStory>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetNewStory(&self) -> ::windows::core::Result<ITextStory> {
         let mut result__: <ITextStory as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStory>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStory(&self, index: i32) -> ::windows::core::Result<ITextStory> {
         let mut result__: <ITextStory as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<ITextStory>(result__)
@@ -2868,29 +2435,24 @@ pub struct ITextDocument2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppstory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: i32, ppstory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextDocument2Old(pub ::windows::core::IUnknown);
 impl ITextDocument2Old {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -2906,129 +2468,102 @@ impl ITextDocument2Old {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__: <ITextSelection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextSelection>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryRanges(&self) -> ::windows::core::Result<ITextStoryRanges> {
         let mut result__: <ITextStoryRanges as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextStoryRanges>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSaved(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDefaultTabStop(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(flags), ::core::mem::transmute(codepage)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(flags), ::core::mem::transmute(codepage)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Unfreeze(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn BeginEditCollection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndEditCollection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Undo(&self, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Redo(&self, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpactive), ::core::mem::transmute(cpanchor), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn AttachMsgFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pfilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEffectColor(&self, index: i32, cr: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(cr)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCaretType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCaretType(&self, carettype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(carettype)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetImmContext(&self) -> ::windows::core::Result<i64> {
         let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ReleaseImmContext(&self, context: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(context)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut super::super::super::Foundation::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(
             ::core::mem::transmute_copy(self),
@@ -3043,74 +2578,58 @@ impl ITextDocument2Old {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetNotificationMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetNotificationMode(&self, mode: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetClientRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSelection2(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__: <ITextSelection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextSelection>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFEFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn UpdateWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(cch), ::core::mem::transmute(pcch)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IMEInProgress(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SysBeep(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Update(&self, mode: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Notify(&self, notify: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(notify)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__: <ITextFont as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__: <ITextPara as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCallManager(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ReleaseCallManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pvoid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), pvoid.into_param().abi()).ok()
     }
@@ -3245,258 +2764,202 @@ pub struct ITextDocument2Old_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppvoid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvoid: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextFont(pub ::windows::core::IUnknown);
 impl ITextFont {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__: <ITextFont as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pfont.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStyle(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAllCaps(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAllCaps(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAnimation(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAnimation(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetBackColor(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetBackColor(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetBold(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetBold(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEmboss(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEmboss(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetForeColor(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetForeColor(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetHidden(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetHidden(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEngrave(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEngrave(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetItalic(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetItalic(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKerning(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKerning(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLanguageID(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetLanguageID(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetOutline(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetOutline(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPosition(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPosition(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProtected(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProtected(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetShadow(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetShadow(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSize(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSize(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSmallCaps(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSmallCaps(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSpacing(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSpacing(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStrikeThrough(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStrikeThrough(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSubscript(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSubscript(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSuperscript(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSuperscript(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetUnderline(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetUnderline(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetWeight(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetWeight(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
@@ -3621,29 +3084,24 @@ pub struct ITextFont_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextFont2(pub ::windows::core::IUnknown);
 impl ITextFont2 {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -3658,459 +3116,358 @@ impl ITextFont2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__: <ITextFont as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pfont.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStyle(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAllCaps(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAllCaps(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAnimation(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAnimation(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetBackColor(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetBackColor(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetBold(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetBold(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEmboss(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEmboss(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetForeColor(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetForeColor(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetHidden(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetHidden(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEngrave(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEngrave(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetItalic(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetItalic(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKerning(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKerning(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLanguageID(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetLanguageID(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetOutline(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetOutline(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPosition(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPosition(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProtected(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProtected(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetShadow(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetShadow(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSize(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSize(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSmallCaps(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSmallCaps(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSpacing(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSpacing(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStrikeThrough(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStrikeThrough(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSubscript(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSubscript(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSuperscript(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSuperscript(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetUnderline(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetUnderline(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetWeight(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetWeight(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAutoLigatures(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAutoLigatures(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAutospaceAlpha(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAutospaceAlpha(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAutospaceNumeric(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAutospaceNumeric(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAutospaceParens(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAutospaceParens(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCharRep(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCharRep(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCompressionMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCompressionMode(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCookie(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCookie(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDoubleStrike(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDoubleStrike(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__: <ITextFont2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDuplicate2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).80)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLinkType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).81)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetMathZone(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetMathZone(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetModWidthPairs(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetModWidthPairs(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetModWidthSpace(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).86)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetModWidthSpace(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).87)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetOldNumbers(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).88)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetOldNumbers(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).89)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetOverlapping(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).90)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetOverlapping(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).91)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPositionSubSuper(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).92)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPositionSubSuper(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).93)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetScaling(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetScaling(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSpaceExtension(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).96)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSpaceExtension(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).97)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetUnderlinePositionMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).98)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetUnderlinePositionMode(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).100)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvalue), ::core::mem::transmute(pmask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEffects2(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).101)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvalue), ::core::mem::transmute(pmask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).102)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPropertyInfo(&self, index: i32, ptype: *mut i32, pvalue: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).103)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).104)(::core::mem::transmute_copy(self), pfont.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).105)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(mask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEffects2(&self, value: i32, mask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).106)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(mask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).107)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(value)).ok()
     }
@@ -4301,77 +3658,62 @@ pub struct ITextFont2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: i32, mask: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: i32, value: i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextHost(pub ::windows::core::IUnknown);
 impl ITextHost {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hdc.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxShowScrollBar<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, fshow: Param1) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(fnbar), fshow.into_param().abi()))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(fusbflags), ::core::mem::transmute(fuarrowflags)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetScrollRange<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: Param3) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(nminpos), ::core::mem::transmute(nmaxpos), fredraw.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetScrollPos<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, npos: i32, fredraw: Param2) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(npos), fredraw.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxInvalidateRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: Param1) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), fmode.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxViewChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fupdate: Param0) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), fupdate.into_param().abi()))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxCreateCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HBITMAP>>(&self, hbmp: Param0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hbmp.into_param().abi(), ::core::mem::transmute(xwidth), ::core::mem::transmute(yheight)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxShowCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), fshow.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(idtimer), ::core::mem::transmute(utimeout)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(idtimer)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TxScrollWindowEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HRGN>>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: Param4, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
             ::core::mem::transmute_copy(self),
@@ -4385,112 +3727,87 @@ impl ITextHost {
         ))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fcapture: Param0) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), fcapture.into_param().abi()))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxSetFocus(&self) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TxSetCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowsAndMessaging::HCURSOR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, hcur: Param0, ftext: Param1) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), hcur.into_param().abi(), ftext.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(lppt)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(lppt)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(ploldstate)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnewstate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppcf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetSysColor(&self, nindex: i32) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstyle)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetMaxLength(&self, plength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(plength)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwscrollbar)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetPasswordChar(&self) -> ::windows::core::Result<i8> {
         let mut result__: <i8 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i8>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcp)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpextent)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmask), ::core::mem::transmute(pdwbits)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(inotify), ::core::mem::transmute(pv)).ok()
     }
     #[cfg(feature = "Win32_Globalization")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Globalization`*"]
     pub unsafe fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Globalization")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Globalization`*"]
     pub unsafe fn TxImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), himc.into_param().abi()))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(lselbarwidth)).ok()
     }
@@ -4587,77 +3904,62 @@ pub struct ITextHost_abi(
     #[cfg(not(feature = "Win32_Globalization"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lselbarwidth: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextHost2(pub ::windows::core::IUnknown);
 impl ITextHost2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), hdc.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxShowScrollBar<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, fshow: Param1) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(fnbar), fshow.into_param().abi()))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(fusbflags), ::core::mem::transmute(fuarrowflags)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetScrollRange<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: Param3) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(nminpos), ::core::mem::transmute(nmaxpos), fredraw.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetScrollPos<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, npos: i32, fredraw: Param2) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(npos), fredraw.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxInvalidateRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: Param1) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), fmode.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxViewChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fupdate: Param0) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), fupdate.into_param().abi()))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxCreateCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HBITMAP>>(&self, hbmp: Param0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hbmp.into_param().abi(), ::core::mem::transmute(xwidth), ::core::mem::transmute(yheight)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxShowCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), fshow.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(idtimer), ::core::mem::transmute(utimeout)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(idtimer)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TxScrollWindowEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HRGN>>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: Param4, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
             ::core::mem::transmute_copy(self),
@@ -4671,165 +3973,128 @@ impl ITextHost2 {
         ))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fcapture: Param0) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), fcapture.into_param().abi()))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxSetFocus(&self) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TxSetCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowsAndMessaging::HCURSOR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, hcur: Param0, ftext: Param1) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), hcur.into_param().abi(), ftext.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(lppt)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(lppt)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(ploldstate)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnewstate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppcf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetSysColor(&self, nindex: i32) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstyle)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetMaxLength(&self, plength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(plength)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwscrollbar)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetPasswordChar(&self) -> ::windows::core::Result<i8> {
         let mut result__: <i8 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i8>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcp)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpextent)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppf)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmask), ::core::mem::transmute(pdwbits)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(inotify), ::core::mem::transmute(pv)).ok()
     }
     #[cfg(feature = "Win32_Globalization")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Globalization`*"]
     pub unsafe fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Globalization")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Globalization`*"]
     pub unsafe fn TxImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), himc.into_param().abi()))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(lselbarwidth)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(phwnd)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxSetForegroundWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxGetPalette(&self) -> super::super::super::Graphics::Gdi::HPALETTE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TxSetCursor2<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowsAndMessaging::HCURSOR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, hcur: Param0, btext: Param1) -> super::super::WindowsAndMessaging::HCURSOR {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), hcur.into_param().abi(), btext.into_param().abi()))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxFreeTextServicesNotification(&self) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwitem), ::core::mem::transmute(pdwdata)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstyle), ::core::mem::transmute(pdwexstyle)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn TxShowDropCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, fshow: Param0, hdc: Param1, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), fshow.into_param().abi(), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxDestroyCaret(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(plhorzextent)).ok()
     }
@@ -4963,224 +4228,175 @@ pub struct ITextHost2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plhorzextent: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextPara(pub ::windows::core::IUnknown);
 impl ITextPara {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__: <ITextPara as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ppara.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Reset(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStyle(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAlignment(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAlignment(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetHyphenation(&self) -> ::windows::core::Result<tomConstants> {
         let mut result__: <tomConstants as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<tomConstants>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetHyphenation(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFirstLineIndent(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKeepTogether(&self) -> ::windows::core::Result<tomConstants> {
         let mut result__: <tomConstants as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<tomConstants>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKeepTogether(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKeepWithNext(&self) -> ::windows::core::Result<tomConstants> {
         let mut result__: <tomConstants as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<tomConstants>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKeepWithNext(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLeftIndent(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLineSpacing(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLineSpacingRule(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListAlignment(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListAlignment(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListLevelIndex(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListLevelIndex(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListStart(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListStart(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListTab(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListTab(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListType(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetNoLineNumber(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetNoLineNumber(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPageBreakBefore(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPageBreakBefore(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRightIndent(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetRightIndent(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIndents(&self, first: f32, left: f32, right: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(first), ::core::mem::transmute(left), ::core::mem::transmute(right)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetLineSpacing(&self, rule: i32, spacing: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(rule), ::core::mem::transmute(spacing)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSpaceAfter(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSpaceAfter(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSpaceBefore(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSpaceBefore(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetWidowControl(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetWidowControl(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTabCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn AddTab(&self, tbpos: f32, tbalign: i32, tbleader: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(tbpos), ::core::mem::transmute(tbalign), ::core::mem::transmute(tbleader)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ClearAllTabs(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn DeleteTab(&self, tbpos: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(tbpos)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(itab), ::core::mem::transmute(ptbpos), ::core::mem::transmute(ptbalign), ::core::mem::transmute(ptbleader)).ok()
     }
@@ -5296,29 +4512,24 @@ pub struct ITextPara_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, tbpos: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextPara2(pub ::windows::core::IUnknown);
 impl ITextPara2 {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -5333,291 +4544,227 @@ impl ITextPara2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__: <ITextPara as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ppara.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Reset(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStyle(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAlignment(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAlignment(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetHyphenation(&self) -> ::windows::core::Result<tomConstants> {
         let mut result__: <tomConstants as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<tomConstants>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetHyphenation(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFirstLineIndent(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKeepTogether(&self) -> ::windows::core::Result<tomConstants> {
         let mut result__: <tomConstants as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<tomConstants>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKeepTogether(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKeepWithNext(&self) -> ::windows::core::Result<tomConstants> {
         let mut result__: <tomConstants as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<tomConstants>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKeepWithNext(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLeftIndent(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLineSpacing(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetLineSpacingRule(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListAlignment(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListAlignment(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListLevelIndex(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListLevelIndex(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListStart(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListStart(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListTab(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListTab(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetListType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetListType(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetNoLineNumber(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetNoLineNumber(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPageBreakBefore(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPageBreakBefore(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRightIndent(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetRightIndent(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIndents(&self, first: f32, left: f32, right: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(first), ::core::mem::transmute(left), ::core::mem::transmute(right)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetLineSpacing(&self, rule: i32, spacing: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(rule), ::core::mem::transmute(spacing)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSpaceAfter(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSpaceAfter(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSpaceBefore(&self) -> ::windows::core::Result<f32> {
         let mut result__: <f32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSpaceBefore(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetWidowControl(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetWidowControl(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTabCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn AddTab(&self, tbpos: f32, tbalign: i32, tbleader: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(tbpos), ::core::mem::transmute(tbalign), ::core::mem::transmute(tbleader)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ClearAllTabs(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn DeleteTab(&self, tbpos: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(tbpos)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(itab), ::core::mem::transmute(ptbpos), ::core::mem::transmute(ptbalign), ::core::mem::transmute(ptbleader)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetBorders(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__: <ITextPara2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDuplicate2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFontAlignment(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFontAlignment(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetHangingPunctuation(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetHangingPunctuation(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSnapToGrid(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetSnapToGrid(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTrimPunctuationAtStart(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetTrimPunctuationAtStart(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvalue), ::core::mem::transmute(pmask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ppara.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(mask)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(value)).ok()
     }
@@ -5769,261 +4916,209 @@ pub struct ITextPara2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: i32, mask: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: i32, value: i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextRange(pub ::windows::core::IUnknown);
 impl ITextRange {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(char)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStart(&self, cpfirst: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpfirst)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEnd(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cplim)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__: <ITextFont as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__: <ITextPara as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Collapse(&self, bstart: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstart)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Expand(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetIndex(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIndex(&self, unit: i32, index: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(index), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpanchor), ::core::mem::transmute(cpactive)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn StartOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Move(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveStart(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveEnd(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPoint(&self, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(r#type), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEmbeddedObject(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
@@ -6158,29 +5253,24 @@ pub struct ITextRange_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextRange2(pub ::windows::core::IUnknown);
 impl ITextRange2 {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -6196,421 +5286,335 @@ impl ITextRange2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(char)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStart(&self, cpfirst: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpfirst)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEnd(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cplim)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__: <ITextFont as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__: <ITextPara as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Collapse(&self, bstart: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstart)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Expand(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetIndex(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIndex(&self, unit: i32, index: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(index), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpanchor), ::core::mem::transmute(cpactive)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn StartOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Move(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveStart(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveEnd(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPoint(&self, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(r#type), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEmbeddedObject(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveLeft(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveRight(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveUp(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveDown(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TypeText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCch(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCells(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetColumn(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFont2(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__: <ITextFont2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFont2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFormattedText2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText2<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetGravity(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetGravity(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPara2(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__: <ITextPara2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPara2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).80)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRow(&self) -> ::windows::core::Result<ITextRow> {
         let mut result__: <ITextRow as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).81)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRow>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStartPara(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTable(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(cp1), ::core::mem::transmute(cp2), ::core::mem::transmute(activate)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn BuildUpMath(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).87)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn DeleteSubrange(&self, cpfirst: i32, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).88)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpfirst), ::core::mem::transmute(cplim)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Find<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).89)(::core::mem::transmute_copy(self), prange.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).90)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchar), ::core::mem::transmute(offset)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDropCap(&self, pcline: *mut i32, pposition: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).91)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcline), ::core::mem::transmute(pposition)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetInlineObject(&self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).92)(
             ::core::mem::transmute_copy(self),
@@ -6626,70 +5630,55 @@ impl ITextRange2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).93)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32, phit: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom), ::core::mem::transmute(phit)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSubrange(&self, isubrange: i32, pcpfirst: *mut i32, pcplim: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(isubrange), ::core::mem::transmute(pcpfirst), ::core::mem::transmute(pcplim)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetText2(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).96)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn HexToUnicode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).97)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InsertTable(&self, ccol: i32, crow: i32, autofit: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).98)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccol), ::core::mem::transmute(crow), ::core::mem::transmute(autofit)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Linearize(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetActiveSubrange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).100)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpanchor), ::core::mem::transmute(cpactive)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDropCap(&self, cline: i32, position: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).101)(::core::mem::transmute_copy(self), ::core::mem::transmute(cline), ::core::mem::transmute(position)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).102)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetText2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).103)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn UnicodeToHex(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).104)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).105)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(align), ::core::mem::transmute(char), ::core::mem::transmute(char1), ::core::mem::transmute(char2), ::core::mem::transmute(count), ::core::mem::transmute(texstyle), ::core::mem::transmute(ccol)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetMathFunctionType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).106)(::core::mem::transmute_copy(self), bstr.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn InsertImage<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: Param4, pstream: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).107)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), ::core::mem::transmute(r#type), bstralttext.into_param().abi(), pstream.into_param().abi()).ok()
     }
@@ -6920,213 +5909,166 @@ pub struct ITextRange2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextRow(pub ::windows::core::IUnknown);
 impl ITextRow {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetAlignment(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetAlignment(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellCount(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellCountCache(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellCountCache(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellIndex(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellIndex(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellMargin(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellMargin(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetHeight(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetHeight(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetIndent(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIndent(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKeepTogether(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKeepTogether(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetKeepWithNext(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetKeepWithNext(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetNestLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRTL(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetRTL(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellAlignment(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellAlignment(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellColorBack(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellColorBack(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellColorFore(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellColorFore(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellMergeFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellMergeFlags(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellShading(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellShading(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellVerticalText(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellVerticalText(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellWidth(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellWidth(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellBorderColors(&self, pcrleft: *mut i32, pcrtop: *mut i32, pcrright: *mut i32, pcrbottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcrleft), ::core::mem::transmute(pcrtop), ::core::mem::transmute(pcrright), ::core::mem::transmute(pcrbottom)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCellBorderWidths(&self, pduleft: *mut i32, pdutop: *mut i32, pduright: *mut i32, pdubottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pduleft), ::core::mem::transmute(pdutop), ::core::mem::transmute(pduright), ::core::mem::transmute(pdubottom)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellBorderColors(&self, crleft: i32, crtop: i32, crright: i32, crbottom: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(crleft), ::core::mem::transmute(crtop), ::core::mem::transmute(crright), ::core::mem::transmute(crbottom)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetCellBorderWidths(&self, duleft: i32, dutop: i32, duright: i32, dubottom: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(duleft), ::core::mem::transmute(dutop), ::core::mem::transmute(duright), ::core::mem::transmute(dubottom)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Apply(&self, crow: i32, flags: tomConstants) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(crow), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Insert(&self, crow: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(crow)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRow>>(&self, prow: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), prow.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Reset(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(value)).ok()
     }
@@ -7240,29 +6182,24 @@ pub struct ITextRow_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: i32, value: i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextSelection(pub ::windows::core::IUnknown);
 impl ITextSelection {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -7278,305 +6215,244 @@ impl ITextSelection {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(char)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStart(&self, cpfirst: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpfirst)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEnd(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cplim)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__: <ITextFont as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__: <ITextPara as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Collapse(&self, bstart: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstart)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Expand(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetIndex(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIndex(&self, unit: i32, index: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(index), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpanchor), ::core::mem::transmute(cpactive)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn StartOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Move(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveStart(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveEnd(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPoint(&self, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(r#type), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEmbeddedObject(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveLeft(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveRight(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveUp(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveDown(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TypeText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
@@ -7741,29 +6617,24 @@ pub struct ITextSelection_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstr: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextSelection2(pub ::windows::core::IUnknown);
 impl ITextSelection2 {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -7779,421 +6650,335 @@ impl ITextSelection2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(char)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetStart(&self, cpfirst: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpfirst)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEnd(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cplim)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__: <ITextFont as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__: <ITextPara as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStoryType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Collapse(&self, bstart: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstart)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Expand(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetIndex(&self, unit: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetIndex(&self, unit: i32, index: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(index), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpanchor), ::core::mem::transmute(cpactive)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn StartOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Move(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveStart(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveEnd(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(cset), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvar), ::core::mem::transmute(format), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPoint(&self, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(r#type), ::core::mem::transmute(extend)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetEmbeddedObject(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveLeft(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveRight(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveUp(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveDown(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TypeText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCch(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCells(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetColumn(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFont2(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__: <ITextFont2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFont2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetFormattedText2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText2<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetGravity(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetGravity(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetPara2(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__: <ITextPara2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetPara2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).80)(::core::mem::transmute_copy(self), ppara.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRow(&self) -> ::windows::core::Result<ITextRow> {
         let mut result__: <ITextRow as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).81)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITextRow>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetStartPara(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTable(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).86)(::core::mem::transmute_copy(self), ::core::mem::transmute(cp1), ::core::mem::transmute(cp2), ::core::mem::transmute(activate)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn BuildUpMath(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).87)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn DeleteSubrange(&self, cpfirst: i32, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).88)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpfirst), ::core::mem::transmute(cplim)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Find<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).89)(::core::mem::transmute_copy(self), prange.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).90)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchar), ::core::mem::transmute(offset)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDropCap(&self, pcline: *mut i32, pposition: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).91)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcline), ::core::mem::transmute(pposition)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetInlineObject(&self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).92)(
             ::core::mem::transmute_copy(self),
@@ -8209,70 +6994,55 @@ impl ITextSelection2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).93)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32, phit: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom), ::core::mem::transmute(phit)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetSubrange(&self, isubrange: i32, pcpfirst: *mut i32, pcplim: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).95)(::core::mem::transmute_copy(self), ::core::mem::transmute(isubrange), ::core::mem::transmute(pcpfirst), ::core::mem::transmute(pcplim)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetText2(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).96)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn HexToUnicode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).97)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InsertTable(&self, ccol: i32, crow: i32, autofit: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).98)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccol), ::core::mem::transmute(crow), ::core::mem::transmute(autofit)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Linearize(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).99)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetActiveSubrange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).100)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpanchor), ::core::mem::transmute(cpactive)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetDropCap(&self, cline: i32, position: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).101)(::core::mem::transmute_copy(self), ::core::mem::transmute(cline), ::core::mem::transmute(position)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).102)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetText2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).103)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn UnicodeToHex(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).104)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).105)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(align), ::core::mem::transmute(char), ::core::mem::transmute(char1), ::core::mem::transmute(char2), ::core::mem::transmute(count), ::core::mem::transmute(texstyle), ::core::mem::transmute(ccol)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetMathFunctionType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).106)(::core::mem::transmute_copy(self), bstr.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn InsertImage<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: Param4, pstream: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).107)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), ::core::mem::transmute(r#type), bstralttext.into_param().abi(), pstream.into_param().abi()).ok()
     }
@@ -8523,18 +7293,15 @@ pub struct ITextSelection2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextServices(pub ::windows::core::IUnknown);
 impl ITextServices {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSendMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn TxDraw<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: super::super::super::System::Com::DVASPECT,
@@ -8568,17 +7335,14 @@ impl ITextServices {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn OnTxSetCursor<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: super::super::super::System::Com::DVASPECT,
@@ -8606,7 +7370,6 @@ impl ITextServices {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn TxQueryHitPoint<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: super::super::super::System::Com::DVASPECT,
@@ -8636,56 +7399,44 @@ impl ITextServices {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcclient)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxInPlaceDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxUIActivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxUIDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetText(&self, pbstrtext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrtext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, psztext: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), psztext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetBaseLinePos(&self, param0: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn TxGetNaturalSize<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Ole`*"]
     pub unsafe fn TxGetDropTarget(&self) -> ::windows::core::Result<super::super::super::System::Ole::IDropTarget> {
         let mut result__: <super::super::super::System::Ole::IDropTarget as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Ole::IDropTarget>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxPropertyBitsChange(&self, dwmask: u32, dwbits: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwbits)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwwidth), ::core::mem::transmute(pdwheight)).ok()
     }
@@ -8767,18 +7518,15 @@ pub struct ITextServices_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwmask: u32, dwbits: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextServices2(pub ::windows::core::IUnknown);
 impl ITextServices2 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSendMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn TxDraw<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: super::super::super::System::Com::DVASPECT,
@@ -8812,17 +7560,14 @@ impl ITextServices2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn OnTxSetCursor<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: super::super::super::System::Com::DVASPECT,
@@ -8850,7 +7595,6 @@ impl ITextServices2 {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn TxQueryHitPoint<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: super::super::super::System::Com::DVASPECT,
@@ -8880,61 +7624,48 @@ impl ITextServices2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(prcclient)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxInPlaceDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxUIActivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxUIDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxGetText(&self, pbstrtext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrtext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn TxSetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, psztext: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), psztext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetBaseLinePos(&self, param0: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn TxGetNaturalSize<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Ole`*"]
     pub unsafe fn TxGetDropTarget(&self) -> ::windows::core::Result<super::super::super::System::Ole::IDropTarget> {
         let mut result__: <super::super::super::System::Ole::IDropTarget as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Ole::IDropTarget>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn OnTxPropertyBitsChange(&self, dwmask: u32, dwbits: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwbits)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwwidth), ::core::mem::transmute(pdwheight)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn TxGetNaturalSize2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(
             ::core::mem::transmute_copy(self),
@@ -8951,7 +7682,6 @@ impl ITextServices2 {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Direct2D`*"]
     pub unsafe fn TxDrawD2D<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct2D::ID2D1RenderTarget>>(&self, prendertarget: Param0, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), prendertarget.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(lviewid)).ok()
     }
@@ -9058,65 +7788,52 @@ pub struct ITextServices2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, prendertarget: ::windows::core::RawPtr, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D")))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextStory(pub ::windows::core::IUnknown);
 impl ITextStory {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetActive(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetActive(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetDisplay(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetType(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetRange(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(cpactive), ::core::mem::transmute(cpanchor), &mut result__).from_abi::<ITextRange2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), bstr.into_param().abi()).ok()
     }
@@ -9166,22 +7883,18 @@ pub struct ITextStory_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, flags: i32, bstr: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextStoryRanges(pub ::windows::core::IUnknown);
 impl ITextStoryRanges {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -9253,29 +7966,24 @@ pub struct ITextStoryRanges_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcount: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextStoryRanges2(pub ::windows::core::IUnknown);
 impl ITextStoryRanges2 {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: <super::super::super::System::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -9290,22 +7998,18 @@ impl ITextStoryRanges2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__: <ITextRange as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Item2(&self, index: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<ITextRange2>(result__)
@@ -9398,44 +8102,35 @@ pub struct ITextStoryRanges2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITextStrings(pub ::windows::core::IUnknown);
 impl ITextStrings {
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__: <ITextRange2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Append<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0, istring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), prange.into_param().abi(), ::core::mem::transmute(istring)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Cat2(&self, istring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(istring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn CatTop2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn DeleteRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn EncodeFunction<'a, Param8: ::windows::core::IntoParam<'a, ITextRange2>>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: Param8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(
             ::core::mem::transmute_copy(self),
@@ -9451,42 +8146,33 @@ impl ITextStrings {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn GetCch(&self, istring: i32) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(istring), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn InsertNullStr(&self, istring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(istring)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn MoveBoundary(&self, istring: i32, cch: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(istring), ::core::mem::transmute(cch)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn PrefixTop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), bstr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Remove(&self, istring: i32, cstring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(istring), ::core::mem::transmute(cstring)).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>, Param1: ::windows::core::IntoParam<'a, ITextRange2>>(&self, pranged: Param0, pranges: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), pranged.into_param().abi(), pranges.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn SetOpCp(&self, istring: i32, cp: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(istring), ::core::mem::transmute(cp)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
     pub unsafe fn SuffixTop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ITextRange2>>(&self, bstr: Param0, prange: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstr.into_param().abi(), prange.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
     pub unsafe fn Swap(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
     }
@@ -9575,7 +8261,6 @@ pub struct ITextStrings_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KHYPH(pub i32);
@@ -9594,7 +8279,6 @@ impl ::core::convert::From<i32> for KHYPH {
 unsafe impl ::windows::core::Abi for KHYPH {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MANCODE(pub i32);
@@ -9622,14 +8306,11 @@ impl ::core::convert::From<i32> for MANCODE {
 unsafe impl ::windows::core::Abi for MANCODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const MAX_TABLE_CELLS: u32 = 63u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const MAX_TAB_STOPS: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct MSGFILTER {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
@@ -9659,7 +8340,6 @@ unsafe impl ::windows::core::Abi for MSGFILTER {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
@@ -9685,7 +8365,6 @@ impl ::core::cmp::Eq for OBJECTPOSITIONS {}
 unsafe impl ::windows::core::Abi for OBJECTPOSITIONS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OBJECTTYPE(pub i32);
@@ -9728,11 +8407,9 @@ impl ::core::convert::From<i32> for OBJECTTYPE {
 unsafe impl ::windows::core::Abi for OBJECTTYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const OLEOP_DOVERB: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct PARAFORMAT {
     pub cbSize: u32,
     pub dwMask: PARAFORMAT_MASK,
@@ -9762,7 +8439,6 @@ unsafe impl ::windows::core::Abi for PARAFORMAT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub union PARAFORMAT_0 {
     pub wReserved: u16,
     pub wEffects: u16,
@@ -9784,7 +8460,6 @@ unsafe impl ::windows::core::Abi for PARAFORMAT_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct PARAFORMAT2 {
     pub __AnonymousBase_richedit_L1149_C22: PARAFORMAT,
     pub dySpaceBefore: i32,
@@ -9817,7 +8492,6 @@ impl ::core::cmp::Eq for PARAFORMAT2 {}
 unsafe impl ::windows::core::Abi for PARAFORMAT2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PARAFORMAT_ALIGNMENT(pub u16);
@@ -9832,7 +8506,6 @@ impl ::core::convert::From<u16> for PARAFORMAT_ALIGNMENT {
 unsafe impl ::windows::core::Abi for PARAFORMAT_ALIGNMENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PARAFORMAT_BORDERS(pub u16);
@@ -9879,7 +8552,6 @@ impl ::core::ops::Not for PARAFORMAT_BORDERS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PARAFORMAT_MASK(pub u32);
@@ -9927,7 +8599,6 @@ impl ::core::ops::Not for PARAFORMAT_MASK {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
@@ -9945,7 +8616,6 @@ impl ::core::convert::From<u16> for PARAFORMAT_NUMBERING_STYLE {
 unsafe impl ::windows::core::Abi for PARAFORMAT_NUMBERING_STYLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PARAFORMAT_SHADING_STYLE(pub u16);
@@ -9970,92 +8640,50 @@ impl ::core::convert::From<u16> for PARAFORMAT_SHADING_STYLE {
 unsafe impl ::windows::core::Abi for PARAFORMAT_SHADING_STYLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PC_DELIMITER: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PC_FOLLOWING: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PC_LEADING: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PC_OVERFLOW: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub type PCreateTextServices = unsafe extern "system" fn(punkouter: ::windows::core::RawPtr, pitexthost: ::windows::core::RawPtr, ppunk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFA_FULL_GLYPHS: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFA_FULL_INTERLETTER: u32 = 6u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFA_FULL_INTERWORD: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFA_FULL_NEWSPAPER: u32 = 5u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFA_FULL_SCALED: u32 = 7u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFA_JUSTIFY: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_BORDER: u32 = 2048u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_BOX: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_COLLAPSED: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_DONOTHYPHEN: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_KEEP: u32 = 131072u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_KEEPNEXT: u32 = 262144u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_LINESPACING: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_NOLINENUMBER: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_NOWIDOWCONTROL: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_NUMBERINGSTART: u32 = 32768u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_NUMBERINGSTYLE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_NUMBERINGTAB: u32 = 16384u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_OUTLINELEVEL: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_PAGEBREAKBEFORE: u32 = 524288u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_RESERVED2: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_SHADING: u32 = 4096u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_SIDEBYSIDE: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_SPACEAFTER: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_SPACEBEFORE: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_STYLE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_TABLE: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_TABLEROWDELIMITER: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFM_TEXTWRAPPINGBREAK: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_ARABIC: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_BULLET: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_LCLETTER: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_LCROMAN: u32 = 5u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_UCLETTER: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_UCROMAN: u32 = 6u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub type PShutdownTextServices = unsafe extern "system" fn(ptextservices: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: super::super::super::Foundation::PSTR,
@@ -10080,20 +8708,14 @@ impl ::core::cmp::Eq for PUNCTUATION {}
 unsafe impl ::windows::core::Abi for PUNCTUATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RECO_COPY: i32 = 2i32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RECO_CUT: i32 = 3i32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RECO_DRAG: i32 = 4i32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RECO_DROP: i32 = 1i32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RECO_PASTE: i32 = 0i32;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`*"]
 pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
@@ -10143,7 +8765,6 @@ impl ::core::cmp::Eq for REOBJECT {}
 unsafe impl ::windows::core::Abi for REOBJECT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REOBJECT_FLAGS(pub u32);
@@ -10202,14 +8823,11 @@ impl ::core::ops::Not for REOBJECT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const REO_NULL: i32 = 0i32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const REO_READWRITEMASK: i32 = 2047i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_System_Com`*"]
 pub struct REPASTESPECIAL {
     pub dwAspect: super::super::super::System::Com::DVASPECT,
     pub dwParam: usize,
@@ -10237,7 +8855,6 @@ unsafe impl ::windows::core::Abi for REPASTESPECIAL {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct REQRESIZE {
     pub nmhdr: super::NMHDR,
     pub rc: super::super::super::Foundation::RECT,
@@ -10270,7 +8887,6 @@ impl ::core::clone::Clone for RICHEDIT_IMAGE_PARAMETERS {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
     pub yHeight: i32,
@@ -10299,7 +8915,6 @@ impl ::core::cmp::Eq for RICHEDIT_IMAGE_PARAMETERS {}
 unsafe impl ::windows::core::Abi for RICHEDIT_IMAGE_PARAMETERS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
@@ -10345,7 +8960,6 @@ impl ::core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
@@ -10390,36 +9004,22 @@ impl ::core::ops::Not for RICH_EDIT_GET_OBJECT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RTO_DISABLEHANDLES: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RTO_READINGMODE: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RTO_SHOWHANDLES: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_ALL: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_ASSOCIATEFONT: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_ASSOCIATEFONT2: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_CHARREPFROMLCID: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_NOKBUPDATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_SELECTION: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_SMARTFONT: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_USEUIRULES: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_WORD: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct SELCHANGE {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
@@ -10445,95 +9045,51 @@ impl ::core::cmp::Eq for SELCHANGE {}
 unsafe impl ::windows::core::Abi for SELCHANGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_ALLOWBEEPS: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_BEEPONMAXTEXT: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_BIDI: u32 = 4096u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_CTFALLOWEMBED: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_CTFALLOWPROOFING: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_CTFALLOWSMARTTAG: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_CTFNOLOCK: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_CUSTOMLOOK: u32 = 524288u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_DEFAULTLATINLIGA: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_DRAFTMODE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EMULATE10: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EMULATESYSEDIT: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EXTENDBACKCOLOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_HANDLEFRIENDLYURL: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_HIDETEMPFORMAT: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_MULTITOUCH: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_NOACETATESELECTION: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_NOMATH: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_NOTABLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_NOTHEMING: u32 = 524288u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_USEMOUSEWPARAM: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_EX_USESINGLELINE: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_HIDEGRIDLINES: u32 = 131072u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_HYPERLINKTOOLTIPS: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_LBSCROLLNOTIFY: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_LOGICALCARET: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_LOWERCASE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_MAPCPS: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_MAX: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_MULTISELECT: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_NOEALINEHEIGHTADJUST: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_NOFOCUSLINKNOTIFY: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_NOIME: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_NOINPUTSEQUENCECHK: u32 = 2048u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_SCROLLONKILLFOCUS: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_SMARTDRAGDROP: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_UPPERCASE: u32 = 512u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_USEAIMM: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_USEATFONT: u32 = 262144u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_USECRLF: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_USECTF: u32 = 65536u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_WORDDRAGDROP: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_XLTCRCRLFTOCR: u32 = 16384u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct SETTEXTEX {
     pub flags: u32,
     pub codepage: u32,
@@ -10558,53 +9114,30 @@ impl ::core::cmp::Eq for SETTEXTEX {}
 unsafe impl ::windows::core::Abi for SETTEXTEX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SFF_KEEPDOCINFO: u32 = 4096u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SFF_PERSISTVIEWSCALE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SFF_PLAINRTF: u32 = 16384u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SFF_PWD: u32 = 2048u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SFF_SELECTION: u32 = 32768u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SFF_WRITEXTRAPAR: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_NCRFORNONASCII: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_RTF: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_RTFNOOBJS: u32 = 3u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_RTFVAL: u32 = 1792u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_TEXT: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_TEXTIZED: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_UNICODE: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SF_USECODEPAGE: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SPF_DONTSETDEFAULT: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SPF_SETDEFAULT: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ST_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ST_KEEPUNDO: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ST_NEWCHARS: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ST_SELECTION: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ST_UNICODE: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const S_MSG_KEY_IGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(262657i32 as _);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,
     pub _bitfield: u16,
@@ -10668,7 +9201,6 @@ unsafe impl ::windows::core::Abi for TABLECELLPARMS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct TABLEROWPARMS {
     pub cbRow: u8,
     pub cbCell: u8,
@@ -10714,7 +9246,6 @@ impl ::core::cmp::Eq for TABLEROWPARMS {}
 unsafe impl ::windows::core::Abi for TABLEROWPARMS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TEXTMODE(pub i32);
@@ -10735,7 +9266,6 @@ unsafe impl ::windows::core::Abi for TEXTMODE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: super::super::super::Foundation::PSTR,
@@ -10763,7 +9293,6 @@ unsafe impl ::windows::core::Abi for TEXTRANGEA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: super::super::super::Foundation::PWSTR,
@@ -10788,17 +9317,11 @@ impl ::core::cmp::Eq for TEXTRANGEW {}
 unsafe impl ::windows::core::Abi for TEXTRANGEW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TO_ADVANCEDLAYOUT: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TO_ADVANCEDTYPOGRAPHY: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TO_DISABLECUSTOMTEXTOUT: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TO_SIMPLELINEBREAK: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXES_ISDIALOG: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXTBACKSTYLE(pub i32);
@@ -10812,67 +9335,36 @@ impl ::core::convert::From<i32> for TXTBACKSTYLE {
 unsafe impl ::windows::core::Abi for TXTBACKSTYLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_ADVANCEDINPUT: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_ALLOWBEEP: u32 = 2048u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_AUTOWORDSEL: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_BACKSTYLECHANGE: u32 = 16384u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_CHARFORMATCHANGE: u32 = 131072u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_CLIENTRECTCHANGE: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_D2DDWRITE: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_D2DPIXELSNAPPED: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_D2DSIMPLETYPOGRAPHY: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_D2DSUBPIXELLINES: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_DISABLEDRAG: u32 = 4096u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_EXTENTCHANGE: u32 = 524288u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_FLASHLASTPASSWORDCHAR: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_HIDESELECTION: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_MAXLENGTHCHANGE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_MULTILINE: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_NOTHREADREFCOUNT: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_PARAFORMATCHANGE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_READONLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_RICHTEXT: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_SAVESELECTION: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_SCROLLBARCHANGE: u32 = 65536u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_SELBARCHANGE: u32 = 512u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_SHOWACCELERATOR: u32 = 8u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_SHOWPASSWORD: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_USECURRENTBKG: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_USEPASSWORD: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_VERTICAL: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_VIEWINSETCHANGE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TXTBIT_WORDWRAP: u32 = 1024u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXTHITRESULT(pub i32);
@@ -10888,7 +9380,6 @@ impl ::core::convert::From<i32> for TXTHITRESULT {
 unsafe impl ::windows::core::Abi for TXTHITRESULT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXTNATURALSIZE(pub i32);
@@ -10907,7 +9398,6 @@ impl ::core::convert::From<i32> for TXTNATURALSIZE {
 unsafe impl ::windows::core::Abi for TXTNATURALSIZE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXTVIEW(pub i32);
@@ -10921,7 +9411,6 @@ impl ::core::convert::From<i32> for TXTVIEW {
 unsafe impl ::windows::core::Abi for TXTVIEW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UNDONAMEID(pub i32);
@@ -10940,44 +9429,26 @@ impl ::core::convert::From<i32> for UNDONAMEID {
 unsafe impl ::windows::core::Abi for UNDONAMEID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const VM_NORMAL: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const VM_OUTLINE: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const VM_PAGE: u32 = 9u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WBF_CUSTOM: u32 = 512u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WBF_LEVEL1: u32 = 128u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WBF_LEVEL2: u32 = 256u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WBF_OVERFLOW: u32 = 64u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WBF_WORDBREAK: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WBF_WORDWRAP: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WB_MOVEWORDNEXT: u32 = 5u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WB_MOVEWORDPREV: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WB_NEXTBREAK: u32 = 7u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WB_PREVBREAK: u32 = 6u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WM_CONTEXTMENU: u32 = 123u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WM_NOTIFY: u32 = 78u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WM_PRINTCLIENT: u32 = 792u32;
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WM_UNICHAR: u32 = 265u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 pub struct _grouptypingchange {
     pub nmhdr: super::NMHDR,
     pub fGroupTyping: super::super::super::Foundation::BOOL,
@@ -11004,7 +9475,6 @@ unsafe impl ::windows::core::Abi for _grouptypingchange {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub struct hyphresult {
     pub khyph: KHYPH,
     pub ichHyph: i32,
@@ -11030,7 +9500,6 @@ impl ::core::cmp::Eq for hyphresult {}
 unsafe impl ::windows::core::Abi for hyphresult {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct tomConstants(pub i32);

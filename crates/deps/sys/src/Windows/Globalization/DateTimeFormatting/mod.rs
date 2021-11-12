@@ -1,3 +1,62 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
+pub struct DateTimeFormatter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DayFormat(pub i32);
+impl DayFormat {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct DayOfWeekFormat(pub i32);
+impl DayOfWeekFormat {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+    pub const Abbreviated: Self = Self(2i32);
+    pub const Full: Self = Self(3i32);
+}
+#[repr(transparent)]
+pub struct HourFormat(pub i32);
+impl HourFormat {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct IDateTimeFormatter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDateTimeFormatter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDateTimeFormatterFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDateTimeFormatterStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MinuteFormat(pub i32);
+impl MinuteFormat {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct MonthFormat(pub i32);
+impl MonthFormat {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+    pub const Abbreviated: Self = Self(2i32);
+    pub const Full: Self = Self(3i32);
+    pub const Numeric: Self = Self(4i32);
+}
+#[repr(transparent)]
+pub struct SecondFormat(pub i32);
+impl SecondFormat {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct YearFormat(pub i32);
+impl YearFormat {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+    pub const Abbreviated: Self = Self(2i32);
+    pub const Full: Self = Self(3i32);
+}

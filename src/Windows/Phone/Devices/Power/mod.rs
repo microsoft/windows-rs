@@ -1,10 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Phone_Devices_Power`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Battery(pub ::windows::core::IInspectable);
 impl Battery {
-    #[doc = "*Required features: `Phone_Devices_Power`*"]
     pub fn RemainingChargePercent(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -13,7 +11,6 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Devices_Power`, `Foundation`*"]
     pub fn RemainingDischargeTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -22,7 +19,6 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Devices_Power`, `Foundation`*"]
     pub fn RemainingChargePercentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, changehandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -31,12 +27,10 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Devices_Power`, `Foundation`*"]
     pub fn RemoveRemainingChargePercentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Phone_Devices_Power`*"]
     pub fn GetDefault() -> ::windows::core::Result<Battery> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

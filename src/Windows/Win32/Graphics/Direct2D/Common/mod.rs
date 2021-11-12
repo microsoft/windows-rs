@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_ALPHA_MODE(pub u32);
@@ -46,7 +45,6 @@ impl ::core::ops::Not for D2D1_ALPHA_MODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D1_BEZIER_SEGMENT {
     pub point1: D2D_POINT_2F,
     pub point2: D2D_POINT_2F,
@@ -72,7 +70,6 @@ impl ::core::cmp::Eq for D2D1_BEZIER_SEGMENT {}
 unsafe impl ::windows::core::Abi for D2D1_BEZIER_SEGMENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_BLEND_MODE(pub u32);
@@ -139,7 +136,6 @@ impl ::core::ops::Not for D2D1_BLEND_MODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_BORDER_MODE(pub u32);
@@ -182,7 +178,6 @@ impl ::core::ops::Not for D2D1_BORDER_MODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_COLORMATRIX_ALPHA_MODE(pub u32);
@@ -227,7 +222,6 @@ impl ::core::ops::Not for D2D1_COLORMATRIX_ALPHA_MODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D1_COLOR_F {
     pub r: f32,
     pub g: f32,
@@ -254,7 +248,6 @@ impl ::core::cmp::Eq for D2D1_COLOR_F {}
 unsafe impl ::windows::core::Abi for D2D1_COLOR_F {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_COMPOSITE_MODE(pub u32);
@@ -308,7 +301,6 @@ impl ::core::ops::Not for D2D1_COMPOSITE_MODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_FIGURE_BEGIN(pub u32);
@@ -351,7 +343,6 @@ impl ::core::ops::Not for D2D1_FIGURE_BEGIN {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_FIGURE_END(pub u32);
@@ -394,7 +385,6 @@ impl ::core::ops::Not for D2D1_FIGURE_END {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_FILL_MODE(pub u32);
@@ -437,7 +427,6 @@ impl ::core::ops::Not for D2D1_FILL_MODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_PATH_SEGMENT(pub u32);
@@ -484,7 +473,6 @@ impl ::core::ops::Not for D2D1_PATH_SEGMENT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_Dxgi_Common`*"]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: super::super::Dxgi::Common::DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
@@ -515,7 +503,6 @@ impl ::core::cmp::Eq for D2D1_PIXEL_FORMAT {}
 unsafe impl ::windows::core::Abi for D2D1_PIXEL_FORMAT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_TURBULENCE_NOISE(pub u32);
@@ -560,7 +547,6 @@ impl ::core::ops::Not for D2D1_TURBULENCE_NOISE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_COLOR_F {
     pub r: f32,
     pub g: f32,
@@ -589,7 +575,6 @@ unsafe impl ::windows::core::Abi for D2D_COLOR_F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_3X2_F {
     pub Anonymous: D2D_MATRIX_3X2_F_0,
 }
@@ -610,7 +595,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub union D2D_MATRIX_3X2_F_0 {
     pub Anonymous1: D2D_MATRIX_3X2_F_0_0,
     pub Anonymous2: D2D_MATRIX_3X2_F_0_1,
@@ -633,7 +617,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_3X2_F_0_0 {
     pub m11: f32,
     pub m12: f32,
@@ -664,7 +647,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_3X2_F_0_1 {
     pub _11: f32,
     pub _12: f32,
@@ -695,7 +677,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_3X2_F_0_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_4X3_F {
     pub Anonymous: D2D_MATRIX_4X3_F_0,
 }
@@ -716,7 +697,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub union D2D_MATRIX_4X3_F_0 {
     pub Anonymous: D2D_MATRIX_4X3_F_0_0,
     pub m: [f32; 12],
@@ -738,7 +718,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_4X3_F_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -788,7 +767,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_4X4_F {
     pub Anonymous: D2D_MATRIX_4X4_F_0,
 }
@@ -809,7 +787,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub union D2D_MATRIX_4X4_F_0 {
     pub Anonymous: D2D_MATRIX_4X4_F_0_0,
     pub m: [f32; 16],
@@ -831,7 +808,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_4X4_F_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -889,7 +865,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_5X4_F {
     pub Anonymous: D2D_MATRIX_5X4_F_0,
 }
@@ -910,7 +885,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub union D2D_MATRIX_5X4_F_0 {
     pub Anonymous: D2D_MATRIX_5X4_F_0_0,
     pub m: [f32; 20],
@@ -932,7 +906,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_MATRIX_5X4_F_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -1017,7 +990,6 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_POINT_2F {
     pub x: f32,
     pub y: f32,
@@ -1044,7 +1016,6 @@ unsafe impl ::windows::core::Abi for D2D_POINT_2F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_POINT_2U {
     pub x: u32,
     pub y: u32,
@@ -1071,7 +1042,6 @@ unsafe impl ::windows::core::Abi for D2D_POINT_2U {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_RECT_F {
     pub left: f32,
     pub top: f32,
@@ -1100,7 +1070,6 @@ unsafe impl ::windows::core::Abi for D2D_RECT_F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_RECT_U {
     pub left: u32,
     pub top: u32,
@@ -1129,7 +1098,6 @@ unsafe impl ::windows::core::Abi for D2D_RECT_U {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_SIZE_F {
     pub width: f32,
     pub height: f32,
@@ -1156,7 +1124,6 @@ unsafe impl ::windows::core::Abi for D2D_SIZE_F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_SIZE_U {
     pub width: u32,
     pub height: u32,
@@ -1183,7 +1150,6 @@ unsafe impl ::windows::core::Abi for D2D_SIZE_U {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_VECTOR_2F {
     pub x: f32,
     pub y: f32,
@@ -1210,7 +1176,6 @@ unsafe impl ::windows::core::Abi for D2D_VECTOR_2F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_VECTOR_3F {
     pub x: f32,
     pub y: f32,
@@ -1238,7 +1203,6 @@ unsafe impl ::windows::core::Abi for D2D_VECTOR_3F {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 pub struct D2D_VECTOR_4F {
     pub x: f32,
     pub y: f32,
@@ -1265,36 +1229,28 @@ impl ::core::cmp::Eq for D2D_VECTOR_4F {}
 unsafe impl ::windows::core::Abi for D2D_VECTOR_4F {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID2D1SimplifiedGeometrySink(pub ::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
-    #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexflags)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn BeginFigure<'a, Param0: ::windows::core::IntoParam<'a, D2D_POINT_2F>>(&self, startpoint: Param0, figurebegin: D2D1_FIGURE_BEGIN) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn AddLines(&self, points: *const D2D_POINT_2F, pointscount: u32) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(points), ::core::mem::transmute(pointscount)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers), ::core::mem::transmute(bezierscount)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(figureend)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct2D_Common`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }

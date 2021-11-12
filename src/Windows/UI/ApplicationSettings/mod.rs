@@ -1,11 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AccountsSettingsPane(pub ::windows::core::IInspectable);
 impl AccountsSettingsPane {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`*"]
     pub fn AccountCommandsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AccountsSettingsPane, AccountsSettingsPaneCommandsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -14,24 +12,20 @@ impl AccountsSettingsPane {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`*"]
     pub fn RemoveAccountCommandsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<AccountsSettingsPane> {
         Self::IAccountsSettingsPaneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccountsSettingsPane>(result__)
         })
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Show() -> ::windows::core::Result<()> {
         Self::IAccountsSettingsPaneStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`*"]
     pub fn ShowManageAccountsAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -39,7 +33,6 @@ impl AccountsSettingsPane {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`*"]
     pub fn ShowAddAccountAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -47,7 +40,6 @@ impl AccountsSettingsPane {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`, `System`*"]
     pub fn ShowManageAccountsForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -55,7 +47,6 @@ impl AccountsSettingsPane {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`, `System`*"]
     pub fn ShowAddAccountForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -125,13 +116,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(pub ::windows::core::IInspectable);
 impl AccountsSettingsPaneCommandsRequestedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation_Collections`*"]
     pub fn WebAccountProviderCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<WebAccountProviderCommand>> {
         let this = self;
         unsafe {
@@ -140,7 +129,6 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation_Collections`*"]
     pub fn WebAccountCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<WebAccountCommand>> {
         let this = self;
         unsafe {
@@ -149,7 +137,6 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation_Collections`*"]
     pub fn CredentialCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<CredentialCommand>> {
         let this = self;
         unsafe {
@@ -158,7 +145,6 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation_Collections`, `UI_Popups`*"]
     pub fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
@@ -166,7 +152,6 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SettingsCommand>>(result__)
         }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn HeaderText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -174,12 +159,10 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn SetHeaderText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<AccountsSettingsPaneEventDeferral> {
         let this = self;
         unsafe {
@@ -188,7 +171,6 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IAccountsSettingsPaneCommandsRequestedEventArgs2>(self)?;
         unsafe {
@@ -247,12 +229,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AccountsSettingsPaneEventDeferral(pub ::windows::core::IInspectable);
 impl AccountsSettingsPaneEventDeferral {
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -311,13 +291,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ApplicationsSettingsContract(pub u8);
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CredentialCommand(pub ::windows::core::IInspectable);
 impl CredentialCommand {
     #[cfg(feature = "Security_Credentials")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Security_Credentials`*"]
     pub fn PasswordCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
@@ -325,7 +303,6 @@ impl CredentialCommand {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn CredentialDeleted(&self) -> ::windows::core::Result<CredentialCommandCredentialDeletedHandler> {
         let this = self;
         unsafe {
@@ -334,7 +311,6 @@ impl CredentialCommand {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Security_Credentials`*"]
     pub fn CreateCredentialCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(passwordcredential: Param0) -> ::windows::core::Result<CredentialCommand> {
         Self::ICredentialCommandFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -342,7 +318,6 @@ impl CredentialCommand {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Security_Credentials`*"]
     pub fn CreateCredentialCommandWithHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>, Param1: ::windows::core::IntoParam<'a, CredentialCommandCredentialDeletedHandler>>(passwordcredential: Param0, deleted: Param1) -> ::windows::core::Result<CredentialCommand> {
         Self::ICredentialCommandFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -404,7 +379,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CredentialCommandCredentialDeletedHandler(::windows::core::IUnknown);
@@ -417,7 +391,6 @@ impl CredentialCommandCredentialDeletedHandler {
         };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CredentialCommand>>(&self, command: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), command.into_param().abi()).ok() }
@@ -879,14 +852,12 @@ pub struct IWebAccountProviderCommandFactory_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[cfg(feature = "UI_Popups")]
-#[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SettingsCommand(pub ::windows::core::IInspectable);
 #[cfg(feature = "UI_Popups")]
 impl SettingsCommand {
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -895,13 +866,11 @@ impl SettingsCommand {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn Invoked(&self) -> ::windows::core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -910,13 +879,11 @@ impl SettingsCommand {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn SetInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::Popups::UICommandInvokedHandler>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -925,13 +892,11 @@ impl SettingsCommand {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn CreateSettingsCommand<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::Popups::UICommandInvokedHandler>>(settingscommandid: Param0, label: Param1, handler: Param2) -> ::windows::core::Result<SettingsCommand> {
         Self::ISettingsCommandFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -939,7 +904,6 @@ impl SettingsCommand {
         })
     }
     #[cfg(feature = "UI_Popups")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `UI_Popups`*"]
     pub fn AccountsCommand() -> ::windows::core::Result<SettingsCommand> {
         Self::ISettingsCommandStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1040,7 +1004,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::Popups::IUICommand> for &Settings
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SettingsEdgeLocation(pub i32);
@@ -1062,14 +1025,12 @@ unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
 impl ::windows::core::DefaultType for SettingsEdgeLocation {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SettingsPane(pub ::windows::core::IInspectable);
 impl SettingsPane {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`*"]
     pub fn CommandsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1079,13 +1040,11 @@ impl SettingsPane {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation`*"]
     pub fn RemoveCommandsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<SettingsPane> {
         Self::ISettingsPaneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1093,12 +1052,10 @@ impl SettingsPane {
         })
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Show() -> ::windows::core::Result<()> {
         Self::ISettingsPaneStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Edge() -> ::windows::core::Result<SettingsEdgeLocation> {
         Self::ISettingsPaneStatics(|this| unsafe {
             let mut result__: SettingsEdgeLocation = ::core::mem::zeroed();
@@ -1160,14 +1117,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SettingsPaneCommandsRequest(pub ::windows::core::IInspectable);
 impl SettingsPaneCommandsRequest {
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Foundation_Collections`, `UI_Popups`*"]
     pub fn ApplicationCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
@@ -1226,13 +1181,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SettingsPaneCommandsRequestedEventArgs(pub ::windows::core::IInspectable);
 impl SettingsPaneCommandsRequestedEventArgs {
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Request(&self) -> ::windows::core::Result<SettingsPaneCommandsRequest> {
         let this = self;
         unsafe {
@@ -1291,7 +1244,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SupportedWebAccountActions(pub u32);
@@ -1345,7 +1297,6 @@ impl ::core::ops::Not for SupportedWebAccountActions {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WebAccountAction(pub i32);
@@ -1370,13 +1321,11 @@ unsafe impl ::windows::core::RuntimeType for WebAccountAction {
 impl ::windows::core::DefaultType for WebAccountAction {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebAccountCommand(pub ::windows::core::IInspectable);
 impl WebAccountCommand {
     #[cfg(feature = "Security_Credentials")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Security_Credentials`*"]
     pub fn WebAccount(&self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccount> {
         let this = self;
         unsafe {
@@ -1384,7 +1333,6 @@ impl WebAccountCommand {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::WebAccount>(result__)
         }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoked(&self) -> ::windows::core::Result<WebAccountCommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -1392,7 +1340,6 @@ impl WebAccountCommand {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAccountCommandInvokedHandler>(result__)
         }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Actions(&self) -> ::windows::core::Result<SupportedWebAccountActions> {
         let this = self;
         unsafe {
@@ -1401,7 +1348,6 @@ impl WebAccountCommand {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Security_Credentials`*"]
     pub fn CreateWebAccountCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccount>, Param1: ::windows::core::IntoParam<'a, WebAccountCommandInvokedHandler>>(webaccount: Param0, invoked: Param1, actions: SupportedWebAccountActions) -> ::windows::core::Result<WebAccountCommand> {
         Self::IWebAccountCommandFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1463,7 +1409,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebAccountCommandInvokedHandler(::windows::core::IUnknown);
@@ -1476,7 +1421,6 @@ impl WebAccountCommandInvokedHandler {
         };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, WebAccountCommand>, Param1: ::windows::core::IntoParam<'a, WebAccountInvokedArgs>>(&self, command: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), command.into_param().abi(), args.into_param().abi()).ok() }
@@ -1536,12 +1480,10 @@ impl<F: FnMut(&::core::option::Option<WebAccountCommand>, &::core::option::Optio
         ((*this).invoke)(&*(&command as *const <WebAccountCommand as ::windows::core::Abi>::Abi as *const <WebAccountCommand as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <WebAccountInvokedArgs as ::windows::core::Abi>::Abi as *const <WebAccountInvokedArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebAccountInvokedArgs(pub ::windows::core::IInspectable);
 impl WebAccountInvokedArgs {
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Action(&self) -> ::windows::core::Result<WebAccountAction> {
         let this = self;
         unsafe {
@@ -1600,13 +1542,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebAccountProviderCommand(pub ::windows::core::IInspectable);
 impl WebAccountProviderCommand {
     #[cfg(feature = "Security_Credentials")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Security_Credentials`*"]
     pub fn WebAccountProvider(&self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccountProvider> {
         let this = self;
         unsafe {
@@ -1614,7 +1554,6 @@ impl WebAccountProviderCommand {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::WebAccountProvider>(result__)
         }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoked(&self) -> ::windows::core::Result<WebAccountProviderCommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -1623,7 +1562,6 @@ impl WebAccountProviderCommand {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    #[doc = "*Required features: `UI_ApplicationSettings`, `Security_Credentials`*"]
     pub fn CreateWebAccountProviderCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccountProvider>, Param1: ::windows::core::IntoParam<'a, WebAccountProviderCommandInvokedHandler>>(webaccountprovider: Param0, invoked: Param1) -> ::windows::core::Result<WebAccountProviderCommand> {
         Self::IWebAccountProviderCommandFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1685,7 +1623,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebAccountProviderCommandInvokedHandler(::windows::core::IUnknown);
@@ -1698,7 +1635,6 @@ impl WebAccountProviderCommandInvokedHandler {
         };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `UI_ApplicationSettings`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, WebAccountProviderCommand>>(&self, command: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), command.into_param().abi()).ok() }

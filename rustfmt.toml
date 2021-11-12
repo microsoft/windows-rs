@@ -1,2 +1,6 @@
 newline_style = "Unix"
 max_width = 500
+ignore = [
+    "src/Windows",
+    "crates/deps/sys/src/Windows",
+]

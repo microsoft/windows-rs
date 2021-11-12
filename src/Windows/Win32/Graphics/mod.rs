@@ -41,7 +41,6 @@ pub mod Imaging;
 pub mod OpenGL;
 #[cfg(feature = "Win32_Graphics_Printing")]
 pub mod Printing;
-#[doc = "*Required features: `Win32_Graphics`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(pub u32);

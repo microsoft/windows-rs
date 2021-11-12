@@ -1,7 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "ApplicationModel_Store_Preview_InstallControl")]
 pub mod InstallControl;
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadMode(pub i32);
@@ -27,7 +26,6 @@ unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
 impl ::windows::core::DefaultType for DeliveryOptimizationDownloadMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadModeSource(pub i32);
@@ -49,12 +47,10 @@ unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSou
 impl ::windows::core::DefaultType for DeliveryOptimizationDownloadModeSource {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeliveryOptimizationSettings(pub ::windows::core::IInspectable);
 impl DeliveryOptimizationSettings {
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn DownloadMode(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadMode> {
         let this = self;
         unsafe {
@@ -62,7 +58,6 @@ impl DeliveryOptimizationSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeliveryOptimizationDownloadMode>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn DownloadModeSource(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadModeSource> {
         let this = self;
         unsafe {
@@ -70,7 +65,6 @@ impl DeliveryOptimizationSettings {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DeliveryOptimizationDownloadModeSource>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn GetCurrentSettings() -> ::windows::core::Result<DeliveryOptimizationSettings> {
         Self::IDeliveryOptimizationSettingsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -429,11 +423,9 @@ pub struct IWebAuthenticationCoreManagerHelper_abi(
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, request: ::windows::core::RawPtr, webaccount: ::windows::core::RawPtr, uielement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml")))] usize,
 );
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 pub struct StoreConfiguration {}
 impl StoreConfiguration {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`*"]
     pub fn SetSystemConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
         cataloghardwaremanufacturerid: Param0,
         catalogstorecontentmodifierid: Param1,
@@ -442,22 +434,18 @@ impl StoreConfiguration {
     ) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), cataloghardwaremanufacturerid.into_param().abi(), catalogstorecontentmodifierid.into_param().abi(), systemconfigurationexpiration.into_param().abi(), cataloghardwaredescriptor.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn SetMobileOperatorConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(mobileoperatorid: Param0, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), mobileoperatorid.into_param().abi(), appdownloadlimitinmegabytes, updatedownloadlimitinmegabytes).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn SetStoreWebAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountid: Param0) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), webaccountid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn IsStoreWebAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountid: Param0) -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), webaccountid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn HardwareManufacturerInfo() -> ::windows::core::Result<StoreHardwareManufacturerInfo> {
         Self::IStoreConfigurationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -465,7 +453,6 @@ impl StoreConfiguration {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`, `Foundation_Collections`*"]
     pub fn FilterUnsupportedSystemFeaturesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>>(systemfeatures: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>> {
         Self::IStoreConfigurationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -473,7 +460,6 @@ impl StoreConfiguration {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`*"]
     pub fn PurchasePromptingPolicy() -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>> {
         Self::IStoreConfigurationStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -481,11 +467,9 @@ impl StoreConfiguration {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`*"]
     pub fn SetPurchasePromptingPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(value: Param0) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn HasStoreWebAccount() -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -493,7 +477,6 @@ impl StoreConfiguration {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn HasStoreWebAccountForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -501,7 +484,6 @@ impl StoreConfiguration {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`, `Storage_Streams`*"]
     pub fn GetStoreLogDataAsync(options: StoreLogOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -509,12 +491,10 @@ impl StoreConfiguration {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn SetStoreWebAccountIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, webaccountid: Param1) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), user.into_param().abi(), webaccountid.into_param().abi()).ok() })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn IsStoreWebAccountIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, webaccountid: Param1) -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -522,7 +502,6 @@ impl StoreConfiguration {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`, `System`*"]
     pub fn GetPurchasePromptingPolicyForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -530,11 +509,9 @@ impl StoreConfiguration {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`, `System`*"]
     pub fn SetPurchasePromptingPolicyForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(user: Param0, value: Param1) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), user.into_param().abi(), value.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn GetStoreWebAccountId() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -542,23 +519,19 @@ impl StoreConfiguration {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn GetStoreWebAccountIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn SetEnterpriseStoreWebAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountid: Param0) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), webaccountid.into_param().abi()).ok() })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn SetEnterpriseStoreWebAccountIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, webaccountid: Param1) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), user.into_param().abi(), webaccountid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn GetEnterpriseStoreWebAccountId() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -566,14 +539,12 @@ impl StoreConfiguration {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn GetEnterpriseStoreWebAccountIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ShouldRestrictToEnterpriseStoreOnly() -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -581,40 +552,34 @@ impl StoreConfiguration {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn ShouldRestrictToEnterpriseStoreOnlyForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn IsPinToDesktopSupported() -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics5(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn IsPinToTaskbarSupported() -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics5(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn IsPinToStartSupported() -> ::windows::core::Result<bool> {
         Self::IStoreConfigurationStatics5(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn PinToDesktop<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(apppackagefamilyname: Param0) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), apppackagefamilyname.into_param().abi()).ok() })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `System`*"]
     pub fn PinToDesktopForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, apppackagefamilyname: Param1) -> ::windows::core::Result<()> {
         Self::IStoreConfigurationStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), user.into_param().abi(), apppackagefamilyname.into_param().abi()).ok() })
     }
@@ -642,12 +607,10 @@ impl StoreConfiguration {
 impl ::windows::core::RuntimeName for StoreConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StoreConfiguration";
 }
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StoreHardwareManufacturerInfo(pub ::windows::core::IInspectable);
 impl StoreHardwareManufacturerInfo {
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn HardwareManufacturerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -655,7 +618,6 @@ impl StoreHardwareManufacturerInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn StoreContentModifierId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -663,7 +625,6 @@ impl StoreHardwareManufacturerInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ModelName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -671,7 +632,6 @@ impl StoreHardwareManufacturerInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ManufacturerName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -732,7 +692,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreLogOptions(pub u32);
@@ -782,11 +741,9 @@ impl ::core::ops::Not for StoreLogOptions {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 pub struct StorePreview {}
 impl StorePreview {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`*"]
     pub fn RequestProductPurchaseByProductIdAndSkuIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0, skuid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>> {
         Self::IStorePreview(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -794,7 +751,6 @@ impl StorePreview {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`, `Foundation_Collections`*"]
     pub fn LoadAddOnProductInfosAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>> {
         Self::IStorePreview(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -809,12 +765,10 @@ impl StorePreview {
 impl ::windows::core::RuntimeName for StorePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreview";
 }
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StorePreviewProductInfo(pub ::windows::core::IInspectable);
 impl StorePreviewProductInfo {
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -822,7 +776,6 @@ impl StorePreviewProductInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ProductType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -830,7 +783,6 @@ impl StorePreviewProductInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -838,7 +790,6 @@ impl StorePreviewProductInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -847,7 +798,6 @@ impl StorePreviewProductInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation_Collections`*"]
     pub fn SkuInfoList(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<StorePreviewSkuInfo>> {
         let this = self;
         unsafe {
@@ -908,7 +858,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
@@ -932,12 +881,10 @@ unsafe impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
 impl ::windows::core::DefaultType for StorePreviewProductPurchaseStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StorePreviewPurchaseResults(pub ::windows::core::IInspectable);
 impl StorePreviewPurchaseResults {
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ProductPurchaseStatus(&self) -> ::windows::core::Result<StorePreviewProductPurchaseStatus> {
         let this = self;
         unsafe {
@@ -998,12 +945,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for StorePreviewPurchaseResults {}
 unsafe impl ::core::marker::Sync for StorePreviewPurchaseResults {}
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StorePreviewSkuInfo(pub ::windows::core::IInspectable);
 impl StorePreviewSkuInfo {
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1011,7 +956,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn SkuId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1019,7 +963,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn SkuType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1027,7 +970,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1035,7 +977,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1043,7 +984,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn CustomDeveloperData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1051,7 +991,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn CurrencyCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1059,7 +998,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn FormattedListPrice(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1067,7 +1005,6 @@ impl StorePreviewSkuInfo {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
     pub fn ExtendedData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1128,7 +1065,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreSystemFeature(pub i32);
@@ -1183,11 +1119,9 @@ unsafe impl ::windows::core::RuntimeType for StoreSystemFeature {
 impl ::windows::core::DefaultType for StoreSystemFeature {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Store_Preview`*"]
 pub struct WebAuthenticationCoreManagerHelper {}
 impl WebAuthenticationCoreManagerHelper {
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`, `Security_Authentication_Web_Core`, `UI_Xaml`*"]
     pub fn RequestTokenWithUIElementHostingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, Param1: ::windows::core::IntoParam<'a, super::super::super::UI::Xaml::UIElement>>(request: Param0, uielement: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>> {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1195,7 +1129,6 @@ impl WebAuthenticationCoreManagerHelper {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
-    #[doc = "*Required features: `ApplicationModel_Store_Preview`, `Foundation`, `Security_Authentication_Web_Core`, `Security_Credentials`, `UI_Xaml`*"]
     pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, Param1: ::windows::core::IntoParam<'a, super::super::super::Security::Credentials::WebAccount>, Param2: ::windows::core::IntoParam<'a, super::super::super::UI::Xaml::UIElement>>(
         request: Param0,
         webaccount: Param1,

@@ -2,7 +2,6 @@
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 pub struct CYPHER_BLOCK {
     pub data: [super::super::Foundation::CHAR; 8],
 }
@@ -35,7 +34,6 @@ unsafe impl ::windows::core::Abi for CYPHER_BLOCK {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
@@ -68,7 +66,6 @@ unsafe impl ::windows::core::Abi for ENCRYPTED_LM_OWF_PASSWORD {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
@@ -98,7 +95,6 @@ impl ::core::cmp::Eq for LM_OWF_PASSWORD {}
 unsafe impl ::windows::core::Abi for LM_OWF_PASSWORD {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(servername: Param0, username: Param1, lmoldpresent: Param2, lmoldowfpassword: *const LM_OWF_PASSWORD, lmnewowfpassword: *const LM_OWF_PASSWORD, ntoldowfpassword: *const LM_OWF_PASSWORD, ntnewowfpassword: *const LM_OWF_PASSWORD) -> u32 {
@@ -113,7 +109,6 @@ pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
@@ -146,7 +141,6 @@ pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_PasswordManagement`*"]
 pub struct SAMPR_ENCRYPTED_USER_PASSWORD {
     pub Buffer: [u8; 516],
 }

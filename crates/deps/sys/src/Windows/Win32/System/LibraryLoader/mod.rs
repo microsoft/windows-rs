@@ -1,150 +1,155 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddDllDirectory();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn AddDllDirectory(newdirectory: super::super::Foundation::PWSTR) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BeginUpdateResourceA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn BeginUpdateResourceA(pfilename: super::super::Foundation::PSTR, bdeleteexistingresources: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BeginUpdateResourceW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn BeginUpdateResourceW(pfilename: super::super::Foundation::PWSTR, bdeleteexistingresources: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DisableThreadLibraryCalls();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn DisableThreadLibraryCalls(hlibmodule: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EndUpdateResourceA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EndUpdateResourceA(hupdate: super::super::Foundation::HANDLE, fdiscard: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EndUpdateResourceW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EndUpdateResourceW(hupdate: super::super::Foundation::HANDLE, fdiscard: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceLanguagesA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceLanguagesA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceLanguagesExA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceLanguagesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceLanguagesExW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceLanguagesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceLanguagesW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceLanguagesW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceNamesA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceNamesA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceNamesExA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceNamesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceNamesExW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceNamesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceNamesW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceNamesW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceTypesA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceTypesA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceTypesExA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceTypesExA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceTypesExW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceTypesExW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumResourceTypesW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn EnumResourceTypesW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindResourceA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn FindResourceA(hmodule: super::super::Foundation::HINSTANCE, lpname: super::super::Foundation::PSTR, lptype: super::super::Foundation::PSTR) -> super::super::Foundation::HRSRC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindResourceExA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn FindResourceExA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, wlanguage: u16) -> super::super::Foundation::HRSRC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindResourceExW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn FindResourceExW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, wlanguage: u16) -> super::super::Foundation::HRSRC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindResourceW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn FindResourceW(hmodule: super::super::Foundation::HINSTANCE, lpname: super::super::Foundation::PWSTR, lptype: super::super::Foundation::PWSTR) -> super::super::Foundation::HRSRC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeLibrary();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn FreeLibrary(hlibmodule: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeLibraryAndExitThread();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn FreeLibraryAndExitThread(hlibmodule: super::super::Foundation::HINSTANCE, dwexitcode: u32);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeResource();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDllDirectoryA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetDllDirectoryA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDllDirectoryW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetDllDirectoryW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetModuleFileNameA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetModuleFileNameA(hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetModuleFileNameW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetModuleFileNameW(hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetModuleHandleA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetModuleHandleA(lpmodulename: super::super::Foundation::PSTR) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetModuleHandleExA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetModuleHandleExA(dwflags: u32, lpmodulename: super::super::Foundation::PSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetModuleHandleExW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetModuleHandleExW(dwflags: u32, lpmodulename: super::super::Foundation::PWSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetModuleHandleW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetModuleHandleW(lpmodulename: super::super::Foundation::PWSTR) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcAddress();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> ::core::option::Option<super::super::Foundation::FARPROC>;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadLibraryA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn LoadLibraryA(lplibfilename: super::super::Foundation::PSTR) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadLibraryExA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn LoadLibraryExA(lplibfilename: super::super::Foundation::PSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadLibraryExW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn LoadLibraryExW(lplibfilename: super::super::Foundation::PWSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadLibraryW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn LoadLibraryW(lplibfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadModule();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn LoadModule(lpmodulename: super::super::Foundation::PSTR, lpparameterblock: *const ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadPackagedLibrary();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn LoadPackagedLibrary(lpwlibfilename: super::super::Foundation::PWSTR, reserved: u32) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadResource();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`*"]
-    pub fn LockResource();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn LoadResource(hmodule: super::super::Foundation::HINSTANCE, hresinfo: super::super::Foundation::HRSRC) -> isize;
+    pub fn LockResource(hresdata: isize) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveDllDirectory();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn RemoveDllDirectory(cookie: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDefaultDllDirectories();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDllDirectoryA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn SetDllDirectoryA(lppathname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDllDirectoryW();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn SetDllDirectoryW(lppathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SizeofResource();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn SizeofResource(hmodule: super::super::Foundation::HINSTANCE, hresinfo: super::super::Foundation::HRSRC) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateResourceA();
-    #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
+    pub fn UpdateResourceA(hupdate: super::super::Foundation::HANDLE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateResourceW();
+    pub fn UpdateResourceW(hupdate: super::super::Foundation::HANDLE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
 }
+pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type ENUMRESLANGPROCA = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ENUMRESLANGPROCW = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ENUMRESNAMEPROCA = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, lparam: isize) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ENUMRESNAMEPROCW = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lparam: isize) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ENUMRESTYPEPROCA = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lparam: isize) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ENUMRESTYPEPROCW = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lparam: isize) -> super::super::Foundation::BOOL;
+#[repr(C)]
+pub struct ENUMUILANG(i32);
+pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
+pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
+pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
+pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
+pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
+pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
+#[repr(transparent)]
+pub struct LOAD_LIBRARY_FLAGS(pub u32);
+pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1u32);
+pub const LOAD_LIBRARY_AS_DATAFILE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2u32);
+pub const LOAD_WITH_ALTERED_SEARCH_PATH: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8u32);
+pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16u32);
+pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(32u32);
+pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(64u32);
+pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(128u32);
+pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(256u32);
+pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(512u32);
+pub const LOAD_LIBRARY_SEARCH_USER_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1024u32);
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2048u32);
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(4096u32);
+pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8192u32);
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16384u32);
+pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_MODULE_HANDLE_EXA = unsafe extern "system" fn(dwflags: u32, lpmodulename: super::super::Foundation::PSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_MODULE_HANDLE_EXW = unsafe extern "system" fn(dwflags: u32, lpmodulename: super::super::Foundation::PWSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct REDIRECTION_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct REDIRECTION_FUNCTION_DESCRIPTOR(i32);
+pub const RESOURCE_ENUM_LN: u32 = 1u32;
+pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;
+pub const RESOURCE_ENUM_MUI: u32 = 2u32;
+pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
+pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
+pub const SUPPORT_LANG_NUMBER: u32 = 32u32;

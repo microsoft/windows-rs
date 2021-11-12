@@ -1,28 +1,22 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumNetworkConnections(pub ::windows::core::IUnknown);
 impl IEnumNetworkConnections {
     #[cfg(feature = "Win32_System_Ole")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_System_Ole`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__: <super::super::System::Ole::IEnumVARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Ole::IEnumVARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetworkConnection>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetworkConnections> {
         let mut result__: <IEnumNetworkConnections as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworkConnections>(result__)
@@ -97,30 +91,24 @@ pub struct IEnumNetworkConnections_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenumnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumNetworks(pub ::windows::core::IUnknown);
 impl IEnumNetworks {
     #[cfg(feature = "Win32_System_Ole")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_System_Ole`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__: <super::super::System::Ole::IEnumVARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Ole::IEnumVARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetworks> {
         let mut result__: <IEnumNetworks as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworks>(result__)
@@ -195,73 +183,59 @@ pub struct IEnumNetworks_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenumnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetwork(pub ::windows::core::IUnknown);
 impl INetwork {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sznetworknewname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), sznetworknewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, szdescription: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE> {
         let mut result__: <NLM_DOMAIN_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<NLM_DOMAIN_TYPE>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkConnections(&self) -> ::windows::core::Result<IEnumNetworkConnections> {
         let mut result__: <IEnumNetworkConnections as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworkConnections>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwlowdatetimecreated), ::core::mem::transmute(pdwhighdatetimecreated), ::core::mem::transmute(pdwlowdatetimeconnected), ::core::mem::transmute(pdwhighdatetimeconnected)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY> {
         let mut result__: <NLM_CONNECTIVITY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<NLM_CONNECTIVITY>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetCategory(&self) -> ::windows::core::Result<NLM_NETWORK_CATEGORY> {
         let mut result__: <NLM_NETWORK_CATEGORY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<NLM_NETWORK_CATEGORY>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(newcategory)).ok()
     }
@@ -346,42 +320,34 @@ pub struct INetwork_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcategory: *mut NLM_NETWORK_CATEGORY) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkConnection(pub ::windows::core::IUnknown);
 impl INetworkConnection {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetwork(&self) -> ::windows::core::Result<INetwork> {
         let mut result__: <INetwork as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetwork>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY> {
         let mut result__: <NLM_CONNECTIVITY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<NLM_CONNECTIVITY>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectionId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE> {
         let mut result__: <NLM_DOMAIN_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<NLM_DOMAIN_TYPE>(result__)
@@ -457,18 +423,15 @@ pub struct INetworkConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pgdadapterid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdomaintype: *mut NLM_DOMAIN_TYPE) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkConnectionCost(pub ::windows::core::IUnknown);
 impl INetworkConnectionCost {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetCost(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPlanStatus(&self) -> ::windows::core::Result<NLM_DATAPLAN_STATUS> {
         let mut result__: <NLM_DATAPLAN_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<NLM_DATAPLAN_STATUS>(result__)
@@ -508,16 +471,13 @@ pub struct INetworkConnectionCost_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkConnectionCostEvents(pub ::windows::core::IUnknown);
 impl INetworkConnectionCostEvents {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ConnectionCostChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0, newcost: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), connectionid.into_param().abi(), ::core::mem::transmute(newcost)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ConnectionDataPlanStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), connectionid.into_param().abi()).ok()
     }
@@ -555,16 +515,13 @@ pub struct INetworkConnectionCostEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, connectionid: ::windows::core::GUID, newcost: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, connectionid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkConnectionEvents(pub ::windows::core::IUnknown);
 impl INetworkConnectionEvents {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkConnectionConnectivityChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), connectionid.into_param().abi(), ::core::mem::transmute(newconnectivity)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkConnectionPropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), connectionid.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
@@ -602,21 +559,17 @@ pub struct INetworkConnectionEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, connectionid: ::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, connectionid: ::windows::core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkCostManager(pub ::windows::core::IUnknown);
 impl INetworkCostManager {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcost), ::core::mem::transmute(pdestipaddr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdataplanstatus), ::core::mem::transmute(pdestipaddr)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(length), ::core::mem::transmute(pdestipaddrlist), ::core::mem::transmute(bappend)).ok()
     }
@@ -656,16 +609,13 @@ pub struct INetworkCostManager_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkCostManagerEvents(pub ::windows::core::IUnknown);
 impl INetworkCostManagerEvents {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newcost), ::core::mem::transmute(pdestaddr)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdestaddr)).ok()
     }
@@ -703,24 +653,19 @@ pub struct INetworkCostManagerEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkEvents(pub ::windows::core::IUnknown);
 impl INetworkEvents {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), networkid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), networkid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkConnectivityChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), networkid.into_param().abi(), ::core::mem::transmute(newconnectivity)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkPropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), networkid.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
@@ -760,51 +705,41 @@ pub struct INetworkEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, networkid: ::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, networkid: ::windows::core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkListManager(pub ::windows::core::IUnknown);
 impl INetworkListManager {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> ::windows::core::Result<IEnumNetworks> {
         let mut result__: <IEnumNetworks as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), &mut result__).from_abi::<IEnumNetworks>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetwork<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, gdnetworkid: Param0) -> ::windows::core::Result<INetwork> {
         let mut result__: <INetwork as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), gdnetworkid.into_param().abi(), &mut result__).from_abi::<INetwork>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkConnections(&self) -> ::windows::core::Result<IEnumNetworkConnections> {
         let mut result__: <IEnumNetworkConnections as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworkConnections>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkConnection<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, gdnetworkconnectionid: Param0) -> ::windows::core::Result<INetworkConnection> {
         let mut result__: <INetworkConnection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), gdnetworkconnectionid.into_param().abi(), &mut result__).from_abi::<INetworkConnection>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY> {
         let mut result__: <NLM_CONNECTIVITY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<NLM_CONNECTIVITY>(result__)
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(psimulatedinfo)).ok()
     }
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ClearSimulatedProfileInfo(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
     }
@@ -881,12 +816,10 @@ pub struct INetworkListManager_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetworkListManagerEvents(pub ::windows::core::IUnknown);
 impl INetworkListManagerEvents {
-    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newconnectivity)).ok()
     }
@@ -923,7 +856,6 @@ pub struct INetworkListManagerEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_CONNECTION_COST(pub i32);
@@ -943,7 +875,6 @@ impl ::core::convert::From<i32> for NLM_CONNECTION_COST {
 unsafe impl ::windows::core::Abi for NLM_CONNECTION_COST {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(pub i32);
@@ -956,7 +887,6 @@ impl ::core::convert::From<i32> for NLM_CONNECTION_PROPERTY_CHANGE {
 unsafe impl ::windows::core::Abi for NLM_CONNECTION_PROPERTY_CHANGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_CONNECTIVITY(pub i32);
@@ -980,7 +910,6 @@ unsafe impl ::windows::core::Abi for NLM_CONNECTIVITY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: ::windows::core::GUID,
     pub UsageData: NLM_USAGE_DATA,
@@ -1026,7 +955,6 @@ impl ::core::cmp::Eq for NLM_DATAPLAN_STATUS {}
 unsafe impl ::windows::core::Abi for NLM_DATAPLAN_STATUS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_DOMAIN_TYPE(pub i32);
@@ -1041,7 +969,6 @@ impl ::core::convert::From<i32> for NLM_DOMAIN_TYPE {
 unsafe impl ::windows::core::Abi for NLM_DOMAIN_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_ENUM_NETWORK(pub i32);
@@ -1056,7 +983,6 @@ impl ::core::convert::From<i32> for NLM_ENUM_NETWORK {
 unsafe impl ::windows::core::Abi for NLM_ENUM_NETWORK {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_INTERNET_CONNECTIVITY(pub i32);
@@ -1071,9 +997,7 @@ impl ::core::convert::From<i32> for NLM_INTERNET_CONNECTIVITY {
 unsafe impl ::windows::core::Abi for NLM_INTERNET_CONNECTIVITY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_NETWORK_CATEGORY(pub i32);
@@ -1088,7 +1012,6 @@ impl ::core::convert::From<i32> for NLM_NETWORK_CATEGORY {
 unsafe impl ::windows::core::Abi for NLM_NETWORK_CATEGORY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_NETWORK_CLASS(pub i32);
@@ -1103,7 +1026,6 @@ impl ::core::convert::From<i32> for NLM_NETWORK_CLASS {
 unsafe impl ::windows::core::Abi for NLM_NETWORK_CLASS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_NETWORK_PROPERTY_CHANGE(pub i32);
@@ -1122,7 +1044,6 @@ unsafe impl ::windows::core::Abi for NLM_NETWORK_PROPERTY_CHANGE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub struct NLM_SIMULATED_PROFILE_INFO {
     pub ProfileName: [u16; 256],
     pub cost: NLM_CONNECTION_COST,
@@ -1151,7 +1072,6 @@ unsafe impl ::windows::core::Abi for NLM_SIMULATED_PROFILE_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub struct NLM_SOCKADDR {
     pub data: [u8; 128],
 }
@@ -1175,12 +1095,10 @@ impl ::core::cmp::Eq for NLM_SOCKADDR {}
 unsafe impl ::windows::core::Abi for NLM_SOCKADDR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
 pub struct NLM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,

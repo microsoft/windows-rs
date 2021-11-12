@@ -1,40 +1,49 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseCompressor();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn CloseCompressor(compressorhandle: COMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseDecompressor();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn Compress();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn Compress(compressorhandle: COMPRESSOR_HANDLE, uncompresseddata: *const ::core::ffi::c_void, uncompresseddatasize: usize, compressedbuffer: *mut ::core::ffi::c_void, compressedbuffersize: usize, compresseddatasize: *mut usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateCompressor();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle: *mut isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDecompressor();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle: *mut isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn Decompress();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn Decompress(decompressorhandle: isize, compresseddata: *const ::core::ffi::c_void, compresseddatasize: usize, uncompressedbuffer: *mut ::core::ffi::c_void, uncompressedbuffersize: usize, uncompresseddatasize: *mut usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryCompressorInformation();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn QueryCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryDecompressorInformation();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn QueryDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ResetCompressor();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn ResetCompressor(compressorhandle: COMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ResetDecompressor();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetCompressorInformation();
-    #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
+    pub fn SetCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDecompressorInformation();
+    pub fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
+pub struct COMPRESSOR_HANDLE(i32);
+#[repr(transparent)]
+pub struct COMPRESS_ALGORITHM(pub u32);
+pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
+pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
+pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
+pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
+pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
+pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
+#[repr(C)]
+pub struct COMPRESS_ALLOCATION_ROUTINES(i32);
+#[repr(transparent)]
+pub struct COMPRESS_INFORMATION_CLASS(pub i32);
+pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
+pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
+pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
+pub const COMPRESS_RAW: u32 = 536870912u32;
+pub type PFN_COMPRESS_ALLOCATE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
+pub type PFN_COMPRESS_FREE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void);

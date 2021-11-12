@@ -1,177 +1,531 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsHostnameToComputerNameExW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn EnumSystemFirmwareTables();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn DnsHostnameToComputerNameExW(hostname: super::super::Foundation::PWSTR, computername: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetComputerNameExA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetComputerNameExW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFirmwareType();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn GetIntegratedDisplaySize();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL;
+    pub fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLocalTime();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogicalProcessorInformation();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogicalProcessorInformationEx();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
+    pub fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn GetNativeSystemInfo();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOsManufacturingMode();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOsSafeBootMode();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPhysicallyInstalledSystemMemory();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessorSystemCycleTime();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProductInfo();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspmajorversion: u32, dwspminorversion: u32, pdwreturnedproducttype: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemCpuSetInformation();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn GetSystemDEPPolicy();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemCpuSetInformation(information: *mut SYSTEM_CPU_SET_INFORMATION, bufferlength: u32, returnedlength: *mut u32, process: super::super::Foundation::HANDLE, flags: u32) -> super::super::Foundation::BOOL;
+    pub fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemDirectoryA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemDirectoryW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn GetSystemFirmwareTable();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
+    pub fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+    pub fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: FIRMWARE_TABLE_ID, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn GetSystemInfo();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemLeapSecondInformation();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundation::BOOL, flags: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTime();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimeAdjustment();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimeAdjustmentPrecise();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimeAsFileTime();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimePreciseAsFileTime();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWindowsDirectoryA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWindowsDirectoryW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64Directory2A();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR, usize: u32, imagefilemachinetype: u16) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64Directory2W();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64DirectoryA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64DirectoryW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn GetTickCount();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn GetTickCount64();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn GetVersion();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetSystemWow64DirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+    pub fn GetTickCount() -> u32;
+    pub fn GetTickCount64() -> u64;
+    pub fn GetVersion() -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVersionExA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVersionExW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowsDirectoryA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowsDirectoryW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn GlobalMemoryStatus();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+    pub fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalMemoryStatusEx();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsUserCetAvailableInEnvironment();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWow64GuestMachineSupported();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn IsWow64GuestMachineSupported(wowguestmachine: u16, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlConvertDeviceFamilyInfoToString();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn RtlGetDeviceFamilyInfoEnum();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: super::super::Foundation::PWSTR, deviceform: super::super::Foundation::PWSTR) -> u32;
+    pub fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut DEVICEFAMILYINFOENUM, puldeviceform: *mut DEVICEFAMILYDEVICEFORM);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlGetProductInfo();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn RtlGetSystemGlobalData();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn RtlOsDeploymentState();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn RtlSwitchedVVI();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN;
+    pub fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::core::ffi::c_void, size: u32) -> u32;
+    pub fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES;
+    pub fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetComputerNameA(lpcomputername: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameEx2W();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameExA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameExW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameW();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetComputerNameW(lpcomputername: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetLocalTime();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSystemTime();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSystemTimeAdjustment();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetSystemTimeAdjustment(dwtimeadjustment: u32, btimeadjustmentdisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSystemTimeAdjustmentPrecise();
-    #[doc = "*Required features: `Win32_System_SystemInformation`*"]
-    pub fn VerSetConditionMask();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment: u64, btimeadjustmentdisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyVersionInfoA();
-    #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+    pub fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyVersionInfoW();
+    pub fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
+pub struct CACHE_DESCRIPTOR(i32);
+#[repr(C)]
+pub struct CACHE_RELATIONSHIP(i32);
+#[repr(transparent)]
+pub struct COMPUTER_NAME_FORMAT(pub i32);
+pub const ComputerNameNetBIOS: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(0i32);
+pub const ComputerNameDnsHostname: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(1i32);
+pub const ComputerNameDnsDomain: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(2i32);
+pub const ComputerNameDnsFullyQualified: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(3i32);
+pub const ComputerNamePhysicalNetBIOS: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(4i32);
+pub const ComputerNamePhysicalDnsHostname: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(5i32);
+pub const ComputerNamePhysicalDnsDomain: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(6i32);
+pub const ComputerNamePhysicalDnsFullyQualified: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(7i32);
+pub const ComputerNameMax: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(8i32);
+#[repr(transparent)]
+pub struct CPU_SET_INFORMATION_TYPE(pub i32);
+pub const CpuSetInformation: CPU_SET_INFORMATION_TYPE = CPU_SET_INFORMATION_TYPE(0i32);
+#[repr(transparent)]
+pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
+pub const DEPPolicyAlwaysOff: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(0i32);
+pub const DEPPolicyAlwaysOn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(1i32);
+pub const DEPPolicyOptIn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(2i32);
+pub const DEPPolicyOptOut: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(3i32);
+pub const DEPTotalPolicyCount: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(4i32);
+#[repr(transparent)]
+pub struct DEVICEFAMILYDEVICEFORM(pub u32);
+pub const DEVICEFAMILYDEVICEFORM_UNKNOWN: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(0u32);
+pub const DEVICEFAMILYDEVICEFORM_PHONE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(1u32);
+pub const DEVICEFAMILYDEVICEFORM_TABLET: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(2u32);
+pub const DEVICEFAMILYDEVICEFORM_DESKTOP: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(3u32);
+pub const DEVICEFAMILYDEVICEFORM_NOTEBOOK: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(4u32);
+pub const DEVICEFAMILYDEVICEFORM_CONVERTIBLE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(5u32);
+pub const DEVICEFAMILYDEVICEFORM_DETACHABLE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(6u32);
+pub const DEVICEFAMILYDEVICEFORM_ALLINONE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(7u32);
+pub const DEVICEFAMILYDEVICEFORM_STICKPC: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(8u32);
+pub const DEVICEFAMILYDEVICEFORM_PUCK: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(9u32);
+pub const DEVICEFAMILYDEVICEFORM_LARGESCREEN: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(10u32);
+pub const DEVICEFAMILYDEVICEFORM_HMD: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(11u32);
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_HANDHELD: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(12u32);
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_TABLET: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(13u32);
+pub const DEVICEFAMILYDEVICEFORM_BANKING: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(14u32);
+pub const DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(15u32);
+pub const DEVICEFAMILYDEVICEFORM_DIGITAL_SIGNAGE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(16u32);
+pub const DEVICEFAMILYDEVICEFORM_GAMING: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(17u32);
+pub const DEVICEFAMILYDEVICEFORM_HOME_AUTOMATION: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(18u32);
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRIAL_AUTOMATION: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(19u32);
+pub const DEVICEFAMILYDEVICEFORM_KIOSK: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(20u32);
+pub const DEVICEFAMILYDEVICEFORM_MAKER_BOARD: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(21u32);
+pub const DEVICEFAMILYDEVICEFORM_MEDICAL: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(22u32);
+pub const DEVICEFAMILYDEVICEFORM_NETWORKING: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(23u32);
+pub const DEVICEFAMILYDEVICEFORM_POINT_OF_SERVICE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(24u32);
+pub const DEVICEFAMILYDEVICEFORM_PRINTING: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(25u32);
+pub const DEVICEFAMILYDEVICEFORM_THIN_CLIENT: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(26u32);
+pub const DEVICEFAMILYDEVICEFORM_TOY: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(27u32);
+pub const DEVICEFAMILYDEVICEFORM_VENDING: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(28u32);
+pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_OTHER: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(29u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(30u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_S: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(31u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(32u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X_DEVKIT: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(33u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(34u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(35u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_00: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(36u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_01: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(37u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_02: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(38u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_03: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(39u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_04: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(40u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_05: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(41u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_06: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(42u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(43u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(44u32);
+pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(45u32);
+pub const DEVICEFAMILYDEVICEFORM_MAX: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(45u32);
+#[repr(transparent)]
+pub struct DEVICEFAMILYINFOENUM(pub u32);
+pub const DEVICEFAMILYINFOENUM_UAP: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(0u32);
+pub const DEVICEFAMILYINFOENUM_WINDOWS_8X: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(1u32);
+pub const DEVICEFAMILYINFOENUM_WINDOWS_PHONE_8X: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(2u32);
+pub const DEVICEFAMILYINFOENUM_DESKTOP: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(3u32);
+pub const DEVICEFAMILYINFOENUM_MOBILE: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(4u32);
+pub const DEVICEFAMILYINFOENUM_XBOX: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(5u32);
+pub const DEVICEFAMILYINFOENUM_TEAM: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(6u32);
+pub const DEVICEFAMILYINFOENUM_IOT: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(7u32);
+pub const DEVICEFAMILYINFOENUM_IOT_HEADLESS: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(8u32);
+pub const DEVICEFAMILYINFOENUM_SERVER: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(9u32);
+pub const DEVICEFAMILYINFOENUM_HOLOGRAPHIC: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(10u32);
+pub const DEVICEFAMILYINFOENUM_XBOXSRA: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(11u32);
+pub const DEVICEFAMILYINFOENUM_XBOXERA: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(12u32);
+pub const DEVICEFAMILYINFOENUM_SERVER_NANO: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(13u32);
+pub const DEVICEFAMILYINFOENUM_8828080: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(14u32);
+pub const DEVICEFAMILYINFOENUM_7067329: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(15u32);
+pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(16u32);
+pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(17u32);
+pub const DEVICEFAMILYINFOENUM_MAX: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(17u32);
+#[repr(C)]
+pub struct FIRMWARE_TABLE_ID(i32);
+#[repr(transparent)]
+pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
+pub const ACPI: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1094930505u32);
+pub const FIRM: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1179210317u32);
+pub const RSMB: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1381190978u32);
+#[repr(transparent)]
+pub struct FIRMWARE_TYPE(pub i32);
+pub const FirmwareTypeUnknown: FIRMWARE_TYPE = FIRMWARE_TYPE(0i32);
+pub const FirmwareTypeBios: FIRMWARE_TYPE = FIRMWARE_TYPE(1i32);
+pub const FirmwareTypeUefi: FIRMWARE_TYPE = FIRMWARE_TYPE(2i32);
+pub const FirmwareTypeMax: FIRMWARE_TYPE = FIRMWARE_TYPE(3i32);
+#[repr(C)]
+pub struct GROUP_AFFINITY(i32);
+#[repr(C)]
+pub struct GROUP_RELATIONSHIP(i32);
+#[repr(transparent)]
+pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
+pub const RelationProcessorCore: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(0i32);
+pub const RelationNumaNode: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(1i32);
+pub const RelationCache: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(2i32);
+pub const RelationProcessorPackage: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(3i32);
+pub const RelationGroup: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(4i32);
+pub const RelationProcessorDie: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(5i32);
+pub const RelationNumaNodeEx: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(6i32);
+pub const RelationProcessorModule: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(7i32);
+pub const RelationAll: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(65535i32);
+#[repr(C)]
+pub struct MEMORYSTATUS(i32);
+#[repr(C)]
+pub struct MEMORYSTATUSEX(i32);
+pub const NTDDI_LONGHORN: u32 = 100663296u32;
+pub const NTDDI_VERSION: u32 = 167772171u32;
+pub const NTDDI_VISTA: u32 = 100663296u32;
+pub const NTDDI_VISTASP1: u32 = 100663552u32;
+pub const NTDDI_VISTASP2: u32 = 100663808u32;
+pub const NTDDI_VISTASP3: u32 = 100664064u32;
+pub const NTDDI_VISTASP4: u32 = 100664320u32;
+pub const NTDDI_WIN10: u32 = 167772160u32;
+pub const NTDDI_WIN10_19H1: u32 = 167772167u32;
+pub const NTDDI_WIN10_CO: u32 = 167772171u32;
+pub const NTDDI_WIN10_FE: u32 = 167772170u32;
+pub const NTDDI_WIN10_MN: u32 = 167772169u32;
+pub const NTDDI_WIN10_RS1: u32 = 167772162u32;
+pub const NTDDI_WIN10_RS2: u32 = 167772163u32;
+pub const NTDDI_WIN10_RS3: u32 = 167772164u32;
+pub const NTDDI_WIN10_RS4: u32 = 167772165u32;
+pub const NTDDI_WIN10_RS5: u32 = 167772166u32;
+pub const NTDDI_WIN10_TH2: u32 = 167772161u32;
+pub const NTDDI_WIN10_VB: u32 = 167772168u32;
+pub const NTDDI_WIN2K: u32 = 83886080u32;
+pub const NTDDI_WIN2KSP1: u32 = 83886336u32;
+pub const NTDDI_WIN2KSP2: u32 = 83886592u32;
+pub const NTDDI_WIN2KSP3: u32 = 83886848u32;
+pub const NTDDI_WIN2KSP4: u32 = 83887104u32;
+pub const NTDDI_WIN4: u32 = 67108864u32;
+pub const NTDDI_WIN6: u32 = 100663296u32;
+pub const NTDDI_WIN6SP1: u32 = 100663552u32;
+pub const NTDDI_WIN6SP2: u32 = 100663808u32;
+pub const NTDDI_WIN6SP3: u32 = 100664064u32;
+pub const NTDDI_WIN6SP4: u32 = 100664320u32;
+pub const NTDDI_WIN7: u32 = 100728832u32;
+pub const NTDDI_WIN8: u32 = 100794368u32;
+pub const NTDDI_WINBLUE: u32 = 100859904u32;
+pub const NTDDI_WINTHRESHOLD: u32 = 167772160u32;
+pub const NTDDI_WINXP: u32 = 83951616u32;
+pub const NTDDI_WINXPSP1: u32 = 83951872u32;
+pub const NTDDI_WINXPSP2: u32 = 83952128u32;
+pub const NTDDI_WINXPSP3: u32 = 83952384u32;
+pub const NTDDI_WINXPSP4: u32 = 83952640u32;
+pub const NTDDI_WS03: u32 = 84017152u32;
+pub const NTDDI_WS03SP1: u32 = 84017408u32;
+pub const NTDDI_WS03SP2: u32 = 84017664u32;
+pub const NTDDI_WS03SP3: u32 = 84017920u32;
+pub const NTDDI_WS03SP4: u32 = 84018176u32;
+pub const NTDDI_WS08: u32 = 100663552u32;
+pub const NTDDI_WS08SP2: u32 = 100663808u32;
+pub const NTDDI_WS08SP3: u32 = 100664064u32;
+pub const NTDDI_WS08SP4: u32 = 100664320u32;
+#[repr(C)]
+pub struct NUMA_NODE_RELATIONSHIP(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct OSVERSIONINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct OSVERSIONINFOEXA(i32);
+#[repr(C)]
+pub struct OSVERSIONINFOEXW(i32);
+#[repr(C)]
+pub struct OSVERSIONINFOW(i32);
+pub const OSVERSION_MASK: u32 = 4294901760u32;
+#[repr(transparent)]
+pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
+pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(1i32);
+pub const OS_DEPLOYMENT_COMPACT: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(2i32);
+#[repr(transparent)]
+pub struct OS_PRODUCT_TYPE(pub u32);
+pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(6u32);
+pub const PRODUCT_BUSINESS_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(16u32);
+pub const PRODUCT_CLUSTER_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(18u32);
+pub const PRODUCT_CLUSTER_SERVER_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(64u32);
+pub const PRODUCT_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(101u32);
+pub const PRODUCT_CORE_COUNTRYSPECIFIC: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(99u32);
+pub const PRODUCT_CORE_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(98u32);
+pub const PRODUCT_CORE_SINGLELANGUAGE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(100u32);
+pub const PRODUCT_DATACENTER_EVALUATION_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(80u32);
+pub const PRODUCT_DATACENTER_A_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(145u32);
+pub const PRODUCT_STANDARD_A_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(146u32);
+pub const PRODUCT_DATACENTER_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(8u32);
+pub const PRODUCT_DATACENTER_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(12u32);
+pub const PRODUCT_DATACENTER_SERVER_CORE_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(39u32);
+pub const PRODUCT_DATACENTER_SERVER_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(37u32);
+pub const PRODUCT_EDUCATION: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(121u32);
+pub const PRODUCT_EDUCATION_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(122u32);
+pub const PRODUCT_ENTERPRISE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(4u32);
+pub const PRODUCT_ENTERPRISE_E: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(70u32);
+pub const PRODUCT_ENTERPRISE_EVALUATION: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(72u32);
+pub const PRODUCT_ENTERPRISE_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(27u32);
+pub const PRODUCT_ENTERPRISE_N_EVALUATION: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(84u32);
+pub const PRODUCT_ENTERPRISE_S: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(125u32);
+pub const PRODUCT_ENTERPRISE_S_EVALUATION: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(129u32);
+pub const PRODUCT_ENTERPRISE_S_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(126u32);
+pub const PRODUCT_ENTERPRISE_S_N_EVALUATION: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(130u32);
+pub const PRODUCT_ENTERPRISE_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(10u32);
+pub const PRODUCT_ENTERPRISE_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(14u32);
+pub const PRODUCT_ENTERPRISE_SERVER_CORE_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(41u32);
+pub const PRODUCT_ENTERPRISE_SERVER_IA64: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(15u32);
+pub const PRODUCT_ENTERPRISE_SERVER_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(38u32);
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_ADDL: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(60u32);
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_ADDLSVC: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(62u32);
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_MGMT: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(59u32);
+pub const PRODUCT_ESSENTIALBUSINESS_SERVER_MGMTSVC: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(61u32);
+pub const PRODUCT_HOME_BASIC: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(2u32);
+pub const PRODUCT_HOME_BASIC_E: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(67u32);
+pub const PRODUCT_HOME_BASIC_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(5u32);
+pub const PRODUCT_HOME_PREMIUM: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(3u32);
+pub const PRODUCT_HOME_PREMIUM_E: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(68u32);
+pub const PRODUCT_HOME_PREMIUM_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(26u32);
+pub const PRODUCT_HOME_PREMIUM_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(34u32);
+pub const PRODUCT_HOME_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(19u32);
+pub const PRODUCT_HYPERV: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(42u32);
+pub const PRODUCT_IOTUAP: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(123u32);
+pub const PRODUCT_IOTUAPCOMMERCIAL: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(131u32);
+pub const PRODUCT_MEDIUMBUSINESS_SERVER_MANAGEMENT: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(30u32);
+pub const PRODUCT_MEDIUMBUSINESS_SERVER_MESSAGING: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(32u32);
+pub const PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(31u32);
+pub const PRODUCT_MOBILE_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(104u32);
+pub const PRODUCT_MOBILE_ENTERPRISE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(133u32);
+pub const PRODUCT_MULTIPOINT_PREMIUM_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(77u32);
+pub const PRODUCT_MULTIPOINT_STANDARD_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(76u32);
+pub const PRODUCT_PRO_WORKSTATION: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(161u32);
+pub const PRODUCT_PRO_WORKSTATION_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(162u32);
+pub const PRODUCT_PROFESSIONAL: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(48u32);
+pub const PRODUCT_PROFESSIONAL_E: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(69u32);
+pub const PRODUCT_PROFESSIONAL_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(49u32);
+pub const PRODUCT_PROFESSIONAL_WMC: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(103u32);
+pub const PRODUCT_SB_SOLUTION_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(50u32);
+pub const PRODUCT_SB_SOLUTION_SERVER_EM: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(54u32);
+pub const PRODUCT_SERVER_FOR_SB_SOLUTIONS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(51u32);
+pub const PRODUCT_SERVER_FOR_SB_SOLUTIONS_EM: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(55u32);
+pub const PRODUCT_SERVER_FOR_SMALLBUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(24u32);
+pub const PRODUCT_SERVER_FOR_SMALLBUSINESS_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(35u32);
+pub const PRODUCT_SERVER_FOUNDATION: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(33u32);
+pub const PRODUCT_SMALLBUSINESS_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(9u32);
+pub const PRODUCT_SMALLBUSINESS_SERVER_PREMIUM: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(25u32);
+pub const PRODUCT_SMALLBUSINESS_SERVER_PREMIUM_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(63u32);
+pub const PRODUCT_SOLUTION_EMBEDDEDSERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(56u32);
+pub const PRODUCT_STANDARD_EVALUATION_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(79u32);
+pub const PRODUCT_STANDARD_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(7u32);
+pub const PRODUCT_STANDARD_SERVER_CORE_: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(13u32);
+pub const PRODUCT_STANDARD_SERVER_CORE_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(40u32);
+pub const PRODUCT_STANDARD_SERVER_V: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(36u32);
+pub const PRODUCT_STANDARD_SERVER_SOLUTIONS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(52u32);
+pub const PRODUCT_STANDARD_SERVER_SOLUTIONS_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(53u32);
+pub const PRODUCT_STARTER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(11u32);
+pub const PRODUCT_STARTER_E: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(66u32);
+pub const PRODUCT_STARTER_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(47u32);
+pub const PRODUCT_STORAGE_ENTERPRISE_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(23u32);
+pub const PRODUCT_STORAGE_ENTERPRISE_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(46u32);
+pub const PRODUCT_STORAGE_EXPRESS_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(20u32);
+pub const PRODUCT_STORAGE_EXPRESS_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(43u32);
+pub const PRODUCT_STORAGE_STANDARD_EVALUATION_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(96u32);
+pub const PRODUCT_STORAGE_STANDARD_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(21u32);
+pub const PRODUCT_STORAGE_STANDARD_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(44u32);
+pub const PRODUCT_STORAGE_WORKGROUP_EVALUATION_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(95u32);
+pub const PRODUCT_STORAGE_WORKGROUP_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(22u32);
+pub const PRODUCT_STORAGE_WORKGROUP_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(45u32);
+pub const PRODUCT_ULTIMATE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(1u32);
+pub const PRODUCT_ULTIMATE_E: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(71u32);
+pub const PRODUCT_ULTIMATE_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(28u32);
+pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(0u32);
+pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(17u32);
+pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(29u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+#[repr(transparent)]
+pub struct PROCESSOR_CACHE_TYPE(pub i32);
+pub const CacheUnified: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(0i32);
+pub const CacheInstruction: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(1i32);
+pub const CacheData: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(2i32);
+pub const CacheTrace: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(3i32);
+#[repr(C)]
+pub struct PROCESSOR_GROUP_INFO(i32);
+#[repr(C)]
+pub struct PROCESSOR_RELATIONSHIP(i32);
+#[repr(transparent)]
+pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
+pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(0i32);
+pub const GlobalDataIdRngSeedVersion: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(1i32);
+pub const GlobalDataIdInterruptTime: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(2i32);
+pub const GlobalDataIdTimeZoneBias: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(3i32);
+pub const GlobalDataIdImageNumberLow: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(4i32);
+pub const GlobalDataIdImageNumberHigh: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(5i32);
+pub const GlobalDataIdTimeZoneId: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(6i32);
+pub const GlobalDataIdNtMajorVersion: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(7i32);
+pub const GlobalDataIdNtMinorVersion: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(8i32);
+pub const GlobalDataIdSystemExpirationDate: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(9i32);
+pub const GlobalDataIdKdDebuggerEnabled: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(10i32);
+pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(11i32);
+pub const GlobalDataIdSafeBootMode: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(12i32);
+pub const GlobalDataIdLastSystemRITEventTickCount: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(13i32);
+pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
+pub const SPVERSION_MASK: u32 = 65280u32;
+pub const SUBVERSION_MASK: u32 = 255u32;
+#[repr(C)]
+pub struct SYSTEM_CPU_SET_INFORMATION(i32);
+pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
+pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
+pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
+pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[repr(C)]
+pub struct SYSTEM_INFO(i32);
+#[repr(C)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION(i32);
+#[repr(C)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct SYSTEM_POOL_ZEROING_INFORMATION(i32);
+#[repr(C)]
+pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION(i32);
+#[repr(C)]
+pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION(i32);
+#[repr(transparent)]
+pub struct USER_CET_ENVIRONMENT(pub u32);
+pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(0u32);
+pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(2u32);
+pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(16u32);
+pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(17u32);
+#[repr(transparent)]
+pub struct VER_FLAGS(pub u32);
+pub const VER_MINORVERSION: VER_FLAGS = VER_FLAGS(1u32);
+pub const VER_MAJORVERSION: VER_FLAGS = VER_FLAGS(2u32);
+pub const VER_BUILDNUMBER: VER_FLAGS = VER_FLAGS(4u32);
+pub const VER_PLATFORMID: VER_FLAGS = VER_FLAGS(8u32);
+pub const VER_SERVICEPACKMINOR: VER_FLAGS = VER_FLAGS(16u32);
+pub const VER_SERVICEPACKMAJOR: VER_FLAGS = VER_FLAGS(32u32);
+pub const VER_SUITENAME: VER_FLAGS = VER_FLAGS(64u32);
+pub const VER_PRODUCT_TYPE: VER_FLAGS = VER_FLAGS(128u32);
+pub const WDK_NTDDI_VERSION: u32 = 167772171u32;
+pub const _WIN32_IE_IE100: u32 = 2560u32;
+pub const _WIN32_IE_IE110: u32 = 2560u32;
+pub const _WIN32_IE_IE20: u32 = 512u32;
+pub const _WIN32_IE_IE30: u32 = 768u32;
+pub const _WIN32_IE_IE302: u32 = 770u32;
+pub const _WIN32_IE_IE40: u32 = 1024u32;
+pub const _WIN32_IE_IE401: u32 = 1025u32;
+pub const _WIN32_IE_IE50: u32 = 1280u32;
+pub const _WIN32_IE_IE501: u32 = 1281u32;
+pub const _WIN32_IE_IE55: u32 = 1360u32;
+pub const _WIN32_IE_IE60: u32 = 1536u32;
+pub const _WIN32_IE_IE60SP1: u32 = 1537u32;
+pub const _WIN32_IE_IE60SP2: u32 = 1539u32;
+pub const _WIN32_IE_IE70: u32 = 1792u32;
+pub const _WIN32_IE_IE80: u32 = 2048u32;
+pub const _WIN32_IE_IE90: u32 = 2304u32;
+pub const _WIN32_IE_LONGHORN: u32 = 1792u32;
+pub const _WIN32_IE_NT4: u32 = 512u32;
+pub const _WIN32_IE_NT4SP1: u32 = 512u32;
+pub const _WIN32_IE_NT4SP2: u32 = 512u32;
+pub const _WIN32_IE_NT4SP3: u32 = 770u32;
+pub const _WIN32_IE_NT4SP4: u32 = 1025u32;
+pub const _WIN32_IE_NT4SP5: u32 = 1025u32;
+pub const _WIN32_IE_NT4SP6: u32 = 1280u32;
+pub const _WIN32_IE_WIN10: u32 = 2560u32;
+pub const _WIN32_IE_WIN2K: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP1: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP2: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP3: u32 = 1281u32;
+pub const _WIN32_IE_WIN2KSP4: u32 = 1281u32;
+pub const _WIN32_IE_WIN6: u32 = 1792u32;
+pub const _WIN32_IE_WIN7: u32 = 2048u32;
+pub const _WIN32_IE_WIN8: u32 = 2560u32;
+pub const _WIN32_IE_WIN98: u32 = 1025u32;
+pub const _WIN32_IE_WIN98SE: u32 = 1280u32;
+pub const _WIN32_IE_WINBLUE: u32 = 2560u32;
+pub const _WIN32_IE_WINME: u32 = 1360u32;
+pub const _WIN32_IE_WINTHRESHOLD: u32 = 2560u32;
+pub const _WIN32_IE_WS03: u32 = 1538u32;
+pub const _WIN32_IE_WS03SP1: u32 = 1539u32;
+pub const _WIN32_IE_XP: u32 = 1536u32;
+pub const _WIN32_IE_XPSP1: u32 = 1537u32;
+pub const _WIN32_IE_XPSP2: u32 = 1539u32;
+pub const _WIN32_WINNT_LONGHORN: u32 = 1536u32;
+pub const _WIN32_WINNT_NT4: u32 = 1024u32;
+pub const _WIN32_WINNT_VISTA: u32 = 1536u32;
+pub const _WIN32_WINNT_WIN10: u32 = 2560u32;
+pub const _WIN32_WINNT_WIN2K: u32 = 1280u32;
+pub const _WIN32_WINNT_WIN6: u32 = 1536u32;
+pub const _WIN32_WINNT_WIN7: u32 = 1537u32;
+pub const _WIN32_WINNT_WIN8: u32 = 1538u32;
+pub const _WIN32_WINNT_WINBLUE: u32 = 1539u32;
+pub const _WIN32_WINNT_WINTHRESHOLD: u32 = 2560u32;
+pub const _WIN32_WINNT_WINXP: u32 = 1281u32;
+pub const _WIN32_WINNT_WS03: u32 = 1282u32;
+pub const _WIN32_WINNT_WS08: u32 = 1536u32;

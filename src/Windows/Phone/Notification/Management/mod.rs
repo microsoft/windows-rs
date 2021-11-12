@@ -1,180 +1,144 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 pub struct AccessoryManager {}
 impl AccessoryManager {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn RegisterAccessoryApp() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn GetNextTriggerDetails() -> ::windows::core::Result<IAccessoryNotificationTriggerDetails> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IAccessoryNotificationTriggerDetails>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ProcessTriggerDetails<'a, Param0: ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails>>(pdetails: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pdetails.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation_Collections`*"]
     pub fn PhoneLineDetails() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PhoneLineDetails>> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<PhoneLineDetails>>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn GetPhoneLineDetails<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(phoneline: Param0) -> ::windows::core::Result<PhoneLineDetails> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), phoneline.into_param().abi(), &mut result__).from_abi::<PhoneLineDetails>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AcceptPhoneCall(phonecallid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), phonecallid).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AcceptPhoneCallOnEndpoint(phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), phonecallid, endpoint).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AcceptPhoneCallWithVideo(phonecallid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), phonecallid).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AcceptPhoneCallWithVideoOnAudioEndpoint(phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), phonecallid, endpoint).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn RejectPhoneCall(phonecallid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), phonecallid).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn RejectPhoneCallWithText(phonecallid: u32, textresponseid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), phonecallid, textresponseid).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MakePhoneCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), phoneline.into_param().abi(), phonenumber.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MakePhoneCallOnAudioEndpoint<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), phoneline.into_param().abi(), phonenumber.into_param().abi(), endpoint).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MakePhoneCallWithVideo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), phoneline.into_param().abi(), phonenumber.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), phoneline.into_param().abi(), phonenumber.into_param().abi(), endpoint).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SwapPhoneCalls(phonecallidtohold: u32, phonecallidonhold: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), phonecallidtohold, phonecallidonhold).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn HoldPhoneCall(phonecallid: u32, holdcall: bool) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), phonecallid, holdcall).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn EndPhoneCall(phonecallid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), phonecallid).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetPhoneMute(value: bool) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneMute() -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetPhoneCallAudioEndpoint(value: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneCallAudioEndpoint() -> ::windows::core::Result<PhoneCallAudioEndpoint> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: PhoneCallAudioEndpoint = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallAudioEndpoint>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SnoozeAlarm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(alarmid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), alarmid.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn SnoozeAlarmForSpecifiedTime<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(alarmid: Param0, timespan: Param1) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), alarmid.into_param().abi(), timespan.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DismissAlarm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(alarmid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), alarmid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SnoozeReminder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(reminderid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), reminderid.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn SnoozeReminderForSpecifiedTime<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(reminderid: Param0, timespan: Param1) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), reminderid.into_param().abi(), timespan.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DismissReminder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(reminderid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), reminderid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn GetMediaMetadata() -> ::windows::core::Result<MediaMetadata> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaMetadata>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MediaPlaybackCapabilities() -> ::windows::core::Result<PlaybackCapability> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: PlaybackCapability = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlaybackCapability>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MediaPlaybackStatus() -> ::windows::core::Result<PlaybackStatus> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: PlaybackStatus = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlaybackStatus>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PerformMediaPlaybackCommand(command: PlaybackCommand) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), command).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DoNotDisturbEnabled() -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DrivingModeEnabled() -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn BatterySaverState() -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -182,44 +146,36 @@ impl AccessoryManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation_Collections`*"]
     pub fn GetApps() -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppNotificationInfo>> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppNotificationInfo>>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn EnableNotificationsForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), appid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisableNotificationsForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), appid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IsNotificationEnabledForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), appid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn GetEnabledAccessoryNotificationTypes() -> ::windows::core::Result<i32> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn EnableAccessoryNotificationTypes(accessorynotificationtypes: i32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), accessorynotificationtypes).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisableAllAccessoryNotificationTypes() -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this)).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn GetUserConsent() -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -227,53 +183,43 @@ impl AccessoryManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Storage_Streams`*"]
     pub fn GetAppIcon<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), appid.into_param().abi(), &mut result__).from_abi::<super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn RingDevice() -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation_Collections`*"]
     pub fn SpeedDialList() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpeedDialEntry>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<SpeedDialEntry>>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ClearToast<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), instanceid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IsPhonePinLocked() -> ::windows::core::Result<bool> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IncreaseVolume(step: i32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), step).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DecreaseVolume(step: i32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), step).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetMute(mute: bool) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), mute).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetRingerVibrate(ringer: bool, vibrate: bool) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), ringer, vibrate).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn VolumeInfo() -> ::windows::core::Result<VolumeInfo> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -281,7 +227,6 @@ impl AccessoryManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation_Collections`*"]
     pub fn GetAllEmailAccounts() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailAccountInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -289,43 +234,34 @@ impl AccessoryManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation_Collections`*"]
     pub fn GetFolders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(emailaccount: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), emailaccount.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>(result__)
         })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn EnableEmailNotificationEmailAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(emailaccount: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), emailaccount.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisableEmailNotificationEmailAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(emailaccount: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), emailaccount.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation_Collections`*"]
     pub fn EnableEmailNotificationFolderFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(emailaccount: Param0, folders: Param1) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), emailaccount.into_param().abi(), folders.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn UpdateEmailReadStatus<'a, Param0: ::windows::core::IntoParam<'a, BinaryId>>(messageentryid: Param0, isread: bool) -> ::windows::core::Result<()> {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), messageentryid.into_param().abi(), isread).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SnoozeAlarmByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), instanceid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DismissAlarmByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), instanceid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SnoozeReminderByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), instanceid.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DismissReminderByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), instanceid.into_param().abi()).ok() })
     }
@@ -345,7 +281,6 @@ impl AccessoryManager {
 impl ::windows::core::RuntimeName for AccessoryManager {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AccessoryManager";
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AccessoryNotificationType(pub u32);
@@ -409,12 +344,10 @@ impl ::core::ops::Not for AccessoryNotificationType {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AlarmNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl AlarmNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AlarmId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -422,7 +355,6 @@ impl AlarmNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -431,7 +363,6 @@ impl AlarmNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -439,7 +370,6 @@ impl AlarmNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ReminderState(&self) -> ::windows::core::Result<ReminderState> {
         let this = self;
         unsafe {
@@ -448,7 +378,6 @@ impl AlarmNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -456,7 +385,6 @@ impl AlarmNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -464,7 +392,6 @@ impl AlarmNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -472,7 +399,6 @@ impl AlarmNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -480,7 +406,6 @@ impl AlarmNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -488,12 +413,10 @@ impl AlarmNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn InstanceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAlarmNotificationTriggerDetails2>(self)?;
         unsafe {
@@ -574,12 +497,10 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppNotificationInfo(pub ::windows::core::IInspectable);
 impl AppNotificationInfo {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -587,7 +508,6 @@ impl AppNotificationInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -646,12 +566,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BinaryId(pub ::windows::core::IInspectable);
 impl BinaryId {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Id(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
@@ -659,7 +577,6 @@ impl BinaryId {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -718,7 +635,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CalendarChangedEvent(pub i32);
@@ -745,12 +661,10 @@ unsafe impl ::windows::core::RuntimeType for CalendarChangedEvent {
 impl ::windows::core::DefaultType for CalendarChangedEvent {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CalendarChangedNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl CalendarChangedNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn EventType(&self) -> ::windows::core::Result<CalendarChangedEvent> {
         let this = self;
         unsafe {
@@ -758,7 +672,6 @@ impl CalendarChangedNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CalendarChangedEvent>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -767,7 +680,6 @@ impl CalendarChangedNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -775,7 +687,6 @@ impl CalendarChangedNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -783,7 +694,6 @@ impl CalendarChangedNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -791,7 +701,6 @@ impl CalendarChangedNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -799,7 +708,6 @@ impl CalendarChangedNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -807,7 +715,6 @@ impl CalendarChangedNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
@@ -885,12 +792,10 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CortanaTileNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl CortanaTileNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -898,7 +803,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Content(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -906,7 +810,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn LargeContent1(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -914,7 +817,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn LargeContent2(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -922,7 +824,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn EmphasizedText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -930,7 +831,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn NonWrappedSmallContent1(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -938,7 +838,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn NonWrappedSmallContent2(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -946,7 +845,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn NonWrappedSmallContent3(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -954,7 +852,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn NonWrappedSmallContent4(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -962,7 +859,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -971,7 +867,6 @@ impl CortanaTileNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -979,7 +874,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -987,7 +881,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -995,7 +888,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1003,7 +895,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1011,7 +902,6 @@ impl CortanaTileNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
@@ -1089,12 +979,10 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EmailAccountInfo(pub ::windows::core::IInspectable);
 impl EmailAccountInfo {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1102,7 +990,6 @@ impl EmailAccountInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IsNotificationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1161,12 +1048,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EmailFolderInfo(pub ::windows::core::IInspectable);
 impl EmailFolderInfo {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1174,7 +1059,6 @@ impl EmailFolderInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IsNotificationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1233,12 +1117,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EmailNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl EmailNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccountName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1246,7 +1128,6 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ParentFolderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1254,7 +1135,6 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SenderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1262,7 +1142,6 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SenderAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1271,7 +1150,6 @@ impl EmailNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "ApplicationModel_Email")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `ApplicationModel_Email`*"]
     pub fn EmailMessage(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Email::EmailMessage> {
         let this = self;
         unsafe {
@@ -1280,7 +1158,6 @@ impl EmailNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1289,7 +1166,6 @@ impl EmailNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1297,7 +1173,6 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1305,7 +1180,6 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1313,7 +1187,6 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1321,7 +1194,6 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1329,12 +1201,10 @@ impl EmailNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MessageEntryId(&self) -> ::windows::core::Result<BinaryId> {
         let this = &::windows::core::Interface::cast::<IEmailNotificationTriggerDetails2>(self)?;
         unsafe {
@@ -1415,12 +1285,10 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EmailReadNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl EmailReadNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccountName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1428,7 +1296,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ParentFolderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1436,7 +1303,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MessageEntryId(&self) -> ::windows::core::Result<BinaryId> {
         let this = self;
         unsafe {
@@ -1444,7 +1310,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BinaryId>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IsRead(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1453,7 +1318,6 @@ impl EmailReadNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1461,7 +1325,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1469,7 +1332,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1477,7 +1339,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1485,7 +1346,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -1493,7 +1353,6 @@ impl EmailReadNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
@@ -1696,7 +1555,6 @@ pub struct IAccessoryManager3_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 pub struct IAccessoryNotificationTriggerDetails(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAccessoryNotificationTriggerDetails {
     type Vtable = IAccessoryNotificationTriggerDetails_abi;
@@ -1704,7 +1562,6 @@ unsafe impl ::windows::core::Interface for IAccessoryNotificationTriggerDetails 
 }
 impl IAccessoryNotificationTriggerDetails {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1712,7 +1569,6 @@ impl IAccessoryNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1720,7 +1576,6 @@ impl IAccessoryNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1728,7 +1583,6 @@ impl IAccessoryNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = self;
         unsafe {
@@ -1736,7 +1590,6 @@ impl IAccessoryNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1744,7 +1597,6 @@ impl IAccessoryNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
@@ -2319,12 +2171,10 @@ pub struct IVolumeInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut VibrateState) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaControlsTriggerDetails(pub ::windows::core::IInspectable);
 impl MediaControlsTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PlaybackStatus(&self) -> ::windows::core::Result<PlaybackStatus> {
         let this = self;
         unsafe {
@@ -2332,7 +2182,6 @@ impl MediaControlsTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlaybackStatus>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MediaMetadata(&self) -> ::windows::core::Result<MediaMetadata> {
         let this = self;
         unsafe {
@@ -2341,7 +2190,6 @@ impl MediaControlsTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -2349,7 +2197,6 @@ impl MediaControlsTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -2357,7 +2204,6 @@ impl MediaControlsTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -2365,7 +2211,6 @@ impl MediaControlsTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -2373,7 +2218,6 @@ impl MediaControlsTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -2381,7 +2225,6 @@ impl MediaControlsTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
@@ -2459,12 +2302,10 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaMetadata(pub ::windows::core::IInspectable);
 impl MediaMetadata {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2472,7 +2313,6 @@ impl MediaMetadata {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2480,7 +2320,6 @@ impl MediaMetadata {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2488,7 +2327,6 @@ impl MediaMetadata {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Album(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2496,7 +2334,6 @@ impl MediaMetadata {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Track(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2505,7 +2342,6 @@ impl MediaMetadata {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2514,7 +2350,6 @@ impl MediaMetadata {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Storage_Streams`*"]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -2573,7 +2408,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallAudioEndpoint(pub i32);
@@ -2596,12 +2430,10 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallAudioEndpoint {
 impl ::windows::core::DefaultType for PhoneCallAudioEndpoint {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallDetails(pub ::windows::core::IInspectable);
 impl PhoneCallDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneLine(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -2609,7 +2441,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn CallId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2617,7 +2448,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn CallTransport(&self) -> ::windows::core::Result<PhoneCallTransport> {
         let this = self;
         unsafe {
@@ -2625,7 +2455,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallTransport>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn CallMediaType(&self) -> ::windows::core::Result<PhoneMediaType> {
         let this = self;
         unsafe {
@@ -2633,7 +2462,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneMediaType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn CallDirection(&self) -> ::windows::core::Result<PhoneCallDirection> {
         let this = self;
         unsafe {
@@ -2641,7 +2469,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallDirection>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn State(&self) -> ::windows::core::Result<PhoneCallState> {
         let this = self;
         unsafe {
@@ -2649,7 +2476,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallState>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ConferenceCallId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2658,7 +2484,6 @@ impl PhoneCallDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2667,7 +2492,6 @@ impl PhoneCallDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn EndTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2675,7 +2499,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2683,7 +2506,6 @@ impl PhoneCallDetails {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ContactName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2692,7 +2514,6 @@ impl PhoneCallDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation_Collections`*"]
     pub fn PresetTextResponses(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<TextResponse>> {
         let this = self;
         unsafe {
@@ -2751,7 +2572,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
@@ -2773,7 +2593,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
 impl ::windows::core::DefaultType for PhoneCallDirection {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallState(pub i32);
@@ -2798,7 +2617,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallState {
 impl ::windows::core::DefaultType for PhoneCallState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallTransport(pub i32);
@@ -2820,12 +2638,10 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallTransport {
 impl ::windows::core::DefaultType for PhoneCallTransport {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLineDetails(pub ::windows::core::IInspectable);
 impl PhoneLineDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -2833,7 +2649,6 @@ impl PhoneLineDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2841,7 +2656,6 @@ impl PhoneLineDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn LineNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2849,7 +2663,6 @@ impl PhoneLineDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn DefaultOutgoingLine(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2857,7 +2670,6 @@ impl PhoneLineDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn VoicemailCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2865,7 +2677,6 @@ impl PhoneLineDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn RegistrationState(&self) -> ::windows::core::Result<PhoneLineRegistrationState> {
         let this = self;
         unsafe {
@@ -2873,7 +2684,6 @@ impl PhoneLineDetails {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneLineRegistrationState>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MissedCallCount(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IPhoneLineDetails2>(self)?;
         unsafe {
@@ -2932,7 +2742,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineRegistrationState(pub i32);
@@ -2955,7 +2764,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineRegistrationState {
 impl ::windows::core::DefaultType for PhoneLineRegistrationState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneMediaType(pub i32);
@@ -2977,12 +2785,10 @@ unsafe impl ::windows::core::RuntimeType for PhoneMediaType {
 impl ::windows::core::DefaultType for PhoneMediaType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl PhoneNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneNotificationType(&self) -> ::windows::core::Result<PhoneNotificationType> {
         let this = self;
         unsafe {
@@ -2990,7 +2796,6 @@ impl PhoneNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn CallDetails(&self) -> ::windows::core::Result<PhoneCallDetails> {
         let this = self;
         unsafe {
@@ -2998,7 +2803,6 @@ impl PhoneNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallDetails>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneLineChangedId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -3007,7 +2811,6 @@ impl PhoneNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3015,7 +2818,6 @@ impl PhoneNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3023,7 +2825,6 @@ impl PhoneNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3031,7 +2832,6 @@ impl PhoneNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3039,7 +2839,6 @@ impl PhoneNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3047,7 +2846,6 @@ impl PhoneNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
@@ -3125,7 +2923,6 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNotificationType(pub i32);
@@ -3150,7 +2947,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneNotificationType {
 impl ::windows::core::DefaultType for PhoneNotificationType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlaybackCapability(pub u32);
@@ -3209,7 +3005,6 @@ impl ::core::ops::Not for PlaybackCapability {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlaybackCommand(pub i32);
@@ -3239,7 +3034,6 @@ unsafe impl ::windows::core::RuntimeType for PlaybackCommand {
 impl ::windows::core::DefaultType for PlaybackCommand {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlaybackStatus(pub i32);
@@ -3264,12 +3058,10 @@ unsafe impl ::windows::core::RuntimeType for PlaybackStatus {
 impl ::windows::core::DefaultType for PlaybackStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ReminderNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl ReminderNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ReminderId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -3277,7 +3069,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3285,7 +3076,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3293,7 +3083,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Details(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3302,7 +3091,6 @@ impl ReminderNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3311,7 +3099,6 @@ impl ReminderNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `ApplicationModel_Appointments`*"]
     pub fn Appointment(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Appointments::Appointment> {
         let this = self;
         unsafe {
@@ -3319,7 +3106,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::ApplicationModel::Appointments::Appointment>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ReminderState(&self) -> ::windows::core::Result<ReminderState> {
         let this = self;
         unsafe {
@@ -3328,7 +3114,6 @@ impl ReminderNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3336,7 +3121,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3344,7 +3128,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3352,7 +3135,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3360,7 +3142,6 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3368,12 +3149,10 @@ impl ReminderNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn InstanceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IReminderNotificationTriggerDetails2>(self)?;
         unsafe {
@@ -3454,7 +3233,6 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ReminderState(pub i32);
@@ -3477,12 +3255,10 @@ unsafe impl ::windows::core::RuntimeType for ReminderState {
 impl ::windows::core::DefaultType for ReminderState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SpeedDialEntry(pub ::windows::core::IInspectable);
 impl SpeedDialEntry {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3490,7 +3266,6 @@ impl SpeedDialEntry {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn NumberType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3498,7 +3273,6 @@ impl SpeedDialEntry {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn ContactName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3557,12 +3331,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TextResponse(pub ::windows::core::IInspectable);
 impl TextResponse {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3570,7 +3342,6 @@ impl TextResponse {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Content(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3629,12 +3400,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ToastNotificationTriggerDetails(pub ::windows::core::IInspectable);
 impl ToastNotificationTriggerDetails {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Text1(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3642,7 +3411,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Text2(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3650,7 +3418,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Text3(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3658,7 +3425,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn Text4(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3666,7 +3432,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SuppressPopup(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3675,7 +3440,6 @@ impl ToastNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Phone_Notification_Management`, `Foundation`*"]
     pub fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3683,7 +3447,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3691,7 +3454,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3699,7 +3461,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3707,7 +3468,6 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AccessoryNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn StartedProcessing(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
@@ -3715,12 +3475,10 @@ impl ToastNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn InstanceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IToastNotificationTriggerDetails2>(self)?;
         unsafe {
@@ -3801,7 +3559,6 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VibrateState(pub i32);
@@ -3825,12 +3582,10 @@ unsafe impl ::windows::core::RuntimeType for VibrateState {
 impl ::windows::core::DefaultType for VibrateState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VolumeInfo(pub ::windows::core::IInspectable);
 impl VolumeInfo {
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn SystemVolume(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3838,7 +3593,6 @@ impl VolumeInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn CallVolume(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3846,7 +3600,6 @@ impl VolumeInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn MediaVolume(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3854,7 +3607,6 @@ impl VolumeInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IsMuted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3862,7 +3614,6 @@ impl VolumeInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Phone_Notification_Management`*"]
     pub fn IsVibrateEnabled(&self) -> ::windows::core::Result<VibrateState> {
         let this = self;
         unsafe {

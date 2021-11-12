@@ -1,3 +1,231 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
+pub struct AccessoryNotificationType(pub u32);
+impl AccessoryNotificationType {
+    pub const None: Self = Self(0u32);
+    pub const Phone: Self = Self(1u32);
+    pub const Email: Self = Self(2u32);
+    pub const Reminder: Self = Self(4u32);
+    pub const Alarm: Self = Self(8u32);
+    pub const Toast: Self = Self(16u32);
+    pub const AppUninstalled: Self = Self(32u32);
+    pub const Dnd: Self = Self(64u32);
+    pub const DrivingMode: Self = Self(128u32);
+    pub const BatterySaver: Self = Self(256u32);
+    pub const Media: Self = Self(512u32);
+    pub const CortanaTile: Self = Self(1024u32);
+    pub const ToastCleared: Self = Self(2048u32);
+    pub const CalendarChanged: Self = Self(4096u32);
+    pub const VolumeChanged: Self = Self(8192u32);
+    pub const EmailReadStatusChanged: Self = Self(16384u32);
+}
+#[repr(transparent)]
+pub struct AlarmNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppNotificationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct BinaryId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CalendarChangedEvent(pub i32);
+impl CalendarChangedEvent {
+    pub const LostEvents: Self = Self(0i32);
+    pub const AppointmentAdded: Self = Self(1i32);
+    pub const AppointmentChanged: Self = Self(2i32);
+    pub const AppointmentDeleted: Self = Self(3i32);
+    pub const CalendarAdded: Self = Self(4i32);
+    pub const CalendarChanged: Self = Self(5i32);
+    pub const CalendarDeleted: Self = Self(6i32);
+}
+#[repr(transparent)]
+pub struct CalendarChangedNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CortanaTileNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailAccountInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailFolderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailReadNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAccessoryManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAccessoryManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAccessoryManager3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAccessoryNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAlarmNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAlarmNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAppNotificationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IBinaryId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICalendarChangedNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICortanaTileNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEmailAccountInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEmailFolderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEmailNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEmailNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEmailReadNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IMediaControlsTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IMediaMetadata(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPhoneCallDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPhoneLineDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPhoneLineDetails2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPhoneNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IReminderNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IReminderNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISpeedDialEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITextResponse(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IToastNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IToastNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IVolumeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaControlsTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaMetadata(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PhoneCallAudioEndpoint(pub i32);
+impl PhoneCallAudioEndpoint {
+    pub const Default: Self = Self(0i32);
+    pub const Speaker: Self = Self(1i32);
+    pub const Handsfree: Self = Self(2i32);
+}
+#[repr(transparent)]
+pub struct PhoneCallDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PhoneCallDirection(pub i32);
+impl PhoneCallDirection {
+    pub const Incoming: Self = Self(0i32);
+    pub const Outgoing: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct PhoneCallState(pub i32);
+impl PhoneCallState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Ringing: Self = Self(1i32);
+    pub const Talking: Self = Self(2i32);
+    pub const Held: Self = Self(3i32);
+    pub const Ended: Self = Self(4i32);
+}
+#[repr(transparent)]
+pub struct PhoneCallTransport(pub i32);
+impl PhoneCallTransport {
+    pub const Cellular: Self = Self(0i32);
+    pub const Voip: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct PhoneLineDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PhoneLineRegistrationState(pub i32);
+impl PhoneLineRegistrationState {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Home: Self = Self(1i32);
+    pub const Roaming: Self = Self(2i32);
+}
+#[repr(transparent)]
+pub struct PhoneMediaType(pub i32);
+impl PhoneMediaType {
+    pub const AudioOnly: Self = Self(0i32);
+    pub const AudioVideo: Self = Self(1i32);
+}
+#[repr(transparent)]
+pub struct PhoneNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PhoneNotificationType(pub i32);
+impl PhoneNotificationType {
+    pub const NewCall: Self = Self(0i32);
+    pub const CallChanged: Self = Self(1i32);
+    pub const LineChanged: Self = Self(2i32);
+    pub const PhoneCallAudioEndpointChanged: Self = Self(3i32);
+    pub const PhoneMuteChanged: Self = Self(4i32);
+}
+#[repr(transparent)]
+pub struct PlaybackCapability(pub u32);
+impl PlaybackCapability {
+    pub const None: Self = Self(0u32);
+    pub const Play: Self = Self(1u32);
+    pub const Pause: Self = Self(2u32);
+    pub const Stop: Self = Self(4u32);
+    pub const Record: Self = Self(8u32);
+    pub const FastForward: Self = Self(16u32);
+    pub const Rewind: Self = Self(32u32);
+    pub const Next: Self = Self(64u32);
+    pub const Previous: Self = Self(128u32);
+    pub const ChannelUp: Self = Self(256u32);
+    pub const ChannelDown: Self = Self(512u32);
+}
+#[repr(transparent)]
+pub struct PlaybackCommand(pub i32);
+impl PlaybackCommand {
+    pub const Play: Self = Self(0i32);
+    pub const Pause: Self = Self(1i32);
+    pub const Stop: Self = Self(2i32);
+    pub const Record: Self = Self(3i32);
+    pub const FastForward: Self = Self(4i32);
+    pub const Rewind: Self = Self(5i32);
+    pub const Next: Self = Self(6i32);
+    pub const Previous: Self = Self(7i32);
+    pub const ChannelUp: Self = Self(8i32);
+    pub const ChannelDown: Self = Self(9i32);
+}
+#[repr(transparent)]
+pub struct PlaybackStatus(pub i32);
+impl PlaybackStatus {
+    pub const None: Self = Self(0i32);
+    pub const TrackChanged: Self = Self(1i32);
+    pub const Stopped: Self = Self(2i32);
+    pub const Playing: Self = Self(3i32);
+    pub const Paused: Self = Self(4i32);
+}
+#[repr(transparent)]
+pub struct ReminderNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ReminderState(pub i32);
+impl ReminderState {
+    pub const Active: Self = Self(0i32);
+    pub const Snoozed: Self = Self(1i32);
+    pub const Dismissed: Self = Self(2i32);
+}
+#[repr(transparent)]
+pub struct SpeedDialEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TextResponse(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ToastNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct VibrateState(pub i32);
+impl VibrateState {
+    pub const RingerOffVibrateOff: Self = Self(0i32);
+    pub const RingerOffVibrateOn: Self = Self(1i32);
+    pub const RingerOnVibrateOff: Self = Self(2i32);
+    pub const RingerOnVibrateOn: Self = Self(3i32);
+}
+#[repr(transparent)]
+pub struct VolumeInfo(pub *mut ::core::ffi::c_void);

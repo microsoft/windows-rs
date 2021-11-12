@@ -1,10 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DtdEntity(pub ::windows::core::IInspectable);
 impl DtdEntity {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PublicId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -12,7 +10,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SystemId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -20,7 +17,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NotationName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -28,7 +24,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -36,12 +31,10 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -49,7 +42,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -57,7 +49,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -65,7 +56,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -73,7 +63,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -81,7 +70,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -89,7 +77,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -97,7 +84,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -105,7 +91,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -113,7 +98,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -121,7 +105,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -129,7 +112,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -137,7 +119,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -145,7 +126,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -153,7 +133,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -161,7 +140,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -169,7 +147,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -177,7 +154,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -185,7 +161,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -193,17 +168,14 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -211,7 +183,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -219,7 +190,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -227,7 +197,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -235,7 +204,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -243,7 +211,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -251,7 +218,6 @@ impl DtdEntity {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -375,12 +341,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &DtdEntity {
 }
 unsafe impl ::core::marker::Send for DtdEntity {}
 unsafe impl ::core::marker::Sync for DtdEntity {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DtdNotation(pub ::windows::core::IInspectable);
 impl DtdNotation {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PublicId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -388,7 +352,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SystemId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -396,7 +359,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -404,12 +366,10 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -417,7 +377,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -425,7 +384,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -433,7 +391,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -441,7 +398,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -449,7 +405,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -457,7 +412,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -465,7 +419,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -473,7 +426,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -481,7 +433,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -489,7 +440,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -497,7 +447,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -505,7 +454,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -513,7 +461,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -521,7 +468,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -529,7 +475,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -537,7 +482,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -545,7 +489,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -553,7 +496,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -561,17 +503,14 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -579,7 +518,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -587,7 +525,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -595,7 +532,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -603,7 +539,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -611,7 +546,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -619,7 +553,6 @@ impl DtdNotation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -822,14 +755,12 @@ pub struct IXmlCDataSection_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlCharacterData(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IXmlCharacterData {
     type Vtable = IXmlCharacterData_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x132e42ab_4e36_4df6_b1c8_0ce62fd88b26);
 }
 impl IXmlCharacterData {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -837,12 +768,10 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -850,7 +779,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -858,27 +786,22 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), offset, count).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -886,12 +809,10 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -899,7 +820,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -907,7 +827,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -915,7 +834,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -923,7 +841,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -931,7 +848,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -939,7 +855,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -947,7 +862,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -955,7 +869,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -963,7 +876,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -971,7 +883,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -979,7 +890,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -987,7 +897,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -995,7 +904,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -1003,7 +911,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -1011,7 +918,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -1019,7 +925,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -1027,7 +932,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -1035,7 +939,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -1043,17 +946,14 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1061,7 +961,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1069,7 +968,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1077,7 +975,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1085,7 +982,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -1093,7 +989,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -1101,7 +996,6 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1508,14 +1402,12 @@ pub struct IXmlNamedNodeMap_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNode(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IXmlNode {
     type Vtable = IXmlNode_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c741d59_2122_47d5_a856_83f3d4214875);
 }
 impl IXmlNode {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1523,12 +1415,10 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = self;
         unsafe {
@@ -1536,7 +1426,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1544,7 +1433,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1552,7 +1440,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -1560,7 +1447,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1568,7 +1454,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1576,7 +1461,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1584,7 +1468,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1592,7 +1475,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
@@ -1600,7 +1482,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1608,7 +1489,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = self;
         unsafe {
@@ -1616,7 +1496,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1624,7 +1503,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1632,7 +1510,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1640,7 +1517,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1648,7 +1524,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1656,7 +1531,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1664,7 +1538,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1672,7 +1545,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1680,17 +1552,14 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1698,7 +1567,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1706,7 +1574,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1714,7 +1581,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1722,7 +1588,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -1730,7 +1595,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -1738,7 +1602,6 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1885,14 +1748,12 @@ pub struct IXmlNodeList_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNodeSelector(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IXmlNodeSelector {
     type Vtable = IXmlNodeSelector_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63dbba8b_d0db_4fe1_b745_f9433afdc25b);
 }
 impl IXmlNodeSelector {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1900,7 +1761,6 @@ impl IXmlNodeSelector {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -1908,7 +1768,6 @@ impl IXmlNodeSelector {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1916,7 +1775,6 @@ impl IXmlNodeSelector {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -1984,14 +1842,12 @@ pub struct IXmlNodeSelector_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNodeSerializer(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IXmlNodeSerializer {
     type Vtable = IXmlNodeSerializer_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cc5b382_e6dd_4991_abef_06d8d2e7bd0c);
 }
 impl IXmlNodeSerializer {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1999,7 +1855,6 @@ impl IXmlNodeSerializer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2007,7 +1862,6 @@ impl IXmlNodeSerializer {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2091,14 +1945,12 @@ pub struct IXmlProcessingInstruction_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlText(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IXmlText {
     type Vtable = IXmlText_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
 }
 impl IXmlText {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
         let this = self;
         unsafe {
@@ -2106,7 +1958,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), offset, &mut result__).from_abi::<IXmlText>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2114,12 +1965,10 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2127,7 +1976,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2135,27 +1983,22 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), offset, count).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2163,12 +2006,10 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2176,7 +2017,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2184,7 +2024,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2192,7 +2031,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2200,7 +2038,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2208,7 +2045,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2216,7 +2052,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2224,7 +2059,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2232,7 +2066,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2240,7 +2073,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2248,7 +2080,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2256,7 +2087,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2264,7 +2094,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2272,7 +2101,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2280,7 +2108,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2288,7 +2115,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2296,7 +2122,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2304,7 +2129,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2312,7 +2136,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2320,17 +2143,14 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2338,7 +2158,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2346,7 +2165,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2354,7 +2172,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2362,7 +2179,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2370,7 +2186,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2378,7 +2193,6 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2526,7 +2340,6 @@ pub struct IXmlText_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, offset: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NodeType(pub i32);
@@ -2559,12 +2372,10 @@ unsafe impl ::windows::core::RuntimeType for NodeType {
 impl ::windows::core::DefaultType for NodeType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlAttribute(pub ::windows::core::IInspectable);
 impl XmlAttribute {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2572,7 +2383,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Specified(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2580,7 +2390,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2588,12 +2397,10 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2601,12 +2408,10 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2614,7 +2419,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2622,7 +2426,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2630,7 +2433,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2638,7 +2440,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2646,7 +2447,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2654,7 +2454,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2662,7 +2461,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2670,7 +2468,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2678,7 +2475,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2686,7 +2482,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2694,7 +2489,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2702,7 +2496,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2710,7 +2503,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2718,7 +2510,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2726,7 +2517,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2734,7 +2524,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2742,7 +2531,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2750,7 +2538,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2758,17 +2545,14 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2776,7 +2560,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2784,7 +2567,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2792,7 +2574,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2800,7 +2581,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2808,7 +2588,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2816,7 +2595,6 @@ impl XmlAttribute {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2940,12 +2718,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlAttribute {
 }
 unsafe impl ::core::marker::Send for XmlAttribute {}
 unsafe impl ::core::marker::Sync for XmlAttribute {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlCDataSection(pub ::windows::core::IInspectable);
 impl XmlCDataSection {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2953,12 +2729,10 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2966,7 +2740,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2974,27 +2747,22 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), offset, count).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3002,12 +2770,10 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3015,7 +2781,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3023,7 +2788,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3031,7 +2795,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3039,7 +2802,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3047,7 +2809,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3055,7 +2816,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3063,7 +2823,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3071,7 +2830,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3079,7 +2837,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3087,7 +2844,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3095,7 +2851,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3103,7 +2858,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3111,7 +2865,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3119,7 +2872,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3127,7 +2879,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3135,7 +2886,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3143,7 +2893,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3151,7 +2900,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3159,17 +2907,14 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3177,7 +2922,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3185,7 +2929,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3193,7 +2936,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3201,7 +2943,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3209,7 +2950,6 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3217,12 +2957,10 @@ impl XmlCDataSection {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
         let this = &::windows::core::Interface::cast::<IXmlText>(self)?;
         unsafe {
@@ -3393,12 +3131,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlText> for &XmlCDataSection {
 }
 unsafe impl ::core::marker::Send for XmlCDataSection {}
 unsafe impl ::core::marker::Sync for XmlCDataSection {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlComment(pub ::windows::core::IInspectable);
 impl XmlComment {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -3406,12 +3142,10 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -3419,7 +3153,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -3427,27 +3160,22 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), offset, count).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3455,12 +3183,10 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3468,7 +3194,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3476,7 +3201,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3484,7 +3208,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3492,7 +3215,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3500,7 +3222,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3508,7 +3229,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3516,7 +3236,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3524,7 +3243,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3532,7 +3250,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3540,7 +3257,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3548,7 +3264,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3556,7 +3271,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3564,7 +3278,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3572,7 +3285,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3580,7 +3292,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3588,7 +3299,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3596,7 +3306,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3604,7 +3313,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3612,17 +3320,14 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3630,7 +3335,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3638,7 +3342,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3646,7 +3349,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3654,7 +3356,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3662,7 +3363,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3670,7 +3370,6 @@ impl XmlComment {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3816,7 +3515,6 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlComment {
 }
 unsafe impl ::core::marker::Send for XmlComment {}
 unsafe impl ::core::marker::Sync for XmlComment {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlDocument(pub ::windows::core::IInspectable);
@@ -3828,7 +3526,6 @@ impl XmlDocument {
         static mut SHARED: ::windows::core::FactoryCache<XmlDocument, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Doctype(&self) -> ::windows::core::Result<XmlDocumentType> {
         let this = self;
         unsafe {
@@ -3836,7 +3533,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocumentType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Implementation(&self) -> ::windows::core::Result<XmlDomImplementation> {
         let this = self;
         unsafe {
@@ -3844,7 +3540,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDomImplementation>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DocumentElement(&self) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3852,7 +3547,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tagname: Param0) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3860,7 +3554,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), tagname.into_param().abi(), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateDocumentFragment(&self) -> ::windows::core::Result<XmlDocumentFragment> {
         let this = self;
         unsafe {
@@ -3868,7 +3561,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocumentFragment>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateTextNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<XmlText> {
         let this = self;
         unsafe {
@@ -3876,7 +3568,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<XmlText>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<XmlComment> {
         let this = self;
         unsafe {
@@ -3884,7 +3575,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<XmlComment>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateProcessingInstruction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, target: Param0, data: Param1) -> ::windows::core::Result<XmlProcessingInstruction> {
         let this = self;
         unsafe {
@@ -3892,7 +3582,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<XmlProcessingInstruction>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -3900,7 +3589,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateEntityReference<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<XmlEntityReference> {
         let this = self;
         unsafe {
@@ -3908,7 +3596,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<XmlEntityReference>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetElementsByTagName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tagname: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -3916,7 +3603,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), tagname.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateCDataSection<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<XmlCDataSection> {
         let this = self;
         unsafe {
@@ -3924,7 +3610,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<XmlCDataSection>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DocumentUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3932,7 +3617,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -3940,7 +3624,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateElementNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3948,7 +3631,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetElementById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, elementid: Param0) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3956,7 +3638,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), elementid.into_param().abi(), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ImportNode<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, node: Param0, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -3964,18 +3645,15 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), node.into_param().abi(), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LoadXml<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xml: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xml.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LoadXmlWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(&self, xml: Param0, loadsettings: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xml.into_param().abi(), loadsettings.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`, `Storage`*"]
     pub fn SaveToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe {
@@ -3984,18 +3662,15 @@ impl XmlDocument {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Storage_Streams`*"]
     pub fn LoadXmlFromBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Storage_Streams`*"]
     pub fn LoadXmlFromBufferWithSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(&self, buffer: Param0, loadsettings: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), buffer.into_param().abi(), loadsettings.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4003,12 +3678,10 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4016,7 +3689,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4024,7 +3696,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4032,7 +3703,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4040,7 +3710,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4048,7 +3717,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4056,7 +3724,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4064,7 +3731,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4072,7 +3738,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4080,7 +3745,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4088,7 +3752,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4096,7 +3759,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4104,7 +3766,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4112,7 +3773,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4120,7 +3780,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4128,7 +3787,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4136,7 +3794,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4144,7 +3801,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4152,7 +3808,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4160,17 +3815,14 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4178,7 +3830,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4186,7 +3837,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4194,7 +3844,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4202,7 +3851,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4210,7 +3858,6 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4218,13 +3865,11 @@ impl XmlDocument {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`*"]
     pub fn LoadFromUriAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4232,7 +3877,6 @@ impl XmlDocument {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`*"]
     pub fn LoadFromUriWithSettingsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(uri: Param0, loadsettings: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4240,7 +3884,6 @@ impl XmlDocument {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`, `Storage`*"]
     pub fn LoadFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4248,7 +3891,6 @@ impl XmlDocument {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`, `Storage`*"]
     pub fn LoadFromFileWithSettingsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(file: Param0, loadsettings: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4378,12 +4020,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocument {
 }
 unsafe impl ::core::marker::Send for XmlDocument {}
 unsafe impl ::core::marker::Sync for XmlDocument {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlDocumentFragment(pub ::windows::core::IInspectable);
 impl XmlDocumentFragment {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4391,12 +4031,10 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4404,7 +4042,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4412,7 +4049,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4420,7 +4056,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4428,7 +4063,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4436,7 +4070,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4444,7 +4077,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4452,7 +4084,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4460,7 +4091,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4468,7 +4098,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4476,7 +4105,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4484,7 +4112,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4492,7 +4119,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4500,7 +4126,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4508,7 +4133,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4516,7 +4140,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4524,7 +4147,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4532,7 +4154,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4540,7 +4161,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4548,17 +4168,14 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4566,7 +4183,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4574,7 +4190,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4582,7 +4197,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4590,7 +4204,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4598,7 +4211,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4606,7 +4218,6 @@ impl XmlDocumentFragment {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4730,12 +4341,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentFrag
 }
 unsafe impl ::core::marker::Send for XmlDocumentFragment {}
 unsafe impl ::core::marker::Sync for XmlDocumentFragment {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlDocumentType(pub ::windows::core::IInspectable);
 impl XmlDocumentType {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4743,7 +4352,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Entities(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
@@ -4751,7 +4359,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Notations(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
@@ -4759,7 +4366,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4767,12 +4373,10 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4780,7 +4384,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4788,7 +4391,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4796,7 +4398,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4804,7 +4405,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4812,7 +4412,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4820,7 +4419,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4828,7 +4426,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4836,7 +4433,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4844,7 +4440,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4852,7 +4447,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4860,7 +4454,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4868,7 +4461,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4876,7 +4468,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4884,7 +4475,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4892,7 +4482,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4900,7 +4489,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4908,7 +4496,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4916,7 +4503,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4924,17 +4510,14 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4942,7 +4525,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4950,7 +4532,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4958,7 +4539,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4966,7 +4546,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4974,7 +4553,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4982,7 +4560,6 @@ impl XmlDocumentType {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -5106,12 +4683,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentType
 }
 unsafe impl ::core::marker::Send for XmlDocumentType {}
 unsafe impl ::core::marker::Sync for XmlDocumentType {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlDomImplementation(pub ::windows::core::IInspectable);
 impl XmlDomImplementation {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, feature: Param0, version: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -5172,12 +4747,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a X
 }
 unsafe impl ::core::marker::Send for XmlDomImplementation {}
 unsafe impl ::core::marker::Sync for XmlDomImplementation {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlElement(pub ::windows::core::IInspectable);
 impl XmlElement {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn TagName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5185,7 +4758,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5193,17 +4765,14 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), attributename.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0, attributevalue: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), attributename.into_param().abi(), attributevalue.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), attributename.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttributeNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -5211,7 +4780,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), attributename.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttributeNode<'a, Param0: ::windows::core::IntoParam<'a, XmlAttribute>>(&self, newattribute: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -5219,7 +4787,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), newattribute.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveAttributeNode<'a, Param0: ::windows::core::IntoParam<'a, XmlAttribute>>(&self, attributenode: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -5227,7 +4794,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), attributenode.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetElementsByTagName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tagname: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -5235,12 +4801,10 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), tagname.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5248,12 +4812,10 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), localname.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), localname.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttributeNodeNS<'a, Param0: ::windows::core::IntoParam<'a, XmlAttribute>>(&self, newattribute: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -5261,7 +4823,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), newattribute.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttributeNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -5269,7 +4830,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), localname.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5277,12 +4837,10 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5290,7 +4848,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5298,7 +4855,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5306,7 +4862,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5314,7 +4869,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5322,7 +4876,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5330,7 +4883,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5338,7 +4890,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5346,7 +4897,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5354,7 +4904,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5362,7 +4911,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5370,7 +4918,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5378,7 +4925,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5386,7 +4932,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5394,7 +4939,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5402,7 +4946,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5410,7 +4953,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5418,7 +4960,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5426,7 +4967,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5434,17 +4974,14 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5452,7 +4989,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5460,7 +4996,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5468,7 +5003,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5476,7 +5010,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5484,7 +5017,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5492,7 +5024,6 @@ impl XmlElement {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -5616,12 +5147,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlElement {
 }
 unsafe impl ::core::marker::Send for XmlElement {}
 unsafe impl ::core::marker::Sync for XmlElement {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlEntityReference(pub ::windows::core::IInspectable);
 impl XmlEntityReference {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5629,12 +5158,10 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5642,7 +5169,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5650,7 +5176,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5658,7 +5183,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5666,7 +5190,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5674,7 +5197,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5682,7 +5204,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5690,7 +5211,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5698,7 +5218,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5706,7 +5225,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5714,7 +5232,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5722,7 +5239,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5730,7 +5246,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5738,7 +5253,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5746,7 +5260,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5754,7 +5267,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5762,7 +5274,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5770,7 +5281,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5778,7 +5288,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5786,17 +5295,14 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5804,7 +5310,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5812,7 +5317,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5820,7 +5324,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5828,7 +5331,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5836,7 +5338,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5844,7 +5345,6 @@ impl XmlEntityReference {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -5968,7 +5468,6 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlEntityRefere
 }
 unsafe impl ::core::marker::Send for XmlEntityReference {}
 unsafe impl ::core::marker::Sync for XmlEntityReference {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlLoadSettings(pub ::windows::core::IInspectable);
@@ -5980,7 +5479,6 @@ impl XmlLoadSettings {
         static mut SHARED: ::windows::core::FactoryCache<XmlLoadSettings, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn MaxElementDepth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -5988,12 +5486,10 @@ impl XmlLoadSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetMaxElementDepth(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ProhibitDtd(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6001,12 +5497,10 @@ impl XmlLoadSettings {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetProhibitDtd(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ResolveExternals(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6014,12 +5508,10 @@ impl XmlLoadSettings {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetResolveExternals(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ValidateOnParse(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6027,12 +5519,10 @@ impl XmlLoadSettings {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetValidateOnParse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ElementContentWhiteSpace(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6040,7 +5530,6 @@ impl XmlLoadSettings {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetElementContentWhiteSpace(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
@@ -6098,12 +5587,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a X
 }
 unsafe impl ::core::marker::Send for XmlLoadSettings {}
 unsafe impl ::core::marker::Sync for XmlLoadSettings {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlNamedNodeMap(pub ::windows::core::IInspectable);
 impl XmlNamedNodeMap {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6111,7 +5598,6 @@ impl XmlNamedNodeMap {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Item(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6119,7 +5605,6 @@ impl XmlNamedNodeMap {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetNamedItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6127,7 +5612,6 @@ impl XmlNamedNodeMap {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNamedItem<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, node: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6135,7 +5619,6 @@ impl XmlNamedNodeMap {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), node.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveNamedItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6143,7 +5626,6 @@ impl XmlNamedNodeMap {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetNamedItemNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6151,7 +5633,6 @@ impl XmlNamedNodeMap {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveNamedItemNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6159,7 +5640,6 @@ impl XmlNamedNodeMap {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), namespaceuri.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNamedItemNS<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, node: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6168,7 +5648,6 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {
@@ -6177,7 +5656,6 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6186,7 +5664,6 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6195,7 +5672,6 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6204,7 +5680,6 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<IXmlNode as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6333,12 +5808,10 @@ impl ::core::iter::IntoIterator for &XmlNamedNodeMap {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlNodeList(pub ::windows::core::IInspectable);
 impl XmlNodeList {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6346,7 +5819,6 @@ impl XmlNodeList {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Item(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -6355,7 +5827,6 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {
@@ -6364,7 +5835,6 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6373,7 +5843,6 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6382,7 +5851,6 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6391,7 +5859,6 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<IXmlNode as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6520,12 +5987,10 @@ impl ::core::iter::IntoIterator for &XmlNodeList {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlProcessingInstruction(pub ::windows::core::IInspectable);
 impl XmlProcessingInstruction {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Target(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6533,7 +5998,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6541,12 +6005,10 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6554,12 +6016,10 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6567,7 +6027,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6575,7 +6034,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6583,7 +6041,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6591,7 +6048,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6599,7 +6055,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6607,7 +6062,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6615,7 +6069,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6623,7 +6076,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6631,7 +6083,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6639,7 +6090,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6647,7 +6097,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6655,7 +6104,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6663,7 +6111,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6671,7 +6118,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6679,7 +6125,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6687,7 +6132,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6695,7 +6139,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6703,7 +6146,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6711,17 +6153,14 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6729,7 +6168,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6737,7 +6175,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6745,7 +6182,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6753,7 +6189,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -6761,7 +6196,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -6769,7 +6203,6 @@ impl XmlProcessingInstruction {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -6893,12 +6326,10 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlProcessingIn
 }
 unsafe impl ::core::marker::Send for XmlProcessingInstruction {}
 unsafe impl ::core::marker::Sync for XmlProcessingInstruction {}
-#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XmlText(pub ::windows::core::IInspectable);
 impl XmlText {
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
         let this = self;
         unsafe {
@@ -6906,7 +6337,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), offset, &mut result__).from_abi::<IXmlText>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -6914,12 +6344,10 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -6927,7 +6355,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -6935,27 +6362,22 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), offset, count).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6963,12 +6385,10 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6976,7 +6396,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6984,7 +6403,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6992,7 +6410,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7000,7 +6417,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7008,7 +6424,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7016,7 +6431,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7024,7 +6438,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7032,7 +6445,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7040,7 +6452,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7048,7 +6459,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7056,7 +6466,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7064,7 +6473,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7072,7 +6480,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7080,7 +6487,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7088,7 +6494,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7096,7 +6501,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7104,7 +6508,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7112,7 +6515,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -7120,17 +6522,14 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -7138,7 +6537,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -7146,7 +6544,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -7154,7 +6551,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -7162,7 +6558,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -7170,7 +6565,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -7178,7 +6572,6 @@ impl XmlText {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }

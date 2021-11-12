@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WEB_SOCKET_ACTION(pub i32);
@@ -16,7 +15,6 @@ impl ::core::convert::From<i32> for WEB_SOCKET_ACTION {
 unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WEB_SOCKET_ACTION_QUEUE(pub i32);
@@ -33,7 +31,6 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION_QUEUE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_1,
     pub CloseStatus: WEB_SOCKET_BUFFER_0,
@@ -55,7 +52,6 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbReason: *mut u8,
     pub ulReasonLength: u32,
@@ -83,7 +79,6 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
@@ -108,7 +103,6 @@ impl ::core::cmp::Eq for WEB_SOCKET_BUFFER_1 {}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
@@ -127,7 +121,6 @@ impl ::core::convert::From<i32> for WEB_SOCKET_BUFFER_TYPE {
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WEB_SOCKET_CLOSE_STATUS(pub i32);
@@ -166,7 +159,6 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_HANDLE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WebSocket`, `Win32_Foundation`*"]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: super::super::Foundation::PSTR,
     pub ulNameLength: u32,
@@ -199,11 +191,9 @@ impl ::core::cmp::Eq for WEB_SOCKET_HTTP_HEADER {}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_HTTP_HEADER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut ::core::ffi::c_void,
@@ -229,7 +219,6 @@ impl ::core::cmp::Eq for WEB_SOCKET_PROPERTY {}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
@@ -248,7 +237,6 @@ impl ::core::convert::From<i32> for WEB_SOCKET_PROPERTY_TYPE {
 unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketAbortHandle<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0) {
     #[cfg(windows)]
@@ -262,7 +250,6 @@ pub unsafe fn WebSocketAbortHandle<'a, Param0: ::windows::core::IntoParam<'a, WE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebSocketBeginClientHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, pszsubprotocols: *const super::super::Foundation::PSTR, ulsubprotocolcount: u32, pszextensions: *const super::super::Foundation::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows::core::Result<()> {
@@ -288,7 +275,6 @@ pub unsafe fn WebSocketBeginClientHandshake<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebSocketBeginServerHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
@@ -322,7 +308,6 @@ pub unsafe fn WebSocketBeginServerHandshake<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketCompleteAction<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32) {
     #[cfg(windows)]
@@ -336,7 +321,6 @@ pub unsafe fn WebSocketCompleteAction<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     #[cfg(windows)]
@@ -351,7 +335,6 @@ pub unsafe fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     #[cfg(windows)]
@@ -366,7 +349,6 @@ pub unsafe fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketDeleteHandle<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0) {
     #[cfg(windows)]
@@ -380,7 +362,6 @@ pub unsafe fn WebSocketDeleteHandle<'a, Param0: ::windows::core::IntoParam<'a, W
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebSocketEndClientHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, presponseheaders: *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> ::windows::core::Result<()> {
@@ -395,7 +376,6 @@ pub unsafe fn WebSocketEndClientHandshake<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketEndServerHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -409,7 +389,6 @@ pub unsafe fn WebSocketEndServerHandshake<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketGetAction<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -433,7 +412,6 @@ pub unsafe fn WebSocketGetAction<'a, Param0: ::windows::core::IntoParam<'a, WEB_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -447,7 +425,6 @@ pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketReceive<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, pbuffer: *const WEB_SOCKET_BUFFER, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -461,7 +438,6 @@ pub unsafe fn WebSocketReceive<'a, Param0: ::windows::core::IntoParam<'a, WEB_SO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]
 pub unsafe fn WebSocketSend<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]

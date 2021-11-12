@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CredentialPromptType(pub i32);
@@ -215,7 +214,6 @@ pub struct IUserIdentity_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OnlineIdAuthenticator(pub ::windows::core::IInspectable);
@@ -228,7 +226,6 @@ impl OnlineIdAuthenticator {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn AuthenticateUserAsync<'a, Param0: ::windows::core::IntoParam<'a, OnlineIdServiceTicketRequest>>(&self, request: Param0) -> ::windows::core::Result<UserAuthenticationOperation> {
         let this = self;
         unsafe {
@@ -237,7 +234,6 @@ impl OnlineIdAuthenticator {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`, `Foundation_Collections`*"]
     pub fn AuthenticateUserAsyncAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>>(&self, requests: Param0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation> {
         let this = self;
         unsafe {
@@ -246,7 +242,6 @@ impl OnlineIdAuthenticator {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn SignOutUserAsync(&self) -> ::windows::core::Result<SignOutUserOperation> {
         let this = self;
         unsafe {
@@ -254,12 +249,10 @@ impl OnlineIdAuthenticator {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SignOutUserOperation>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn SetApplicationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -267,7 +260,6 @@ impl OnlineIdAuthenticator {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn CanSignOut(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -275,7 +267,6 @@ impl OnlineIdAuthenticator {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn AuthenticatedSafeCustomerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -336,12 +327,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 }
 unsafe impl ::core::marker::Send for OnlineIdAuthenticator {}
 unsafe impl ::core::marker::Sync for OnlineIdAuthenticator {}
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OnlineIdServiceTicket(pub ::windows::core::IInspectable);
 impl OnlineIdServiceTicket {
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -349,7 +338,6 @@ impl OnlineIdServiceTicket {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Request(&self) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         let this = self;
         unsafe {
@@ -357,7 +345,6 @@ impl OnlineIdServiceTicket {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OnlineIdServiceTicketRequest>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -418,12 +405,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 }
 unsafe impl ::core::marker::Send for OnlineIdServiceTicket {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicket {}
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OnlineIdServiceTicketRequest(pub ::windows::core::IInspectable);
 impl OnlineIdServiceTicketRequest {
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Service(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -431,7 +416,6 @@ impl OnlineIdServiceTicketRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Policy(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -439,14 +423,12 @@ impl OnlineIdServiceTicketRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn CreateOnlineIdServiceTicketRequest<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(service: Param0, policy: Param1) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), service.into_param().abi(), policy.into_param().abi(), &mut result__).from_abi::<OnlineIdServiceTicketRequest>(result__)
         })
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn CreateOnlineIdServiceTicketRequestAdvanced<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(service: Param0) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -510,10 +492,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 }
 unsafe impl ::core::marker::Send for OnlineIdServiceTicketRequest {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicketRequest {}
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 pub struct OnlineIdSystemAuthenticator {}
 impl OnlineIdSystemAuthenticator {
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Default() -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -521,7 +501,6 @@ impl OnlineIdSystemAuthenticator {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -536,13 +515,11 @@ impl OnlineIdSystemAuthenticator {
 impl ::windows::core::RuntimeName for OnlineIdSystemAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticator";
 }
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OnlineIdSystemAuthenticatorForUser(pub ::windows::core::IInspectable);
 impl OnlineIdSystemAuthenticatorForUser {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn GetTicketAsync<'a, Param0: ::windows::core::IntoParam<'a, OnlineIdServiceTicketRequest>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>> {
         let this = self;
         unsafe {
@@ -550,12 +527,10 @@ impl OnlineIdSystemAuthenticatorForUser {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn SetApplicationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -564,7 +539,6 @@ impl OnlineIdSystemAuthenticatorForUser {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = self;
         unsafe {
@@ -625,12 +599,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemAuthenticatorForUser {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemAuthenticatorForUser {}
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OnlineIdSystemIdentity(pub ::windows::core::IInspectable);
 impl OnlineIdSystemIdentity {
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Ticket(&self) -> ::windows::core::Result<OnlineIdServiceTicket> {
         let this = self;
         unsafe {
@@ -638,7 +610,6 @@ impl OnlineIdSystemIdentity {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OnlineIdServiceTicket>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -699,12 +670,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemIdentity {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemIdentity {}
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OnlineIdSystemTicketResult(pub ::windows::core::IInspectable);
 impl OnlineIdSystemTicketResult {
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Identity(&self) -> ::windows::core::Result<OnlineIdSystemIdentity> {
         let this = self;
         unsafe {
@@ -712,7 +681,6 @@ impl OnlineIdSystemTicketResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OnlineIdSystemIdentity>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Status(&self) -> ::windows::core::Result<OnlineIdSystemTicketStatus> {
         let this = self;
         unsafe {
@@ -720,7 +688,6 @@ impl OnlineIdSystemTicketResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OnlineIdSystemTicketStatus>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -781,7 +748,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
@@ -805,20 +771,17 @@ impl ::windows::core::DefaultType for OnlineIdSystemTicketStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
-#[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SignOutUserOperation(pub ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl SignOutUserOperation {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Completed(&self) -> ::windows::core::Result<super::super::super::Foundation::AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
@@ -827,13 +790,11 @@ impl SignOutUserOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -842,7 +803,6 @@ impl SignOutUserOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::core::Result<super::super::super::Foundation::AsyncStatus> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -851,7 +811,6 @@ impl SignOutUserOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -860,13 +819,11 @@ impl SignOutUserOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
@@ -1018,20 +975,17 @@ unsafe impl ::core::marker::Send for SignOutUserOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for SignOutUserOperation {}
 #[cfg(feature = "Foundation")]
-#[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserAuthenticationOperation(pub ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl UserAuthenticationOperation {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Completed(&self) -> ::windows::core::Result<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>> {
         let this = self;
         unsafe {
@@ -1040,7 +994,6 @@ impl UserAuthenticationOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<UserIdentity> {
         let this = self;
         unsafe {
@@ -1049,7 +1002,6 @@ impl UserAuthenticationOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -1058,7 +1010,6 @@ impl UserAuthenticationOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::core::Result<super::super::super::Foundation::AsyncStatus> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -1067,7 +1018,6 @@ impl UserAuthenticationOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -1076,13 +1026,11 @@ impl UserAuthenticationOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
@@ -1233,13 +1181,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncI
 unsafe impl ::core::marker::Send for UserAuthenticationOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for UserAuthenticationOperation {}
-#[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserIdentity(pub ::windows::core::IInspectable);
 impl UserIdentity {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation_Collections`*"]
     pub fn Tickets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>> {
         let this = self;
         unsafe {
@@ -1247,7 +1193,6 @@ impl UserIdentity {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1255,7 +1200,6 @@ impl UserIdentity {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn SafeCustomerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1263,7 +1207,6 @@ impl UserIdentity {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn SignInName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1271,7 +1214,6 @@ impl UserIdentity {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn FirstName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1279,7 +1221,6 @@ impl UserIdentity {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn LastName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1287,7 +1228,6 @@ impl UserIdentity {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn IsBetaAccount(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1295,7 +1235,6 @@ impl UserIdentity {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
     pub fn IsConfirmedPC(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {

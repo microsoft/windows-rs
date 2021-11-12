@@ -1,11 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePortalConnection(pub ::windows::core::IInspectable);
 impl DevicePortalConnection {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -14,13 +12,11 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Foundation`*"]
     pub fn RequestReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -29,13 +25,11 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Foundation`*"]
     pub fn RemoveRequestReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `ApplicationModel_AppService`*"]
     pub fn GetForAppServiceConnection<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::AppService::AppServiceConnection>>(appserviceconnection: Param0) -> ::windows::core::Result<DevicePortalConnection> {
         Self::IDevicePortalConnectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -43,7 +37,6 @@ impl DevicePortalConnection {
         })
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Networking_Sockets`, `Web_Http`*"]
     pub fn GetServerMessageWebSocketForRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
@@ -52,7 +45,6 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Networking_Sockets`, `Web_Http`*"]
     pub fn GetServerMessageWebSocketForRequest2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, request: Param0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: Param2) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
@@ -61,7 +53,6 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Networking_Sockets`, `Web_Http`*"]
     pub fn GetServerMessageWebSocketForRequest3<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
         &self,
         request: Param0,
@@ -78,7 +69,6 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Networking_Sockets`, `Web_Http`*"]
     pub fn GetServerStreamWebSocketForRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
@@ -87,7 +77,6 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Networking_Sockets`, `Web_Http`*"]
     pub fn GetServerStreamWebSocketForRequest2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, request: Param0, protocol: Param1, outboundbuffersizeinbytes: u32, nodelay: bool) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
@@ -152,12 +141,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a D
 }
 unsafe impl ::core::marker::Send for DevicePortalConnection {}
 unsafe impl ::core::marker::Sync for DevicePortalConnection {}
-#[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePortalConnectionClosedEventArgs(pub ::windows::core::IInspectable);
 impl DevicePortalConnectionClosedEventArgs {
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
     pub fn Reason(&self) -> ::windows::core::Result<DevicePortalConnectionClosedReason> {
         let this = self;
         unsafe {
@@ -218,7 +205,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a D
 }
 unsafe impl ::core::marker::Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
-#[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
@@ -244,13 +230,11 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedReason 
 impl ::windows::core::DefaultType for DevicePortalConnectionClosedReason {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(pub ::windows::core::IInspectable);
 impl DevicePortalConnectionRequestReceivedEventArgs {
     #[cfg(feature = "Web_Http")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Web_Http`*"]
     pub fn RequestMessage(&self) -> ::windows::core::Result<super::super::super::Web::Http::HttpRequestMessage> {
         let this = self;
         unsafe {
@@ -259,7 +243,6 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
         }
     }
     #[cfg(feature = "Web_Http")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Web_Http`*"]
     pub fn ResponseMessage(&self) -> ::windows::core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
         unsafe {
@@ -267,7 +250,6 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Web::Http::HttpResponseMessage>(result__)
         }
     }
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
     pub fn IsWebSocketUpgradeRequest(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
         unsafe {
@@ -276,7 +258,6 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Foundation_Collections`*"]
     pub fn WebSocketProtocolsRequested(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
         unsafe {
@@ -285,7 +266,6 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `System_Diagnostics_DevicePortal`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
         unsafe {

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Win32_System_Com_CallObj")]
 pub mod CallObj;
 #[cfg(feature = "Win32_System_Com_ChannelCredentials")]
@@ -15,262 +15,1004 @@ pub mod UI;
 pub mod Urlmon;
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn BindMoniker();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn BindMoniker(pmk: IMoniker, grfopt: u32, iidresult: *const ::windows_sys::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CLSIDFromProgID();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CLSIDFromProgID(lpszprogid: super::super::Foundation::PWSTR, lpclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CLSIDFromProgIDEx();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CLSIDFromProgIDEx(lpszprogid: super::super::Foundation::PWSTR, lpclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CLSIDFromString();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoAddRefServerProcess();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoAllowSetForegroundWindow();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoAllowUnmarshalerCLSID();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoBuildVersion();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoCancelCall();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoCopyProxy();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoCreateFreeThreadedMarshaler();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoCreateGuid();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoCreateInstance();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CLSIDFromString(lpsz: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn CoAddRefServerProcess() -> u32;
+    pub fn CoAllowSetForegroundWindow(punk: ::windows_sys::core::IUnknown, lpvreserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoAllowUnmarshalerCLSID(clsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn CoBuildVersion() -> u32;
+    pub fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoCopyProxy(pproxy: ::windows_sys::core::IUnknown, ppcopy: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateFreeThreadedMarshaler(punkouter: ::windows_sys::core::IUnknown, ppunkmarshal: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateGuid(pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateInstance(rclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclscontext: CLSCTX, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoCreateInstanceEx();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoCreateInstanceFromApp();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoDecrementMTAUsage();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoDisableCallCancellation();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoDisconnectContext();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoDisconnectObject();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoCreateInstanceEx(clsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: CLSCTX, pserverinfo: *const COSERVERINFO, dwcount: u32, presults: *mut MULTI_QI) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateInstanceFromApp(clsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: CLSCTX, reserved: *const ::core::ffi::c_void, dwcount: u32, presults: *mut MULTI_QI) -> ::windows_sys::core::HRESULT;
+    pub fn CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE) -> ::windows_sys::core::HRESULT;
+    pub fn CoDisableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoDisconnectContext(dwtimeout: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoDisconnectObject(punk: ::windows_sys::core::IUnknown, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoDosDateTimeToFileTime();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoEnableCallCancellation();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
+    pub fn CoEnableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoFileTimeNow();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoFileTimeNow(lpfiletime: *mut super::super::Foundation::FILETIME) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoFileTimeToDosDateTime();
-    #[doc = "*Required features: `Win32_System_Com`*"]
+    pub fn CoFileTimeToDosDateTime(lpfiletime: *const super::super::Foundation::FILETIME, lpdosdate: *mut u16, lpdostime: *mut u16) -> super::super::Foundation::BOOL;
     pub fn CoFreeAllLibraries();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoFreeLibrary();
-    #[doc = "*Required features: `Win32_System_Com`*"]
+    pub fn CoFreeLibrary(hinst: super::super::Foundation::HINSTANCE);
     pub fn CoFreeUnusedLibraries();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoFreeUnusedLibrariesEx();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetApartmentType();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetCallContext();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetCallerTID();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetCancelObject();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetClassObject();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetContextToken();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetCurrentLogicalThreadId();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetCurrentProcess();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetMalloc();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32);
+    pub fn CoGetApartmentType(papttype: *mut APTTYPE, paptqualifier: *mut APTTYPEQUALIFIER) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetCallContext(riid: *const ::windows_sys::core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetCallerTID(lpdwtid: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetCancelObject(dwthreadid: u32, iid: *const ::windows_sys::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetClassObject(rclsid: *const ::windows_sys::core::GUID, dwclscontext: CLSCTX, pvreserved: *const ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetContextToken(ptoken: *mut usize) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetCurrentLogicalThreadId(pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetCurrentProcess() -> u32;
+    pub fn CoGetMalloc(dwmemcontext: u32, ppmalloc: *mut IMalloc) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoGetObject();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetObjectContext();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetPSClsid();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`, `Win32_Security`*"]
+    pub fn CoGetObject(pszname: super::super::Foundation::PWSTR, pbindoptions: *const BIND_OPTS, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetObjectContext(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetPSClsid(riid: *const ::windows_sys::core::GUID, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CoGetSystemSecurityPermissions();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoGetTreatAsClass();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoImpersonateClient();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoIncrementMTAUsage();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoInitialize();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoInitializeEx();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`, `Win32_Security`*"]
+    pub fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetTreatAsClass(clsidold: *const ::windows_sys::core::GUID, pclsidnew: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn CoImpersonateClient() -> ::windows_sys::core::HRESULT;
+    pub fn CoIncrementMTAUsage(pcookie: *mut CO_MTA_USAGE_COOKIE) -> ::windows_sys::core::HRESULT;
+    pub fn CoInitialize(pvreserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: COINIT) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CoInitializeSecurity();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoInitializeSecurity(psecdesc: *const super::super::Security::SECURITY_DESCRIPTOR, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInstall();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoInstall(pbc: IBindCtx, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInvalidateRemoteMachineBindings();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoInvalidateRemoteMachineBindings(pszmachinename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoIsHandlerConnected();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoIsHandlerConnected(punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoIsOle1Class();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoIsOle1Class(rclsid: *const ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoLoadLibrary();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoLoadLibrary(lpszlibname: super::super::Foundation::PWSTR, bautofree: super::super::Foundation::BOOL) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoLockObjectExternal();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoLockObjectExternal(punk: ::windows_sys::core::IUnknown, flock: super::super::Foundation::BOOL, flastunlockreleases: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoQueryAuthenticationServices();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoQueryClientBlanket();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoQueryClientBlanket(pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut ::core::ffi::c_void, pcapabilities: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoQueryProxyBlanket();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRegisterActivationFilter();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRegisterChannelHook();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRegisterClassObject();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoQueryProxyBlanket(pproxy: ::windows_sys::core::IUnknown, pwauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterActivationFilter(pactivationfilter: IActivationFilter) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterChannelHook(extensionuuid: *const ::windows_sys::core::GUID, pchannelhook: IChannelHook) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterClassObject(rclsid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown, dwclscontext: CLSCTX, flags: u32, lpdwregister: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoRegisterDeviceCatalog();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRegisterInitializeSpy();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRegisterMallocSpy();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRegisterPSClsid();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRegisterSurrogate();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoReleaseServerProcess();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoResumeClassObjects();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRevertToSelf();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRevokeClassObject();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRevokeDeviceCatalog();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRevokeInitializeSpy();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoRevokeMallocSpy();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoSetCancelObject();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoRegisterDeviceCatalog(deviceinstanceid: super::super::Foundation::PWSTR, cookie: *mut CO_DEVICE_CATALOG_COOKIE) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterInitializeSpy(pspy: IInitializeSpy, pulicookie: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterMallocSpy(pmallocspy: IMallocSpy) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterPSClsid(riid: *const ::windows_sys::core::GUID, rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterSurrogate(psurrogate: ISurrogate) -> ::windows_sys::core::HRESULT;
+    pub fn CoReleaseServerProcess() -> u32;
+    pub fn CoResumeClassObjects() -> ::windows_sys::core::HRESULT;
+    pub fn CoRevertToSelf() -> ::windows_sys::core::HRESULT;
+    pub fn CoRevokeClassObject(dwregister: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoRevokeDeviceCatalog(cookie: CO_DEVICE_CATALOG_COOKIE) -> ::windows_sys::core::HRESULT;
+    pub fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows_sys::core::HRESULT;
+    pub fn CoRevokeMallocSpy() -> ::windows_sys::core::HRESULT;
+    pub fn CoSetCancelObject(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoSetProxyBlanket();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoSuspendClassObjects();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoSwitchCallContext();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoTaskMemAlloc();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoTaskMemFree();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoTaskMemRealloc();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoTestCancel();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CoTreatAsClass();
-    #[doc = "*Required features: `Win32_System_Com`*"]
+    pub fn CoSetProxyBlanket(pproxy: ::windows_sys::core::IUnknown, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: super::super::Foundation::PWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_sys::core::HRESULT;
+    pub fn CoSuspendClassObjects() -> ::windows_sys::core::HRESULT;
+    pub fn CoSwitchCallContext(pnewobject: ::windows_sys::core::IUnknown, ppoldobject: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
+    pub fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
+    pub fn CoTaskMemRealloc(pv: *const ::core::ffi::c_void, cb: usize) -> *mut ::core::ffi::c_void;
+    pub fn CoTestCancel() -> ::windows_sys::core::HRESULT;
+    pub fn CoTreatAsClass(clsidold: *const ::windows_sys::core::GUID, clsidnew: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     pub fn CoUninitialize();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoWaitForMultipleHandles();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE, lpdwindex: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoWaitForMultipleObjects();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateAntiMoniker();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateBindCtx();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateClassMoniker();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateDataAdviseHolder();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateDataCache();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE, lpdwindex: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn CreateAntiMoniker(ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateBindCtx(reserved: u32, ppbc: *mut IBindCtx) -> ::windows_sys::core::HRESULT;
+    pub fn CreateClassMoniker(rclsid: *const ::windows_sys::core::GUID, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateDataAdviseHolder(ppdaholder: *mut IDataAdviseHolder) -> ::windows_sys::core::HRESULT;
+    pub fn CreateDataCache(punkouter: ::windows_sys::core::IUnknown, rclsid: *const ::windows_sys::core::GUID, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateFileMoniker();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateGenericComposite();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateIUriBuilder();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CreateFileMoniker(lpszpathname: super::super::Foundation::PWSTR, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateGenericComposite(pmkfirst: IMoniker, pmkrest: IMoniker, ppmkcomposite: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateIUriBuilder(piuri: IUri, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut IUriBuilder) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateItemMoniker();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreateObjrefMoniker();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn CreatePointerMoniker();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CreateItemMoniker(lpszdelim: super::super::Foundation::PWSTR, lpszitem: super::super::Foundation::PWSTR, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateObjrefMoniker(punk: ::windows_sys::core::IUnknown, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreatePointerMoniker(punk: ::windows_sys::core::IUnknown, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateStdProgressIndicator();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CreateStdProgressIndicator(hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, pibsccaller: IBindStatusCallback, ppibsc: *mut IBindStatusCallback) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUri();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CreateUri(pwzuri: super::super::Foundation::PWSTR, dwflags: URI_CREATE_FLAGS, dwreserved: usize, ppuri: *mut IUri) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUriFromMultiByteString();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CreateUriFromMultiByteString(pszansiinputuri: super::super::Foundation::PSTR, dwencodingflags: u32, dwcodepage: u32, dwcreateflags: u32, dwreserved: usize, ppuri: *mut IUri) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUriWithFragment();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn DcomChannelSetHResult();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn CreateUriWithFragment(pwzuri: super::super::Foundation::PWSTR, pwzfragment: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: usize, ppuri: *mut IUri) -> ::windows_sys::core::HRESULT;
+    pub fn DcomChannelSetHResult(pvreserved: *const ::core::ffi::c_void, pulreserved: *const u32, appshr: ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClassFile();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn GetErrorInfo();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn GetRunningObjectTable();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn GetClassFile(szfilename: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut IErrorInfo) -> ::windows_sys::core::HRESULT;
+    pub fn GetRunningObjectTable(reserved: u32, pprot: *mut IRunningObjectTable) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IIDFromString();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn IIDFromString(lpsz: super::super::Foundation::PWSTR, lpiid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MkParseDisplayName();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn MonikerCommonPrefixWith();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn MkParseDisplayName(pbc: IBindCtx, szusername: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn MonikerCommonPrefixWith(pmkthis: IMoniker, pmkother: IMoniker, ppmkcommon: *mut IMoniker) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MonikerRelativePathTo();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn MonikerRelativePathTo(pmksrc: IMoniker, pmkdest: IMoniker, ppmkrelpath: *mut IMoniker, dwreserved: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ProgIDFromCLSID();
-    #[doc = "*Required features: `Win32_System_Com`*"]
-    pub fn SetErrorInfo();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn ProgIDFromCLSID(clsid: *const ::windows_sys::core::GUID, lplpszprogid: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn SetErrorInfo(dwreserved: u32, perrinfo: IErrorInfo) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StringFromCLSID();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn StringFromCLSID(rclsid: *const ::windows_sys::core::GUID, lplpsz: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StringFromGUID2();
-    #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
+    pub fn StringFromGUID2(rguid: *const ::windows_sys::core::GUID, lpsz: super::super::Foundation::PWSTR, cchmax: i32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StringFromIID();
+    pub fn StringFromIID(rclsid: *const ::windows_sys::core::GUID, lplpsz: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
+#[repr(transparent)]
+pub struct ADVF(pub i32);
+pub const ADVF_NODATA: ADVF = ADVF(1i32);
+pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
+pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
+pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
+pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
+pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
+pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
+pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
+pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
+pub const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4u32;
+pub const APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY: u32 = 32u32;
+pub const APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION: u32 = 16u32;
+pub const APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN: u32 = 8u32;
+pub const APPIDREGFLAGS_RESERVED1: u32 = 64u32;
+pub const APPIDREGFLAGS_RESERVED2: u32 = 128u32;
+pub const APPIDREGFLAGS_RESERVED3: u32 = 256u32;
+pub const APPIDREGFLAGS_RESERVED4: u32 = 512u32;
+pub const APPIDREGFLAGS_RESERVED5: u32 = 1024u32;
+pub const APPIDREGFLAGS_RESERVED7: u32 = 4096u32;
+pub const APPIDREGFLAGS_RESERVED8: u32 = 8192u32;
+pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
+pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
+#[repr(transparent)]
+pub struct APTTYPE(pub i32);
+pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
+pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
+pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
+pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
+pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
+#[repr(transparent)]
+pub struct APTTYPEQUALIFIER(pub i32);
+pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
+pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
+pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
+pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
+pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
+pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
+pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
+pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
+pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
+pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
+#[repr(C)]
+pub struct AUTHENTICATEINFO(i32);
+#[repr(transparent)]
+pub struct ApplicationType(pub i32);
+pub const ServerApplication: ApplicationType = ApplicationType(0i32);
+pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
+#[repr(transparent)]
+pub struct AsyncIAdviseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AsyncIAdviseSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AsyncIMultiQI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AsyncIPipeByte(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AsyncIPipeDouble(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AsyncIPipeLong(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AsyncIUnknown(pub *mut ::core::ffi::c_void);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
+pub struct BINDINFO(i32);
+#[repr(transparent)]
+pub struct BINDINFOF(pub i32);
+pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
+pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct BINDPTR(i32);
+#[repr(transparent)]
+pub struct BIND_FLAGS(pub i32);
+pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
+pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
+#[repr(C)]
+pub struct BIND_OPTS(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct BIND_OPTS2(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct BIND_OPTS3(i32);
+#[repr(C)]
+pub struct BLOB(i32);
+#[repr(C)]
+pub struct BYTE_BLOB(i32);
+#[repr(C)]
+pub struct BYTE_SIZEDARR(i32);
+#[repr(transparent)]
+pub struct CALLCONV(pub i32);
+pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
+pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
+pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
+pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
+pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
+pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
+pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
+pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
+pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
+pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
+pub const CC_MAX: CALLCONV = CALLCONV(9i32);
+#[repr(transparent)]
+pub struct CALLTYPE(pub i32);
+pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
+pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
+pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
+pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
+pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
+#[repr(C)]
+pub struct CATEGORYINFO(i32);
+#[repr(transparent)]
+pub struct CLSCTX(pub u32);
+pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
+pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
+pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
+pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
+pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
+pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
+pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
+pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
+pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
+pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
+pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
+pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
+pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
+pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
+pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
+pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
+pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
+pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
+pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
+pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
+pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
+pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
+pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
+pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
+pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
+pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
+pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
+pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
+pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+#[repr(C)]
+pub struct COAUTHIDENTITY(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct COAUTHINFO(i32);
+#[repr(transparent)]
+pub struct COINIT(pub u32);
+pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2u32);
+pub const COINIT_MULTITHREADED: COINIT = COINIT(0u32);
+pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4u32);
+pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8u32);
+#[repr(transparent)]
+pub struct COINITBASE(pub i32);
+pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
+#[repr(transparent)]
+pub struct COMSD(pub i32);
+pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
+pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
+pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
+pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
+pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
+pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
+pub const COM_RIGHTS_EXECUTE: u32 = 1u32;
+pub const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2u32;
+pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4u32;
+pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
+pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
+#[repr(C)]
+pub struct CONNECTDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct COSERVERINFO(i32);
+#[repr(transparent)]
+pub struct COWAIT_FLAGS(pub i32);
+pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
+pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
+pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
+pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
+pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
+pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
+#[repr(C)]
+pub struct CO_DEVICE_CATALOG_COOKIE(i32);
+#[repr(transparent)]
+pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
+pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
+#[repr(C)]
+pub struct CO_MTA_USAGE_COOKIE(i32);
+#[repr(C)]
+pub struct CSPLATFORM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct CUSTDATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct CUSTDATAITEM(i32);
+#[repr(transparent)]
+pub struct CWMO_FLAGS(pub i32);
+pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
+pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
+pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
+pub const CWMO_MAX_HANDLES: u32 = 56u32;
+#[repr(C)]
+pub struct CY(i32);
+#[repr(C)]
+pub struct ComCallData(i32);
+#[repr(transparent)]
+pub struct DATADIR(pub i32);
+pub const DATADIR_GET: DATADIR = DATADIR(1i32);
+pub const DATADIR_SET: DATADIR = DATADIR(2i32);
+pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
+pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
+pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
+pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16u32;
+pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
+pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
+#[repr(transparent)]
+pub struct DCOM_CALL_STATE(pub i32);
+pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
+pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
+pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
+#[repr(transparent)]
+pub struct DESCKIND(pub i32);
+pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
+pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
+pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
+pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
+pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
+pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct DISPPARAMS(i32);
+pub const DMUS_ERRBASE: u32 = 4096u32;
+#[repr(transparent)]
+pub struct DVASPECT(pub i32);
+pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1i32);
+pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2i32);
+pub const DVASPECT_ICON: DVASPECT = DVASPECT(4i32);
+pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8i32);
+#[repr(C)]
+pub struct DVTARGETDEVICE(i32);
+#[repr(C)]
+pub struct DWORD_BLOB(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct ELEMDESC(i32);
+#[repr(transparent)]
+pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
+pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
+pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
+pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
+pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
+pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
+pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
+pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
+pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
+pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
+pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
+pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
+pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
+pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
+pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
+pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
+pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct EXCEPINFO(i32);
+#[repr(transparent)]
+pub struct EXTCONN(pub i32);
+pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
+pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
+pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
+#[repr(C)]
+pub struct FLAGGED_BYTE_BLOB(i32);
+#[repr(C)]
+pub struct FLAGGED_WORD_BLOB(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
+pub struct FLAG_STGMEDIUM(i32);
+#[repr(C)]
+pub struct FORMATETC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct FUNCDESC(i32);
+#[repr(transparent)]
+pub struct FUNCKIND(pub i32);
+pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
+pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
+pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
+pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
+pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[repr(C)]
+pub struct GDI_OBJECT(i32);
+#[repr(transparent)]
+pub struct GLOBALOPT_EH_VALUES(pub i32);
+pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
+#[repr(transparent)]
+pub struct GLOBALOPT_PROPERTIES(pub i32);
+pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
+pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
+pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
+pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
+pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
+pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
+pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
+pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
+#[repr(transparent)]
+pub struct GLOBALOPT_RO_FLAGS(pub i32);
+pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
+pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
+pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
+pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
+pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
+pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
+pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
+pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
+#[repr(transparent)]
+pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
+pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
+pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
+#[repr(transparent)]
+pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
+pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
+pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
+pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
+#[repr(C)]
+pub struct HYPER_SIZEDARR(i32);
+#[repr(transparent)]
+pub struct IActivationFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAddrExclusionControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAddrTrackingControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAdviseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAdviseSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAgileObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAsyncManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAsyncRpcChannelBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAuthenticate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IAuthenticateEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IBindCtx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IBindHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IBindStatusCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IBindStatusCallbackEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IBinding(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IBlockingLock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICallFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICancelMethodCalls(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICatInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ICatRegister(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IChannelHook(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IClassActivator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IClientSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IComThreadingInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IConnectionPoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IConnectionPointContainer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct IContext(i32);
+#[repr(transparent)]
+pub struct IContextCallback(pub *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct IDLDESC(i32);
+#[repr(transparent)]
+pub struct IDataAdviseHolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDataObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IDispatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumCATEGORYINFO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumConnectionPoints(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumConnections(pub *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct IEnumContextProps(i32);
+#[repr(transparent)]
+pub struct IEnumFORMATETC(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumGUID(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumMoniker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumSTATDATA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IEnumUnknown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IErrorLog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IExternalConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IFastRundown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IForegroundTransfer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IGlobalInterfaceTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IGlobalOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IInitializeSpy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IInternalUnknown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IMachineGlobalObjectTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IMalloc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IMallocSpy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IMoniker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IMultiQI(pub *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct INTERFACEINFO(i32);
+#[repr(transparent)]
+pub struct INVOKEKIND(pub i32);
+pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
+pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
+pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
+pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
+#[repr(transparent)]
+pub struct INoMarshal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IOplockStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPSFactoryBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPersist(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPersistFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPersistMemory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPersistStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPersistStreamInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPipeByte(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPipeDouble(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IPipeLong(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IProcessInitControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IProcessLock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IProgressNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IROTData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IReleaseMarshalBuffers(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcChannelBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcChannelBuffer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcChannelBuffer3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcProxyBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcStubBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRpcSyntaxNegotiate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRunnableObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IRunningObjectTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISequentialStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IServerSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IServiceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IStdMarshalInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISupportErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISurrogate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISurrogateService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISynchronize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISynchronizeContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISynchronizeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISynchronizeHandle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ISynchronizeMutex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITimeAndNoticeControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITypeComp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITypeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITypeInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITypeLib(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITypeLib2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITypeLibRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ITypeLibRegistrationReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IUri(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IUriBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IUrlMon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct IWaitMultiple(pub *mut ::core::ffi::c_void);
+#[repr(C)]
+pub struct LONG_SIZEDARR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> ::windows_sys::core::HRESULT;
+pub type LPFNCANUNLOADNOW = unsafe extern "system" fn() -> ::windows_sys::core::HRESULT;
+pub type LPFNGETCLASSOBJECT = unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *const ::windows_sys::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub const MARSHALINTERFACE_MIN: u32 = 500u32;
+pub const MAXLSN: u64 = 9223372036854775807u64;
+#[repr(transparent)]
+pub struct MEMCTX(pub i32);
+pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
+pub const MEMCTX_SHARED: MEMCTX = MEMCTX(2i32);
+pub const MEMCTX_MACSYSTEM: MEMCTX = MEMCTX(3i32);
+pub const MEMCTX_UNKNOWN: MEMCTX = MEMCTX(-1i32);
+pub const MEMCTX_SAME: MEMCTX = MEMCTX(-2i32);
+#[repr(transparent)]
+pub struct MKREDUCE(pub i32);
+pub const MKRREDUCE_ONE: MKREDUCE = MKREDUCE(196608i32);
+pub const MKRREDUCE_TOUSER: MKREDUCE = MKREDUCE(131072i32);
+pub const MKRREDUCE_THROUGHUSER: MKREDUCE = MKREDUCE(65536i32);
+pub const MKRREDUCE_ALL: MKREDUCE = MKREDUCE(0i32);
+#[repr(transparent)]
+pub struct MKSYS(pub i32);
+pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
+pub const MKSYS_GENERICCOMPOSITE: MKSYS = MKSYS(1i32);
+pub const MKSYS_FILEMONIKER: MKSYS = MKSYS(2i32);
+pub const MKSYS_ANTIMONIKER: MKSYS = MKSYS(3i32);
+pub const MKSYS_ITEMMONIKER: MKSYS = MKSYS(4i32);
+pub const MKSYS_POINTERMONIKER: MKSYS = MKSYS(5i32);
+pub const MKSYS_CLASSMONIKER: MKSYS = MKSYS(7i32);
+pub const MKSYS_OBJREFMONIKER: MKSYS = MKSYS(8i32);
+pub const MKSYS_SESSIONMONIKER: MKSYS = MKSYS(9i32);
+pub const MKSYS_LUAMONIKER: MKSYS = MKSYS(10i32);
+#[repr(transparent)]
+pub struct MSHCTX(pub i32);
+pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
+pub const MSHCTX_NOSHAREDMEM: MSHCTX = MSHCTX(1i32);
+pub const MSHCTX_DIFFERENTMACHINE: MSHCTX = MSHCTX(2i32);
+pub const MSHCTX_INPROC: MSHCTX = MSHCTX(3i32);
+pub const MSHCTX_CROSSCTX: MSHCTX = MSHCTX(4i32);
+pub const MSHCTX_CONTAINER: MSHCTX = MSHCTX(5i32);
+#[repr(transparent)]
+pub struct MSHLFLAGS(pub i32);
+pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
+pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = MSHLFLAGS(1i32);
+pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = MSHLFLAGS(2i32);
+pub const MSHLFLAGS_NOPING: MSHLFLAGS = MSHLFLAGS(4i32);
+pub const MSHLFLAGS_RESERVED1: MSHLFLAGS = MSHLFLAGS(8i32);
+pub const MSHLFLAGS_RESERVED2: MSHLFLAGS = MSHLFLAGS(16i32);
+pub const MSHLFLAGS_RESERVED3: MSHLFLAGS = MSHLFLAGS(32i32);
+pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = MSHLFLAGS(64i32);
+#[repr(C)]
+pub struct MULTI_QI(i32);
+#[repr(C)]
+pub struct MachineGlobalObjectTableRegistrationToken__(i32);
+#[repr(transparent)]
+pub struct PENDINGMSG(pub i32);
+pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
+pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = PENDINGMSG(1i32);
+pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = PENDINGMSG(2i32);
+#[repr(transparent)]
+pub struct PENDINGTYPE(pub i32);
+pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
+pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
+pub type PFNCONTEXTCALL = unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows_sys::core::HRESULT;
+#[repr(C)]
+pub struct QUERYCONTEXT(i32);
+#[repr(transparent)]
+pub struct REGCLS(pub i32);
+pub const REGCLS_SINGLEUSE: REGCLS = REGCLS(0i32);
+pub const REGCLS_MULTIPLEUSE: REGCLS = REGCLS(1i32);
+pub const REGCLS_MULTI_SEPARATE: REGCLS = REGCLS(2i32);
+pub const REGCLS_SUSPENDED: REGCLS = REGCLS(4i32);
+pub const REGCLS_SURROGATE: REGCLS = REGCLS(8i32);
+pub const REGCLS_AGILE: REGCLS = REGCLS(16i32);
+pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
+#[repr(C)]
+pub struct RPCOLEMESSAGE(i32);
+#[repr(transparent)]
+pub struct RPCOPT_PROPERTIES(pub i32);
+pub const COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(1i32);
+pub const COMBND_SERVER_LOCALITY: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(2i32);
+pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
+pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
+pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
+pub const COMBND_RESERVED4: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(16i32);
+#[repr(transparent)]
+pub struct RPCOPT_SERVER_LOCALITY_VALUES(pub i32);
+pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
+pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(1i32);
+pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(2i32);
+#[repr(transparent)]
+pub struct RPC_C_AUTHN_LEVEL(pub u32);
+pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
+pub const RPC_C_AUTHN_LEVEL_NONE: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(1u32);
+pub const RPC_C_AUTHN_LEVEL_CONNECT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(2u32);
+pub const RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(3u32);
+pub const RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(4u32);
+pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(5u32);
+pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(6u32);
+#[repr(transparent)]
+pub struct RPC_C_IMP_LEVEL(pub u32);
+pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
+pub const RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(1u32);
+pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(2u32);
+pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(3u32);
+pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(4u32);
+#[repr(C)]
+pub struct RemSTGMEDIUM(i32);
+#[repr(C)]
+pub struct SAFEARRAY(i32);
+#[repr(C)]
+pub struct SAFEARRAYBOUND(i32);
+#[repr(C)]
+pub struct SChannelHookCallInfo(i32);
+#[repr(transparent)]
+pub struct SERVERCALL(pub i32);
+pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
+pub const SERVERCALL_REJECTED: SERVERCALL = SERVERCALL(1i32);
+pub const SERVERCALL_RETRYLATER: SERVERCALL = SERVERCALL(2i32);
+#[repr(C)]
+pub struct SHORT_SIZEDARR(i32);
+#[repr(C)]
+pub struct SOLE_AUTHENTICATION_INFO(i32);
+#[repr(C)]
+pub struct SOLE_AUTHENTICATION_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct SOLE_AUTHENTICATION_SERVICE(i32);
+#[repr(C)]
+pub struct STATDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct STATSTG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
+pub struct STGMEDIUM(i32);
+#[repr(transparent)]
+pub struct STGTY(pub i32);
+pub const STGTY_STORAGE: STGTY = STGTY(1i32);
+pub const STGTY_STREAM: STGTY = STGTY(2i32);
+pub const STGTY_LOCKBYTES: STGTY = STGTY(3i32);
+pub const STGTY_PROPERTY: STGTY = STGTY(4i32);
+pub const STGTY_REPEAT: i32 = 256i32;
+pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
+pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
+pub const STG_TOEND: i32 = -1i32;
+#[repr(transparent)]
+pub struct STREAM_SEEK(pub u32);
+pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
+pub const STREAM_SEEK_CUR: STREAM_SEEK = STREAM_SEEK(1u32);
+pub const STREAM_SEEK_END: STREAM_SEEK = STREAM_SEEK(2u32);
+#[repr(transparent)]
+pub struct SYSKIND(pub i32);
+pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
+pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
+pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
+pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
+#[repr(transparent)]
+pub struct ShutdownType(pub i32);
+pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
+pub const ForcedShutdown: ShutdownType = ShutdownType(1i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct StorageLayout(i32);
+#[repr(transparent)]
+pub struct THDTYPE(pub i32);
+pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
+pub const THDTYPE_PROCESSMESSAGES: THDTYPE = THDTYPE(1i32);
+#[repr(C)]
+pub struct TLIBATTR(i32);
+#[repr(transparent)]
+pub struct TYMED(pub i32);
+pub const TYMED_HGLOBAL: TYMED = TYMED(1i32);
+pub const TYMED_FILE: TYMED = TYMED(2i32);
+pub const TYMED_ISTREAM: TYMED = TYMED(4i32);
+pub const TYMED_ISTORAGE: TYMED = TYMED(8i32);
+pub const TYMED_GDI: TYMED = TYMED(16i32);
+pub const TYMED_MFPICT: TYMED = TYMED(32i32);
+pub const TYMED_ENHMF: TYMED = TYMED(64i32);
+pub const TYMED_NULL: TYMED = TYMED(0i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct TYPEATTR(i32);
+#[cfg(feature = "Win32_System_Ole")]
+#[repr(C)]
+pub struct TYPEDESC(i32);
+#[repr(transparent)]
+pub struct TYPEKIND(pub i32);
+pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
+pub const TKIND_RECORD: TYPEKIND = TYPEKIND(1i32);
+pub const TKIND_MODULE: TYPEKIND = TYPEKIND(2i32);
+pub const TKIND_INTERFACE: TYPEKIND = TYPEKIND(3i32);
+pub const TKIND_DISPATCH: TYPEKIND = TYPEKIND(4i32);
+pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
+pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
+pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
+pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
+#[repr(transparent)]
+pub struct TYSPEC(pub i32);
+pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
+pub const TYSPEC_FILEEXT: TYSPEC = TYSPEC(1i32);
+pub const TYSPEC_MIMETYPE: TYSPEC = TYSPEC(2i32);
+pub const TYSPEC_FILENAME: TYSPEC = TYSPEC(3i32);
+pub const TYSPEC_PROGID: TYSPEC = TYSPEC(4i32);
+pub const TYSPEC_PACKAGENAME: TYSPEC = TYSPEC(5i32);
+pub const TYSPEC_OBJECTID: TYSPEC = TYSPEC(6i32);
+#[repr(transparent)]
+pub struct URI_CREATE_FLAGS(pub u32);
+pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
+pub const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2u32);
+pub const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4u32);
+pub const Uri_CREATE_NOFRAG: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8u32);
+pub const Uri_CREATE_NO_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16u32);
+pub const Uri_CREATE_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(256u32);
+pub const Uri_CREATE_FILE_USE_DOS_PATH: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32u32);
+pub const Uri_CREATE_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(64u32);
+pub const Uri_CREATE_NO_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(128u32);
+pub const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(512u32);
+pub const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1024u32);
+pub const Uri_CREATE_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2048u32);
+pub const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4096u32);
+pub const Uri_CREATE_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8192u32);
+pub const Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16384u32);
+pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32768u32);
+pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(65536u32);
+pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(131072u32);
+#[repr(transparent)]
+pub struct Uri_PROPERTY(pub i32);
+pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
+pub const Uri_PROPERTY_STRING_START: Uri_PROPERTY = Uri_PROPERTY(0i32);
+pub const Uri_PROPERTY_AUTHORITY: Uri_PROPERTY = Uri_PROPERTY(1i32);
+pub const Uri_PROPERTY_DISPLAY_URI: Uri_PROPERTY = Uri_PROPERTY(2i32);
+pub const Uri_PROPERTY_DOMAIN: Uri_PROPERTY = Uri_PROPERTY(3i32);
+pub const Uri_PROPERTY_EXTENSION: Uri_PROPERTY = Uri_PROPERTY(4i32);
+pub const Uri_PROPERTY_FRAGMENT: Uri_PROPERTY = Uri_PROPERTY(5i32);
+pub const Uri_PROPERTY_HOST: Uri_PROPERTY = Uri_PROPERTY(6i32);
+pub const Uri_PROPERTY_PASSWORD: Uri_PROPERTY = Uri_PROPERTY(7i32);
+pub const Uri_PROPERTY_PATH: Uri_PROPERTY = Uri_PROPERTY(8i32);
+pub const Uri_PROPERTY_PATH_AND_QUERY: Uri_PROPERTY = Uri_PROPERTY(9i32);
+pub const Uri_PROPERTY_QUERY: Uri_PROPERTY = Uri_PROPERTY(10i32);
+pub const Uri_PROPERTY_RAW_URI: Uri_PROPERTY = Uri_PROPERTY(11i32);
+pub const Uri_PROPERTY_SCHEME_NAME: Uri_PROPERTY = Uri_PROPERTY(12i32);
+pub const Uri_PROPERTY_USER_INFO: Uri_PROPERTY = Uri_PROPERTY(13i32);
+pub const Uri_PROPERTY_USER_NAME: Uri_PROPERTY = Uri_PROPERTY(14i32);
+pub const Uri_PROPERTY_STRING_LAST: Uri_PROPERTY = Uri_PROPERTY(14i32);
+pub const Uri_PROPERTY_HOST_TYPE: Uri_PROPERTY = Uri_PROPERTY(15i32);
+pub const Uri_PROPERTY_DWORD_START: Uri_PROPERTY = Uri_PROPERTY(15i32);
+pub const Uri_PROPERTY_PORT: Uri_PROPERTY = Uri_PROPERTY(16i32);
+pub const Uri_PROPERTY_SCHEME: Uri_PROPERTY = Uri_PROPERTY(17i32);
+pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = Uri_PROPERTY(18i32);
+pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = Uri_PROPERTY(18i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct VARDESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
+pub struct VARIANT(i32);
+#[repr(transparent)]
+pub struct VARKIND(pub i32);
+pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
+pub const VAR_STATIC: VARKIND = VARKIND(1i32);
+pub const VAR_CONST: VARKIND = VARKIND(2i32);
+pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
+#[repr(C)]
+pub struct WORD_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
+pub struct uCLSSPEC(i32);
+#[repr(C)]
+pub struct userFLAG_STGMEDIUM(i32);
+#[repr(C)]
+pub struct userSTGMEDIUM(i32);

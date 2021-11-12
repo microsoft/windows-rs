@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARP_HARDWARE_TYPE(pub i32);
@@ -15,7 +14,6 @@ unsafe impl ::windows::core::Abi for ARP_HARDWARE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ARP_HEADER {
     pub HardwareAddressSpace: u16,
     pub ProtocolAddressSpace: u16,
@@ -51,7 +49,6 @@ impl ::core::cmp::Eq for ARP_HEADER {}
 unsafe impl ::windows::core::Abi for ARP_HEADER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARP_OPCODE(pub i32);
@@ -65,11 +62,8 @@ impl ::core::convert::From<i32> for ARP_OPCODE {
 unsafe impl ::windows::core::Abi for ARP_OPCODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const BYTE_ORDER: u32 = 1234u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const DL_ADDRESS_LENGTH_MAXIMUM: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DL_ADDRESS_TYPE(pub i32);
@@ -86,7 +80,6 @@ unsafe impl ::windows::core::Abi for DL_ADDRESS_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EI48 {
     pub Byte: [u8; 3],
 }
@@ -107,7 +100,6 @@ unsafe impl ::windows::core::Abi for DL_EI48 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EI64 {
     pub Byte: [u8; 5],
 }
@@ -128,7 +120,6 @@ unsafe impl ::windows::core::Abi for DL_EI64 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EUI48 {
     pub Byte: [u8; 6],
     pub Anonymous: DL_EUI48_0,
@@ -150,7 +141,6 @@ unsafe impl ::windows::core::Abi for DL_EUI48 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_EUI48_0 {
     pub Oui: DL_OUI,
     pub Ei48: DL_EI48,
@@ -172,7 +162,6 @@ unsafe impl ::windows::core::Abi for DL_EUI48_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EUI64 {
     pub Byte: [u8; 8],
     pub Value: u64,
@@ -195,7 +184,6 @@ unsafe impl ::windows::core::Abi for DL_EUI64 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_EUI64_0 {
     pub Oui: DL_OUI,
     pub Anonymous: DL_EUI64_0_0,
@@ -217,7 +205,6 @@ unsafe impl ::windows::core::Abi for DL_EUI64_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EUI64_0_0 {
     pub Ei64: DL_EI64,
     pub Anonymous: DL_EUI64_0_0_0,
@@ -239,7 +226,6 @@ unsafe impl ::windows::core::Abi for DL_EUI64_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_EUI64_0_0_0 {
     pub Type: u8,
     pub Tse: u8,
@@ -260,11 +246,9 @@ impl ::core::cmp::Eq for DL_EUI64_0_0_0 {}
 unsafe impl ::windows::core::Abi for DL_EUI64_0_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const DL_HEADER_LENGTH_MAXIMUM: u32 = 64u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_OUI {
     pub Byte: [u8; 3],
     pub Anonymous: DL_OUI_0,
@@ -286,7 +270,6 @@ unsafe impl ::windows::core::Abi for DL_OUI {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_OUI_0 {
     pub _bitfield: u8,
 }
@@ -313,7 +296,6 @@ unsafe impl ::windows::core::Abi for DL_OUI_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct DL_TEREDO_ADDRESS {
     pub Reserved: [u8; 6],
     pub Anonymous: DL_TEREDO_ADDRESS_0,
@@ -396,7 +378,6 @@ unsafe impl ::windows::core::Abi for DL_TEREDO_ADDRESS_0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct DL_TEREDO_ADDRESS_PRV {
     pub Reserved: [u8; 6],
     pub Anonymous: DL_TEREDO_ADDRESS_PRV_0,
@@ -483,7 +464,6 @@ unsafe impl ::windows::core::Abi for DL_TEREDO_ADDRESS_PRV_0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`, `Win32_System_Kernel`*"]
 pub struct DL_TUNNEL_ADDRESS {
     pub CompartmentId: super::super::System::Kernel::COMPARTMENT_ID,
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
@@ -511,7 +491,6 @@ unsafe impl ::windows::core::Abi for DL_TUNNEL_ADDRESS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ETHERNET_HEADER {
     pub Destination: DL_EUI48,
     pub Source: DL_EUI48,
@@ -534,7 +513,6 @@ unsafe impl ::windows::core::Abi for ETHERNET_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union ETHERNET_HEADER_0 {
     pub Type: u16,
     pub Length: u16,
@@ -554,27 +532,16 @@ impl ::core::cmp::Eq for ETHERNET_HEADER_0 {}
 unsafe impl ::windows::core::Abi for ETHERNET_HEADER_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_802_1AD: u32 = 34984u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_802_1Q: u32 = 33024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_ARP: u32 = 2054u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_IPV4: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_IPV6: u32 = 34525u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_MINIMUM: u32 = 1536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETH_LENGTH_OF_HEADER: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETH_LENGTH_OF_SNAP_HEADER: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETH_LENGTH_OF_VLAN_HEADER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const EXT_LEN_UNIT: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FALLBACK_INDEX(pub i32);
@@ -590,7 +557,6 @@ unsafe impl ::windows::core::Abi for FALLBACK_INDEX {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_ACTION0 {
     pub r#type: u32,
     pub Anonymous: FWPM_ACTION0_0,
@@ -612,7 +578,6 @@ unsafe impl ::windows::core::Abi for FWPM_ACTION0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union FWPM_ACTION0_0 {
     pub filterType: ::windows::core::GUID,
     pub calloutKey: ::windows::core::GUID,
@@ -632,29 +597,17 @@ impl ::core::cmp::Eq for FWPM_ACTION0_0 {}
 unsafe impl ::windows::core::Abi for FWPM_ACTION0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_ADD: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_ADD_LINK: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_BEGIN_READ_TXN: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_BEGIN_WRITE_TXN: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_CLASSIFY: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_ENUM: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_OPEN: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_READ: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_READ_STATS: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_SUBSCRIBE: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_WRITE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_APPC_NETWORK_CAPABILITY_TYPE(pub i32);
@@ -669,12 +622,10 @@ impl ::core::convert::From<i32> for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
 unsafe impl ::windows::core::Abi for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_AUTO_WEIGHT_BITS: u32 = 60u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_CALLOUT0 {
     pub calloutKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -724,7 +675,6 @@ pub const FWPM_CALLOUT_BUILT_IN_RESERVED_3: ::windows::core::GUID = ::windows::c
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c3fb801_daff_40e9_91e6_f7ff7e52f7d9);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CALLOUT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub calloutKey: ::windows::core::GUID,
@@ -750,13 +700,11 @@ impl ::core::cmp::Eq for FWPM_CALLOUT_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_CALLOUT_CHANGE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33486ab5_6d5e_4e65_a00b_a7afed0ba9a1);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x079b1010_f1c5_4fcd_ae05_da41107abd0b);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
     pub providerKey: *mut ::windows::core::GUID,
     pub layerKey: ::windows::core::GUID,
@@ -781,11 +729,8 @@ impl ::core::cmp::Eq for FWPM_CALLOUT_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_CALLOUT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: u32 = 131072u32;
 pub const FWPM_CALLOUT_HTTP_TEMPLATE_SSL_HANDSHAKE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3423249_8d09_4858_9210_95c7fda8e30f);
 pub const FWPM_CALLOUT_IPSEC_ALE_CONNECT_V4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac141fc_f75d_4203_b9c8_48e6149c2712);
@@ -820,7 +765,6 @@ pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V4: ::windows::core::G
 pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V6: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63018537_f281_4dc4_83d3_8dec18b7ade2);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CALLOUT_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -858,7 +802,6 @@ pub const FWPM_CALLOUT_TEREDO_ALE_LISTEN_V6: ::windows::core::GUID = ::windows::
 pub const FWPM_CALLOUT_TEREDO_ALE_RESOURCE_ASSIGNMENT_V6: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31b95392_066e_42a2_b7db_92f8acdd56f9);
 pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V4_SILENT_DROP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeda08606_2494_4d78_89bc_67837c03b969);
 pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V6_SILENT_DROP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8693cc74_a075_4156_b476_9286eece814e);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_CHANGE_TYPE(pub i32);
@@ -876,7 +819,6 @@ unsafe impl ::windows::core::Abi for FWPM_CHANGE_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_CLASSIFY_OPTION0 {
     pub r#type: FWP_CLASSIFY_OPTION_TYPE,
     pub value: FWP_VALUE0,
@@ -904,7 +846,6 @@ unsafe impl ::windows::core::Abi for FWPM_CLASSIFY_OPTION0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_CLASSIFY_OPTIONS0 {
     pub numOptions: u32,
     pub options: *mut FWPM_CLASSIFY_OPTION0,
@@ -1074,7 +1015,6 @@ pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows::core::GUID = ::wi
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_CONNECTION0 {
     pub connectionId: u64,
     pub ipVersion: FWP_IP_VERSION,
@@ -1165,14 +1105,11 @@ impl ::core::cmp::Eq for FWPM_CONNECTION0_1 {}
 unsafe impl ::windows::core::Abi for FWPM_CONNECTION0_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FWPM_CONNECTION_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
     pub connectionId: u64,
     pub flags: u32,
@@ -1197,7 +1134,6 @@ impl ::core::cmp::Eq for FWPM_CONNECTION_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_CONNECTION_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_CONNECTION_EVENT_TYPE(pub i32);
@@ -1214,7 +1150,6 @@ unsafe impl ::windows::core::Abi for FWPM_CONNECTION_EVENT_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CONNECTION_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CONNECTION_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -1243,7 +1178,6 @@ unsafe impl ::windows::core::Abi for FWPM_CONNECTION_SUBSCRIPTION0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_DISPLAY_DATA0 {
     pub name: super::super::Foundation::PWSTR,
     pub description: super::super::Foundation::PWSTR,
@@ -1274,9 +1208,7 @@ impl ::core::cmp::Eq for FWPM_DISPLAY_DATA0 {}
 unsafe impl ::windows::core::Abi for FWPM_DISPLAY_DATA0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = unsafe extern "system" fn(notification: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_ENGINE_OPTION(pub i32);
@@ -1295,17 +1227,12 @@ impl ::core::convert::From<i32> for FWPM_ENGINE_OPTION {
 unsafe impl ::windows::core::Abi for FWPM_ENGINE_OPTION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_FIELD0 {
     pub fieldKey: *mut ::windows::core::GUID,
     pub r#type: FWPM_FIELD_TYPE,
@@ -1331,7 +1258,6 @@ impl ::core::cmp::Eq for FWPM_FIELD0 {}
 unsafe impl ::windows::core::Abi for FWPM_FIELD0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_FIELD_TYPE(pub i32);
@@ -1350,7 +1276,6 @@ unsafe impl ::windows::core::Abi for FWPM_FIELD_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_FILTER0 {
     pub filterKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1417,7 +1342,6 @@ unsafe impl ::windows::core::Abi for FWPM_FILTER0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_FILTER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub filterKey: ::windows::core::GUID,
@@ -1443,12 +1367,10 @@ impl ::core::cmp::Eq for FWPM_FILTER_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_FILTER_CHANGE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_FILTER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_FILTER_CHANGE0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_FILTER_CONDITION0 {
     pub fieldKey: ::windows::core::GUID,
     pub matchType: FWP_MATCH_TYPE,
@@ -1477,7 +1399,6 @@ unsafe impl ::windows::core::Abi for FWPM_FILTER_CONDITION0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub providerKey: *mut ::windows::core::GUID,
     pub layerKey: ::windows::core::GUID,
@@ -1525,7 +1446,6 @@ impl ::core::cmp::Eq for FWPM_FILTER_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_FILTER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_FILTER_FLAGS(pub u32);
@@ -1573,24 +1493,16 @@ impl ::core::ops::Not for FWPM_FILTER_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_GAMEOS_ONLY: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_RESERVED0: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_FILTER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -1628,7 +1540,6 @@ pub const FWPM_KEYING_MODULE_IKEV2: ::windows::core::GUID = ::windows::core::GUI
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_LAYER0 {
     pub layerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1701,7 +1612,6 @@ pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: ::windows::core::GUID = ::wind
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b2def23_1881_40bd_82f4_4254e63141cb);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
@@ -1725,13 +1635,9 @@ impl ::core::cmp::Eq for FWPM_LAYER_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_LAYER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_BUFFERED: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_BUILTIN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_KERNEL: u32 = 1u32;
 pub const FWPM_LAYER_IKEEXT_V4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb14b7bdb_dbbd_473e_bed4_8b4708d4f270);
 pub const FWPM_LAYER_IKEEXT_V6: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb64786b3_f687_4eb9_89d2_8ef32acdabe2);
@@ -1789,7 +1695,6 @@ pub const FWPM_LAYER_RPC_PROXY_IF: ::windows::core::GUID = ::windows::core::GUID
 pub const FWPM_LAYER_RPC_UM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a89dda_95e4_40f3_adc7_7688a9c847e1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_LAYER_STATISTICS0 {
     pub layerId: ::windows::core::GUID,
     pub classifyPermitCount: u32,
@@ -1826,7 +1731,6 @@ pub const FWPM_LAYER_STREAM_V6_DISCARD: ::windows::core::GUID = ::windows::core:
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT0 {
     pub header: FWPM_NET_EVENT_HEADER0,
     pub r#type: FWPM_NET_EVENT_TYPE,
@@ -1886,7 +1790,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT1 {
     pub header: FWPM_NET_EVENT_HEADER1,
     pub r#type: FWPM_NET_EVENT_TYPE,
@@ -1946,7 +1849,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT1_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT2 {
     pub header: FWPM_NET_EVENT_HEADER2,
     pub r#type: FWPM_NET_EVENT_TYPE,
@@ -2010,7 +1912,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT2_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT3 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
@@ -2074,7 +1975,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT3_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT4_ {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
@@ -2138,7 +2038,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4__0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT5_ {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
@@ -2200,25 +2099,19 @@ impl ::core::cmp::Eq for FWPM_NET_EVENT5__0 {}
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5__0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT1);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK1 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT2);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK2 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT3);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK3 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4_);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK4 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5_);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
@@ -2253,7 +2146,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
@@ -2288,7 +2180,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CAPABILITY_DROP0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub filterId: u64,
     pub layerId: u16,
@@ -2334,7 +2225,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
     pub filterId: u64,
     pub layerId: u16,
@@ -2362,7 +2252,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub filterId: u64,
     pub layerId: u16,
@@ -2409,7 +2298,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub filterId: u64,
     pub layerId: u16,
@@ -2462,7 +2350,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP2 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub localMacAddr: FWP_BYTE_ARRAY6,
     pub remoteMacAddr: FWP_BYTE_ARRAY6,
@@ -2551,7 +2438,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
@@ -2584,38 +2470,23 @@ impl ::core::cmp::Eq for FWPM_NET_EVENT_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_IP_VERSION_SET: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_HEADER0 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2706,7 +2577,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER0_1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_HEADER1 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2927,7 +2797,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_HEADER2 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -3020,7 +2889,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER2_1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_HEADER3 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -3115,7 +2983,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER3_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3160,7 +3027,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3237,13 +3103,10 @@ impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3290,7 +3153,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3370,7 +3232,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3450,14 +3311,11 @@ impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3544,7 +3402,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3632,7 +3489,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0,
@@ -3657,7 +3513,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     pub publicHostV4Addr: u32,
     pub publicHostV6Addr: [u8; 16],
@@ -3679,7 +3534,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     pub internalHostV4Addr: u32,
     pub internalHostV6Addr: [u8; 16],
@@ -3701,7 +3555,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub failureStatus: i32,
     pub direction: FWP_DIRECTION,
@@ -3729,21 +3582,14 @@ impl ::core::cmp::Eq for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {}
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
     pub spi: u32,
 }
@@ -3770,7 +3616,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -3802,7 +3647,6 @@ impl ::core::cmp::Eq for FWPM_NET_EVENT_SUBSCRIPTION0 {}
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_SUBSCRIPTION0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_NET_EVENT_TYPE(pub i32);
@@ -3829,7 +3673,6 @@ unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_PROVIDER0 {
     pub providerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -3865,7 +3708,6 @@ unsafe impl ::windows::core::Abi for FWPM_PROVIDER0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerKey: ::windows::core::GUID,
@@ -3890,12 +3732,10 @@ impl ::core::cmp::Eq for FWPM_PROVIDER_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CHANGE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_PROVIDER_CONTEXT0 {
     pub providerContextKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -3963,7 +3803,6 @@ unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_PROVIDER_CONTEXT1 {
     pub providerContextKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -4034,7 +3873,6 @@ unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT1_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_PROVIDER_CONTEXT2 {
     pub providerContextKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -4106,7 +3944,6 @@ unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT2_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_PROVIDER_CONTEXT3_ {
     pub providerContextKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -4177,7 +4014,6 @@ unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT3__0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerContextKey: ::windows::core::GUID,
@@ -4203,11 +4039,9 @@ impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_CHANGE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     pub providerKey: *mut ::windows::core::GUID,
     pub providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
@@ -4232,15 +4066,12 @@ impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_AUTHIP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb25ea800_0d02_46ed_92bd_7fa84bb73e9d);
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_IPSEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c2d4144_f8e0_42c0_94ce_7ccfc63b2f9b);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0,
     pub flags: FWPM_SUBSCRIPTION_FLAGS,
@@ -4266,7 +4097,6 @@ impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_PROVIDER_CONTEXT_TYPE(pub i32);
@@ -4294,7 +4124,6 @@ unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
@@ -4318,9 +4147,7 @@ impl ::core::cmp::Eq for FWPM_PROVIDER_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_PROVIDER_IKEEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ad9216_ccde_456c_8b16_e9f04e60a90b);
 pub const FWPM_PROVIDER_IPSEC_DOSP_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c6c05a9_c05c_4bb9_8338_2327814ce8bf);
@@ -4330,7 +4157,6 @@ pub const FWPM_PROVIDER_MPSSVC_WF: ::windows::core::GUID = ::windows::core::GUID
 pub const FWPM_PROVIDER_MPSSVC_WSH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b153735_1049_4480_aab4_d1b9bdc03710);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -4358,7 +4184,6 @@ unsafe impl ::windows::core::Abi for FWPM_PROVIDER_SUBSCRIPTION0 {
 }
 pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x896aa19e_9a34_4bcb_ae79_beb9127c84b9);
 pub const FWPM_PROVIDER_TCP_TEMPLATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76cfcd30_3394_432d_bed3_441ae50e63c3);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_SERVICE_STATE(pub i32);
@@ -4378,7 +4203,6 @@ unsafe impl ::windows::core::Abi for FWPM_SERVICE_STATE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWPM_SESSION0 {
     pub sessionKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -4426,7 +4250,6 @@ unsafe impl ::windows::core::Abi for FWPM_SESSION0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
@@ -4450,13 +4273,10 @@ impl ::core::cmp::Eq for FWPM_SESSION_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_SESSION_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_STATISTICS0 {
     pub numLayerStatistics: u32,
     pub layerStatistics: *mut FWPM_LAYER_STATISTICS0,
@@ -4590,7 +4410,6 @@ unsafe impl ::windows::core::Abi for FWPM_STATISTICS0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -4627,7 +4446,6 @@ unsafe impl ::windows::core::Abi for FWPM_SUBLAYER0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SUBLAYER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub subLayerKey: ::windows::core::GUID,
@@ -4652,11 +4470,9 @@ impl ::core::cmp::Eq for FWPM_SUBLAYER_CHANGE0 {}
 unsafe impl ::windows::core::Abi for FWPM_SUBLAYER_CHANGE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     pub providerKey: *mut ::windows::core::GUID,
 }
@@ -4680,7 +4496,6 @@ impl ::core::cmp::Eq for FWPM_SUBLAYER_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_SUBLAYER_INSPECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x877519e1_e6a9_41a5_81b4_8c4f118e4a60);
 pub const FWPM_SUBLAYER_IPSEC_DOSP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe076d572_5d3d_48ef_802b_909eddb098bd);
@@ -4697,7 +4512,6 @@ pub const FWPM_SUBLAYER_RPC_AUDIT: ::windows::core::GUID = ::windows::core::GUID
 pub const FWPM_SUBLAYER_SECURE_SOCKET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15a66e17_3f3c_4f7b_aa6c_812aa613dd82);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_SUBLAYER_ENUM_TEMPLATE0,
     pub flags: FWPM_SUBSCRIPTION_FLAGS,
@@ -4727,7 +4541,6 @@ pub const FWPM_SUBLAYER_TCP_CHIMNEY_OFFLOAD: ::windows::core::GUID = ::windows::
 pub const FWPM_SUBLAYER_TCP_TEMPLATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24421dcf_0ac5_4caa_9e14_50f6e3636af0);
 pub const FWPM_SUBLAYER_TEREDO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba69dc66_5176_4979_9c89_26a7b46a8327);
 pub const FWPM_SUBLAYER_UNIVERSAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeebecc03_ced4_4380_819a_2734397b2b74);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_SUBSCRIPTION_FLAGS(pub u32);
@@ -4771,7 +4584,6 @@ impl ::core::ops::Not for FWPM_SUBSCRIPTION_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SYSTEM_PORTS0 {
     pub numTypes: u32,
     pub types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
@@ -4798,7 +4610,6 @@ unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORTS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
     pub r#type: FWPM_SYSTEM_PORT_TYPE,
     pub numPorts: u32,
@@ -4824,9 +4635,7 @@ impl ::core::cmp::Eq for FWPM_SYSTEM_PORTS_BY_TYPE0 {}
 unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_SYSTEM_PORTS_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_SYSTEM_PORT_TYPE(pub i32);
@@ -4843,18 +4652,13 @@ impl ::core::convert::From<i32> for FWPM_SYSTEM_PORT_TYPE {
 unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TUNNEL_FLAG_ENABLE_VIRTUAL_IF_TUNNELING: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TUNNEL_FLAG_POINT_TO_POINT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TUNNEL_FLAG_RESERVED0: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_VSWITCH_EVENT0 {
     pub eventType: FWPM_VSWITCH_EVENT_TYPE,
     pub vSwitchId: super::super::Foundation::PWSTR,
@@ -4974,12 +4778,10 @@ impl ::core::cmp::Eq for FWPM_VSWITCH_EVENT0_0_1 {}
 unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT0_0_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FWPM_VSWITCH_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     pub flags: u32,
     pub sessionKey: ::windows::core::GUID,
@@ -5004,7 +4806,6 @@ impl ::core::cmp::Eq for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {}
 unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_VSWITCH_EVENT_TYPE(pub i32);
@@ -5022,155 +4823,80 @@ impl ::core::convert::From<i32> for FWPM_VSWITCH_EVENT_TYPE {
 unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_WEIGHT_RANGE_IKE_EXEMPTIONS: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_WEIGHT_RANGE_IPSEC: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_ALE_ENDPOINT_FLAG_IPSEC_SECURED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_ABSORB: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_ALE_FAST_CACHE_CHECK: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_ALE_FAST_CACHE_POSSIBLE: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_BUFFER_LIMIT_REACHED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_NO_MORE_DATA: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_CLEAR_ACTION_RIGHT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_OR_CONDITIONS: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_RESERVED0: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_RESERVED1: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_SILENT_MODE: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_ABSORB: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_CACHE_SAFE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_CONNECTION_FAILING_INDICATION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_ENFORCE_QUERY: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_IS_LOCAL_ONLY_FLOW: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_IS_LOOSE_SOURCE_FLOW: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_MID_STREAM_INSPECTION: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_RECLASSIFY: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_RESERVED0: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_INCOMING_FLAG_IS_RAW_IPV4_FRAMING: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_INCOMING_FLAG_IS_RAW_IPV6_FRAMING: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_INCOMING_FLAG_RECLASSIFY_MULTI_DESTINATION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_ETHERNET_MAC_HEADER_SIZE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_RESERVED: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_DESTINATION_PORT_ID: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_PACKET_CONTEXT: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_SOURCE_NIC_INDEX: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_SOURCE_PORT_ID: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_WIFI_OPERATION_MODE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ALE_CLASSIFY_REQUIRED: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_COMPARTMENT_ID: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_COMPLETION_HANDLE: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_DESTINATION_INTERFACE_INDEX: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_DESTINATION_PREFIX: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_DISCARD_REASON: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ETHER_FRAME_LENGTH: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FLOW_HANDLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FORWARD_LAYER_INBOUND_PASS_THRU: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FORWARD_LAYER_OUTBOUND_PASS_THRU: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FRAGMENT_DATA: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ICMP_ID_AND_SEQUENCE: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_IP_HEADER_SIZE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_LOCAL_REDIRECT_TARGET_PID: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ORIGINAL_DESTINATION: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PACKET_DIRECTION: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PACKET_SYSTEM_CRITICAL: u32 = 524288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PARENT_ENDPOINT_HANDLE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PATH_MTU: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PROCESS_ID: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PROCESS_PATH: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_REDIRECT_RECORD_HANDLE: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_REMOTE_SCOPE_ID: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_RESERVED: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_SOURCE_INTERFACE_INDEX: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_SUB_PROCESS_TAG: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_SYSTEM_FLAGS: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TOKEN: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_CONTROL_DATA: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_ENDPOINT_HANDLE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_HEADER_INCLUDE_HEADER: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_HEADER_SIZE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_RIGHT_ACTION_WRITE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_FLAG_CALLOUT: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_FLAG_NON_TERMINATING: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_FLAG_TERMINATING: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_NONE: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_NONE_NO_MATCH: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTRL_MATCH_FILTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_AF(pub i32);
@@ -5186,11 +4912,9 @@ impl ::core::convert::From<i32> for FWP_AF {
 unsafe impl ::windows::core::Abi for FWP_AF {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_BYTEMAP_ARRAY64_SIZE: u32 = 8u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_BYTE_ARRAY16 {
     pub byteArray16: [u8; 16],
 }
@@ -5216,7 +4940,6 @@ unsafe impl ::windows::core::Abi for FWP_BYTE_ARRAY16 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_BYTE_ARRAY6 {
     pub byteArray6: [u8; 6],
 }
@@ -5240,11 +4963,9 @@ impl ::core::cmp::Eq for FWP_BYTE_ARRAY6 {}
 unsafe impl ::windows::core::Abi for FWP_BYTE_ARRAY6 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_BYTE_ARRAY6_SIZE: u32 = 6u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_BYTE_BLOB {
     pub size: u32,
     pub data: *mut u8,
@@ -5269,29 +4990,17 @@ impl ::core::cmp::Eq for FWP_BYTE_BLOB {}
 unsafe impl ::windows::core::Abi for FWP_BYTE_BLOB {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_MID_STREAM_INSPECTION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_OFFLOAD: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_RECLASSIFY: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_RSC: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_URO: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_USO: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_CONDITIONAL_ON_FLOW: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ENABLE_COMMIT_ADD_NOTIFY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_RESERVED1: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_RESERVED2: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_CLASSIFY_OPTION_TYPE(pub i32);
@@ -5312,102 +5021,55 @@ impl ::core::convert::From<i32> for FWP_CLASSIFY_OPTION_TYPE {
 unsafe impl ::windows::core::Abi for FWP_CLASSIFY_OPTION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_APPCONTAINER_LOOPBACK: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_AUTH_FW: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_CONNECTION_REDIRECTED: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_FRAGMENT: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_FRAGMENT_GROUP: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_HONORING_POLICY_AUTHORIZE: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_IMPLICIT_BIND: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_INBOUND_PASS_THRU: u32 = 524288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_IPSEC_NATT_RECLASSIFY: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_IPSEC_SECURED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_LOOPBACK: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_NAME_APP_SPECIFIED: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_NON_APPCONTAINER_LOOPBACK: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_OUTBOUND_PASS_THRU: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_PROMISCUOUS: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_PROXY_CONNECTION: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_RAW_ENDPOINT: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_REASSEMBLED: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_REAUTHORIZE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_RECLASSIFY: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_RESERVED: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_WILDCARD_BIND: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_REQUIRES_ALE_CLASSIFY: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IF_CONNECTOR_PRESENT: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_IP_FRAGMENT_GROUP: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_MALFORMED_PACKET: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_MOBILE_BROADBAND: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_NATIVE_ETHERNET: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_VM2VM: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_WIFI: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_WIFI_DIRECT_DATA: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_CHECK_OFFLOAD: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_CLASSIFY_COMPLETION: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_EDP_POLICY_CHANGED: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_IPSEC_PROPERTIES_CHANGED: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_MID_STREAM_INSPECTION: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_NEW_ARRIVAL_INTERFACE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_NEW_INBOUND_MCAST_BCAST_PACKET: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_NEW_NEXTHOP_INTERFACE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_POLICY_CHANGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_PROFILE_CROSSING: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_PROXY_HANDLE_CHANGED: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_SOCKET_PROPERTY_CHANGED: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWP_CONDITION_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_CONDITION_VALUE0_0,
@@ -5478,7 +5140,6 @@ impl ::core::cmp::Eq for FWP_CONDITION_VALUE0_0 {}
 unsafe impl ::windows::core::Abi for FWP_CONDITION_VALUE0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_DATA_TYPE(pub i32);
@@ -5514,7 +5175,6 @@ impl ::core::convert::From<i32> for FWP_DATA_TYPE {
 unsafe impl ::windows::core::Abi for FWP_DATA_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_DIRECTION(pub i32);
@@ -5529,7 +5189,6 @@ impl ::core::convert::From<i32> for FWP_DIRECTION {
 unsafe impl ::windows::core::Abi for FWP_DIRECTION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_ETHER_ENCAP_METHOD(pub i32);
@@ -5544,19 +5203,12 @@ impl ::core::convert::From<i32> for FWP_ETHER_ENCAP_METHOD {
 unsafe impl ::windows::core::Abi for FWP_ETHER_ENCAP_METHOD {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_BEST_TERMINATING_MATCH: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_BOOTTIME_ONLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_INCLUDE_BOOTTIME: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_INCLUDE_DISABLED: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_RESERVED1: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_SORTED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_FILTER_ENUM_TYPE(pub i32);
@@ -5571,7 +5223,6 @@ impl ::core::convert::From<i32> for FWP_FILTER_ENUM_TYPE {
 unsafe impl ::windows::core::Abi for FWP_FILTER_ENUM_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_IP_VERSION(pub i32);
@@ -5587,7 +5238,6 @@ impl ::core::convert::From<i32> for FWP_IP_VERSION {
 unsafe impl ::windows::core::Abi for FWP_IP_VERSION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_MATCH_TYPE(pub i32);
@@ -5613,24 +5263,16 @@ impl ::core::convert::From<i32> for FWP_MATCH_TYPE {
 unsafe impl ::windows::core::Abi for FWP_MATCH_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ALLOW_GLOBAL_MULTICAST_STATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ALLOW_MULTICAST_STATE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_DENY_MULTICAST_STATE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_DISABLE_LOCAL_ONLY_MAPPING: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWP_RANGE0 {
     pub valueLow: FWP_VALUE0,
     pub valueHigh: FWP_VALUE0,
@@ -5658,7 +5300,6 @@ unsafe impl ::windows::core::Abi for FWP_RANGE0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWP_TOKEN_INFORMATION {
     pub sidCount: u32,
     pub sids: *mut super::super::Security::SID_AND_ATTRIBUTES,
@@ -5693,7 +5334,6 @@ unsafe impl ::windows::core::Abi for FWP_TOKEN_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_V4_ADDR_AND_MASK {
     pub addr: u32,
     pub mask: u32,
@@ -5720,7 +5360,6 @@ unsafe impl ::windows::core::Abi for FWP_V4_ADDR_AND_MASK {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_V6_ADDR_AND_MASK {
     pub addr: [u8; 16],
     pub prefixLength: u8,
@@ -5745,12 +5384,10 @@ impl ::core::cmp::Eq for FWP_V6_ADDR_AND_MASK {}
 unsafe impl ::windows::core::Abi for FWP_V6_ADDR_AND_MASK {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct FWP_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_VALUE0_0,
@@ -5818,7 +5455,6 @@ impl ::core::cmp::Eq for FWP_VALUE0_0 {}
 unsafe impl ::windows::core::Abi for FWP_VALUE0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_VSWITCH_NETWORK_TYPE(pub i32);
@@ -5834,7 +5470,6 @@ impl ::core::convert::From<i32> for FWP_VSWITCH_NETWORK_TYPE {
 unsafe impl ::windows::core::Abi for FWP_VSWITCH_NETWORK_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, callout: *const FWPM_CALLOUT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u32) -> u32 {
@@ -5849,7 +5484,6 @@ pub unsafe fn FwpmCalloutAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -5864,7 +5498,6 @@ pub unsafe fn FwpmCalloutCreateEnumHandle0<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u32) -> u32 {
@@ -5879,7 +5512,6 @@ pub unsafe fn FwpmCalloutDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID) -> u32 {
@@ -5894,7 +5526,6 @@ pub unsafe fn FwpmCalloutDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -5909,7 +5540,6 @@ pub unsafe fn FwpmCalloutDestroyEnumHandle0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CALLOUT0, numentriesreturned: *mut u32) -> u32 {
@@ -5924,7 +5554,6 @@ pub unsafe fn FwpmCalloutEnum0<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutGetById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u32, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
@@ -5939,7 +5568,6 @@ pub unsafe fn FwpmCalloutGetById0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
@@ -5954,7 +5582,6 @@ pub unsafe fn FwpmCalloutGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -5978,7 +5605,6 @@ pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -5993,7 +5619,6 @@ pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_CALLOUT_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6008,7 +5633,6 @@ pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
@@ -6023,7 +5647,6 @@ pub unsafe fn FwpmCalloutSubscriptionsGet0<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutUnsubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
@@ -6038,7 +5661,6 @@ pub unsafe fn FwpmCalloutUnsubscribeChanges0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6053,7 +5675,6 @@ pub unsafe fn FwpmConnectionCreateEnumHandle0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -6068,7 +5689,6 @@ pub unsafe fn FwpmConnectionDestroyEnumHandle0<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CONNECTION0, numentriesreturned: *mut u32) -> u32 {
@@ -6083,7 +5703,6 @@ pub unsafe fn FwpmConnectionEnum0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionGetById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, connection: *mut *mut FWPM_CONNECTION0) -> u32 {
@@ -6098,7 +5717,6 @@ pub unsafe fn FwpmConnectionGetById0<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmConnectionGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6113,7 +5731,6 @@ pub unsafe fn FwpmConnectionGetSecurityInfo0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmConnectionSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -6128,7 +5745,6 @@ pub unsafe fn FwpmConnectionSetSecurityInfo0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_CONNECTION_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6143,7 +5759,6 @@ pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionUnsubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, eventshandle: Param1) -> u32 {
@@ -6158,7 +5773,6 @@ pub unsafe fn FwpmConnectionUnsubscribe0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::core::option::Option<FWPM_DYNAMIC_KEYWORD_CALLBACK0>, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6173,7 +5787,6 @@ pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::core::option:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmDynamicKeywordUnsubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(subscriptionhandle: Param0) -> u32 {
@@ -6188,7 +5801,6 @@ pub unsafe fn FwpmDynamicKeywordUnsubscribe0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmEngineClose0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0) -> u32 {
@@ -6203,7 +5815,6 @@ pub unsafe fn FwpmEngineClose0<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineGetOption0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32 {
@@ -6218,7 +5829,6 @@ pub unsafe fn FwpmEngineGetOption0<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6233,7 +5843,6 @@ pub unsafe fn FwpmEngineGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Rpc`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
 pub unsafe fn FwpmEngineOpen0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6248,7 +5857,6 @@ pub unsafe fn FwpmEngineOpen0<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineSetOption0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32 {
@@ -6263,7 +5871,6 @@ pub unsafe fn FwpmEngineSetOption0<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -6278,7 +5885,6 @@ pub unsafe fn FwpmEngineSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, filter: *const FWPM_FILTER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
@@ -6293,7 +5899,6 @@ pub unsafe fn FwpmFilterAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6308,7 +5913,6 @@ pub unsafe fn FwpmFilterCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
@@ -6323,7 +5927,6 @@ pub unsafe fn FwpmFilterDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID) -> u32 {
@@ -6338,7 +5941,6 @@ pub unsafe fn FwpmFilterDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -6353,7 +5955,6 @@ pub unsafe fn FwpmFilterDestroyEnumHandle0<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_FILTER0, numentriesreturned: *mut u32) -> u32 {
@@ -6368,7 +5969,6 @@ pub unsafe fn FwpmFilterEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, filter: *mut *mut FWPM_FILTER0) -> u32 {
@@ -6383,7 +5983,6 @@ pub unsafe fn FwpmFilterGetById0<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, filter: *mut *mut FWPM_FILTER0) -> u32 {
@@ -6398,7 +5997,6 @@ pub unsafe fn FwpmFilterGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6422,7 +6020,6 @@ pub unsafe fn FwpmFilterGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -6437,7 +6034,6 @@ pub unsafe fn FwpmFilterSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_FILTER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6452,7 +6048,6 @@ pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
@@ -6467,7 +6062,6 @@ pub unsafe fn FwpmFilterSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterUnsubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
@@ -6482,7 +6076,6 @@ pub unsafe fn FwpmFilterUnsubscribeChanges0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[inline]
 pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -6496,7 +6089,6 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, appid: *mut *mut FWP_BYTE_BLOB) -> u32 {
@@ -6511,7 +6103,6 @@ pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6526,7 +6117,6 @@ pub unsafe fn FwpmIPsecTunnelAdd0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6550,7 +6140,6 @@ pub unsafe fn FwpmIPsecTunnelAdd1<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6574,7 +6163,6 @@ pub unsafe fn FwpmIPsecTunnelAdd2<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT3_, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3_, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6598,7 +6186,6 @@ pub unsafe fn FwpmIPsecTunnelAdd3<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID) -> u32 {
@@ -6613,7 +6200,6 @@ pub unsafe fn FwpmIPsecTunnelDeleteByKey0<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6628,7 +6214,6 @@ pub unsafe fn FwpmLayerCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -6643,7 +6228,6 @@ pub unsafe fn FwpmLayerDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_LAYER0, numentriesreturned: *mut u32) -> u32 {
@@ -6658,7 +6242,6 @@ pub unsafe fn FwpmLayerEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerGetById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u16, layer: *mut *mut FWPM_LAYER0) -> u32 {
@@ -6673,7 +6256,6 @@ pub unsafe fn FwpmLayerGetById0<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, layer: *mut *mut FWPM_LAYER0) -> u32 {
@@ -6688,7 +6270,6 @@ pub unsafe fn FwpmLayerGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmLayerGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6712,7 +6293,6 @@ pub unsafe fn FwpmLayerGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmLayerSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -6727,7 +6307,6 @@ pub unsafe fn FwpmLayerSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6742,7 +6321,6 @@ pub unsafe fn FwpmNetEventCreateEnumHandle0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmNetEventDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -6757,7 +6335,6 @@ pub unsafe fn FwpmNetEventDestroyEnumHandle0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned: *mut u32) -> u32 {
@@ -6772,7 +6349,6 @@ pub unsafe fn FwpmNetEventEnum0<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned: *mut u32) -> u32 {
@@ -6787,7 +6363,6 @@ pub unsafe fn FwpmNetEventEnum1<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned: *mut u32) -> u32 {
@@ -6802,7 +6377,6 @@ pub unsafe fn FwpmNetEventEnum2<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned: *mut u32) -> u32 {
@@ -6817,7 +6391,6 @@ pub unsafe fn FwpmNetEventEnum3<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4_, numentriesreturned: *mut u32) -> u32 {
@@ -6832,7 +6405,6 @@ pub unsafe fn FwpmNetEventEnum4<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum5<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5_, numentriesreturned: *mut u32) -> u32 {
@@ -6847,7 +6419,6 @@ pub unsafe fn FwpmNetEventEnum5<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6862,7 +6433,6 @@ pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK1>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6877,7 +6447,6 @@ pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK2>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6892,7 +6461,6 @@ pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK3>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6907,7 +6475,6 @@ pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK4>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6922,7 +6489,6 @@ pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
@@ -6937,7 +6503,6 @@ pub unsafe fn FwpmNetEventSubscriptionsGet0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmNetEventUnsubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, eventshandle: Param1) -> u32 {
@@ -6952,7 +6517,6 @@ pub unsafe fn FwpmNetEventUnsubscribe0<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventsGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6967,7 +6531,6 @@ pub unsafe fn FwpmNetEventsGetSecurityInfo0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventsSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -6982,7 +6545,6 @@ pub unsafe fn FwpmNetEventsSetSecurityInfo0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, provider: *const FWPM_PROVIDER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -6997,7 +6559,6 @@ pub unsafe fn FwpmProviderAdd0<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
@@ -7012,7 +6573,6 @@ pub unsafe fn FwpmProviderContextAdd0<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT1, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
@@ -7027,7 +6587,6 @@ pub unsafe fn FwpmProviderContextAdd1<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT2, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
@@ -7042,7 +6601,6 @@ pub unsafe fn FwpmProviderContextAdd2<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT3_, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
@@ -7057,7 +6615,6 @@ pub unsafe fn FwpmProviderContextAdd3<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7072,7 +6629,6 @@ pub unsafe fn FwpmProviderContextCreateEnumHandle0<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
@@ -7087,7 +6643,6 @@ pub unsafe fn FwpmProviderContextDeleteById0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID) -> u32 {
@@ -7102,7 +6657,6 @@ pub unsafe fn FwpmProviderContextDeleteByKey0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -7117,7 +6671,6 @@ pub unsafe fn FwpmProviderContextDestroyEnumHandle0<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
@@ -7132,7 +6685,6 @@ pub unsafe fn FwpmProviderContextEnum0<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
@@ -7147,7 +6699,6 @@ pub unsafe fn FwpmProviderContextEnum1<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned: *mut u32) -> u32 {
@@ -7162,7 +6713,6 @@ pub unsafe fn FwpmProviderContextEnum2<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3_, numentriesreturned: *mut u32) -> u32 {
@@ -7177,7 +6727,6 @@ pub unsafe fn FwpmProviderContextEnum3<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
@@ -7192,7 +6741,6 @@ pub unsafe fn FwpmProviderContextGetById0<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
@@ -7207,7 +6755,6 @@ pub unsafe fn FwpmProviderContextGetById1<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
@@ -7222,7 +6769,6 @@ pub unsafe fn FwpmProviderContextGetById2<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32 {
@@ -7237,7 +6783,6 @@ pub unsafe fn FwpmProviderContextGetById3<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
@@ -7252,7 +6797,6 @@ pub unsafe fn FwpmProviderContextGetByKey0<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
@@ -7267,7 +6811,6 @@ pub unsafe fn FwpmProviderContextGetByKey1<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
@@ -7282,7 +6825,6 @@ pub unsafe fn FwpmProviderContextGetByKey2<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey3<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32 {
@@ -7297,7 +6839,6 @@ pub unsafe fn FwpmProviderContextGetByKey3<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -7321,7 +6862,6 @@ pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -7336,7 +6876,6 @@ pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7351,7 +6890,6 @@ pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
@@ -7366,7 +6904,6 @@ pub unsafe fn FwpmProviderContextSubscriptionsGet0<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextUnsubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
@@ -7381,7 +6918,6 @@ pub unsafe fn FwpmProviderContextUnsubscribeChanges0<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7396,7 +6932,6 @@ pub unsafe fn FwpmProviderCreateEnumHandle0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID) -> u32 {
@@ -7411,7 +6946,6 @@ pub unsafe fn FwpmProviderDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -7426,7 +6960,6 @@ pub unsafe fn FwpmProviderDestroyEnumHandle0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER0, numentriesreturned: *mut u32) -> u32 {
@@ -7441,7 +6974,6 @@ pub unsafe fn FwpmProviderEnum0<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, provider: *mut *mut FWPM_PROVIDER0) -> u32 {
@@ -7456,7 +6988,6 @@ pub unsafe fn FwpmProviderGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -7480,7 +7011,6 @@ pub unsafe fn FwpmProviderGetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -7495,7 +7025,6 @@ pub unsafe fn FwpmProviderSetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_PROVIDER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7510,7 +7039,6 @@ pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
@@ -7525,7 +7053,6 @@ pub unsafe fn FwpmProviderSubscriptionsGet0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderUnsubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
@@ -7540,7 +7067,6 @@ pub unsafe fn FwpmProviderUnsubscribeChanges0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSessionCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7555,7 +7081,6 @@ pub unsafe fn FwpmSessionCreateEnumHandle0<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSessionDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -7570,7 +7095,6 @@ pub unsafe fn FwpmSessionDestroyEnumHandle0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSessionEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SESSION0, numentriesreturned: *mut u32) -> u32 {
@@ -7585,7 +7109,6 @@ pub unsafe fn FwpmSessionEnum0<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerAdd0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, sublayer: *const FWPM_SUBLAYER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -7600,7 +7123,6 @@ pub unsafe fn FwpmSubLayerAdd0<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7615,7 +7137,6 @@ pub unsafe fn FwpmSubLayerCreateEnumHandle0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID) -> u32 {
@@ -7630,7 +7151,6 @@ pub unsafe fn FwpmSubLayerDeleteByKey0<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -7645,7 +7165,6 @@ pub unsafe fn FwpmSubLayerDestroyEnumHandle0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned: *mut u32) -> u32 {
@@ -7660,7 +7179,6 @@ pub unsafe fn FwpmSubLayerEnum0<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, sublayer: *mut *mut FWPM_SUBLAYER0) -> u32 {
@@ -7675,7 +7193,6 @@ pub unsafe fn FwpmSubLayerGetByKey0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -7699,7 +7216,6 @@ pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -7714,7 +7230,6 @@ pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_SUBLAYER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7729,7 +7244,6 @@ pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
@@ -7744,7 +7258,6 @@ pub unsafe fn FwpmSubLayerSubscriptionsGet0<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerUnsubscribeChanges0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
@@ -7759,7 +7272,6 @@ pub unsafe fn FwpmSubLayerUnsubscribeChanges0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, sysports: *mut *mut FWPM_SYSTEM_PORTS0) -> u32 {
@@ -7774,7 +7286,6 @@ pub unsafe fn FwpmSystemPortsGet0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *mut ::core::ffi::c_void, callback: ::core::option::Option<FWPM_SYSTEM_PORTS_CALLBACK0>, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7789,7 +7300,6 @@ pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsUnsubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, sysportshandle: Param1) -> u32 {
@@ -7804,7 +7314,6 @@ pub unsafe fn FwpmSystemPortsUnsubscribe0<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionAbort0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0) -> u32 {
@@ -7819,7 +7328,6 @@ pub unsafe fn FwpmTransactionAbort0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionBegin0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32) -> u32 {
@@ -7834,7 +7342,6 @@ pub unsafe fn FwpmTransactionBegin0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionCommit0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0) -> u32 {
@@ -7849,7 +7356,6 @@ pub unsafe fn FwpmTransactionCommit0<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_VSWITCH_EVENT_CALLBACK0>, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -7864,7 +7370,6 @@ pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmvSwitchEventUnsubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscriptionhandle: Param1) -> u32 {
@@ -7879,7 +7384,6 @@ pub unsafe fn FwpmvSwitchEventUnsubscribe0<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -7894,7 +7398,6 @@ pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -7909,7 +7412,6 @@ pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP4_TIME_EXCEED_CODE(pub i32);
@@ -7923,7 +7425,6 @@ impl ::core::convert::From<i32> for ICMP4_TIME_EXCEED_CODE {
 unsafe impl ::windows::core::Abi for ICMP4_TIME_EXCEED_CODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP4_UNREACH_CODE(pub i32);
@@ -7949,29 +7450,18 @@ impl ::core::convert::From<i32> for ICMP4_UNREACH_CODE {
 unsafe impl ::windows::core::Abi for ICMP4_UNREACH_CODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_ADDR: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_ADMIN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_BEYONDSCOPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_NOPORT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_NOROUTE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_PARAMPROB_HEADER: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_PARAMPROB_NEXTHEADER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_PARAMPROB_OPTION: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_TIME_EXCEED_REASSEMBLY: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_TIME_EXCEED_TRANSIT: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_ADDRESS_MASK_MESSAGE {
     pub Header: ICMP_MESSAGE,
     pub AddressMask: u32,
@@ -7991,12 +7481,10 @@ impl ::core::cmp::Eq for ICMPV4_ADDRESS_MASK_MESSAGE {}
 unsafe impl ::windows::core::Abi for ICMPV4_ADDRESS_MASK_MESSAGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMPV4_INVALID_PREFERENCE_LEVEL: u32 = 2147483648u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct ICMPV4_ROUTER_ADVERT_ENTRY {
     pub RouterAdvertAddr: super::super::Networking::WinSock::IN_ADDR,
     pub PreferenceLevel: i32,
@@ -8023,7 +7511,6 @@ unsafe impl ::windows::core::Abi for ICMPV4_ROUTER_ADVERT_ENTRY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_ROUTER_ADVERT_HEADER {
     pub RaHeader: ICMP_MESSAGE,
 }
@@ -8044,7 +7531,6 @@ unsafe impl ::windows::core::Abi for ICMPV4_ROUTER_ADVERT_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_ROUTER_SOLICIT {
     pub RsHeader: ICMP_MESSAGE,
 }
@@ -8065,7 +7551,6 @@ unsafe impl ::windows::core::Abi for ICMPV4_ROUTER_SOLICIT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_TIMESTAMP_MESSAGE {
     pub Header: ICMP_MESSAGE,
     pub OriginateTimestamp: u32,
@@ -8087,11 +7572,9 @@ impl ::core::cmp::Eq for ICMPV4_TIMESTAMP_MESSAGE {}
 unsafe impl ::windows::core::Abi for ICMPV4_TIMESTAMP_MESSAGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMPV6_ECHO_REQUEST_FLAG_REVERSE: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMP_HEADER {
     pub Type: u8,
     pub Code: u8,
@@ -8119,7 +7602,6 @@ unsafe impl ::windows::core::Abi for ICMP_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMP_MESSAGE {
     pub Header: ICMP_HEADER,
     pub Data: ICMP_MESSAGE_0,
@@ -8141,7 +7623,6 @@ unsafe impl ::windows::core::Abi for ICMP_MESSAGE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union ICMP_MESSAGE_0 {
     pub Data32: [u32; 1],
     pub Data16: [u16; 2],
@@ -8165,7 +7646,6 @@ unsafe impl ::windows::core::Abi for ICMP_MESSAGE_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct IGMPV3_QUERY_HEADER {
     pub Type: u8,
     pub Anonymous1: IGMPV3_QUERY_HEADER_0,
@@ -8315,7 +7795,6 @@ unsafe impl ::windows::core::Abi for IGMPV3_QUERY_HEADER_1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IGMPV3_REPORT_HEADER {
     pub Type: u8,
     pub Reserved: u8,
@@ -8346,7 +7825,6 @@ unsafe impl ::windows::core::Abi for IGMPV3_REPORT_HEADER {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct IGMPV3_REPORT_RECORD_HEADER {
     pub Type: u8,
     pub AuxillaryDataLength: u8,
@@ -8376,7 +7854,6 @@ unsafe impl ::windows::core::Abi for IGMPV3_REPORT_RECORD_HEADER {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct IGMP_HEADER {
     pub Anonymous1: IGMP_HEADER_0,
     pub Anonymous2: IGMP_HEADER_1,
@@ -8490,9 +7967,7 @@ impl ::core::cmp::Eq for IGMP_HEADER_1 {}
 unsafe impl ::windows::core::Abi for IGMP_HEADER_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_LEAVE_GROUP_TYPE: u32 = 23u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IGMP_MAX_RESP_CODE_TYPE(pub i32);
@@ -8506,15 +7981,10 @@ impl ::core::convert::From<i32> for IGMP_MAX_RESP_CODE_TYPE {
 unsafe impl ::windows::core::Abi for IGMP_MAX_RESP_CODE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_QUERY_TYPE: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION1_REPORT_TYPE: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION2_REPORT_TYPE: u32 = 22u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION3_REPORT_TYPE: u32 = 34u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(pub i32);
@@ -8532,7 +8002,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0,
@@ -8591,7 +8060,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0,
@@ -8651,7 +8119,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD1_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0,
@@ -8709,7 +8176,6 @@ impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD2_0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD2_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_AUTHENTICATION_METHOD_TYPE(pub i32);
@@ -8737,7 +8203,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION0_0,
@@ -8762,7 +8227,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0,
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8785,7 +8249,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8812,7 +8275,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0,
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8835,7 +8297,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8862,7 +8323,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION1_0,
@@ -8888,7 +8348,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0,
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8911,7 +8370,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8938,7 +8396,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0,
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8961,7 +8418,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -8989,7 +8445,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0,
@@ -9274,7 +8729,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
     pub subjectName: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
@@ -9302,7 +8756,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_CREDENTIAL0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
     pub subjectName: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
@@ -9332,7 +8785,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_CREDENTIAL1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub certData: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
@@ -9366,7 +8818,6 @@ impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_CRITERIA0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_CRITERIA0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_AUTH(pub u32);
@@ -9411,11 +8862,8 @@ impl ::core::ops::Not for IKEEXT_CERT_AUTH {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_CONFIG_TYPE(pub i32);
@@ -9432,9 +8880,7 @@ impl ::core::convert::From<i32> for IKEEXT_CERT_CONFIG_TYPE {
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_CONFIG_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_CRITERIA_NAME_TYPE(pub i32);
@@ -9457,7 +8903,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERT_CRITERIA_NAME_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERT_EKUS0 {
     pub numEku: u32,
     pub eku: *mut super::super::Foundation::PSTR,
@@ -9488,7 +8933,6 @@ impl ::core::cmp::Eq for IKEEXT_CERT_EKUS0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_EKUS0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_FLAGS(pub u32);
@@ -9537,12 +8981,10 @@ impl ::core::ops::Not for IKEEXT_CERT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERT_NAME0 {
     pub nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
     pub certName: super::super::Foundation::PWSTR,
@@ -9575,7 +9017,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERT_NAME0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERT_ROOT_CONFIG0 {
     pub certData: FWP_BYTE_BLOB,
     pub flags: IKEEXT_CERT_FLAGS,
@@ -9602,7 +9043,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CERT_ROOT_CONFIG0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CIPHER_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_CIPHER_TYPE,
     pub keyLen: u32,
@@ -9628,7 +9068,6 @@ impl ::core::cmp::Eq for IKEEXT_CIPHER_ALGORITHM0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_CIPHER_ALGORITHM0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CIPHER_TYPE(pub i32);
@@ -9650,7 +9089,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CIPHER_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_COMMON_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
@@ -9686,7 +9124,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_COMMON_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_COMMON_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
@@ -9722,7 +9159,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_COMMON_STATISTICS1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_COOKIE_PAIR0 {
     pub initiator: u64,
     pub responder: u64,
@@ -9750,7 +9186,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_COOKIE_PAIR0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIAL0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
@@ -9807,7 +9242,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIAL1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
@@ -9864,7 +9298,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL1_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIAL2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
@@ -9921,7 +9354,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL2_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIALS0 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
@@ -9955,7 +9387,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIALS1 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
@@ -9989,7 +9420,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIALS2 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
@@ -10023,7 +9453,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS2 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIAL_PAIR0 {
     pub localCredentials: IKEEXT_CREDENTIAL0,
     pub peerCredentials: IKEEXT_CREDENTIAL0,
@@ -10051,7 +9480,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIAL_PAIR1 {
     pub localCredentials: IKEEXT_CREDENTIAL1,
     pub peerCredentials: IKEEXT_CREDENTIAL1,
@@ -10079,7 +9507,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CREDENTIAL_PAIR2 {
     pub localCredentials: IKEEXT_CREDENTIAL2,
     pub peerCredentials: IKEEXT_CREDENTIAL2,
@@ -10104,7 +9531,6 @@ impl ::core::cmp::Eq for IKEEXT_CREDENTIAL_PAIR2 {}
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_DH_GROUP(pub i32);
@@ -10127,7 +9553,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_DH_GROUP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_EAP_AUTHENTICATION0 {
     pub flags: IKEEXT_EAP_AUTHENTICATION_FLAGS,
 }
@@ -10151,7 +9576,6 @@ impl ::core::cmp::Eq for IKEEXT_EAP_AUTHENTICATION0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_EAP_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_EAP_AUTHENTICATION_FLAGS(pub u32);
@@ -10196,7 +9620,6 @@ impl ::core::ops::Not for IKEEXT_EAP_AUTHENTICATION_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_EM_POLICY0 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
@@ -10231,7 +9654,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_EM_POLICY1 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
@@ -10266,7 +9688,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_EM_POLICY2 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
@@ -10298,7 +9719,6 @@ impl ::core::cmp::Eq for IKEEXT_EM_POLICY2 {}
 unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_EM_SA_STATE(pub i32);
@@ -10319,7 +9739,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_EM_SA_STATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_INTEGRITY_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_INTEGRITY_TYPE,
 }
@@ -10343,7 +9762,6 @@ impl ::core::cmp::Eq for IKEEXT_INTEGRITY_ALGORITHM0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_INTEGRITY_ALGORITHM0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_INTEGRITY_TYPE(pub i32);
@@ -10363,7 +9781,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_INTEGRITY_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     pub keyContainerName: super::super::Foundation::PWSTR,
     pub cspName: super::super::Foundation::PWSTR,
@@ -10399,7 +9816,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
@@ -10426,7 +9842,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTIC
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
@@ -10453,7 +9868,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTIC
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -10532,7 +9946,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATIS
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -10611,7 +10024,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATIS
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
 }
@@ -10638,7 +10050,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
     pub proxyServer: super::super::Foundation::PWSTR,
@@ -10669,7 +10080,6 @@ impl ::core::cmp::Eq for IKEEXT_KERBEROS_AUTHENTICATION1 {}
 unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(pub u32);
@@ -10711,11 +10121,9 @@ impl ::core::ops::Not for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_KEYMODULE_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
@@ -10753,7 +10161,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_KEYMODULE_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_KEYMODULE_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
@@ -10789,7 +10196,6 @@ impl ::core::cmp::Eq for IKEEXT_KEYMODULE_STATISTICS1 {}
 unsafe impl ::windows::core::Abi for IKEEXT_KEYMODULE_STATISTICS1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_KEY_MODULE_TYPE(pub i32);
@@ -10805,7 +10211,6 @@ impl ::core::convert::From<i32> for IKEEXT_KEY_MODULE_TYPE {
 unsafe impl ::windows::core::Abi for IKEEXT_KEY_MODULE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_MM_SA_STATE(pub i32);
@@ -10827,7 +10232,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_MM_SA_STATE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_NAME_CREDENTIAL0 {
     pub principalName: super::super::Foundation::PWSTR,
 }
@@ -10859,7 +10263,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_NAME_CREDENTIAL0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
     pub flags: u32,
 }
@@ -10883,12 +10286,10 @@ impl ::core::cmp::Eq for IKEEXT_NTLM_V2_AUTHENTICATION0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_NTLM_V2_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_POLICY0 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -10937,7 +10338,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_POLICY0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_POLICY1 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -10988,7 +10388,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_POLICY1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_POLICY2 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -11036,9 +10435,7 @@ impl ::core::cmp::Eq for IKEEXT_POLICY2 {}
 unsafe impl ::windows::core::Abi for IKEEXT_POLICY2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_POLICY_FLAG(pub u32);
@@ -11082,17 +10479,12 @@ impl ::core::ops::Not for IKEEXT_POLICY_FLAG {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_FLAG_IMS_VPN: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     pub presharedKey: FWP_BYTE_BLOB,
 }
@@ -11118,7 +10510,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     pub presharedKey: FWP_BYTE_BLOB,
     pub flags: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS,
@@ -11143,7 +10534,6 @@ impl ::core::cmp::Eq for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {}
 unsafe impl ::windows::core::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(pub u32);
@@ -11187,7 +10577,6 @@ impl ::core::ops::Not for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_PROPOSAL0 {
     pub cipherAlgorithm: IKEEXT_CIPHER_ALGORITHM0,
     pub integrityAlgorithm: IKEEXT_INTEGRITY_ALGORITHM0,
@@ -11215,7 +10604,6 @@ impl ::core::cmp::Eq for IKEEXT_PROPOSAL0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_PROPOSAL0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_QM_SA_STATE(pub i32);
@@ -11234,7 +10622,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_QM_SA_STATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_RESERVED_AUTHENTICATION0 {
     pub flags: IKEEXT_RESERVED_AUTHENTICATION_FLAGS,
 }
@@ -11258,7 +10645,6 @@ impl ::core::cmp::Eq for IKEEXT_RESERVED_AUTHENTICATION0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_RESERVED_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION_FLAGS(pub u32);
@@ -11302,7 +10688,6 @@ impl ::core::ops::Not for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_SA_DETAILS0 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -11364,7 +10749,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_SA_DETAILS1 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -11427,7 +10811,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS1_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_SA_DETAILS2 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -11490,7 +10873,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS2_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IKEEXT_SA_ENUM_TEMPLATE0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
     pub remoteSubNet: FWP_CONDITION_VALUE0,
@@ -11516,7 +10898,6 @@ impl ::core::cmp::Eq for IKEEXT_SA_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for IKEEXT_SA_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_SA_ROLE(pub i32);
@@ -11533,7 +10914,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_SA_ROLE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_STATISTICS0 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS0,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS0,
@@ -11561,7 +10941,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_STATISTICS1 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS1,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS1,
@@ -11590,7 +10969,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_STATISTICS1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_TRAFFIC0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IKEEXT_TRAFFIC0_0,
@@ -11614,7 +10992,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_TRAFFIC0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
@@ -11636,7 +11013,6 @@ unsafe impl ::windows::core::Abi for IKEEXT_TRAFFIC0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
@@ -11656,31 +11032,19 @@ impl ::core::cmp::Eq for IKEEXT_TRAFFIC0_1 {}
 unsafe impl ::windows::core::Abi for IKEEXT_TRAFFIC0_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IN6_EMBEDDEDV4_BITS_IN_BYTE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IN6_EMBEDDEDV4_UOCTET_POSITION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP4_OFF_MASK: u32 = 65311u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6F_MORE_FRAG: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6F_OFF_MASK: u32 = 63743u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6F_RESERVED_MASK: u32 = 1536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_MUTABLE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_DISCARD: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_FORCEICMP: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_ICMP: u32 = 192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_SKIP: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_ADDRESS_INFO0 {
     pub numV4Addresses: u32,
     pub v4Addresses: *mut u32,
@@ -11709,7 +11073,6 @@ unsafe impl ::windows::core::Abi for IPSEC_ADDRESS_INFO0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -11761,7 +11124,6 @@ unsafe impl ::windows::core::Abi for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -11816,7 +11178,6 @@ unsafe impl ::windows::core::Abi for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub activeSas: u32,
     pub pendingSaNegotiations: u32,
@@ -11856,7 +11217,6 @@ unsafe impl ::windows::core::Abi for IPSEC_AGGREGATE_SA_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub authenticationFailuresOnInbound: u32,
@@ -11890,7 +11250,6 @@ unsafe impl ::windows::core::Abi for IPSEC_AH_DROP_PACKET_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
@@ -11915,23 +11274,15 @@ impl ::core::cmp::Eq for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {}
 unsafe impl ::windows::core::Abi for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_GCM_AES_128: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_GCM_AES_192: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_GCM_AES_256: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_HMAC_MD5_96: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_HMAC_SHA_1_96: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_HMAC_SHA_256_128: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_MAX: u32 = 6u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AUTH_TRANSFORM0 {
     pub authTransformId: IPSEC_AUTH_TRANSFORM_ID0,
     pub cryptoModuleId: *mut ::windows::core::GUID,
@@ -11958,7 +11309,6 @@ unsafe impl ::windows::core::Abi for IPSEC_AUTH_TRANSFORM0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AUTH_TRANSFORM_ID0 {
     pub authType: IPSEC_AUTH_TYPE,
     pub authConfig: u8,
@@ -11983,7 +11333,6 @@ impl ::core::cmp::Eq for IPSEC_AUTH_TRANSFORM_ID0 {}
 unsafe impl ::windows::core::Abi for IPSEC_AUTH_TRANSFORM_ID0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_AUTH_TYPE(pub i32);
@@ -12002,27 +11351,17 @@ impl ::core::convert::From<i32> for IPSEC_AUTH_TYPE {
 unsafe impl ::windows::core::Abi for IPSEC_AUTH_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_3DES: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_128: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_192: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_256: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_DES: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_128: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_192: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_256: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_MAX: u32 = 9u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_CIPHER_TRANSFORM0 {
     pub cipherTransformId: IPSEC_CIPHER_TRANSFORM_ID0,
     pub cryptoModuleId: *mut ::windows::core::GUID,
@@ -12049,7 +11388,6 @@ unsafe impl ::windows::core::Abi for IPSEC_CIPHER_TRANSFORM0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_CIPHER_TRANSFORM_ID0 {
     pub cipherType: IPSEC_CIPHER_TYPE,
     pub cipherConfig: u8,
@@ -12074,7 +11412,6 @@ impl ::core::cmp::Eq for IPSEC_CIPHER_TRANSFORM_ID0 {}
 unsafe impl ::windows::core::Abi for IPSEC_CIPHER_TRANSFORM_ID0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_CIPHER_TYPE(pub i32);
@@ -12092,9 +11429,7 @@ impl ::core::convert::From<i32> for IPSEC_CIPHER_TYPE {
 unsafe impl ::windows::core::Abi for IPSEC_CIPHER_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_DOSP_DSCP_DISABLE_VALUE: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_DOSP_FLAGS(pub u32);
@@ -12142,7 +11477,6 @@ impl ::core::ops::Not for IPSEC_DOSP_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_OPTIONS0 {
     pub stateIdleTimeoutSeconds: u32,
     pub perIPRateLimitQueueIdleTimeoutSeconds: u32,
@@ -12231,11 +11565,9 @@ impl ::core::cmp::Eq for IPSEC_DOSP_OPTIONS0 {}
 unsafe impl ::windows::core::Abi for IPSEC_DOSP_OPTIONS0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_STATE0 {
     pub publicHostV6Addr: [u8; 16],
     pub internalHostV6Addr: [u8; 16],
@@ -12271,7 +11603,6 @@ unsafe impl ::windows::core::Abi for IPSEC_DOSP_STATE0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     pub publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
     pub internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
@@ -12298,7 +11629,6 @@ unsafe impl ::windows::core::Abi for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_STATISTICS0 {
     pub totalStateEntriesCreated: u64,
     pub currentStateEntries: u64,
@@ -12377,7 +11707,6 @@ unsafe impl ::windows::core::Abi for IPSEC_DOSP_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -12411,7 +11740,6 @@ impl ::core::cmp::Eq for IPSEC_ESP_DROP_PACKET_STATISTICS0 {}
 unsafe impl ::windows::core::Abi for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_FAILURE_POINT(pub i32);
@@ -12429,7 +11757,6 @@ unsafe impl ::windows::core::Abi for IPSEC_FAILURE_POINT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_GETSPI0 {
     pub inboundIpsecTraffic: IPSEC_TRAFFIC0,
     pub ipVersion: FWP_IP_VERSION,
@@ -12453,7 +11780,6 @@ unsafe impl ::windows::core::Abi for IPSEC_GETSPI0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_GETSPI0_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
@@ -12474,7 +11800,6 @@ unsafe impl ::windows::core::Abi for IPSEC_GETSPI0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_GETSPI1 {
     pub inboundIpsecTraffic: IPSEC_TRAFFIC1,
     pub ipVersion: FWP_IP_VERSION,
@@ -12498,7 +11823,6 @@ unsafe impl ::windows::core::Abi for IPSEC_GETSPI1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_GETSPI1_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
@@ -12520,7 +11844,6 @@ unsafe impl ::windows::core::Abi for IPSEC_GETSPI1_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_ID0 {
     pub mmTargetName: super::super::Foundation::PWSTR,
     pub emTargetName: super::super::Foundation::PWSTR,
@@ -12557,7 +11880,6 @@ unsafe impl ::windows::core::Abi for IPSEC_ID0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_KEYING_POLICY0 {
     pub numKeyMods: u32,
     pub keyModKeys: *mut ::windows::core::GUID,
@@ -12584,7 +11906,6 @@ unsafe impl ::windows::core::Abi for IPSEC_KEYING_POLICY0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_KEYING_POLICY1 {
     pub numKeyMods: u32,
     pub keyModKeys: *mut ::windows::core::GUID,
@@ -12610,11 +11931,9 @@ impl ::core::cmp::Eq for IPSEC_KEYING_POLICY1 {}
 unsafe impl ::windows::core::Abi for IPSEC_KEYING_POLICY1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_KEYMODULE_STATE0 {
     pub keyModuleKey: ::windows::core::GUID,
     pub stateBlob: FWP_BYTE_BLOB,
@@ -12642,7 +11961,6 @@ unsafe impl ::windows::core::Abi for IPSEC_KEYMODULE_STATE0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_KEY_MANAGER0 {
     pub keyManagerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -12678,7 +11996,6 @@ unsafe impl ::windows::core::Abi for IPSEC_KEY_MANAGER0 {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: ::windows::core::GUID,
     pub flags: u32,
@@ -12712,18 +12029,13 @@ impl ::core::cmp::Eq for IPSEC_KEY_MANAGER_CALLBACKS0 {}
 unsafe impl ::windows::core::Abi for IPSEC_KEY_MANAGER_CALLBACKS0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut super::super::Foundation::BOOL, weight: *mut u32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_PFS_GROUP(pub i32);
@@ -12745,7 +12057,6 @@ impl ::core::convert::From<i32> for IPSEC_PFS_GROUP {
 unsafe impl ::windows::core::Abi for IPSEC_PFS_GROUP {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_POLICY_FLAG(pub u32);
@@ -12798,15 +12109,11 @@ impl ::core::ops::Not for IPSEC_POLICY_FLAG {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_POLICY_FLAG_SITE_TO_SITE_TUNNEL: u32 = 65536u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_PROPOSAL0 {
     pub lifetime: IPSEC_SA_LIFETIME0,
     pub numSaTransforms: u32,
@@ -12835,7 +12142,6 @@ unsafe impl ::windows::core::Abi for IPSEC_PROPOSAL0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA0 {
     pub spi: u32,
     pub saTransformType: IPSEC_TRANSFORM_TYPE,
@@ -12858,7 +12164,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_SA0_0 {
     pub ahInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
     pub espAuthInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
@@ -12883,7 +12188,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     pub saCipherInformation: IPSEC_SA_CIPHER_INFORMATION0,
     pub saAuthInformation: IPSEC_SA_AUTH_INFORMATION0,
@@ -12910,7 +12214,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_AUTH_INFORMATION0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub authKey: FWP_BYTE_BLOB,
@@ -12938,7 +12241,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_AUTH_INFORMATION0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_SA_BUNDLE0 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -13004,7 +12306,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_SA_BUNDLE1 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -13069,7 +12370,6 @@ impl ::core::cmp::Eq for IPSEC_SA_BUNDLE1_0 {}
 unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE1_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_SA_BUNDLE_FLAGS(pub u32);
@@ -13119,35 +12419,21 @@ impl ::core::ops::Not for IPSEC_SA_BUNDLE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_ENABLE_OPTIONAL_ASYMMETRIC_IDLE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_FORCE_INBOUND_CONNECTIONS: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_FORCE_OUTBOUND_CONNECTIONS: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_FORWARD_PATH_INITIATOR: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_IP_IN_IP_PKT: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_LOCALLY_DICTATED_KEYS: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_LOW_POWER_MODE_SUPPORT: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NLB: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NO_EXPLICIT_CRED_MATCH: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_CIPHER_INFORMATION0 {
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
     pub cipherKey: FWP_BYTE_BLOB,
@@ -13175,7 +12461,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_CIPHER_INFORMATION0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_SA_CONTEXT0 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS0,
@@ -13210,7 +12495,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_SA_CONTEXT1 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS1,
@@ -13242,11 +12526,9 @@ impl ::core::cmp::Eq for IPSEC_SA_CONTEXT1 {}
 unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type IPSEC_SA_CONTEXT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_CONTEXT_CHANGE0 {
     pub changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0,
     pub saContextId: u64,
@@ -13274,7 +12556,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_CHANGE0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
     pub remoteSubNet: FWP_CONDITION_VALUE0,
@@ -13299,7 +12580,6 @@ impl ::core::cmp::Eq for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_SA_CONTEXT_EVENT_TYPE0(pub i32);
@@ -13317,7 +12597,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut IPSEC_SA_CONTEXT_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -13352,7 +12631,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_SA_DETAILS0 {
     pub ipVersion: FWP_IP_VERSION,
     pub saDirection: FWP_DIRECTION,
@@ -13410,7 +12688,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_DETAILS0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_SA_DETAILS1 {
     pub ipVersion: FWP_IP_VERSION,
     pub saDirection: FWP_DIRECTION,
@@ -13468,7 +12745,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_DETAILS1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_ENUM_TEMPLATE0 {
     pub saDirection: FWP_DIRECTION,
 }
@@ -13494,7 +12770,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_ENUM_TEMPLATE0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_IDLE_TIMEOUT0 {
     pub idleTimeoutSeconds: u32,
     pub idleTimeoutSecondsFailOver: u32,
@@ -13521,7 +12796,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_IDLE_TIMEOUT0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_LIFETIME0 {
     pub lifetimeSeconds: u32,
     pub lifetimeKilobytes: u32,
@@ -13549,7 +12823,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_LIFETIME0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_TRANSFORM0 {
     pub ipsecTransformType: IPSEC_TRANSFORM_TYPE,
     pub Anonymous: IPSEC_SA_TRANSFORM0_0,
@@ -13571,7 +12844,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_TRANSFORM0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_SA_TRANSFORM0_0 {
     pub ahTransform: *mut IPSEC_AUTH_TRANSFORM0,
     pub espAuthTransform: *mut IPSEC_AUTH_TRANSFORM0,
@@ -13596,7 +12868,6 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_TRANSFORM0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_STATISTICS0 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -13634,7 +12905,6 @@ unsafe impl ::windows::core::Abi for IPSEC_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_STATISTICS1 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -13672,7 +12942,6 @@ unsafe impl ::windows::core::Abi for IPSEC_STATISTICS1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TOKEN0 {
     pub r#type: IPSEC_TOKEN_TYPE,
     pub principal: IPSEC_TOKEN_PRINCIPAL,
@@ -13699,7 +12968,6 @@ impl ::core::cmp::Eq for IPSEC_TOKEN0 {}
 unsafe impl ::windows::core::Abi for IPSEC_TOKEN0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TOKEN_MODE(pub i32);
@@ -13714,7 +12982,6 @@ impl ::core::convert::From<i32> for IPSEC_TOKEN_MODE {
 unsafe impl ::windows::core::Abi for IPSEC_TOKEN_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TOKEN_PRINCIPAL(pub i32);
@@ -13729,7 +12996,6 @@ impl ::core::convert::From<i32> for IPSEC_TOKEN_PRINCIPAL {
 unsafe impl ::windows::core::Abi for IPSEC_TOKEN_PRINCIPAL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TOKEN_TYPE(pub i32);
@@ -13746,7 +13012,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TOKEN_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TRAFFIC0_0,
@@ -13772,7 +13037,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
@@ -13794,7 +13058,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
@@ -13816,7 +13079,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC0_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
@@ -13838,7 +13100,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0_2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC1 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TRAFFIC1_0,
@@ -13868,7 +13129,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
@@ -13890,7 +13150,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
@@ -13912,7 +13171,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC1_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
@@ -13934,7 +13192,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1_2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_SELECTOR0_ {
     pub protocolId: u8,
     pub portStart: u16,
@@ -13960,7 +13217,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0_ {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC_SELECTOR0__0 {
     pub startV4Address: u32,
     pub startV6Address: [u8; 16],
@@ -13982,7 +13238,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0__0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC_SELECTOR0__1 {
     pub endV4Address: u32,
     pub endV6Address: [u8; 16],
@@ -14004,7 +13259,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0__1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
     pub flags: u32,
     pub numLocalTrafficSelectors: u32,
@@ -14040,7 +13294,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -14078,7 +13331,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_STATISTICS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_STATISTICS1 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -14116,7 +13368,6 @@ impl ::core::cmp::Eq for IPSEC_TRAFFIC_STATISTICS1 {}
 unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_STATISTICS1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TRAFFIC_TYPE(pub i32);
@@ -14131,7 +13382,6 @@ impl ::core::convert::From<i32> for IPSEC_TRAFFIC_TYPE {
 unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TRANSFORM_TYPE(pub i32);
@@ -14152,7 +13402,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRANSFORM_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TRANSPORT_POLICY0 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -14197,7 +13446,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TRANSPORT_POLICY1 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -14242,7 +13490,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TRANSPORT_POLICY2 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -14286,7 +13533,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TUNNEL_ENDPOINT0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous: IPSEC_TUNNEL_ENDPOINT0_0,
@@ -14308,7 +13554,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINT0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINT0_0 {
     pub v4Address: u32,
     pub v6Address: [u8; 16],
@@ -14330,7 +13575,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINT0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TUNNEL_ENDPOINTS0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS0_0,
@@ -14353,7 +13597,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
@@ -14375,7 +13618,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
@@ -14397,7 +13639,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS0_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TUNNEL_ENDPOINTS1 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS1_0,
@@ -14421,7 +13662,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
@@ -14443,7 +13683,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
@@ -14466,7 +13705,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS1_1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TUNNEL_ENDPOINTS2 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS2_0,
@@ -14553,7 +13791,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS2_1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TUNNEL_POLICY0 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -14585,7 +13822,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TUNNEL_POLICY1 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -14617,7 +13853,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TUNNEL_POLICY2 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -14650,7 +13885,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY2 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IPSEC_TUNNEL_POLICY3_ {
     pub flags: u32,
     pub numIpsecProposals: u32,
@@ -14685,7 +13919,6 @@ unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY3_ {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_V4_UDP_ENCAPSULATION0 {
     pub localUdpEncapPort: u16,
     pub remoteUdpEncapPort: u16,
@@ -14712,7 +13945,6 @@ unsafe impl ::windows::core::Abi for IPSEC_V4_UDP_ENCAPSULATION0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     pub virtualIfTunnelId: u64,
     pub trafficSelectorId: u64,
@@ -14739,7 +13971,6 @@ unsafe impl ::windows::core::Abi for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPTLS_METADATA {
     pub SequenceNumber: u64,
 }
@@ -14761,7 +13992,6 @@ unsafe impl ::windows::core::Abi for IPTLS_METADATA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct IPV4_HEADER {
     pub Anonymous1: IPV4_HEADER_0,
     pub Anonymous2: IPV4_HEADER_1,
@@ -14971,15 +14201,11 @@ impl ::core::cmp::Eq for IPV4_HEADER_2_0 {}
 unsafe impl ::windows::core::Abi for IPV4_HEADER_2_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MAX_MINIMUM_MTU: u32 = 576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MINIMUM_MTU: u32 = 576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MIN_MINIMUM_MTU: u32 = 352u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_OPTION_HEADER {
     pub Anonymous: IPV4_OPTION_HEADER_0,
     pub OptionLength: u8,
@@ -15001,7 +14227,6 @@ unsafe impl ::windows::core::Abi for IPV4_OPTION_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV4_OPTION_HEADER_0 {
     pub OptionType: u8,
     pub Anonymous: IPV4_OPTION_HEADER_0_0,
@@ -15023,7 +14248,6 @@ unsafe impl ::windows::core::Abi for IPV4_OPTION_HEADER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_OPTION_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -15047,7 +14271,6 @@ impl ::core::cmp::Eq for IPV4_OPTION_HEADER_0_0 {}
 unsafe impl ::windows::core::Abi for IPV4_OPTION_HEADER_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPV4_OPTION_TYPE(pub i32);
@@ -15071,7 +14294,6 @@ unsafe impl ::windows::core::Abi for IPV4_OPTION_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_ROUTING_HEADER {
     pub OptionHeader: IPV4_OPTION_HEADER,
     pub Pointer: u8,
@@ -15093,7 +14315,6 @@ unsafe impl ::windows::core::Abi for IPV4_ROUTING_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_TIMESTAMP_OPTION {
     pub OptionHeader: IPV4_OPTION_HEADER,
     pub Pointer: u8,
@@ -15116,7 +14337,6 @@ unsafe impl ::windows::core::Abi for IPV4_TIMESTAMP_OPTION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV4_TIMESTAMP_OPTION_0 {
     pub FlagsOverflow: u8,
     pub Anonymous: IPV4_TIMESTAMP_OPTION_0_0,
@@ -15138,7 +14358,6 @@ unsafe impl ::windows::core::Abi for IPV4_TIMESTAMP_OPTION_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_TIMESTAMP_OPTION_0_0 {
     pub _bitfield: u8,
 }
@@ -15162,15 +14381,11 @@ impl ::core::cmp::Eq for IPV4_TIMESTAMP_OPTION_0_0 {}
 unsafe impl ::windows::core::Abi for IPV4_TIMESTAMP_OPTION_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_VERSION: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_ECN_MASK: u32 = 12288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_ECN_SHIFT: u32 = 12u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_EXTENSION_HEADER {
     pub NextHeader: u8,
     pub Length: u8,
@@ -15195,11 +14410,9 @@ impl ::core::cmp::Eq for IPV6_EXTENSION_HEADER {}
 unsafe impl ::windows::core::Abi for IPV6_EXTENSION_HEADER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_FLOW_LABEL_MASK: u32 = 4294905600u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_FRAGMENT_HEADER {
     pub NextHeader: u8,
     pub Reserved: u8,
@@ -15223,7 +14436,6 @@ unsafe impl ::windows::core::Abi for IPV6_FRAGMENT_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV6_FRAGMENT_HEADER_0 {
     pub Anonymous: IPV6_FRAGMENT_HEADER_0_0,
     pub OffsetAndFlags: u16,
@@ -15245,7 +14457,6 @@ unsafe impl ::windows::core::Abi for IPV6_FRAGMENT_HEADER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_FRAGMENT_HEADER_0_0 {
     pub _bitfield: u16,
 }
@@ -15269,12 +14480,10 @@ impl ::core::cmp::Eq for IPV6_FRAGMENT_HEADER_0_0 {}
 unsafe impl ::windows::core::Abi for IPV6_FRAGMENT_HEADER_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_FULL_TRAFFIC_CLASS_MASK: u32 = 61455u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct IPV6_HEADER {
     pub Anonymous: IPV6_HEADER_0,
     pub PayloadLength: u16,
@@ -15362,11 +14571,9 @@ impl ::core::cmp::Eq for IPV6_HEADER_0_0 {}
 unsafe impl ::windows::core::Abi for IPV6_HEADER_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_MINIMUM_MTU: u32 = 1280u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     pub Anonymous: IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0,
     pub Value: u32,
@@ -15388,7 +14595,6 @@ unsafe impl ::windows::core::Abi for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
@@ -15415,7 +14621,6 @@ unsafe impl ::windows::core::Abi for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_OPTION_HEADER {
     pub Type: u8,
     pub DataLength: u8,
@@ -15442,7 +14647,6 @@ unsafe impl ::windows::core::Abi for IPV6_OPTION_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_OPTION_JUMBOGRAM {
     pub Header: IPV6_OPTION_HEADER,
     pub JumbogramLength: [u8; 4],
@@ -15469,7 +14673,6 @@ unsafe impl ::windows::core::Abi for IPV6_OPTION_JUMBOGRAM {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_OPTION_ROUTER_ALERT {
     pub Header: IPV6_OPTION_HEADER,
     pub Value: [u8; 2],
@@ -15494,7 +14697,6 @@ impl ::core::cmp::Eq for IPV6_OPTION_ROUTER_ALERT {}
 unsafe impl ::windows::core::Abi for IPV6_OPTION_ROUTER_ALERT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPV6_OPTION_TYPE(pub i32);
@@ -15514,7 +14716,6 @@ unsafe impl ::windows::core::Abi for IPV6_OPTION_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     pub Anonymous: IPV6_ROUTER_ADVERTISEMENT_FLAGS_0,
     pub Value: u8,
@@ -15536,7 +14737,6 @@ unsafe impl ::windows::core::Abi for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
     pub _bitfield: u8,
 }
@@ -15562,7 +14762,6 @@ unsafe impl ::windows::core::Abi for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_ROUTING_HEADER {
     pub NextHeader: u8,
     pub Length: u8,
@@ -15590,11 +14789,8 @@ impl ::core::cmp::Eq for IPV6_ROUTING_HEADER {}
 unsafe impl ::windows::core::Abi for IPV6_ROUTING_HEADER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_TRAFFIC_CLASS_MASK: u32 = 49167u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_VERSION: u32 = 96u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IP_OPTION_TIMESTAMP_FLAGS(pub i32);
@@ -15609,9 +14805,7 @@ impl ::core::convert::From<i32> for IP_OPTION_TIMESTAMP_FLAGS {
 unsafe impl ::windows::core::Abi for IP_OPTION_TIMESTAMP_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP_VER_MASK: u32 = 240u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecDospGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -15626,7 +14820,6 @@ pub unsafe fn IPsecDospGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospGetStatistics0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, idpstatistics: *mut IPSEC_DOSP_STATISTICS0) -> u32 {
@@ -15641,7 +14834,6 @@ pub unsafe fn IPsecDospGetStatistics0<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecDospSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -15656,7 +14848,6 @@ pub unsafe fn IPsecDospSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -15671,7 +14862,6 @@ pub unsafe fn IPsecDospStateCreateEnumHandle0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -15686,7 +14876,6 @@ pub unsafe fn IPsecDospStateDestroyEnumHandle0<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_DOSP_STATE0, numentries: *mut u32) -> u32 {
@@ -15701,7 +14890,6 @@ pub unsafe fn IPsecDospStateEnum0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecGetStatistics0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ipsecstatistics: *mut IPSEC_STATISTICS0) -> u32 {
@@ -15716,7 +14904,6 @@ pub unsafe fn IPsecGetStatistics0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecGetStatistics1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ipsecstatistics: *mut IPSEC_STATISTICS1) -> u32 {
@@ -15731,7 +14918,6 @@ pub unsafe fn IPsecGetStatistics1<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerAddAndRegister0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -15746,7 +14932,6 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -15770,7 +14955,6 @@ pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -15785,7 +14969,6 @@ pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, keymgmthandle: Param1) -> u32 {
@@ -15800,7 +14983,6 @@ pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecKeyManagersGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut IPSEC_KEY_MANAGER0, numentries: *mut u32) -> u32 {
@@ -15815,7 +14997,6 @@ pub unsafe fn IPsecKeyManagersGet0<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddInbound0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
@@ -15830,7 +15011,6 @@ pub unsafe fn IPsecSaContextAddInbound0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddInbound1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
@@ -15845,7 +15025,6 @@ pub unsafe fn IPsecSaContextAddInbound1<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddOutbound0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
@@ -15860,7 +15039,6 @@ pub unsafe fn IPsecSaContextAddOutbound0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddOutbound1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
@@ -15875,7 +15053,6 @@ pub unsafe fn IPsecSaContextAddOutbound1<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextCreate0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, outboundtraffic: *const IPSEC_TRAFFIC0, inboundfilterid: *mut u64, id: *mut u64) -> u32 {
@@ -15890,7 +15067,6 @@ pub unsafe fn IPsecSaContextCreate0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextCreate1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, outboundtraffic: *const IPSEC_TRAFFIC1, virtualiftunnelinfo: *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid: *mut u64, id: *mut u64) -> u32 {
@@ -15905,7 +15081,6 @@ pub unsafe fn IPsecSaContextCreate1<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -15920,7 +15095,6 @@ pub unsafe fn IPsecSaContextCreateEnumHandle0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
@@ -15935,7 +15109,6 @@ pub unsafe fn IPsecSaContextDeleteById0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -15950,7 +15123,6 @@ pub unsafe fn IPsecSaContextDestroyEnumHandle0<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
@@ -15965,7 +15137,6 @@ pub unsafe fn IPsecSaContextEnum0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextEnum1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
@@ -15980,7 +15151,6 @@ pub unsafe fn IPsecSaContextEnum1<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextExpire0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
@@ -15995,7 +15165,6 @@ pub unsafe fn IPsecSaContextExpire0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextGetById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT0) -> u32 {
@@ -16010,7 +15179,6 @@ pub unsafe fn IPsecSaContextGetById0<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextGetById1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT1) -> u32 {
@@ -16025,7 +15193,6 @@ pub unsafe fn IPsecSaContextGetById1<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextGetSpi0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, getspi: *const IPSEC_GETSPI0, inboundspi: *mut u32) -> u32 {
@@ -16040,7 +15207,6 @@ pub unsafe fn IPsecSaContextGetSpi0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextGetSpi1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: *mut u32) -> u32 {
@@ -16055,7 +15221,6 @@ pub unsafe fn IPsecSaContextGetSpi1<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextSetSpi0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: u32) -> u32 {
@@ -16070,7 +15235,6 @@ pub unsafe fn IPsecSaContextSetSpi0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::core::option::Option<IPSEC_SA_CONTEXT_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -16085,7 +15249,6 @@ pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextSubscriptionsGet0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
@@ -16100,7 +15263,6 @@ pub unsafe fn IPsecSaContextSubscriptionsGet0<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextUnsubscribe0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, eventshandle: Param1) -> u32 {
@@ -16115,7 +15277,6 @@ pub unsafe fn IPsecSaContextUnsubscribe0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextUpdate0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u64, newvalues: *const IPSEC_SA_CONTEXT1) -> u32 {
@@ -16130,7 +15291,6 @@ pub unsafe fn IPsecSaContextUpdate0<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -16145,7 +15305,6 @@ pub unsafe fn IPsecSaCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaDbGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -16160,7 +15319,6 @@ pub unsafe fn IPsecSaDbGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaDbSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -16175,7 +15333,6 @@ pub unsafe fn IPsecSaDbSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -16190,7 +15347,6 @@ pub unsafe fn IPsecSaDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
@@ -16205,7 +15361,6 @@ pub unsafe fn IPsecSaEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaEnum1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
@@ -16220,7 +15375,6 @@ pub unsafe fn IPsecSaEnum1<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextGetStatistics0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ikeextstatistics: *mut IKEEXT_STATISTICS0) -> u32 {
@@ -16235,7 +15389,6 @@ pub unsafe fn IkeextGetStatistics0<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextGetStatistics1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ikeextstatistics: *mut IKEEXT_STATISTICS1) -> u32 {
@@ -16250,7 +15403,6 @@ pub unsafe fn IkeextGetStatistics1<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -16265,7 +15417,6 @@ pub unsafe fn IkeextSaCreateEnumHandle0<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaDbGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
@@ -16280,7 +15431,6 @@ pub unsafe fn IkeextSaDbGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaDbSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
@@ -16295,7 +15445,6 @@ pub unsafe fn IkeextSaDbSetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
@@ -16310,7 +15459,6 @@ pub unsafe fn IkeextSaDeleteById0<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
@@ -16325,7 +15473,6 @@ pub unsafe fn IkeextSaDestroyEnumHandle0<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
@@ -16340,7 +15487,6 @@ pub unsafe fn IkeextSaEnum0<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
@@ -16355,7 +15501,6 @@ pub unsafe fn IkeextSaEnum1<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned: *mut u32) -> u32 {
@@ -16370,7 +15515,6 @@ pub unsafe fn IkeextSaEnum2<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32 {
@@ -16385,7 +15529,6 @@ pub unsafe fn IkeextSaGetById0<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, salookupcontext: *const ::windows::core::GUID, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32 {
@@ -16400,7 +15543,6 @@ pub unsafe fn IkeextSaGetById1<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, salookupcontext: *const ::windows::core::GUID, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32 {
@@ -16415,16 +15557,12 @@ pub unsafe fn IkeextSaGetById2<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV4_HLEN: u32 = 60u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV4_PACKET: u32 = 65535u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV6_PAYLOAD: u32 = 65535u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct MLDV2_QUERY_HEADER {
     pub IcmpHeader: ICMP_HEADER,
     pub Anonymous1: MLDV2_QUERY_HEADER_0,
@@ -16574,7 +15712,6 @@ unsafe impl ::windows::core::Abi for MLDV2_QUERY_HEADER_1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct MLDV2_REPORT_HEADER {
     pub IcmpHeader: ICMP_HEADER,
     pub Reserved: u16,
@@ -16603,7 +15740,6 @@ unsafe impl ::windows::core::Abi for MLDV2_REPORT_HEADER {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct MLDV2_REPORT_RECORD_HEADER {
     pub Type: u8,
     pub AuxillaryDataLength: u8,
@@ -16633,7 +15769,6 @@ unsafe impl ::windows::core::Abi for MLDV2_REPORT_RECORD_HEADER {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct MLD_HEADER {
     pub IcmpHeader: ICMP_HEADER,
     pub MaxRespTime: u16,
@@ -16660,7 +15795,6 @@ impl ::core::cmp::Eq for MLD_HEADER {}
 unsafe impl ::windows::core::Abi for MLD_HEADER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLD_MAX_RESP_CODE_TYPE(pub i32);
@@ -16674,13 +15808,9 @@ impl ::core::convert::From<i32> for MLD_MAX_RESP_CODE_TYPE {
 unsafe impl ::windows::core::Abi for MLD_MAX_RESP_CODE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_NA_FLAG_OVERRIDE: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_NA_FLAG_ROUTER: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_NA_FLAG_SOLICITED: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ND_OPTION_TYPE(pub i32);
@@ -16705,34 +15835,21 @@ impl ::core::convert::From<i32> for ND_OPTION_TYPE {
 unsafe impl ::windows::core::Abi for ND_OPTION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_DNSSL_MIN_LEN: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_AUTO: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_ONLINK: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_ROUTE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_ROUTER_ADDR: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_SITE_PREFIX: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_RDNSS_MIN_LEN: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_RI_FLAG_PREFERENCE: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_HOME_AGENT: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_MANAGED: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_OTHER: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_PREFERENCE: u32 = 24u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct NPI_MODULEID {
     pub Length: u16,
     pub Type: NPI_MODULEID_TYPE,
@@ -16785,7 +15902,6 @@ impl ::core::cmp::Eq for NPI_MODULEID_0 {}
 unsafe impl ::windows::core::Abi for NPI_MODULEID_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NPI_MODULEID_TYPE(pub i32);
@@ -16799,23 +15915,15 @@ impl ::core::convert::From<i32> for NPI_MODULEID_TYPE {
 unsafe impl ::windows::core::Abi for NPI_MODULEID_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_ROUTERALERT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_ROUTING_HEADER: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_SECURITY: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_STREAMIDENTIFIER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_TIMESTAMP_HEADER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_CONTROL: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_DSAP: u32 = 170u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct SNAP_HEADER {
     pub Dsap: u8,
     pub Ssap: u8,
@@ -16843,43 +15951,24 @@ impl ::core::cmp::Eq for SNAP_HEADER {}
 unsafe impl ::windows::core::Abi for SNAP_HEADER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_OUI: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_SSAP: u32 = 170u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_ACK: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_CWR: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_ECE: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_FIN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_EOL: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_FASTOPEN: u32 = 34u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_MSS: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_NOP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_SACK: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_SACK_PERMITTED: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_TS: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_WS: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_PSH: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_RST: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_SYN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_URG: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TUNNEL_SUB_TYPE(pub i32);
@@ -16897,7 +15986,6 @@ unsafe impl ::windows::core::Abi for TUNNEL_SUB_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct VLAN_TAG {
     pub Anonymous: VLAN_TAG_0,
     pub Type: u16,
@@ -16919,7 +16007,6 @@ unsafe impl ::windows::core::Abi for VLAN_TAG {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union VLAN_TAG_0 {
     pub Tag: u16,
     pub Anonymous: VLAN_TAG_0_0,
@@ -16941,7 +16028,6 @@ unsafe impl ::windows::core::Abi for VLAN_TAG_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct VLAN_TAG_0_0 {
     pub _bitfield: u16,
 }
@@ -16965,16 +16051,12 @@ impl ::core::cmp::Eq for VLAN_TAG_0_0 {}
 unsafe impl ::windows::core::Abi for VLAN_TAG_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _BIG_ENDIAN: u32 = 4321u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _LITTLE_ENDIAN: u32 = 1234u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _PDP_ENDIAN: u32 = 3412u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct nd_neighbor_advert {
     pub nd_na_hdr: ICMP_MESSAGE,
     pub nd_na_target: super::super::Networking::WinSock::IN6_ADDR,
@@ -17002,7 +16084,6 @@ unsafe impl ::windows::core::Abi for nd_neighbor_advert {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct nd_neighbor_solicit {
     pub nd_ns_hdr: ICMP_MESSAGE,
     pub nd_ns_target: super::super::Networking::WinSock::IN6_ADDR,
@@ -17029,7 +16110,6 @@ unsafe impl ::windows::core::Abi for nd_neighbor_solicit {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_dnssl {
     pub nd_opt_dnssl_type: u8,
     pub nd_opt_dnssl_len: u8,
@@ -17058,7 +16138,6 @@ unsafe impl ::windows::core::Abi for nd_opt_dnssl {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_hdr {
     pub nd_opt_type: u8,
     pub nd_opt_len: u8,
@@ -17085,7 +16164,6 @@ unsafe impl ::windows::core::Abi for nd_opt_hdr {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_mtu {
     pub nd_opt_mtu_type: u8,
     pub nd_opt_mtu_len: u8,
@@ -17115,7 +16193,6 @@ unsafe impl ::windows::core::Abi for nd_opt_mtu {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct nd_opt_prefix_info {
     pub nd_opt_pi_type: u8,
     pub nd_opt_pi_len: u8,
@@ -17267,7 +16344,6 @@ unsafe impl ::windows::core::Abi for nd_opt_prefix_info_1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_rd_hdr {
     pub nd_opt_rh_type: u8,
     pub nd_opt_rh_len: u8,
@@ -17296,7 +16372,6 @@ unsafe impl ::windows::core::Abi for nd_opt_rd_hdr {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_rdnss {
     pub nd_opt_rdnss_type: u8,
     pub nd_opt_rdnss_len: u8,
@@ -17326,7 +16401,6 @@ unsafe impl ::windows::core::Abi for nd_opt_rdnss {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct nd_opt_route_info {
     pub nd_opt_ri_type: u8,
     pub nd_opt_ri_len: u8,
@@ -17417,7 +16491,6 @@ unsafe impl ::windows::core::Abi for nd_opt_route_info_0_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct nd_redirect {
     pub nd_rd_hdr: ICMP_MESSAGE,
     pub nd_rd_target: super::super::Networking::WinSock::IN6_ADDR,
@@ -17445,7 +16518,6 @@ unsafe impl ::windows::core::Abi for nd_redirect {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_router_advert {
     pub nd_ra_hdr: ICMP_MESSAGE,
     pub nd_ra_reachable: u32,
@@ -17468,7 +16540,6 @@ unsafe impl ::windows::core::Abi for nd_router_advert {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_router_solicit {
     pub nd_rs_hdr: ICMP_MESSAGE,
 }
@@ -17489,7 +16560,6 @@ unsafe impl ::windows::core::Abi for nd_router_solicit {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_hdr {
     pub th_sport: u16,
     pub th_dport: u16,
@@ -17518,7 +16588,6 @@ unsafe impl ::windows::core::Abi for tcp_hdr {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_fastopen {
     pub Kind: u8,
     pub Length: u8,
@@ -17546,7 +16615,6 @@ unsafe impl ::windows::core::Abi for tcp_opt_fastopen {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_mss {
     pub Kind: u8,
     pub Length: u8,
@@ -17569,7 +16637,6 @@ unsafe impl ::windows::core::Abi for tcp_opt_mss {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_sack {
     pub Kind: u8,
     pub Length: u8,
@@ -17592,7 +16659,6 @@ unsafe impl ::windows::core::Abi for tcp_opt_sack {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_sack_0 {
     pub Left: u32,
     pub Right: u32,
@@ -17614,7 +16680,6 @@ unsafe impl ::windows::core::Abi for tcp_opt_sack_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_sack_permitted {
     pub Kind: u8,
     pub Length: u8,
@@ -17641,7 +16706,6 @@ unsafe impl ::windows::core::Abi for tcp_opt_sack_permitted {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_ts {
     pub Kind: u8,
     pub Length: u8,
@@ -17665,7 +16729,6 @@ unsafe impl ::windows::core::Abi for tcp_opt_ts {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_unknown {
     pub Kind: u8,
     pub Length: u8,
@@ -17692,7 +16755,6 @@ unsafe impl ::windows::core::Abi for tcp_opt_unknown {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_ws {
     pub Kind: u8,
     pub Length: u8,

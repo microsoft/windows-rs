@@ -1,10 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_NetworkManagement_Ndis`*"]
 pub struct ADDRESS_LIST_DESCRIPTOR {
     pub MediaType: u32,
     pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
@@ -35,11 +33,9 @@ impl ::core::cmp::Eq for ADDRESS_LIST_DESCRIPTOR {}
 unsafe impl ::windows::core::Abi for ADDRESS_LIST_DESCRIPTOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ADM_CTRL_FAILED: u32 = 3u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct ADSPEC {
     pub adspec_header: RsvpObjHdr,
     pub adspec_body: IS_ADSPEC_BODY,
@@ -64,11 +60,9 @@ impl ::core::cmp::Eq for ADSPEC {}
 unsafe impl ::windows::core::Abi for ADSPEC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct AD_GENERAL_PARAMS {
     pub IntServAwareHopCount: u32,
     pub PathBandwidthEstimate: u32,
@@ -98,7 +92,6 @@ unsafe impl ::windows::core::Abi for AD_GENERAL_PARAMS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct AD_GUARANTEED {
     pub CTotal: u32,
     pub DTotal: u32,
@@ -125,21 +118,14 @@ impl ::core::cmp::Eq for AD_GUARANTEED {}
 unsafe impl ::windows::core::Abi for AD_GUARANTEED {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub type CBADMITRESULT = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut policy_decision) -> *mut u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub type CBGETRSVPOBJECTS = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct CONTROL_SERVICE {
     pub Length: u32,
     pub Service: u32,
@@ -163,7 +149,6 @@ unsafe impl ::windows::core::Abi for CONTROL_SERVICE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union CONTROL_SERVICE_0 {
     pub Guaranteed: AD_GUARANTEED,
     pub ParamBuffer: [PARAM_BUFFER; 1],
@@ -183,21 +168,14 @@ impl ::core::cmp::Eq for CONTROL_SERVICE_0 {}
 unsafe impl ::windows::core::Abi for CONTROL_SERVICE_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CREDENTIAL_SUB_TYPE_ASCII_ID: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CREDENTIAL_SUB_TYPE_KERBEROS_TKT: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CREDENTIAL_SUB_TYPE_PGP_CERT: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct CtrlLoadFlowspec {
     pub CL_spec_serv_hdr: IntServServiceHdr,
     pub CL_spec_parm_hdr: IntServParmHdr,
@@ -223,13 +201,10 @@ impl ::core::cmp::Eq for CtrlLoadFlowspec {}
 unsafe impl ::windows::core::Abi for CtrlLoadFlowspec {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const DUP_RESULTS: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct ENUMERATION_BUFFER {
     pub Length: u32,
     pub OwnerProcessId: u32,
@@ -267,46 +242,27 @@ impl ::core::cmp::Eq for ENUMERATION_BUFFER {}
 unsafe impl ::windows::core::Abi for ENUMERATION_BUFFER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_ADDRESS_TYPE_NOT_SUPPORTED: u32 = 7511u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_DS_MAPPING_EXISTS: u32 = 7518u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_DUPLICATE_FILTER: u32 = 7509u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_FILTER_CONFLICT: u32 = 7510u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INCOMPATABLE_QOS: u32 = 7513u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INCOMPATIBLE_TCI_VERSION: u32 = 7501u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_ADDRESS_TYPE: u32 = 7508u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_DIFFSERV_FLOW: u32 = 7517u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_DS_CLASS: u32 = 7520u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_FLOW_MODE: u32 = 7516u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_PEAK_RATE: u32 = 7504u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_QOS_PRIORITY: u32 = 7506u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_SD_MODE: u32 = 7505u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_SERVICE_TYPE: u32 = 7502u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_SHAPE_RATE: u32 = 7519u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_NO_MORE_INFO: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct ERROR_SPEC {
     pub errs_header: RsvpObjHdr,
     pub errs_u: ERROR_SPEC_0,
@@ -357,34 +313,21 @@ impl ::core::cmp::Eq for ERROR_SPEC_0 {}
 unsafe impl ::windows::core::Abi for ERROR_SPEC_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_SPECF_InPlace: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_TC_NOT_SUPPORTED: u32 = 7514u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_TC_OBJECT_LENGTH_INVALID: u32 = 7515u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_TC_SUPPORTED_OBJECTS_EXIST: u32 = 7512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_TOO_MANY_CLIENTS: u32 = 7521u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERR_FORWARD_OK: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERR_Usage_globl: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERR_Usage_local: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERR_Usage_serv: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERR_global_mask: u32 = 4095u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct Error_Spec_IPv4 {
     pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
     pub errs_flags: u8,
@@ -414,7 +357,6 @@ unsafe impl ::windows::core::Abi for Error_Spec_IPv4 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct FILTER_SPEC {
     pub filt_header: RsvpObjHdr,
     pub filt_u: FILTER_SPEC_0,
@@ -468,7 +410,6 @@ unsafe impl ::windows::core::Abi for FILTER_SPEC_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct FLOWDESCRIPTOR {
     pub FlowSpec: FLOWSPEC,
     pub NumFilters: u32,
@@ -496,7 +437,6 @@ unsafe impl ::windows::core::Abi for FLOWDESCRIPTOR {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct FLOWSPEC {
     pub TokenRate: u32,
     pub TokenBucketSize: u32,
@@ -536,33 +476,19 @@ impl ::core::cmp::Eq for FLOWSPEC {}
 unsafe impl ::windows::core::Abi for FLOWSPEC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FLOW_DURATION: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FORCE_IMMEDIATE_REFRESH: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FSCTL_TCP_BASE: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_AUK_OSFVEINFO: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_CACHED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_EXTERNAL: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_MEDIA: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_NBP: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_PASSPHRASE: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_PIN: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FilterType(pub i32);
@@ -583,7 +509,6 @@ unsafe impl ::windows::core::Abi for FilterType {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct Filter_Spec_IPv4 {
     pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
     pub filt_unused: u16,
@@ -612,7 +537,6 @@ unsafe impl ::windows::core::Abi for Filter_Spec_IPv4 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct Filter_Spec_IPv4GPI {
     pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
     pub filt_gpi: u32,
@@ -637,43 +561,24 @@ impl ::core::cmp::Eq for Filter_Spec_IPv4GPI {}
 unsafe impl ::windows::core::Abi for Filter_Spec_IPv4GPI {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GENERAL_INFO: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_API: u32 = 56400u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_ERRORCODE_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_ERRORVALUE_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_KERNEL_TC: u32 = 56700u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_KERNEL_TC_SYS: u32 = 56500u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_NET_ADMISSION: u32 = 56100u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_NET_POLICY: u32 = 56200u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_NO_ERRORCODE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_NO_ERRORVALUE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_RSVP: u32 = 56300u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GQOS_RSVP_SYS: u32 = 56600u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUARANTEED_SERV: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUAR_ADSPARM_C: i32 = 131i32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUAR_ADSPARM_Csum: i32 = 135i32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUAR_ADSPARM_Ctot: i32 = 133i32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUAR_ADSPARM_D: i32 = 132i32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUAR_ADSPARM_Dsum: i32 = 136i32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GUAR_ADSPARM_Dtot: i32 = 134i32;
 pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
 pub const GUID_QOS_ENABLE_AVG_STATS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
@@ -693,7 +598,6 @@ pub const GUID_QOS_STATISTICS_BUFFER: ::windows::core::GUID = ::windows::core::G
 pub const GUID_QOS_TIMER_RESOLUTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct Gads_parms_t {
     pub Gads_serv_hdr: IntServServiceHdr,
     pub Gads_Ctot_hdr: IntServParmHdr,
@@ -737,7 +641,6 @@ unsafe impl ::windows::core::Abi for Gads_parms_t {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GenAdspecParams {
     pub gen_parm_hdr: IntServServiceHdr,
     pub gen_parm_hopcnt_hdr: IntServParmHdr,
@@ -781,7 +684,6 @@ unsafe impl ::windows::core::Abi for GenAdspecParams {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GenTspec {
     pub gen_Tspec_serv_hdr: IntServServiceHdr,
     pub gen_Tspec_parm_hdr: IntServParmHdr,
@@ -809,7 +711,6 @@ unsafe impl ::windows::core::Abi for GenTspec {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GenTspecParms {
     pub TB_Tspec_r: f32,
     pub TB_Tspec_b: f32,
@@ -839,7 +740,6 @@ unsafe impl ::windows::core::Abi for GenTspecParms {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GuarFlowSpec {
     pub Guar_serv_hdr: IntServServiceHdr,
     pub Guar_Tspec_hdr: IntServParmHdr,
@@ -869,7 +769,6 @@ unsafe impl ::windows::core::Abi for GuarFlowSpec {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GuarRspec {
     pub Guar_R: f32,
     pub Guar_S: u32,
@@ -894,13 +793,10 @@ impl ::core::cmp::Eq for GuarRspec {}
 unsafe impl ::windows::core::Abi for GuarRspec {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IDENTITY_CHANGED: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IDPE_ATTR {
     pub PeAttribLength: u16,
     pub PeAttribType: u8,
@@ -929,7 +825,6 @@ unsafe impl ::windows::core::Abi for IDPE_ATTR {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct ID_ERROR_OBJECT {
     pub usIdErrLength: u16,
     pub ucAType: u8,
@@ -958,25 +853,16 @@ impl ::core::cmp::Eq for ID_ERROR_OBJECT {}
 unsafe impl ::windows::core::Abi for ID_ERROR_OBJECT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IF_MIB_STATS_ID: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INFO_NOT_AVAILABLE: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INSUFFICIENT_PRIVILEGES: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INTSERV_VERSION0: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INTSERV_VERS_MASK: u32 = 240u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INV_LPM_HANDLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INV_REQ_HANDLE: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INV_RESULTS: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IN_ADDR_IPV4 {
     pub Addr: u32,
     pub AddrBytes: [u8; 4],
@@ -998,7 +884,6 @@ unsafe impl ::windows::core::Abi for IN_ADDR_IPV4 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IN_ADDR_IPV6 {
     pub Addr: [u8; 16],
 }
@@ -1024,7 +909,6 @@ unsafe impl ::windows::core::Abi for IN_ADDR_IPV6 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IPX_PATTERN {
     pub Src: IPX_PATTERN_0,
     pub Dest: IPX_PATTERN_0,
@@ -1051,7 +935,6 @@ unsafe impl ::windows::core::Abi for IPX_PATTERN {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IPX_PATTERN_0 {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
@@ -1077,15 +960,11 @@ impl ::core::cmp::Eq for IPX_PATTERN_0 {}
 unsafe impl ::windows::core::Abi for IPX_PATTERN_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IP_INTFC_INFO_ID: u32 = 259u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IP_MIB_ADDRTABLE_ENTRY_ID: u32 = 258u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IP_MIB_STATS_ID: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IP_PATTERN {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -1112,7 +991,6 @@ unsafe impl ::windows::core::Abi for IP_PATTERN {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IP_PATTERN_0 {
     pub S_un_ports: IP_PATTERN_0_1,
     pub S_un_icmp: IP_PATTERN_0_0,
@@ -1135,7 +1013,6 @@ unsafe impl ::windows::core::Abi for IP_PATTERN_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IP_PATTERN_0_0 {
     pub s_type: u8,
     pub s_code: u8,
@@ -1163,7 +1040,6 @@ unsafe impl ::windows::core::Abi for IP_PATTERN_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IP_PATTERN_0_1 {
     pub s_srcport: u16,
     pub s_dstport: u16,
@@ -1188,13 +1064,10 @@ impl ::core::cmp::Eq for IP_PATTERN_0_1 {}
 unsafe impl ::windows::core::Abi for IP_PATTERN_0_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ISPH_FLG_INV: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ISSH_BREAK_BIT: u32 = 128u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IS_ADSPEC_BODY {
     pub adspec_mh: IntServMainHdr,
     pub adspec_genparms: GenAdspecParams,
@@ -1221,7 +1094,6 @@ unsafe impl ::windows::core::Abi for IS_ADSPEC_BODY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IS_FLOWSPEC {
     pub flow_header: RsvpObjHdr,
     pub flow_body: IntServFlowSpec,
@@ -1241,11 +1113,9 @@ impl ::core::cmp::Eq for IS_FLOWSPEC {}
 unsafe impl ::windows::core::Abi for IS_FLOWSPEC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IS_GUAR_RSPEC: i32 = 130i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServFlowSpec {
     pub spec_mh: IntServMainHdr,
     pub spec_u: IntServFlowSpec_0,
@@ -1267,7 +1137,6 @@ unsafe impl ::windows::core::Abi for IntServFlowSpec {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IntServFlowSpec_0 {
     pub CL_spec: CtrlLoadFlowspec,
     pub G_spec: GuarFlowSpec,
@@ -1290,7 +1159,6 @@ unsafe impl ::windows::core::Abi for IntServFlowSpec_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServMainHdr {
     pub ismh_version: u8,
     pub ismh_unused: u8,
@@ -1318,7 +1186,6 @@ unsafe impl ::windows::core::Abi for IntServMainHdr {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServParmHdr {
     pub isph_parm_num: u8,
     pub isph_flags: u8,
@@ -1346,7 +1213,6 @@ unsafe impl ::windows::core::Abi for IntServParmHdr {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServServiceHdr {
     pub issh_service: u8,
     pub issh_flags: u8,
@@ -1374,7 +1240,6 @@ unsafe impl ::windows::core::Abi for IntServServiceHdr {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServTspecBody {
     pub st_mh: IntServMainHdr,
     pub tspec_u: IntServTspecBody_0,
@@ -1396,7 +1261,6 @@ unsafe impl ::windows::core::Abi for IntServTspecBody {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IntServTspecBody_0 {
     pub gen_stspec: GenTspec,
     pub qual_stspec: QualTspec,
@@ -1416,13 +1280,9 @@ impl ::core::cmp::Eq for IntServTspecBody_0 {}
 unsafe impl ::windows::core::Abi for IntServTspecBody_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LINE_RATE: u32 = 50003u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LOCAL_QOSABILITY: u32 = 50005u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_API_VERSION_1: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1438,7 +1298,6 @@ unsafe impl ::windows::core::Abi for LPM_HANDLE {
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
@@ -1474,79 +1333,43 @@ impl ::core::cmp::Eq for LPM_INIT_INFO {}
 unsafe impl ::windows::core::Abi for LPM_INIT_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_OK: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_PE_ALL_TYPES: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_PE_APP_IDENTITY: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_PE_USER_IDENTITY: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_RESULT_DEFER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_RESULT_READY: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_TIME_OUT: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPV_DONT_CARE: u32 = 65534u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPV_DROP_MSG: u32 = 65533u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPV_MAX_PRIORITY: u32 = 65280u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPV_MIN_PRIORITY: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPV_REJECT: u32 = 65535u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPV_RESERVED: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const MAX_PHYSADDR_SIZE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const MAX_STRING_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const MODERATELY_DELAY_SENSITIVE: u32 = 4294967293u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_CDROM: u32 = 65539u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_FILE: u32 = 65541u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_HARDDISK: u32 = 65537u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_PARTITION: u32 = 65540u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_RAMDISK: u32 = 65542u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_REMOVABLEDISK: u32 = 65538u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_VIRTUALHARDDISK: u32 = 65543u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_COMPOSITE: u32 = 327680u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_SERIAL: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_UDP: u32 = 196608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const OSDEVICE_TYPE_VMBUS: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const Opt_Distinct: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const Opt_Explicit: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const Opt_Share_mask: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const Opt_Shared: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const Opt_SndSel_mask: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const Opt_Wildcard: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub type PALLOCMEM = unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct PARAM_BUFFER {
     pub ParameterId: u32,
     pub Length: u32,
@@ -1572,19 +1395,13 @@ impl ::core::cmp::Eq for PARAM_BUFFER {}
 unsafe impl ::windows::core::Abi for PARAM_BUFFER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PCM_VERSION_1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PE_TYPE_APPID: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub type PFREEMEM = unsafe extern "system" fn(pv: *mut ::core::ffi::c_void);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct POLICY_DATA {
     pub PolicyObjHdr: RsvpObjHdr,
     pub usPeOffset: u16,
@@ -1612,7 +1429,6 @@ unsafe impl ::windows::core::Abi for POLICY_DATA {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct POLICY_ELEMENT {
     pub usPeLength: u16,
     pub usPeType: u16,
@@ -1638,148 +1454,78 @@ impl ::core::cmp::Eq for POLICY_ELEMENT {}
 unsafe impl ::windows::core::Abi for POLICY_ELEMENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_CRAZY_FLOWSPEC: u32 = 57u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_EXPIRED_CREDENTIALS: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_EXPIRED_USER_TOKEN: u32 = 51u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_DEF_FLOW_COUNT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_DEF_FLOW_DURATION: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_DEF_FLOW_RATE: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_DEF_PEAK_RATE: u32 = 25u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_DEF_SUM_FLOW_RATE: u32 = 33u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_DEF_SUM_PEAK_RATE: u32 = 41u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_GRP_FLOW_COUNT: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_GRP_FLOW_DURATION: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_GRP_FLOW_RATE: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_GRP_PEAK_RATE: u32 = 26u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_GRP_SUM_FLOW_RATE: u32 = 34u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_GRP_SUM_PEAK_RATE: u32 = 42u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_COUNT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_DURATION: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_RATE: u32 = 20u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_PEAK_RATE: u32 = 28u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_FLOW_RATE: u32 = 36u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_PEAK_RATE: u32 = 44u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_USER_FLOW_COUNT: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_USER_FLOW_DURATION: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_USER_FLOW_RATE: u32 = 19u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_USER_PEAK_RATE: u32 = 27u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_USER_SUM_FLOW_RATE: u32 = 35u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_GLOBAL_USER_SUM_PEAK_RATE: u32 = 43u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_IDENTITY_CHANGED: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_INSUFFICIENT_PRIVILEGES: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_NO_ACCEPTS: u32 = 55u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_NO_MEMORY: u32 = 56u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_NO_MORE_INFO: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_NO_PRIVILEGES: u32 = 50u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_NO_RESOURCES: u32 = 52u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_PRE_EMPTED: u32 = 53u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_DEF_FLOW_COUNT: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_DEF_FLOW_DURATION: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_DEF_FLOW_RATE: u32 = 21u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_DEF_PEAK_RATE: u32 = 29u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_DEF_SUM_FLOW_RATE: u32 = 37u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_DEF_SUM_PEAK_RATE: u32 = 45u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_GRP_FLOW_COUNT: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_GRP_FLOW_DURATION: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_GRP_FLOW_RATE: u32 = 22u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_GRP_PEAK_RATE: u32 = 30u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_GRP_SUM_FLOW_RATE: u32 = 38u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_GRP_SUM_PEAK_RATE: u32 = 46u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_COUNT: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_DURATION: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_RATE: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_UNAUTH_USER_PEAK_RATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_FLOW_RATE: u32 = 40u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_PEAK_RATE: u32 = 48u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_USER_FLOW_COUNT: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_USER_FLOW_DURATION: u32 = 15u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_USER_FLOW_RATE: u32 = 23u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_USER_PEAK_RATE: u32 = 31u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_USER_SUM_FLOW_RATE: u32 = 39u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_SUBNET_USER_SUM_PEAK_RATE: u32 = 47u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_UNKNOWN_USER: u32 = 49u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_USER_CHANGED: u32 = 54u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_LOCATOR_SUB_TYPE_ASCII_DN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_LOCATOR_SUB_TYPE_ASCII_DN_ENC: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PREDICTIVE_SERV: u32 = 3u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct QOS {
     pub SendingFlowspec: FLOWSPEC,
     pub ReceivingFlowspec: FLOWSPEC,
@@ -1811,7 +1557,6 @@ impl ::core::cmp::Eq for QOS {}
 unsafe impl ::windows::core::Abi for QOS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL {
@@ -1826,7 +1571,6 @@ pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSCancel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -1841,7 +1585,6 @@ pub unsafe fn QOSCancel<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0) -> super::super::Foundation::BOOL {
@@ -1856,7 +1599,6 @@ pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
@@ -1871,7 +1613,6 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -1886,7 +1627,6 @@ pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -1901,7 +1641,6 @@ pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -1916,7 +1655,6 @@ pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, flowid: u32, flags: u32) -> super::super::Foundation::BOOL {
@@ -1931,11 +1669,8 @@ pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOSSPBASE: u32 = 50000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSSetFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -1950,7 +1685,6 @@ pub unsafe fn QOSSetFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
@@ -1965,7 +1699,6 @@ pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
@@ -1983,7 +1716,6 @@ pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, s
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct QOS_DESTADDR {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub SocketAddress: *mut super::super::Networking::WinSock::SOCKADDR,
@@ -2017,7 +1749,6 @@ unsafe impl ::windows::core::Abi for QOS_DESTADDR {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_DIFFSERV {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub DSFieldCount: u32,
@@ -2045,7 +1776,6 @@ unsafe impl ::windows::core::Abi for QOS_DIFFSERV {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_DIFFSERV_RULE {
     pub InboundDSField: u8,
     pub ConformingOutboundDSField: u8,
@@ -2081,7 +1811,6 @@ unsafe impl ::windows::core::Abi for QOS_DIFFSERV_RULE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_DS_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub DSField: u32,
@@ -2108,7 +1837,6 @@ unsafe impl ::windows::core::Abi for QOS_DS_CLASS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_FLOWRATE_OUTGOING {
     pub Bandwidth: u64,
     pub ShapingBehavior: QOS_SHAPING,
@@ -2134,7 +1862,6 @@ impl ::core::cmp::Eq for QOS_FLOWRATE_OUTGOING {}
 unsafe impl ::windows::core::Abi for QOS_FLOWRATE_OUTGOING {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
@@ -2154,7 +1881,6 @@ unsafe impl ::windows::core::Abi for QOS_FLOWRATE_REASON {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 pub struct QOS_FLOW_FUNDAMENTALS {
     pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
     pub BottleneckBandwidth: u64,
@@ -2198,7 +1924,6 @@ unsafe impl ::windows::core::Abi for QOS_FLOW_FUNDAMENTALS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_FRIENDLY_NAME {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub FriendlyName: [u16; 256],
@@ -2223,13 +1948,9 @@ impl ::core::cmp::Eq for QOS_FRIENDLY_NAME {}
 unsafe impl ::windows::core::Abi for QOS_FRIENDLY_NAME {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_NOTIFY_FLOW(pub i32);
@@ -2244,11 +1965,9 @@ impl ::core::convert::From<i32> for QOS_NOTIFY_FLOW {
 unsafe impl ::windows::core::Abi for QOS_NOTIFY_FLOW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_OBJECT_HDR {
     pub ObjectType: u32,
     pub ObjectLength: u32,
@@ -2273,11 +1992,9 @@ impl ::core::cmp::Eq for QOS_OBJECT_HDR {}
 unsafe impl ::windows::core::Abi for QOS_OBJECT_HDR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_PACKET_PRIORITY {
     pub ConformantDSCPValue: u32,
     pub NonConformantDSCPValue: u32,
@@ -2304,9 +2021,7 @@ impl ::core::cmp::Eq for QOS_PACKET_PRIORITY {}
 unsafe impl ::windows::core::Abi for QOS_PACKET_PRIORITY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_QUERY_FLOW(pub i32);
@@ -2323,7 +2038,6 @@ unsafe impl ::windows::core::Abi for QOS_QUERY_FLOW {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapeDiscardMode: u32,
@@ -2348,7 +2062,6 @@ impl ::core::cmp::Eq for QOS_SD_MODE {}
 unsafe impl ::windows::core::Abi for QOS_SD_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_SET_FLOW(pub i32);
@@ -2363,7 +2076,6 @@ impl ::core::convert::From<i32> for QOS_SET_FLOW {
 unsafe impl ::windows::core::Abi for QOS_SET_FLOW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_SHAPING(pub i32);
@@ -2380,7 +2092,6 @@ unsafe impl ::windows::core::Abi for QOS_SHAPING {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapingRate: u32,
@@ -2407,7 +2118,6 @@ unsafe impl ::windows::core::Abi for QOS_SHAPING_RATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_TCP_TRAFFIC {
     pub ObjectHdr: QOS_OBJECT_HDR,
 }
@@ -2433,7 +2143,6 @@ unsafe impl ::windows::core::Abi for QOS_TCP_TRAFFIC {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_TRAFFIC_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub TrafficClass: u32,
@@ -2458,9 +2167,7 @@ impl ::core::cmp::Eq for QOS_TRAFFIC_CLASS {}
 unsafe impl ::windows::core::Abi for QOS_TRAFFIC_CLASS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
@@ -2480,7 +2187,6 @@ unsafe impl ::windows::core::Abi for QOS_TRAFFIC_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -2505,11 +2211,9 @@ impl ::core::cmp::Eq for QOS_VERSION {}
 unsafe impl ::windows::core::Abi for QOS_VERSION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QUALITATIVE_SERV: u32 = 6u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QualAppFlowSpec {
     pub Q_spec_serv_hdr: IntServServiceHdr,
     pub Q_spec_parm_hdr: IntServParmHdr,
@@ -2537,7 +2241,6 @@ unsafe impl ::windows::core::Abi for QualAppFlowSpec {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QualTspec {
     pub qual_Tspec_serv_hdr: IntServServiceHdr,
     pub qual_Tspec_parm_hdr: IntServParmHdr,
@@ -2565,7 +2268,6 @@ unsafe impl ::windows::core::Abi for QualTspec {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QualTspecParms {
     pub TB_Tspec_M: u32,
 }
@@ -2589,17 +2291,12 @@ impl ::core::cmp::Eq for QualTspecParms {}
 unsafe impl ::windows::core::Abi for QualTspecParms {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RCVD_PATH_TEAR: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RCVD_RESV_TEAR: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RESOURCES_ALLOCATED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RESOURCES_MODIFIED: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RESV_STYLE {
     pub style_header: RsvpObjHdr,
     pub style_word: u32,
@@ -2638,7 +2335,6 @@ unsafe impl ::windows::core::Abi for RHANDLE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_ADSPEC {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub GeneralParams: AD_GENERAL_PARAMS,
@@ -2660,75 +2356,41 @@ impl ::core::cmp::Eq for RSVP_ADSPEC {}
 unsafe impl ::windows::core::Abi for RSVP_ADSPEC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_DEFAULT_STYLE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_ADMISSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_AMBIG_FILTER: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_API_ERROR: u32 = 20u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_BAD_DSTPORT: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_BAD_SNDPORT: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_BAD_STYLE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_NO_PATH: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_NO_SENDER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_POLICY: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_PREEMPTED: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_RSVP_SYS_ERROR: u32 = 23u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_TC_ERROR: u32 = 21u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_TC_SYS_ERROR: u32 = 22u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_UNKNOWN_CTYPE: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_UNKNOWN_STYLE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Err_UNKN_OBJ_CLASS: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_API: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Bandwidth: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Bucket_szie: u32 = 32770u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Conflict_Serv: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Crazy_Flowspec: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Crazy_Tspec: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_DelayBnd: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Flow_Rate: u32 = 32769u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_MEMORY: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_MTU: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Min_Policied_size: u32 = 32772u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_No_Serv: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Nonev: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Other: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Peak_Rate: u32 = 32771u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC {
     pub Type: FilterType,
     pub Anonymous: RSVP_FILTERSPEC_0,
@@ -2750,7 +2412,6 @@ unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union RSVP_FILTERSPEC_0 {
     pub FilterSpecV4: RSVP_FILTERSPEC_V4,
     pub FilterSpecV6: RSVP_FILTERSPEC_V6,
@@ -2775,7 +2436,6 @@ unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V4 {
     pub Address: IN_ADDR_IPV4,
     pub Unused: u16,
@@ -2798,7 +2458,6 @@ unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V4_GPI {
     pub Address: IN_ADDR_IPV4,
     pub GeneralPortId: u32,
@@ -2820,7 +2479,6 @@ unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V4_GPI {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V6 {
     pub Address: IN_ADDR_IPV6,
     pub UnUsed: u16,
@@ -2848,7 +2506,6 @@ unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V6_FLOW {
     pub Address: IN_ADDR_IPV6,
     pub UnUsed: u8,
@@ -2876,7 +2533,6 @@ unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6_FLOW {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V6_GPI {
     pub Address: IN_ADDR_IPV6,
     pub GeneralPortId: u32,
@@ -2901,12 +2557,10 @@ impl ::core::cmp::Eq for RSVP_FILTERSPEC_V6_GPI {}
 unsafe impl ::windows::core::Abi for RSVP_FILTERSPEC_V6_GPI {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct RSVP_HOP {
     pub hop_header: RsvpObjHdr,
     pub hop_u: RSVP_HOP_0,
@@ -2960,7 +2614,6 @@ unsafe impl ::windows::core::Abi for RSVP_HOP_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct RSVP_MSG_OBJS {
     pub RsvpMsgType: i32,
     pub pRsvpSession: *mut RSVP_SESSION,
@@ -3014,17 +2667,12 @@ impl ::core::cmp::Eq for RSVP_MSG_OBJS {}
 unsafe impl ::windows::core::Abi for RSVP_MSG_OBJS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_OBJECT_ID_BASE: u32 = 1000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_PATH: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_PATH_ERR: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_PATH_TEAR: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_POLICY {
     pub Len: u16,
     pub Type: u16,
@@ -3052,7 +2700,6 @@ unsafe impl ::windows::core::Abi for RSVP_POLICY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_POLICY_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub NumPolicyElement: u32,
@@ -3080,7 +2727,6 @@ unsafe impl ::windows::core::Abi for RSVP_POLICY_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_RESERVE_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub Style: u32,
@@ -3109,16 +2755,12 @@ impl ::core::cmp::Eq for RSVP_RESERVE_INFO {}
 unsafe impl ::windows::core::Abi for RSVP_RESERVE_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_RESV: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_RESV_ERR: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_RESV_TEAR: u32 = 6u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct RSVP_SCOPE {
     pub scopl_header: RsvpObjHdr,
     pub scope_u: RSVP_SCOPE_0,
@@ -3172,7 +2814,6 @@ unsafe impl ::windows::core::Abi for RSVP_SCOPE_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct RSVP_SESSION {
     pub sess_header: RsvpObjHdr,
     pub sess_u: RSVP_SESSION_0,
@@ -3223,11 +2864,9 @@ impl ::core::cmp::Eq for RSVP_SESSION_0 {}
 unsafe impl ::windows::core::Abi for RSVP_SESSION_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_STATUS_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub StatusCode: u32,
@@ -3254,11 +2893,9 @@ impl ::core::cmp::Eq for RSVP_STATUS_INFO {}
 unsafe impl ::windows::core::Abi for RSVP_STATUS_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RsvpObjHdr {
     pub obj_length: u16,
     pub obj_class: u8,
@@ -3287,7 +2924,6 @@ unsafe impl ::windows::core::Abi for RsvpObjHdr {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct Rsvp_Hop_IPv4 {
     pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
     pub hop_LIH: u32,
@@ -3314,7 +2950,6 @@ unsafe impl ::windows::core::Abi for Rsvp_Hop_IPv4 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct SENDER_TSPEC {
     pub stspec_header: RsvpObjHdr,
     pub stspec_body: IntServTspecBody,
@@ -3334,370 +2969,189 @@ impl ::core::cmp::Eq for SENDER_TSPEC {}
 unsafe impl ::windows::core::Abi for SENDER_TSPEC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_BESTEFFORT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_CONTROLLEDLOAD: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_GENERAL_INFORMATION: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_GUARANTEED: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_NETWORK_CONTROL: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_NETWORK_UNAVAILABLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_NOCHANGE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_NONCONFORMING: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_NOTRAFFIC: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_QUALITATIVE: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICE_BESTEFFORT: u32 = 2147549184u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICE_CONTROLLEDLOAD: u32 = 2147614720u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICE_GUARANTEED: u32 = 2147745792u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICE_NO_QOS_SIGNALING: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICE_NO_TRAFFIC_CONTROL: u32 = 2164260864u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICE_QUALITATIVE: u32 = 2149580800u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SESSFLG_E_Police: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAERROR_FIRMWAREFAILURE: u32 = 196609u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAERROR_INTERNALFAILURE: u32 = 196611u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_AGGREGATION: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_AUTHORITY: u32 = 393216u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_CONTAINER: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_DRTM: u32 = 786432u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_ELAM: u32 = 589824u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_ERROR: u32 = 196608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_INFORMATION: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_KSR: u32 = 720896u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_LOADEDMODULE: u32 = 458752u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_NONMEASURED: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_OSPARAMETER: u32 = 327680u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_PREOSPARAMETER: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_TRUSTPOINT: u32 = 524288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENTTYPE_VBS: u32 = 655360u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_APPLICATION_RETURN: u32 = 131076u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_APPLICATION_SVN: u32 = 131081u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_AUTHENTICODEHASH: u32 = 458756u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_AUTHORITYISSUER: u32 = 458757u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_AUTHORITYPUBKEY: u32 = 393218u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_AUTHORITYPUBLISHER: u32 = 458760u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_AUTHORITYSERIAL: u32 = 458758u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_AUTHORITYSHA1THUMBPRINT: u32 = 458761u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_BITLOCKER_UNLOCK: u32 = 131077u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_BOOTCOUNTER: u32 = 131074u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_BOOTDEBUGGING: u32 = 262145u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_BOOT_REVOCATION_LIST: u32 = 262146u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_CODEINTEGRITY: u32 = 327682u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_COUNTERID: u32 = 131079u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DATAEXECUTIONPREVENTION: u32 = 327684u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DRIVER_LOAD_POLICY: u32 = 327694u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DRTM_AMD_SMM_HASH: u32 = 786435u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DRTM_AMD_SMM_SIGNER_KEY: u32 = 786436u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DRTM_SMM_LEVEL: u32 = 786434u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DRTM_STATE_AUTH: u32 = 786433u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DUMPS_DISABLED: u32 = 327717u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DUMP_ENCRYPTION_ENABLED: u32 = 327718u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_DUMP_ENCRYPTION_KEY_DIGEST: u32 = 327719u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_ELAM_CONFIGURATION: u32 = 589826u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_ELAM_KEYNAME: u32 = 589825u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_ELAM_MEASURED: u32 = 589828u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_ELAM_POLICY: u32 = 589827u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_EVENTCOUNTER: u32 = 131078u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_FILEPATH: u32 = 458753u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_FLIGHTSIGNING: u32 = 327713u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HASHALGORITHMID: u32 = 458755u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HIBERNATION_DISABLED: u32 = 327716u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HYPERVISOR_BOOT_DMA_PROTECTION: u32 = 327728u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HYPERVISOR_DEBUG: u32 = 327693u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HYPERVISOR_IOMMU_POLICY: u32 = 327692u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HYPERVISOR_LAUNCH_TYPE: u32 = 327690u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HYPERVISOR_MMIO_NX_POLICY: u32 = 327696u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HYPERVISOR_MSR_FILTER_POLICY: u32 = 327697u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_HYPERVISOR_PATH: u32 = 327691u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_IMAGEBASE: u32 = 458759u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_IMAGESIZE: u32 = 458754u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_IMAGEVALIDATED: u32 = 458762u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_INFORMATION: u32 = 131073u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_KSR_SIGNATURE: u32 = 720897u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_LSAISO_CONFIG: u32 = 327720u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_MODULE_SVN: u32 = 458763u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_MORBIT_API_STATUS: u32 = 131083u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_MORBIT_NOT_CANCELABLE: u32 = 131080u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_NOAUTHORITY: u32 = 393217u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_OSDEVICE: u32 = 327688u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_OSKERNELDEBUG: u32 = 327681u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_OS_REVOCATION_LIST: u32 = 327699u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED: u32 = 327714u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_PHYSICALADDRESSEXTENSION: u32 = 327687u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_SAFEMODE: u32 = 327685u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_SBCP_INFO: u32 = 327721u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_SI_POLICY: u32 = 327695u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_SMT_STATUS: u32 = 327700u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_SVN_CHAIN_STATUS: u32 = 131082u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_SYSTEMROOT: u32 = 327689u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_TESTSIGNING: u32 = 327683u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_TRANSFER_CONTROL: u32 = 131075u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_DUMP_USES_AMEROOT: u32 = 655369u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_HVCI_POLICY: u32 = 655367u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_IOMMU_REQUIRED: u32 = 655363u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_MANDATORY_ENFORCEMENT: u32 = 655366u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_MICROSOFT_BOOT_CHAIN_REQUIRED: u32 = 655368u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_MMIO_NX_REQUIRED: u32 = 655364u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_MSR_FILTERING_REQUIRED: u32 = 655365u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_SECUREBOOT_REQUIRED: u32 = 655362u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED: u32 = 655370u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VBS_VSM_REQUIRED: u32 = 655361u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VSM_IDKS_INFO: u32 = 327715u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VSM_IDK_INFO: u32 = 327712u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_VSM_LAUNCH_TYPE: u32 = 327698u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEVENT_WINPE: u32 = 327686u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_ACTION: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_EVENT_BASE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_LOAD: u32 = 32769u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_LOAD_1: u32 = 32774u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_PSP_FW_SPLT: u32 = 32770u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_PUB_KEY: u32 = 32772u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_SEPARATOR: u32 = 32775u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_SVN: u32 = 32773u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_AMD_SL_TSME_RB_FUSE: u32 = 32771u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_COMPACT_HASH: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_CPU_MICROCODE: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_ACTION: u32 = 2147483655u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_BOOT_SERVICES_APPLICATION: u32 = 2147483651u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_BOOT_SERVICES_DRIVER: u32 = 2147483652u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_EVENT_BASE: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_GPT_EVENT: u32 = 2147483654u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_HANDOFF_TABLES: u32 = 2147483657u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_HANDOFF_TABLES2: u32 = 2147483659u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_HCRTM_EVENT: u32 = 2147483664u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB: u32 = 2147483656u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB2: u32 = 2147483658u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_RUNTIME_SERVICES_DRIVER: u32 = 2147483653u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_SPDM_FIRMWARE_BLOB: u32 = 2147483873u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_SPDM_FIRMWARE_CONFIG: u32 = 2147483874u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_VARIABLE_AUTHORITY: u32 = 2147483872u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_VARIABLE_BOOT: u32 = 2147483650u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EFI_VARIABLE_DRIVER_CONFIG: u32 = 2147483649u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_EVENT_TAG: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_IPL: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_IPL_PARTITION_DATA: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_NONHOST_CODE: u32 = 15u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_NONHOST_CONFIG: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_NONHOST_INFO: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_NO_ACTION: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_OMIT_BOOT_DEVICE_EVENTS: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_PLATFORM_CONFIG_FLAGS: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_POST_CODE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_PREBOOT_CERT: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_SEPARATOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_S_CRTM_CONTENTS: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_S_CRTM_VERSION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TABLE_OF_DEVICES: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_BIOSAC_REG_DATA: u32 = 1034u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_BOOT_POL_HASH: u32 = 1050u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_BPM_HASH: u32 = 1047u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_BPM_INFO_HASH: u32 = 1049u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_CAP_VALUE: u32 = 1279u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_COLD_BOOT_BIOS_HASH: u32 = 1045u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_COMBINED_HASH: u32 = 1027u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_CPU_SCRTM_STAT: u32 = 1035u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_ELEMENTS_HASH: u32 = 1037u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_EVENT_BASE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_HASH_START: u32 = 1026u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_KM_HASH: u32 = 1046u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_KM_INFO_HASH: u32 = 1048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_LCP_AUTHORITIES_HASH: u32 = 1043u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_LCP_CONTROL_HASH: u32 = 1036u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_LCP_DETAILS_HASH: u32 = 1042u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_LCP_HASH: u32 = 1041u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_MLE_HASH: u32 = 1028u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_NV_INFO_HASH: u32 = 1044u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_OSSINITDATA_CAP_HASH: u32 = 1039u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_PCR_MAPPING: u32 = 1025u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_RANDOM_VALUE: u32 = 1278u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_SINIT_PUBKEY_HASH: u32 = 1040u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_TXT_STM_HASH: u32 = 1038u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAEV_UNUSED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAHDRSIGNATURE: u32 = 1279476311u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SIPALOGVERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const STATE_TIMEOUT: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct Scope_list_ipv4 {
     pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
 }
@@ -3724,7 +3178,6 @@ unsafe impl ::windows::core::Abi for Scope_list_ipv4 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct Session_IPv4 {
     pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
     pub sess_protid: u8,
@@ -3751,11 +3204,9 @@ impl ::core::cmp::Eq for Session_IPv4 {}
 unsafe impl ::windows::core::Abi for Session_IPv4 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TCBASE: u32 = 7500u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TCG_PCClientPCREventStruct {
     pub pcrIndex: u32,
     pub eventType: u32,
@@ -3780,7 +3231,6 @@ unsafe impl ::windows::core::Abi for TCG_PCClientPCREventStruct {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TCG_PCClientTaggedEventStruct {
     pub EventID: u32,
     pub EventDataSize: u32,
@@ -3801,13 +3251,11 @@ impl ::core::cmp::Eq for TCG_PCClientTaggedEventStruct {}
 unsafe impl ::windows::core::Abi for TCG_PCClientTaggedEventStruct {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 pub struct TCI_CLIENT_FUNC_LIST {
     pub ClNotifyHandler: ::core::option::Option<TCI_NOTIFY_HANDLER>,
     pub ClAddFlowCompleteHandler: ::core::option::Option<TCI_ADD_FLOW_COMPLETE_HANDLER>,
@@ -3840,18 +3288,14 @@ impl ::core::cmp::Eq for TCI_CLIENT_FUNC_LIST {}
 unsafe impl ::windows::core::Abi for TCI_CLIENT_FUNC_LIST {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_DEL_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_MOD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_NOTIFY_HANDLER = unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TC_GEN_FILTER {
     pub AddressType: u16,
     pub PatternSize: u32,
@@ -3880,7 +3324,6 @@ unsafe impl ::windows::core::Abi for TC_GEN_FILTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TC_GEN_FLOW {
     pub SendingFlowspec: FLOWSPEC,
     pub ReceivingFlowspec: FLOWSPEC,
@@ -3910,7 +3353,6 @@ unsafe impl ::windows::core::Abi for TC_GEN_FLOW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 pub struct TC_IFC_DESCRIPTOR {
     pub Length: u32,
     pub pInterfaceName: super::super::Foundation::PWSTR,
@@ -3943,28 +3385,18 @@ impl ::core::cmp::Eq for TC_IFC_DESCRIPTOR {}
 unsafe impl ::windows::core::Abi for TC_IFC_DESCRIPTOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NONCONF_BORROW: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NONCONF_BORROW_PLUS: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NONCONF_DISCARD: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NONCONF_SHAPE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NOTIFY_FLOW_CLOSE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NOTIFY_IFC_CHANGE: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NOTIFY_IFC_CLOSE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NOTIFY_IFC_UP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_NetworkManagement_Ndis`*"]
 pub struct TC_SUPPORTED_INFO_BUFFER {
     pub InstanceIDLength: u16,
     pub InstanceID: [u16; 256],
@@ -3997,7 +3429,6 @@ impl ::core::cmp::Eq for TC_SUPPORTED_INFO_BUFFER {}
 unsafe impl ::windows::core::Abi for TC_SUPPORTED_INFO_BUFFER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcAddFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -4012,7 +3443,6 @@ pub unsafe fn TcAddFilter<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcAddFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, clflowctx: Param1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -4027,7 +3457,6 @@ pub unsafe fn TcAddFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcCloseInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0) -> u32 {
@@ -4042,7 +3471,6 @@ pub unsafe fn TcCloseInterface<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0) -> u32 {
@@ -4057,7 +3485,6 @@ pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0) -> u32 {
@@ -4072,7 +3499,6 @@ pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0) -> u32 {
@@ -4087,7 +3513,6 @@ pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
@@ -4102,7 +3527,6 @@ pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32 {
@@ -4117,7 +3541,6 @@ pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32 {
@@ -4132,7 +3555,6 @@ pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32 {
@@ -4147,7 +3569,6 @@ pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcModifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericflow: *const TC_GEN_FLOW) -> u32 {
@@ -4162,7 +3583,6 @@ pub unsafe fn TcModifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -4177,7 +3597,6 @@ pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -4192,7 +3611,6 @@ pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
@@ -4207,7 +3625,6 @@ pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
@@ -4222,7 +3639,6 @@ pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
@@ -4237,7 +3653,6 @@ pub unsafe fn TcQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcRegisterClient<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(tciversion: u32, clregctx: Param1, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -4252,7 +3667,6 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
@@ -4267,7 +3681,6 @@ pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
@@ -4282,7 +3695,6 @@ pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
@@ -4297,45 +3709,26 @@ pub unsafe fn TcSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_256: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_384: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_512: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SHA_1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SHA_2_256: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SHA_2_384: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SHA_2_512: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_BITMAP_SM3_256: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SHA3_256: u32 = 39u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SHA3_384: u32 = 40u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SHA3_512: u32 = 41u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SHA_1: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SHA_2_256: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SHA_2_384: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct WBCL_Iterator {
     pub firstElementPtr: *mut ::core::ffi::c_void,
     pub logSize: u32,
@@ -4365,7 +3758,6 @@ unsafe impl ::windows::core::Abi for WBCL_Iterator {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct WBCL_LogHdr {
     pub signature: u32,
     pub version: u32,
@@ -4390,7 +3782,6 @@ unsafe impl ::windows::core::Abi for WBCL_LogHdr {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct flow_desc {
     pub u1: flow_desc_0,
     pub u2: flow_desc_1,
@@ -4469,7 +3860,6 @@ impl ::core::cmp::Eq for flow_desc_1 {}
 unsafe impl ::windows::core::Abi for flow_desc_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct int_serv_wkp(pub i32);
@@ -4490,7 +3880,6 @@ unsafe impl ::windows::core::Abi for int_serv_wkp {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub struct lpmiptable {
     pub ulIfIndex: u32,
     pub MediaType: u32,
@@ -4519,7 +3908,6 @@ unsafe impl ::windows::core::Abi for lpmiptable {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct policy_decision {
     pub lpvResult: u32,
     pub wPolicyErrCode: u16,
@@ -4547,7 +3935,6 @@ unsafe impl ::windows::core::Abi for policy_decision {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     pub SignAlgID: u32,
     pub SignatureLength: u32,
@@ -4570,7 +3957,6 @@ unsafe impl ::windows::core::Abi for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     pub CreationTime: i64,
     pub DigestLength: u32,
@@ -4594,7 +3980,6 @@ unsafe impl ::windows::core::Abi for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     pub PayloadVersion: u32,
     pub VarDataOffset: u32,
@@ -4621,7 +4006,6 @@ unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     pub PolicyVersion: u64,
     pub PolicyNameLength: u16,
@@ -4646,7 +4030,6 @@ unsafe impl ::windows::core::Abi for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     pub KeyAlgID: u32,
     pub Anonymous: tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
@@ -4668,7 +4051,6 @@ unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     pub RsaKeyInfo: tag_SIPAEVENT_VSM_IDK_RSA_INFO,
 }
@@ -4689,7 +4071,6 @@ unsafe impl ::windows::core::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     pub KeyBitLength: u32,
     pub PublicExpLengthBytes: u32,

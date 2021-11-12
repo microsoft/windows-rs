@@ -4,7 +4,6 @@ pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::core::GUID = :
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9ece4d_2f6e_4f01_8c96_e89e331b47b1);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 pub struct DXCoreAdapterMemoryBudget {
     pub budget: u64,
     pub currentUsage: u64,
@@ -33,7 +32,6 @@ unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudget {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     pub nodeIndex: u32,
     pub segmentGroup: DXCoreSegmentGroup,
@@ -58,7 +56,6 @@ impl ::core::cmp::Eq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
 unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXCoreAdapterPreference(pub u32);
@@ -101,7 +98,6 @@ impl ::core::ops::Not for DXCoreAdapterPreference {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXCoreAdapterProperty(pub u32);
@@ -156,7 +152,6 @@ impl ::core::ops::Not for DXCoreAdapterProperty {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXCoreAdapterState(pub u32);
@@ -198,7 +193,6 @@ impl ::core::ops::Not for DXCoreAdapterState {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[inline]
 pub unsafe fn DXCoreCreateAdapterFactory<T: ::windows::core::Interface>() -> ::windows::core::Result<T> {
     #[cfg(windows)]
@@ -215,7 +209,6 @@ pub unsafe fn DXCoreCreateAdapterFactory<T: ::windows::core::Interface>() -> ::w
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
     pub deviceID: u32,
@@ -244,7 +237,6 @@ unsafe impl ::windows::core::Abi for DXCoreHardwareID {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 pub struct DXCoreHardwareIDParts {
     pub vendorID: u32,
     pub deviceID: u32,
@@ -272,7 +264,6 @@ impl ::core::cmp::Eq for DXCoreHardwareIDParts {}
 unsafe impl ::windows::core::Abi for DXCoreHardwareIDParts {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXCoreNotificationType(pub u32);
@@ -316,7 +307,6 @@ impl ::core::ops::Not for DXCoreNotificationType {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXCoreSegmentGroup(pub u32);
@@ -358,49 +348,38 @@ impl ::core::ops::Not for DXCoreSegmentGroup {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDXCoreAdapter(pub ::windows::core::IUnknown);
 impl IDXCoreAdapter {
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsValid(&self) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsAttributeSupported(&self, attributeguid: *const ::windows::core::GUID) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributeguid)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(property)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(property), ::core::mem::transmute(buffersize), ::core::mem::transmute(propertydata)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> ::windows::core::Result<usize> {
         let mut result__: <usize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(property), &mut result__).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(property)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(state), ::core::mem::transmute(inputstatedetailssize), ::core::mem::transmute(inputstatedetails), ::core::mem::transmute(outputbuffersize), ::core::mem::transmute(outputbuffer)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(property)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(state), ::core::mem::transmute(inputstatedetailssize), ::core::mem::transmute(inputstatedetails), ::core::mem::transmute(inputdatasize), ::core::mem::transmute(inputdata)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn GetFactory<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -447,32 +426,26 @@ pub struct IDXCoreAdapter_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDXCoreAdapterFactory(pub ::windows::core::IUnknown);
 impl IDXCoreAdapterFactory {
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn CreateAdapterList<T: ::windows::core::Interface>(&self, numattributes: u32, filterattributes: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(numattributes), ::core::mem::transmute(filterattributes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_DXCore`, `Win32_Foundation`*"]
     pub unsafe fn GetAdapterByLuid<T: ::windows::core::Interface>(&self, adapterluid: *const super::super::Foundation::LUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapterluid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(notificationtype)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn RegisterEventNotification<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, dxcoreobject: Param0, notificationtype: DXCoreNotificationType, callbackfunction: ::core::option::Option<PFN_DXCORE_NOTIFICATION_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), dxcoreobject.into_param().abi(), ::core::mem::transmute(notificationtype), ::core::mem::transmute(callbackfunction), ::core::mem::transmute(callbackcontext), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventcookie)).ok()
     }
@@ -514,34 +487,27 @@ pub struct IDXCoreAdapterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dxcoreobject: ::windows::core::RawPtr, notificationtype: DXCoreNotificationType, callbackfunction: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, eventcookie: u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDXCoreAdapterList(pub ::windows::core::IUnknown);
 impl IDXCoreAdapterList {
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn GetAdapter<T: ::windows::core::Interface>(&self, index: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsStale(&self) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn GetFactory<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn Sort(&self, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(numpreferences), ::core::mem::transmute(preferences)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub unsafe fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(preference)))
     }
@@ -583,7 +549,5 @@ pub struct IDXCoreAdapterList_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, preference: DXCoreAdapterPreference) -> bool,
 );
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows::core::RawPtr, context: *const ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 pub const _FACDXCORE: u32 = 2176u32;

@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn gen_sys_file(root: &'static str, tree: &TypeTree, ignore_windows_features: bool) -> TokenStream {
-    let gen = Gen { relative: tree.namespace, root, ignore_windows_features };
+    let gen = Gen { relative: tree.namespace, root, ignore_windows_features, docs: false };
     let types = gen_sys(tree, &gen);
 
     let namespaces = tree.namespaces.iter().filter_map(move |(name, tree)| {
@@ -17,14 +17,14 @@ pub fn gen_sys_file(root: &'static str, tree: &TypeTree, ignore_windows_features
     });
 
     quote! {
-        #![allow(non_snake_case, non_camel_case_types)]
+        #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
         #(#namespaces)*
         #types
     }
 }
 
 pub fn gen_source_file(root: &'static str, tree: &TypeTree, ignore_windows_features: bool) -> TokenStream {
-    let gen = Gen { relative: tree.namespace, root, ignore_windows_features };
+    let gen = Gen { relative: tree.namespace, root, ignore_windows_features, docs: false };
 
     let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
 

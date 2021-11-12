@@ -1,7 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Matrix3x2 {
     pub M11: f32,
     pub M12: f32,
@@ -186,7 +185,6 @@ impl ::core::ops::Mul<f32> for &Matrix3x2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Matrix4x4 {
     pub M11: f32,
     pub M12: f32,
@@ -416,7 +414,6 @@ impl ::core::ops::Mul<f32> for &Matrix4x4 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Plane {
     pub Normal: Vector3,
     pub D: f32,
@@ -449,7 +446,6 @@ impl ::windows::core::DefaultType for Plane {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Quaternion {
     pub X: f32,
     pub Y: f32,
@@ -484,7 +480,6 @@ impl ::windows::core::DefaultType for Quaternion {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Rational {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -517,7 +512,6 @@ impl ::windows::core::DefaultType for Rational {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Vector2 {
     pub X: f32,
     pub Y: f32,
@@ -726,7 +720,6 @@ impl ::core::ops::Mul<f32> for &Vector2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Vector3 {
     pub X: f32,
     pub Y: f32,
@@ -939,7 +932,6 @@ impl ::core::ops::Mul<f32> for &Vector3 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Foundation_Numerics`*"]
 pub struct Vector4 {
     pub X: f32,
     pub Y: f32,

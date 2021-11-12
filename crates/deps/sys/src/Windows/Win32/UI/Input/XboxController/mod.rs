@@ -1,20 +1,110 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn XInputEnable();
-    #[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]
+    pub fn XInputEnable(enable: super::super::super::Foundation::BOOL);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn XInputGetAudioDeviceIds();
-    #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
-    pub fn XInputGetBatteryInformation();
-    #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
-    pub fn XInputGetCapabilities();
-    #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
-    pub fn XInputGetKeystroke();
-    #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
-    pub fn XInputGetState();
-    #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
-    pub fn XInputSetState();
+    pub fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32;
+    pub fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
+    pub fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
+    pub fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
+    pub fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
+    pub fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
 }
+pub const BATTERY_DEVTYPE_GAMEPAD: u32 = 0u32;
+pub const BATTERY_DEVTYPE_HEADSET: u32 = 1u32;
+pub const BATTERY_LEVEL_EMPTY: u32 = 0u32;
+pub const BATTERY_LEVEL_FULL: u32 = 3u32;
+pub const BATTERY_LEVEL_LOW: u32 = 1u32;
+pub const BATTERY_LEVEL_MEDIUM: u32 = 2u32;
+pub const BATTERY_TYPE_ALKALINE: u32 = 2u32;
+pub const BATTERY_TYPE_DISCONNECTED: u32 = 0u32;
+pub const BATTERY_TYPE_NIMH: u32 = 3u32;
+pub const BATTERY_TYPE_UNKNOWN: u32 = 255u32;
+pub const BATTERY_TYPE_WIRED: u32 = 1u32;
+#[repr(C)]
+pub struct XINPUT_BATTERY_INFORMATION(i32);
+#[repr(C)]
+pub struct XINPUT_CAPABILITIES(i32);
+pub const XINPUT_CAPS_FFB_SUPPORTED: u32 = 1u32;
+pub const XINPUT_CAPS_NO_NAVIGATION: u32 = 16u32;
+pub const XINPUT_CAPS_PMD_SUPPORTED: u32 = 8u32;
+pub const XINPUT_CAPS_VOICE_SUPPORTED: u32 = 4u32;
+pub const XINPUT_CAPS_WIRELESS: u32 = 2u32;
+pub const XINPUT_DEVSUBTYPE_ARCADE_PAD: u32 = 19u32;
+pub const XINPUT_DEVSUBTYPE_ARCADE_STICK: u32 = 3u32;
+pub const XINPUT_DEVSUBTYPE_DANCE_PAD: u32 = 5u32;
+pub const XINPUT_DEVSUBTYPE_DRUM_KIT: u32 = 8u32;
+pub const XINPUT_DEVSUBTYPE_FLIGHT_STICK: u32 = 4u32;
+pub const XINPUT_DEVSUBTYPE_GAMEPAD: u32 = 1u32;
+pub const XINPUT_DEVSUBTYPE_GUITAR: u32 = 6u32;
+pub const XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE: u32 = 7u32;
+pub const XINPUT_DEVSUBTYPE_GUITAR_BASS: u32 = 11u32;
+pub const XINPUT_DEVSUBTYPE_UNKNOWN: u32 = 0u32;
+pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
+pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
+pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
+#[repr(C)]
+pub struct XINPUT_GAMEPAD(i32);
+pub const XINPUT_GAMEPAD_A: u32 = 4096u32;
+pub const XINPUT_GAMEPAD_B: u32 = 8192u32;
+pub const XINPUT_GAMEPAD_BACK: u32 = 32u32;
+pub const XINPUT_GAMEPAD_DPAD_DOWN: u32 = 2u32;
+pub const XINPUT_GAMEPAD_DPAD_LEFT: u32 = 4u32;
+pub const XINPUT_GAMEPAD_DPAD_RIGHT: u32 = 8u32;
+pub const XINPUT_GAMEPAD_DPAD_UP: u32 = 1u32;
+pub const XINPUT_GAMEPAD_LEFT_SHOULDER: u32 = 256u32;
+pub const XINPUT_GAMEPAD_LEFT_THUMB: u32 = 64u32;
+pub const XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE: u32 = 7849u32;
+pub const XINPUT_GAMEPAD_RIGHT_SHOULDER: u32 = 512u32;
+pub const XINPUT_GAMEPAD_RIGHT_THUMB: u32 = 128u32;
+pub const XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE: u32 = 8689u32;
+pub const XINPUT_GAMEPAD_START: u32 = 16u32;
+pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30u32;
+pub const XINPUT_GAMEPAD_X: u32 = 16384u32;
+pub const XINPUT_GAMEPAD_Y: u32 = 32768u32;
+#[repr(C)]
+pub struct XINPUT_KEYSTROKE(i32);
+pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
+pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2u32;
+pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4u32;
+#[repr(C)]
+pub struct XINPUT_STATE(i32);
+#[repr(C)]
+pub struct XINPUT_VIBRATION(i32);
+#[repr(transparent)]
+pub struct XINPUT_VIRTUAL_KEY(pub u16);
+pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22528u16);
+pub const VK_PAD_B: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22529u16);
+pub const VK_PAD_X: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22530u16);
+pub const VK_PAD_Y: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22531u16);
+pub const VK_PAD_RSHOULDER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22532u16);
+pub const VK_PAD_LSHOULDER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22533u16);
+pub const VK_PAD_LTRIGGER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22534u16);
+pub const VK_PAD_RTRIGGER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22535u16);
+pub const VK_PAD_DPAD_UP: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22544u16);
+pub const VK_PAD_DPAD_DOWN: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22545u16);
+pub const VK_PAD_DPAD_LEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22546u16);
+pub const VK_PAD_DPAD_RIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22547u16);
+pub const VK_PAD_START: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22548u16);
+pub const VK_PAD_BACK: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22549u16);
+pub const VK_PAD_LTHUMB_PRESS: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22550u16);
+pub const VK_PAD_RTHUMB_PRESS: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22551u16);
+pub const VK_PAD_LTHUMB_UP: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22560u16);
+pub const VK_PAD_LTHUMB_DOWN: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22561u16);
+pub const VK_PAD_LTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22562u16);
+pub const VK_PAD_LTHUMB_LEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22563u16);
+pub const VK_PAD_LTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22564u16);
+pub const VK_PAD_LTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22565u16);
+pub const VK_PAD_LTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22566u16);
+pub const VK_PAD_LTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22567u16);
+pub const VK_PAD_RTHUMB_UP: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22576u16);
+pub const VK_PAD_RTHUMB_DOWN: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22577u16);
+pub const VK_PAD_RTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22578u16);
+pub const VK_PAD_RTHUMB_LEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22579u16);
+pub const VK_PAD_RTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22580u16);
+pub const VK_PAD_RTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22581u16);
+pub const VK_PAD_RTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22582u16);
+pub const VK_PAD_RTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22583u16);
+pub const XUSER_INDEX_ANY: u32 = 255u32;
+pub const XUSER_MAX_COUNT: u32 = 4u32;

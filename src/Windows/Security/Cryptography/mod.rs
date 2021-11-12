@@ -5,7 +5,6 @@ pub mod Certificates;
 pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
-#[doc = "*Required features: `Security_Cryptography`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BinaryStringEncoding(pub i32);
@@ -28,11 +27,9 @@ unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
 impl ::windows::core::DefaultType for BinaryStringEncoding {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Security_Cryptography`*"]
 pub struct CryptographicBuffer {}
 impl CryptographicBuffer {
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn Compare<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(object1: Param0, object2: Param1) -> ::windows::core::Result<bool> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -40,14 +37,12 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn GenerateRandom(length: u32) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
-    #[doc = "*Required features: `Security_Cryptography`*"]
     pub fn GenerateRandomNumber() -> ::windows::core::Result<u32> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
@@ -55,7 +50,6 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn CreateFromByteArray(value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -63,12 +57,10 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn CopyToByteArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         Self::ICryptographicBufferStatics(|this| unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), buffer.into_param().abi(), value.set_abi_len(), value as *mut _ as _).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn DecodeFromHexString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -76,7 +68,6 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn EncodeToHexString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -84,7 +75,6 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn DecodeFromBase64String<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -92,7 +82,6 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn EncodeToBase64String<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -100,7 +89,6 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn ConvertStringToBinary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0, encoding: BinaryStringEncoding) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -108,7 +96,6 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Security_Cryptography`, `Storage_Streams`*"]
     pub fn ConvertBinaryToString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(encoding: BinaryStringEncoding, buffer: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();

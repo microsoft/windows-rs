@@ -66,7 +66,6 @@ pub mod WiFiDirect;
 pub struct DevicesLowLevelContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Devices`*"]
 pub struct ILowLevelDevicesAggregateProvider(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProvider {
     type Vtable = ILowLevelDevicesAggregateProvider_abi;
@@ -74,7 +73,6 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProvider {
 }
 impl ILowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Adc_Provider`*"]
     pub fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
@@ -83,7 +81,6 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Pwm_Provider`*"]
     pub fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
@@ -92,7 +89,6 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Gpio_Provider`*"]
     pub fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
@@ -101,7 +97,6 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_I2c_Provider`*"]
     pub fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
@@ -110,7 +105,6 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Spi_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Spi_Provider`*"]
     pub fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
@@ -237,13 +231,11 @@ pub struct ILowLevelDevicesControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Devices`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LowLevelDevicesAggregateProvider(pub ::windows::core::IInspectable);
 impl LowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Adc_Provider`*"]
     pub fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
@@ -252,7 +244,6 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Pwm_Provider`*"]
     pub fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
@@ -261,7 +252,6 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Gpio_Provider`*"]
     pub fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
@@ -270,7 +260,6 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_I2c_Provider`*"]
     pub fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
@@ -279,7 +268,6 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Spi_Provider")]
-    #[doc = "*Required features: `Devices`, `Devices_Spi_Provider`*"]
     pub fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
@@ -288,7 +276,6 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-    #[doc = "*Required features: `Devices`, `Devices_Adc_Provider`, `Devices_Gpio_Provider`, `Devices_I2c_Provider`, `Devices_Pwm_Provider`, `Devices_Spi_Provider`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, Adc::Provider::IAdcControllerProvider>, Param1: ::windows::core::IntoParam<'a, Pwm::Provider::IPwmControllerProvider>, Param2: ::windows::core::IntoParam<'a, Gpio::Provider::IGpioControllerProvider>, Param3: ::windows::core::IntoParam<'a, I2c::Provider::II2cControllerProvider>, Param4: ::windows::core::IntoParam<'a, Spi::Provider::ISpiControllerProvider>>(
         adc: Param0,
         pwm: Param1,
@@ -378,19 +365,16 @@ impl<'a> ::windows::core::IntoParam<'a, ILowLevelDevicesAggregateProvider> for &
 }
 unsafe impl ::core::marker::Send for LowLevelDevicesAggregateProvider {}
 unsafe impl ::core::marker::Sync for LowLevelDevicesAggregateProvider {}
-#[doc = "*Required features: `Devices`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LowLevelDevicesController(pub ::windows::core::IInspectable);
 impl LowLevelDevicesController {
-    #[doc = "*Required features: `Devices`*"]
     pub fn DefaultProvider() -> ::windows::core::Result<ILowLevelDevicesAggregateProvider> {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILowLevelDevicesAggregateProvider>(result__)
         })
     }
-    #[doc = "*Required features: `Devices`*"]
     pub fn SetDefaultProvider<'a, Param0: ::windows::core::IntoParam<'a, ILowLevelDevicesAggregateProvider>>(value: Param0) -> ::windows::core::Result<()> {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }

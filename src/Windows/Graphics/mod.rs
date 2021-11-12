@@ -17,7 +17,6 @@ pub mod Printing;
 pub mod Printing3D;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Graphics`*"]
 pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -50,7 +49,6 @@ impl ::windows::core::DefaultType for DisplayAdapterId {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Graphics`*"]
 pub struct DisplayId {
     pub Value: u64,
 }
@@ -82,7 +80,6 @@ impl ::windows::core::DefaultType for DisplayId {
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Graphics`*"]
 pub struct IGeometrySource2D(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_abi;
@@ -144,7 +141,6 @@ pub struct IGeometrySource2D_abi(
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Graphics`*"]
 pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
@@ -177,7 +173,6 @@ impl ::windows::core::DefaultType for PointInt32 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Graphics`*"]
 pub struct RectInt32 {
     pub X: i32,
     pub Y: i32,
@@ -212,7 +207,6 @@ impl ::windows::core::DefaultType for RectInt32 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Graphics`*"]
 pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,

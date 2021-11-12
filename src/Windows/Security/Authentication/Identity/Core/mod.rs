@@ -145,13 +145,11 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(pub ::windows::core::IInspectable);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn GetOneTimePassCodeAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, useraccountid: Param0, codelength: u32) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>> {
         let this = self;
         unsafe {
@@ -160,7 +158,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn AddDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, useraccountid: Param0, authenticationtoken: Param1, wnschannelid: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
@@ -169,7 +166,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn RemoveDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, useraccountid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
@@ -178,7 +174,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn UpdateWnsChannelAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, useraccountid: Param0, channeluri: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
@@ -187,7 +182,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetSessionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, useraccountidlist: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>> {
         let this = self;
         unsafe {
@@ -196,7 +190,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetSessionsAndUnregisteredAccountsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, useraccountidlist: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>> {
         let this = self;
         unsafe {
@@ -205,7 +198,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn ApproveSessionUsingAuthSessionInfoAsync<'a, Param1: ::windows::core::IntoParam<'a, MicrosoftAccountMultiFactorSessionInfo>>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
@@ -214,7 +206,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn ApproveSessionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
         &self,
         sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus,
@@ -229,7 +220,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn DenySessionUsingAuthSessionInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, MicrosoftAccountMultiFactorSessionInfo>>(&self, authenticationsessioninfo: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
@@ -238,7 +228,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn DenySessionAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, useraccountid: Param0, sessionid: Param1, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
         let this = self;
         unsafe {
@@ -246,7 +235,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn Current() -> ::windows::core::Result<MicrosoftAccountMultiFactorAuthenticationManager> {
         Self::IMicrosoftAccountMultiFactorAuthenticatorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -310,7 +298,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationManager {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
@@ -332,13 +319,11 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenti
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorAuthenticationType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(pub ::windows::core::IInspectable);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation_Collections`*"]
     pub fn Sessions(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
         unsafe {
@@ -346,7 +331,6 @@ impl MicrosoftAccountMultiFactorGetSessionsResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse> {
         let this = self;
         unsafe {
@@ -407,12 +391,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorGetSessionsResult {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(pub ::windows::core::IInspectable);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn Code(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -421,7 +403,6 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn TimeInterval(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -430,7 +411,6 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn TimeToLive(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -438,7 +418,6 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse> {
         let this = self;
         unsafe {
@@ -499,7 +478,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
@@ -541,7 +519,6 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorServiceR
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorServiceResponse {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
@@ -564,7 +541,6 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionA
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
@@ -586,12 +562,10 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionA
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(pub ::windows::core::IInspectable);
 impl MicrosoftAccountMultiFactorSessionInfo {
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn UserAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -599,7 +573,6 @@ impl MicrosoftAccountMultiFactorSessionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -607,7 +580,6 @@ impl MicrosoftAccountMultiFactorSessionInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn DisplaySessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -615,7 +587,6 @@ impl MicrosoftAccountMultiFactorSessionInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ApprovalStatus(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorSessionApprovalStatus> {
         let this = self;
         unsafe {
@@ -623,7 +594,6 @@ impl MicrosoftAccountMultiFactorSessionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorSessionApprovalStatus>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn AuthenticationType(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorAuthenticationType> {
         let this = self;
         unsafe {
@@ -632,7 +602,6 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn RequestTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -641,7 +610,6 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -702,13 +670,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
-#[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(pub ::windows::core::IInspectable);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation_Collections`*"]
     pub fn Sessions(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
         unsafe {
@@ -717,7 +683,6 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`, `Foundation_Collections`*"]
     pub fn UnregisteredAccounts(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -725,7 +690,6 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
     pub fn ServiceResponse(&self) -> ::windows::core::Result<MicrosoftAccountMultiFactorServiceResponse> {
         let this = self;
         unsafe {

@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DnssdRegistrationResult(pub ::windows::core::IInspectable);
@@ -11,7 +10,6 @@ impl DnssdRegistrationResult {
         static mut SHARED: ::windows::core::FactoryCache<DnssdRegistrationResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Status(&self) -> ::windows::core::Result<DnssdRegistrationStatus> {
         let this = self;
         unsafe {
@@ -19,7 +17,6 @@ impl DnssdRegistrationResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DnssdRegistrationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn IPAddress(&self) -> ::windows::core::Result<super::super::HostName> {
         let this = self;
         unsafe {
@@ -27,7 +24,6 @@ impl DnssdRegistrationResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::HostName>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn HasInstanceNameChanged(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -36,7 +32,6 @@ impl DnssdRegistrationResult {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -123,7 +118,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Sync for DnssdRegistrationResult {}
-#[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DnssdRegistrationStatus(pub i32);
@@ -147,12 +141,10 @@ unsafe impl ::windows::core::RuntimeType for DnssdRegistrationStatus {
 impl ::windows::core::DefaultType for DnssdRegistrationStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DnssdServiceInstance(pub ::windows::core::IInspectable);
 impl DnssdServiceInstance {
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn DnssdServiceInstanceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -160,12 +152,10 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn SetDnssdServiceInstanceName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn HostName(&self) -> ::windows::core::Result<super::super::HostName> {
         let this = self;
         unsafe {
@@ -173,12 +163,10 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::HostName>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn SetHostName<'a, Param0: ::windows::core::IntoParam<'a, super::super::HostName>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Port(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -186,12 +174,10 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn SetPort(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Priority(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -199,12 +185,10 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn SetPriority(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Weight(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -212,13 +196,11 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn SetWeight(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
     pub fn TextAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -227,7 +209,6 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`, `Networking_Sockets`*"]
     pub fn RegisterStreamSocketListenerAsync1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Sockets::StreamSocketListener>>(&self, socket: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
@@ -236,7 +217,6 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`, `Networking_Connectivity`, `Networking_Sockets`*"]
     pub fn RegisterStreamSocketListenerAsync2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Sockets::StreamSocketListener>, Param1: ::windows::core::IntoParam<'a, super::super::Connectivity::NetworkAdapter>>(&self, socket: Param0, adapter: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
@@ -245,7 +225,6 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`, `Networking_Sockets`*"]
     pub fn RegisterDatagramSocketAsync1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Sockets::DatagramSocket>>(&self, socket: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
@@ -254,7 +233,6 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`, `Networking_Connectivity`, `Networking_Sockets`*"]
     pub fn RegisterDatagramSocketAsync2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Sockets::DatagramSocket>, Param1: ::windows::core::IntoParam<'a, super::super::Connectivity::NetworkAdapter>>(&self, socket: Param0, adapter: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
@@ -263,7 +241,6 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -271,7 +248,6 @@ impl DnssdServiceInstance {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::HostName>>(dnssdserviceinstancename: Param0, hostname: Param1, port: u16) -> ::windows::core::Result<DnssdServiceInstance> {
         Self::IDnssdServiceInstanceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -362,14 +338,12 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 unsafe impl ::core::marker::Send for DnssdServiceInstance {}
 unsafe impl ::core::marker::Sync for DnssdServiceInstance {}
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DnssdServiceInstanceCollection(pub ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl DnssdServiceInstanceCollection {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<DnssdServiceInstance> {
         let this = self;
         unsafe {
@@ -378,7 +352,6 @@ impl DnssdServiceInstanceCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -387,7 +360,6 @@ impl DnssdServiceInstanceCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, DnssdServiceInstance>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -396,7 +368,6 @@ impl DnssdServiceInstanceCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<DnssdServiceInstance as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -405,7 +376,6 @@ impl DnssdServiceInstanceCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<DnssdServiceInstance>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>(self)?;
         unsafe {
@@ -545,13 +515,11 @@ impl ::core::iter::IntoIterator for &DnssdServiceInstanceCollection {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DnssdServiceWatcher(pub ::windows::core::IInspectable);
 impl DnssdServiceWatcher {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -560,13 +528,11 @@ impl DnssdServiceWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -575,13 +541,11 @@ impl DnssdServiceWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -590,12 +554,10 @@ impl DnssdServiceWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Status(&self) -> ::windows::core::Result<DnssdServiceWatcherStatus> {
         let this = self;
         unsafe {
@@ -603,12 +565,10 @@ impl DnssdServiceWatcher {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DnssdServiceWatcherStatus>(result__)
         }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
@@ -666,7 +626,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a D
 }
 unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
-#[doc = "*Required features: `Networking_ServiceDiscovery_Dnssd`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DnssdServiceWatcherStatus(pub i32);

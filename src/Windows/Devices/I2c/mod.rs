@@ -1,7 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Devices_I2c_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `Devices_I2c`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct I2cBusSpeed(pub i32);
@@ -23,12 +22,10 @@ unsafe impl ::windows::core::RuntimeType for I2cBusSpeed {
 impl ::windows::core::DefaultType for I2cBusSpeed {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_I2c`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct I2cConnectionSettings(pub ::windows::core::IInspectable);
 impl I2cConnectionSettings {
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn SlaveAddress(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -36,12 +33,10 @@ impl I2cConnectionSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn SetSlaveAddress(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn BusSpeed(&self) -> ::windows::core::Result<I2cBusSpeed> {
         let this = self;
         unsafe {
@@ -49,12 +44,10 @@ impl I2cConnectionSettings {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<I2cBusSpeed>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn SetBusSpeed(&self, value: I2cBusSpeed) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn SharingMode(&self) -> ::windows::core::Result<I2cSharingMode> {
         let this = self;
         unsafe {
@@ -62,12 +55,10 @@ impl I2cConnectionSettings {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<I2cSharingMode>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn SetSharingMode(&self, value: I2cSharingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn Create(slaveaddress: i32) -> ::windows::core::Result<I2cConnectionSettings> {
         Self::II2cConnectionSettingsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -131,12 +122,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for I2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for I2cConnectionSettings {}
-#[doc = "*Required features: `Devices_I2c`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct I2cController(pub ::windows::core::IInspectable);
 impl I2cController {
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn GetDevice<'a, Param0: ::windows::core::IntoParam<'a, I2cConnectionSettings>>(&self, settings: Param0) -> ::windows::core::Result<I2cDevice> {
         let this = self;
         unsafe {
@@ -145,7 +134,6 @@ impl I2cController {
         }
     }
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Devices_I2c`, `Devices_I2c_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetControllersAsync<'a, Param0: ::windows::core::IntoParam<'a, Provider::II2cProvider>>(provider: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>> {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -153,7 +141,6 @@ impl I2cController {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_I2c`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cController>> {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -217,12 +204,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for I2cController {}
 unsafe impl ::core::marker::Sync for I2cController {}
-#[doc = "*Required features: `Devices_I2c`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct I2cDevice(pub ::windows::core::IInspectable);
 impl I2cDevice {
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -230,7 +215,6 @@ impl I2cDevice {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn ConnectionSettings(&self) -> ::windows::core::Result<I2cConnectionSettings> {
         let this = self;
         unsafe {
@@ -238,12 +222,10 @@ impl I2cDevice {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<I2cConnectionSettings>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn Write(&self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr())).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn WritePartial(&self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<I2cTransferResult> {
         let this = self;
         unsafe {
@@ -251,12 +233,10 @@ impl I2cDevice {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr()), &mut result__).from_abi::<I2cTransferResult>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn Read(&self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer)).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn ReadPartial(&self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<I2cTransferResult> {
         let this = self;
         unsafe {
@@ -264,12 +244,10 @@ impl I2cDevice {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer), &mut result__).from_abi::<I2cTransferResult>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn WriteRead(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), writebuffer.len() as u32, ::core::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::core::mem::transmute_copy(&readbuffer)).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn WriteReadPartial(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<I2cTransferResult> {
         let this = self;
         unsafe {
@@ -278,19 +256,16 @@ impl I2cDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_I2c`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -298,7 +273,6 @@ impl I2cDevice {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_I2c`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, I2cConnectionSettings>>(deviceid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>> {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -388,7 +362,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for I2cDevice {}
 unsafe impl ::core::marker::Sync for I2cDevice {}
-#[doc = "*Required features: `Devices_I2c`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct I2cSharingMode(pub i32);
@@ -412,7 +385,6 @@ impl ::windows::core::DefaultType for I2cSharingMode {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Devices_I2c`*"]
 pub struct I2cTransferResult {
     pub Status: I2cTransferStatus,
     pub BytesTransferred: u32,
@@ -443,7 +415,6 @@ unsafe impl ::windows::core::RuntimeType for I2cTransferResult {
 impl ::windows::core::DefaultType for I2cTransferResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_I2c`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct I2cTransferStatus(pub i32);
@@ -575,14 +546,12 @@ pub struct II2cDevice_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Devices_I2c`*"]
 pub struct II2cDeviceStatics(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for II2cDeviceStatics {
     type Vtable = II2cDeviceStatics_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91a33be3_7334_4512_96bc_fbae9459f5f6);
 }
 impl II2cDeviceStatics {
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -590,7 +559,6 @@ impl II2cDeviceStatics {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c`*"]
     pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -599,7 +567,6 @@ impl II2cDeviceStatics {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_I2c`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, I2cConnectionSettings>>(&self, deviceid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>> {
         let this = self;
         unsafe {

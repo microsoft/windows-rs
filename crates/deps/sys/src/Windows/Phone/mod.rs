@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Phone_ApplicationModel")]
 pub mod ApplicationModel;
 #[cfg(feature = "Phone_Devices")]
@@ -21,3 +21,5 @@ pub mod System;
 pub mod UI;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
+pub struct PhoneContract(i32);

@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_WinRT_Shell`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CreateProcessMethod(pub i32);
@@ -14,13 +13,11 @@ impl ::core::convert::From<i32> for CreateProcessMethod {
 unsafe impl ::windows::core::Abi for CreateProcessMethod {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_WinRT_Shell`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDDEInitializer(pub ::windows::core::IUnknown);
 impl IDDEInitializer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-    #[doc = "*Required features: `Win32_System_WinRT_Shell`, `Win32_Foundation`, `Win32_UI_Shell`*"]
     pub unsafe fn Initialize<
         'a,
         Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>,
