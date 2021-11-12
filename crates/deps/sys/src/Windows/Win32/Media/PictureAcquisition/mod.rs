@@ -1,4 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct DEVICE_SELECTION_DEVICE_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const DSF_ALL_DEVICES: u32 = 65535u32;
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
@@ -19,6 +22,19 @@ pub const DSF_WIA_CAMERAS: u32 = 2u32;
 pub const DSF_WIA_SCANNERS: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const DSF_WPD_DEVICES: u32 = 1u32;
+pub struct ERROR_ADVISE_MESSAGE_TYPE(i32);
+pub struct ERROR_ADVISE_RESULT(i32);
+pub struct IPhotoAcquire(i32);
+pub struct IPhotoAcquireDeviceSelectionDialog(i32);
+pub struct IPhotoAcquireItem(i32);
+pub struct IPhotoAcquireOptionsDialog(i32);
+pub struct IPhotoAcquirePlugin(i32);
+pub struct IPhotoAcquireProgressCB(i32);
+pub struct IPhotoAcquireSettings(i32);
+pub struct IPhotoAcquireSource(i32);
+pub struct IPhotoProgressActionCB(i32);
+pub struct IPhotoProgressDialog(i32);
+pub struct IUserInputString(i32);
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const PAPS_CLEANUP: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
@@ -109,7 +125,14 @@ pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesS
     fmtid: ::windows_sys::GUID { data1: 15872887, data2: 31430, data3: 19322, data4: [132, 67, 52, 94, 115, 31, 165, 122] },
     pid: 5u32,
 };
+pub struct PROGRESS_DIALOG_CHECKBOX_ID(i32);
+pub struct PROGRESS_DIALOG_IMAGE_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct PhotoAcquire(i32);
+pub struct PhotoAcquireAutoPlayDropTarget(i32);
+pub struct PhotoAcquireAutoPlayHWEventHandler(i32);
+pub struct PhotoAcquireDeviceSelectionDialog(i32);
+pub struct PhotoAcquireOptionsDialog(i32);
+pub struct PhotoProgressDialog(i32);
+pub struct USER_INPUT_STRING_TYPE(i32);

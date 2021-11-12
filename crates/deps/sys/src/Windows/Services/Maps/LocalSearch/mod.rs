@@ -1,3 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct ILocalCategoriesStatics(i32);
+pub struct ILocalLocation(i32);
+pub struct ILocalLocation2(i32);
+pub struct ILocalLocationFinderResult(i32);
+pub struct ILocalLocationFinderStatics(i32);
+pub struct ILocalLocationHoursOfOperationItem(i32);
+pub struct ILocalLocationRatingInfo(i32);
+pub struct IPlaceInfoHelperStatics(i32);
+pub struct LocalCategories(i32);
+pub struct LocalLocation(i32);
+pub struct LocalLocationFinder(i32);
+pub struct LocalLocationFinderResult(i32);
+pub struct LocalLocationFinderStatus(i32);
+pub struct LocalLocationHoursOfOperationItem(i32);
+pub struct LocalLocationRatingInfo(i32);
+pub struct PlaceInfoHelper(i32);

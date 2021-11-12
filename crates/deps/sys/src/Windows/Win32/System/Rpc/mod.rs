@@ -1,462 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const EEInfoGCCOM: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const EEInfoGCFRS: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const EEInfoNextRecordsMissing: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const EEInfoUseFileTime: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const INVALID_FRAGMENT_ID: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const MaxNumberOfEEInfoParams: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const MidlInterceptionInfoVersionOne: i32 = 1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR64_FC_AUTO_HANDLE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR64_FC_BIND_GENERIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR64_FC_BIND_PRIMITIVE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR64_FC_CALLBACK_HANDLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR64_FC_EXPLICIT_HANDLE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR64_FC_NO_HANDLE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const NT351_INTERFACE_SIZE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_ACCESSIBILITY_BIT2: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_ACCESS_LOCAL: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_ASYNCHRONOUS: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_AUTO_COMPLETE: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_HAS_CALLBACK: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_HAS_GUARANTEE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_HAS_MULTI_SYNTAXES: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_INPUT_SYNCHRONOUS: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_LOCAL_CALL: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_MESSAGE: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_NDR64_CONTAINS_ARM_LAYOUT: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_NON_NDR: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_BUFFER_ASYNC: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_BUFFER_COMPLETE: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_BUFFER_NONOTIFY: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_BUFFER_PARTIAL: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_CALL_STATUS_CANCELLED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_CLOUD_AP: u32 = 36u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_DCE_PRIVATE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_DCE_PUBLIC: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_DEC_PUBLIC: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_DEFAULT: i32 = -1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_DIGEST: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_DPA: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_GSS_KERBEROS: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_KERNEL: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_LIVEXP_SSP: u32 = 35u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_LIVE_SSP: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_MQ: u32 = 100u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_MSN: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_MSONLINE: u32 = 82u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_NEGO_EXTENDER: u32 = 30u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_PKU2U: u32 = 31u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHN_WINNT: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHZ_DCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHZ_DEFAULT: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHZ_NAME: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_AUTHZ_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_BINDING_DEFAULT_TIMEOUT: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_BINDING_INFINITE_TIMEOUT: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_BINDING_MAX_TIMEOUT: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_BINDING_MIN_TIMEOUT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_BIND_TO_ALL_NICS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_CANCEL_INFINITE_TIMEOUT: i32 = -1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_DONT_FAIL: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_EP_ALL_ELTS: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_EP_MATCH_BY_BOTH: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_EP_MATCH_BY_IF: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_EP_MATCH_BY_OBJ: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_FULL_CERT_CHAIN: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_HTTP_AUTHN_SCHEME_BASIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_HTTP_AUTHN_SCHEME_CERT: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_HTTP_AUTHN_SCHEME_DIGEST: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_LISTEN_MAX_CALLS_DEFAULT: u32 = 1234u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MGMT_INQ_IF_IDS: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MGMT_INQ_PRINC_NAME: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MGMT_INQ_STATS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MGMT_IS_SERVER_LISTEN: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MGMT_STOP_SERVER_LISTEN: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_AUTHN_LEVEL_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_AUTHN_LEVEL_PKT_INTEGRITY: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_AUTHN_LEVEL_PKT_PRIVACY: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_CLEAR_ON_OPEN: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_EXPRESS: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_JOURNAL_ALWAYS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_JOURNAL_DEADLETTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_JOURNAL_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_PERMANENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_RECOVERABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_TEMPORARY: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_MQ_USE_EXISTING_SECURITY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_NOTIFY_ON_SEND_COMPLETE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_NS_DEFAULT_EXP_AGE: i32 = -1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_ASYNC_BLOCK: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_DONT_LINGER: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MAX_OPTIONS: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_ACKNOWLEDGE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_AUTHN_LEVEL: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_AUTHN_SERVICE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_DELIVERY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_JOURNAL: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_PRIORITY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_TIME_TO_BE_RECEIVED: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_MQ_TIME_TO_REACH_QUEUE: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_OPTIMIZE_TIME: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_PRIVATE_DO_NOT_DISTURB: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_PRIVATE_SUPPRESS_WAKE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_RESOURCE_TYPE_UUID: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_SECURITY_CALLBACK: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_SESSION_ID: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_TRANS_SEND_BUFFER_SIZE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_TRUST_PEER: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_OPT_UNIQUE_BINDING: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PARM_BUFFER_LENGTH: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PARM_MAX_PACKET_LENGTH: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PROFILE_ALL_ELT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PROFILE_ALL_ELTS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PROFILE_DEFAULT_ELT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PROFILE_MATCH_BY_BOTH: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PROFILE_MATCH_BY_IF: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_RPCHTTP_USE_LOAD_BALANCE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_SECURITY_QOS_VERSION: i32 = 1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_SECURITY_QOS_VERSION_1: i32 = 1i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_SECURITY_QOS_VERSION_2: i32 = 2i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_SECURITY_QOS_VERSION_3: i32 = 3i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_SECURITY_QOS_VERSION_4: i32 = 4i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_SECURITY_QOS_VERSION_5: i32 = 5i32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_STATS_CALLS_IN: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_STATS_CALLS_OUT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_STATS_PKTS_IN: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_STATS_PKTS_OUT: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_TRY_ENFORCE_MAX_CALLS: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_USE_INTERNET_PORT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_USE_INTRANET_PORT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_VERS_ALL: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_VERS_COMPATIBLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_VERS_EXACT: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_C_VERS_UPTO: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_EEINFO_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_ALLOW_LOCAL_ONLY: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_ALLOW_SECURE_ONLY: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_OLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_IF_SEC_NO_CACHE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_PROTSEQ_HTTP: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_PROTSEQ_LRPC: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_PROTSEQ_NMP: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_PROTSEQ_TCP: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_P_ADDR_FORMAT_TCP_IPV4: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_P_ADDR_FORMAT_TCP_IPV6: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_QUERY_CALL_LOCAL_ADDRESS: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_QUERY_CLIENT_ID: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_QUERY_CLIENT_PID: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_QUERY_CLIENT_PRINCIPAL_NAME: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT40_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT50_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT51_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT60_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT61_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT62_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TARGET_IS_NT63_OR_LATER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TRANSPORT_TYPE_CN: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TRANSPORT_TYPE_DG: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TRANSPORT_TYPE_LPC: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const TRANSPORT_TYPE_WMSG: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_CALL_IS_ASYNC: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_BYTE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_CHAR: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_DOUBLE: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_FLOAT: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_HYPER: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_LONG: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_SHORT: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_SMALL: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_ULONG: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_USHORT: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_USMALL: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Rpc`*"]
-pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1656,3 +1198,698 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_Rpc`*"]
     pub fn UuidToStringW(uuid: *const ::windows_sys::core::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS;
 }
+pub struct ARRAY_INFO(i32);
+pub struct BinaryParam(i32);
+pub struct CLIENT_CALL_RETURN(i32);
+pub struct COMM_FAULT_OFFSETS(i32);
+pub struct CS_TAG_GETTING_ROUTINE(i32);
+pub struct CS_TYPE_FROM_NETCS_ROUTINE(i32);
+pub struct CS_TYPE_LOCAL_SIZE_ROUTINE(i32);
+pub struct CS_TYPE_NET_SIZE_ROUTINE(i32);
+pub struct CS_TYPE_TO_NETCS_ROUTINE(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const EEInfoGCCOM: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const EEInfoGCFRS: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const EEInfoNextRecordsMissing: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const EEInfoUseFileTime: u32 = 4u32;
+pub struct EXPR_EVAL(i32);
+pub struct EXPR_TOKEN(i32);
+pub struct ExtendedErrorParamTypes(i32);
+pub struct FULL_PTR_XLAT_TABLES(i32);
+pub struct GENERIC_BINDING_INFO(i32);
+pub struct GENERIC_BINDING_ROUTINE(i32);
+pub struct GENERIC_BINDING_ROUTINE_PAIR(i32);
+pub struct GENERIC_UNBIND_ROUTINE(i32);
+pub struct GROUP_NAME_SYNTAX(i32);
+pub struct IDL_CS_CONVERT(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const INVALID_FRAGMENT_ID: u32 = 0u32;
+pub struct I_RpcFreeCalloutStateFn(i32);
+pub struct I_RpcPerformCalloutFn(i32);
+pub struct I_RpcProxyCallbackInterface(i32);
+pub struct I_RpcProxyFilterIfFn(i32);
+pub struct I_RpcProxyGetClientAddressFn(i32);
+pub struct I_RpcProxyGetClientSessionAndResourceUUID(i32);
+pub struct I_RpcProxyGetConnectionTimeoutFn(i32);
+pub struct I_RpcProxyIsValidMachineFn(i32);
+pub struct I_RpcProxyUpdatePerfCounterBackendServerFn(i32);
+pub struct I_RpcProxyUpdatePerfCounterFn(i32);
+pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(i32);
+pub struct MALLOC_FREE_STRUCT(i32);
+pub struct MIDL_ES_ALLOC(i32);
+pub struct MIDL_ES_CODE(i32);
+pub struct MIDL_ES_HANDLE_STYLE(i32);
+pub struct MIDL_ES_READ(i32);
+pub struct MIDL_ES_WRITE(i32);
+pub struct MIDL_FORMAT_STRING(i32);
+pub struct MIDL_INTERCEPTION_INFO(i32);
+pub struct MIDL_INTERFACE_METHOD_PROPERTIES(i32);
+pub struct MIDL_METHOD_PROPERTY(i32);
+pub struct MIDL_METHOD_PROPERTY_MAP(i32);
+pub struct MIDL_SERVER_INFO(i32);
+pub struct MIDL_STUBLESS_PROXY_INFO(i32);
+pub struct MIDL_STUB_DESC(i32);
+pub struct MIDL_STUB_MESSAGE(i32);
+pub struct MIDL_SYNTAX_INFO(i32);
+pub struct MIDL_TYPE_PICKLING_INFO(i32);
+pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const MaxNumberOfEEInfoParams: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const MidlInterceptionInfoVersionOne: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1i32;
+pub struct NDR64_ARRAY_ELEMENT_INFO(i32);
+pub struct NDR64_ARRAY_FLAGS(i32);
+pub struct NDR64_BINDINGS(i32);
+pub struct NDR64_BIND_AND_NOTIFY_EXTENSION(i32);
+pub struct NDR64_BIND_CONTEXT(i32);
+pub struct NDR64_BIND_GENERIC(i32);
+pub struct NDR64_BIND_PRIMITIVE(i32);
+pub struct NDR64_BOGUS_ARRAY_HEADER_FORMAT(i32);
+pub struct NDR64_BOGUS_STRUCTURE_HEADER_FORMAT(i32);
+pub struct NDR64_BUFFER_ALIGN_FORMAT(i32);
+pub struct NDR64_CONFORMANT_STRING_FORMAT(i32);
+pub struct NDR64_CONF_ARRAY_HEADER_FORMAT(i32);
+pub struct NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT(i32);
+pub struct NDR64_CONF_STRUCTURE_HEADER_FORMAT(i32);
+pub struct NDR64_CONF_VAR_ARRAY_HEADER_FORMAT(i32);
+pub struct NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT(i32);
+pub struct NDR64_CONSTANT_IID_FORMAT(i32);
+pub struct NDR64_CONTEXT_HANDLE_FLAGS(i32);
+pub struct NDR64_CONTEXT_HANDLE_FORMAT(i32);
+pub struct NDR64_EMBEDDED_COMPLEX_FORMAT(i32);
+pub struct NDR64_ENCAPSULATED_UNION(i32);
+pub struct NDR64_EXPR_CONST32(i32);
+pub struct NDR64_EXPR_CONST64(i32);
+pub struct NDR64_EXPR_NOOP(i32);
+pub struct NDR64_EXPR_OPERATOR(i32);
+pub struct NDR64_EXPR_VAR(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR64_FC_AUTO_HANDLE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR64_FC_BIND_GENERIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR64_FC_BIND_PRIMITIVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR64_FC_CALLBACK_HANDLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR64_FC_EXPLICIT_HANDLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR64_FC_NO_HANDLE: u32 = 5u32;
+pub struct NDR64_FIXED_REPEAT_FORMAT(i32);
+pub struct NDR64_FIX_ARRAY_HEADER_FORMAT(i32);
+pub struct NDR64_IID_FLAGS(i32);
+pub struct NDR64_IID_FORMAT(i32);
+pub struct NDR64_MEMPAD_FORMAT(i32);
+pub struct NDR64_NON_CONFORMANT_STRING_FORMAT(i32);
+pub struct NDR64_NON_ENCAPSULATED_UNION(i32);
+pub struct NDR64_NO_REPEAT_FORMAT(i32);
+pub struct NDR64_PARAM_FLAGS(i32);
+pub struct NDR64_PARAM_FORMAT(i32);
+pub struct NDR64_PIPE_FLAGS(i32);
+pub struct NDR64_PIPE_FORMAT(i32);
+pub struct NDR64_POINTER_FORMAT(i32);
+pub struct NDR64_POINTER_INSTANCE_HEADER_FORMAT(i32);
+pub struct NDR64_POINTER_REPEAT_FLAGS(i32);
+pub struct NDR64_PROC_FLAGS(i32);
+pub struct NDR64_PROC_FORMAT(i32);
+pub struct NDR64_RANGED_STRING_FORMAT(i32);
+pub struct NDR64_RANGE_FORMAT(i32);
+pub struct NDR64_RANGE_PIPE_FORMAT(i32);
+pub struct NDR64_REPEAT_FORMAT(i32);
+pub struct NDR64_RPC_FLAGS(i32);
+pub struct NDR64_SIMPLE_MEMBER_FORMAT(i32);
+pub struct NDR64_SIMPLE_REGION_FORMAT(i32);
+pub struct NDR64_SIZED_CONFORMANT_STRING_FORMAT(i32);
+pub struct NDR64_STRING_FLAGS(i32);
+pub struct NDR64_STRING_HEADER_FORMAT(i32);
+pub struct NDR64_STRUCTURE_FLAGS(i32);
+pub struct NDR64_STRUCTURE_HEADER_FORMAT(i32);
+pub struct NDR64_SYSTEM_HANDLE_FORMAT(i32);
+pub struct NDR64_TRANSMIT_AS_FLAGS(i32);
+pub struct NDR64_TRANSMIT_AS_FORMAT(i32);
+pub struct NDR64_TYPE_STRICT_CONTEXT_HANDLE(i32);
+pub struct NDR64_UNION_ARM(i32);
+pub struct NDR64_UNION_ARM_SELECTOR(i32);
+pub struct NDR64_USER_MARSHAL_FLAGS(i32);
+pub struct NDR64_USER_MARSHAL_FORMAT(i32);
+pub struct NDR64_VAR_ARRAY_HEADER_FORMAT(i32);
+pub struct NDR_ALLOC_ALL_NODES_CONTEXT(i32);
+pub struct NDR_CS_ROUTINES(i32);
+pub struct NDR_CS_SIZE_CONVERT_ROUTINES(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
+pub struct NDR_EXPR_DESC(i32);
+pub struct NDR_NOTIFY2_ROUTINE(i32);
+pub struct NDR_NOTIFY_ROUTINE(i32);
+pub struct NDR_POINTER_QUEUE_STATE(i32);
+pub struct NDR_RUNDOWN(i32);
+pub struct NDR_SCONTEXT_1(i32);
+pub struct NDR_USER_MARSHAL_INFO(i32);
+pub struct NDR_USER_MARSHAL_INFO_LEVEL1(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const NT351_INTERFACE_SIZE: u32 = 64u32;
+pub struct PFN_RPCNOTIFICATION_ROUTINE(i32);
+pub struct PROXY_PHASE(i32);
+pub struct PRPC_RUNDOWN(i32);
+pub struct RDR_CALLOUT_STATE(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_ACCESSIBILITY_BIT2: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_ACCESS_LOCAL: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_ASYNCHRONOUS: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_AUTO_COMPLETE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_HAS_CALLBACK: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_HAS_GUARANTEE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_HAS_MULTI_SYNTAXES: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_INPUT_SYNCHRONOUS: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_LOCAL_CALL: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_MESSAGE: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_NDR64_CONTAINS_ARM_LAYOUT: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_NON_NDR: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32u32;
+pub struct RPCLT_PDU_FILTER_FUNC(i32);
+pub struct RPC_ADDRESS_CHANGE_FN(i32);
+pub struct RPC_ADDRESS_CHANGE_TYPE(i32);
+pub struct RPC_ASYNC_EVENT(i32);
+pub struct RPC_ASYNC_NOTIFICATION_INFO(i32);
+pub struct RPC_ASYNC_STATE(i32);
+pub struct RPC_AUTH_KEY_RETRIEVAL_FN(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
+pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(i32);
+pub struct RPC_BINDING_HANDLE_OPTIONS_V1(i32);
+pub struct RPC_BINDING_HANDLE_SECURITY_V1_A(i32);
+pub struct RPC_BINDING_HANDLE_SECURITY_V1_W(i32);
+pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A(i32);
+pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W(i32);
+pub struct RPC_BINDING_VECTOR(i32);
+pub struct RPC_BLOCKING_FN(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_BUFFER_ASYNC: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_BUFFER_COMPLETE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_BUFFER_NONOTIFY: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_BUFFER_PARTIAL: u32 = 8192u32;
+pub struct RPC_CALL_ATTRIBUTES_V1_A(i32);
+pub struct RPC_CALL_ATTRIBUTES_V1_W(i32);
+pub struct RPC_CALL_ATTRIBUTES_V2_A(i32);
+pub struct RPC_CALL_ATTRIBUTES_V2_W(i32);
+pub struct RPC_CALL_ATTRIBUTES_V3_A(i32);
+pub struct RPC_CALL_ATTRIBUTES_V3_W(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2u32;
+pub struct RPC_CALL_LOCAL_ADDRESS_V1(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_CALL_STATUS_CANCELLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2u32;
+pub struct RPC_CLIENT_ALLOC(i32);
+pub struct RPC_CLIENT_FREE(i32);
+pub struct RPC_CLIENT_INFORMATION1(i32);
+pub struct RPC_CLIENT_INTERFACE(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_CLOUD_AP: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_DCE_PRIVATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_DCE_PUBLIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_DEC_PUBLIC: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_DEFAULT: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_DIGEST: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_DPA: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_GSS_KERBEROS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
+pub struct RPC_C_AUTHN_INFO_TYPE(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_KERNEL: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_LIVEXP_SSP: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_LIVE_SSP: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_MQ: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_MSN: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_MSONLINE: u32 = 82u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_NEGO_EXTENDER: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_PKU2U: u32 = 31u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHN_WINNT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHZ_DCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHZ_DEFAULT: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHZ_NAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_AUTHZ_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_BINDING_DEFAULT_TIMEOUT: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_BINDING_INFINITE_TIMEOUT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_BINDING_MAX_TIMEOUT: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_BINDING_MIN_TIMEOUT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_BIND_TO_ALL_NICS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_CANCEL_INFINITE_TIMEOUT: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_DONT_FAIL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_EP_ALL_ELTS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_EP_MATCH_BY_BOTH: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_EP_MATCH_BY_IF: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_EP_MATCH_BY_OBJ: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_FULL_CERT_CHAIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_HTTP_AUTHN_SCHEME_BASIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_HTTP_AUTHN_SCHEME_CERT: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_HTTP_AUTHN_SCHEME_DIGEST: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
+pub struct RPC_C_HTTP_AUTHN_TARGET(i32);
+pub struct RPC_C_HTTP_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_LISTEN_MAX_CALLS_DEFAULT: u32 = 1234u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MGMT_INQ_IF_IDS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MGMT_INQ_PRINC_NAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MGMT_INQ_STATS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MGMT_IS_SERVER_LISTEN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MGMT_STOP_SERVER_LISTEN: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_AUTHN_LEVEL_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_AUTHN_LEVEL_PKT_INTEGRITY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_AUTHN_LEVEL_PKT_PRIVACY: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_CLEAR_ON_OPEN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_EXPRESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_JOURNAL_ALWAYS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_JOURNAL_DEADLETTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_JOURNAL_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_PERMANENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_RECOVERABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_TEMPORARY: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_MQ_USE_EXISTING_SECURITY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_NOTIFY_ON_SEND_COMPLETE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_NS_DEFAULT_EXP_AGE: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_ASYNC_BLOCK: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7u32;
+pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_DONT_LINGER: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MAX_OPTIONS: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_ACKNOWLEDGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_AUTHN_LEVEL: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_AUTHN_SERVICE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_DELIVERY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_JOURNAL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_PRIORITY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_TIME_TO_BE_RECEIVED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_MQ_TIME_TO_REACH_QUEUE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_OPTIMIZE_TIME: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_PRIVATE_DO_NOT_DISTURB: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_PRIVATE_SUPPRESS_WAKE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_RESOURCE_TYPE_UUID: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_SECURITY_CALLBACK: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_SESSION_ID: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_TRANS_SEND_BUFFER_SIZE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_TRUST_PEER: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_OPT_UNIQUE_BINDING: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PARM_BUFFER_LENGTH: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PARM_MAX_PACKET_LENGTH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PROFILE_ALL_ELT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PROFILE_ALL_ELTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PROFILE_DEFAULT_ELT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PROFILE_MATCH_BY_BOTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PROFILE_MATCH_BY_IF: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10u32;
+pub struct RPC_C_QOS_CAPABILITIES(i32);
+pub struct RPC_C_QOS_IDENTITY(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_RPCHTTP_USE_LOAD_BALANCE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_SECURITY_QOS_VERSION: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_SECURITY_QOS_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_SECURITY_QOS_VERSION_2: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_SECURITY_QOS_VERSION_3: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_SECURITY_QOS_VERSION_4: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_SECURITY_QOS_VERSION_5: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_STATS_CALLS_IN: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_STATS_CALLS_OUT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_STATS_PKTS_IN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_STATS_PKTS_OUT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_TRY_ENFORCE_MAX_CALLS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_USE_INTERNET_PORT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_USE_INTRANET_PORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_VERS_ALL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_VERS_COMPATIBLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_VERS_EXACT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_C_VERS_UPTO: u32 = 5u32;
+pub struct RPC_DISPATCH_FUNCTION(i32);
+pub struct RPC_DISPATCH_TABLE(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_EEINFO_VERSION: u32 = 1u32;
+pub struct RPC_EE_INFO_PARAM(i32);
+pub struct RPC_ENDPOINT_TEMPLATEA(i32);
+pub struct RPC_ENDPOINT_TEMPLATEW(i32);
+pub struct RPC_ERROR_ENUM_HANDLE(i32);
+pub struct RPC_EXTENDED_ERROR_INFO(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
+pub struct RPC_FORWARD_FUNCTION(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
+pub struct RPC_HTTP_PROXY_FREE_STRING(i32);
+pub struct RPC_HTTP_REDIRECTOR_STAGE(i32);
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A(i32);
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A(i32);
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W(i32);
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A(i32);
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W(i32);
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_ALLOW_LOCAL_ONLY: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_ALLOW_SECURE_ONLY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
+pub struct RPC_IF_CALLBACK_FN(i32);
+pub struct RPC_IF_ID(i32);
+pub struct RPC_IF_ID_VECTOR(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_OLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_IF_SEC_NO_CACHE: u32 = 64u32;
+pub struct RPC_IMPORT_CONTEXT_P(i32);
+pub struct RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
+pub struct RPC_INTERFACE_TEMPLATEA(i32);
+pub struct RPC_INTERFACE_TEMPLATEW(i32);
+pub struct RPC_MESSAGE(i32);
+pub struct RPC_MGMT_AUTHORIZATION_FN(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
+pub struct RPC_NEW_HTTP_PROXY_CHANNEL(i32);
+pub struct RPC_NOTIFICATIONS(i32);
+pub struct RPC_NOTIFICATION_TYPES(i32);
+pub struct RPC_OBJECT_INQ_FN(i32);
+pub struct RPC_POLICY(i32);
+pub struct RPC_PROTSEQ_ENDPOINT(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_PROTSEQ_HTTP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_PROTSEQ_LRPC: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_PROTSEQ_NMP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_PROTSEQ_TCP: u32 = 1u32;
+pub struct RPC_PROTSEQ_VECTORA(i32);
+pub struct RPC_PROTSEQ_VECTORW(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_PROXY_CONNECTION_TYPE_OUT_PROXY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_P_ADDR_FORMAT_TCP_IPV4: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_P_ADDR_FORMAT_TCP_IPV6: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_QUERY_CALL_LOCAL_ADDRESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_QUERY_CLIENT_ID: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_QUERY_CLIENT_PID: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_QUERY_CLIENT_PRINCIPAL_NAME: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
+pub struct RPC_SECURITY_CALLBACK_FN(i32);
+pub struct RPC_SECURITY_QOS(i32);
+pub struct RPC_SECURITY_QOS_V2_A(i32);
+pub struct RPC_SECURITY_QOS_V2_W(i32);
+pub struct RPC_SECURITY_QOS_V3_A(i32);
+pub struct RPC_SECURITY_QOS_V3_W(i32);
+pub struct RPC_SECURITY_QOS_V4_A(i32);
+pub struct RPC_SECURITY_QOS_V4_W(i32);
+pub struct RPC_SECURITY_QOS_V5_A(i32);
+pub struct RPC_SECURITY_QOS_V5_W(i32);
+pub struct RPC_SEC_CONTEXT_KEY_INFO(i32);
+pub struct RPC_SERVER_INTERFACE(i32);
+pub struct RPC_SETFILTER_FUNC(i32);
+pub struct RPC_STATS_VECTOR(i32);
+pub struct RPC_STATUS(i32);
+pub struct RPC_SYNTAX_IDENTIFIER(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_SYSTEM_HANDLE_FREE_RETRIEVED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED: u32 = 1u32;
+pub struct RPC_TRANSFER_SYNTAX(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824u32;
+pub struct RPC_VERSION(i32);
+pub struct RpcCallClientLocality(i32);
+pub struct RpcCallType(i32);
+pub struct RpcLocalAddressFormat(i32);
+pub struct RpcProxyPerfCounters(i32);
+pub struct SCONTEXT_QUEUE(i32);
+pub struct SEC_WINNT_AUTH_IDENTITY(i32);
+pub struct SEC_WINNT_AUTH_IDENTITY_A(i32);
+pub struct SEC_WINNT_AUTH_IDENTITY_W(i32);
+pub struct SERVER_ROUTINE(i32);
+pub struct STUB_PHASE(i32);
+pub struct STUB_THUNK(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT40_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT50_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT51_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT60_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT61_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT62_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TARGET_IS_NT63_OR_LATER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TRANSPORT_TYPE_CN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TRANSPORT_TYPE_DG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TRANSPORT_TYPE_LPC: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const TRANSPORT_TYPE_WMSG: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_CALL_IS_ASYNC: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512u32;
+pub struct USER_MARSHAL_CB(i32);
+pub struct USER_MARSHAL_CB_TYPE(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_BYTE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_CHAR: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_DOUBLE: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_FLOAT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_HYPER: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_LONG: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_SHORT: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_SMALL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_ULONG: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_USHORT: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_USMALL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
+pub struct USER_MARSHAL_FREEING_ROUTINE(i32);
+pub struct USER_MARSHAL_MARSHALLING_ROUTINE(i32);
+pub struct USER_MARSHAL_ROUTINE_QUADRUPLE(i32);
+pub struct USER_MARSHAL_SIZING_ROUTINE(i32);
+pub struct USER_MARSHAL_UNMARSHALLING_ROUTINE(i32);
+pub struct UUID_VECTOR(i32);
+pub struct XLAT_SIDE(i32);
+pub struct XMIT_HELPER_ROUTINE(i32);
+pub struct XMIT_ROUTINE_QUINTUPLE(i32);
+pub struct _NDR_ASYNC_MESSAGE(i32);
+pub struct _NDR_CORRELATION_INFO(i32);
+pub struct _NDR_PROC_CONTEXT(i32);
+pub struct _NDR_SCONTEXT(i32);
+#[doc = "*Required features: `Win32_System_Rpc`*"]
+pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
+pub struct system_handle_t(i32);

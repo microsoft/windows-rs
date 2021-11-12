@@ -1,12 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_Pipes`*"]
-pub const NMPWAIT_NOWAIT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Pipes`*"]
-pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Pipes`*"]
-pub const NMPWAIT_WAIT_FOREVER: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_System_Pipes`*"]
-pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Pipes`, `Win32_Foundation`*"]
@@ -76,3 +68,12 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WaitNamedPipeW(lpnamedpipename: super::super::Foundation::PWSTR, ntimeout: u32) -> super::super::Foundation::BOOL;
 }
+pub struct NAMED_PIPE_MODE(i32);
+#[doc = "*Required features: `Win32_System_Pipes`*"]
+pub const NMPWAIT_NOWAIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Pipes`*"]
+pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Pipes`*"]
+pub const NMPWAIT_WAIT_FOREVER: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_Pipes`*"]
+pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;

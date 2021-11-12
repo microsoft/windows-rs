@@ -1,4 +1,40 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct IOpcCertificateEnumerator(i32);
+pub struct IOpcCertificateSet(i32);
+pub struct IOpcDigitalSignature(i32);
+pub struct IOpcDigitalSignatureEnumerator(i32);
+pub struct IOpcDigitalSignatureManager(i32);
+pub struct IOpcFactory(i32);
+pub struct IOpcPackage(i32);
+pub struct IOpcPart(i32);
+pub struct IOpcPartEnumerator(i32);
+pub struct IOpcPartSet(i32);
+pub struct IOpcPartUri(i32);
+pub struct IOpcRelationship(i32);
+pub struct IOpcRelationshipEnumerator(i32);
+pub struct IOpcRelationshipSelector(i32);
+pub struct IOpcRelationshipSelectorEnumerator(i32);
+pub struct IOpcRelationshipSelectorSet(i32);
+pub struct IOpcRelationshipSet(i32);
+pub struct IOpcSignatureCustomObject(i32);
+pub struct IOpcSignatureCustomObjectEnumerator(i32);
+pub struct IOpcSignatureCustomObjectSet(i32);
+pub struct IOpcSignaturePartReference(i32);
+pub struct IOpcSignaturePartReferenceEnumerator(i32);
+pub struct IOpcSignaturePartReferenceSet(i32);
+pub struct IOpcSignatureReference(i32);
+pub struct IOpcSignatureReferenceEnumerator(i32);
+pub struct IOpcSignatureReferenceSet(i32);
+pub struct IOpcSignatureRelationshipReference(i32);
+pub struct IOpcSignatureRelationshipReferenceEnumerator(i32);
+pub struct IOpcSignatureRelationshipReferenceSet(i32);
+pub struct IOpcSigningOptions(i32);
+pub struct IOpcUri(i32);
+pub struct OPC_CANONICALIZATION_METHOD(i32);
+pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(i32);
+pub struct OPC_COMPRESSION_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142175212i32 as _);
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -203,5 +239,12 @@ pub const OPC_E_ZIP_NAME_TOO_LARGE: ::windows_sys::core::HRESULT = ::windows_sys
 pub const OPC_E_ZIP_REQUIRES_64_BIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142171120i32 as _);
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 pub const OPC_E_ZIP_UNSUPPORTEDARCHIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142171128i32 as _);
-#[link(name = "windows")]
-extern "system" {}
+pub struct OPC_READ_FLAGS(i32);
+pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(i32);
+pub struct OPC_RELATIONSHIP_SELECTOR(i32);
+pub struct OPC_SIGNATURE_TIME_FORMAT(i32);
+pub struct OPC_SIGNATURE_VALIDATION_RESULT(i32);
+pub struct OPC_STREAM_IO_MODE(i32);
+pub struct OPC_URI_TARGET_MODE(i32);
+pub struct OPC_WRITE_FLAGS(i32);
+pub struct OpcFactory(i32);

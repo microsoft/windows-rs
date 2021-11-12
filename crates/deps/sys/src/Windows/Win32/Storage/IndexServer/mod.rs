@@ -1,4 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`*"]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+    pub fn BindIFilterFromStorage(pstg: super::super::System::Com::StructuredStorage::IStorage, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn BindIFilterFromStream(pstm: super::super::System::Com::IStream, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+}
+pub struct CHUNKSTATE(i32);
+pub struct CHUNK_BREAKTYPE(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
@@ -17,6 +34,7 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
+pub struct CI_STATE(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CI_STATE_ANNEALING_MERGE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
@@ -61,6 +79,9 @@ pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CI_VERSION_WIN70: u32 = 1792u32;
+pub struct DBID(i32);
+pub struct DBID(i32);
+pub struct DBKINDENUM(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const DBPROP_APPLICATION_NAME: u32 = 11u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
@@ -119,6 +140,7 @@ pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const DBSETFUNC_NONE: u32 = 0u32;
+pub struct FILTERREGION(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const FILTER_E_ACCESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215613i32 as _);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
@@ -145,12 +167,17 @@ pub const FILTER_S_LAST_TEXT: ::windows_sys::core::HRESULT = ::windows_sys::core
 pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268042i32 as _);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268036i32 as _);
+pub struct FULLPROPSPEC(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
+pub struct IFILTER_FLAGS(i32);
+pub struct IFILTER_INIT(i32);
+pub struct IFilter(i32);
+pub struct IPhraseSink(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
@@ -235,6 +262,7 @@ pub const SCOPE_TYPE_VPATH: u32 = 512u32;
 pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const STAT_BUSY: u32 = 0u32;
+pub struct STAT_CHUNK(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
@@ -273,18 +301,4 @@ pub const VECTOR_RANK_JACCARD: u32 = 4u32;
 pub const VECTOR_RANK_MAX: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const VECTOR_RANK_MIN: u32 = 0u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`*"]
-    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn BindIFilterFromStorage(pstg: super::super::System::Com::StructuredStorage::IStorage, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn BindIFilterFromStream(pstm: super::super::System::Com::IStream, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+pub struct WORDREP_BREAK_TYPE(i32);

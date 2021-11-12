@@ -1,3 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct CastingConnection(i32);
+pub struct CastingConnectionErrorOccurredEventArgs(i32);
+pub struct CastingConnectionErrorStatus(i32);
+pub struct CastingConnectionState(i32);
+pub struct CastingDevice(i32);
+pub struct CastingDevicePicker(i32);
+pub struct CastingDevicePickerFilter(i32);
+pub struct CastingDeviceSelectedEventArgs(i32);
+pub struct CastingPlaybackTypes(i32);
+pub struct CastingSource(i32);
+pub struct ICastingConnection(i32);
+pub struct ICastingConnectionErrorOccurredEventArgs(i32);
+pub struct ICastingDevice(i32);
+pub struct ICastingDevicePicker(i32);
+pub struct ICastingDevicePickerFilter(i32);
+pub struct ICastingDeviceSelectedEventArgs(i32);
+pub struct ICastingDeviceStatics(i32);
+pub struct ICastingSource(i32);

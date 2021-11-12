@@ -38,3 +38,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnprotectFile(fileorfolderpath: super::super::Foundation::PWSTR, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows_sys::core::HRESULT;
 }
+pub struct ENTERPRISE_DATA_POLICIES(i32);
+pub struct FILE_UNPROTECT_OPTIONS(i32);
+pub struct HTHREAD_NETWORK_CONTEXT(i32);
+pub struct IProtectionPolicyManagerInterop(i32);
+pub struct IProtectionPolicyManagerInterop2(i32);
+pub struct IProtectionPolicyManagerInterop3(i32);
+pub struct SRPHOSTING_TYPE(i32);
+pub struct SRPHOSTING_VERSION(i32);

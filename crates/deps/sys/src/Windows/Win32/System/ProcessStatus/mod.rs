@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
-pub const PSAPI_VERSION: u32 = 2u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
@@ -85,3 +83,19 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn K32QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
 }
+pub struct ENUM_PAGE_FILE_INFORMATION(i32);
+pub struct ENUM_PROCESS_MODULES_EX_FLAGS(i32);
+pub struct MODULEINFO(i32);
+pub struct PENUM_PAGE_FILE_CALLBACKA(i32);
+pub struct PENUM_PAGE_FILE_CALLBACKW(i32);
+pub struct PERFORMANCE_INFORMATION(i32);
+pub struct PROCESS_MEMORY_COUNTERS(i32);
+pub struct PROCESS_MEMORY_COUNTERS_EX(i32);
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
+pub const PSAPI_VERSION: u32 = 2u32;
+pub struct PSAPI_WORKING_SET_BLOCK(i32);
+pub struct PSAPI_WORKING_SET_EX_BLOCK(i32);
+pub struct PSAPI_WORKING_SET_EX_INFORMATION(i32);
+pub struct PSAPI_WORKING_SET_INFORMATION(i32);
+pub struct PSAPI_WS_WATCH_INFORMATION(i32);
+pub struct PSAPI_WS_WATCH_INFORMATION_EX(i32);

@@ -1,26 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
-pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3969403628, data2: 41209, data3: 18409, data4: [144, 31, 113, 65, 90, 102, 52, 91] };
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -111,3 +89,84 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TakeSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32;
 }
+pub struct APPLY_SNAPSHOT_VHDSET_FLAG(i32);
+pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS(i32);
+pub struct APPLY_SNAPSHOT_VHDSET_VERSION(i32);
+pub struct ATTACH_VIRTUAL_DISK_FLAG(i32);
+pub struct ATTACH_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct ATTACH_VIRTUAL_DISK_VERSION(i32);
+pub struct COMPACT_VIRTUAL_DISK_FLAG(i32);
+pub struct COMPACT_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct COMPACT_VIRTUAL_DISK_VERSION(i32);
+pub struct CREATE_VIRTUAL_DISK_FLAG(i32);
+pub struct CREATE_VIRTUAL_DISK_PARAMETERS(i32);
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
+pub struct CREATE_VIRTUAL_DISK_VERSION(i32);
+pub struct DELETE_SNAPSHOT_VHDSET_FLAG(i32);
+pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS(i32);
+pub struct DELETE_SNAPSHOT_VHDSET_VERSION(i32);
+pub struct DEPENDENT_DISK_FLAG(i32);
+pub struct DETACH_VIRTUAL_DISK_FLAG(i32);
+pub struct EXPAND_VIRTUAL_DISK_FLAG(i32);
+pub struct EXPAND_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct EXPAND_VIRTUAL_DISK_VERSION(i32);
+pub struct FORK_VIRTUAL_DISK_FLAG(i32);
+pub struct FORK_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct FORK_VIRTUAL_DISK_VERSION(i32);
+pub struct GET_STORAGE_DEPENDENCY_FLAG(i32);
+pub struct GET_VIRTUAL_DISK_INFO(i32);
+pub struct GET_VIRTUAL_DISK_INFO_VERSION(i32);
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
+pub struct MERGE_VIRTUAL_DISK_FLAG(i32);
+pub struct MERGE_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct MERGE_VIRTUAL_DISK_VERSION(i32);
+pub struct MIRROR_VIRTUAL_DISK_FLAG(i32);
+pub struct MIRROR_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct MIRROR_VIRTUAL_DISK_VERSION(i32);
+pub struct MODIFY_VHDSET_FLAG(i32);
+pub struct MODIFY_VHDSET_PARAMETERS(i32);
+pub struct MODIFY_VHDSET_VERSION(i32);
+pub struct OPEN_VIRTUAL_DISK_FLAG(i32);
+pub struct OPEN_VIRTUAL_DISK_PARAMETERS(i32);
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
+pub struct OPEN_VIRTUAL_DISK_VERSION(i32);
+pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(i32);
+pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE(i32);
+pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(i32);
+pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE(i32);
+pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(i32);
+pub struct RESIZE_VIRTUAL_DISK_FLAG(i32);
+pub struct RESIZE_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct RESIZE_VIRTUAL_DISK_VERSION(i32);
+pub struct SET_VIRTUAL_DISK_INFO(i32);
+pub struct SET_VIRTUAL_DISK_INFO_VERSION(i32);
+pub struct STORAGE_DEPENDENCY_INFO(i32);
+pub struct STORAGE_DEPENDENCY_INFO_TYPE_1(i32);
+pub struct STORAGE_DEPENDENCY_INFO_TYPE_2(i32);
+pub struct STORAGE_DEPENDENCY_INFO_VERSION(i32);
+pub struct TAKE_SNAPSHOT_VHDSET_FLAG(i32);
+pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS(i32);
+pub struct TAKE_SNAPSHOT_VHDSET_VERSION(i32);
+pub struct VIRTUAL_DISK_ACCESS_MASK(i32);
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256u32;
+pub struct VIRTUAL_DISK_PROGRESS(i32);
+pub struct VIRTUAL_STORAGE_TYPE(i32);
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3969403628, data2: 41209, data3: 18409, data4: [144, 31, 113, 65, 90, 102, 52, 91] };
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };

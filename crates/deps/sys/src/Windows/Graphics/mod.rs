@@ -17,3 +17,9 @@ pub mod Printing;
 pub mod Printing3D;
 #[link(name = "windows")]
 extern "system" {}
+pub struct DisplayAdapterId(i32);
+pub struct DisplayId(i32);
+pub struct IGeometrySource2D(i32);
+pub struct PointInt32(i32);
+pub struct RectInt32(i32);
+pub struct SizeInt32(i32);

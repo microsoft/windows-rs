@@ -8,3 +8,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MSChapSrvChangePassword2(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, newpasswordencryptedwitholdnt: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldntowfpasswordencryptedwithnewnt: *const ENCRYPTED_LM_OWF_PASSWORD, lmpresent: super::super::Foundation::BOOLEAN, newpasswordencryptedwitholdlm: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldlmowfpasswordencryptedwithnewlmornt: *const ENCRYPTED_LM_OWF_PASSWORD) -> u32;
 }
+pub struct CYPHER_BLOCK(i32);
+pub struct ENCRYPTED_LM_OWF_PASSWORD(i32);
+pub struct LM_OWF_PASSWORD(i32);
+pub struct SAMPR_ENCRYPTED_USER_PASSWORD(i32);

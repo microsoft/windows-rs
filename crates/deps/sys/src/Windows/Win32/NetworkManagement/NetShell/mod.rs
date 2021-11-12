@@ -1,4 +1,32 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: super::super::Foundation::PWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MatchToken(pwszusertoken: super::super::Foundation::PWSTR, pwszcmdtoken: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PrintMessage(pwszformat: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
+    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
+    pub fn RegisterHelper(pguidparentcontext: *const ::windows_sys::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
+}
+pub struct CMD_ENTRY(i32);
+pub struct CMD_GROUP_ENTRY(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
@@ -55,29 +83,21 @@ pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub const NETSH_VERSION_50: u32 = 20480u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: super::super::Foundation::PWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MatchToken(pwszusertoken: super::super::Foundation::PWSTR, pwszcmdtoken: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrintMessage(pwszformat: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
-    pub fn RegisterHelper(pguidparentcontext: *const ::windows_sys::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
-}
+pub struct NS_CMD_FLAGS(i32);
+pub struct NS_CONTEXT_ATTRIBUTES(i32);
+pub struct NS_EVENTS(i32);
+pub struct NS_HELPER_ATTRIBUTES(i32);
+pub struct NS_MODE_CHANGE(i32);
+pub struct NS_REQS(i32);
+pub struct PFN_HANDLE_CMD(i32);
+pub struct PGET_RESOURCE_STRING_FN(i32);
+pub struct PNS_CONTEXT_COMMIT_FN(i32);
+pub struct PNS_CONTEXT_CONNECT_FN(i32);
+pub struct PNS_CONTEXT_DUMP_FN(i32);
+pub struct PNS_DLL_INIT_FN(i32);
+pub struct PNS_DLL_STOP_FN(i32);
+pub struct PNS_HELPER_START_FN(i32);
+pub struct PNS_HELPER_STOP_FN(i32);
+pub struct PNS_OSVERSIONCHECK(i32);
+pub struct TAG_TYPE(i32);
+pub struct TOKEN_VALUE(i32);

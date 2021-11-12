@@ -1,4 +1,255 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmAssociateContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Globalization::HIMC;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmAssociateContextEx(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC, param2: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmConfigureIMEA(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmConfigureIMEW(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmCreateContext() -> super::super::super::Globalization::HIMC;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmCreateSoftKeyboard(param0: u32, param1: super::super::super::Foundation::HWND, param2: i32, param3: i32) -> super::super::super::Foundation::HWND;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmDestroyContext(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmDestroyIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Globalization::HIMCC;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmDestroySoftKeyboard(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmEnumRegisterWordA(param0: super::super::TextServices::HKL, param1: REGISTERWORDENUMPROCA, lpszreading: super::super::super::Foundation::PSTR, param3: u32, lpszregister: super::super::super::Foundation::PSTR, param5: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmEnumRegisterWordW(param0: super::super::TextServices::HKL, param1: REGISTERWORDENUMPROCW, lpszreading: super::super::super::Foundation::PWSTR, param3: u32, lpszregister: super::super::super::Foundation::PWSTR, param5: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub fn ImmEscapeA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub fn ImmEscapeW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGenerateMessage(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetCandidateListA(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetCandidateListCountA(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetCandidateListCountW(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetCandidateListW(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetCandidateWindow(param0: super::super::super::Globalization::HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub fn ImmGetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub fn ImmGetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetContext(param0: super::super::super::Foundation::HWND) -> super::super::super::Globalization::HIMC;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub fn ImmGetConversionListA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: super::super::super::Foundation::PSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+    pub fn ImmGetConversionListW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: super::super::super::Foundation::PWSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetConversionStatus(param0: super::super::super::Globalization::HIMC, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmGetDescriptionA(param0: super::super::TextServices::HKL, lpszdescription: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmGetDescriptionW(param0: super::super::TextServices::HKL, lpszdescription: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetGuideLineA(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PSTR, dwbuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetGuideLineW(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PWSTR, dwbuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetIMCCLockCount(param0: super::super::super::Globalization::HIMCC) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetIMCCSize(param0: super::super::super::Globalization::HIMCC) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmGetIMCLockCount(param0: super::super::super::Globalization::HIMC) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmGetIMEFileNameA(param0: super::super::TextServices::HKL, lpszfilename: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmGetIMEFileNameW(param0: super::super::TextServices::HKL, lpszfilename: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub fn ImmGetImeMenuItemsA(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub fn ImmGetImeMenuItemsW(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetOpenStatus(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_UI_TextServices`*"]
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub fn ImmGetProperty(param0: super::super::TextServices::HKL, param1: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmGetRegisterWordStyleA(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_UI_TextServices`*"]
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub fn ImmGetRegisterWordStyleW(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmGetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmGetVirtualKey(param0: super::super::super::Foundation::HWND) -> u32;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmInstallIMEA(lpszimefilename: super::super::super::Foundation::PSTR, lpszlayouttext: super::super::super::Foundation::PSTR) -> super::super::TextServices::HKL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmInstallIMEW(lpszimefilename: super::super::super::Foundation::PWSTR, lpszlayouttext: super::super::super::Foundation::PWSTR) -> super::super::TextServices::HKL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmIsIME(param0: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmIsUIMessageA(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmIsUIMessageW(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub fn ImmLockIMC(param0: super::super::super::Globalization::HIMC) -> *mut INPUTCONTEXT;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmLockIMCC(param0: super::super::super::Globalization::HIMCC) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmNotifyIME(param0: super::super::super::Globalization::HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub fn ImmReSizeIMCC(param0: super::super::super::Globalization::HIMCC, param1: u32) -> super::super::super::Globalization::HIMCC;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmRegisterWordA(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PSTR, param2: u32, lpszregister: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmRegisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmReleaseContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmRequestMessageA(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmRequestMessageW(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmSetCandidateWindow(param0: super::super::super::Globalization::HIMC, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub fn ImmSetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+    pub fn ImmSetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmSetCompositionStringA(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmSetCompositionStringW(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmSetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmSetConversionStatus(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmSetOpenStatus(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmSetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: u32) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmUnlockIMC(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub fn ImmUnlockIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmUnregisterWordA(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PSTR, param2: u32, lpszunregister: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub fn ImmUnregisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszunregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+}
+pub struct APPLETIDLIST(i32);
+pub struct APPLYCANDEXPARAM(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const ATTR_CONVERTED: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -11,6 +262,9 @@ pub const ATTR_INPUT_ERROR: u32 = 4u32;
 pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
+pub struct CANDIDATEFORM(i32);
+pub struct CANDIDATEINFO(i32);
+pub struct CANDIDATELIST(i32);
 pub const CATID_MSIME_IImePadApplet: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1969670865,
     data2: 20169,
@@ -38,6 +292,7 @@ pub const CATID_MSIME_IImePadApplet900: ::windows_sys::core::GUID = ::windows_sy
 pub const CATID_MSIME_IImePadApplet_VER7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1242533425, data2: 50158, data3: 4561, data4: [175, 239, 0, 128, 95, 12, 139, 109] };
 pub const CATID_MSIME_IImePadApplet_VER80: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459070866, data2: 65265, data3: 4563, data4: [132, 99, 0, 192, 79, 122, 6, 229] };
 pub const CATID_MSIME_IImePadApplet_VER81: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1701126320, data2: 48008, data3: 4564, data4: [132, 192, 0, 192, 79, 122, 6, 229] };
+pub struct CActiveIMM(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const CFS_CANDIDATEPOS: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -74,6 +329,8 @@ pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::
     data3: 18203,
     data4: [174, 231, 125, 51, 39, 133, 102, 13],
 };
+pub struct COMPOSITIONFORM(i32);
+pub struct COMPOSITIONSTRING(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const CS_INSERTCHAR: u32 = 8192u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -222,6 +479,8 @@ pub const GCS_RESULTREADCLAUSE: u32 = 1024u32;
 pub const GCS_RESULTREADSTR: u32 = 512u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const GCS_RESULTSTR: u32 = 2048u32;
+pub struct GET_CONVERSION_LIST_FLAG(i32);
+pub struct GET_GUIDE_LINE_TYPE(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const GL_ID_CANNOTSAVE: u32 = 17u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -264,14 +523,26 @@ pub const GL_LEVEL_INFORMATION: u32 = 4u32;
 pub const GL_LEVEL_NOGUIDELINE: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const GL_LEVEL_WARNING: u32 = 3u32;
+pub struct GUIDELINE(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IACE_CHILDREN: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IACE_DEFAULT: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
+pub struct IActiveIME(i32);
+pub struct IActiveIME2(i32);
+pub struct IActiveIMMApp(i32);
+pub struct IActiveIMMIME(i32);
+pub struct IActiveIMMMessagePumpOwner(i32);
+pub struct IActiveIMMRegistrar(i32);
+pub struct IEnumInputContext(i32);
+pub struct IEnumRegisterWordA(i32);
+pub struct IEnumRegisterWordW(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291840i32 as _);
+pub struct IFEClassFactory(i32);
+pub struct IFECommon(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192063i32 as _);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -384,6 +655,8 @@ pub const IFED_TYPE_NONE: u32 = 0u32;
 pub const IFED_TYPE_REVERSE: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IFED_TYPE_SPEECH: u32 = 4u32;
+pub struct IFEDictionary(i32);
+pub struct IFELanguage(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IGIMIF_RIGHTMENU: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -400,6 +673,11 @@ pub const IGIMII_OTHER: u32 = 32u32;
 pub const IGIMII_SMODE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IGIMII_TOOLS: u32 = 8u32;
+pub struct IImePad(i32);
+pub struct IImePadApplet(i32);
+pub struct IImePlugInDictDictionaryList(i32);
+pub struct IImeSpecifyApplets(i32);
+pub struct IMCENUMPROC(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -440,6 +718,13 @@ pub const IMC_SETSOFTKBDPOS: u32 = 20u32;
 pub const IMC_SETSOFTKBDSUBTYPE: u32 = 22u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMC_SETSTATUSWINDOWPOS: u32 = 16u32;
+pub struct IMEAPPLETCFG(i32);
+pub struct IMEAPPLETUI(i32);
+pub struct IMECHARINFO(i32);
+pub struct IMECHARPOSITION(i32);
+pub struct IMECOMPOSITIONSTRINGINFO(i32);
+pub struct IMEDLG(i32);
+pub struct IMEDP(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -448,6 +733,10 @@ pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
 pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
+pub struct IMEFMT(i32);
+pub struct IMEINFO(i32);
+pub struct IMEITEM(i32);
+pub struct IMEITEMCANDIDATE(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -458,6 +747,13 @@ pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKEYCTRL_UP: u32 = 1u32;
+pub struct IMEKMS(i32);
+pub struct IMEKMSFUNCDESC(i32);
+pub struct IMEKMSINIT(i32);
+pub struct IMEKMSINVK(i32);
+pub struct IMEKMSKEY(i32);
+pub struct IMEKMSKMP(i32);
+pub struct IMEKMSNTFY(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKMS_2NDLEVEL: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -474,6 +770,8 @@ pub const IMEKMS_NOCOMPOSITION: u32 = 0u32;
 pub const IMEKMS_SELECTION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKMS_TYPECAND: u32 = 7u32;
+pub struct IMEMENUITEMINFOA(i32);
+pub struct IMEMENUITEMINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -588,10 +886,17 @@ pub const IMEPN_SIZECHANGED: u32 = 263u32;
 pub const IMEPN_SIZECHANGING: u32 = 262u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEPN_USER: u32 = 356u32;
+pub struct IMEREG(i32);
+pub struct IMEREL(i32);
+pub struct IMESHF(i32);
+pub struct IMESTRINGCANDIDATE(i32);
+pub struct IMESTRINGCANDIDATEINFO(i32);
+pub struct IMEUCT(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEVER_0310: u32 = 196618u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEVER_0400: u32 = 262144u32;
+pub struct IMEWRD(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IME_CAND_CODE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -684,6 +989,7 @@ pub const IME_KHOTKEY_ENGLISH: u32 = 82u32;
 pub const IME_KHOTKEY_HANJACONVERT: u32 = 81u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80u32;
+pub struct IME_PAD_REQUEST_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -822,6 +1128,7 @@ pub const INIT_SENTENCE: u32 = 4u32;
 pub const INIT_SOFTKBDPOS: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const INIT_STATUSWNDPOS: u32 = 1u32;
+pub struct INPUTCONTEXT(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IPACFG_CATEGORY: i32 = 262144i32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -1236,16 +1543,26 @@ pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const MOD_RIGHT: u32 = 16384u32;
+pub struct MORRSLT(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const NI_CONTEXTUPDATED: u32 = 3u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
+pub struct NOTIFY_IME_ACTION(i32);
+pub struct NOTIFY_IME_INDEX(i32);
+pub struct PFNLOG(i32);
+pub struct POSTBL(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const POS_UNDEFINED: u32 = 0u32;
+pub struct RECONVERTSTRING(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const RECONVOPT_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
+pub struct REGISTERWORDA(i32);
+pub struct REGISTERWORDENUMPROCA(i32);
+pub struct REGISTERWORDENUMPROCW(i32);
+pub struct REGISTERWORDW(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -1256,18 +1573,24 @@ pub const SCS_CAP_SETRECONVERTSTRING: u32 = 4u32;
 pub const SELECT_CAP_CONVERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SELECT_CAP_SENTENCE: u32 = 2u32;
+pub struct SET_COMPOSITION_STRING_TYPE(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SHOWIMEPAD_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SHOWIMEPAD_GUID: u32 = 2u32;
+pub struct SOFTKBDDATA(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
+pub struct STYLEBUFA(i32);
+pub struct STYLEBUFW(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
+pub struct TRANSMSG(i32);
+pub struct TRANSMSGLIST(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const UI_CAP_2700: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -1294,252 +1617,9 @@ pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const VERSION_RECONVERSION: u32 = 1u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmAssociateContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Globalization::HIMC;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmAssociateContextEx(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC, param2: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmConfigureIMEA(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmConfigureIMEW(param0: super::super::TextServices::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmCreateContext() -> super::super::super::Globalization::HIMC;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmCreateSoftKeyboard(param0: u32, param1: super::super::super::Foundation::HWND, param2: i32, param3: i32) -> super::super::super::Foundation::HWND;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmDestroyContext(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmDestroyIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Globalization::HIMCC;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmDestroySoftKeyboard(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEnumRegisterWordA(param0: super::super::TextServices::HKL, param1: REGISTERWORDENUMPROCA, lpszreading: super::super::super::Foundation::PSTR, param3: u32, lpszregister: super::super::super::Foundation::PSTR, param5: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEnumRegisterWordW(param0: super::super::TextServices::HKL, param1: REGISTERWORDENUMPROCW, lpszreading: super::super::super::Foundation::PWSTR, param3: u32, lpszregister: super::super::super::Foundation::PWSTR, param5: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEscapeA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEscapeW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGenerateMessage(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCandidateListA(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCandidateListCountA(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCandidateListCountW(param0: super::super::super::Globalization::HIMC, lpdwlistcount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCandidateListW(param0: super::super::super::Globalization::HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetCandidateWindow(param0: super::super::super::Globalization::HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub fn ImmGetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub fn ImmGetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetContext(param0: super::super::super::Foundation::HWND) -> super::super::super::Globalization::HIMC;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-    pub fn ImmGetConversionListA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: super::super::super::Foundation::PSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-    pub fn ImmGetConversionListW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: super::super::super::Foundation::PWSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetConversionStatus(param0: super::super::super::Globalization::HIMC, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmGetDescriptionA(param0: super::super::TextServices::HKL, lpszdescription: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmGetDescriptionW(param0: super::super::TextServices::HKL, lpszdescription: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetGuideLineA(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PSTR, dwbuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetGuideLineW(param0: super::super::super::Globalization::HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PWSTR, dwbuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetIMCCLockCount(param0: super::super::super::Globalization::HIMCC) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetIMCCSize(param0: super::super::super::Globalization::HIMCC) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetIMCLockCount(param0: super::super::super::Globalization::HIMC) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmGetIMEFileNameA(param0: super::super::TextServices::HKL, lpszfilename: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmGetIMEFileNameW(param0: super::super::TextServices::HKL, lpszfilename: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub fn ImmGetImeMenuItemsA(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub fn ImmGetImeMenuItemsW(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetOpenStatus(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_UI_TextServices`*"]
-    #[cfg(feature = "Win32_UI_TextServices")]
-    pub fn ImmGetProperty(param0: super::super::TextServices::HKL, param1: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmGetRegisterWordStyleA(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_UI_TextServices`*"]
-    #[cfg(feature = "Win32_UI_TextServices")]
-    pub fn ImmGetRegisterWordStyleW(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmGetVirtualKey(param0: super::super::super::Foundation::HWND) -> u32;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmInstallIMEA(lpszimefilename: super::super::super::Foundation::PSTR, lpszlayouttext: super::super::super::Foundation::PSTR) -> super::super::TextServices::HKL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmInstallIMEW(lpszimefilename: super::super::super::Foundation::PWSTR, lpszlayouttext: super::super::super::Foundation::PWSTR) -> super::super::TextServices::HKL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmIsIME(param0: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmIsUIMessageA(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmIsUIMessageW(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub fn ImmLockIMC(param0: super::super::super::Globalization::HIMC) -> *mut INPUTCONTEXT;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmLockIMCC(param0: super::super::super::Globalization::HIMCC) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmNotifyIME(param0: super::super::super::Globalization::HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmReSizeIMCC(param0: super::super::super::Globalization::HIMCC, param1: u32) -> super::super::super::Globalization::HIMCC;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmRegisterWordA(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PSTR, param2: u32, lpszregister: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmRegisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmReleaseContext(param0: super::super::super::Foundation::HWND, param1: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmRequestMessageA(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmRequestMessageW(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetCandidateWindow(param0: super::super::super::Globalization::HIMC, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub fn ImmSetCompositionFontA(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-    pub fn ImmSetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetCompositionStringA(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetCompositionStringW(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetConversionStatus(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetOpenStatus(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetStatusWindowPos(param0: super::super::super::Globalization::HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmUnlockIMC(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmUnlockIMCC(param0: super::super::super::Globalization::HIMCC) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmUnregisterWordA(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PSTR, param2: u32, lpszunregister: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmUnregisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszunregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
-}
+pub struct WDD(i32);
+pub struct fpCreateIFECommonInstanceType(i32);
+pub struct fpCreateIFEDictionaryInstanceType(i32);
+pub struct fpCreateIFELanguageInstanceType(i32);
+pub struct tabIMEFAREASTINFO(i32);
+pub struct tabIMESTRINGINFO(i32);

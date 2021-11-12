@@ -1,4 +1,54 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
+    pub fn OfflineFilesStart() -> u32;
+}
+pub struct IEnumOfflineFilesItems(i32);
+pub struct IEnumOfflineFilesSettings(i32);
+pub struct IOfflineFilesCache(i32);
+pub struct IOfflineFilesCache2(i32);
+pub struct IOfflineFilesChangeInfo(i32);
+pub struct IOfflineFilesConnectionInfo(i32);
+pub struct IOfflineFilesDirectoryItem(i32);
+pub struct IOfflineFilesDirtyInfo(i32);
+pub struct IOfflineFilesErrorInfo(i32);
+pub struct IOfflineFilesEvents(i32);
+pub struct IOfflineFilesEvents2(i32);
+pub struct IOfflineFilesEvents3(i32);
+pub struct IOfflineFilesEvents4(i32);
+pub struct IOfflineFilesEventsFilter(i32);
+pub struct IOfflineFilesFileItem(i32);
+pub struct IOfflineFilesFileSysInfo(i32);
+pub struct IOfflineFilesGhostInfo(i32);
+pub struct IOfflineFilesItem(i32);
+pub struct IOfflineFilesItemContainer(i32);
+pub struct IOfflineFilesItemFilter(i32);
+pub struct IOfflineFilesPinInfo(i32);
+pub struct IOfflineFilesPinInfo2(i32);
+pub struct IOfflineFilesProgress(i32);
+pub struct IOfflineFilesServerItem(i32);
+pub struct IOfflineFilesSetting(i32);
+pub struct IOfflineFilesShareInfo(i32);
+pub struct IOfflineFilesShareItem(i32);
+pub struct IOfflineFilesSimpleProgress(i32);
+pub struct IOfflineFilesSuspend(i32);
+pub struct IOfflineFilesSuspendInfo(i32);
+pub struct IOfflineFilesSyncConflictHandler(i32);
+pub struct IOfflineFilesSyncErrorInfo(i32);
+pub struct IOfflineFilesSyncErrorItemInfo(i32);
+pub struct IOfflineFilesSyncProgress(i32);
+pub struct IOfflineFilesTransparentCacheInfo(i32);
+pub struct OFFLINEFILES_CACHING_MODE(i32);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_CHANGES_LOCAL_ATTRIBUTES: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
@@ -13,6 +63,8 @@ pub const OFFLINEFILES_CHANGES_REMOTE_ATTRIBUTES: u32 = 16u32;
 pub const OFFLINEFILES_CHANGES_REMOTE_SIZE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_CHANGES_REMOTE_TIME: u32 = 32u32;
+pub struct OFFLINEFILES_COMPARE(i32);
+pub struct OFFLINEFILES_CONNECT_STATE(i32);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_DELETE_FLAG_ADMIN: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
@@ -35,6 +87,8 @@ pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_LOWPRIORITY: u32 = 512u32;
 pub const OFFLINEFILES_ENUM_FLAT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_ENUM_FLAT_FILESONLY: u32 = 2u32;
+pub struct OFFLINEFILES_EVENTS(i32);
+pub struct OFFLINEFILES_ITEM_COPY(i32);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_ITEM_FILTER_FLAG_CREATED: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
@@ -101,6 +155,11 @@ pub const OFFLINEFILES_ITEM_QUERY_LOCALDIRTYBYTECOUNT: u32 = 4u32;
 pub const OFFLINEFILES_ITEM_QUERY_REMOTEDIRTYBYTECOUNT: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_ITEM_QUERY_REMOTEINFO: u32 = 1u32;
+pub struct OFFLINEFILES_ITEM_TIME(i32);
+pub struct OFFLINEFILES_ITEM_TYPE(i32);
+pub struct OFFLINEFILES_OFFLINE_REASON(i32);
+pub struct OFFLINEFILES_OP_RESPONSE(i32);
+pub struct OFFLINEFILES_PATHFILTER_MATCH(i32);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_PINLINKTARGETS_ALWAYS: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
@@ -133,6 +192,8 @@ pub const OFFLINEFILES_PIN_CONTROL_FLAG_PINLINKTARGETS: u32 = 16u32;
 pub const OFFLINEFILES_SETTING_SCOPE_COMPUTER: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_SETTING_SCOPE_USER: u32 = 1u32;
+pub struct OFFLINEFILES_SETTING_VALUE_TYPE(i32);
+pub struct OFFLINEFILES_SYNC_CONFLICT_RESOLVE(i32);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_SYNC_CONTROL_CR_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
@@ -185,6 +246,8 @@ pub const OFFLINEFILES_SYNC_ITEM_CHANGE_FILESIZE: u32 = 4u32;
 pub const OFFLINEFILES_SYNC_ITEM_CHANGE_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_SYNC_ITEM_CHANGE_WRITETIME: u32 = 2u32;
+pub struct OFFLINEFILES_SYNC_OPERATION(i32);
+pub struct OFFLINEFILES_SYNC_STATE(i32);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_SYNC_STATE_LOCAL_KNOWN: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
@@ -193,17 +256,5 @@ pub const OFFLINEFILES_SYNC_STATE_REMOTE_KNOWN: u32 = 2u32;
 pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
-    pub fn OfflineFilesStart() -> u32;
-}
+pub struct OfflineFilesCache(i32);
+pub struct OfflineFilesSetting(i32);

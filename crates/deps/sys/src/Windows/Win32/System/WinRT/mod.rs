@@ -29,14 +29,6 @@ pub mod Shell;
 pub mod Storage;
 #[cfg(feature = "Win32_System_WinRT_Xaml")]
 pub mod Xaml;
-#[doc = "*Required features: `Win32_System_WinRT`*"]
-pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
-#[doc = "*Required features: `Win32_System_WinRT`*"]
-pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
-#[doc = "*Required features: `Win32_System_WinRT`*"]
-pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
-#[doc = "*Required features: `Win32_System_WinRT`*"]
-pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_WinRT`*"]
@@ -194,3 +186,68 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub fn WindowsTrimStringStart(string: ::windows_sys::core::HSTRING, trimstring: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
 }
+pub struct ACTIVATIONTYPE(i32);
+pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(i32);
+pub struct AgileReferenceOptions(i32);
+pub struct BSOS_OPTIONS(i32);
+pub struct CASTING_CONNECTION_ERROR_STATUS(i32);
+pub struct CASTING_CONNECTION_STATE(i32);
+#[doc = "*Required features: `Win32_System_WinRT`*"]
+pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
+#[doc = "*Required features: `Win32_System_WinRT`*"]
+pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
+#[doc = "*Required features: `Win32_System_WinRT`*"]
+pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
+pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(i32);
+pub struct DISPATCHERQUEUE_THREAD_TYPE(i32);
+pub struct DispatcherQueueOptions(i32);
+pub struct EventRegistrationToken(i32);
+pub struct HSTRING_BUFFER(i32);
+pub struct HSTRING_HEADER(i32);
+pub struct IAccountsSettingsPaneInterop(i32);
+pub struct IActivationFactory(i32);
+pub struct IAgileReference(i32);
+pub struct IApartmentShutdown(i32);
+pub struct IAppServiceConnectionExtendedExecution(i32);
+pub struct IBufferByteAccess(i32);
+pub struct ICastingController(i32);
+pub struct ICastingEventHandler(i32);
+pub struct ICastingSourceInfo(i32);
+pub struct ICorrelationVectorInformation(i32);
+pub struct ICorrelationVectorSource(i32);
+pub struct IDragDropManagerInterop(i32);
+pub struct IHolographicSpaceInterop(i32);
+pub struct IInputPaneInterop(i32);
+pub struct ILanguageExceptionErrorInfo(i32);
+pub struct ILanguageExceptionErrorInfo2(i32);
+pub struct ILanguageExceptionStackBackTrace(i32);
+pub struct ILanguageExceptionTransform(i32);
+pub struct IMemoryBufferByteAccess(i32);
+pub struct IMessageDispatcher(i32);
+pub struct IPlayToManagerInterop(i32);
+pub struct IRestrictedErrorInfo(i32);
+pub struct IRoMetaDataLocator(i32);
+pub struct IRoSimpleMetaDataBuilder(i32);
+pub struct IShareWindowCommandEventArgsInterop(i32);
+pub struct IShareWindowCommandSourceInterop(i32);
+pub struct ISpatialInteractionManagerInterop(i32);
+pub struct ISystemMediaTransportControlsInterop(i32);
+pub struct IUIViewSettingsInterop(i32);
+pub struct IUserActivityInterop(i32);
+pub struct IUserActivityRequestManagerInterop(i32);
+pub struct IUserActivitySourceHostInterop(i32);
+pub struct IUserConsentVerifierInterop(i32);
+pub struct IWeakReference(i32);
+pub struct IWeakReferenceSource(i32);
+pub struct IWebAuthenticationCoreManagerInterop(i32);
+#[doc = "*Required features: `Win32_System_WinRT`*"]
+pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
+pub struct PINSPECT_HSTRING_CALLBACK(i32);
+pub struct PINSPECT_HSTRING_CALLBACK2(i32);
+pub struct PINSPECT_MEMORY_CALLBACK(i32);
+pub struct ROPARAMIIDHANDLE(i32);
+pub struct RO_ERROR_REPORTING_FLAGS(i32);
+pub struct RO_INIT_TYPE(i32);
+pub struct ServerInformation(i32);
+pub struct TrustLevel(i32);
+pub struct _RO_REGISTRATION_COOKIE(i32);

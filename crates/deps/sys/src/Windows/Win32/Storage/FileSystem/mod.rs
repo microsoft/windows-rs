@@ -1,589 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_SCAN_CLOSE: u8 = 8u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_SCAN_FORWARD: u8 = 2u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_SCAN_INIT: u8 = 1u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
-pub const CLSID_DiskQuotaControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2039002481, data2: 60553, data3: 4559, data4: [156, 0, 0, 170, 0, 161, 79, 86] };
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSC_CACHE_NONE: u32 = 48u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSC_CACHE_VDO: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSC_MASK: u32 = 48u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSC_MASK_EXT: u32 = 8240u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsClientRecord: u8 = 3u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsContainerActive: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsContainerActivePendingDelete: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsContainerInactive: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsContainerInitializing: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsContainerPendingArchive: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsDataRecord: u8 = 1u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsNullRecord: u8 = 0u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClfsRestartRecord: u8 = 2u8;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClsContainerActive: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClsContainerActivePendingDelete: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClsContainerInactive: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClsContainerInitializing: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClsContainerPendingArchive: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_METADATA_ADD_USER: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_BASE: u32 = 86u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LOG_POLICY_PERSIST: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_BADINHANDLE: i32 = -1i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_BADVALUE: i32 = -7i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_GLOBALLOC: i32 = -5i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_GLOBLOCK: i32 = -6i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_READ: i32 = -3i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_UNKNOWNALG: i32 = -8i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const LZERROR_WRITE: i32 = -4i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const MAX_SID_SIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMSMLI_MAXTYPE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_REVISION_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
-pub const PARTITION_BASIC_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3956318370,
-    data2: 47589,
-    data3: 17459,
-    data4: [135, 192, 104, 182, 183, 38, 153, 199],
-};
-pub const PARTITION_BSP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 19961, data3: 17849, data4: [142, 158, 35, 112, 240, 6, 69, 124] };
-pub const PARTITION_CLUSTER_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3684162473,
-    data2: 2112,
-    data3: 19374,
-    data4: [151, 240, 255, 185, 163, 39, 199, 225],
-};
-pub const PARTITION_DPP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1464029011,
-    data2: 38091,
-    data3: 17392,
-    data4: [165, 51, 215, 60, 16, 207, 165, 125],
-};
-pub const PARTITION_ENTRY_UNUSED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
-pub const PARTITION_LDM_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2946195616, data2: 5169, data3: 20322, data4: [188, 104, 51, 17, 113, 74, 105, 173] };
-pub const PARTITION_LDM_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1476970666,
-    data2: 32399,
-    data3: 17120,
-    data4: [133, 210, 225, 233, 4, 52, 207, 179],
-};
-pub const PARTITION_LEGACY_BL_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1112318178,
-    data2: 31922,
-    data3: 20409,
-    data4: [129, 67, 197, 42, 153, 57, 139, 198],
-};
-pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1112292972,
-    data2: 55199,
-    data3: 18891,
-    data4: [147, 93, 54, 215, 20, 103, 162, 136],
-};
-pub const PARTITION_MAIN_OS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 36677, data3: 16478, data4: [138, 35, 24, 109, 138, 67, 48, 211] };
-pub const PARTITION_MSFT_RECOVERY_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3734289316,
-    data2: 1745,
-    data3: 19776,
-    data4: [161, 106, 191, 213, 1, 121, 214, 172],
-};
-pub const PARTITION_MSFT_RESERVED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3821658902, data2: 2908, data3: 19896, data4: [129, 125, 249, 45, 240, 2, 21, 174] };
-pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3403541489, data2: 17408, data3: 19944, data4: [177, 3, 18, 17, 125, 207, 60, 207] };
-pub const PARTITION_OS_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 9202, data3: 17621, data4: [168, 48, 103, 187, 218, 166, 9, 249] };
-pub const PARTITION_PATCH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2305271430, data2: 38570, data3: 27304, data4: [149, 137, 168, 66, 86, 84, 16, 144] };
-pub const PARTITION_PRE_INSTALLED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 32736, data3: 16790, data4: [155, 66, 66, 123, 81, 100, 52, 132] };
-pub const PARTITION_SERVICING_FILES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1464029011,
-    data2: 17198,
-    data3: 16404,
-    data4: [174, 76, 141, 234, 169, 192, 0, 106],
-};
-pub const PARTITION_SERVICING_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1464029011,
-    data2: 50833,
-    data3: 18949,
-    data4: [187, 78, 112, 61, 175, 210, 41, 206],
-};
-pub const PARTITION_SERVICING_RESERVE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1464029011,
-    data2: 19329,
-    data3: 17931,
-    data4: [163, 25, 255, 182, 254, 19, 109, 20],
-};
-pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1464029011,
-    data2: 59469,
-    data3: 20100,
-    data4: [170, 243, 236, 187, 189, 4, 185, 223],
-};
-pub const PARTITION_SPACES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3886931124,
-    data2: 56372,
-    data3: 17721,
-    data4: [154, 118, 235, 189, 7, 190, 111, 126],
-};
-pub const PARTITION_SPACES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3881611151,
-    data2: 63104,
-    data3: 19694,
-    data4: [175, 163, 176, 1, 229, 110, 252, 45],
-};
-pub const PARTITION_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3240784680, data2: 63519, data3: 4562, data4: [186, 75, 0, 160, 201, 62, 201, 59] };
-pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1464029011,
-    data2: 58339,
-    data3: 17969,
-    data4: [165, 197, 38, 210, 36, 56, 115, 170],
-};
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_PATH_PARMNUM: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_DFS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const STATSOPT_CLR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const STYPE_RESERVED1: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const STYPE_RESERVED2: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const STYPE_RESERVED3: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const STYPE_RESERVED4: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const STYPE_RESERVED5: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const VS_USER_DEFINED: u32 = 100u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const VS_VERSION_INFO: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WIM_BOOT_OS_WIM: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WOF_PROVIDER_FILE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const WOF_PROVIDER_WIM: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-pub const _FT_TYPES_DEFINITION_: u32 = 1u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
@@ -1813,3 +1228,924 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteTapemark(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
 }
+pub struct BY_HANDLE_FILE_INFORMATION(i32);
+pub struct CACHE_ACCESS_CHECK(i32);
+pub struct CACHE_DESTROY_CALLBACK(i32);
+pub struct CACHE_KEY_COMPARE(i32);
+pub struct CACHE_KEY_HASH(i32);
+pub struct CACHE_READ_CALLBACK(i32);
+pub struct CLAIMMEDIALABEL(i32);
+pub struct CLAIMMEDIALABELEX(i32);
+pub struct CLFS_BLOCK_ALLOCATION(i32);
+pub struct CLFS_BLOCK_DEALLOCATION(i32);
+pub struct CLFS_CONTEXT_MODE(i32);
+pub struct CLFS_FLAG(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
+pub struct CLFS_IOSTATS_CLASS(i32);
+pub struct CLFS_LOG_ARCHIVE_MODE(i32);
+pub struct CLFS_LOG_NAME_INFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
+pub struct CLFS_MGMT_NOTIFICATION(i32);
+pub struct CLFS_MGMT_NOTIFICATION_TYPE(i32);
+pub struct CLFS_MGMT_POLICY(i32);
+pub struct CLFS_MGMT_POLICY_TYPE(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
+pub struct CLFS_NODE_ID(i32);
+pub struct CLFS_PHYSICAL_LSN_INFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_CLOSE: u8 = 8u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_FORWARD: u8 = 2u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_INIT: u8 = 1u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
+pub struct CLFS_STREAM_ID_INFORMATION(i32);
+pub const CLSID_DiskQuotaControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2039002481, data2: 60553, data3: 4559, data4: [156, 0, 0, 170, 0, 161, 79, 86] };
+pub struct CLS_ARCHIVE_DESCRIPTOR(i32);
+pub struct CLS_CONTAINER_INFORMATION(i32);
+pub struct CLS_CONTEXT_MODE(i32);
+pub struct CLS_INFORMATION(i32);
+pub struct CLS_IOSTATS_CLASS(i32);
+pub struct CLS_IO_STATISTICS(i32);
+pub struct CLS_IO_STATISTICS_HEADER(i32);
+pub struct CLS_LOG_INFORMATION_CLASS(i32);
+pub struct CLS_LSN(i32);
+pub struct CLS_SCAN_CONTEXT(i32);
+pub struct CLS_WRITE_ENTRY(i32);
+pub struct CONNECTION_INFO_0(i32);
+pub struct CONNECTION_INFO_1(i32);
+pub struct COPYFILE2_COPY_PHASE(i32);
+pub struct COPYFILE2_EXTENDED_PARAMETERS(i32);
+pub struct COPYFILE2_EXTENDED_PARAMETERS_V2(i32);
+pub struct COPYFILE2_MESSAGE(i32);
+pub struct COPYFILE2_MESSAGE_ACTION(i32);
+pub struct COPYFILE2_MESSAGE_TYPE(i32);
+pub struct CREATEFILE2_EXTENDED_PARAMETERS(i32);
+pub struct CREATE_TAPE_PARTITION_METHOD(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_NONE: u32 = 48u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_VDO: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_MASK: u32 = 48u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_MASK_EXT: u32 = 8240u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsClientRecord: u8 = 3u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerActive: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsDataRecord: u8 = 1u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsNullRecord: u8 = 0u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsRestartRecord: u8 = 2u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerActive: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
+pub struct DEFINE_DOS_DEVICE_FLAGS(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
+pub struct DISKQUOTA_USERNAME_RESOLVE(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
+pub struct DISKQUOTA_USER_INFORMATION(i32);
+pub struct DISK_SPACE_INFORMATION(i32);
+pub struct EFS_CERTIFICATE_BLOB(i32);
+pub struct EFS_COMPATIBILITY_INFO(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
+pub struct EFS_DECRYPTION_STATUS_INFO(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
+pub struct EFS_ENCRYPTION_STATUS_INFO(i32);
+pub struct EFS_HASH_BLOB(i32);
+pub struct EFS_KEY_INFO(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_ADD_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
+pub struct EFS_PIN_BLOB(i32);
+pub struct EFS_RPC_BLOB(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
+pub struct EFS_VERSION_INFO(i32);
+pub struct ENCRYPTED_FILE_METADATA_SIGNATURE(i32);
+pub struct ENCRYPTION_CERTIFICATE(i32);
+pub struct ENCRYPTION_CERTIFICATE_HASH(i32);
+pub struct ENCRYPTION_CERTIFICATE_HASH_LIST(i32);
+pub struct ENCRYPTION_CERTIFICATE_LIST(i32);
+pub struct ENCRYPTION_PROTECTOR(i32);
+pub struct ENCRYPTION_PROTECTOR_LIST(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
+pub struct ERASE_TAPE_TYPE(i32);
+pub struct FCACHE_CREATE_CALLBACK(i32);
+pub struct FCACHE_RICHCREATE_CALLBACK(i32);
+pub struct FH_OVERLAPPED(i32);
+pub struct FILE_ACCESS_FLAGS(i32);
+pub struct FILE_ACTION(i32);
+pub struct FILE_ALIGNMENT_INFO(i32);
+pub struct FILE_ALLOCATION_INFO(i32);
+pub struct FILE_ATTRIBUTE_TAG_INFO(i32);
+pub struct FILE_BASIC_INFO(i32);
+pub struct FILE_COMPRESSION_INFO(i32);
+pub struct FILE_CREATION_DISPOSITION(i32);
+pub struct FILE_DEVICE_TYPE(i32);
+pub struct FILE_DISPOSITION_INFO(i32);
+pub struct FILE_END_OF_FILE_INFO(i32);
+pub struct FILE_EXTENT(i32);
+pub struct FILE_FLAGS_AND_ATTRIBUTES(i32);
+pub struct FILE_FULL_DIR_INFO(i32);
+pub struct FILE_ID_128(i32);
+pub struct FILE_ID_BOTH_DIR_INFO(i32);
+pub struct FILE_ID_DESCRIPTOR(i32);
+pub struct FILE_ID_EXTD_DIR_INFO(i32);
+pub struct FILE_ID_INFO(i32);
+pub struct FILE_ID_TYPE(i32);
+pub struct FILE_INFO_2(i32);
+pub struct FILE_INFO_3(i32);
+pub struct FILE_INFO_BY_HANDLE_CLASS(i32);
+pub struct FILE_INFO_FLAGS_PERMISSIONS(i32);
+pub struct FILE_IO_PRIORITY_HINT_INFO(i32);
+pub struct FILE_NAME(i32);
+pub struct FILE_NAME_INFO(i32);
+pub struct FILE_NOTIFY_CHANGE(i32);
+pub struct FILE_NOTIFY_EXTENDED_INFORMATION(i32);
+pub struct FILE_NOTIFY_INFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
+pub struct FILE_REMOTE_PROTOCOL_INFO(i32);
+pub struct FILE_RENAME_INFO(i32);
+pub struct FILE_SEGMENT_ELEMENT(i32);
+pub struct FILE_SHARE_MODE(i32);
+pub struct FILE_STANDARD_INFO(i32);
+pub struct FILE_STORAGE_INFO(i32);
+pub struct FILE_STREAM_INFO(i32);
+pub struct FINDEX_INFO_LEVELS(i32);
+pub struct FINDEX_SEARCH_OPS(i32);
+pub struct FIND_FIRST_EX_FLAGS(i32);
+pub struct FIO_CONTEXT(i32);
+pub struct FindChangeNotificationHandle(i32);
+pub struct FindFileHandle(i32);
+pub struct FindFileNameHandle(i32);
+pub struct FindStreamHandle(i32);
+pub struct FindVolumeHandle(i32);
+pub struct FindVolumeMointPointHandle(i32);
+pub struct GET_FILEEX_INFO_LEVELS(i32);
+pub struct GET_FILE_VERSION_INFO_FLAGS(i32);
+pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(i32);
+pub struct HIORING__(i32);
+pub struct IDiskQuotaControl(i32);
+pub struct IDiskQuotaEvents(i32);
+pub struct IDiskQuotaUser(i32);
+pub struct IDiskQuotaUserBatch(i32);
+pub struct IEnumDiskQuotaUsers(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_BASE: u32 = 86u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
+pub struct IORING_BUFFER_INFO(i32);
+pub struct IORING_BUFFER_REF(i32);
+pub struct IORING_CAPABILITIES(i32);
+pub struct IORING_CQE(i32);
+pub struct IORING_CREATE_ADVISORY_FLAGS(i32);
+pub struct IORING_CREATE_FLAGS(i32);
+pub struct IORING_CREATE_REQUIRED_FLAGS(i32);
+pub struct IORING_FEATURE_FLAGS(i32);
+pub struct IORING_HANDLE_REF(i32);
+pub struct IORING_INFO(i32);
+pub struct IORING_OP_CODE(i32);
+pub struct IORING_REF_KIND(i32);
+pub struct IORING_REGISTERED_BUFFER(i32);
+pub struct IORING_SQE_FLAGS(i32);
+pub struct IORING_VERSION(i32);
+pub struct KCRM_MARSHAL_HEADER(i32);
+pub struct KCRM_PROTOCOL_BLOB(i32);
+pub struct KCRM_TRANSACTION_BLOB(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
+pub struct LOCK_FILE_FLAGS(i32);
+pub struct LOG_MANAGEMENT_CALLBACKS(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LOG_POLICY_PERSIST: u32 = 2u32;
+pub struct LPPROGRESS_ROUTINE(i32);
+pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_BADINHANDLE: i32 = -1i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_BADVALUE: i32 = -7i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_GLOBALLOC: i32 = -5i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_GLOBLOCK: i32 = -6i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_READ: i32 = -3i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_UNKNOWNALG: i32 = -8i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_WRITE: i32 = -4i32;
+pub struct LZOPENFILE_STYLE(i32);
+pub struct MAXMEDIALABEL(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const MAX_SID_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
+pub struct MOVE_FILE_FLAGS(i32);
+pub struct MediaLabelInfo(i32);
+pub struct NAME_CACHE_CONTEXT(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMSMLI_MAXTYPE: u32 = 64u32;
+pub struct NTMS_ALLOCATION_INFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
+pub struct NTMS_ASYNC_IO(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
+pub struct NTMS_CHANGERINFORMATIONA(i32);
+pub struct NTMS_CHANGERINFORMATIONW(i32);
+pub struct NTMS_CHANGERTYPEINFORMATIONA(i32);
+pub struct NTMS_CHANGERTYPEINFORMATIONW(i32);
+pub struct NTMS_COMPUTERINFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
+pub struct NTMS_DRIVEINFORMATIONA(i32);
+pub struct NTMS_DRIVEINFORMATIONW(i32);
+pub struct NTMS_DRIVETYPEINFORMATIONA(i32);
+pub struct NTMS_DRIVETYPEINFORMATIONW(i32);
+pub struct NTMS_FILESYSTEM_INFO(i32);
+pub struct NTMS_I1_LIBRARYINFORMATION(i32);
+pub struct NTMS_I1_LIBREQUESTINFORMATIONA(i32);
+pub struct NTMS_I1_LIBREQUESTINFORMATIONW(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
+pub struct NTMS_I1_OBJECTINFORMATIONA(i32);
+pub struct NTMS_I1_OBJECTINFORMATIONW(i32);
+pub struct NTMS_I1_OPREQUESTINFORMATIONA(i32);
+pub struct NTMS_I1_OPREQUESTINFORMATIONW(i32);
+pub struct NTMS_I1_PARTITIONINFORMATIONA(i32);
+pub struct NTMS_I1_PARTITIONINFORMATIONW(i32);
+pub struct NTMS_I1_PMIDINFORMATIONA(i32);
+pub struct NTMS_I1_PMIDINFORMATIONW(i32);
+pub struct NTMS_IEDOORINFORMATION(i32);
+pub struct NTMS_IEPORTINFORMATION(i32);
+pub struct NTMS_LIBRARYINFORMATION(i32);
+pub struct NTMS_LIBREQUESTINFORMATIONA(i32);
+pub struct NTMS_LIBREQUESTINFORMATIONW(i32);
+pub struct NTMS_LMIDINFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
+pub struct NTMS_MEDIAPOOLINFORMATION(i32);
+pub struct NTMS_MEDIATYPEINFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
+pub struct NTMS_MOUNT_INFORMATION(i32);
+pub struct NTMS_NOTIFICATIONINFORMATION(i32);
+pub struct NTMS_OBJECTINFORMATIONA(i32);
+pub struct NTMS_OBJECTINFORMATIONW(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
+pub struct NTMS_OMID_TYPE(i32);
+pub struct NTMS_OPREQUESTINFORMATIONA(i32);
+pub struct NTMS_OPREQUESTINFORMATIONW(i32);
+pub struct NTMS_PARTITIONINFORMATIONA(i32);
+pub struct NTMS_PARTITIONINFORMATIONW(i32);
+pub struct NTMS_PMIDINFORMATIONA(i32);
+pub struct NTMS_PMIDINFORMATIONW(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_REVISION_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
+pub struct NTMS_STORAGESLOTINFORMATION(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
+pub struct NT_CREATE_FILE_DISPOSITION(i32);
+pub struct NtmsAccessMask(i32);
+pub struct NtmsAllocateOptions(i32);
+pub struct NtmsAllocationPolicy(i32);
+pub struct NtmsAsyncOperations(i32);
+pub struct NtmsAsyncStatus(i32);
+pub struct NtmsBarCodeState(i32);
+pub struct NtmsCreateNtmsMediaOptions(i32);
+pub struct NtmsCreateOptions(i32);
+pub struct NtmsDeallocationPolicy(i32);
+pub struct NtmsDismountOptions(i32);
+pub struct NtmsDoorState(i32);
+pub struct NtmsDriveState(i32);
+pub struct NtmsDriveType(i32);
+pub struct NtmsEjectOperation(i32);
+pub struct NtmsEnumerateOption(i32);
+pub struct NtmsInjectOperation(i32);
+pub struct NtmsInventoryMethod(i32);
+pub struct NtmsLibRequestFlags(i32);
+pub struct NtmsLibraryFlags(i32);
+pub struct NtmsLibraryType(i32);
+pub struct NtmsLmOperation(i32);
+pub struct NtmsLmState(i32);
+pub struct NtmsMediaPoolPolicy(i32);
+pub struct NtmsMediaState(i32);
+pub struct NtmsMountOptions(i32);
+pub struct NtmsMountPriority(i32);
+pub struct NtmsNotificationOperations(i32);
+pub struct NtmsObjectsTypes(i32);
+pub struct NtmsOpRequestFlags(i32);
+pub struct NtmsOperationalState(i32);
+pub struct NtmsOpreqCommand(i32);
+pub struct NtmsOpreqState(i32);
+pub struct NtmsPartitionState(i32);
+pub struct NtmsPoolType(i32);
+pub struct NtmsPortContent(i32);
+pub struct NtmsPortPosition(i32);
+pub struct NtmsReadWriteCharacteristics(i32);
+pub struct NtmsSessionOptions(i32);
+pub struct NtmsSlotState(i32);
+pub struct NtmsUIOperations(i32);
+pub struct NtmsUITypes(i32);
+pub struct OFSTRUCT(i32);
+pub const PARTITION_BASIC_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3956318370,
+    data2: 47589,
+    data3: 17459,
+    data4: [135, 192, 104, 182, 183, 38, 153, 199],
+};
+pub const PARTITION_BSP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 19961, data3: 17849, data4: [142, 158, 35, 112, 240, 6, 69, 124] };
+pub const PARTITION_CLUSTER_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3684162473,
+    data2: 2112,
+    data3: 19374,
+    data4: [151, 240, 255, 185, 163, 39, 199, 225],
+};
+pub const PARTITION_DPP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 38091,
+    data3: 17392,
+    data4: [165, 51, 215, 60, 16, 207, 165, 125],
+};
+pub const PARTITION_ENTRY_UNUSED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const PARTITION_LDM_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2946195616, data2: 5169, data3: 20322, data4: [188, 104, 51, 17, 113, 74, 105, 173] };
+pub const PARTITION_LDM_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1476970666,
+    data2: 32399,
+    data3: 17120,
+    data4: [133, 210, 225, 233, 4, 52, 207, 179],
+};
+pub const PARTITION_LEGACY_BL_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1112318178,
+    data2: 31922,
+    data3: 20409,
+    data4: [129, 67, 197, 42, 153, 57, 139, 198],
+};
+pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1112292972,
+    data2: 55199,
+    data3: 18891,
+    data4: [147, 93, 54, 215, 20, 103, 162, 136],
+};
+pub const PARTITION_MAIN_OS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 36677, data3: 16478, data4: [138, 35, 24, 109, 138, 67, 48, 211] };
+pub const PARTITION_MSFT_RECOVERY_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3734289316,
+    data2: 1745,
+    data3: 19776,
+    data4: [161, 106, 191, 213, 1, 121, 214, 172],
+};
+pub const PARTITION_MSFT_RESERVED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3821658902, data2: 2908, data3: 19896, data4: [129, 125, 249, 45, 240, 2, 21, 174] };
+pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3403541489, data2: 17408, data3: 19944, data4: [177, 3, 18, 17, 125, 207, 60, 207] };
+pub const PARTITION_OS_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 9202, data3: 17621, data4: [168, 48, 103, 187, 218, 166, 9, 249] };
+pub const PARTITION_PATCH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2305271430, data2: 38570, data3: 27304, data4: [149, 137, 168, 66, 86, 84, 16, 144] };
+pub const PARTITION_PRE_INSTALLED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 32736, data3: 16790, data4: [155, 66, 66, 123, 81, 100, 52, 132] };
+pub const PARTITION_SERVICING_FILES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 17198,
+    data3: 16404,
+    data4: [174, 76, 141, 234, 169, 192, 0, 106],
+};
+pub const PARTITION_SERVICING_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 50833,
+    data3: 18949,
+    data4: [187, 78, 112, 61, 175, 210, 41, 206],
+};
+pub const PARTITION_SERVICING_RESERVE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 19329,
+    data3: 17931,
+    data4: [163, 25, 255, 182, 254, 19, 109, 20],
+};
+pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 59469,
+    data3: 20100,
+    data4: [170, 243, 236, 187, 189, 4, 185, 223],
+};
+pub const PARTITION_SPACES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3886931124,
+    data2: 56372,
+    data3: 17721,
+    data4: [154, 118, 235, 189, 7, 190, 111, 126],
+};
+pub const PARTITION_SPACES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3881611151,
+    data2: 63104,
+    data3: 19694,
+    data4: [175, 163, 176, 1, 229, 110, 252, 45],
+};
+pub const PARTITION_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3240784680, data2: 63519, data3: 4562, data4: [186, 75, 0, 160, 201, 62, 201, 59] };
+pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 58339,
+    data3: 17969,
+    data4: [165, 197, 38, 210, 36, 56, 115, 170],
+};
+pub struct PCLFS_COMPLETION_ROUTINE(i32);
+pub struct PCOPYFILE2_PROGRESS_ROUTINE(i32);
+pub struct PFE_EXPORT_FUNC(i32);
+pub struct PFE_IMPORT_FUNC(i32);
+pub struct PFN_IO_COMPLETION(i32);
+pub struct PLOG_FULL_HANDLER_CALLBACK(i32);
+pub struct PLOG_TAIL_ADVANCE_CALLBACK(i32);
+pub struct PLOG_UNPINNED_CALLBACK(i32);
+pub struct PREPARE_TAPE_OPERATION(i32);
+pub struct PRIORITY_HINT(i32);
+pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(i32);
+pub struct REPARSE_GUID_DATA_BUFFER(i32);
+pub struct REPLACE_FILE_FLAGS(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
+pub struct SERVER_ALIAS_INFO_0(i32);
+pub struct SERVER_CERTIFICATE_INFO_0(i32);
+pub struct SERVER_CERTIFICATE_TYPE(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
+pub struct SESSION_INFO_0(i32);
+pub struct SESSION_INFO_1(i32);
+pub struct SESSION_INFO_10(i32);
+pub struct SESSION_INFO_2(i32);
+pub struct SESSION_INFO_502(i32);
+pub struct SESSION_INFO_USER_FLAGS(i32);
+pub struct SET_FILE_POINTER_MOVE_METHOD(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
+pub struct SHARE_INFO_0(i32);
+pub struct SHARE_INFO_1(i32);
+pub struct SHARE_INFO_1004(i32);
+pub struct SHARE_INFO_1005(i32);
+pub struct SHARE_INFO_1006(i32);
+pub struct SHARE_INFO_1501(i32);
+pub struct SHARE_INFO_1503(i32);
+pub struct SHARE_INFO_2(i32);
+pub struct SHARE_INFO_501(i32);
+pub struct SHARE_INFO_502(i32);
+pub struct SHARE_INFO_503(i32);
+pub struct SHARE_INFO_PERMISSIONS(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_PATH_PARMNUM: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
+pub struct SHARE_TYPE(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_DFS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STATSOPT_CLR: u32 = 1u32;
+pub struct STAT_SERVER_0(i32);
+pub struct STAT_WORKSTATION_0(i32);
+pub struct STORAGE_BUS_TYPE(i32);
+pub struct STREAM_INFO_LEVELS(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED1: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED2: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED3: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED4: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED5: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
+pub struct SYMBOLIC_LINK_FLAGS(i32);
+pub struct TAPEMARK_TYPE(i32);
+pub struct TAPE_ERASE(i32);
+pub struct TAPE_GET_POSITION(i32);
+pub struct TAPE_INFORMATION_TYPE(i32);
+pub struct TAPE_POSITION_METHOD(i32);
+pub struct TAPE_POSITION_TYPE(i32);
+pub struct TAPE_PREPARE(i32);
+pub struct TAPE_SET_POSITION(i32);
+pub struct TAPE_WRITE_MARKS(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
+pub struct TRANSACTION_NOTIFICATION(i32);
+pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT(i32);
+pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT(i32);
+pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT(i32);
+pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT(i32);
+pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
+pub struct TRANSACTION_OUTCOME(i32);
+pub struct TXFS_MINIVERSION(i32);
+pub struct TXF_ID(i32);
+pub struct TXF_LOG_RECORD_AFFECTED_FILE(i32);
+pub struct TXF_LOG_RECORD_BASE(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
+pub struct TXF_LOG_RECORD_TRUNCATE(i32);
+pub struct TXF_LOG_RECORD_TYPE(i32);
+pub struct TXF_LOG_RECORD_WRITE(i32);
+pub struct VER_FIND_FILE_FLAGS(i32);
+pub struct VER_FIND_FILE_STATUS(i32);
+pub struct VER_INSTALL_FILE_FLAGS(i32);
+pub struct VER_INSTALL_FILE_STATUS(i32);
+pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT(i32);
+pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT(i32);
+pub struct VOLUME_ALLOCATION_HINT_INPUT(i32);
+pub struct VOLUME_ALLOCATION_HINT_OUTPUT(i32);
+pub struct VOLUME_CRITICAL_IO(i32);
+pub struct VOLUME_FAILOVER_SET(i32);
+pub struct VOLUME_GET_BC_PROPERTIES_INPUT(i32);
+pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT(i32);
+pub struct VOLUME_LOGICAL_OFFSET(i32);
+pub struct VOLUME_NUMBER(i32);
+pub struct VOLUME_PHYSICAL_OFFSET(i32);
+pub struct VOLUME_PHYSICAL_OFFSETS(i32);
+pub struct VOLUME_READ_PLEX_INPUT(i32);
+pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION(i32);
+pub struct VOLUME_SHRINK_INFO(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
+pub struct VS_FIXEDFILEINFO(i32);
+pub struct VS_FIXEDFILEINFO_FILE_FLAGS(i32);
+pub struct VS_FIXEDFILEINFO_FILE_OS(i32);
+pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(i32);
+pub struct VS_FIXEDFILEINFO_FILE_TYPE(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_USER_DEFINED: u32 = 100u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_VERSION_INFO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_BOOT_OS_WIM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
+pub struct WIM_ENTRY_INFO(i32);
+pub struct WIM_EXTERNAL_FILE_INFO(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
+pub struct WIN32_FILE_ATTRIBUTE_DATA(i32);
+pub struct WIN32_FIND_DATAA(i32);
+pub struct WIN32_FIND_DATAW(i32);
+pub struct WIN32_FIND_STREAM_DATA(i32);
+pub struct WIN32_STREAM_ID(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
+pub struct WIN_STREAM_ID(i32);
+pub struct WOF_FILE_COMPRESSION_INFO_V0(i32);
+pub struct WOF_FILE_COMPRESSION_INFO_V1(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WOF_PROVIDER_FILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WOF_PROVIDER_WIM: u32 = 1u32;
+pub struct WofEnumEntryProc(i32);
+pub struct WofEnumFilesProc(i32);
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

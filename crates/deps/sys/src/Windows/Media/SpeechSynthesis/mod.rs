@@ -1,3 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IInstalledVoicesStatic(i32);
+pub struct IInstalledVoicesStatic2(i32);
+pub struct ISpeechSynthesisStream(i32);
+pub struct ISpeechSynthesizer(i32);
+pub struct ISpeechSynthesizer2(i32);
+pub struct ISpeechSynthesizerOptions(i32);
+pub struct ISpeechSynthesizerOptions2(i32);
+pub struct ISpeechSynthesizerOptions3(i32);
+pub struct IVoiceInformation(i32);
+pub struct SpeechAppendedSilence(i32);
+pub struct SpeechPunctuationSilence(i32);
+pub struct SpeechSynthesisStream(i32);
+pub struct SpeechSynthesizer(i32);
+pub struct SpeechSynthesizerOptions(i32);
+pub struct VoiceGender(i32);
+pub struct VoiceInformation(i32);

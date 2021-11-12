@@ -1,4 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
+    pub fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
+    pub fn UninitLocalMsCtfMonitor() -> ::windows_sys::core::HRESULT;
+}
+pub struct ANCHOR_CHANGE_HISTORY_FLAGS(i32);
+pub struct AccClientDocMgr(i32);
+pub struct AccDictionary(i32);
+pub struct AccServerDocMgr(i32);
+pub struct AccStore(i32);
 pub const CLSID_TF_CategoryMgr: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2763343009,
     data2: 17293,
@@ -44,6 +59,8 @@ pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
+pub struct DocWrap(i32);
+pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(i32);
 pub const GUID_APP_FUNCTIONPROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1286533150, data2: 4783, data3: 19214, data4: [157, 177, 166, 236, 91, 136, 18, 8] };
 pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1419244822, data2: 61073, data3: 17262, data4: [185, 70, 170, 44, 5, 241, 172, 91] };
 pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -244,16 +261,180 @@ pub const GUID_TS_SERVICE_DATAOBJECT: ::windows_sys::core::GUID = ::windows_sys:
 pub const GXFPF_NEAREST: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
+pub struct HKL(i32);
+pub struct IAccClientDocMgr(i32);
+pub struct IAccDictionary(i32);
+pub struct IAccServerDocMgr(i32);
+pub struct IAccStore(i32);
+pub struct IAnchor(i32);
+pub struct IClonableWrapper(i32);
+pub struct ICoCreateLocally(i32);
+pub struct ICoCreatedLocally(i32);
+pub struct IDocWrap(i32);
+pub struct IEnumITfCompositionView(i32);
+pub struct IEnumSpeechCommands(i32);
+pub struct IEnumTfCandidates(i32);
+pub struct IEnumTfContextViews(i32);
+pub struct IEnumTfContexts(i32);
+pub struct IEnumTfDisplayAttributeInfo(i32);
+pub struct IEnumTfDocumentMgrs(i32);
+pub struct IEnumTfFunctionProviders(i32);
+pub struct IEnumTfInputProcessorProfiles(i32);
+pub struct IEnumTfLangBarItems(i32);
+pub struct IEnumTfLanguageProfiles(i32);
+pub struct IEnumTfLatticeElements(i32);
+pub struct IEnumTfProperties(i32);
+pub struct IEnumTfPropertyValue(i32);
+pub struct IEnumTfRanges(i32);
+pub struct IEnumTfUIElements(i32);
+pub struct IInternalDocWrap(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
+pub struct INSERT_TEXT_AT_SELECTION_FLAGS(i32);
+pub struct ISpeechCommandProvider(i32);
+pub struct ITextStoreACP(i32);
+pub struct ITextStoreACP2(i32);
+pub struct ITextStoreACPEx(i32);
+pub struct ITextStoreACPServices(i32);
+pub struct ITextStoreACPSink(i32);
+pub struct ITextStoreACPSinkEx(i32);
+pub struct ITextStoreAnchor(i32);
+pub struct ITextStoreAnchorEx(i32);
+pub struct ITextStoreAnchorSink(i32);
+pub struct ITextStoreSinkAnchorEx(i32);
+pub struct ITfActiveLanguageProfileNotifySink(i32);
+pub struct ITfCandidateList(i32);
+pub struct ITfCandidateListUIElement(i32);
+pub struct ITfCandidateListUIElementBehavior(i32);
+pub struct ITfCandidateString(i32);
+pub struct ITfCategoryMgr(i32);
+pub struct ITfCleanupContextDurationSink(i32);
+pub struct ITfCleanupContextSink(i32);
+pub struct ITfClientId(i32);
+pub struct ITfCompartment(i32);
+pub struct ITfCompartmentEventSink(i32);
+pub struct ITfCompartmentMgr(i32);
+pub struct ITfComposition(i32);
+pub struct ITfCompositionSink(i32);
+pub struct ITfCompositionView(i32);
+pub struct ITfConfigureSystemKeystrokeFeed(i32);
+pub struct ITfContext(i32);
+pub struct ITfContextComposition(i32);
+pub struct ITfContextKeyEventSink(i32);
+pub struct ITfContextOwner(i32);
+pub struct ITfContextOwnerCompositionServices(i32);
+pub struct ITfContextOwnerCompositionSink(i32);
+pub struct ITfContextOwnerServices(i32);
+pub struct ITfContextView(i32);
+pub struct ITfCreatePropertyStore(i32);
+pub struct ITfDisplayAttributeInfo(i32);
+pub struct ITfDisplayAttributeMgr(i32);
+pub struct ITfDisplayAttributeNotifySink(i32);
+pub struct ITfDisplayAttributeProvider(i32);
+pub struct ITfDocumentMgr(i32);
+pub struct ITfEditRecord(i32);
+pub struct ITfEditSession(i32);
+pub struct ITfEditTransactionSink(i32);
+pub struct ITfFnAdviseText(i32);
+pub struct ITfFnBalloon(i32);
+pub struct ITfFnConfigure(i32);
+pub struct ITfFnConfigureRegisterEudc(i32);
+pub struct ITfFnConfigureRegisterWord(i32);
+pub struct ITfFnCustomSpeechCommand(i32);
+pub struct ITfFnGetLinguisticAlternates(i32);
+pub struct ITfFnGetPreferredTouchKeyboardLayout(i32);
+pub struct ITfFnGetSAPIObject(i32);
+pub struct ITfFnLMInternal(i32);
+pub struct ITfFnLMProcessor(i32);
+pub struct ITfFnLangProfileUtil(i32);
+pub struct ITfFnPlayBack(i32);
+pub struct ITfFnPropertyUIStatus(i32);
+pub struct ITfFnReconversion(i32);
+pub struct ITfFnSearchCandidateProvider(i32);
+pub struct ITfFnShowHelp(i32);
+pub struct ITfFunction(i32);
+pub struct ITfFunctionProvider(i32);
+pub struct ITfInputProcessorProfileActivationSink(i32);
+pub struct ITfInputProcessorProfileMgr(i32);
+pub struct ITfInputProcessorProfileSubstituteLayout(i32);
+pub struct ITfInputProcessorProfiles(i32);
+pub struct ITfInputProcessorProfilesEx(i32);
+pub struct ITfInputScope(i32);
+pub struct ITfInputScope2(i32);
+pub struct ITfInsertAtSelection(i32);
+pub struct ITfIntegratableCandidateListUIElement(i32);
+pub struct ITfKeyEventSink(i32);
+pub struct ITfKeyTraceEventSink(i32);
+pub struct ITfKeystrokeMgr(i32);
+pub struct ITfLMLattice(i32);
+pub struct ITfLangBarEventSink(i32);
+pub struct ITfLangBarItem(i32);
+pub struct ITfLangBarItemBalloon(i32);
+pub struct ITfLangBarItemBitmap(i32);
+pub struct ITfLangBarItemBitmapButton(i32);
+pub struct ITfLangBarItemButton(i32);
+pub struct ITfLangBarItemMgr(i32);
+pub struct ITfLangBarItemSink(i32);
+pub struct ITfLangBarMgr(i32);
+pub struct ITfLanguageProfileNotifySink(i32);
+pub struct ITfMSAAControl(i32);
+pub struct ITfMenu(i32);
+pub struct ITfMessagePump(i32);
+pub struct ITfMouseSink(i32);
+pub struct ITfMouseTracker(i32);
+pub struct ITfMouseTrackerACP(i32);
+pub struct ITfPersistentPropertyLoaderACP(i32);
+pub struct ITfPreservedKeyNotifySink(i32);
+pub struct ITfProperty(i32);
+pub struct ITfPropertyStore(i32);
+pub struct ITfQueryEmbedded(i32);
+pub struct ITfRange(i32);
+pub struct ITfRangeACP(i32);
+pub struct ITfRangeBackup(i32);
+pub struct ITfReadOnlyProperty(i32);
+pub struct ITfReadingInformationUIElement(i32);
+pub struct ITfReverseConversion(i32);
+pub struct ITfReverseConversionList(i32);
+pub struct ITfReverseConversionMgr(i32);
+pub struct ITfSource(i32);
+pub struct ITfSourceSingle(i32);
+pub struct ITfSpeechUIServer(i32);
+pub struct ITfStatusSink(i32);
+pub struct ITfSystemDeviceTypeLangBarItem(i32);
+pub struct ITfSystemLangBarItem(i32);
+pub struct ITfSystemLangBarItemSink(i32);
+pub struct ITfSystemLangBarItemText(i32);
+pub struct ITfTextEditSink(i32);
+pub struct ITfTextInputProcessor(i32);
+pub struct ITfTextInputProcessorEx(i32);
+pub struct ITfTextLayoutSink(i32);
+pub struct ITfThreadFocusSink(i32);
+pub struct ITfThreadMgr(i32);
+pub struct ITfThreadMgr2(i32);
+pub struct ITfThreadMgrEventSink(i32);
+pub struct ITfThreadMgrEx(i32);
+pub struct ITfToolTipUIElement(i32);
+pub struct ITfTransitoryExtensionSink(i32);
+pub struct ITfTransitoryExtensionUIElement(i32);
+pub struct ITfUIElement(i32);
+pub struct ITfUIElementMgr(i32);
+pub struct ITfUIElementSink(i32);
+pub struct IUIManagerEventSink(i32);
+pub struct IVersionInfo(i32);
+pub struct InputScope(i32);
+pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(i32);
 pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 353250682,
     data2: 56001,
     data3: 17794,
     data4: [148, 125, 42, 143, 215, 139, 130, 205],
 };
+pub struct MSAAControl(i32);
+pub struct TEXT_STORE_CHANGE_FLAGS(i32);
+pub struct TEXT_STORE_LOCK_FLAGS(i32);
+pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -272,6 +453,7 @@ pub const TF_CLUIE_STRING: u32 = 8u32;
 pub const TF_COMMANDING_ENABLED: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_COMMANDING_ON: u32 = 8u32;
+pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -294,6 +476,10 @@ pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
 pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
+pub struct TF_DA_ATTR_INFO(i32);
+pub struct TF_DA_COLOR(i32);
+pub struct TF_DA_COLORTYPE(i32);
+pub struct TF_DA_LINESTYLE(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -306,6 +492,7 @@ pub const TF_DISABLE_COMMANDING: u32 = 4u32;
 pub const TF_DISABLE_DICTATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
+pub struct TF_DISPLAYATTRIBUTE(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220218i32 as _);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -350,10 +537,12 @@ pub const TF_E_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRE
 pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220223i32 as _);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220984i32 as _);
+pub struct TF_HALTCOND(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_HF_OBJECT: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IE_CORRECTION: u32 = 1u32;
+pub struct TF_INPUTPROCESSORPROFILE(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -392,6 +581,9 @@ pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
+pub struct TF_LANGBARITEMINFO(i32);
+pub struct TF_LANGUAGEPROFILE(i32);
+pub struct TF_LBBALLOONINFO(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_BALLOON: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -444,6 +636,7 @@ pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
 pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
+pub struct TF_LMLATTELEMENT(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MENUREADY: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -468,8 +661,10 @@ pub const TF_MOD_RCONTROL: u32 = 16u32;
 pub const TF_MOD_RSHIFT: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_SHIFT: u32 = 4u32;
+pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_POPF_ALL: u32 = 1u32;
+pub struct TF_PRESERVEDKEY(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -528,6 +723,7 @@ pub const TF_PROFILE_WUBI: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [186, 29, 134, 103, 36, 111, 223, 142],
 };
 pub const TF_PROFILE_YI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1083999094, data2: 123, data3: 17239, data4: [174, 142, 38, 49, 110, 227, 251, 13] };
+pub struct TF_PROPERTYVAL(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -562,6 +758,8 @@ pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
 pub const TF_SD_LOADING: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SD_READONLY: u32 = 1u32;
+pub struct TF_SELECTION(i32);
+pub struct TF_SELECTIONSTYLE(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -682,6 +880,7 @@ pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_UNDEFINED: u32 = 0u32;
+pub struct TKBLayoutType(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1024,6 +1223,7 @@ pub const TS_AS_SEL_CHANGE: u32 = 2u32;
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
+pub struct TS_ATTRVAL(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1078,6 +1278,7 @@ pub const TS_IE_COMPOSITION: u32 = 2u32;
 pub const TS_IE_CORRECTION: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_LF_SYNC: u32 = 1u32;
+pub struct TS_RUNINFO(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1096,6 +1297,9 @@ pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
+pub struct TS_SELECTIONSTYLE(i32);
+pub struct TS_SELECTION_ACP(i32);
+pub struct TS_SELECTION_ANCHOR(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1118,6 +1322,7 @@ pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
 pub const TS_SS_TRANSITORY: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
+pub struct TS_STATUS(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_STRF_END: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
@@ -1126,15 +1331,21 @@ pub const TS_STRF_MID: u32 = 1u32;
 pub const TS_STRF_START: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262912i32 as _);
+pub struct TS_TEXTCHANGE(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_TextServices`*"]
-    pub fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TextServices`*"]
-    pub fn UninitLocalMsCtfMonitor() -> ::windows_sys::core::HRESULT;
-}
+pub struct TfActiveSelEnd(i32);
+pub struct TfAnchor(i32);
+pub struct TfCandidateResult(i32);
+pub struct TfGravity(i32);
+pub struct TfIntegratableCandidateListSelectionStyle(i32);
+pub struct TfLBBalloonStyle(i32);
+pub struct TfLBIClick(i32);
+pub struct TfLayoutCode(i32);
+pub struct TfSapiObject(i32);
+pub struct TfShiftDir(i32);
+pub struct TsActiveSelEnd(i32);
+pub struct TsGravity(i32);
+pub struct TsLayoutCode(i32);
+pub struct TsRunType(i32);
+pub struct TsShiftDir(i32);

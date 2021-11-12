@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -9,8 +11,66 @@ pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys
     data3: 20184,
     data4: [148, 223, 234, 248, 194, 106, 182, 27],
 };
+pub struct IComponentAuthenticate(i32);
+pub struct IMDSPDevice(i32);
+pub struct IMDSPDevice2(i32);
+pub struct IMDSPDevice3(i32);
+pub struct IMDSPDeviceControl(i32);
+pub struct IMDSPDirectTransfer(i32);
+pub struct IMDSPEnumDevice(i32);
+pub struct IMDSPEnumStorage(i32);
+pub struct IMDSPObject(i32);
+pub struct IMDSPObject2(i32);
+pub struct IMDSPObjectInfo(i32);
+pub struct IMDSPRevoked(i32);
+pub struct IMDSPStorage(i32);
+pub struct IMDSPStorage2(i32);
+pub struct IMDSPStorage3(i32);
+pub struct IMDSPStorage4(i32);
+pub struct IMDSPStorageGlobals(i32);
+pub struct IMDServiceProvider(i32);
+pub struct IMDServiceProvider2(i32);
+pub struct IMDServiceProvider3(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
+pub struct ISCPSecureAuthenticate(i32);
+pub struct ISCPSecureAuthenticate2(i32);
+pub struct ISCPSecureExchange(i32);
+pub struct ISCPSecureExchange2(i32);
+pub struct ISCPSecureExchange3(i32);
+pub struct ISCPSecureQuery(i32);
+pub struct ISCPSecureQuery2(i32);
+pub struct ISCPSecureQuery3(i32);
+pub struct ISCPSession(i32);
+pub struct IWMDMDevice(i32);
+pub struct IWMDMDevice2(i32);
+pub struct IWMDMDevice3(i32);
+pub struct IWMDMDeviceControl(i32);
+pub struct IWMDMDeviceSession(i32);
+pub struct IWMDMEnumDevice(i32);
+pub struct IWMDMEnumStorage(i32);
+pub struct IWMDMLogger(i32);
+pub struct IWMDMMetaData(i32);
+pub struct IWMDMNotification(i32);
+pub struct IWMDMObjectInfo(i32);
+pub struct IWMDMOperation(i32);
+pub struct IWMDMOperation2(i32);
+pub struct IWMDMOperation3(i32);
+pub struct IWMDMProgress(i32);
+pub struct IWMDMProgress2(i32);
+pub struct IWMDMProgress3(i32);
+pub struct IWMDMRevoked(i32);
+pub struct IWMDMStorage(i32);
+pub struct IWMDMStorage2(i32);
+pub struct IWMDMStorage3(i32);
+pub struct IWMDMStorage4(i32);
+pub struct IWMDMStorageControl(i32);
+pub struct IWMDMStorageControl2(i32);
+pub struct IWMDMStorageControl3(i32);
+pub struct IWMDMStorageGlobals(i32);
+pub struct IWMDeviceManager(i32);
+pub struct IWMDeviceManager2(i32);
+pub struct IWMDeviceManager3(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const MDSP_READ: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -21,6 +81,8 @@ pub const MDSP_SEEK_CUR: u32 = 2u32;
 pub const MDSP_SEEK_EOF: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const MDSP_WRITE: u32 = 2u32;
+pub struct MTP_COMMAND_DATA_IN(i32);
+pub struct MTP_COMMAND_DATA_OUT(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const MTP_COMMAND_MAX_PARAMS: u32 = 5u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -33,6 +95,9 @@ pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
+pub struct MediaDevMgr(i32);
+pub struct MediaDevMgrClassFactory(i32);
+pub struct OPAQUECOMMAND(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const RSA_KEY_LEN: u32 = 64u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -56,8 +121,20 @@ pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [185, 118, 213, 209, 206, 83, 138, 111],
 };
 pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
+pub struct WMDMDATETIME(i32);
+pub struct WMDMDetermineMaxPropStringLen(i32);
+pub struct WMDMDevice(i32);
+pub struct WMDMDeviceEnum(i32);
+pub struct WMDMID(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDMID_LENGTH: u32 = 128u32;
+pub struct WMDMLogger(i32);
+pub struct WMDMMessage(i32);
+pub struct WMDMMetadataView(i32);
+pub struct WMDMRIGHTS(i32);
+pub struct WMDMStorage(i32);
+pub struct WMDMStorageEnum(i32);
+pub struct WMDMStorageGlobal(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -119,6 +196,7 @@ pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
+pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -195,6 +273,9 @@ pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
+pub struct WMDM_FIND_SCOPE(i32);
+pub struct WMDM_FORMATCODE(i32);
+pub struct WMDM_FORMAT_CAPABILITY(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -235,6 +316,10 @@ pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
 pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
+pub struct WMDM_PROP_CONFIG(i32);
+pub struct WMDM_PROP_DESC(i32);
+pub struct WMDM_PROP_VALUES_ENUM(i32);
+pub struct WMDM_PROP_VALUES_RANGE(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -293,6 +378,7 @@ pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::
     data3: 17386,
     data4: [164, 150, 198, 37, 172, 145, 204, 93],
 };
+pub struct WMDM_SESSION_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_SP_REVOKED: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -369,14 +455,21 @@ pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
 pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
+pub struct WMDM_STORAGE_ENUM_MODE(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
+pub struct WMDM_TAG_DATATYPE(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
+pub struct WMFILECAPABILITIES(i32);
+pub struct _BITMAPINFOHEADER(i32);
+pub struct _VIDEOINFOHEADER(i32);
+pub struct _WAVEFORMATEX(i32);
+pub struct __MACINFO(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const g_wszAudioWAVECodec: &'static str = "WMDM/AudioWAVECodec";
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
@@ -569,5 +662,3 @@ pub const g_wszWMDMYear: &'static str = "WMDM/Year";
 pub const g_wszWMDMediaClassPrimaryID: &'static str = "WMDM/MediaClassPrimaryID";
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const g_wszWPDPassthroughPropertyValues: &'static str = "WPD/PassthroughPropertyValues";
-#[link(name = "windows")]
-extern "system" {}

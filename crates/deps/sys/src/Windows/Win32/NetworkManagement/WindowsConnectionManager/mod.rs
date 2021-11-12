@@ -1,16 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
-pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
-pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
-pub const WCM_API_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
-pub const WCM_API_VERSION_1_0: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
-pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
-pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
@@ -42,3 +30,30 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WcmSetProperty(pinterface: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
 }
+pub struct NET_INTERFACE_CONTEXT(i32);
+pub struct NET_INTERFACE_CONTEXT_TABLE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
+pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
+pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
+pub struct ONDEMAND_NOTIFICATION_CALLBACK(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
+pub const WCM_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
+pub const WCM_API_VERSION_1_0: u32 = 1u32;
+pub struct WCM_BILLING_CYCLE_INFO(i32);
+pub struct WCM_CONNECTION_COST(i32);
+pub struct WCM_CONNECTION_COST_DATA(i32);
+pub struct WCM_CONNECTION_COST_SOURCE(i32);
+pub struct WCM_DATAPLAN_STATUS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
+pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
+pub struct WCM_MEDIA_TYPE(i32);
+pub struct WCM_POLICY_VALUE(i32);
+pub struct WCM_PROFILE_INFO(i32);
+pub struct WCM_PROFILE_INFO_LIST(i32);
+pub struct WCM_PROPERTY(i32);
+pub struct WCM_TIME_INTERVAL(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
+pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
+pub struct WCM_USAGE_DATA(i32);

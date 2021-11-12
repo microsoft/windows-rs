@@ -11,3 +11,12 @@ pub mod Update;
 pub mod Workplace;
 #[link(name = "windows")]
 extern "system" {}
+pub struct IMdmAlert(i32);
+pub struct IMdmSession(i32);
+pub struct IMdmSessionManagerStatics(i32);
+pub struct MdmAlert(i32);
+pub struct MdmAlertDataType(i32);
+pub struct MdmAlertMark(i32);
+pub struct MdmSession(i32);
+pub struct MdmSessionManager(i32);
+pub struct MdmSessionState(i32);

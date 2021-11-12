@@ -1,106 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const SPC_UUID_LENGTH: u32 = 16u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_MAX_STEPS: u32 = 38u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_CATALOGFILE: u32 = 6u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_CERTSTORE: u32 = 7u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FILEIO: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_CERTCHKPROV: u32 = 35u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_CERTPROV: u32 = 34u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_INITPROV: u32 = 31u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_OBJPROV: u32 = 32u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_POLICYPROV: u32 = 36u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_SIGPROV: u32 = 33u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_UIPROV: u32 = 37u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_FINAL_WVTINIT: u32 = 30u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MESSAGE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_CERTCHAIN: u32 = 15u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_COUNTERSIGCERT: u32 = 17u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_COUNTERSIGINFO: u32 = 16u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_INNERCNT: u32 = 11u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_INNERCNTTYPE: u32 = 10u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_SIGNERCERT: u32 = 14u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_SIGNERCOUNT: u32 = 9u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_SIGNERINFO: u32 = 13u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_MSG_STORE: u32 = 12u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_SIP: u32 = 3u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_SIPSUBJINFO: u32 = 5u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WIN_CERT_REVISION_1_0: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WIN_CERT_REVISION_2_0: u32 = 512u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WIN_CERT_TYPE_PKCS_SIGNED_DATA: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WIN_CERT_TYPE_X509: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_CERTTRUST_SUPPORT: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_INPUT_FLAG_MASK: u32 = 7u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_OBJTRUST_SUPPORT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_OUTPUT_FLAG_MASK: u32 = 3758096384u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_OUT_FILE_SUPPORTS_SEAL: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_OUT_HAS_SEALING_INTENT: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_OUT_SEALING_STATUS_VERIFIED: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_SIGTRUST_SUPPORT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WSS_VERIFY_SEALING: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WT_CURRENT_VERSION: u32 = 512u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WT_TRUSTDBDIALOG_NO_UI_FLAG: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WT_TRUSTDBDIALOG_ONLY_PUB_TAB_FLAG: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG: u32 = 512u32;
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
-pub const WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG: u32 = 256u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Security_WinTrust`, `Win32_Foundation`*"]
@@ -157,3 +55,180 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL;
 }
+pub struct CAT_MEMBERINFO(i32);
+pub struct CAT_MEMBERINFO2(i32);
+pub struct CAT_NAMEVALUE(i32);
+pub struct CONFIG_CI_PROV_INFO(i32);
+pub struct CONFIG_CI_PROV_INFO_RESULT(i32);
+pub struct CRYPT_PROVIDER_CERT(i32);
+pub struct CRYPT_PROVIDER_DATA(i32);
+pub struct CRYPT_PROVIDER_DEFUSAGE(i32);
+pub struct CRYPT_PROVIDER_FUNCTIONS(i32);
+pub struct CRYPT_PROVIDER_PRIVDATA(i32);
+pub struct CRYPT_PROVIDER_REGDEFUSAGE(i32);
+pub struct CRYPT_PROVIDER_SGNR(i32);
+pub struct CRYPT_PROVIDER_SIGSTATE(i32);
+pub struct CRYPT_PROVUI_DATA(i32);
+pub struct CRYPT_PROVUI_FUNCS(i32);
+pub struct CRYPT_REGISTER_ACTIONID(i32);
+pub struct CRYPT_TRUST_REG_ENTRY(i32);
+pub struct DRIVER_VER_INFO(i32);
+pub struct DRIVER_VER_MAJORMINOR(i32);
+pub struct INTENT_TO_SEAL_ATTRIBUTE(i32);
+pub struct PFN_ALLOCANDFILLDEFUSAGE(i32);
+pub struct PFN_CPD_ADD_CERT(i32);
+pub struct PFN_CPD_ADD_PRIVDATA(i32);
+pub struct PFN_CPD_ADD_SGNR(i32);
+pub struct PFN_CPD_ADD_STORE(i32);
+pub struct PFN_CPD_MEM_ALLOC(i32);
+pub struct PFN_CPD_MEM_FREE(i32);
+pub struct PFN_FREEDEFUSAGE(i32);
+pub struct PFN_PROVIDER_CERTCHKPOLICY_CALL(i32);
+pub struct PFN_PROVIDER_CERTTRUST_CALL(i32);
+pub struct PFN_PROVIDER_CLEANUP_CALL(i32);
+pub struct PFN_PROVIDER_FINALPOLICY_CALL(i32);
+pub struct PFN_PROVIDER_INIT_CALL(i32);
+pub struct PFN_PROVIDER_OBJTRUST_CALL(i32);
+pub struct PFN_PROVIDER_SIGTRUST_CALL(i32);
+pub struct PFN_PROVIDER_TESTFINALPOLICY_CALL(i32);
+pub struct PFN_PROVUI_CALL(i32);
+pub struct PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(i32);
+pub struct PROVDATA_SIP(i32);
+pub struct SEALING_SIGNATURE_ATTRIBUTE(i32);
+pub struct SEALING_TIMESTAMP_ATTRIBUTE(i32);
+pub struct SPC_FINANCIAL_CRITERIA(i32);
+pub struct SPC_IMAGE(i32);
+pub struct SPC_INDIRECT_DATA_CONTENT(i32);
+pub struct SPC_LINK(i32);
+pub struct SPC_PE_IMAGE_DATA(i32);
+pub struct SPC_SERIALIZED_OBJECT(i32);
+pub struct SPC_SIGINFO(i32);
+pub struct SPC_SP_AGENCY_INFO(i32);
+pub struct SPC_SP_OPUS_INFO(i32);
+pub struct SPC_STATEMENT_TYPE(i32);
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const SPC_UUID_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_MAX_STEPS: u32 = 38u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_CATALOGFILE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_CERTSTORE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FILEIO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_CERTCHKPROV: u32 = 35u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_CERTPROV: u32 = 34u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_INITPROV: u32 = 31u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_OBJPROV: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_POLICYPROV: u32 = 36u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_SIGPROV: u32 = 33u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_UIPROV: u32 = 37u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_FINAL_WVTINIT: u32 = 30u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MESSAGE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_CERTCHAIN: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_COUNTERSIGCERT: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_COUNTERSIGINFO: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_INNERCNT: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_INNERCNTTYPE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_SIGNERCERT: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_SIGNERCOUNT: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_SIGNERINFO: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_MSG_STORE: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_SIP: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_SIPSUBJINFO: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0u32;
+pub struct WINTRUST_BLOB_INFO(i32);
+pub struct WINTRUST_CATALOG_INFO(i32);
+pub struct WINTRUST_CERT_INFO(i32);
+pub struct WINTRUST_DATA(i32);
+pub struct WINTRUST_DATA_REVOCATION_CHECKS(i32);
+pub struct WINTRUST_DATA_STATE_ACTION(i32);
+pub struct WINTRUST_DATA_UICHOICE(i32);
+pub struct WINTRUST_DATA_UICONTEXT(i32);
+pub struct WINTRUST_DATA_UNION_CHOICE(i32);
+pub struct WINTRUST_FILE_INFO(i32);
+pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(i32);
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
+pub struct WINTRUST_POLICY_FLAGS(i32);
+pub struct WINTRUST_SGNR_INFO(i32);
+pub struct WINTRUST_SIGNATURE_SETTINGS(i32);
+pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(i32);
+pub struct WIN_CERTIFICATE(i32);
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WIN_CERT_REVISION_1_0: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WIN_CERT_REVISION_2_0: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WIN_CERT_TYPE_PKCS_SIGNED_DATA: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WIN_CERT_TYPE_X509: u32 = 1u32;
+pub struct WIN_SPUB_TRUSTED_PUBLISHER_DATA(i32);
+pub struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT(i32);
+pub struct WIN_TRUST_ACTDATA_SUBJECT_ONLY(i32);
+pub struct WIN_TRUST_SUBJECT_FILE(i32);
+pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY(i32);
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_CERTTRUST_SUPPORT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_INPUT_FLAG_MASK: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_OBJTRUST_SUPPORT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_OUTPUT_FLAG_MASK: u32 = 3758096384u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_OUT_FILE_SUPPORTS_SEAL: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_OUT_HAS_SEALING_INTENT: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_OUT_SEALING_STATUS_VERIFIED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_SIGTRUST_SUPPORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WSS_VERIFY_SEALING: u32 = 4u32;
+pub struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO(i32);
+pub struct WTD_GENERIC_CHAIN_POLICY_DATA(i32);
+pub struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO(i32);
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WT_CURRENT_VERSION: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WT_TRUSTDBDIALOG_NO_UI_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WT_TRUSTDBDIALOG_ONLY_PUB_TAB_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+pub const WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG: u32 = 256u32;

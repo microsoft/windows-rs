@@ -1,6 +1,71 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct FOREIGN_STATUS(i32);
+pub struct IMSMQApplication(i32);
+pub struct IMSMQApplication2(i32);
+pub struct IMSMQApplication3(i32);
+pub struct IMSMQCollection(i32);
+pub struct IMSMQCoordinatedTransactionDispenser(i32);
+pub struct IMSMQCoordinatedTransactionDispenser2(i32);
+pub struct IMSMQCoordinatedTransactionDispenser3(i32);
+pub struct IMSMQDestination(i32);
+pub struct IMSMQEvent(i32);
+pub struct IMSMQEvent2(i32);
+pub struct IMSMQEvent3(i32);
+pub struct IMSMQManagement(i32);
+pub struct IMSMQMessage(i32);
+pub struct IMSMQMessage2(i32);
+pub struct IMSMQMessage3(i32);
+pub struct IMSMQMessage4(i32);
+pub struct IMSMQOutgoingQueueManagement(i32);
+pub struct IMSMQPrivateDestination(i32);
+pub struct IMSMQPrivateEvent(i32);
+pub struct IMSMQQuery(i32);
+pub struct IMSMQQuery2(i32);
+pub struct IMSMQQuery3(i32);
+pub struct IMSMQQuery4(i32);
+pub struct IMSMQQueue(i32);
+pub struct IMSMQQueue2(i32);
+pub struct IMSMQQueue3(i32);
+pub struct IMSMQQueue4(i32);
+pub struct IMSMQQueueInfo(i32);
+pub struct IMSMQQueueInfo2(i32);
+pub struct IMSMQQueueInfo3(i32);
+pub struct IMSMQQueueInfo4(i32);
+pub struct IMSMQQueueInfos(i32);
+pub struct IMSMQQueueInfos2(i32);
+pub struct IMSMQQueueInfos3(i32);
+pub struct IMSMQQueueInfos4(i32);
+pub struct IMSMQQueueManagement(i32);
+pub struct IMSMQTransaction(i32);
+pub struct IMSMQTransaction2(i32);
+pub struct IMSMQTransaction3(i32);
+pub struct IMSMQTransactionDispenser(i32);
+pub struct IMSMQTransactionDispenser2(i32);
+pub struct IMSMQTransactionDispenser3(i32);
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const LONG_LIVED: u32 = 4294967294u32;
+pub struct MQACCESS(i32);
+pub struct MQAUTHENTICATE(i32);
+pub struct MQCALG(i32);
+pub struct MQCERT_REGISTER(i32);
+pub struct MQDEFAULT(i32);
+pub struct MQERROR(i32);
+pub struct MQJOURNAL(i32);
+pub struct MQMAX(i32);
+pub struct MQMSGACKNOWLEDGEMENT(i32);
+pub struct MQMSGAUTHENTICATION(i32);
+pub struct MQMSGAUTHLEVEL(i32);
+pub struct MQMSGCLASS(i32);
+pub struct MQMSGCURSOR(i32);
+pub struct MQMSGDELIVERY(i32);
+pub struct MQMSGIDSIZE(i32);
+pub struct MQMSGJOURNAL(i32);
+pub struct MQMSGMAX(i32);
+pub struct MQMSGPRIVLEVEL(i32);
+pub struct MQMSGSENDERIDTYPE(i32);
+pub struct MQMSGTRACE(i32);
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
@@ -13,6 +78,8 @@ pub const MQMSG_NOT_FIRST_IN_XACT: u32 = 0u32;
 pub const MQMSG_NOT_LAST_IN_XACT: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5u32;
+pub struct MQPRIORITY(i32);
+pub struct MQPRIVLEVEL(i32);
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: u32 = 262144u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
@@ -33,6 +100,10 @@ pub const MQSEC_SET_QUEUE_PROPERTIES: u32 = 16u32;
 pub const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
+pub struct MQSHARE(i32);
+pub struct MQTRANSACTION(i32);
+pub struct MQTRANSACTIONAL(i32);
+pub struct MQWARNING(i32);
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
@@ -73,6 +144,21 @@ pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
 pub const MQ_MOVE_ACCESS: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_OK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(0i32 as _);
+pub struct MSMQApplication(i32);
+pub struct MSMQCollection(i32);
+pub struct MSMQCoordinatedTransactionDispenser(i32);
+pub struct MSMQDestination(i32);
+pub struct MSMQEvent(i32);
+pub struct MSMQManagement(i32);
+pub struct MSMQMessage(i32);
+pub struct MSMQOutgoingQueueManagement(i32);
+pub struct MSMQQuery(i32);
+pub struct MSMQQueue(i32);
+pub struct MSMQQueueInfo(i32);
+pub struct MSMQQueueInfos(i32);
+pub struct MSMQQueueManagement(i32);
+pub struct MSMQTransaction(i32);
+pub struct MSMQTransactionDispenser(i32);
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PREQ: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
@@ -369,5 +455,8 @@ pub const PROPID_Q_TYPE: u32 = 102u32;
 pub const QUERY_SORTASCEND: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const QUERY_SORTDESCEND: u32 = 1u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct QUEUE_STATE(i32);
+pub struct QUEUE_TYPE(i32);
+pub struct RELOPS(i32);
+pub struct XACT_STATUS(i32);
+pub struct _DMSMQEventEvents(i32);

@@ -67,3 +67,28 @@ extern "system" {
     #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
     pub fn StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
 }
+pub struct CROSS_SLIDE_FLAGS(i32);
+pub struct CROSS_SLIDE_PARAMETER(i32);
+pub struct CROSS_SLIDE_THRESHOLD(i32);
+pub struct HINTERACTIONCONTEXT(i32);
+pub struct HOLD_PARAMETER(i32);
+pub struct INERTIA_PARAMETER(i32);
+pub struct INTERACTION_ARGUMENTS_CROSS_SLIDE(i32);
+pub struct INTERACTION_ARGUMENTS_MANIPULATION(i32);
+pub struct INTERACTION_ARGUMENTS_TAP(i32);
+pub struct INTERACTION_CONFIGURATION_FLAGS(i32);
+pub struct INTERACTION_CONTEXT_CONFIGURATION(i32);
+pub struct INTERACTION_CONTEXT_OUTPUT(i32);
+pub struct INTERACTION_CONTEXT_OUTPUT2(i32);
+pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK(i32);
+pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK2(i32);
+pub struct INTERACTION_CONTEXT_PROPERTY(i32);
+pub struct INTERACTION_FLAGS(i32);
+pub struct INTERACTION_ID(i32);
+pub struct INTERACTION_STATE(i32);
+pub struct MANIPULATION_RAILS_STATE(i32);
+pub struct MANIPULATION_TRANSFORM(i32);
+pub struct MANIPULATION_VELOCITY(i32);
+pub struct MOUSE_WHEEL_PARAMETER(i32);
+pub struct TAP_PARAMETER(i32);
+pub struct TRANSLATION_PARAMETER(i32);

@@ -1,64 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
-pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 4294967295,
-    data2: 65535,
-    data3: 65535,
-    data4: [255, 255, 255, 255, 255, 255, 255, 255],
-};
-pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 2430307209,
-    data2: 3381,
-    data3: 20345,
-    data4: [140, 233, 73, 234, 10, 200, 183, 205],
-};
-pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3772866967,
-    data2: 56662,
-    data3: 18960,
-    data4: [145, 149, 94, 231, 161, 85, 168, 56],
-};
-pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 2754510042,
-    data2: 53311,
-    data3: 18444,
-    data4: [156, 194, 164, 222, 32, 171, 184, 120],
-};
-pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 918359132, data2: 29302, data3: 16931, data4: [136, 186, 125, 3, 182, 84, 197, 104] };
-pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 64203, data3: 4582, data4: [189, 88, 100, 0, 106, 121, 134, 211] };
-pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const HV_PROTOCOL_RAW: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_ANY_VP: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
-pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Hypervisor`*"]
@@ -347,3 +287,225 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_Hypervisor`*"]
     pub fn WHvWriteVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+pub struct DOS_IMAGE_INFO(i32);
+pub struct FOUND_IMAGE_CALLBACK(i32);
+pub struct GPA_MEMORY_CHUNK(i32);
+pub struct GUEST_OS_INFO(i32);
+pub struct GUEST_OS_MICROSOFT_IDS(i32);
+pub struct GUEST_OS_OPENSOURCE_IDS(i32);
+pub struct GUEST_OS_VENDOR(i32);
+pub struct GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK(i32);
+pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
+pub struct HDV_DEVICE_TYPE(i32);
+pub struct HDV_DOORBELL_FLAGS(i32);
+pub struct HDV_MMIO_MAPPING_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
+pub struct HDV_PCI_BAR_SELECTOR(i32);
+pub struct HDV_PCI_DEVICE_GET_DETAILS(i32);
+pub struct HDV_PCI_DEVICE_INITIALIZE(i32);
+pub struct HDV_PCI_DEVICE_INTERFACE(i32);
+pub struct HDV_PCI_DEVICE_SET_CONFIGURATION(i32);
+pub struct HDV_PCI_DEVICE_START(i32);
+pub struct HDV_PCI_DEVICE_STOP(i32);
+pub struct HDV_PCI_DEVICE_TEARDOWN(i32);
+pub struct HDV_PCI_INTERFACE_VERSION(i32);
+pub struct HDV_PCI_PNP_ID(i32);
+pub struct HDV_PCI_READ_CONFIG_SPACE(i32);
+pub struct HDV_PCI_READ_INTERCEPTED_MEMORY(i32);
+pub struct HDV_PCI_WRITE_CONFIG_SPACE(i32);
+pub struct HDV_PCI_WRITE_INTERCEPTED_MEMORY(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
+pub struct HVSOCKET_ADDRESS_INFO(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
+pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4294967295,
+    data2: 65535,
+    data3: 65535,
+    data4: [255, 255, 255, 255, 255, 255, 255, 255],
+};
+pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2430307209,
+    data2: 3381,
+    data3: 20345,
+    data4: [140, 233, 73, 234, 10, 200, 183, 205],
+};
+pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3772866967,
+    data2: 56662,
+    data3: 18960,
+    data4: [145, 149, 94, 231, 161, 85, 168, 56],
+};
+pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2754510042,
+    data2: 53311,
+    data3: 18444,
+    data4: [156, 194, 164, 222, 32, 171, 184, 120],
+};
+pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 918359132, data2: 29302, data3: 16931, data4: [136, 186, 125, 3, 182, 84, 197, 104] };
+pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 64203, data3: 4582, data4: [189, 88, 100, 0, 106, 121, 134, 211] };
+pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const HV_PROTOCOL_RAW: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
+pub struct MODULE_INFO(i32);
+pub struct PAGING_MODE(i32);
+pub struct REGISTER_ID(i32);
+pub struct SOCKADDR_HV(i32);
+pub struct VIRTUAL_PROCESSOR_ARCH(i32);
+pub struct VIRTUAL_PROCESSOR_REGISTER(i32);
+pub struct VIRTUAL_PROCESSOR_VENDOR(i32);
+pub struct VM_GENCOUNTER(i32);
+pub struct WHV_ACCESS_GPA_CONTROLS(i32);
+pub struct WHV_ADVISE_GPA_RANGE(i32);
+pub struct WHV_ADVISE_GPA_RANGE_CODE(i32);
+pub struct WHV_ADVISE_GPA_RANGE_POPULATE(i32);
+pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS(i32);
+pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_ANY_VP: u32 = 4294967295u32;
+pub struct WHV_CACHE_TYPE(i32);
+pub struct WHV_CAPABILITY(i32);
+pub struct WHV_CAPABILITY_CODE(i32);
+pub struct WHV_CAPABILITY_FEATURES(i32);
+pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP(i32);
+pub struct WHV_CPUID_OUTPUT(i32);
+pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(i32);
+pub struct WHV_DOORBELL_MATCH_DATA(i32);
+pub struct WHV_EMULATOR_CALLBACKS(i32);
+pub struct WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK(i32);
+pub struct WHV_EMULATOR_IO_ACCESS_INFO(i32);
+pub struct WHV_EMULATOR_IO_PORT_CALLBACK(i32);
+pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO(i32);
+pub struct WHV_EMULATOR_MEMORY_CALLBACK(i32);
+pub struct WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK(i32);
+pub struct WHV_EMULATOR_STATUS(i32);
+pub struct WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK(i32);
+pub struct WHV_EXCEPTION_TYPE(i32);
+pub struct WHV_EXTENDED_VM_EXITS(i32);
+pub struct WHV_HYPERCALL_CONTEXT(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
+pub struct WHV_INTERNAL_ACTIVITY_REGISTER(i32);
+pub struct WHV_INTERRUPT_CONTROL(i32);
+pub struct WHV_INTERRUPT_DESTINATION_MODE(i32);
+pub struct WHV_INTERRUPT_TRIGGER_MODE(i32);
+pub struct WHV_INTERRUPT_TYPE(i32);
+pub struct WHV_MAP_GPA_RANGE_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
+pub struct WHV_MEMORY_ACCESS_CONTEXT(i32);
+pub struct WHV_MEMORY_ACCESS_INFO(i32);
+pub struct WHV_MEMORY_ACCESS_TYPE(i32);
+pub struct WHV_MEMORY_RANGE_ENTRY(i32);
+pub struct WHV_MSR_ACTION(i32);
+pub struct WHV_MSR_ACTION_ENTRY(i32);
+pub struct WHV_NOTIFICATION_PORT_PARAMETERS(i32);
+pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(i32);
+pub struct WHV_NOTIFICATION_PORT_TYPE(i32);
+pub struct WHV_PARTITION_COUNTER_SET(i32);
+pub struct WHV_PARTITION_HANDLE(i32);
+pub struct WHV_PARTITION_MEMORY_COUNTERS(i32);
+pub struct WHV_PARTITION_PROPERTY(i32);
+pub struct WHV_PARTITION_PROPERTY_CODE(i32);
+pub struct WHV_PROCESSOR_APIC_COUNTERS(i32);
+pub struct WHV_PROCESSOR_COUNTER_SET(i32);
+pub struct WHV_PROCESSOR_EVENT_COUNTERS(i32);
+pub struct WHV_PROCESSOR_FEATURES(i32);
+pub struct WHV_PROCESSOR_FEATURES1(i32);
+pub struct WHV_PROCESSOR_FEATURES_BANKS(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
+pub struct WHV_PROCESSOR_INTERCEPT_COUNTER(i32);
+pub struct WHV_PROCESSOR_INTERCEPT_COUNTERS(i32);
+pub struct WHV_PROCESSOR_PERFMON_FEATURES(i32);
+pub struct WHV_PROCESSOR_RUNTIME_COUNTERS(i32);
+pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS(i32);
+pub struct WHV_PROCESSOR_VENDOR(i32);
+pub struct WHV_PROCESSOR_XSAVE_FEATURES(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
+pub struct WHV_REGISTER_NAME(i32);
+pub struct WHV_REGISTER_VALUE(i32);
+pub struct WHV_RUN_VP_CANCELED_CONTEXT(i32);
+pub struct WHV_RUN_VP_CANCEL_REASON(i32);
+pub struct WHV_RUN_VP_EXIT_CONTEXT(i32);
+pub struct WHV_RUN_VP_EXIT_REASON(i32);
+pub struct WHV_SCHEDULER_FEATURES(i32);
+pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR(i32);
+pub struct WHV_SYNIC_EVENT_PARAMETERS(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
+pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT(i32);
+pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES(i32);
+pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
+pub struct WHV_TRANSLATE_GVA_FLAGS(i32);
+pub struct WHV_TRANSLATE_GVA_RESULT(i32);
+pub struct WHV_TRANSLATE_GVA_RESULT_CODE(i32);
+pub struct WHV_TRIGGER_PARAMETERS(i32);
+pub struct WHV_TRIGGER_TYPE(i32);
+pub struct WHV_UINT128(i32);
+pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY(i32);
+pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(i32);
+pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(i32);
+pub struct WHV_VPCI_DEVICE_NOTIFICATION(i32);
+pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(i32);
+pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(i32);
+pub struct WHV_VPCI_DEVICE_REGISTER(i32);
+pub struct WHV_VPCI_DEVICE_REGISTER_SPACE(i32);
+pub struct WHV_VPCI_HARDWARE_IDS(i32);
+pub struct WHV_VPCI_INTERRUPT_TARGET(i32);
+pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(i32);
+pub struct WHV_VPCI_MMIO_MAPPING(i32);
+pub struct WHV_VPCI_MMIO_RANGE_FLAGS(i32);
+pub struct WHV_VPCI_PROBED_BARS(i32);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
+pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
+pub struct WHV_VP_EXCEPTION_CONTEXT(i32);
+pub struct WHV_VP_EXCEPTION_INFO(i32);
+pub struct WHV_VP_EXIT_CONTEXT(i32);
+pub struct WHV_X64_APIC_EOI_CONTEXT(i32);
+pub struct WHV_X64_APIC_INIT_SIPI_CONTEXT(i32);
+pub struct WHV_X64_APIC_SMI_CONTEXT(i32);
+pub struct WHV_X64_APIC_WRITE_CONTEXT(i32);
+pub struct WHV_X64_APIC_WRITE_TYPE(i32);
+pub struct WHV_X64_CPUID_ACCESS_CONTEXT(i32);
+pub struct WHV_X64_CPUID_RESULT(i32);
+pub struct WHV_X64_CPUID_RESULT2(i32);
+pub struct WHV_X64_CPUID_RESULT2_FLAGS(i32);
+pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER(i32);
+pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER(i32);
+pub struct WHV_X64_FP_REGISTER(i32);
+pub struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT(i32);
+pub struct WHV_X64_INTERRUPT_STATE_REGISTER(i32);
+pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT(i32);
+pub struct WHV_X64_IO_PORT_ACCESS_INFO(i32);
+pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(i32);
+pub struct WHV_X64_MSR_ACCESS_CONTEXT(i32);
+pub struct WHV_X64_MSR_ACCESS_INFO(i32);
+pub struct WHV_X64_MSR_EXIT_BITMAP(i32);
+pub struct WHV_X64_PENDING_DEBUG_EXCEPTION(i32);
+pub struct WHV_X64_PENDING_EVENT_TYPE(i32);
+pub struct WHV_X64_PENDING_EXCEPTION_EVENT(i32);
+pub struct WHV_X64_PENDING_EXT_INT_EVENT(i32);
+pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER(i32);
+pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(i32);
+pub struct WHV_X64_RDTSC_CONTEXT(i32);
+pub struct WHV_X64_RDTSC_INFO(i32);
+pub struct WHV_X64_SEGMENT_REGISTER(i32);
+pub struct WHV_X64_TABLE_REGISTER(i32);
+pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(i32);
+pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT(i32);
+pub struct WHV_X64_VP_EXECUTION_STATE(i32);
+pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER(i32);

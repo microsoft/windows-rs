@@ -3,3 +3,4 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
+pub struct DragDropModifiers(i32);

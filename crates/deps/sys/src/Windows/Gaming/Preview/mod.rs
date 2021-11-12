@@ -3,3 +3,4 @@
 pub mod GamesEnumeration;
 #[link(name = "windows")]
 extern "system" {}
+pub struct GamesEnumerationContract(i32);

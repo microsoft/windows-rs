@@ -324,3 +324,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
 }
+pub struct IMarshal(i32);
+pub struct IMarshal2(i32);
+pub struct IMarshalingStream(i32);
+pub struct STDMSHLFLAGS(i32);

@@ -19,3 +19,13 @@ pub mod Vpn;
 pub mod XboxLive;
 #[link(name = "windows")]
 extern "system" {}
+pub struct DomainNameType(i32);
+pub struct EndpointPair(i32);
+pub struct HostName(i32);
+pub struct HostNameSortOptions(i32);
+pub struct HostNameType(i32);
+pub struct IEndpointPair(i32);
+pub struct IEndpointPairFactory(i32);
+pub struct IHostName(i32);
+pub struct IHostNameFactory(i32);
+pub struct IHostNameStatics(i32);

@@ -1,78 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_BIG_ENDIAN: u8 = 66u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_CERT_CHAIN: u16 = 4u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_EXPIRATION: u16 = 32u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_LOGON_ENTRY: u16 = 16u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_NEW_PASSWORD: u16 = 4097u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_ONE_TIME_PWD: u16 = 8193u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_PASSWORD: u16 = 1u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_PRIVATE_KEY: u16 = 8u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_CRED_USER_NAME: u16 = 2u16;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_DISCONNECTED: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_LITTLE_ENDIAN: u8 = 108u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MEMBER_ANNOTATE_DEPRECATED: u8 = 2u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST: u8 = 32u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MEMBER_ANNOTATE_NO_REPLY: u8 = 1u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST: u8 = 4u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS: u8 = 8u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MEMBER_ANNOTATE_UNICAST: u8 = 16u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MESSAGE_DEFAULT_TIMEOUT: u32 = 25000u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MESSAGE_FLAG_ALLOW_REMOTE_MSG: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MESSAGE_FLAG_AUTO_START: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MESSAGE_FLAG_ENCRYPTED: u32 = 128u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MESSAGE_FLAG_GLOBAL_BROADCAST: u32 = 32u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_MESSAGE_FLAG_SESSIONLESS: u32 = 16u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_PROP_ACCESS_READ: u8 = 1u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_PROP_ACCESS_RW: u8 = 3u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_PROP_ACCESS_WRITE: u8 = 2u8;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_PROXIMITY_ANY: u32 = 255u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_PROXIMITY_NETWORK: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_PROXIMITY_PHYSICAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_READ_READY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_TRAFFIC_TYPE_MESSAGES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_TRAFFIC_TYPE_RAW_RELIABLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const ALLJOYN_WRITE_READY: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const QCC_FALSE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
-pub const QCC_TRUE: u32 = 1u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -1404,3 +1330,187 @@ extern "system" {
     #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
     pub fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32);
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_BIG_ENDIAN: u8 = 66u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_CERT_CHAIN: u16 = 4u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_EXPIRATION: u16 = 32u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_LOGON_ENTRY: u16 = 16u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_NEW_PASSWORD: u16 = 4097u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_ONE_TIME_PWD: u16 = 8193u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_PASSWORD: u16 = 1u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_PRIVATE_KEY: u16 = 8u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_CRED_USER_NAME: u16 = 2u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_DISCONNECTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_LITTLE_ENDIAN: u8 = 108u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MEMBER_ANNOTATE_DEPRECATED: u8 = 2u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST: u8 = 32u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MEMBER_ANNOTATE_NO_REPLY: u8 = 1u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST: u8 = 4u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS: u8 = 8u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MEMBER_ANNOTATE_UNICAST: u8 = 16u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MESSAGE_DEFAULT_TIMEOUT: u32 = 25000u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MESSAGE_FLAG_ALLOW_REMOTE_MSG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MESSAGE_FLAG_AUTO_START: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MESSAGE_FLAG_ENCRYPTED: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MESSAGE_FLAG_GLOBAL_BROADCAST: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_MESSAGE_FLAG_SESSIONLESS: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_PROP_ACCESS_READ: u8 = 1u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_PROP_ACCESS_RW: u8 = 3u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_PROP_ACCESS_WRITE: u8 = 2u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_PROXIMITY_ANY: u32 = 255u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_PROXIMITY_NETWORK: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_PROXIMITY_PHYSICAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_READ_READY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_TRAFFIC_TYPE_MESSAGES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_TRAFFIC_TYPE_RAW_RELIABLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const ALLJOYN_WRITE_READY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const QCC_FALSE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
+pub const QCC_TRUE: u32 = 1u32;
+pub struct QStatus(i32);
+pub struct _alljoyn_abouticon_handle(i32);
+pub struct _alljoyn_abouticonobj_handle(i32);
+pub struct _alljoyn_abouticonproxy_handle(i32);
+pub struct alljoyn_about_announced_ptr(i32);
+pub struct alljoyn_about_announceflag(i32);
+pub struct alljoyn_aboutdata(i32);
+pub struct alljoyn_aboutdatalistener(i32);
+pub struct alljoyn_aboutdatalistener_callbacks(i32);
+pub struct alljoyn_aboutdatalistener_getaboutdata_ptr(i32);
+pub struct alljoyn_aboutdatalistener_getannouncedaboutdata_ptr(i32);
+pub struct alljoyn_aboutlistener(i32);
+pub struct alljoyn_aboutlistener_callback(i32);
+pub struct alljoyn_aboutobj(i32);
+pub struct alljoyn_aboutobjectdescription(i32);
+pub struct alljoyn_aboutproxy(i32);
+pub struct alljoyn_applicationstate(i32);
+pub struct alljoyn_applicationstatelistener(i32);
+pub struct alljoyn_applicationstatelistener_callbacks(i32);
+pub struct alljoyn_applicationstatelistener_state_ptr(i32);
+pub struct alljoyn_authlistener(i32);
+pub struct alljoyn_authlistener_authenticationcomplete_ptr(i32);
+pub struct alljoyn_authlistener_callbacks(i32);
+pub struct alljoyn_authlistener_requestcredentials_ptr(i32);
+pub struct alljoyn_authlistener_requestcredentialsasync_ptr(i32);
+pub struct alljoyn_authlistener_securityviolation_ptr(i32);
+pub struct alljoyn_authlistener_verifycredentials_ptr(i32);
+pub struct alljoyn_authlistener_verifycredentialsasync_ptr(i32);
+pub struct alljoyn_authlistenerasync_callbacks(i32);
+pub struct alljoyn_autopinger(i32);
+pub struct alljoyn_autopinger_destination_found_ptr(i32);
+pub struct alljoyn_autopinger_destination_lost_ptr(i32);
+pub struct alljoyn_busattachment(i32);
+pub struct alljoyn_busattachment_joinsessioncb_ptr(i32);
+pub struct alljoyn_busattachment_setlinktimeoutcb_ptr(i32);
+pub struct alljoyn_buslistener(i32);
+pub struct alljoyn_buslistener_bus_disconnected_ptr(i32);
+pub struct alljoyn_buslistener_bus_prop_changed_ptr(i32);
+pub struct alljoyn_buslistener_bus_stopping_ptr(i32);
+pub struct alljoyn_buslistener_callbacks(i32);
+pub struct alljoyn_buslistener_found_advertised_name_ptr(i32);
+pub struct alljoyn_buslistener_listener_registered_ptr(i32);
+pub struct alljoyn_buslistener_listener_unregistered_ptr(i32);
+pub struct alljoyn_buslistener_lost_advertised_name_ptr(i32);
+pub struct alljoyn_buslistener_name_owner_changed_ptr(i32);
+pub struct alljoyn_busobject(i32);
+pub struct alljoyn_busobject_callbacks(i32);
+pub struct alljoyn_busobject_methodentry(i32);
+pub struct alljoyn_busobject_object_registration_ptr(i32);
+pub struct alljoyn_busobject_prop_get_ptr(i32);
+pub struct alljoyn_busobject_prop_set_ptr(i32);
+pub struct alljoyn_certificateid(i32);
+pub struct alljoyn_certificateidarray(i32);
+pub struct alljoyn_claimcapability_masks(i32);
+pub struct alljoyn_claimcapabilityadditionalinfo_masks(i32);
+pub struct alljoyn_credentials(i32);
+pub struct alljoyn_interfacedescription(i32);
+pub struct alljoyn_interfacedescription_member(i32);
+pub struct alljoyn_interfacedescription_property(i32);
+pub struct alljoyn_interfacedescription_securitypolicy(i32);
+pub struct alljoyn_interfacedescription_translation_callback_ptr(i32);
+pub struct alljoyn_keystore(i32);
+pub struct alljoyn_keystorelistener(i32);
+pub struct alljoyn_keystorelistener_acquireexclusivelock_ptr(i32);
+pub struct alljoyn_keystorelistener_callbacks(i32);
+pub struct alljoyn_keystorelistener_loadrequest_ptr(i32);
+pub struct alljoyn_keystorelistener_releaseexclusivelock_ptr(i32);
+pub struct alljoyn_keystorelistener_storerequest_ptr(i32);
+pub struct alljoyn_keystorelistener_with_synchronization_callbacks(i32);
+pub struct alljoyn_manifestarray(i32);
+pub struct alljoyn_message(i32);
+pub struct alljoyn_messagereceiver_methodhandler_ptr(i32);
+pub struct alljoyn_messagereceiver_replyhandler_ptr(i32);
+pub struct alljoyn_messagereceiver_signalhandler_ptr(i32);
+pub struct alljoyn_messagetype(i32);
+pub struct alljoyn_msgarg(i32);
+pub struct alljoyn_observer(i32);
+pub struct alljoyn_observer_object_discovered_ptr(i32);
+pub struct alljoyn_observer_object_lost_ptr(i32);
+pub struct alljoyn_observerlistener(i32);
+pub struct alljoyn_observerlistener_callback(i32);
+pub struct alljoyn_permissionconfigurationlistener(i32);
+pub struct alljoyn_permissionconfigurationlistener_callbacks(i32);
+pub struct alljoyn_permissionconfigurationlistener_endmanagement_ptr(i32);
+pub struct alljoyn_permissionconfigurationlistener_factoryreset_ptr(i32);
+pub struct alljoyn_permissionconfigurationlistener_policychanged_ptr(i32);
+pub struct alljoyn_permissionconfigurationlistener_startmanagement_ptr(i32);
+pub struct alljoyn_permissionconfigurator(i32);
+pub struct alljoyn_pinglistener(i32);
+pub struct alljoyn_pinglistener_callback(i32);
+pub struct alljoyn_proxybusobject(i32);
+pub struct alljoyn_proxybusobject_listener_getallpropertiescb_ptr(i32);
+pub struct alljoyn_proxybusobject_listener_getpropertycb_ptr(i32);
+pub struct alljoyn_proxybusobject_listener_introspectcb_ptr(i32);
+pub struct alljoyn_proxybusobject_listener_propertieschanged_ptr(i32);
+pub struct alljoyn_proxybusobject_listener_setpropertycb_ptr(i32);
+pub struct alljoyn_proxybusobject_ref(i32);
+pub struct alljoyn_securityapplicationproxy(i32);
+pub struct alljoyn_sessionlistener(i32);
+pub struct alljoyn_sessionlistener_callbacks(i32);
+pub struct alljoyn_sessionlistener_sessionlost_ptr(i32);
+pub struct alljoyn_sessionlistener_sessionmemberadded_ptr(i32);
+pub struct alljoyn_sessionlistener_sessionmemberremoved_ptr(i32);
+pub struct alljoyn_sessionlostreason(i32);
+pub struct alljoyn_sessionopts(i32);
+pub struct alljoyn_sessionportlistener(i32);
+pub struct alljoyn_sessionportlistener_acceptsessionjoiner_ptr(i32);
+pub struct alljoyn_sessionportlistener_callbacks(i32);
+pub struct alljoyn_sessionportlistener_sessionjoined_ptr(i32);
+pub struct alljoyn_typeid(i32);

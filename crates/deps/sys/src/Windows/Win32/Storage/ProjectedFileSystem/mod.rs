@@ -52,3 +52,34 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT;
 }
+pub struct PRJ_CALLBACKS(i32);
+pub struct PRJ_CALLBACK_DATA(i32);
+pub struct PRJ_CALLBACK_DATA_FLAGS(i32);
+pub struct PRJ_CANCEL_COMMAND_CB(i32);
+pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS(i32);
+pub struct PRJ_COMPLETE_COMMAND_TYPE(i32);
+pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(i32);
+pub struct PRJ_END_DIRECTORY_ENUMERATION_CB(i32);
+pub struct PRJ_EXTENDED_INFO(i32);
+pub struct PRJ_EXT_INFO_TYPE(i32);
+pub struct PRJ_FILE_BASIC_INFO(i32);
+pub struct PRJ_FILE_STATE(i32);
+pub struct PRJ_GET_DIRECTORY_ENUMERATION_CB(i32);
+pub struct PRJ_GET_FILE_DATA_CB(i32);
+pub struct PRJ_GET_PLACEHOLDER_INFO_CB(i32);
+pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(i32);
+pub struct PRJ_NOTIFICATION(i32);
+pub struct PRJ_NOTIFICATION_CB(i32);
+pub struct PRJ_NOTIFICATION_MAPPING(i32);
+pub struct PRJ_NOTIFICATION_PARAMETERS(i32);
+pub struct PRJ_NOTIFY_TYPES(i32);
+pub struct PRJ_PLACEHOLDER_ID(i32);
+pub struct PRJ_PLACEHOLDER_INFO(i32);
+pub struct PRJ_PLACEHOLDER_VERSION_INFO(i32);
+pub struct PRJ_QUERY_FILE_NAME_CB(i32);
+pub struct PRJ_STARTVIRTUALIZING_FLAGS(i32);
+pub struct PRJ_STARTVIRTUALIZING_OPTIONS(i32);
+pub struct PRJ_START_DIRECTORY_ENUMERATION_CB(i32);
+pub struct PRJ_UPDATE_FAILURE_CAUSES(i32);
+pub struct PRJ_UPDATE_TYPES(i32);
+pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO(i32);

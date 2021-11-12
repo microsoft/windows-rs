@@ -1,170 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_CRED_RESET: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_CURRENT_MEDIA: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_GLOBAL_MAPPING: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_LOCALDRIVE: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_NEED_DRIVE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_REFCOUNT: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_REQUIRE_INTEGRITY: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_RESERVED: u32 = 4278190080u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const NOTIFY_POST: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const NOTIFY_PRE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEDISPLAYTYPE_NDSCONTAINER: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEDISPLAYTYPE_NETWORK: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEDISPLAYTYPE_ROOT: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEDISPLAYTYPE_SHAREADMIN: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCETYPE_RESERVED: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCETYPE_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEUSAGE_NOLOCALDEVICE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEUSAGE_RESERVED: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const RESOURCE_RECENT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNCON_DYNAMIC: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNCON_FORNETCARD: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNCON_NOTROUTED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNCON_SLOWLINK: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNDT_NETWORK: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNDT_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNFMT_CONNECTION: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNFMT_INENUM: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNGETCON_CONNECTED: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNGETCON_DISCONNECTED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ADMIN: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ADM_DIRECTORYNOTIFY: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ADM_GETDIRECTORYTYPE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CONNECTION: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CONNECTION_FLAGS: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_ADDCONNECTION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_ADDCONNECTION3: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_ADDCONNECTION4: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_CANCELCONNECTION: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_CANCELCONNECTION2: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_DEFER: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_GETCONNECTIONS: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_CON_GETPERFORMANCE: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DIALOG: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DLG_DEVICEMODE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DLG_FORMATNETWORKNAME: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DLG_GETRESOURCEINFORMATION: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DLG_GETRESOURCEPARENT: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DLG_PERMISSIONEDITOR: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DLG_PROPERTYDIALOG: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DLG_SEARCHDIALOG: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_DRIVER_VERSION: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ENUMERATION: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ENUM_CONTEXT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ENUM_GLOBAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ENUM_LOCAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_ENUM_SHAREABLE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_NET_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_NET_TYPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_SPEC_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_SPEC_VERSION51: u32 = 327681u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_START: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_USER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_USR_GETUSER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNNC_WAIT_FOR_START: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNPERMC_AUDIT: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNPERMC_OWNER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNPERMC_PERM: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNSRCH_REFRESH_FIRST_LEVEL: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNTYPE_COMM: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNTYPE_DRIVE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNTYPE_FILE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WNTYPE_PRINTER: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WN_CREDENTIAL_CLASS: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WN_NETWORK_CLASS: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WN_NT_PASSWORD_CHANGED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WN_PRIMARY_AUTHENT_CLASS: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WN_SERVICE_CLASS: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
-pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
@@ -362,3 +196,228 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WNetUseConnectionW(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpuserid: super::super::Foundation::PWSTR, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
 }
+pub struct CONNECTDLGSTRUCTA(i32);
+pub struct CONNECTDLGSTRUCTW(i32);
+pub struct CONNECTDLGSTRUCT_FLAGS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_CRED_RESET: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_CURRENT_MEDIA: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_GLOBAL_MAPPING: u32 = 262144u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_LOCALDRIVE: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_NEED_DRIVE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_REFCOUNT: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_REQUIRE_INTEGRITY: u32 = 16384u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_RESERVED: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
+pub struct DISCDLGSTRUCTA(i32);
+pub struct DISCDLGSTRUCTW(i32);
+pub struct DISCDLGSTRUCT_FLAGS(i32);
+pub struct NETCONNECTINFOSTRUCT(i32);
+pub struct NETINFOSTRUCT(i32);
+pub struct NETINFOSTRUCT_CHARACTERISTICS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
+pub struct NETRESOURCEA(i32);
+pub struct NETRESOURCEW(i32);
+pub struct NETWORK_NAME_FORMAT_FLAGS(i32);
+pub struct NET_RESOURCE_SCOPE(i32);
+pub struct NET_RESOURCE_TYPE(i32);
+pub struct NET_USE_CONNECT_FLAGS(i32);
+pub struct NOTIFYADD(i32);
+pub struct NOTIFYCANCEL(i32);
+pub struct NOTIFYINFO(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const NOTIFY_POST: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const NOTIFY_PRE: u32 = 1u32;
+pub struct NPDIRECTORY_NOTIFY_OPERATION(i32);
+pub struct NP_PROPERTY_DIALOG_SELECTION(i32);
+pub struct NetEnumHandle(i32);
+pub struct PF_AddConnectNotify(i32);
+pub struct PF_CancelConnectNotify(i32);
+pub struct PF_NPAddConnection(i32);
+pub struct PF_NPAddConnection3(i32);
+pub struct PF_NPAddConnection4(i32);
+pub struct PF_NPCancelConnection(i32);
+pub struct PF_NPCancelConnection2(i32);
+pub struct PF_NPCloseEnum(i32);
+pub struct PF_NPDeviceMode(i32);
+pub struct PF_NPDirectoryNotify(i32);
+pub struct PF_NPEnumResource(i32);
+pub struct PF_NPFMXEditPerm(i32);
+pub struct PF_NPFMXGetPermCaps(i32);
+pub struct PF_NPFMXGetPermHelp(i32);
+pub struct PF_NPFormatNetworkName(i32);
+pub struct PF_NPGetCaps(i32);
+pub struct PF_NPGetConnection(i32);
+pub struct PF_NPGetConnection3(i32);
+pub struct PF_NPGetConnectionPerformance(i32);
+pub struct PF_NPGetDirectoryType(i32);
+pub struct PF_NPGetPersistentUseOptionsForConnection(i32);
+pub struct PF_NPGetPropertyText(i32);
+pub struct PF_NPGetResourceInformation(i32);
+pub struct PF_NPGetResourceParent(i32);
+pub struct PF_NPGetUniversalName(i32);
+pub struct PF_NPGetUser(i32);
+pub struct PF_NPLogonNotify(i32);
+pub struct PF_NPOpenEnum(i32);
+pub struct PF_NPPasswordChangeNotify(i32);
+pub struct PF_NPPropertyDialog(i32);
+pub struct PF_NPSearchDialog(i32);
+pub struct REMOTE_NAME_INFOA(i32);
+pub struct REMOTE_NAME_INFOW(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEDISPLAYTYPE_NDSCONTAINER: u32 = 11u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEDISPLAYTYPE_NETWORK: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEDISPLAYTYPE_ROOT: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEDISPLAYTYPE_SHAREADMIN: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCETYPE_RESERVED: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCETYPE_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEUSAGE_NOLOCALDEVICE: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEUSAGE_RESERVED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const RESOURCE_RECENT: u32 = 4u32;
+pub struct UNC_INFO_LEVEL(i32);
+pub struct UNIVERSAL_NAME_INFOA(i32);
+pub struct UNIVERSAL_NAME_INFOW(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNCON_DYNAMIC: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNCON_FORNETCARD: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNCON_NOTROUTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNCON_SLOWLINK: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNDT_NETWORK: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNDT_NORMAL: u32 = 0u32;
+pub struct WNET_OPEN_ENUM_USAGE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNFMT_CONNECTION: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNFMT_INENUM: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNGETCON_CONNECTED: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNGETCON_DISCONNECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ADMIN: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ADM_DIRECTORYNOTIFY: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ADM_GETDIRECTORYTYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CONNECTION: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CONNECTION_FLAGS: u32 = 13u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_ADDCONNECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_ADDCONNECTION3: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_ADDCONNECTION4: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_CANCELCONNECTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_CANCELCONNECTION2: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_DEFER: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_GETCONNECTIONS: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_CON_GETPERFORMANCE: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DIALOG: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DLG_DEVICEMODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DLG_FORMATNETWORKNAME: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DLG_GETRESOURCEINFORMATION: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DLG_GETRESOURCEPARENT: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DLG_PERMISSIONEDITOR: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DLG_PROPERTYDIALOG: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DLG_SEARCHDIALOG: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_DRIVER_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ENUMERATION: u32 = 11u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ENUM_CONTEXT: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ENUM_GLOBAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ENUM_LOCAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_ENUM_SHAREABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_NET_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_NET_TYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_SPEC_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_SPEC_VERSION51: u32 = 327681u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_START: u32 = 12u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_USER: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_USR_GETUSER: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNNC_WAIT_FOR_START: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNPERMC_AUDIT: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNPERMC_OWNER: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNPERMC_PERM: u32 = 1u32;
+pub struct WNPERM_DLG(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNSRCH_REFRESH_FIRST_LEVEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNTYPE_COMM: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNTYPE_DRIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNTYPE_FILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WNTYPE_PRINTER: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WN_CREDENTIAL_CLASS: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WN_NETWORK_CLASS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WN_NT_PASSWORD_CHANGED: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WN_PRIMARY_AUTHENT_CLASS: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WN_SERVICE_CLASS: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
+pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;

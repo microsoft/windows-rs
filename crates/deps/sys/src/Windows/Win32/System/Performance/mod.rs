@@ -1,370 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[cfg(feature = "Win32_System_Performance_HardwareCounterProfiling")]
 pub mod HardwareCounterProfiling;
-pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
-pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 2366193660,
-    data2: 63351,
-    data3: 18711,
-    data4: [130, 209, 131, 63, 188, 84, 197, 143],
-};
-pub const DIID_DISystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332873089, data2: 49966, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
-pub const DIID_DISystemMonitorEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2224527664, data2: 19123, data3: 4559, data4: [148, 58, 0, 128, 41, 0, 67, 71] };
-pub const DIID_DISystemMonitorInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 424587842, data2: 49964, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const H_WBEM_DATASOURCE: i32 = -1i32;
-pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const MAX_COUNTER_PATH: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_ASYNC_QUERY_TIMEOUT: i32 = -2147481637i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CALC_NEGATIVE_DENOMINATOR: i32 = -2147481642i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CALC_NEGATIVE_TIMEBASE: i32 = -2147481641i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CALC_NEGATIVE_VALUE: i32 = -2147481640i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CANNOT_CONNECT_MACHINE: i32 = -1073738813i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CANNOT_CONNECT_WMI_SERVER: i32 = -1073738776i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CANNOT_READ_NAME_STRINGS: i32 = -1073738808i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: i32 = -2147481636i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_COUNTER_ALREADY_IN_QUERY: i32 = -1073738762i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_BAD_COUNTERNAME: i32 = -1073738816i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_INVALID_DATA: i32 = -1073738822i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_ITEM_NOT_VALIDATED: i32 = -2147481645i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_NEW_DATA: i32 = 1i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_NO_COUNTER: i32 = -1073738823i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_NO_COUNTERNAME: i32 = -1073738817i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_NO_INSTANCE: i32 = -2147481647i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_NO_MACHINE: i32 = -2147481648i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_NO_OBJECT: i32 = -1073738824i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_CSTATUS_VALID_DATA: i32 = 0i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_ENTRY_NOT_IN_LOG_FILE: i32 = -1073738803i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_FUNCTION_NOT_FOUND: i32 = -1073738818i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INCORRECT_APPEND_TIME: i32 = -1073738757i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INSUFFICIENT_BUFFER: i32 = -1073738814i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_ARGUMENT: i32 = -1073738819i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_BUFFER: i32 = -1073738815i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_DATA: i32 = -1073738810i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_DATASOURCE: i32 = -1073738787i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_HANDLE: i32 = -1073738820i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_INSTANCE: i32 = -1073738811i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_PATH: i32 = -1073738812i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOGSVC_NOT_OPENED: i32 = -1073738791i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOGSVC_QUERY_NOT_FOUND: i32 = -1073738792i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_FILE_CREATE_ERROR: i32 = -1073738807i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_FILE_OPEN_ERROR: i32 = -1073738806i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_FILE_TOO_SMALL: i32 = -1073738788i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_SAMPLE_TOO_SMALL: i32 = -1073738760i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_LOG_TYPE_TRACE_KERNEL: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MAX_COUNTER_NAME: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MAX_COUNTER_PATH: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MAX_DATASOURCE_PATH: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MAX_INSTANCE_NAME: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MAX_SCALE: i32 = 7i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MEMORY_ALLOCATION_FAILURE: i32 = -1073738821i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MIN_SCALE: i32 = -7i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_MORE_DATA: i32 = -2147481646i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_NOEXPANDCOUNTERS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_NOEXPANDINSTANCES: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_NOT_IMPLEMENTED: i32 = -1073738797i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_NO_COUNTERS: i32 = -1073738785i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_NO_DATA: i32 = -2147481643i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_NO_DIALOG_DATA: i32 = -1073738809i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_NO_MORE_DATA: i32 = -1073738804i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: i32 = -1073738775i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_COLLECTION_NOT_FOUND: i32 = -1073738773i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_ERROR_ALREADY_EXISTS: i32 = -1073738770i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_ERROR_FILEPATH: i32 = -1073738768i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_ERROR_NAME_TOO_LONG: i32 = -1073738764i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_ERROR_NOSTART: i32 = -1073738771i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_ERROR_SCHEDULE_ELAPSED: i32 = -1073738772i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_ERROR_SCHEDULE_OVERLAP: i32 = -1073738774i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_ERROR_TYPE_MISMATCH: i32 = -1073738769i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_SERVICE_ERROR: i32 = -1073738767i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_VALIDATION_ERROR: i32 = -1073738766i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_PLA_VALIDATION_WARNING: i32 = -2147480589i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_QUERY_PERF_DATA_TIMEOUT: i32 = -1073738754i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_RETRY: i32 = -2147481644i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_ALLOCCON_FAILED: i32 = -1073738783i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_ALLOC_FAILED: i32 = -1073738784i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_ALTER_DETAIL_FAILED: i32 = -1073738755i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_BIND_FAILED: i32 = -1073738777i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_CONNECT_FAILED: i32 = -1073738778i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_EXEC_DIRECT_FAILED: i32 = -1073738782i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_FETCH_FAILED: i32 = -1073738781i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_MORE_RESULTS_FAILED: i32 = -1073738779i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_SQL_ROWCOUNT_FAILED: i32 = -1073738780i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_STRING_NOT_FOUND: i32 = -1073738796i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_UNABLE_MAP_NAME_FILES: i32 = -2147480619i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_UNABLE_READ_LOG_HEADER: i32 = -1073738800i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_UNKNOWN_LOGSVC_COMMAND: i32 = -1073738793i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_ADD_COUNTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_AGGREGATE_MAX: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_ATTRIB_BY_REFERENCE: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_ATTRIB_DISPLAY_AS_HEX: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_ATTRIB_DISPLAY_AS_REAL: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_ATTRIB_NO_DISPLAYABLE: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_ATTRIB_NO_GROUP_SEPARATOR: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COLLECT_END: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COLLECT_START: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTERSET_FLAG_AGGREGATE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_BASE: u32 = 196608u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_RATE: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_COUNTER_VALUE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DATA_REVISION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DATA_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DELTA_BASE: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DISPLAY_PERCENT: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DISPLAY_PER_SEC: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_DISPLAY_SECONDS: u32 = 805306368u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_ENUM_INSTANCES: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_FILTER: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_NO_INSTANCES: i32 = -1i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_NO_UNIQUE_ID: i32 = -1i32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_NUMBER_DECIMAL: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_NUMBER_DEC_1000: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_NUMBER_HEX: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_PROVIDER_USER_MODE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_REMOVE_COUNTER: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_SIZE_DWORD: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_SIZE_LARGE: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_SIZE_VARIABLE_LEN: u32 = 768u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_SIZE_ZERO: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TEXT_ASCII: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TEXT_UNICODE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TIMER_100NS: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TIMER_TICK: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TYPE_COUNTER: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TYPE_NUMBER: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TYPE_TEXT: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_TYPE_ZERO: u32 = 3072u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PLA_CAPABILITY_LEGACY_SVC: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
-pub const S_PDH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 81159000, data2: 50337, data3: 16795, data4: [128, 35, 35, 183, 57, 2, 222, 44] };
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const WINPERF_LOG_DEBUG: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const WINPERF_LOG_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const WINPERF_LOG_USER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Performance`*"]
-pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -750,3 +386,511 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdatePerfNameFilesW(sznewctrfilepath: super::super::Foundation::PWSTR, sznewhlpfilepath: super::super::Foundation::PWSTR, szlanguageid: super::super::Foundation::PWSTR, dwflags: usize) -> u32;
 }
+pub struct AppearPropPage(i32);
+pub struct AutoPathFormat(i32);
+pub struct BootTraceSession(i32);
+pub struct BootTraceSessionCollection(i32);
+pub struct ClockType(i32);
+pub struct CommitMode(i32);
+pub struct CounterItem(i32);
+pub struct CounterItem2(i32);
+pub struct CounterPathCallBack(i32);
+pub struct CounterPropPage(i32);
+pub struct Counters(i32);
+pub struct DICounterItem(i32);
+pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
+pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2366193660,
+    data2: 63351,
+    data3: 18711,
+    data4: [130, 209, 131, 63, 188, 84, 197, 143],
+};
+pub const DIID_DISystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332873089, data2: 49966, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
+pub const DIID_DISystemMonitorEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2224527664, data2: 19123, data3: 4559, data4: [148, 58, 0, 128, 41, 0, 67, 71] };
+pub const DIID_DISystemMonitorInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 424587842, data2: 49964, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
+pub struct DILogFileItem(i32);
+pub struct DISystemMonitor(i32);
+pub struct DISystemMonitorEvents(i32);
+pub struct DISystemMonitorInternal(i32);
+pub struct DataCollectorSet(i32);
+pub struct DataCollectorSetCollection(i32);
+pub struct DataCollectorSetStatus(i32);
+pub struct DataCollectorType(i32);
+pub struct DataManagerSteps(i32);
+pub struct DataSourceTypeConstants(i32);
+pub struct DisplayTypeConstants(i32);
+pub struct FileFormat(i32);
+pub struct FolderActionSteps(i32);
+pub struct GeneralPropPage(i32);
+pub struct GraphPropPage(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const H_WBEM_DATASOURCE: i32 = -1i32;
+pub struct IAlertDataCollector(i32);
+pub struct IApiTracingDataCollector(i32);
+pub struct IConfigurationDataCollector(i32);
+pub struct ICounterItem(i32);
+pub struct ICounterItem2(i32);
+pub struct ICounters(i32);
+pub struct IDataCollector(i32);
+pub struct IDataCollectorCollection(i32);
+pub struct IDataCollectorSet(i32);
+pub struct IDataCollectorSetCollection(i32);
+pub struct IDataManager(i32);
+pub struct IFolderAction(i32);
+pub struct IFolderActionCollection(i32);
+pub struct ILogFileItem(i32);
+pub struct ILogFiles(i32);
+pub struct IPerformanceCounterDataCollector(i32);
+pub struct ISchedule(i32);
+pub struct IScheduleCollection(i32);
+pub struct ISystemMonitor(i32);
+pub struct ISystemMonitor2(i32);
+pub struct ISystemMonitorEvents(i32);
+pub struct ITraceDataCollector(i32);
+pub struct ITraceDataProvider(i32);
+pub struct ITraceDataProviderCollection(i32);
+pub struct IValueMap(i32);
+pub struct IValueMapItem(i32);
+pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
+pub struct LegacyDataCollectorSet(i32);
+pub struct LegacyDataCollectorSetCollection(i32);
+pub struct LegacyTraceSession(i32);
+pub struct LegacyTraceSessionCollection(i32);
+pub struct LogFileItem(i32);
+pub struct LogFiles(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const MAX_COUNTER_PATH: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_ASYNC_QUERY_TIMEOUT: i32 = -2147481637i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
+pub struct PDH_BROWSE_DLG_CONFIG_A(i32);
+pub struct PDH_BROWSE_DLG_CONFIG_HA(i32);
+pub struct PDH_BROWSE_DLG_CONFIG_HW(i32);
+pub struct PDH_BROWSE_DLG_CONFIG_W(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CALC_NEGATIVE_DENOMINATOR: i32 = -2147481642i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CALC_NEGATIVE_TIMEBASE: i32 = -2147481641i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CALC_NEGATIVE_VALUE: i32 = -2147481640i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CANNOT_CONNECT_MACHINE: i32 = -1073738813i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CANNOT_CONNECT_WMI_SERVER: i32 = -1073738776i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CANNOT_READ_NAME_STRINGS: i32 = -1073738808i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: i32 = -2147481636i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_COUNTER_ALREADY_IN_QUERY: i32 = -1073738762i32;
+pub struct PDH_COUNTER_INFO_A(i32);
+pub struct PDH_COUNTER_INFO_W(i32);
+pub struct PDH_COUNTER_PATH_ELEMENTS_A(i32);
+pub struct PDH_COUNTER_PATH_ELEMENTS_W(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_BAD_COUNTERNAME: i32 = -1073738816i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_INVALID_DATA: i32 = -1073738822i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_ITEM_NOT_VALIDATED: i32 = -2147481645i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_NEW_DATA: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_NO_COUNTER: i32 = -1073738823i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_NO_COUNTERNAME: i32 = -1073738817i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_NO_INSTANCE: i32 = -2147481647i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_NO_MACHINE: i32 = -2147481648i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_NO_OBJECT: i32 = -1073738824i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_CSTATUS_VALID_DATA: i32 = 0i32;
+pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A(i32);
+pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
+pub struct PDH_DLL_VERSION(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_ENTRY_NOT_IN_LOG_FILE: i32 = -1073738803i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
+pub struct PDH_FMT(i32);
+pub struct PDH_FMT_COUNTERVALUE(i32);
+pub struct PDH_FMT_COUNTERVALUE_ITEM_A(i32);
+pub struct PDH_FMT_COUNTERVALUE_ITEM_W(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_FUNCTION_NOT_FOUND: i32 = -1073738818i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INCORRECT_APPEND_TIME: i32 = -1073738757i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INSUFFICIENT_BUFFER: i32 = -1073738814i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_ARGUMENT: i32 = -1073738819i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_BUFFER: i32 = -1073738815i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_DATA: i32 = -1073738810i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_DATASOURCE: i32 = -1073738787i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_HANDLE: i32 = -1073738820i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_INSTANCE: i32 = -1073738811i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_PATH: i32 = -1073738812i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
+pub struct PDH_LOG(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOGSVC_NOT_OPENED: i32 = -1073738791i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOGSVC_QUERY_NOT_FOUND: i32 = -1073738792i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_FILE_CREATE_ERROR: i32 = -1073738807i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_FILE_OPEN_ERROR: i32 = -1073738806i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_FILE_TOO_SMALL: i32 = -1073738788i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_SAMPLE_TOO_SMALL: i32 = -1073738760i32;
+pub struct PDH_LOG_SERVICE_QUERY_INFO_A(i32);
+pub struct PDH_LOG_SERVICE_QUERY_INFO_W(i32);
+pub struct PDH_LOG_TYPE(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_LOG_TYPE_TRACE_KERNEL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MAX_COUNTER_NAME: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MAX_COUNTER_PATH: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MAX_DATASOURCE_PATH: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MAX_INSTANCE_NAME: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MAX_SCALE: i32 = 7i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MEMORY_ALLOCATION_FAILURE: i32 = -1073738821i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MIN_SCALE: i32 = -7i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_MORE_DATA: i32 = -2147481646i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_NOEXPANDCOUNTERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_NOEXPANDINSTANCES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_NOT_IMPLEMENTED: i32 = -1073738797i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_NO_COUNTERS: i32 = -1073738785i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_NO_DATA: i32 = -2147481643i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_NO_DIALOG_DATA: i32 = -1073738809i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_NO_MORE_DATA: i32 = -1073738804i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
+pub struct PDH_PATH_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: i32 = -1073738775i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_COLLECTION_NOT_FOUND: i32 = -1073738773i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_ERROR_ALREADY_EXISTS: i32 = -1073738770i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_ERROR_FILEPATH: i32 = -1073738768i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_ERROR_NAME_TOO_LONG: i32 = -1073738764i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_ERROR_NOSTART: i32 = -1073738771i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_ERROR_SCHEDULE_ELAPSED: i32 = -1073738772i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_ERROR_SCHEDULE_OVERLAP: i32 = -1073738774i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_ERROR_TYPE_MISMATCH: i32 = -1073738769i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_SERVICE_ERROR: i32 = -1073738767i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_VALIDATION_ERROR: i32 = -1073738766i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_PLA_VALIDATION_WARNING: i32 = -2147480589i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_QUERY_PERF_DATA_TIMEOUT: i32 = -1073738754i32;
+pub struct PDH_RAW_COUNTER(i32);
+pub struct PDH_RAW_COUNTER_ITEM_A(i32);
+pub struct PDH_RAW_COUNTER_ITEM_W(i32);
+pub struct PDH_RAW_LOG_RECORD(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_RETRY: i32 = -2147481644i32;
+pub struct PDH_SELECT_DATA_SOURCE_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_ALLOCCON_FAILED: i32 = -1073738783i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_ALLOC_FAILED: i32 = -1073738784i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_ALTER_DETAIL_FAILED: i32 = -1073738755i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_BIND_FAILED: i32 = -1073738777i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_CONNECT_FAILED: i32 = -1073738778i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_EXEC_DIRECT_FAILED: i32 = -1073738782i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_FETCH_FAILED: i32 = -1073738781i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_MORE_RESULTS_FAILED: i32 = -1073738779i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_SQL_ROWCOUNT_FAILED: i32 = -1073738780i32;
+pub struct PDH_STATISTICS(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_STRING_NOT_FOUND: i32 = -1073738796i32;
+pub struct PDH_TIME_INFO(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_UNABLE_MAP_NAME_FILES: i32 = -2147480619i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_UNABLE_READ_LOG_HEADER: i32 = -1073738800i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_UNKNOWN_LOGSVC_COMMAND: i32 = -1073738793i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
+pub struct PERFLIBREQUEST(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_ADD_COUNTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_AGGREGATE_MAX: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_ATTRIB_BY_REFERENCE: u64 = 1u64;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_ATTRIB_DISPLAY_AS_HEX: u64 = 16u64;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_ATTRIB_DISPLAY_AS_REAL: u64 = 8u64;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_ATTRIB_NO_DISPLAYABLE: u64 = 2u64;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_ATTRIB_NO_GROUP_SEPARATOR: u64 = 4u64;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COLLECT_END: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COLLECT_START: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTERSET_FLAG_AGGREGATE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2u32;
+pub struct PERF_COUNTERSET_INFO(i32);
+pub struct PERF_COUNTERSET_INSTANCE(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
+pub struct PERF_COUNTERSET_REG_INFO(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
+pub struct PERF_COUNTER_AGGREGATE_FUNC(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_BASE: u32 = 196608u32;
+pub struct PERF_COUNTER_BLOCK(i32);
+pub struct PERF_COUNTER_DATA(i32);
+pub struct PERF_COUNTER_DEFINITION(i32);
+pub struct PERF_COUNTER_DEFINITION(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
+pub struct PERF_COUNTER_HEADER(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
+pub struct PERF_COUNTER_IDENTIFIER(i32);
+pub struct PERF_COUNTER_IDENTITY(i32);
+pub struct PERF_COUNTER_INFO(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_RATE: u32 = 65536u32;
+pub struct PERF_COUNTER_REG_INFO(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_COUNTER_VALUE: u32 = 0u32;
+pub struct PERF_DATA_BLOCK(i32);
+pub struct PERF_DATA_HEADER(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DATA_REVISION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DATA_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DELTA_BASE: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
+pub struct PERF_DETAIL(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DISPLAY_PERCENT: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DISPLAY_PER_SEC: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_DISPLAY_SECONDS: u32 = 805306368u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_ENUM_INSTANCES: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_FILTER: u32 = 9u32;
+pub struct PERF_INSTANCE_DEFINITION(i32);
+pub struct PERF_INSTANCE_HEADER(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
+pub struct PERF_MEM_ALLOC(i32);
+pub struct PERF_MEM_FREE(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
+pub struct PERF_MULTI_COUNTERS(i32);
+pub struct PERF_MULTI_INSTANCES(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_NO_INSTANCES: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_NO_UNIQUE_ID: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_NUMBER_DECIMAL: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_NUMBER_DEC_1000: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_NUMBER_HEX: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
+pub struct PERF_OBJECT_TYPE(i32);
+pub struct PERF_OBJECT_TYPE(i32);
+pub struct PERF_PROVIDER_CONTEXT(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_PROVIDER_USER_MODE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_REMOVE_COUNTER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_SIZE_DWORD: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_SIZE_LARGE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_SIZE_VARIABLE_LEN: u32 = 768u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_SIZE_ZERO: u32 = 512u32;
+pub struct PERF_STRING_BUFFER_HEADER(i32);
+pub struct PERF_STRING_COUNTER_HEADER(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TEXT_ASCII: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TEXT_UNICODE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TIMER_100NS: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TIMER_TICK: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TYPE_COUNTER: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TYPE_NUMBER: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TYPE_TEXT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_TYPE_ZERO: u32 = 3072u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
+pub struct PLA_CABEXTRACT_CALLBACK(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PLA_CAPABILITY_LEGACY_SVC: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
+pub struct PM_CLOSE_PROC(i32);
+pub struct PM_COLLECT_PROC(i32);
+pub struct PM_OPEN_PROC(i32);
+pub struct PerfCounterDataType(i32);
+pub struct PerfProviderHandle(i32);
+pub struct PerfQueryHandle(i32);
+pub struct PerfRegInfoType(i32);
+pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(i32);
+pub struct ReportValueTypeConstants(i32);
+pub struct ResourcePolicy(i32);
+pub const S_PDH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 81159000, data2: 50337, data3: 16795, data4: [128, 35, 35, 183, 57, 2, 222, 44] };
+pub struct ServerDataCollectorSet(i32);
+pub struct ServerDataCollectorSetCollection(i32);
+pub struct SourcePropPage(i32);
+pub struct StreamMode(i32);
+pub struct SysmonBatchReason(i32);
+pub struct SysmonDataType(i32);
+pub struct SysmonFileType(i32);
+pub struct SystemDataCollectorSet(i32);
+pub struct SystemDataCollectorSetCollection(i32);
+pub struct SystemMonitor(i32);
+pub struct SystemMonitor2(i32);
+pub struct TraceDataProvider(i32);
+pub struct TraceDataProviderCollection(i32);
+pub struct TraceSession(i32);
+pub struct TraceSessionCollection(i32);
+pub struct ValueMapType(i32);
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const WINPERF_LOG_DEBUG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const WINPERF_LOG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const WINPERF_LOG_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Performance`*"]
+pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
+pub struct WeekDays(i32);
+pub struct _ICounterItemUnion(i32);
+pub struct _ISystemMonitorUnion(i32);

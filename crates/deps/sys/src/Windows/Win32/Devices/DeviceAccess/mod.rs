@@ -1,4 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Devices_DeviceAccess`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
+}
 pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 315876210,
     data2: 34635,
@@ -93,9 +99,6 @@ pub const ED_RIGHT: u32 = 1024u32;
 pub const ED_TOP: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`*"]
 pub const ED_VIDEO: i32 = 33554432i32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Devices_DeviceAccess`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
-}
+pub struct ICreateDeviceAccessAsync(i32);
+pub struct IDeviceIoControl(i32);
+pub struct IDeviceRequestCompletionCallback(i32);

@@ -1,9 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 pub const CLSID_DirectMusic: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1667997456, data2: 3197, data3: 4561, data4: [149, 178, 0, 32, 175, 220, 116, 33] };
 pub const CLSID_DirectMusicCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1209005232, data2: 10418, data3: 4561, data4: [190, 247, 0, 192, 79, 191, 143, 239] };
 pub const CLSID_DirectMusicSynth: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1489155280, data2: 18151, data3: 4561, data4: [137, 172, 0, 160, 201, 5, 65, 41] };
 pub const CLSID_DirectMusicSynthSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2931916003, data2: 42260, data3: 4561, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const CLSID_DirectSoundPrivate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 296435392, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
+pub struct CONNECTION(i32);
+pub struct CONNECTIONLIST(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_ATTENUATION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -154,6 +158,10 @@ pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
 pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
+pub struct DIRECTSOUNDDEVICE_DATAFLOW(i32);
+pub struct DIRECTSOUNDDEVICE_TYPE(i32);
+pub struct DLSHEADER(i32);
+pub struct DLSID(i32);
 pub const DLSID_GMInHardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259684, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 pub const DLSID_GSInHardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259685, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 pub const DLSID_ManufacturersID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2956857729, data2: 32917, data3: 4562, data4: [161, 239, 0, 96, 8, 51, 219, 216] };
@@ -163,6 +171,7 @@ pub const DLSID_SamplePlaybackRate: ::windows_sys::core::GUID = ::windows_sys::G
 pub const DLSID_SupportsDLS1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259687, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 pub const DLSID_SupportsDLS2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4047870437, data2: 18057, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const DLSID_XGInHardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub struct DLSVERSION(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_ADD: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -199,10 +208,19 @@ pub const DLS_CDL_QUERYSUPPORTED: u32 = 18u32;
 pub const DLS_CDL_SUBTRACT: u32 = 5u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_XOR: u32 = 3u32;
+pub struct DMUS_ARTICPARAMS(i32);
+pub struct DMUS_ARTICULATION(i32);
+pub struct DMUS_ARTICULATION2(i32);
+pub struct DMUS_BUFFERDESC(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
+pub struct DMUS_CLOCKINFO7(i32);
+pub struct DMUS_CLOCKINFO8(i32);
+pub struct DMUS_CLOCKTYPE(i32);
+pub struct DMUS_COPYRIGHT(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
+pub struct DMUS_DOWNLOADINFO(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -223,16 +241,23 @@ pub const DMUS_EFFECT_DELAY: u32 = 4u32;
 pub const DMUS_EFFECT_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EFFECT_REVERB: u32 = 1u32;
+pub struct DMUS_EVENTHEADER(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
+pub struct DMUS_EXTENSIONCHUNK(i32);
+pub struct DMUS_INSTRUMENT(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
+pub struct DMUS_LFOPARAMS(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_MAX_DRIVER: u32 = 128u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_MIN_DATA_SIZE: u32 = 4u32;
+pub struct DMUS_MSCPARAMS(i32);
+pub struct DMUS_NOTERANGE(i32);
+pub struct DMUS_OFFSETTABLE(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -263,6 +288,9 @@ pub const DMUS_PC_SYSTEMMEMORY: u32 = 2147483647u32;
 pub const DMUS_PC_WAVE: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_XGINHARDWARE: u32 = 64u32;
+pub struct DMUS_PEGPARAMS(i32);
+pub struct DMUS_PORTCAPS(i32);
+pub struct DMUS_PORTPARAMS8(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -287,6 +315,9 @@ pub const DMUS_PORT_KERNEL_MODE: u32 = 2u32;
 pub const DMUS_PORT_USER_MODE_SYNTH: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORT_WINMM_DRIVER: u32 = 0u32;
+pub struct DMUS_REGION(i32);
+pub struct DMUS_SYNTHSTATS(i32);
+pub struct DMUS_SYNTHSTATS8(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -301,10 +332,17 @@ pub const DMUS_SYNTHSTATS_SYSTEMMEMORY: u32 = 2147483647u32;
 pub const DMUS_SYNTHSTATS_TOTAL_CPU: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_VOICES: u32 = 1u32;
+pub struct DMUS_VEGPARAMS(i32);
+pub struct DMUS_VOICE_STATE(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_VOLUME_MAX: u32 = 2000u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_VOLUME_MIN: i32 = -20000i32;
+pub struct DMUS_WAVE(i32);
+pub struct DMUS_WAVEARTDL(i32);
+pub struct DMUS_WAVEDATA(i32);
+pub struct DMUS_WAVEDL(i32);
+pub struct DMUS_WAVES_REVERB_PARAMS(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_BACK_CENTER: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -357,6 +395,15 @@ pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13u32;
 pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA(i32);
+pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA(i32);
 pub const DSPROPSETID_DirectSoundDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2221035394, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_AUDIOMODE: u32 = 3840u32;
@@ -421,12 +468,38 @@ pub const GUID_DMUS_PROP_WriteLatency: ::windows_sys::core::GUID = ::windows_sys
 pub const GUID_DMUS_PROP_WritePeriod: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 646582177, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Capable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687595937, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Hardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub struct IDirectMusic(i32);
+pub struct IDirectMusic8(i32);
+pub struct IDirectMusicBuffer(i32);
+pub struct IDirectMusicCollection(i32);
+pub struct IDirectMusicDownload(i32);
+pub struct IDirectMusicDownloadedInstrument(i32);
+pub struct IDirectMusicInstrument(i32);
+pub struct IDirectMusicPort(i32);
+pub struct IDirectMusicPortDownload(i32);
+pub struct IDirectMusicSynth(i32);
+pub struct IDirectMusicSynth8(i32);
+pub struct IDirectMusicSynthSink(i32);
+pub struct IDirectMusicThru(i32);
+pub struct INSTHEADER(i32);
+pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1(i32);
+pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA(i32);
+pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(i32);
+pub struct MDEVICECAPSEX(i32);
+pub struct MIDILOCALE(i32);
+pub struct MIDIOPENDESC(i32);
+pub struct POOLCUE(i32);
+pub struct POOLTABLE(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const POOL_CUE_NULL: i32 = -1i32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
+pub struct RGNHEADER(i32);
+pub struct RGNRANGE(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const SIZE_DVINFO: u32 = 32u32;
+pub struct Tag_DVAudInfo(i32);
+pub struct WAVELINK(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -435,5 +508,6 @@ pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
 pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct _DMUS_PORTPARAMS(i32);
+pub struct _rloop(i32);
+pub struct _rwsmp(i32);

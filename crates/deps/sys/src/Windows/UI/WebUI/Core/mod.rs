@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IWebUICommandBar(i32);
+pub struct IWebUICommandBarBitmapIcon(i32);
+pub struct IWebUICommandBarBitmapIconFactory(i32);
+pub struct IWebUICommandBarConfirmationButton(i32);
+pub struct IWebUICommandBarElement(i32);
+pub struct IWebUICommandBarIcon(i32);
+pub struct IWebUICommandBarIconButton(i32);
+pub struct IWebUICommandBarItemInvokedEventArgs(i32);
+pub struct IWebUICommandBarSizeChangedEventArgs(i32);
+pub struct IWebUICommandBarStatics(i32);
+pub struct IWebUICommandBarSymbolIcon(i32);
+pub struct IWebUICommandBarSymbolIconFactory(i32);
+pub struct MenuClosedEventHandler(i32);
+pub struct MenuOpenedEventHandler(i32);
+pub struct SizeChangedEventHandler(i32);
+pub struct WebUICommandBar(i32);
+pub struct WebUICommandBarBitmapIcon(i32);
+pub struct WebUICommandBarClosedDisplayMode(i32);
+pub struct WebUICommandBarConfirmationButton(i32);
+pub struct WebUICommandBarContract(i32);
+pub struct WebUICommandBarIconButton(i32);
+pub struct WebUICommandBarItemInvokedEventArgs(i32);
+pub struct WebUICommandBarSizeChangedEventArgs(i32);
+pub struct WebUICommandBarSymbolIcon(i32);

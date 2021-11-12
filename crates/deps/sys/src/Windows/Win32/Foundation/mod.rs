@@ -1,4 +1,45 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn CloseHandle(hobject: HANDLE) -> BOOL;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn GetLastError() -> WIN32_ERROR;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SetLastError(dwerrcode: WIN32_ERROR);
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysAddRefString(bstrstring: BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysAllocString(psz: PWSTR) -> BSTR;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysAllocStringByteLen(psz: PSTR, len: u32) -> BSTR;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysFreeString(bstrstring: BSTR);
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysReAllocString(pbstr: *mut BSTR, psz: PWSTR) -> i32;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysReAllocStringLen(pbstr: *mut BSTR, psz: PWSTR, len: u32) -> i32;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysReleaseString(bstrstring: BSTR);
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysStringByteLen(bstr: BSTR) -> u32;
+    #[doc = "*Required features: `Win32_Foundation`*"]
+    pub fn SysStringLen(pbstr: BSTR) -> u32;
+}
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: i32 = 15705i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -65,8 +106,12 @@ pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::win
 pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146958840i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146958829i32 as _);
+pub struct APP_LOCAL_DEVICE_ID(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
+pub struct BOOL(i32);
+pub struct BOOLEAN(i32);
+pub struct BSTR(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const BT_E_SPURIOUS_ACTIVATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146958592i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -243,6 +288,7 @@ pub const CERT_E_UNTRUSTEDTESTROOT: ::windows_sys::core::HRESULT = ::windows_sys
 pub const CERT_E_VALIDITYPERIODNESTING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762494i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const CERT_E_WRONG_USAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762480i32 as _);
+pub struct CHAR(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const CI_CORRUPT_CATALOG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473535i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -1211,6 +1257,7 @@ pub const DCOMPOSITION_ERROR_SURFACE_BEING_RENDERED: ::windows_sys::core::HRESUL
 pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003302398i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003302400i32 as _);
+pub struct DECIMAL(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const DIGSIG_E_CRYPTO: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762744i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -1313,6 +1360,7 @@ pub const DRAGDROP_S_FIRST: i32 = 262400i32;
 pub const DRAGDROP_S_LAST: i32 = 262415i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const DRAGDROP_S_USEDEFAULTCURSORS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262402i32 as _);
+pub struct DUPLICATE_HANDLE_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const DV_E_CLIPFORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221398i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -2519,6 +2567,7 @@ pub const E_UAC_DISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HR
 pub const E_UNEXPECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147418113i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
+pub struct FARPROC(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927198i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -2541,6 +2590,7 @@ pub const FDAEMON_E_WORDLISTCOMMITFAILED: ::windows_sys::core::HRESULT = ::windo
 pub const FDAEMON_W_EMPTYWORDLIST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(267909i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FDAEMON_W_WORDLISTFULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(267904i32 as _);
+pub struct FILETIME(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FILTER_E_ALREADY_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215562i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -2571,6 +2621,7 @@ pub const FILTER_S_NO_PROPSETS: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268092i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268081i32 as _);
+pub struct FLOAT128(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -3199,6 +3250,9 @@ pub const GCN_E_NO_REQUEST_HANDLERS: ::windows_sys::core::HRESULT = ::windows_sy
 pub const GCN_E_REQUEST_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143616989i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143616988i32 as _);
+pub struct HANDLE(i32);
+pub struct HANDLE_FLAGS(i32);
+pub struct HANDLE_PTR(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HCN_E_ADAPTER_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143617018i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -3353,6 +3407,10 @@ pub const HCS_E_UNKNOWN_MESSAGE: ::windows_sys::core::HRESULT = ::windows_sys::c
 pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143878900i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143878893i32 as _);
+pub struct HINSTANCE(i32);
+pub struct HLSURF__(i32);
+pub struct HRSRC(i32);
+pub struct HSPRITE__(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HSP_BASE_ERROR_MASK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128019200i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -3409,6 +3467,7 @@ pub const HSP_KSP_NO_MEMORY: ::windows_sys::core::HRESULT = ::windows_sys::core:
 pub const HSP_KSP_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128018920i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HSP_KSP_PARAMETER_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128018927i32 as _);
+pub struct HSTR__(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HTTP_E_STATUS_AMBIGUOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844948i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -3479,6 +3538,8 @@ pub const HTTP_E_STATUS_URI_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_s
 pub const HTTP_E_STATUS_USE_PROXY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844943i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HTTP_E_STATUS_VERSION_NOT_SUP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844743i32 as _);
+pub struct HUMPD__(i32);
+pub struct HWND(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const INPLACE_E_FIRST: i32 = -2147221088i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -3533,6 +3594,10 @@ pub const JSCRIPT_E_CANTEXECUTE: ::windows_sys::core::HRESULT = ::windows_sys::c
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215484i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const LANGUAGE_S_LARGE_WORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268161i32 as _);
+pub struct LPARAM(i32);
+pub struct LRESULT(i32);
+pub struct LSTATUS(i32);
+pub struct LUID(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -3825,6 +3890,7 @@ pub const NAP_E_STILL_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core:
 pub const NAP_E_TOO_MANY_CALLS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927728i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const NAP_S_CERT_ALREADY_PRESENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555917i32 as _);
+pub struct NEARPROC(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const NOERROR: u32 = 0u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -3945,6 +4011,8 @@ pub const NTE_UI_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::H
 pub const NTE_USER_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146893770i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const NTE_VALIDATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146893774i32 as _);
+pub struct NTSTATUS(i32);
+pub struct NTSTATUS_FACILITY_CODE(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -4145,6 +4213,7 @@ pub const OSS_TYPE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const OSS_UNAVAIL_ENCRULES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146881513i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const OSS_UNIMPLEMENTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146881511i32 as _);
+pub struct PAPCFUNC(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PEERDIST_ERROR_ALREADY_COMPLETED: i32 = 4060i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -4403,8 +4472,13 @@ pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: ::windows_sys::core::HRESULT = ::
 pub const PLA_E_TOO_MANY_FOLDERS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144337851i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PLA_S_PROPERTY_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(3145984i32 as _);
+pub struct POINT(i32);
+pub struct POINTL(i32);
+pub struct POINTS(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PRESENTATION_ERROR_LOST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004811775i32 as _);
+pub struct PROC(i32);
+pub struct PSID(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PSINK_E_INDEX_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215471i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -4413,6 +4487,8 @@ pub const PSINK_E_LARGE_ATTACHMENT: ::windows_sys::core::HRESULT = ::windows_sys
 pub const PSINK_E_QUERY_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215472i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PSINK_S_LARGE_WORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268179i32 as _);
+pub struct PSTR(i32);
+pub struct PWSTR(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const QPARSE_E_EXPECTING_BRACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215770i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -4523,6 +4599,8 @@ pub const QUERY_S_NO_QUERY: ::windows_sys::core::HRESULT = ::windows_sys::core::
 pub const QUTIL_E_CANT_CONVERT_VROOT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215754i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const QUTIL_E_INVALID_CODEPAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473928i32 as _);
+pub struct RECT(i32);
+pub struct RECTL(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const REGDB_E_BADTHREADINGMODEL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221162i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -5383,6 +5461,8 @@ pub const SEC_I_SIGNATURE_NEEDED: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const SEVERITY_ERROR: u32 = 1u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const SEVERITY_SUCCESS: u32 = 0u32;
+pub struct SHANDLE_PTR(i32);
+pub struct SIZE(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const SPAPI_E_AUTHENTICODE_DISALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146500032i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -11225,6 +11305,7 @@ pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const SUCCESS: u32 = 0u32;
+pub struct SYSTEMTIME(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2556505i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -12129,6 +12210,7 @@ pub const UI_E_VALUE_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core
 pub const UI_E_WINDOW_CLOSED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730623i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const UI_E_WRONG_THREAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731124i32 as _);
+pub struct UNICODE_STRING(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2017128380i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -12443,6 +12525,7 @@ pub const WHV_E_UNSUPPORTED_PROCESSOR_CONFIG: ::windows_sys::core::HRESULT = ::w
 pub const WHV_E_VP_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143878394i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const WHV_E_VP_DOES_NOT_EXIST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143878393i32 as _);
+pub struct WIN32_ERROR(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const WINCODEC_ERR_ALREADYLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003292403i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -12693,6 +12776,7 @@ pub const WINML_ERR_VALUE_NOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys
 pub const WINVER: u32 = 1280u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const WINVER_MAXVER: u32 = 2560u32;
+pub struct WPARAM(i32);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const WPN_E_ACCESS_DENIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143420137i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -12999,44 +13083,3 @@ pub const _WIN32_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn CloseHandle(hobject: HANDLE) -> BOOL;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn GetLastError() -> WIN32_ERROR;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SetLastError(dwerrcode: WIN32_ERROR);
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysAddRefString(bstrstring: BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysAllocString(psz: PWSTR) -> BSTR;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysAllocStringByteLen(psz: PSTR, len: u32) -> BSTR;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysFreeString(bstrstring: BSTR);
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysReAllocString(pbstr: *mut BSTR, psz: PWSTR) -> i32;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysReAllocStringLen(pbstr: *mut BSTR, psz: PWSTR, len: u32) -> i32;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysReleaseString(bstrstring: BSTR);
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysStringByteLen(bstr: BSTR) -> u32;
-    #[doc = "*Required features: `Win32_Foundation`*"]
-    pub fn SysStringLen(pbstr: BSTR) -> u32;
-}

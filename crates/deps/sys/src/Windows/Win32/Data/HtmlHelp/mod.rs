@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 pub const CLSID_IITCmdInt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883618, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_IITDatabase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1718039634, data2: 35875, data3: 4560, data4: [168, 78, 0, 170, 0, 108, 125, 1] };
 pub const CLSID_IITDatabaseLocal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883625, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
@@ -13,6 +15,8 @@ pub const CLSID_IITWordWheelLocal: ::windows_sys::core::GUID = ::windows_sys::GU
 pub const CLSID_IITWordWheelUpdate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883621, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_ITEngStemmer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2409682344, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_ITStdBreaker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883631, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub struct COLUMNSTATUS(i32);
+pub struct CProperty(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_ALL_WILD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147479467i32 as _);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -185,6 +189,8 @@ pub const HHACT_TOC_NEXT: i32 = 20i32;
 pub const HHACT_TOC_PREV: i32 = 21i32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_ZOOM: i32 = 19i32;
+pub struct HHNTRACK(i32);
+pub struct HHN_NOTIFY(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -333,6 +339,7 @@ pub const HHWIN_PROP_TRI_PANE: u32 = 32u32;
 pub const HHWIN_PROP_USER_POS: u32 = 262144u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
+pub struct HH_AKLINK(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ALINK_LOOKUP: u32 = 19u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -347,20 +354,25 @@ pub const HH_DISPLAY_TEXT_POPUP: u32 = 14u32;
 pub const HH_DISPLAY_TOC: u32 = 1u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_DISPLAY_TOPIC: u32 = 0u32;
+pub struct HH_ENUM_CAT(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ENUM_CATEGORY: u32 = 21u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ENUM_CATEGORY_IT: u32 = 22u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ENUM_INFO_TYPE: u32 = 7u32;
+pub struct HH_ENUM_IT(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_FTS_DEFAULT_PROXIMITY: i32 = -1i32;
+pub struct HH_FTS_QUERY(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_GET_LAST_ERROR: u32 = 20u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_GET_WIN_HANDLE: u32 = 6u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_GET_WIN_TYPE: u32 = 5u32;
+pub struct HH_GLOBAL_PROPERTY(i32);
+pub struct HH_GPROPID(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_HELP_CONTEXT: u32 = 15u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -371,6 +383,7 @@ pub const HH_INITIALIZE: u32 = 28u32;
 pub const HH_KEYWORD_LOOKUP: u32 = 13u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_MAX_TABS: u32 = 19u32;
+pub struct HH_POPUP(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_PRETRANSLATEMESSAGE: u32 = 253u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -389,6 +402,7 @@ pub const HH_SET_EXCLUSIVE_FILTER: u32 = 25u32;
 pub const HH_SET_GLOBAL_PROPERTY: u32 = 252u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_INCLUSIVE_FILTER: u32 = 24u32;
+pub struct HH_SET_INFOTYPE(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_INFO_TYPE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -419,6 +433,7 @@ pub const HH_TP_HELP_CONTEXTMENU: u32 = 16u32;
 pub const HH_TP_HELP_WM_HELP: u32 = 17u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_UNINITIALIZE: u32 = 29u32;
+pub struct HH_WINTYPE(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_BACK: u32 = 204u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -467,10 +482,19 @@ pub const IDTB_TOC_NEXT: u32 = 223u32;
 pub const IDTB_TOC_PREV: u32 = 224u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_ZOOM: u32 = 222u32;
+pub struct IITDatabase(i32);
+pub struct IITGroup(i32);
+pub struct IITPropList(i32);
+pub struct IITQuery(i32);
+pub struct IITResultSet(i32);
+pub struct IITStopWordList(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
+pub struct IITWordWheel(i32);
+pub struct IStemSink(i32);
+pub struct IStemmerConfig(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const ITWW_CBKEY_MAX: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -481,14 +505,18 @@ pub const IT_EXCLUSIVE: i32 = 1i32;
 pub const IT_HIDDEN: i32 = 2i32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IT_INCLUSIVE: i32 = 0i32;
+pub struct IWordBreakerConfig(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const MAX_COLUMNS: u32 = 256u32;
+pub struct PFNCOLHEAPFREE(i32);
+pub struct PRIORITY(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const PROP_ADD: u32 = 0u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const PROP_DELETE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const PROP_UPDATE: u32 = 2u32;
+pub struct ROWSTATUS(i32);
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
@@ -527,5 +555,4 @@ pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const TYPE_VALUE: u32 = 0u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct WORD_WHEEL_OPEN_FLAGS(i32);

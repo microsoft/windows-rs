@@ -1,6 +1,61 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub mod Common;
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    pub fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    pub fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub fn D2D1CreateDevice(dxgidevice: super::Dxgi::IDXGIDevice, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut ID2D1Device) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub fn D2D1CreateDeviceContext(dxgisurface: super::Dxgi::IDXGISurface, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut ID2D1DeviceContext) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
+    pub fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows_sys::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    pub fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
+        ppoint0: *const Common::D2D_POINT_2F,
+        ppoint1: *const Common::D2D_POINT_2F,
+        ppoint2: *const Common::D2D_POINT_2F,
+        ppoint3: *const Common::D2D_POINT_2F,
+        ppoint4: *const Common::D2D_POINT_2F,
+        ppoint5: *const Common::D2D_POINT_2F,
+        ppoint6: *const Common::D2D_POINT_2F,
+        ppoint7: *const Common::D2D_POINT_2F,
+        ppoint8: *const Common::D2D_POINT_2F,
+        ppoint9: *const Common::D2D_POINT_2F,
+        ppoint10: *const Common::D2D_POINT_2F,
+        ppoint11: *const Common::D2D_POINT_2F,
+        ptensorpoint11: *mut Common::D2D_POINT_2F,
+        ptensorpoint12: *mut Common::D2D_POINT_2F,
+        ptensorpoint21: *mut Common::D2D_POINT_2F,
+        ptensorpoint22: *mut Common::D2D_POINT_2F,
+    );
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
+    pub fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
+    pub fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    pub fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+    pub fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
+    pub fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32);
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
+    pub fn D2D1Tan(angle: f32) -> f32;
+    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
+    pub fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32;
+}
 pub const CLSID_D2D12DAffineTransform: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1789490309,
     data2: 25428,
@@ -221,66 +276,341 @@ pub const CLSID_D2D1YCbCr: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17865,
     data4: [168, 117, 138, 216, 167, 145, 68, 1],
 };
+pub struct D2D1_2DAFFINETRANSFORM_PROP(i32);
+pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(i32);
+pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(i32);
+pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(i32);
+pub struct D2D1_3DTRANSFORM_PROP(i32);
+pub struct D2D1_ANTIALIAS_MODE(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const D2D1_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
+pub struct D2D1_ARC_SEGMENT(i32);
+pub struct D2D1_ARC_SIZE(i32);
+pub struct D2D1_ARITHMETICCOMPOSITE_PROP(i32);
+pub struct D2D1_ATLAS_PROP(i32);
+pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(i32);
+pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(i32);
+pub struct D2D1_BITMAPSOURCE_ORIENTATION(i32);
+pub struct D2D1_BITMAPSOURCE_PROP(i32);
+pub struct D2D1_BITMAP_BRUSH_PROPERTIES(i32);
+pub struct D2D1_BITMAP_BRUSH_PROPERTIES1(i32);
+pub struct D2D1_BITMAP_INTERPOLATION_MODE(i32);
+pub struct D2D1_BITMAP_OPTIONS(i32);
+pub struct D2D1_BITMAP_PROPERTIES(i32);
+pub struct D2D1_BITMAP_PROPERTIES1(i32);
+pub struct D2D1_BLEND(i32);
+pub struct D2D1_BLEND_DESCRIPTION(i32);
+pub struct D2D1_BLEND_OPERATION(i32);
+pub struct D2D1_BLEND_PROP(i32);
+pub struct D2D1_BORDER_EDGE_MODE(i32);
+pub struct D2D1_BORDER_PROP(i32);
+pub struct D2D1_BRIGHTNESS_PROP(i32);
+pub struct D2D1_BRUSH_PROPERTIES(i32);
+pub struct D2D1_BUFFER_PRECISION(i32);
+pub struct D2D1_CAP_STYLE(i32);
+pub struct D2D1_CHANGE_TYPE(i32);
+pub struct D2D1_CHANNEL_DEPTH(i32);
+pub struct D2D1_CHANNEL_SELECTOR(i32);
+pub struct D2D1_CHROMAKEY_PROP(i32);
+pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(i32);
+pub struct D2D1_COLORMANAGEMENT_PROP(i32);
+pub struct D2D1_COLORMANAGEMENT_QUALITY(i32);
+pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(i32);
+pub struct D2D1_COLORMATRIX_PROP(i32);
+pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(i32);
+pub struct D2D1_COLOR_CONTEXT_TYPE(i32);
+pub struct D2D1_COLOR_INTERPOLATION_MODE(i32);
+pub struct D2D1_COLOR_SPACE(i32);
+pub struct D2D1_COMBINE_MODE(i32);
+pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(i32);
+pub struct D2D1_COMPOSITE_PROP(i32);
+pub struct D2D1_CONTRAST_PROP(i32);
+pub struct D2D1_CONVOLVEMATRIX_PROP(i32);
+pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(i32);
+pub struct D2D1_CREATION_PROPERTIES(i32);
+pub struct D2D1_CROP_PROP(i32);
+pub struct D2D1_CROSSFADE_PROP(i32);
+pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES(i32);
+pub struct D2D1_DASH_STYLE(i32);
+pub struct D2D1_DC_INITIALIZE_MODE(i32);
+pub struct D2D1_DEBUG_LEVEL(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const D2D1_DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25f32;
+pub struct D2D1_DEVICE_CONTEXT_OPTIONS(i32);
+pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(i32);
+pub struct D2D1_DIRECTIONALBLUR_PROP(i32);
+pub struct D2D1_DISCRETETRANSFER_PROP(i32);
+pub struct D2D1_DISPLACEMENTMAP_PROP(i32);
+pub struct D2D1_DISTANTDIFFUSE_PROP(i32);
+pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(i32);
+pub struct D2D1_DISTANTSPECULAR_PROP(i32);
+pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(i32);
+pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(i32);
+pub struct D2D1_DPICOMPENSATION_PROP(i32);
+pub struct D2D1_DRAWING_STATE_DESCRIPTION(i32);
+pub struct D2D1_DRAWING_STATE_DESCRIPTION1(i32);
+pub struct D2D1_DRAW_TEXT_OPTIONS(i32);
+pub struct D2D1_EDGEDETECTION_MODE(i32);
+pub struct D2D1_EDGEDETECTION_PROP(i32);
+pub struct D2D1_EFFECT_INPUT_DESCRIPTION(i32);
+pub struct D2D1_ELLIPSE(i32);
+pub struct D2D1_EMBOSS_PROP(i32);
+pub struct D2D1_EXPOSURE_PROP(i32);
+pub struct D2D1_EXTEND_MODE(i32);
+pub struct D2D1_FACTORY_OPTIONS(i32);
+pub struct D2D1_FACTORY_TYPE(i32);
+pub struct D2D1_FEATURE(i32);
+pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS(i32);
+pub struct D2D1_FEATURE_DATA_DOUBLES(i32);
+pub struct D2D1_FEATURE_LEVEL(i32);
+pub struct D2D1_FILTER(i32);
+pub struct D2D1_FLOOD_PROP(i32);
+pub struct D2D1_GAMMA(i32);
+pub struct D2D1_GAMMA1(i32);
+pub struct D2D1_GAMMATRANSFER_PROP(i32);
+pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(i32);
+pub struct D2D1_GAUSSIANBLUR_PROP(i32);
+pub struct D2D1_GEOMETRY_RELATION(i32);
+pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(i32);
+pub struct D2D1_GRADIENT_MESH_PATCH(i32);
+pub struct D2D1_GRADIENT_STOP(i32);
+pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(i32);
+pub struct D2D1_HDRTONEMAP_PROP(i32);
+pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(i32);
+pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(i32);
+pub struct D2D1_HISTOGRAM_PROP(i32);
+pub struct D2D1_HUEROTATION_PROP(i32);
+pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(i32);
+pub struct D2D1_HUETORGB_PROP(i32);
+pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES(i32);
+pub struct D2D1_IMAGE_BRUSH_PROPERTIES(i32);
+pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(i32);
+pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(i32);
+pub struct D2D1_INK_BEZIER_SEGMENT(i32);
+pub struct D2D1_INK_NIB_SHAPE(i32);
+pub struct D2D1_INK_POINT(i32);
+pub struct D2D1_INK_STYLE_PROPERTIES(i32);
+pub struct D2D1_INPUT_DESCRIPTION(i32);
+pub struct D2D1_INPUT_ELEMENT_DESC(i32);
+pub struct D2D1_INTERPOLATION_MODE(i32);
+pub struct D2D1_INTERPOLATION_MODE_DEFINITION(i32);
+pub struct D2D1_LAYER_OPTIONS(i32);
+pub struct D2D1_LAYER_OPTIONS1(i32);
+pub struct D2D1_LAYER_PARAMETERS(i32);
+pub struct D2D1_LAYER_PARAMETERS1(i32);
+pub struct D2D1_LINEARTRANSFER_PROP(i32);
+pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES(i32);
+pub struct D2D1_LINE_JOIN(i32);
+pub struct D2D1_LOOKUPTABLE3D_PROP(i32);
+pub struct D2D1_MAPPED_RECT(i32);
+pub struct D2D1_MAP_OPTIONS(i32);
+pub struct D2D1_MORPHOLOGY_MODE(i32);
+pub struct D2D1_MORPHOLOGY_PROP(i32);
+pub struct D2D1_OPACITYMETADATA_PROP(i32);
+pub struct D2D1_OPACITY_MASK_CONTENT(i32);
+pub struct D2D1_OPACITY_PROP(i32);
+pub struct D2D1_ORIENTATION(i32);
+pub struct D2D1_PATCH_EDGE_MODE(i32);
+pub struct D2D1_PIXEL_OPTIONS(i32);
+pub struct D2D1_POINTDIFFUSE_PROP(i32);
+pub struct D2D1_POINTDIFFUSE_SCALE_MODE(i32);
+pub struct D2D1_POINTSPECULAR_PROP(i32);
+pub struct D2D1_POINTSPECULAR_SCALE_MODE(i32);
+pub struct D2D1_POINT_DESCRIPTION(i32);
+pub struct D2D1_POSTERIZE_PROP(i32);
+pub struct D2D1_PRESENT_OPTIONS(i32);
+pub struct D2D1_PRIMITIVE_BLEND(i32);
+pub struct D2D1_PRINT_CONTROL_PROPERTIES(i32);
+pub struct D2D1_PRINT_FONT_SUBSET_MODE(i32);
+pub struct D2D1_PROPERTY(i32);
+pub struct D2D1_PROPERTY_BINDING(i32);
+pub struct D2D1_PROPERTY_TYPE(i32);
+pub struct D2D1_QUADRATIC_BEZIER_SEGMENT(i32);
+pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES(i32);
+pub struct D2D1_RENDERING_CONTROLS(i32);
+pub struct D2D1_RENDERING_PRIORITY(i32);
+pub struct D2D1_RENDER_TARGET_PROPERTIES(i32);
+pub struct D2D1_RENDER_TARGET_TYPE(i32);
+pub struct D2D1_RENDER_TARGET_USAGE(i32);
+pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES(i32);
+pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(i32);
+pub struct D2D1_RGBTOHUE_PROP(i32);
+pub struct D2D1_ROUNDED_RECT(i32);
+pub struct D2D1_SATURATION_PROP(i32);
+pub struct D2D1_SCALE_INTERPOLATION_MODE(i32);
+pub struct D2D1_SCALE_PROP(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80f32;
+pub struct D2D1_SEPIA_PROP(i32);
+pub struct D2D1_SHADOW_OPTIMIZATION(i32);
+pub struct D2D1_SHADOW_PROP(i32);
+pub struct D2D1_SHARPEN_PROP(i32);
+pub struct D2D1_SIMPLE_COLOR_PROFILE(i32);
+pub struct D2D1_SPOTDIFFUSE_PROP(i32);
+pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(i32);
+pub struct D2D1_SPOTSPECULAR_PROP(i32);
+pub struct D2D1_SPOTSPECULAR_SCALE_MODE(i32);
+pub struct D2D1_SPRITE_OPTIONS(i32);
+pub struct D2D1_STRAIGHTEN_PROP(i32);
+pub struct D2D1_STRAIGHTEN_SCALE_MODE(i32);
+pub struct D2D1_STROKE_STYLE_PROPERTIES(i32);
+pub struct D2D1_STROKE_STYLE_PROPERTIES1(i32);
+pub struct D2D1_STROKE_TRANSFORM_TYPE(i32);
+pub struct D2D1_SUBPROPERTY(i32);
+pub struct D2D1_SVG_ASPECT_ALIGN(i32);
+pub struct D2D1_SVG_ASPECT_SCALING(i32);
+pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(i32);
+pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(i32);
+pub struct D2D1_SVG_DISPLAY(i32);
+pub struct D2D1_SVG_LENGTH(i32);
+pub struct D2D1_SVG_LENGTH_UNITS(i32);
+pub struct D2D1_SVG_LINE_CAP(i32);
+pub struct D2D1_SVG_LINE_JOIN(i32);
+pub struct D2D1_SVG_OVERFLOW(i32);
+pub struct D2D1_SVG_PAINT_TYPE(i32);
+pub struct D2D1_SVG_PATH_COMMAND(i32);
+pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO(i32);
+pub struct D2D1_SVG_UNIT_TYPE(i32);
+pub struct D2D1_SVG_VIEWBOX(i32);
+pub struct D2D1_SVG_VISIBILITY(i32);
+pub struct D2D1_SWEEP_DIRECTION(i32);
+pub struct D2D1_TABLETRANSFER_PROP(i32);
+pub struct D2D1_TEMPERATUREANDTINT_PROP(i32);
+pub struct D2D1_TEXT_ANTIALIAS_MODE(i32);
+pub struct D2D1_THREADING_MODE(i32);
+pub struct D2D1_TILE_PROP(i32);
+pub struct D2D1_TINT_PROP(i32);
+pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(i32);
+pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES(i32);
+pub struct D2D1_TRIANGLE(i32);
+pub struct D2D1_TURBULENCE_PROP(i32);
+pub struct D2D1_UNIT_MODE(i32);
+pub struct D2D1_VERTEX_BUFFER_PROPERTIES(i32);
+pub struct D2D1_VERTEX_OPTIONS(i32);
+pub struct D2D1_VERTEX_RANGE(i32);
+pub struct D2D1_VERTEX_USAGE(i32);
+pub struct D2D1_VIGNETTE_PROP(i32);
+pub struct D2D1_WHITELEVELADJUSTMENT_PROP(i32);
+pub struct D2D1_WINDOW_STATE(i32);
+pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(i32);
+pub struct D2D1_YCBCR_INTERPOLATION_MODE(i32);
+pub struct D2D1_YCBCR_PROP(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const FACILITY_D2D: u32 = 2201u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
-    #[cfg(feature = "Foundation_Numerics")]
-    pub fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn D2D1CreateDevice(dxgidevice: super::Dxgi::IDXGIDevice, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut ID2D1Device) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn D2D1CreateDeviceContext(dxgisurface: super::Dxgi::IDXGISurface, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut ID2D1DeviceContext) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
-    pub fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows_sys::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
-        ppoint0: *const Common::D2D_POINT_2F,
-        ppoint1: *const Common::D2D_POINT_2F,
-        ppoint2: *const Common::D2D_POINT_2F,
-        ppoint3: *const Common::D2D_POINT_2F,
-        ppoint4: *const Common::D2D_POINT_2F,
-        ppoint5: *const Common::D2D_POINT_2F,
-        ppoint6: *const Common::D2D_POINT_2F,
-        ppoint7: *const Common::D2D_POINT_2F,
-        ppoint8: *const Common::D2D_POINT_2F,
-        ppoint9: *const Common::D2D_POINT_2F,
-        ppoint10: *const Common::D2D_POINT_2F,
-        ppoint11: *const Common::D2D_POINT_2F,
-        ptensorpoint11: *mut Common::D2D_POINT_2F,
-        ptensorpoint12: *mut Common::D2D_POINT_2F,
-        ptensorpoint21: *mut Common::D2D_POINT_2F,
-        ptensorpoint22: *mut Common::D2D_POINT_2F,
-    );
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
-    pub fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
-    pub fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
-    pub fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32);
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
-    pub fn D2D1Tan(angle: f32) -> f32;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
-    pub fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32;
-}
+pub struct ID2D1AnalysisTransform(i32);
+pub struct ID2D1Bitmap(i32);
+pub struct ID2D1Bitmap1(i32);
+pub struct ID2D1BitmapBrush(i32);
+pub struct ID2D1BitmapBrush1(i32);
+pub struct ID2D1BitmapRenderTarget(i32);
+pub struct ID2D1BlendTransform(i32);
+pub struct ID2D1BorderTransform(i32);
+pub struct ID2D1BoundsAdjustmentTransform(i32);
+pub struct ID2D1Brush(i32);
+pub struct ID2D1ColorContext(i32);
+pub struct ID2D1ColorContext1(i32);
+pub struct ID2D1CommandList(i32);
+pub struct ID2D1CommandSink(i32);
+pub struct ID2D1CommandSink1(i32);
+pub struct ID2D1CommandSink2(i32);
+pub struct ID2D1CommandSink3(i32);
+pub struct ID2D1CommandSink4(i32);
+pub struct ID2D1CommandSink5(i32);
+pub struct ID2D1ComputeInfo(i32);
+pub struct ID2D1ComputeTransform(i32);
+pub struct ID2D1ConcreteTransform(i32);
+pub struct ID2D1DCRenderTarget(i32);
+pub struct ID2D1Device(i32);
+pub struct ID2D1Device1(i32);
+pub struct ID2D1Device2(i32);
+pub struct ID2D1Device3(i32);
+pub struct ID2D1Device4(i32);
+pub struct ID2D1Device5(i32);
+pub struct ID2D1Device6(i32);
+pub struct ID2D1DeviceContext(i32);
+pub struct ID2D1DeviceContext1(i32);
+pub struct ID2D1DeviceContext2(i32);
+pub struct ID2D1DeviceContext3(i32);
+pub struct ID2D1DeviceContext4(i32);
+pub struct ID2D1DeviceContext5(i32);
+pub struct ID2D1DeviceContext6(i32);
+pub struct ID2D1DrawInfo(i32);
+pub struct ID2D1DrawTransform(i32);
+pub struct ID2D1DrawingStateBlock(i32);
+pub struct ID2D1DrawingStateBlock1(i32);
+pub struct ID2D1Effect(i32);
+pub struct ID2D1EffectContext(i32);
+pub struct ID2D1EffectContext1(i32);
+pub struct ID2D1EffectContext2(i32);
+pub struct ID2D1EffectImpl(i32);
+pub struct ID2D1EllipseGeometry(i32);
+pub struct ID2D1Factory(i32);
+pub struct ID2D1Factory1(i32);
+pub struct ID2D1Factory2(i32);
+pub struct ID2D1Factory3(i32);
+pub struct ID2D1Factory4(i32);
+pub struct ID2D1Factory5(i32);
+pub struct ID2D1Factory6(i32);
+pub struct ID2D1Factory7(i32);
+pub struct ID2D1GdiInteropRenderTarget(i32);
+pub struct ID2D1GdiMetafile(i32);
+pub struct ID2D1GdiMetafile1(i32);
+pub struct ID2D1GdiMetafileSink(i32);
+pub struct ID2D1GdiMetafileSink1(i32);
+pub struct ID2D1Geometry(i32);
+pub struct ID2D1GeometryGroup(i32);
+pub struct ID2D1GeometryRealization(i32);
+pub struct ID2D1GeometrySink(i32);
+pub struct ID2D1GradientMesh(i32);
+pub struct ID2D1GradientStopCollection(i32);
+pub struct ID2D1GradientStopCollection1(i32);
+pub struct ID2D1HwndRenderTarget(i32);
+pub struct ID2D1Image(i32);
+pub struct ID2D1ImageBrush(i32);
+pub struct ID2D1ImageSource(i32);
+pub struct ID2D1ImageSourceFromWic(i32);
+pub struct ID2D1Ink(i32);
+pub struct ID2D1InkStyle(i32);
+pub struct ID2D1Layer(i32);
+pub struct ID2D1LinearGradientBrush(i32);
+pub struct ID2D1LookupTable3D(i32);
+pub struct ID2D1Mesh(i32);
+pub struct ID2D1Multithread(i32);
+pub struct ID2D1OffsetTransform(i32);
+pub struct ID2D1PathGeometry(i32);
+pub struct ID2D1PathGeometry1(i32);
+pub struct ID2D1PrintControl(i32);
+pub struct ID2D1Properties(i32);
+pub struct ID2D1RadialGradientBrush(i32);
+pub struct ID2D1RectangleGeometry(i32);
+pub struct ID2D1RenderInfo(i32);
+pub struct ID2D1RenderTarget(i32);
+pub struct ID2D1Resource(i32);
+pub struct ID2D1ResourceTexture(i32);
+pub struct ID2D1RoundedRectangleGeometry(i32);
+pub struct ID2D1SolidColorBrush(i32);
+pub struct ID2D1SourceTransform(i32);
+pub struct ID2D1SpriteBatch(i32);
+pub struct ID2D1StrokeStyle(i32);
+pub struct ID2D1StrokeStyle1(i32);
+pub struct ID2D1SvgAttribute(i32);
+pub struct ID2D1SvgDocument(i32);
+pub struct ID2D1SvgElement(i32);
+pub struct ID2D1SvgGlyphStyle(i32);
+pub struct ID2D1SvgPaint(i32);
+pub struct ID2D1SvgPathData(i32);
+pub struct ID2D1SvgPointCollection(i32);
+pub struct ID2D1SvgStrokeDashArray(i32);
+pub struct ID2D1TessellationSink(i32);
+pub struct ID2D1Transform(i32);
+pub struct ID2D1TransformGraph(i32);
+pub struct ID2D1TransformNode(i32);
+pub struct ID2D1TransformedGeometry(i32);
+pub struct ID2D1TransformedImageSource(i32);
+pub struct ID2D1VertexBuffer(i32);
+pub struct Matrix4x3F(i32);
+pub struct Matrix4x4F(i32);
+pub struct Matrix5x4F(i32);
+pub struct PD2D1_EFFECT_FACTORY(i32);
+pub struct PD2D1_PROPERTY_GET_FUNCTION(i32);
+pub struct PD2D1_PROPERTY_SET_FUNCTION(i32);

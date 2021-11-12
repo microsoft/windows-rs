@@ -1,84 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_DUMP_AUXILIARY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_DUMP_MASK_START: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_FILE_COMPRESSED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_EVENT_NAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_FRIENDLY_EVENT_NAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_PARAM_COUNT: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_PARAM_LENGTH: u32 = 260u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_PREFERRED_MODULES: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_PREFERRED_MODULES_BUFFER: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_REGISTERED_DUMPCOLLECTION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_REGISTERED_ENTRIES: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_REGISTERED_METADATA: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_SIGNATURE_NAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_MAX_TOTAL_PARAM_LENGTH: u32 = 1720u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_METADATA_KEY_MAX_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_METADATA_VALUE_MAX_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P0: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P1: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P2: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P3: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P4: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P5: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P6: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P7: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P8: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_P9: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
-pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
@@ -190,3 +110,117 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+pub struct EFaultRepRetVal(i32);
+pub struct HREPORT(i32);
+pub struct HREPORTSTORE(i32);
+pub struct PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(i32);
+pub struct PFN_WER_RUNTIME_EXCEPTION_EVENT(i32);
+pub struct PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(i32);
+pub struct REPORT_STORE_TYPES(i32);
+pub struct WER_CONSENT(i32);
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_DUMP_AUXILIARY: u32 = 2u32;
+pub struct WER_DUMP_CUSTOM_OPTIONS(i32);
+pub struct WER_DUMP_CUSTOM_OPTIONS_V2(i32);
+pub struct WER_DUMP_CUSTOM_OPTIONS_V3(i32);
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_DUMP_MASK_START: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
+pub struct WER_DUMP_TYPE(i32);
+pub struct WER_EXCEPTION_INFORMATION(i32);
+pub struct WER_FAULT_REPORTING(i32);
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
+pub struct WER_FILE(i32);
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_FILE_COMPRESSED: u32 = 4u32;
+pub struct WER_FILE_TYPE(i32);
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_EVENT_NAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_FRIENDLY_EVENT_NAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_PARAM_COUNT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_PARAM_LENGTH: u32 = 260u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_PREFERRED_MODULES: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_PREFERRED_MODULES_BUFFER: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_REGISTERED_DUMPCOLLECTION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_REGISTERED_ENTRIES: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_REGISTERED_METADATA: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_SIGNATURE_NAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_MAX_TOTAL_PARAM_LENGTH: u32 = 1720u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_METADATA_KEY_MAX_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_METADATA_VALUE_MAX_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P0: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P3: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P4: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P5: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P6: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P7: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P8: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_P9: u32 = 9u32;
+pub struct WER_REGISTER_FILE_TYPE(i32);
+pub struct WER_REPORT_INFORMATION(i32);
+pub struct WER_REPORT_INFORMATION_V3(i32);
+pub struct WER_REPORT_INFORMATION_V4(i32);
+pub struct WER_REPORT_INFORMATION_V5(i32);
+pub struct WER_REPORT_METADATA_V1(i32);
+pub struct WER_REPORT_METADATA_V2(i32);
+pub struct WER_REPORT_METADATA_V3(i32);
+pub struct WER_REPORT_PARAMETER(i32);
+pub struct WER_REPORT_SIGNATURE(i32);
+pub struct WER_REPORT_TYPE(i32);
+pub struct WER_REPORT_UI(i32);
+pub struct WER_RUNTIME_EXCEPTION_INFORMATION(i32);
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
+pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
+pub struct WER_SUBMIT_FLAGS(i32);
+pub struct WER_SUBMIT_RESULT(i32);
+pub struct pfn_ADDEREXCLUDEDAPPLICATIONA(i32);
+pub struct pfn_ADDEREXCLUDEDAPPLICATIONW(i32);
+pub struct pfn_REPORTFAULT(i32);

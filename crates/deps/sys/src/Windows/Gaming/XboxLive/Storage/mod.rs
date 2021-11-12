@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct GameSaveBlobGetResult(i32);
+pub struct GameSaveBlobInfo(i32);
+pub struct GameSaveBlobInfoGetResult(i32);
+pub struct GameSaveBlobInfoQuery(i32);
+pub struct GameSaveContainer(i32);
+pub struct GameSaveContainerInfo(i32);
+pub struct GameSaveContainerInfoGetResult(i32);
+pub struct GameSaveContainerInfoQuery(i32);
+pub struct GameSaveErrorStatus(i32);
+pub struct GameSaveOperationResult(i32);
+pub struct GameSaveProvider(i32);
+pub struct GameSaveProviderGetResult(i32);
+pub struct IGameSaveBlobGetResult(i32);
+pub struct IGameSaveBlobInfo(i32);
+pub struct IGameSaveBlobInfoGetResult(i32);
+pub struct IGameSaveBlobInfoQuery(i32);
+pub struct IGameSaveContainer(i32);
+pub struct IGameSaveContainerInfo(i32);
+pub struct IGameSaveContainerInfoGetResult(i32);
+pub struct IGameSaveContainerInfoQuery(i32);
+pub struct IGameSaveOperationResult(i32);
+pub struct IGameSaveProvider(i32);
+pub struct IGameSaveProviderGetResult(i32);
+pub struct IGameSaveProviderStatics(i32);

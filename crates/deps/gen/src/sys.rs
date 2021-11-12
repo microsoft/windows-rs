@@ -1,27 +1,39 @@
 use super::*;
 
 pub fn gen_sys(tree: &TypeTree, gen: &Gen) -> TokenStream {
-    let constants = gen_constants(tree, gen);
     let functions = gen_functions(tree, gen);
+    let types = gen_types(tree, gen);
 
     quote! {
-        #constants
         #functions
+        #types
     }
 }
 
-fn gen_constants(tree: &TypeTree, gen: &Gen) -> TokenStream {
+fn gen_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for entry in tree.types.values() {
         for def in &entry.def {
-            if let ElementType::Field(def) = def {
-                tokens.combine(&gen_constant(def, gen));
-            }
+            tokens.combine(&gen_type(def, gen));
         }
     }
 
     tokens
+}
+
+fn gen_type(entry: &ElementType, gen: &Gen) -> TokenStream {
+    match entry {
+        ElementType::Field(def) => gen_constant(def, gen),
+        ElementType::TypeDef(def) => gen_type_def(&def.clone().with_generics(), gen),
+        _ => quote! {}
+    }
+}
+
+fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_type_name(def, gen);
+
+    quote! { pub struct #name(i32); }
 }
 
 fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {

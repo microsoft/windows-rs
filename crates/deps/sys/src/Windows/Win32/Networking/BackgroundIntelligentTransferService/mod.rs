@@ -1,4 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct AsyncIBackgroundCopyCallback(i32);
+pub struct BG_AUTH_CREDENTIALS(i32);
+pub struct BG_AUTH_CREDENTIALS_UNION(i32);
+pub struct BG_AUTH_SCHEME(i32);
+pub struct BG_AUTH_TARGET(i32);
+pub struct BG_BASIC_CREDENTIALS(i32);
+pub struct BG_CERT_STORE_LOCATION(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_COPY_FILE_ALL: u32 = 15u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -15,6 +24,7 @@ pub const BG_DISABLE_BRANCH_CACHE: u32 = 4u32;
 pub const BG_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
+pub struct BG_ERROR_CONTEXT(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_E_APP_PACKAGE_NOT_FOUND: i32 = -2145386390i32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -269,6 +279,9 @@ pub const BG_E_VALIDATION_FAILED: i32 = -2145386413i32;
 pub const BG_E_VOLUME_CHANGED: i32 = -2145386482i32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_E_WATCHDOG_TIMEOUT: i32 = -2145386391i32;
+pub struct BG_FILE_INFO(i32);
+pub struct BG_FILE_PROGRESS(i32);
+pub struct BG_FILE_RANGE(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: u32 = 2048u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -287,6 +300,13 @@ pub const BG_JOB_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
 pub const BG_JOB_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_JOB_ENUM_ALL_USERS: u32 = 1u32;
+pub struct BG_JOB_PRIORITY(i32);
+pub struct BG_JOB_PROGRESS(i32);
+pub struct BG_JOB_PROXY_USAGE(i32);
+pub struct BG_JOB_REPLY_PROGRESS(i32);
+pub struct BG_JOB_STATE(i32);
+pub struct BG_JOB_TIMES(i32);
+pub struct BG_JOB_TYPE(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_NOTIFY_DISABLE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -319,6 +339,8 @@ pub const BG_S_PARTIAL_COMPLETE: i32 = 2097175i32;
 pub const BG_S_PROXY_CHANGED: i32 = 2097194i32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_S_UNABLE_TO_DELETE_FILES: i32 = 2097178i32;
+pub struct BG_TOKEN(i32);
+pub struct BITSExtensionSetupFactory(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -339,6 +361,11 @@ pub const BITS_COST_STATE_ROAMING: u32 = 128u32;
 pub const BITS_COST_STATE_UNRESTRICTED: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_COST_STATE_USAGE_BASED: u32 = 64u32;
+pub struct BITS_FILE_PROPERTY_ID(i32);
+pub struct BITS_FILE_PROPERTY_VALUE(i32);
+pub struct BITS_JOB_PROPERTY_ID(i32);
+pub struct BITS_JOB_PROPERTY_VALUE(i32);
+pub struct BITS_JOB_TRANSFER_POLICY(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_MC_FAILED_TO_START: i32 = -2145828856i32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -363,6 +390,55 @@ pub const BITS_MC_PEERCACHING_PORT: i32 = -2145828854i32;
 pub const BITS_MC_STATE_FILE_CORRUPT: i32 = -2145828857i32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_MC_WSD_PORT: i32 = -2145828853i32;
+pub struct BackgroundCopyManager(i32);
+pub struct BackgroundCopyManager10_1(i32);
+pub struct BackgroundCopyManager10_2(i32);
+pub struct BackgroundCopyManager10_3(i32);
+pub struct BackgroundCopyManager1_5(i32);
+pub struct BackgroundCopyManager2_0(i32);
+pub struct BackgroundCopyManager2_5(i32);
+pub struct BackgroundCopyManager3_0(i32);
+pub struct BackgroundCopyManager4_0(i32);
+pub struct BackgroundCopyManager5_0(i32);
+pub struct BackgroundCopyQMgr(i32);
+pub struct FILESETINFO(i32);
+pub struct GROUPPROP(i32);
+pub struct IBITSExtensionSetup(i32);
+pub struct IBITSExtensionSetupFactory(i32);
+pub struct IBackgroundCopyCallback(i32);
+pub struct IBackgroundCopyCallback1(i32);
+pub struct IBackgroundCopyCallback2(i32);
+pub struct IBackgroundCopyCallback3(i32);
+pub struct IBackgroundCopyError(i32);
+pub struct IBackgroundCopyFile(i32);
+pub struct IBackgroundCopyFile2(i32);
+pub struct IBackgroundCopyFile3(i32);
+pub struct IBackgroundCopyFile4(i32);
+pub struct IBackgroundCopyFile5(i32);
+pub struct IBackgroundCopyFile6(i32);
+pub struct IBackgroundCopyGroup(i32);
+pub struct IBackgroundCopyJob(i32);
+pub struct IBackgroundCopyJob1(i32);
+pub struct IBackgroundCopyJob2(i32);
+pub struct IBackgroundCopyJob3(i32);
+pub struct IBackgroundCopyJob4(i32);
+pub struct IBackgroundCopyJob5(i32);
+pub struct IBackgroundCopyJobHttpOptions(i32);
+pub struct IBackgroundCopyJobHttpOptions2(i32);
+pub struct IBackgroundCopyJobHttpOptions3(i32);
+pub struct IBackgroundCopyManager(i32);
+pub struct IBackgroundCopyQMgr(i32);
+pub struct IBackgroundCopyServerCertificateValidationCallback(i32);
+pub struct IBitsPeer(i32);
+pub struct IBitsPeerCacheAdministration(i32);
+pub struct IBitsPeerCacheRecord(i32);
+pub struct IBitsTokenOptions(i32);
+pub struct IEnumBackgroundCopyFiles(i32);
+pub struct IEnumBackgroundCopyGroups(i32);
+pub struct IEnumBackgroundCopyJobs(i32);
+pub struct IEnumBackgroundCopyJobs1(i32);
+pub struct IEnumBitsPeerCacheRecords(i32);
+pub struct IEnumBitsPeers(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const QM_E_DOWNLOADER_UNAVAILABLE: u32 = 2164264963u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -417,5 +493,3 @@ pub const QM_STATUS_JOB_ERROR: u32 = 16u32;
 pub const QM_STATUS_JOB_FOREGROUND: u32 = 32u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const QM_STATUS_JOB_INCOMPLETE: u32 = 8u32;
-#[link(name = "windows")]
-extern "system" {}

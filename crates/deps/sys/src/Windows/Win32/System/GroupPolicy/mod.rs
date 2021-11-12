@@ -1,195 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771700, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3931121442, data2: 41533, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1841528907,
-    data2: 29202,
-    data3: 17805,
-    data4: [173, 176, 154, 7, 226, 174, 31, 162],
-};
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_FORCE_CREATENAMESPACE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_LOOPBACK_MERGE: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_LOOPBACK_REPLACE: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_NO_COMPUTER: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_NO_USER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPC_BLOCK_POLICY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPM_DONOTUSE_W2KDC: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPM_DONOT_VALIDATEDC: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPM_MIGRATIONTABLE_ONLY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPM_PROCESS_SECURITY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPM_USE_ANYDC: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPM_USE_PDC: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_BROWSE_INITTOALL: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_BROWSE_NOCOMPUTERS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_BROWSE_NODSGPOS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_BROWSE_NOUSERGPOS: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_BROWSE_OPENBUTTON: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_BROWSE_SENDAPPLYONEDIT: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_FLAG_DISABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_FLAG_FORCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_BACKGROUND: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_LIST_FLAG_SITEONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_OPEN_LOAD_REGISTRY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_OPEN_READ_ONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_OPTION_DISABLE_MACHINE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_SECTION_MACHINE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_SECTION_ROOT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const GPO_SECTION_USER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const LOCALSTATE_ORPHANED: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
-pub const NODEID_Machine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771703, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const NODEID_MachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771706, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const NODEID_RSOPMachine: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3175881262,
-    data2: 2938,
-    data3: 19042,
-    data4: [166, 176, 192, 87, 117, 57, 201, 126],
-};
-pub const NODEID_RSOPMachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1786128190, data2: 60302, data3: 17883, data4: [148, 197, 37, 102, 58, 95, 44, 26] };
-pub const NODEID_RSOPUser: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 2877765199,
-    data2: 3308,
-    data3: 19672,
-    data4: [155, 248, 137, 143, 52, 98, 143, 184],
-};
-pub const NODEID_RSOPUserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 3844889827,
-    data2: 64807,
-    data3: 17410,
-    data4: [132, 222, 217, 165, 242, 133, 137, 16],
-};
-pub const NODEID_User: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771704, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const NODEID_UserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771708, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const PI_APPLYPOLICY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const PI_NOUI: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const PT_MANDATORY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const PT_ROAMING: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const PT_TEMPORARY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RP_FORCE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RP_SYNC: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_NO_COMPUTER: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_NO_USER: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_PLANNING_ASSUME_LOOPBACK_MERGE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
-pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -299,3 +108,303 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
+pub struct APPSTATE(i32);
+pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771700, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3931121442, data2: 41533, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1841528907,
+    data2: 29202,
+    data3: 17805,
+    data4: [173, 176, 154, 7, 226, 174, 31, 162],
+};
+pub struct CriticalPolicySectionHandle(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_FORCE_CREATENAMESPACE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_LOOPBACK_MERGE: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_LOOPBACK_REPLACE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_NO_COMPUTER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_NO_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPC_BLOCK_POLICY: u32 = 1u32;
+pub struct GPM(i32);
+pub struct GPMAsyncCancel(i32);
+pub struct GPMBackup(i32);
+pub struct GPMBackupCollection(i32);
+pub struct GPMBackupDir(i32);
+pub struct GPMBackupDirEx(i32);
+pub struct GPMBackupType(i32);
+pub struct GPMCSECollection(i32);
+pub struct GPMClientSideExtension(i32);
+pub struct GPMConstants(i32);
+pub struct GPMDestinationOption(i32);
+pub struct GPMDomain(i32);
+pub struct GPMEntryType(i32);
+pub struct GPMGPO(i32);
+pub struct GPMGPOCollection(i32);
+pub struct GPMGPOLink(i32);
+pub struct GPMGPOLinksCollection(i32);
+pub struct GPMMapEntry(i32);
+pub struct GPMMapEntryCollection(i32);
+pub struct GPMMigrationTable(i32);
+pub struct GPMPermission(i32);
+pub struct GPMPermissionType(i32);
+pub struct GPMRSOP(i32);
+pub struct GPMRSOPMode(i32);
+pub struct GPMReportType(i32);
+pub struct GPMReportingOptions(i32);
+pub struct GPMResult(i32);
+pub struct GPMSOM(i32);
+pub struct GPMSOMCollection(i32);
+pub struct GPMSOMType(i32);
+pub struct GPMSearchCriteria(i32);
+pub struct GPMSearchOperation(i32);
+pub struct GPMSearchProperty(i32);
+pub struct GPMSecurityInfo(i32);
+pub struct GPMSitesContainer(i32);
+pub struct GPMStarterGPOBackup(i32);
+pub struct GPMStarterGPOBackupCollection(i32);
+pub struct GPMStarterGPOCollection(i32);
+pub struct GPMStarterGPOType(i32);
+pub struct GPMStatusMessage(i32);
+pub struct GPMStatusMsgCollection(i32);
+pub struct GPMTemplate(i32);
+pub struct GPMTrustee(i32);
+pub struct GPMWMIFilter(i32);
+pub struct GPMWMIFilterCollection(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPM_DONOTUSE_W2KDC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPM_DONOT_VALIDATEDC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPM_MIGRATIONTABLE_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPM_PROCESS_SECURITY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPM_USE_ANYDC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPM_USE_PDC: u32 = 0u32;
+pub struct GPOBROWSEINFO(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_BROWSE_INITTOALL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_BROWSE_NOCOMPUTERS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_BROWSE_NODSGPOS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_BROWSE_NOUSERGPOS: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_BROWSE_OPENBUTTON: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_BROWSE_SENDAPPLYONEDIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_FLAG_DISABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_FLAG_FORCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_BACKGROUND: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_MACHINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
+pub struct GPO_LINK(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_LIST_FLAG_SITEONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_OPEN_LOAD_REGISTRY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_OPEN_READ_ONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_OPTION_DISABLE_MACHINE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_SECTION_MACHINE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_SECTION_ROOT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const GPO_SECTION_USER: u32 = 1u32;
+pub struct GROUP_POLICY_HINT_TYPE(i32);
+pub struct GROUP_POLICY_OBJECTA(i32);
+pub struct GROUP_POLICY_OBJECTW(i32);
+pub struct GROUP_POLICY_OBJECT_TYPE(i32);
+pub struct IGPEInformation(i32);
+pub struct IGPM(i32);
+pub struct IGPM2(i32);
+pub struct IGPMAsyncCancel(i32);
+pub struct IGPMAsyncProgress(i32);
+pub struct IGPMBackup(i32);
+pub struct IGPMBackupCollection(i32);
+pub struct IGPMBackupDir(i32);
+pub struct IGPMBackupDirEx(i32);
+pub struct IGPMCSECollection(i32);
+pub struct IGPMClientSideExtension(i32);
+pub struct IGPMConstants(i32);
+pub struct IGPMConstants2(i32);
+pub struct IGPMDomain(i32);
+pub struct IGPMDomain2(i32);
+pub struct IGPMDomain3(i32);
+pub struct IGPMGPO(i32);
+pub struct IGPMGPO2(i32);
+pub struct IGPMGPO3(i32);
+pub struct IGPMGPOCollection(i32);
+pub struct IGPMGPOLink(i32);
+pub struct IGPMGPOLinksCollection(i32);
+pub struct IGPMMapEntry(i32);
+pub struct IGPMMapEntryCollection(i32);
+pub struct IGPMMigrationTable(i32);
+pub struct IGPMPermission(i32);
+pub struct IGPMRSOP(i32);
+pub struct IGPMResult(i32);
+pub struct IGPMSOM(i32);
+pub struct IGPMSOMCollection(i32);
+pub struct IGPMSearchCriteria(i32);
+pub struct IGPMSecurityInfo(i32);
+pub struct IGPMSitesContainer(i32);
+pub struct IGPMStarterGPO(i32);
+pub struct IGPMStarterGPOBackup(i32);
+pub struct IGPMStarterGPOBackupCollection(i32);
+pub struct IGPMStarterGPOCollection(i32);
+pub struct IGPMStatusMessage(i32);
+pub struct IGPMStatusMsgCollection(i32);
+pub struct IGPMTrustee(i32);
+pub struct IGPMWMIFilter(i32);
+pub struct IGPMWMIFilterCollection(i32);
+pub struct IGroupPolicyObject(i32);
+pub struct INSTALLDATA(i32);
+pub struct INSTALLSPEC(i32);
+pub struct INSTALLSPECTYPE(i32);
+pub struct IRSOPInformation(i32);
+pub struct LOCALMANAGEDAPPLICATION(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const LOCALSTATE_ORPHANED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
+pub struct MANAGEDAPPLICATION(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
+pub const NODEID_Machine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771703, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const NODEID_MachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771706, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const NODEID_RSOPMachine: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3175881262,
+    data2: 2938,
+    data3: 19042,
+    data4: [166, 176, 192, 87, 117, 57, 201, 126],
+};
+pub const NODEID_RSOPMachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1786128190, data2: 60302, data3: 17883, data4: [148, 197, 37, 102, 58, 95, 44, 26] };
+pub const NODEID_RSOPUser: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2877765199,
+    data2: 3308,
+    data3: 19672,
+    data4: [155, 248, 137, 143, 52, 98, 143, 184],
+};
+pub const NODEID_RSOPUserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3844889827,
+    data2: 64807,
+    data3: 17410,
+    data4: [132, 222, 217, 165, 242, 133, 137, 16],
+};
+pub const NODEID_User: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771704, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const NODEID_UserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771708, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub struct PFNGENERATEGROUPPOLICY(i32);
+pub struct PFNPROCESSGROUPPOLICY(i32);
+pub struct PFNPROCESSGROUPPOLICYEX(i32);
+pub struct PFNSTATUSMESSAGECALLBACK(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const PI_APPLYPOLICY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const PI_NOUI: u32 = 1u32;
+pub struct POLICYSETTINGSTATUSINFO(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const PT_MANDATORY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const PT_ROAMING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const PT_TEMPORARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RP_FORCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RP_SYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_NO_COMPUTER: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_NO_USER: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_PLANNING_ASSUME_LOOPBACK_MERGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
+pub struct RSOP_TARGET(i32);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
+pub struct SETTINGSTATUS(i32);

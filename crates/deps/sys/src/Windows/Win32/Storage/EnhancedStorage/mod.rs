@@ -1,4 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct ACT_AUTHORIZATION_STATE(i32);
+pub struct ACT_AUTHORIZATION_STATE_VALUE(i32);
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -403,6 +407,7 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI
     },
     pid: 6u32,
 };
+pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -805,6 +810,10 @@ pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
 pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
+pub struct EnhancedStorageACT(i32);
+pub struct EnhancedStorageSilo(i32);
+pub struct EnhancedStorageSiloAction(i32);
+pub struct EnumEnhancedStorageACT(i32);
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -831,6 +840,12 @@ pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows_sys::core::GUID = :
     data3: 19400,
     data4: [160, 183, 93, 187, 163, 106, 218, 250],
 };
+pub struct IEnhancedStorageACT(i32);
+pub struct IEnhancedStorageACT2(i32);
+pub struct IEnhancedStorageACT3(i32);
+pub struct IEnhancedStorageSilo(i32);
+pub struct IEnhancedStorageSiloAction(i32);
+pub struct IEnumEnhancedStorageACT(i32);
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -9498,6 +9513,7 @@ pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
+pub struct SILO_INFO(i32);
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -9544,5 +9560,3 @@ pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows_sys::core::GUID = ::windows_s
     data3: 19156,
     data4: [186, 164, 124, 160, 182, 178, 121, 140],
 };
-#[link(name = "windows")]
-extern "system" {}

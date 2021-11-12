@@ -1,940 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ANY_SIZE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const BEST_IF: u32 = 20u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const BEST_ROUTE: u32 = 21u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const BROADCAST_NODETYPE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DEFAULT_MINIMUM_ENTITIES: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DEST_LONGER: u32 = 29u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DEST_MATCHING: u32 = 28u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DEST_SHORTER: u32 = 30u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_AUTO_UPGRADE_SERVER: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_POLICY_AUTO: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_POLICY_DISABLE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_POLICY_REQUIRED: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_ENABLE_DOH: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTINGS_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTINGS_VERSION2: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_DOH: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_DOH_PROFILE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_DOMAIN: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_HOSTNAME: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_IPV6: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_NAMESERVER: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_PROFILE_NAMESERVER: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_REGISTER_ADAPTER_NAME: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_REGISTRATION_ENABLED: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_SEARCHLIST: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ERROR_BASE: u32 = 23000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const FD_FLAGS_NOSYN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const HYBRID_NODETYPE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ICMP_STATS: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_ADMIN_STATUS_TESTING: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_ADMIN_STATUS_UP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_CHECK_MCAST: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_CHECK_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_CHECK_SEND: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_CONNECTION_DEDICATED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_CONNECTION_DEMAND: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_CONNECTION_PASSIVE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_MAX_STRING_SIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_NUMBER: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_ROW: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_STATUS: u32 = 25u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_A12MPPSWITCH: u32 = 130u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_AAL2: u32 = 187u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_AAL5: u32 = 49u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ADSL: u32 = 94u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_AFLANE_8023: u32 = 59u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_AFLANE_8025: u32 = 60u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ARAP: u32 = 88u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ARCNET: u32 = 35u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ARCNET_PLUS: u32 = 36u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ASYNC: u32 = 84u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM: u32 = 37u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_DXI: u32 = 105u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_FUNI: u32 = 106u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_IMA: u32 = 107u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_LOGICAL: u32 = 80u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_RADIO: u32 = 189u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_SUBINTERFACE: u32 = 134u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_VCI_ENDPT: u32 = 194u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ATM_VIRTUAL: u32 = 149u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_BASIC_ISDN: u32 = 20u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_BGP_POLICY_ACCOUNTING: u32 = 162u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_BSC: u32 = 83u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_CCTEMUL: u32 = 61u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_CES: u32 = 133u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_CHANNEL: u32 = 70u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_CNR: u32 = 85u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_COFFEE: u32 = 132u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_COMPOSITELINK: u32 = 155u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DCN: u32 = 141u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DDN_X25: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DIGITALPOWERLINE: u32 = 138u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DIGITAL_WRAPPER_OVERHEAD_CHANNEL: u32 = 186u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DLSW: u32 = 74u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DOCSCABLE_DOWNSTREAM: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DOCSCABLE_MACLAYER: u32 = 127u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DOCSCABLE_UPSTREAM: u32 = 129u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DS0: u32 = 81u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DS0_BUNDLE: u32 = 82u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DS1: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DS1_FDL: u32 = 170u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DS3: u32 = 30u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DTM: u32 = 140u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DVBRCC_DOWNSTREAM: u32 = 147u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DVBRCC_MACLAYER: u32 = 146u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DVBRCC_UPSTREAM: u32 = 148u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DVB_ASI_IN: u32 = 172u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_DVB_ASI_OUT: u32 = 173u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_E1: u32 = 19u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_EON: u32 = 25u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_EPLRS: u32 = 87u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ESCON: u32 = 73u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ETHERNET_3MBIT: u32 = 26u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ETHERNET_CSMACD: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FAST: u32 = 125u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FASTETHER: u32 = 62u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FASTETHER_FX: u32 = 69u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FDDI: u32 = 15u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FIBRECHANNEL: u32 = 56u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FRAMERELAY: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FRAMERELAY_INTERCONNECT: u32 = 58u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FRAMERELAY_MPI: u32 = 92u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FRAMERELAY_SERVICE: u32 = 44u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FRF16_MFR_BUNDLE: u32 = 163u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FR_DLCI_ENDPT: u32 = 193u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_FR_FORWARD: u32 = 158u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_G703_2MB: u32 = 67u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_G703_64K: u32 = 66u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_GIGABITETHERNET: u32 = 117u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_GR303_IDT: u32 = 178u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_GR303_RDT: u32 = 177u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_H323_GATEKEEPER: u32 = 164u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_H323_PROXY: u32 = 165u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HDH_1822: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HDLC: u32 = 118u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HDSL2: u32 = 168u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HIPERLAN2: u32 = 183u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HIPPI: u32 = 47u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HIPPIINTERFACE: u32 = 57u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HOSTPAD: u32 = 90u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HSSI: u32 = 46u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_HYPERCHANNEL: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IBM370PARCHAN: u32 = 72u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IDSL: u32 = 154u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IEEE1394: u32 = 144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IEEE80211: u32 = 71u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IEEE80212: u32 = 55u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IEEE802154: u32 = 259u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IEEE80216_WMAN: u32 = 237u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IEEE8023AD_LAG: u32 = 161u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IF_GSN: u32 = 145u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IMT: u32 = 190u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_INTERLEAVE: u32 = 124u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IP: u32 = 126u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IPFORWARD: u32 = 142u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IPOVER_ATM: u32 = 114u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IPOVER_CDLC: u32 = 109u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IPOVER_CLAW: u32 = 110u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IPSWITCH: u32 = 78u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_IS088023_CSMACD: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISDN: u32 = 63u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISDN_S: u32 = 75u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISDN_U: u32 = 76u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISO88022_LLC: u32 = 41u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISO88024_TOKENBUS: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISO88025R_DTR: u32 = 86u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISO88025_CRFPRINT: u32 = 98u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISO88025_FIBER: u32 = 115u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISO88025_TOKENRING: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISO88026_MAN: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ISUP: u32 = 179u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_L2_VLAN: u32 = 135u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_L3_IPVLAN: u32 = 136u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_L3_IPXVLAN: u32 = 137u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_LAP_B: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_LAP_D: u32 = 77u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_LAP_F: u32 = 119u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_LOCALTALK: u32 = 42u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MEDIAMAILOVERIP: u32 = 139u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MF_SIGLINK: u32 = 167u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MIO_X25: u32 = 38u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MODEM: u32 = 48u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MPC: u32 = 113u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MPLS: u32 = 166u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MPLS_TUNNEL: u32 = 150u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MSDSL: u32 = 143u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MVL: u32 = 191u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_MYRINET: u32 = 99u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_NFAS: u32 = 175u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_NSIP: u32 = 27u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_OPTICAL_CHANNEL: u32 = 195u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_OPTICAL_TRANSPORT: u32 = 196u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_OTHER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PARA: u32 = 34u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PLC: u32 = 174u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_POS: u32 = 171u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PPP: u32 = 23u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PPPMULTILINKBUNDLE: u32 = 108u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PRIMARY_ISDN: u32 = 21u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_BWA_P2MP: u32 = 184u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_CNLS: u32 = 89u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_DOCS_WIRELESS_DOWNSTREAM: u32 = 181u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_DOCS_WIRELESS_MACLAYER: u32 = 180u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_DOCS_WIRELESS_UPSTREAM: u32 = 182u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_MULTIPLEXOR: u32 = 54u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_POINT2POINT_SERIAL: u32 = 22u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_VIRTUAL: u32 = 53u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROP_WIRELESS_P2P: u32 = 157u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROTEON_10MBIT: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_PROTEON_80MBIT: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_QLLC: u32 = 68u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_RADIO_MAC: u32 = 188u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_RADSL: u32 = 95u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_REACH_DSL: u32 = 192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_REGULAR_1822: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_RFC1483: u32 = 159u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_RFC877_X25: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_RS232: u32 = 33u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_RSRB: u32 = 79u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SDLC: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SDSL: u32 = 96u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SHDSL: u32 = 169u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SIP: u32 = 31u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SLIP: u32 = 28u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SMDS_DXI: u32 = 43u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SMDS_ICIP: u32 = 52u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SOFTWARE_LOOPBACK: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SONET: u32 = 39u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SONET_OVERHEAD_CHANNEL: u32 = 185u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SONET_PATH: u32 = 50u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SONET_VT: u32 = 51u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SRP: u32 = 151u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_SS7_SIGLINK: u32 = 156u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_STACKTOSTACK: u32 = 111u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_STARLAN: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_TDLC: u32 = 116u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_TERMPAD: u32 = 91u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_TR008: u32 = 176u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_TRANSPHDLC: u32 = 123u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_TUNNEL: u32 = 131u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_ULTRA: u32 = 29u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_USB: u32 = 160u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_V11: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_V35: u32 = 45u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_V36: u32 = 65u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_V37: u32 = 120u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VDSL: u32 = 97u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VIRTUALIPADDRESS: u32 = 112u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VOICEOVERATM: u32 = 152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VOICEOVERFRAMERELAY: u32 = 153u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VOICE_EM: u32 = 100u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VOICE_ENCAP: u32 = 103u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VOICE_FXO: u32 = 101u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VOICE_FXS: u32 = 102u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_VOICE_OVERIP: u32 = 104u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_WWANPP: u32 = 243u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_WWANPP2: u32 = 244u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_X213: u32 = 93u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_X25_HUNTGROUP: u32 = 122u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_X25_MLP: u32 = 121u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_X25_PLE: u32 = 40u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IF_TYPE_XBOX_WIRELESS: u32 = 281u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST: u32 = 102u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IOCTL_IP_GET_BEST_INTERFACE: u32 = 105u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IOCTL_IP_INTERFACE_INFO: u32 = 104u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IOCTL_IP_RTCHANGE_NOTIFY_REQUEST: u32 = 101u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IOCTL_IP_UNIDIRECTIONAL_ADAPTER_ADDRESS: u32 = 106u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP6_STATS: u32 = 36u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IPRTRMGR_PID: u32 = 10000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IPV6_GLOBAL_INFO: u32 = 4294901775u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IPV6_ROUTE_INFO: u32 = 4294901776u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_DDNS_ENABLED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_IPV4_ENABLED: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_IPV6_ENABLED: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_NO_MULTICAST: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_RECEIVE_ONLY: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADDRROW: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADDRTABLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADDR_ADDED: u32 = 11023u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ADDR_DELETED: u32 = 11019u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_BAD_DESTINATION: u32 = 11018u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_BAD_HEADER: u32 = 11042u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_BAD_OPTION: u32 = 11007u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_BAD_REQ: u32 = 11011u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_BAD_ROUTE: u32 = 11012u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_BIND_ADAPTER: u32 = 11026u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_BUF_TOO_SMALL: u32 = 11001u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEMAND_DIAL_FILTER_INFO: u32 = 4294901769u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEMAND_DIAL_FILTER_INFO_V6: u32 = 4294901779u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_ADDR_UNREACHABLE: u32 = 11003u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_HOST_UNREACHABLE: u32 = 11003u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_NET_UNREACHABLE: u32 = 11002u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_NO_ROUTE: u32 = 11002u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_PORT_UNREACHABLE: u32 = 11005u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_PROHIBITED: u32 = 11004u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_PROT_UNREACHABLE: u32 = 11004u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_SCOPE_MISMATCH: u32 = 11045u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEST_UNREACHABLE: u32 = 11040u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DEVICE_DOES_NOT_EXIST: u32 = 11028u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DUPLICATE_ADDRESS: u32 = 11029u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_DUPLICATE_IPADD: u32 = 11034u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_EXPORT_INCLUDED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_FILTER_ENABLE_INFO: u32 = 4294901781u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_FILTER_ENABLE_INFO_V6: u32 = 4294901782u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_FLAG_DF: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_FLAG_REVERSE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_FORWARDNUMBER: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_FORWARDROW: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_FORWARDTABLE: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_GENERAL_FAILURE: u32 = 11050u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_GENERAL_INFO_BASE: u32 = 4294901760u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_GLOBAL_INFO: u32 = 4294901763u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_HOP_LIMIT_EXCEEDED: u32 = 11013u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_HW_ERROR: u32 = 11008u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ICMP_ERROR: u32 = 11044u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_IFFILTER_INFO: u32 = 4294901773u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_IFFILTER_INFO_V6: u32 = 4294901780u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_INTERFACE_METRIC_CHANGE: u32 = 11030u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_INTERFACE_STATUS_INFO: u32 = 4294901764u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_INTERFACE_WOL_CAPABILITY_CHANGE: u32 = 11033u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_IN_FILTER_INFO: u32 = 4294901761u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_IN_FILTER_INFO_V6: u32 = 4294901777u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_IPINIP_CFG_INFO: u32 = 4294901772u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_MCAST_BOUNDARY_INFO: u32 = 4294901771u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_MCAST_HEARBEAT_INFO: u32 = 4294901770u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_MCAST_LIMIT_INFO: u32 = 4294901774u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_MEDIA_CONNECT: u32 = 11024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_MEDIA_DISCONNECT: u32 = 11025u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_MTU_CHANGE: u32 = 11021u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_NEGOTIATING_IPSEC: u32 = 11032u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_NETROW: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_NETTABLE: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_NO_RESOURCES: u32 = 11006u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_OPTION_TOO_BIG: u32 = 11017u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_OUT_FILTER_INFO: u32 = 4294901762u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_OUT_FILTER_INFO_V6: u32 = 4294901778u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_PACKET_TOO_BIG: u32 = 11009u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_PARAMETER_PROBLEM: u32 = 11015u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_PARAM_PROBLEM: u32 = 11015u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_PENDING: u32 = 11255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_PROT_PRIORITY_INFO: u32 = 4294901766u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_PROT_PRIORITY_INFO_EX: u32 = 4294901783u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_REASSEMBLY_TIME_EXCEEDED: u32 = 11014u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_RECONFIG_SECFLTR: u32 = 11031u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_REQ_TIMED_OUT: u32 = 11010u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ROUTER_DISC_INFO: u32 = 4294901767u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ROUTER_MANAGER_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_ROUTE_INFO: u32 = 4294901765u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_SOURCE_QUENCH: u32 = 11016u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_SPEC_MTU_CHANGE: u32 = 11020u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_STATS: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_STATUS_BASE: u32 = 11000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_SUCCESS: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_TIME_EXCEEDED: u32 = 11041u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_TTL_EXPIRED_REASSEM: u32 = 11014u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_TTL_EXPIRED_TRANSIT: u32 = 11013u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_UNBIND_ADAPTER: u32 = 11027u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_UNLOAD: u32 = 11022u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const LB_DST_ADDR_USE_SRCADDR_FLAG: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const LB_DST_MASK_LATE_FLAG: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const LB_SRC_ADDR_USE_DSTADDR_FLAG: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const LB_SRC_ADDR_USE_SRCADDR_FLAG: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAXLEN_IFDESCR: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAXLEN_PHYSADDR: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_ADAPTER_ADDRESS_LENGTH: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_ADAPTER_DESCRIPTION_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_ADAPTER_NAME: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_ADAPTER_NAME_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_DHCPV6_DUID_LENGTH: u32 = 130u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_DNS_SUFFIX_STRING_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_DOMAIN_NAME_LEN: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_HOSTNAME_LEN: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_IF_TYPE: u32 = 281u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_INTERFACE_NAME_LEN: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_IP_STATUS: u32 = 11050u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_MIB_OFFSET: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_OPT_SIZE: u32 = 40u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_SCOPE_ID_LEN: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MAX_SCOPE_NAME_LEN: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MCAST_BOUNDARY: u32 = 26u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MCAST_GLOBAL: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MCAST_IF_ENTRY: u32 = 23u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MCAST_MFE: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MCAST_MFE_STATS: u32 = 19u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MCAST_MFE_STATS_EX: u32 = 35u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MCAST_SCOPE: u32 = 27u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_ADMIN_STATUS_DOWN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_TYPE_FDDI: u32 = 15u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_TYPE_LOOPBACK: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_TYPE_OTHER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_TYPE_PPP: u32 = 23u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_TYPE_SLIP: u32 = 28u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IF_TYPE_TOKENRING: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IPADDR_DELETED: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IPADDR_DISCONNECTED: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IPADDR_DYNAMIC: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IPADDR_PRIMARY: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IPADDR_TRANSIENT: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIB_USE_CURRENT_TTL: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIN_IF_TYPE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const MIXED_NODETYPE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OID_IF_ALIAS: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_SITEID_MAXSYSTEM: u32 = 268435455u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_SITEID_MAXUSER: u32 = 134217727u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_SITEID_UNSPECIFIED: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV4_ADDRESS: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV4_NETWORK: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV4_SERVICE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV6_ADDRESS: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV6_ADDRESS_NO_SCOPE: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV6_NETWORK: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV6_SERVICE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_IPV6_SERVICE_NO_SCOPE: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_NAMED_ADDRESS: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NET_STRING_NAMED_SERVICE: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_FILTER_INTERFACE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_HARDWARE_INTERFACE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_NDIS_ENDPOINT_INTERFACE: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_NDIS_ISCSI_INTERFACE: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_NDIS_RESERVED1: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_NDIS_RESERVED2: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_NDIS_RESERVED3: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_NDIS_RESERVED4: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const PROXY_ARP: u32 = 22u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ROUTE_LONGER: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ROUTE_MATCHING: u32 = 31u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ROUTE_SHORTER: u32 = 33u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const ROUTE_STATE: u32 = 34u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const TCP6_STATS: u32 = 38u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const TCP_ROW: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const TCP_STATS: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const TCP_TABLE: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const UDP6_STATS: u32 = 37u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const UDP_ROW: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const UDP_STATS: u32 = 15u32;
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
-pub const UDP_TABLE: u32 = 16u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
@@ -1467,3 +531,1164 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn if_nametoindex(interfacename: super::super::Foundation::PSTR) -> u32;
 }
+pub struct ADDRESS_FAMILY(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ANY_SIZE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const BEST_IF: u32 = 20u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const BEST_ROUTE: u32 = 21u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const BROADCAST_NODETYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DEFAULT_MINIMUM_ENTITIES: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DEST_LONGER: u32 = 29u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DEST_MATCHING: u32 = 28u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DEST_SHORTER: u32 = 30u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_AUTO_UPGRADE_SERVER: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_POLICY_AUTO: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_POLICY_DISABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_POLICY_REQUIRED: u32 = 32u32;
+pub struct DNS_DOH_SERVER_SETTINGS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_ENABLE_DOH: u32 = 1u32;
+pub struct DNS_INTERFACE_SETTINGS(i32);
+pub struct DNS_INTERFACE_SETTINGS3(i32);
+pub struct DNS_INTERFACE_SETTINGS_EX(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3u32;
+pub struct DNS_SERVER_PROPERTY(i32);
+pub struct DNS_SERVER_PROPERTY_TYPE(i32);
+pub struct DNS_SERVER_PROPERTY_TYPES(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1u32;
+pub struct DNS_SETTINGS(i32);
+pub struct DNS_SETTINGS2(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTINGS_VERSION1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTINGS_VERSION2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_DOH: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_DOH_PROFILE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_DOMAIN: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_HOSTNAME: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_IPV6: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_NAMESERVER: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_PROFILE_NAMESERVER: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_REGISTER_ADAPTER_NAME: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_REGISTRATION_ENABLED: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_SEARCHLIST: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ERROR_BASE: u32 = 23000u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const FD_FLAGS_NOSYN: u32 = 1u32;
+pub struct FIXED_INFO_W2KSP1(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
+pub struct GET_ADAPTERS_ADDRESSES_FLAGS(i32);
+pub struct GLOBAL_FILTER(i32);
+pub struct HIFTIMESTAMPCHANGE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const HYBRID_NODETYPE: u32 = 8u32;
+pub struct ICMP4_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
+pub struct ICMP6_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ICMP_STATS: u32 = 11u32;
+pub struct IF_ACCESS_TYPE(i32);
+pub struct IF_ADMINISTRATIVE_STATE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_ADMIN_STATUS_TESTING: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_ADMIN_STATUS_UP: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_CHECK_MCAST: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_CHECK_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_CHECK_SEND: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_CONNECTION_DEDICATED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_CONNECTION_DEMAND: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_CONNECTION_PASSIVE: u32 = 2u32;
+pub struct IF_COUNTED_STRING_LH(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_MAX_STRING_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_NUMBER: u32 = 0u32;
+pub struct IF_OPER_STATUS(i32);
+pub struct IF_PHYSICAL_ADDRESS_LH(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_ROW: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_STATUS: u32 = 25u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_A12MPPSWITCH: u32 = 130u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_AAL2: u32 = 187u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_AAL5: u32 = 49u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ADSL: u32 = 94u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_AFLANE_8023: u32 = 59u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_AFLANE_8025: u32 = 60u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ARAP: u32 = 88u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ARCNET: u32 = 35u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ARCNET_PLUS: u32 = 36u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ASYNC: u32 = 84u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM: u32 = 37u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_DXI: u32 = 105u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_FUNI: u32 = 106u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_IMA: u32 = 107u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_LOGICAL: u32 = 80u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_RADIO: u32 = 189u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_SUBINTERFACE: u32 = 134u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_VCI_ENDPT: u32 = 194u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ATM_VIRTUAL: u32 = 149u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_BASIC_ISDN: u32 = 20u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_BGP_POLICY_ACCOUNTING: u32 = 162u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_BSC: u32 = 83u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_CCTEMUL: u32 = 61u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_CES: u32 = 133u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_CHANNEL: u32 = 70u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_CNR: u32 = 85u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_COFFEE: u32 = 132u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_COMPOSITELINK: u32 = 155u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DCN: u32 = 141u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DDN_X25: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DIGITALPOWERLINE: u32 = 138u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DIGITAL_WRAPPER_OVERHEAD_CHANNEL: u32 = 186u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DLSW: u32 = 74u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DOCSCABLE_DOWNSTREAM: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DOCSCABLE_MACLAYER: u32 = 127u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DOCSCABLE_UPSTREAM: u32 = 129u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DS0: u32 = 81u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DS0_BUNDLE: u32 = 82u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DS1: u32 = 18u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DS1_FDL: u32 = 170u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DS3: u32 = 30u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DTM: u32 = 140u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DVBRCC_DOWNSTREAM: u32 = 147u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DVBRCC_MACLAYER: u32 = 146u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DVBRCC_UPSTREAM: u32 = 148u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DVB_ASI_IN: u32 = 172u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_DVB_ASI_OUT: u32 = 173u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_E1: u32 = 19u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_EON: u32 = 25u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_EPLRS: u32 = 87u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ESCON: u32 = 73u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ETHERNET_3MBIT: u32 = 26u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ETHERNET_CSMACD: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FAST: u32 = 125u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FASTETHER: u32 = 62u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FASTETHER_FX: u32 = 69u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FDDI: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FIBRECHANNEL: u32 = 56u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FRAMERELAY: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FRAMERELAY_INTERCONNECT: u32 = 58u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FRAMERELAY_MPI: u32 = 92u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FRAMERELAY_SERVICE: u32 = 44u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FRF16_MFR_BUNDLE: u32 = 163u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FR_DLCI_ENDPT: u32 = 193u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_FR_FORWARD: u32 = 158u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_G703_2MB: u32 = 67u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_G703_64K: u32 = 66u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_GIGABITETHERNET: u32 = 117u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_GR303_IDT: u32 = 178u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_GR303_RDT: u32 = 177u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_H323_GATEKEEPER: u32 = 164u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_H323_PROXY: u32 = 165u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HDH_1822: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HDLC: u32 = 118u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HDSL2: u32 = 168u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HIPERLAN2: u32 = 183u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HIPPI: u32 = 47u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HIPPIINTERFACE: u32 = 57u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HOSTPAD: u32 = 90u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HSSI: u32 = 46u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_HYPERCHANNEL: u32 = 14u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IBM370PARCHAN: u32 = 72u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IDSL: u32 = 154u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IEEE1394: u32 = 144u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IEEE80211: u32 = 71u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IEEE80212: u32 = 55u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IEEE802154: u32 = 259u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IEEE80216_WMAN: u32 = 237u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IEEE8023AD_LAG: u32 = 161u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IF_GSN: u32 = 145u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IMT: u32 = 190u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_INTERLEAVE: u32 = 124u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IP: u32 = 126u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IPFORWARD: u32 = 142u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IPOVER_ATM: u32 = 114u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IPOVER_CDLC: u32 = 109u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IPOVER_CLAW: u32 = 110u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IPSWITCH: u32 = 78u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_IS088023_CSMACD: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISDN: u32 = 63u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISDN_S: u32 = 75u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISDN_U: u32 = 76u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISO88022_LLC: u32 = 41u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISO88024_TOKENBUS: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISO88025R_DTR: u32 = 86u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISO88025_CRFPRINT: u32 = 98u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISO88025_FIBER: u32 = 115u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISO88025_TOKENRING: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISO88026_MAN: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ISUP: u32 = 179u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_L2_VLAN: u32 = 135u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_L3_IPVLAN: u32 = 136u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_L3_IPXVLAN: u32 = 137u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_LAP_B: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_LAP_D: u32 = 77u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_LAP_F: u32 = 119u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_LOCALTALK: u32 = 42u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MEDIAMAILOVERIP: u32 = 139u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MF_SIGLINK: u32 = 167u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MIO_X25: u32 = 38u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MODEM: u32 = 48u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MPC: u32 = 113u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MPLS: u32 = 166u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MPLS_TUNNEL: u32 = 150u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MSDSL: u32 = 143u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MVL: u32 = 191u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_MYRINET: u32 = 99u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_NFAS: u32 = 175u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_NSIP: u32 = 27u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_OPTICAL_CHANNEL: u32 = 195u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_OPTICAL_TRANSPORT: u32 = 196u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_OTHER: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PARA: u32 = 34u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PLC: u32 = 174u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_POS: u32 = 171u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PPP: u32 = 23u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PPPMULTILINKBUNDLE: u32 = 108u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PRIMARY_ISDN: u32 = 21u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_BWA_P2MP: u32 = 184u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_CNLS: u32 = 89u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_DOCS_WIRELESS_DOWNSTREAM: u32 = 181u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_DOCS_WIRELESS_MACLAYER: u32 = 180u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_DOCS_WIRELESS_UPSTREAM: u32 = 182u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_MULTIPLEXOR: u32 = 54u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_POINT2POINT_SERIAL: u32 = 22u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_VIRTUAL: u32 = 53u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROP_WIRELESS_P2P: u32 = 157u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROTEON_10MBIT: u32 = 12u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_PROTEON_80MBIT: u32 = 13u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_QLLC: u32 = 68u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_RADIO_MAC: u32 = 188u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_RADSL: u32 = 95u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_REACH_DSL: u32 = 192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_REGULAR_1822: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_RFC1483: u32 = 159u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_RFC877_X25: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_RS232: u32 = 33u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_RSRB: u32 = 79u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SDLC: u32 = 17u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SDSL: u32 = 96u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SHDSL: u32 = 169u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SIP: u32 = 31u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SLIP: u32 = 28u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SMDS_DXI: u32 = 43u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SMDS_ICIP: u32 = 52u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SOFTWARE_LOOPBACK: u32 = 24u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SONET: u32 = 39u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SONET_OVERHEAD_CHANNEL: u32 = 185u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SONET_PATH: u32 = 50u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SONET_VT: u32 = 51u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SRP: u32 = 151u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_SS7_SIGLINK: u32 = 156u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_STACKTOSTACK: u32 = 111u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_STARLAN: u32 = 11u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_TDLC: u32 = 116u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_TERMPAD: u32 = 91u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_TR008: u32 = 176u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_TRANSPHDLC: u32 = 123u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_TUNNEL: u32 = 131u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_ULTRA: u32 = 29u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_USB: u32 = 160u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_V11: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_V35: u32 = 45u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_V36: u32 = 65u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_V37: u32 = 120u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VDSL: u32 = 97u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VIRTUALIPADDRESS: u32 = 112u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VOICEOVERATM: u32 = 152u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VOICEOVERFRAMERELAY: u32 = 153u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VOICE_EM: u32 = 100u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VOICE_ENCAP: u32 = 103u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VOICE_FXO: u32 = 101u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VOICE_FXS: u32 = 102u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_VOICE_OVERIP: u32 = 104u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_WWANPP: u32 = 243u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_WWANPP2: u32 = 244u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_X213: u32 = 93u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_X25_HUNTGROUP: u32 = 122u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_X25_MLP: u32 = 121u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_X25_PLE: u32 = 40u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IF_TYPE_XBOX_WIRELESS: u32 = 281u32;
+pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP(i32);
+pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES(i32);
+pub struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES(i32);
+pub struct INTERFACE_TIMESTAMP_CAPABILITIES(i32);
+pub struct INTERNAL_IF_OPER_STATUS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST: u32 = 102u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IOCTL_IP_GET_BEST_INTERFACE: u32 = 105u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IOCTL_IP_INTERFACE_INFO: u32 = 104u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IOCTL_IP_RTCHANGE_NOTIFY_REQUEST: u32 = 101u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IOCTL_IP_UNIDIRECTIONAL_ADAPTER_ADDRESS: u32 = 106u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP6_STATS: u32 = 36u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IPRTRMGR_PID: u32 = 10000u32;
+pub struct IPV6_ADDRESS_EX(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IPV6_GLOBAL_INFO: u32 = 4294901775u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IPV6_ROUTE_INFO: u32 = 4294901776u32;
+pub struct IP_ADAPTER_ADDRESSES_LH(i32);
+pub struct IP_ADAPTER_ADDRESSES_XP(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2u32;
+pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_DDNS_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4u32;
+pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP(i32);
+pub struct IP_ADAPTER_DNS_SUFFIX(i32);
+pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH(i32);
+pub struct IP_ADAPTER_INDEX_MAP(i32);
+pub struct IP_ADAPTER_INFO(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_IPV4_ENABLED: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_IPV6_ENABLED: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32u32;
+pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_NO_MULTICAST: u32 = 16u32;
+pub struct IP_ADAPTER_ORDER_MAP(i32);
+pub struct IP_ADAPTER_PREFIX_XP(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_RECEIVE_ONLY: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2u32;
+pub struct IP_ADAPTER_UNICAST_ADDRESS_LH(i32);
+pub struct IP_ADAPTER_UNICAST_ADDRESS_XP(i32);
+pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH(i32);
+pub struct IP_ADDRESS_PREFIX(i32);
+pub struct IP_ADDRESS_STRING(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADDRROW: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADDRTABLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADDR_ADDED: u32 = 11023u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ADDR_DELETED: u32 = 11019u32;
+pub struct IP_ADDR_STRING(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_BAD_DESTINATION: u32 = 11018u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_BAD_HEADER: u32 = 11042u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_BAD_OPTION: u32 = 11007u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_BAD_REQ: u32 = 11011u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_BAD_ROUTE: u32 = 11012u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_BIND_ADAPTER: u32 = 11026u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_BUF_TOO_SMALL: u32 = 11001u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEMAND_DIAL_FILTER_INFO: u32 = 4294901769u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEMAND_DIAL_FILTER_INFO_V6: u32 = 4294901779u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_ADDR_UNREACHABLE: u32 = 11003u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_HOST_UNREACHABLE: u32 = 11003u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_NET_UNREACHABLE: u32 = 11002u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_NO_ROUTE: u32 = 11002u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_PORT_UNREACHABLE: u32 = 11005u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_PROHIBITED: u32 = 11004u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_PROT_UNREACHABLE: u32 = 11004u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_SCOPE_MISMATCH: u32 = 11045u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEST_UNREACHABLE: u32 = 11040u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DEVICE_DOES_NOT_EXIST: u32 = 11028u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DUPLICATE_ADDRESS: u32 = 11029u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_DUPLICATE_IPADD: u32 = 11034u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_EXPORT_INCLUDED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_FILTER_ENABLE_INFO: u32 = 4294901781u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_FILTER_ENABLE_INFO_V6: u32 = 4294901782u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_FLAG_DF: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_FLAG_REVERSE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_FORWARDNUMBER: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_FORWARDROW: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_FORWARDTABLE: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_GENERAL_FAILURE: u32 = 11050u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_GENERAL_INFO_BASE: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_GLOBAL_INFO: u32 = 4294901763u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_HOP_LIMIT_EXCEEDED: u32 = 11013u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_HW_ERROR: u32 = 11008u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ICMP_ERROR: u32 = 11044u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_IFFILTER_INFO: u32 = 4294901773u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_IFFILTER_INFO_V6: u32 = 4294901780u32;
+pub struct IP_INTERFACE_INFO(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_INTERFACE_METRIC_CHANGE: u32 = 11030u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_INTERFACE_STATUS_INFO: u32 = 4294901764u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_INTERFACE_WOL_CAPABILITY_CHANGE: u32 = 11033u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_IN_FILTER_INFO: u32 = 4294901761u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_IN_FILTER_INFO_V6: u32 = 4294901777u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_IPINIP_CFG_INFO: u32 = 4294901772u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_MCAST_BOUNDARY_INFO: u32 = 4294901771u32;
+pub struct IP_MCAST_COUNTER_INFO(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_MCAST_HEARBEAT_INFO: u32 = 4294901770u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_MCAST_LIMIT_INFO: u32 = 4294901774u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_MEDIA_CONNECT: u32 = 11024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_MEDIA_DISCONNECT: u32 = 11025u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_MTU_CHANGE: u32 = 11021u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_NEGOTIATING_IPSEC: u32 = 11032u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_NETROW: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_NETTABLE: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_NO_RESOURCES: u32 = 11006u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_OPTION_TOO_BIG: u32 = 11017u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_OUT_FILTER_INFO: u32 = 4294901762u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_OUT_FILTER_INFO_V6: u32 = 4294901778u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_PACKET_TOO_BIG: u32 = 11009u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_PARAMETER_PROBLEM: u32 = 11015u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_PARAM_PROBLEM: u32 = 11015u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_PENDING: u32 = 11255u32;
+pub struct IP_PER_ADAPTER_INFO_W2KSP1(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_PROT_PRIORITY_INFO: u32 = 4294901766u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_PROT_PRIORITY_INFO_EX: u32 = 4294901783u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_REASSEMBLY_TIME_EXCEEDED: u32 = 11014u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_RECONFIG_SECFLTR: u32 = 11031u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_REQ_TIMED_OUT: u32 = 11010u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ROUTER_DISC_INFO: u32 = 4294901767u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ROUTER_MANAGER_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_ROUTE_INFO: u32 = 4294901765u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_SOURCE_QUENCH: u32 = 11016u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_SPEC_MTU_CHANGE: u32 = 11020u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_STATS: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_STATUS_BASE: u32 = 11000u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_TIME_EXCEEDED: u32 = 11041u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_TTL_EXPIRED_REASSEM: u32 = 11014u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_TTL_EXPIRED_TRANSIT: u32 = 11013u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_UNBIND_ADAPTER: u32 = 11027u32;
+pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_UNLOAD: u32 = 11022u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
+pub struct IcmpHandle(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const LB_DST_ADDR_USE_SRCADDR_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const LB_DST_MASK_LATE_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const LB_SRC_ADDR_USE_DSTADDR_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const LB_SRC_ADDR_USE_SRCADDR_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAXLEN_IFDESCR: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAXLEN_PHYSADDR: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_ADAPTER_ADDRESS_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_ADAPTER_DESCRIPTION_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_ADAPTER_NAME: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_ADAPTER_NAME_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_DHCPV6_DUID_LENGTH: u32 = 130u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_DNS_SUFFIX_STRING_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_DOMAIN_NAME_LEN: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_HOSTNAME_LEN: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_IF_TYPE: u32 = 281u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_INTERFACE_NAME_LEN: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_IP_STATUS: u32 = 11050u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_MIB_OFFSET: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_OPT_SIZE: u32 = 40u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_SCOPE_ID_LEN: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MAX_SCOPE_NAME_LEN: u32 = 255u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MCAST_BOUNDARY: u32 = 26u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MCAST_GLOBAL: u32 = 24u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MCAST_IF_ENTRY: u32 = 23u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MCAST_MFE: u32 = 18u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MCAST_MFE_STATS: u32 = 19u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MCAST_MFE_STATS_EX: u32 = 35u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MCAST_SCOPE: u32 = 27u32;
+pub struct MIBICMPINFO(i32);
+pub struct MIBICMPSTATS(i32);
+pub struct MIBICMPSTATS_EX_XPSP1(i32);
+pub struct MIB_ANYCASTIPADDRESS_ROW(i32);
+pub struct MIB_ANYCASTIPADDRESS_TABLE(i32);
+pub struct MIB_BEST_IF(i32);
+pub struct MIB_BOUNDARYROW(i32);
+pub struct MIB_ICMP(i32);
+pub struct MIB_ICMP_EX_XPSP1(i32);
+pub struct MIB_IFNUMBER(i32);
+pub struct MIB_IFROW(i32);
+pub struct MIB_IFSTACK_ROW(i32);
+pub struct MIB_IFSTACK_TABLE(i32);
+pub struct MIB_IFSTATUS(i32);
+pub struct MIB_IFTABLE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_ADMIN_STATUS_DOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
+pub struct MIB_IF_ENTRY_LEVEL(i32);
+pub struct MIB_IF_ROW2(i32);
+pub struct MIB_IF_TABLE2(i32);
+pub struct MIB_IF_TABLE_LEVEL(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_TYPE_FDDI: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_TYPE_LOOPBACK: u32 = 24u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_TYPE_OTHER: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_TYPE_PPP: u32 = 23u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_TYPE_SLIP: u32 = 28u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IF_TYPE_TOKENRING: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0u32;
+pub struct MIB_INVERTEDIFSTACK_ROW(i32);
+pub struct MIB_INVERTEDIFSTACK_TABLE(i32);
+pub struct MIB_IPADDRROW_W2K(i32);
+pub struct MIB_IPADDRROW_XP(i32);
+pub struct MIB_IPADDRTABLE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IPADDR_DELETED: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IPADDR_DISCONNECTED: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IPADDR_DYNAMIC: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IPADDR_PRIMARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IPADDR_TRANSIENT: u32 = 128u32;
+pub struct MIB_IPDESTROW(i32);
+pub struct MIB_IPDESTTABLE(i32);
+pub struct MIB_IPFORWARDNUMBER(i32);
+pub struct MIB_IPFORWARDROW(i32);
+pub struct MIB_IPFORWARDTABLE(i32);
+pub struct MIB_IPFORWARD_ROW2(i32);
+pub struct MIB_IPFORWARD_TABLE2(i32);
+pub struct MIB_IPFORWARD_TYPE(i32);
+pub struct MIB_IPINTERFACE_ROW(i32);
+pub struct MIB_IPINTERFACE_TABLE(i32);
+pub struct MIB_IPMCAST_BOUNDARY(i32);
+pub struct MIB_IPMCAST_BOUNDARY_TABLE(i32);
+pub struct MIB_IPMCAST_GLOBAL(i32);
+pub struct MIB_IPMCAST_IF_ENTRY(i32);
+pub struct MIB_IPMCAST_IF_TABLE(i32);
+pub struct MIB_IPMCAST_MFE(i32);
+pub struct MIB_IPMCAST_MFE_STATS(i32);
+pub struct MIB_IPMCAST_MFE_STATS_EX_XP(i32);
+pub struct MIB_IPMCAST_OIF_STATS_LH(i32);
+pub struct MIB_IPMCAST_OIF_STATS_W2K(i32);
+pub struct MIB_IPMCAST_OIF_W2K(i32);
+pub struct MIB_IPMCAST_OIF_XP(i32);
+pub struct MIB_IPMCAST_SCOPE(i32);
+pub struct MIB_IPNETROW_LH(i32);
+pub struct MIB_IPNETROW_W2K(i32);
+pub struct MIB_IPNETTABLE(i32);
+pub struct MIB_IPNET_ROW2(i32);
+pub struct MIB_IPNET_TABLE2(i32);
+pub struct MIB_IPNET_TYPE(i32);
+pub struct MIB_IPPATH_ROW(i32);
+pub struct MIB_IPPATH_TABLE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
+pub struct MIB_IPSTATS_FORWARDING(i32);
+pub struct MIB_IPSTATS_LH(i32);
+pub struct MIB_IPSTATS_W2K(i32);
+pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES(i32);
+pub struct MIB_MCAST_LIMIT_ROW(i32);
+pub struct MIB_MFE_STATS_TABLE(i32);
+pub struct MIB_MFE_STATS_TABLE_EX_XP(i32);
+pub struct MIB_MFE_TABLE(i32);
+pub struct MIB_MULTICASTIPADDRESS_ROW(i32);
+pub struct MIB_MULTICASTIPADDRESS_TABLE(i32);
+pub struct MIB_NOTIFICATION_TYPE(i32);
+pub struct MIB_OPAQUE_INFO(i32);
+pub struct MIB_OPAQUE_QUERY(i32);
+pub struct MIB_PROXYARP(i32);
+pub struct MIB_ROUTESTATE(i32);
+pub struct MIB_TCP6ROW(i32);
+pub struct MIB_TCP6ROW2(i32);
+pub struct MIB_TCP6ROW_OWNER_MODULE(i32);
+pub struct MIB_TCP6ROW_OWNER_PID(i32);
+pub struct MIB_TCP6TABLE(i32);
+pub struct MIB_TCP6TABLE2(i32);
+pub struct MIB_TCP6TABLE_OWNER_MODULE(i32);
+pub struct MIB_TCP6TABLE_OWNER_PID(i32);
+pub struct MIB_TCPROW2(i32);
+pub struct MIB_TCPROW_LH(i32);
+pub struct MIB_TCPROW_OWNER_MODULE(i32);
+pub struct MIB_TCPROW_OWNER_PID(i32);
+pub struct MIB_TCPROW_W2K(i32);
+pub struct MIB_TCPSTATS2(i32);
+pub struct MIB_TCPSTATS_LH(i32);
+pub struct MIB_TCPSTATS_W2K(i32);
+pub struct MIB_TCPTABLE(i32);
+pub struct MIB_TCPTABLE2(i32);
+pub struct MIB_TCPTABLE_OWNER_MODULE(i32);
+pub struct MIB_TCPTABLE_OWNER_PID(i32);
+pub struct MIB_TCP_STATE(i32);
+pub struct MIB_UDP6ROW(i32);
+pub struct MIB_UDP6ROW2(i32);
+pub struct MIB_UDP6ROW_OWNER_MODULE(i32);
+pub struct MIB_UDP6ROW_OWNER_PID(i32);
+pub struct MIB_UDP6TABLE(i32);
+pub struct MIB_UDP6TABLE2(i32);
+pub struct MIB_UDP6TABLE_OWNER_MODULE(i32);
+pub struct MIB_UDP6TABLE_OWNER_PID(i32);
+pub struct MIB_UDPROW(i32);
+pub struct MIB_UDPROW2(i32);
+pub struct MIB_UDPROW_OWNER_MODULE(i32);
+pub struct MIB_UDPROW_OWNER_PID(i32);
+pub struct MIB_UDPSTATS(i32);
+pub struct MIB_UDPSTATS2(i32);
+pub struct MIB_UDPTABLE(i32);
+pub struct MIB_UDPTABLE2(i32);
+pub struct MIB_UDPTABLE_OWNER_MODULE(i32);
+pub struct MIB_UDPTABLE_OWNER_PID(i32);
+pub struct MIB_UNICASTIPADDRESS_ROW(i32);
+pub struct MIB_UNICASTIPADDRESS_TABLE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIB_USE_CURRENT_TTL: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIN_IF_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const MIXED_NODETYPE: u32 = 4u32;
+pub struct NDIS_INTERFACE_INFORMATION(i32);
+pub struct NET_ADDRESS_FORMAT(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
+pub struct NET_IF_ACCESS_TYPE(i32);
+pub struct NET_IF_ADMIN_STATUS(i32);
+pub struct NET_IF_ALIAS_LH(i32);
+pub struct NET_IF_CONNECTION_TYPE(i32);
+pub struct NET_IF_DIRECTION_TYPE(i32);
+pub struct NET_IF_MEDIA_CONNECT_STATE(i32);
+pub struct NET_IF_MEDIA_DUPLEX_STATE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OID_IF_ALIAS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
+pub struct NET_IF_OPER_STATUS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: u32 = 2u32;
+pub struct NET_IF_RCV_ADDRESS_LH(i32);
+pub struct NET_IF_RCV_ADDRESS_TYPE(i32);
+pub struct NET_LUID_LH(i32);
+pub struct NET_PHYSICAL_LOCATION_LH(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_SITEID_MAXSYSTEM: u32 = 268435455u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_SITEID_MAXUSER: u32 = 134217727u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_SITEID_UNSPECIFIED: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV4_ADDRESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV4_NETWORK: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV4_SERVICE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV6_ADDRESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV6_ADDRESS_NO_SCOPE: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV6_NETWORK: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV6_SERVICE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_IPV6_SERVICE_NO_SCOPE: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_NAMED_ADDRESS: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NET_STRING_NAMED_SERVICE: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_FILTER_INTERFACE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_HARDWARE_INTERFACE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_NDIS_ENDPOINT_INTERFACE: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_NDIS_ISCSI_INTERFACE: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_NDIS_RESERVED1: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_NDIS_RESERVED2: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_NDIS_RESERVED3: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_NDIS_RESERVED4: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
+pub struct PFADDRESSTYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
+pub struct PFFORWARD_ACTION(i32);
+pub struct PFFRAMETYPE(i32);
+pub struct PFLOGFRAME(i32);
+pub struct PF_FILTER_DESCRIPTOR(i32);
+pub struct PF_FILTER_STATS(i32);
+pub struct PF_INTERFACE_STATS(i32);
+pub struct PF_LATEBIND_INFO(i32);
+pub struct PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(i32);
+pub struct PIPFORWARD_CHANGE_CALLBACK(i32);
+pub struct PIPINTERFACE_CHANGE_CALLBACK(i32);
+pub struct PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const PROXY_ARP: u32 = 22u32;
+pub struct PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(i32);
+pub struct PTEREDO_PORT_CHANGE_CALLBACK(i32);
+pub struct PUNICAST_IPADDRESS_CHANGE_CALLBACK(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ROUTE_LONGER: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ROUTE_MATCHING: u32 = 31u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ROUTE_SHORTER: u32 = 33u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const ROUTE_STATE: u32 = 34u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const TCP6_STATS: u32 = 38u32;
+pub struct TCPIP_OWNER_MODULE_BASIC_INFO(i32);
+pub struct TCPIP_OWNER_MODULE_INFO_CLASS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
+pub struct TCP_BOOLEAN_OPTIONAL(i32);
+pub struct TCP_CONNECTION_OFFLOAD_STATE(i32);
+pub struct TCP_ESTATS_BANDWIDTH_ROD_v0(i32);
+pub struct TCP_ESTATS_BANDWIDTH_RW_v0(i32);
+pub struct TCP_ESTATS_DATA_ROD_v0(i32);
+pub struct TCP_ESTATS_DATA_RW_v0(i32);
+pub struct TCP_ESTATS_FINE_RTT_ROD_v0(i32);
+pub struct TCP_ESTATS_FINE_RTT_RW_v0(i32);
+pub struct TCP_ESTATS_OBS_REC_ROD_v0(i32);
+pub struct TCP_ESTATS_OBS_REC_RW_v0(i32);
+pub struct TCP_ESTATS_PATH_ROD_v0(i32);
+pub struct TCP_ESTATS_PATH_RW_v0(i32);
+pub struct TCP_ESTATS_REC_ROD_v0(i32);
+pub struct TCP_ESTATS_REC_RW_v0(i32);
+pub struct TCP_ESTATS_SEND_BUFF_ROD_v0(i32);
+pub struct TCP_ESTATS_SEND_BUFF_RW_v0(i32);
+pub struct TCP_ESTATS_SND_CONG_ROD_v0(i32);
+pub struct TCP_ESTATS_SND_CONG_ROS_v0(i32);
+pub struct TCP_ESTATS_SND_CONG_RW_v0(i32);
+pub struct TCP_ESTATS_SYN_OPTS_ROS_v0(i32);
+pub struct TCP_ESTATS_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const TCP_ROW: u32 = 14u32;
+pub struct TCP_RTO_ALGORITHM(i32);
+pub struct TCP_SOFT_ERROR(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const TCP_STATS: u32 = 12u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const TCP_TABLE: u32 = 13u32;
+pub struct TCP_TABLE_CLASS(i32);
+pub struct TUNNEL_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const UDP6_STATS: u32 = 37u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const UDP_ROW: u32 = 17u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const UDP_STATS: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+pub const UDP_TABLE: u32 = 16u32;
+pub struct UDP_TABLE_CLASS(i32);
+pub struct arp_send_reply(i32);
+pub struct icmp_echo_reply(i32);
+pub struct icmp_echo_reply32(i32);
+pub struct icmpv6_echo_reply_lh(i32);
+pub struct ip_interface_name_info_w2ksp1(i32);
+pub struct ip_option_information(i32);
+pub struct ip_option_information32(i32);
+pub struct tcp_reserve_port_range(i32);

@@ -1,16 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[cfg(feature = "Win32_System_Memory_NonVolatile")]
 pub mod NonVolatile;
-#[doc = "*Required features: `Win32_System_Memory`*"]
-pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Memory`*"]
-pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Memory`*"]
-pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Memory`*"]
-pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Memory`*"]
-pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
@@ -298,3 +288,42 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VirtualUnlockEx(process: super::super::Foundation::HANDLE, address: *const ::core::ffi::c_void, size: usize) -> super::super::Foundation::BOOL;
 }
+pub struct CFG_CALL_TARGET_INFO(i32);
+#[doc = "*Required features: `Win32_System_Memory`*"]
+pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Memory`*"]
+pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Memory`*"]
+pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Memory`*"]
+pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
+pub struct FILE_MAP(i32);
+pub struct GLOBAL_ALLOC_FLAGS(i32);
+pub struct HEAP_FLAGS(i32);
+pub struct HEAP_INFORMATION_CLASS(i32);
+pub struct HEAP_SUMMARY(i32);
+pub struct HeapHandle(i32);
+pub struct LOCAL_ALLOC_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Memory`*"]
+pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
+pub struct MEMORY_BASIC_INFORMATION(i32);
+pub struct MEMORY_BASIC_INFORMATION(i32);
+pub struct MEMORY_BASIC_INFORMATION32(i32);
+pub struct MEMORY_BASIC_INFORMATION64(i32);
+pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(i32);
+pub struct MEM_EXTENDED_PARAMETER(i32);
+pub struct MEM_EXTENDED_PARAMETER_TYPE(i32);
+pub struct OFFER_PRIORITY(i32);
+pub struct PAGE_PROTECTION_FLAGS(i32);
+pub struct PAGE_TYPE(i32);
+pub struct PBAD_MEMORY_CALLBACK_ROUTINE(i32);
+pub struct PROCESS_HEAP_ENTRY(i32);
+pub struct PSECURE_MEMORY_CACHE_CALLBACK(i32);
+pub struct UNMAP_VIEW_OF_FILE_FLAGS(i32);
+pub struct VIRTUAL_ALLOCATION_TYPE(i32);
+pub struct VIRTUAL_FREE_TYPE(i32);
+pub struct WIN32_MEMORY_INFORMATION_CLASS(i32);
+pub struct WIN32_MEMORY_PARTITION_INFORMATION(i32);
+pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(i32);
+pub struct WIN32_MEMORY_RANGE_ENTRY(i32);
+pub struct WIN32_MEMORY_REGION_INFORMATION(i32);

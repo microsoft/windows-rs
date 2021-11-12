@@ -7,3 +7,6 @@ pub mod Core;
 pub mod DataProtection;
 #[link(name = "windows")]
 extern "system" {}
+pub struct BinaryStringEncoding(i32);
+pub struct CryptographicBuffer(i32);
+pub struct ICryptographicBufferStatics(i32);

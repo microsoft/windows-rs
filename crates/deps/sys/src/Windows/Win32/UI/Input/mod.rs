@@ -45,3 +45,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
 }
+pub struct HRAWINPUT(i32);
+pub struct INPUT_MESSAGE_DEVICE_TYPE(i32);
+pub struct INPUT_MESSAGE_ORIGIN_ID(i32);
+pub struct INPUT_MESSAGE_SOURCE(i32);
+pub struct RAWHID(i32);
+pub struct RAWINPUT(i32);
+pub struct RAWINPUTDEVICE(i32);
+pub struct RAWINPUTDEVICELIST(i32);
+pub struct RAWINPUTDEVICE_FLAGS(i32);
+pub struct RAWINPUTHEADER(i32);
+pub struct RAWKEYBOARD(i32);
+pub struct RAWMOUSE(i32);
+pub struct RAW_INPUT_DATA_COMMAND_FLAGS(i32);
+pub struct RAW_INPUT_DEVICE_INFO_COMMAND(i32);
+pub struct RID_DEVICE_INFO(i32);
+pub struct RID_DEVICE_INFO_HID(i32);
+pub struct RID_DEVICE_INFO_KEYBOARD(i32);
+pub struct RID_DEVICE_INFO_MOUSE(i32);
+pub struct RID_DEVICE_INFO_TYPE(i32);

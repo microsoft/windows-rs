@@ -116,3 +116,9 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
     pub fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+pub struct HCN_NOTIFICATIONS(i32);
+pub struct HCN_NOTIFICATION_CALLBACK(i32);
+pub struct HCN_PORT_ACCESS(i32);
+pub struct HCN_PORT_PROTOCOL(i32);
+pub struct HCN_PORT_RANGE_ENTRY(i32);
+pub struct HCN_PORT_RANGE_RESERVATION(i32);

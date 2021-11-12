@@ -1,30 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const MAX_NUM_REASONS: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const MAX_REASON_BUGID_LEN: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const MAX_REASON_COMMENT_LEN: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const MAX_REASON_DESC_LEN: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const MAX_REASON_NAME_LEN: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const POLICY_SHOWREASONUI_ALWAYS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const POLICY_SHOWREASONUI_NEVER: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const SHUTDOWN_TYPE_LEN: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Shutdown`*"]
-pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Shutdown`, `Win32_Foundation`*"]
@@ -70,3 +44,32 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: super::super::Foundation::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL;
 }
+pub struct EXIT_WINDOWS_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const MAX_NUM_REASONS: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const MAX_REASON_BUGID_LEN: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const MAX_REASON_COMMENT_LEN: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const MAX_REASON_DESC_LEN: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const MAX_REASON_NAME_LEN: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const POLICY_SHOWREASONUI_ALWAYS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const POLICY_SHOWREASONUI_NEVER: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2u32;
+pub struct SHUTDOWN_FLAGS(i32);
+pub struct SHUTDOWN_REASON(i32);
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const SHUTDOWN_TYPE_LEN: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Shutdown`*"]
+pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;

@@ -1,4 +1,118 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioAcquireFocus() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows_sys::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioCancel(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: *mut u32, sample: *mut *mut WINBIO_BIR, samplesize: *mut usize, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioCloseSession(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENTITY, isnewtemplate: *mut u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: *mut usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE, credentialstate: *mut WINBIO_CREDENTIAL_STATE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY, enrolledfactors: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioImproveEnd(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioLocateSensor(sessionhandle: u32, unitid: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows_sys::core::GUID, sessionhandle: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioReleaseFocus() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioRemoveAllCredentials() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioRemoveAllDomainCredentials() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *const u8, credentialsize: usize, format: WINBIO_CREDENTIAL_FORMAT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::core::ffi::c_void, propertybuffersize: usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: *mut u32, r#match: *mut u8, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
+    pub fn WinBioWait(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
+}
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const FACILITY_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
@@ -11,10 +125,171 @@ pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows_sys::core::GUID = ::wind
 };
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
+pub struct PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN(i32);
+pub struct PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN(i32);
+pub struct PIBIO_ENGINE_ACTIVATE_FN(i32);
+pub struct PIBIO_ENGINE_ATTACH_FN(i32);
+pub struct PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN(i32);
+pub struct PIBIO_ENGINE_CLEAR_CONTEXT_FN(i32);
+pub struct PIBIO_ENGINE_COMMIT_ENROLLMENT_FN(i32);
+pub struct PIBIO_ENGINE_CONTROL_UNIT_FN(i32);
+pub struct PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN(i32);
+pub struct PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN(i32);
+pub struct PIBIO_ENGINE_CREATE_ENROLLMENT_FN(i32);
+pub struct PIBIO_ENGINE_CREATE_KEY_FN(i32);
+pub struct PIBIO_ENGINE_DEACTIVATE_FN(i32);
+pub struct PIBIO_ENGINE_DETACH_FN(i32);
+pub struct PIBIO_ENGINE_DISCARD_ENROLLMENT_FN(i32);
+pub struct PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN(i32);
+pub struct PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN(i32);
+pub struct PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN(i32);
+pub struct PIBIO_ENGINE_IDENTIFY_ALL_FN(i32);
+pub struct PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN(i32);
+pub struct PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN(i32);
+pub struct PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN(i32);
+pub struct PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN(i32);
+pub struct PIBIO_ENGINE_PIPELINE_CLEANUP_FN(i32);
+pub struct PIBIO_ENGINE_PIPELINE_INIT_FN(i32);
+pub struct PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN(i32);
+pub struct PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN(i32);
+pub struct PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN(i32);
+pub struct PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN(i32);
+pub struct PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN(i32);
+pub struct PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN(i32);
+pub struct PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN(i32);
+pub struct PIBIO_ENGINE_REFRESH_CACHE_FN(i32);
+pub struct PIBIO_ENGINE_RESERVED_1_FN(i32);
+pub struct PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN(i32);
+pub struct PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN(i32);
+pub struct PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN(i32);
+pub struct PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN(i32);
+pub struct PIBIO_ENGINE_SET_HASH_ALGORITHM_FN(i32);
+pub struct PIBIO_ENGINE_UPDATE_ENROLLMENT_FN(i32);
+pub struct PIBIO_ENGINE_VERIFY_FEATURE_SET_FN(i32);
+pub struct PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN(i32);
+pub struct PIBIO_FRAMEWORK_FREE_MEMORY_FN(i32);
+pub struct PIBIO_FRAMEWORK_GET_PROPERTY_FN(i32);
+pub struct PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN(i32);
+pub struct PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN(i32);
+pub struct PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN(i32);
+pub struct PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN(i32);
+pub struct PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN(i32);
+pub struct PIBIO_SENSOR_ACTIVATE_FN(i32);
+pub struct PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN(i32);
+pub struct PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN(i32);
+pub struct PIBIO_SENSOR_ATTACH_FN(i32);
+pub struct PIBIO_SENSOR_CANCEL_FN(i32);
+pub struct PIBIO_SENSOR_CLEAR_CONTEXT_FN(i32);
+pub struct PIBIO_SENSOR_CONNECT_SECURE_FN(i32);
+pub struct PIBIO_SENSOR_CONTROL_UNIT_FN(i32);
+pub struct PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN(i32);
+pub struct PIBIO_SENSOR_DEACTIVATE_FN(i32);
+pub struct PIBIO_SENSOR_DETACH_FN(i32);
+pub struct PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN(i32);
+pub struct PIBIO_SENSOR_FINISH_CAPTURE_FN(i32);
+pub struct PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN(i32);
+pub struct PIBIO_SENSOR_GET_INDICATOR_STATUS_FN(i32);
+pub struct PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN(i32);
+pub struct PIBIO_SENSOR_PIPELINE_CLEANUP_FN(i32);
+pub struct PIBIO_SENSOR_PIPELINE_INIT_FN(i32);
+pub struct PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN(i32);
+pub struct PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN(i32);
+pub struct PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN(i32);
+pub struct PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN(i32);
+pub struct PIBIO_SENSOR_QUERY_STATUS_FN(i32);
+pub struct PIBIO_SENSOR_RESET_FN(i32);
+pub struct PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN(i32);
+pub struct PIBIO_SENSOR_SET_INDICATOR_STATUS_FN(i32);
+pub struct PIBIO_SENSOR_SET_MODE_FN(i32);
+pub struct PIBIO_SENSOR_START_CAPTURE_EX_FN(i32);
+pub struct PIBIO_SENSOR_START_CAPTURE_FN(i32);
+pub struct PIBIO_SENSOR_START_NOTIFY_WAKE_FN(i32);
+pub struct PIBIO_STORAGE_ACTIVATE_FN(i32);
+pub struct PIBIO_STORAGE_ADD_RECORD_FN(i32);
+pub struct PIBIO_STORAGE_ATTACH_FN(i32);
+pub struct PIBIO_STORAGE_CLEAR_CONTEXT_FN(i32);
+pub struct PIBIO_STORAGE_CLOSE_DATABASE_FN(i32);
+pub struct PIBIO_STORAGE_CONTROL_UNIT_FN(i32);
+pub struct PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN(i32);
+pub struct PIBIO_STORAGE_CREATE_DATABASE_FN(i32);
+pub struct PIBIO_STORAGE_DEACTIVATE_FN(i32);
+pub struct PIBIO_STORAGE_DELETE_RECORD_FN(i32);
+pub struct PIBIO_STORAGE_DETACH_FN(i32);
+pub struct PIBIO_STORAGE_ERASE_DATABASE_FN(i32);
+pub struct PIBIO_STORAGE_FIRST_RECORD_FN(i32);
+pub struct PIBIO_STORAGE_GET_CURRENT_RECORD_FN(i32);
+pub struct PIBIO_STORAGE_GET_DATABASE_SIZE_FN(i32);
+pub struct PIBIO_STORAGE_GET_DATA_FORMAT_FN(i32);
+pub struct PIBIO_STORAGE_GET_RECORD_COUNT_FN(i32);
+pub struct PIBIO_STORAGE_NEXT_RECORD_FN(i32);
+pub struct PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN(i32);
+pub struct PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN(i32);
+pub struct PIBIO_STORAGE_OPEN_DATABASE_FN(i32);
+pub struct PIBIO_STORAGE_PIPELINE_CLEANUP_FN(i32);
+pub struct PIBIO_STORAGE_PIPELINE_INIT_FN(i32);
+pub struct PIBIO_STORAGE_QUERY_BY_CONTENT_FN(i32);
+pub struct PIBIO_STORAGE_QUERY_BY_SUBJECT_FN(i32);
+pub struct PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN(i32);
+pub struct PIBIO_STORAGE_RESERVED_1_FN(i32);
+pub struct PIBIO_STORAGE_RESERVED_2_FN(i32);
+pub struct PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN(i32);
+pub struct PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN(i32);
+pub struct PWINBIO_ASYNC_COMPLETION_CALLBACK(i32);
+pub struct PWINBIO_CAPTURE_CALLBACK(i32);
+pub struct PWINBIO_ENROLL_CAPTURE_CALLBACK(i32);
+pub struct PWINBIO_EVENT_CALLBACK(i32);
+pub struct PWINBIO_IDENTIFY_CALLBACK(i32);
+pub struct PWINBIO_LOCATE_SENSOR_CALLBACK(i32);
+pub struct PWINBIO_QUERY_ENGINE_INTERFACE_FN(i32);
+pub struct PWINBIO_QUERY_SENSOR_INTERFACE_FN(i32);
+pub struct PWINBIO_QUERY_STORAGE_INTERFACE_FN(i32);
+pub struct PWINBIO_VERIFY_CALLBACK(i32);
+pub struct WINBIO_ACCOUNT_POLICY(i32);
+pub struct WINBIO_ADAPTER_INTERFACE_VERSION(i32);
+pub struct WINBIO_ANTI_SPOOF_POLICY(i32);
+pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(i32);
+pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(i32);
+pub struct WINBIO_ASYNC_RESULT(i32);
+pub struct WINBIO_BDB_ANSI_381_HEADER(i32);
+pub struct WINBIO_BDB_ANSI_381_RECORD(i32);
+pub struct WINBIO_BIR(i32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
+pub struct WINBIO_BIR_DATA(i32);
+pub struct WINBIO_BIR_HEADER(i32);
+pub struct WINBIO_BLANK_PAYLOAD(i32);
+pub struct WINBIO_BSP_SCHEMA(i32);
+pub struct WINBIO_CALIBRATION_INFO(i32);
+pub struct WINBIO_CAPTURE_DATA(i32);
+pub struct WINBIO_CAPTURE_PARAMETERS(i32);
+pub struct WINBIO_COMPONENT(i32);
+pub struct WINBIO_CREDENTIAL_FORMAT(i32);
+pub struct WINBIO_CREDENTIAL_STATE(i32);
+pub struct WINBIO_CREDENTIAL_TYPE(i32);
+pub struct WINBIO_DATA(i32);
+pub struct WINBIO_DIAGNOSTICS(i32);
+pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS(i32);
+pub struct WINBIO_ENGINE_INTERFACE(i32);
+pub struct WINBIO_EVENT(i32);
+pub struct WINBIO_EXTENDED_ENGINE_INFO(i32);
+pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS(i32);
+pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS(i32);
+pub struct WINBIO_EXTENDED_SENSOR_INFO(i32);
+pub struct WINBIO_EXTENDED_STORAGE_INFO(i32);
+pub struct WINBIO_EXTENDED_UNIT_STATUS(i32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146860995i32 as _);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
@@ -183,12 +458,26 @@ pub const WINBIO_E_UNSUPPORTED_PROPERTY: ::windows_sys::core::HRESULT = ::window
 pub const WINBIO_E_UNSUPPORTED_PURPOSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146861042i32 as _);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146860978i32 as _);
+pub struct WINBIO_FP_BU_STATE(i32);
+pub struct WINBIO_FRAMEWORK_INTERFACE(i32);
+pub struct WINBIO_GESTURE_METADATA(i32);
+pub struct WINBIO_GET_INDICATOR(i32);
+pub struct WINBIO_IDENTITY(i32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(589826i32 as _);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_I_MORE_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(589825i32 as _);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
+pub struct WINBIO_NOTIFY_WAKE(i32);
+pub struct WINBIO_PIPELINE(i32);
+pub struct WINBIO_POLICY_SOURCE(i32);
+pub struct WINBIO_POOL(i32);
+pub struct WINBIO_PRESENCE(i32);
+pub struct WINBIO_PRESENCE_PROPERTIES(i32);
+pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO(i32);
+pub struct WINBIO_PROTECTION_POLICY(i32);
+pub struct WINBIO_REGISTERED_FORMAT(i32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
@@ -207,121 +496,24 @@ pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
 pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
+pub struct WINBIO_SECURE_BUFFER_HEADER_V1(i32);
+pub struct WINBIO_SECURE_CONNECTION_DATA(i32);
+pub struct WINBIO_SECURE_CONNECTION_PARAMS(i32);
+pub struct WINBIO_SENSOR_ATTRIBUTES(i32);
+pub struct WINBIO_SENSOR_INTERFACE(i32);
+pub struct WINBIO_SETTING_SOURCE(i32);
+pub struct WINBIO_SET_INDICATOR(i32);
+pub struct WINBIO_STORAGE_INTERFACE(i32);
+pub struct WINBIO_STORAGE_RECORD(i32);
+pub struct WINBIO_STORAGE_SCHEMA(i32);
+pub struct WINBIO_SUPPORTED_ALGORITHMS(i32);
+pub struct WINBIO_UNIT_SCHEMA(i32);
+pub struct WINBIO_UPDATE_FIRMWARE(i32);
+pub struct WINBIO_VERSION(i32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioAcquireFocus() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows_sys::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioCancel(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: *mut u32, sample: *mut *mut WINBIO_BIR, samplesize: *mut usize, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioCloseSession(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENTITY, isnewtemplate: *mut u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: *mut usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE, credentialstate: *mut WINBIO_CREDENTIAL_STATE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY, enrolledfactors: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioImproveEnd(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioLocateSensor(sessionhandle: u32, unitid: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows_sys::core::GUID, sessionhandle: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioReleaseFocus() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioRemoveAllCredentials() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioRemoveAllDomainCredentials() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *const u8, credentialsize: usize, format: WINBIO_CREDENTIAL_FORMAT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::core::ffi::c_void, propertybuffersize: usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: *mut u32, r#match: *mut u8, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-    pub fn WinBioWait(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
-}
+pub struct _WINIBIO_ENGINE_CONTEXT(i32);
+pub struct _WINIBIO_SENSOR_CONTEXT(i32);
+pub struct _WINIBIO_STORAGE_CONTEXT(i32);

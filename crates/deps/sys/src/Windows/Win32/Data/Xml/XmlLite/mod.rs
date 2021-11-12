@@ -1,7 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
-pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
-pub const _IID_IXmlWriter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597128, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_System_Com`*"]
@@ -23,3 +20,18 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn CreateXmlWriterOutputWithEncodingName(poutputstream: ::windows_sys::core::IUnknown, pmalloc: super::super::super::System::Com::IMalloc, pwszencodingname: super::super::super::Foundation::PWSTR, ppoutput: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
+pub struct DtdProcessing(i32);
+pub struct IXmlReader(i32);
+pub struct IXmlResolver(i32);
+pub struct IXmlWriter(i32);
+pub struct IXmlWriterLite(i32);
+pub struct XmlConformanceLevel(i32);
+pub struct XmlError(i32);
+pub struct XmlNodeType(i32);
+pub struct XmlReadState(i32);
+pub struct XmlReaderProperty(i32);
+pub struct XmlStandalone(i32);
+pub struct XmlWriterProperty(i32);
+pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlWriter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597128, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };

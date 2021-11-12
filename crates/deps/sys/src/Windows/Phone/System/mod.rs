@@ -7,3 +7,6 @@ pub mod Profile;
 pub mod UserProfile;
 #[link(name = "windows")]
 extern "system" {}
+pub struct ISystemProtectionStatics(i32);
+pub struct ISystemProtectionUnlockStatics(i32);
+pub struct SystemProtection(i32);

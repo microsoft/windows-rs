@@ -1,3 +1,25 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct GazeDeviceConfigurationStatePreview(i32);
+pub struct GazeDevicePreview(i32);
+pub struct GazeDeviceWatcherAddedPreviewEventArgs(i32);
+pub struct GazeDeviceWatcherPreview(i32);
+pub struct GazeDeviceWatcherRemovedPreviewEventArgs(i32);
+pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(i32);
+pub struct GazeEnteredPreviewEventArgs(i32);
+pub struct GazeExitedPreviewEventArgs(i32);
+pub struct GazeInputSourcePreview(i32);
+pub struct GazeMovedPreviewEventArgs(i32);
+pub struct GazePointPreview(i32);
+pub struct IGazeDevicePreview(i32);
+pub struct IGazeDeviceWatcherAddedPreviewEventArgs(i32);
+pub struct IGazeDeviceWatcherPreview(i32);
+pub struct IGazeDeviceWatcherRemovedPreviewEventArgs(i32);
+pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs(i32);
+pub struct IGazeEnteredPreviewEventArgs(i32);
+pub struct IGazeExitedPreviewEventArgs(i32);
+pub struct IGazeInputSourcePreview(i32);
+pub struct IGazeInputSourcePreviewStatics(i32);
+pub struct IGazeMovedPreviewEventArgs(i32);
+pub struct IGazePointPreview(i32);

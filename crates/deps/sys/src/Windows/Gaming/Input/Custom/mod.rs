@@ -1,3 +1,26 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct GameControllerFactoryManager(i32);
+pub struct GameControllerVersionInfo(i32);
+pub struct GipFirmwareUpdateProgress(i32);
+pub struct GipFirmwareUpdateResult(i32);
+pub struct GipFirmwareUpdateStatus(i32);
+pub struct GipGameControllerProvider(i32);
+pub struct GipMessageClass(i32);
+pub struct HidGameControllerProvider(i32);
+pub struct ICustomGameControllerFactory(i32);
+pub struct IGameControllerFactoryManagerStatics(i32);
+pub struct IGameControllerFactoryManagerStatics2(i32);
+pub struct IGameControllerInputSink(i32);
+pub struct IGameControllerProvider(i32);
+pub struct IGipFirmwareUpdateResult(i32);
+pub struct IGipGameControllerInputSink(i32);
+pub struct IGipGameControllerProvider(i32);
+pub struct IHidGameControllerInputSink(i32);
+pub struct IHidGameControllerProvider(i32);
+pub struct IXusbGameControllerInputSink(i32);
+pub struct IXusbGameControllerProvider(i32);
+pub struct XusbDeviceSubtype(i32);
+pub struct XusbDeviceType(i32);
+pub struct XusbGameControllerProvider(i32);

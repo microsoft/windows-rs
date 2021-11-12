@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_UI_Shell_PropertiesSystem`*"]
-pub const PKEY_PIDSTR_MAX: u32 = 10u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_UI_Shell_PropertiesSystem`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
@@ -676,3 +674,66 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn WinRTPropertyValueToPropVariant(punkpropertyvalue: ::windows_sys::core::IUnknown, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
 }
+pub struct DRAWPROGRESSFLAGS(i32);
+pub struct GETPROPERTYSTOREFLAGS(i32);
+pub struct ICreateObject(i32);
+pub struct IDelayedPropertyStoreFactory(i32);
+pub struct IInitializeWithFile(i32);
+pub struct IInitializeWithStream(i32);
+pub struct INamedPropertyStore(i32);
+pub struct IObjectWithPropertyKey(i32);
+pub struct IPersistSerializedPropStorage(i32);
+pub struct IPersistSerializedPropStorage2(i32);
+pub struct IPropertyChange(i32);
+pub struct IPropertyChangeArray(i32);
+pub struct IPropertyDescription(i32);
+pub struct IPropertyDescription2(i32);
+pub struct IPropertyDescriptionAliasInfo(i32);
+pub struct IPropertyDescriptionList(i32);
+pub struct IPropertyDescriptionRelatedPropertyInfo(i32);
+pub struct IPropertyDescriptionSearchInfo(i32);
+pub struct IPropertyEnumType(i32);
+pub struct IPropertyEnumType2(i32);
+pub struct IPropertyEnumTypeList(i32);
+pub struct IPropertyStore(i32);
+pub struct IPropertyStoreCache(i32);
+pub struct IPropertyStoreCapabilities(i32);
+pub struct IPropertyStoreFactory(i32);
+pub struct IPropertySystem(i32);
+pub struct IPropertySystemChangeNotify(i32);
+pub struct IPropertyUI(i32);
+pub struct InMemoryPropertyStore(i32);
+pub struct InMemoryPropertyStoreMarshalByValue(i32);
+pub struct PDOPSTATUS(i32);
+pub struct PKA_FLAGS(i32);
+#[doc = "*Required features: `Win32_UI_Shell_PropertiesSystem`*"]
+pub const PKEY_PIDSTR_MAX: u32 = 10u32;
+pub struct PLACEHOLDER_STATES(i32);
+pub struct PROPDESC_AGGREGATION_TYPE(i32);
+pub struct PROPDESC_COLUMNINDEX_TYPE(i32);
+pub struct PROPDESC_CONDITION_TYPE(i32);
+pub struct PROPDESC_DISPLAYTYPE(i32);
+pub struct PROPDESC_ENUMFILTER(i32);
+pub struct PROPDESC_FORMAT_FLAGS(i32);
+pub struct PROPDESC_GROUPING_RANGE(i32);
+pub struct PROPDESC_RELATIVEDESCRIPTION_TYPE(i32);
+pub struct PROPDESC_SEARCHINFO_FLAGS(i32);
+pub struct PROPDESC_SORTDESCRIPTION(i32);
+pub struct PROPDESC_TYPE_FLAGS(i32);
+pub struct PROPDESC_VIEW_FLAGS(i32);
+pub struct PROPENUMTYPE(i32);
+pub struct PROPERTYKEY(i32);
+pub struct PROPERTYUI_FLAGS(i32);
+pub struct PROPERTYUI_FORMAT_FLAGS(i32);
+pub struct PROPERTYUI_NAME_FLAGS(i32);
+pub struct PROPPRG(i32);
+pub struct PROPVAR_CHANGE_FLAGS(i32);
+pub struct PROPVAR_COMPARE_FLAGS(i32);
+pub struct PROPVAR_COMPARE_UNIT(i32);
+pub struct PSC_STATE(i32);
+pub struct PSTIME_FLAGS(i32);
+pub struct PropertySystem(i32);
+pub struct SERIALIZEDPROPSTORAGE(i32);
+pub struct SYNC_ENGINE_STATE_FLAGS(i32);
+pub struct SYNC_TRANSFER_STATUS(i32);
+pub struct _PERSIST_SPROPSTORE_FLAGS(i32);

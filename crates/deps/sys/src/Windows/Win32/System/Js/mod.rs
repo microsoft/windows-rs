@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_Js`*"]
-pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Js`*"]
@@ -197,3 +195,16 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
 }
+#[doc = "*Required features: `Win32_System_Js`*"]
+pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
+pub struct JsBackgroundWorkItemCallback(i32);
+pub struct JsBeforeCollectCallback(i32);
+pub struct JsErrorCode(i32);
+pub struct JsFinalizeCallback(i32);
+pub struct JsMemoryAllocationCallback(i32);
+pub struct JsMemoryEventType(i32);
+pub struct JsNativeFunction(i32);
+pub struct JsRuntimeAttributes(i32);
+pub struct JsRuntimeVersion(i32);
+pub struct JsThreadServiceCallback(i32);
+pub struct JsValueType(i32);

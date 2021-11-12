@@ -1,48 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_DIRECT: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_DYNAMIC: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_HEAD: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
@@ -222,3 +178,172 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32;
 }
+pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(i32);
+pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(i32);
+pub struct APPX_CAPABILITIES(i32);
+pub struct APPX_CAPABILITY_CLASS_TYPE(i32);
+pub struct APPX_COMPRESSION_OPTION(i32);
+pub struct APPX_ENCRYPTED_EXEMPTIONS(i32);
+pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(i32);
+pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS(i32);
+pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2(i32);
+pub struct APPX_FOOTPRINT_FILE_TYPE(i32);
+pub struct APPX_KEY_INFO(i32);
+pub struct APPX_PACKAGE_ARCHITECTURE(i32);
+pub struct APPX_PACKAGE_ARCHITECTURE2(i32);
+pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(i32);
+pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(i32);
+pub struct APPX_PACKAGE_SETTINGS(i32);
+pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM(i32);
+pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(i32);
+pub struct AddPackageDependencyOptions(i32);
+pub struct AppPolicyClrCompat(i32);
+pub struct AppPolicyCreateFileAccess(i32);
+pub struct AppPolicyLifecycleManagement(i32);
+pub struct AppPolicyMediaFoundationCodecLoading(i32);
+pub struct AppPolicyProcessTerminationMethod(i32);
+pub struct AppPolicyShowDeveloperDiagnostic(i32);
+pub struct AppPolicyThreadInitializationType(i32);
+pub struct AppPolicyWindowingModel(i32);
+pub struct AppxBundleFactory(i32);
+pub struct AppxEncryptionFactory(i32);
+pub struct AppxFactory(i32);
+pub struct AppxPackageEditor(i32);
+pub struct AppxPackagingDiagnosticEventSinkManager(i32);
+pub struct CreatePackageDependencyOptions(i32);
+pub struct DX_FEATURE_LEVEL(i32);
+pub struct IAppxBlockMapBlock(i32);
+pub struct IAppxBlockMapBlocksEnumerator(i32);
+pub struct IAppxBlockMapFile(i32);
+pub struct IAppxBlockMapFilesEnumerator(i32);
+pub struct IAppxBlockMapReader(i32);
+pub struct IAppxBundleFactory(i32);
+pub struct IAppxBundleManifestOptionalBundleInfo(i32);
+pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(i32);
+pub struct IAppxBundleManifestPackageInfo(i32);
+pub struct IAppxBundleManifestPackageInfo2(i32);
+pub struct IAppxBundleManifestPackageInfo3(i32);
+pub struct IAppxBundleManifestPackageInfo4(i32);
+pub struct IAppxBundleManifestPackageInfoEnumerator(i32);
+pub struct IAppxBundleManifestReader(i32);
+pub struct IAppxBundleManifestReader2(i32);
+pub struct IAppxBundleReader(i32);
+pub struct IAppxBundleWriter(i32);
+pub struct IAppxBundleWriter2(i32);
+pub struct IAppxBundleWriter3(i32);
+pub struct IAppxBundleWriter4(i32);
+pub struct IAppxContentGroup(i32);
+pub struct IAppxContentGroupFilesEnumerator(i32);
+pub struct IAppxContentGroupMapReader(i32);
+pub struct IAppxContentGroupMapWriter(i32);
+pub struct IAppxContentGroupsEnumerator(i32);
+pub struct IAppxEncryptedBundleWriter(i32);
+pub struct IAppxEncryptedBundleWriter2(i32);
+pub struct IAppxEncryptedBundleWriter3(i32);
+pub struct IAppxEncryptedPackageWriter(i32);
+pub struct IAppxEncryptedPackageWriter2(i32);
+pub struct IAppxEncryptionFactory(i32);
+pub struct IAppxEncryptionFactory2(i32);
+pub struct IAppxEncryptionFactory3(i32);
+pub struct IAppxEncryptionFactory4(i32);
+pub struct IAppxFactory(i32);
+pub struct IAppxFactory2(i32);
+pub struct IAppxFile(i32);
+pub struct IAppxFilesEnumerator(i32);
+pub struct IAppxManifestApplication(i32);
+pub struct IAppxManifestApplicationsEnumerator(i32);
+pub struct IAppxManifestCapabilitiesEnumerator(i32);
+pub struct IAppxManifestDeviceCapabilitiesEnumerator(i32);
+pub struct IAppxManifestDriverConstraint(i32);
+pub struct IAppxManifestDriverConstraintsEnumerator(i32);
+pub struct IAppxManifestDriverDependenciesEnumerator(i32);
+pub struct IAppxManifestDriverDependency(i32);
+pub struct IAppxManifestHostRuntimeDependenciesEnumerator(i32);
+pub struct IAppxManifestHostRuntimeDependency(i32);
+pub struct IAppxManifestHostRuntimeDependency2(i32);
+pub struct IAppxManifestMainPackageDependenciesEnumerator(i32);
+pub struct IAppxManifestMainPackageDependency(i32);
+pub struct IAppxManifestOSPackageDependenciesEnumerator(i32);
+pub struct IAppxManifestOSPackageDependency(i32);
+pub struct IAppxManifestOptionalPackageInfo(i32);
+pub struct IAppxManifestPackageDependenciesEnumerator(i32);
+pub struct IAppxManifestPackageDependency(i32);
+pub struct IAppxManifestPackageDependency2(i32);
+pub struct IAppxManifestPackageDependency3(i32);
+pub struct IAppxManifestPackageId(i32);
+pub struct IAppxManifestPackageId2(i32);
+pub struct IAppxManifestProperties(i32);
+pub struct IAppxManifestQualifiedResource(i32);
+pub struct IAppxManifestQualifiedResourcesEnumerator(i32);
+pub struct IAppxManifestReader(i32);
+pub struct IAppxManifestReader2(i32);
+pub struct IAppxManifestReader3(i32);
+pub struct IAppxManifestReader4(i32);
+pub struct IAppxManifestReader5(i32);
+pub struct IAppxManifestReader6(i32);
+pub struct IAppxManifestReader7(i32);
+pub struct IAppxManifestResourcesEnumerator(i32);
+pub struct IAppxManifestTargetDeviceFamiliesEnumerator(i32);
+pub struct IAppxManifestTargetDeviceFamily(i32);
+pub struct IAppxPackageEditor(i32);
+pub struct IAppxPackageReader(i32);
+pub struct IAppxPackageWriter(i32);
+pub struct IAppxPackageWriter2(i32);
+pub struct IAppxPackageWriter3(i32);
+pub struct IAppxPackagingDiagnosticEventSink(i32);
+pub struct IAppxPackagingDiagnosticEventSinkManager(i32);
+pub struct IAppxSourceContentGroupMapReader(i32);
+pub struct PACKAGEDEPENDENCY_CONTEXT__(i32);
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_DIRECT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_DYNAMIC: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_HEAD: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
+pub struct PACKAGE_ID(i32);
+pub struct PACKAGE_INFO(i32);
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
+pub struct PACKAGE_VERSION(i32);
+pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__(i32);
+pub struct PackageDependencyLifetimeKind(i32);
+pub struct PackageDependencyProcessorArchitectures(i32);
+pub struct PackageOrigin(i32);
+pub struct PackagePathType(i32);
+pub struct _PACKAGE_INFO_REFERENCE(i32);

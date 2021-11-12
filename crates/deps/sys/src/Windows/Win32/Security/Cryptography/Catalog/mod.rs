@@ -1,52 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_AUTHENTICATED: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_DATAASCII: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_DATABASE64: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_DATAREPLACE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_NAMEASCII: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_NAMEOBJID: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_ATTR_UNAUTHENTICATED: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_AREA_ATTRIBUTE: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_AREA_HEADER: u32 = 0u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_AREA_MEMBER: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_ATTR_TOOFEWVALUES: u32 = 131074u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_ATTR_TYPECOMBO: u32 = 131076u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_BAD_GUID_CONV: u32 = 131073u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_DUPLICATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_MEMBER_FILENOTFOUND: u32 = 65540u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_MEMBER_FILE_PATH: u32 = 65537u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_MEMBER_INDIRECTDATA: u32 = 65538u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
-#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
-pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
@@ -151,3 +103,59 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsCatalogFile(hfile: super::super::super::Foundation::HANDLE, pwszfilename: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
 }
+pub struct CATALOG_INFO(i32);
+pub struct CRYPTCATATTRIBUTE(i32);
+pub struct CRYPTCATCDF(i32);
+pub struct CRYPTCATMEMBER(i32);
+pub struct CRYPTCATSTORE(i32);
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_AUTHENTICATED: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_DATAASCII: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_DATABASE64: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_DATAREPLACE: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_NAMEASCII: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_NAMEOBJID: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_ATTR_UNAUTHENTICATED: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_AREA_ATTRIBUTE: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_AREA_HEADER: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_AREA_MEMBER: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_ATTR_TOOFEWVALUES: u32 = 131074u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_ATTR_TYPECOMBO: u32 = 131076u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_BAD_GUID_CONV: u32 = 131073u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_DUPLICATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_MEMBER_FILENOTFOUND: u32 = 65540u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_MEMBER_FILE_PATH: u32 = 65537u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_MEMBER_INDIRECTDATA: u32 = 65538u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
+pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
+pub struct CRYPTCAT_OPEN_FLAGS(i32);
+pub struct CRYPTCAT_VERSION(i32);
+pub struct PFN_CDF_PARSE_ERROR_CALLBACK(i32);

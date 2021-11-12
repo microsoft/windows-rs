@@ -1,6 +1,130 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[cfg(feature = "Win32_Storage_Xps_Printing")]
 pub mod Printing;
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn DeviceCapabilitiesA(pdevice: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn DeviceCapabilitiesW(pdevice: super::super::Foundation::PWSTR, pport: super::super::Foundation::PWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: super::super::Foundation::PSTR, pvout: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: super::super::Foundation::PSTR, cjoutput: i32, lpoutdata: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetAbortProc(hdc: super::super::Graphics::Gdi::HDC, proc: ABORTPROC) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn StartDocA(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn StartDocW(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
+}
+pub struct ABORTPROC(i32);
+pub struct DEVICE_CAPABILITIES(i32);
+pub struct DOCINFOA(i32);
+pub struct DOCINFOW(i32);
+pub struct DRAWPATRECT(i32);
+pub struct HPTPROVIDER(i32);
+pub struct IXpsDocumentPackageTarget(i32);
+pub struct IXpsDocumentPackageTarget3D(i32);
+pub struct IXpsOMBrush(i32);
+pub struct IXpsOMCanvas(i32);
+pub struct IXpsOMColorProfileResource(i32);
+pub struct IXpsOMColorProfileResourceCollection(i32);
+pub struct IXpsOMCoreProperties(i32);
+pub struct IXpsOMDashCollection(i32);
+pub struct IXpsOMDictionary(i32);
+pub struct IXpsOMDocument(i32);
+pub struct IXpsOMDocumentCollection(i32);
+pub struct IXpsOMDocumentSequence(i32);
+pub struct IXpsOMDocumentStructureResource(i32);
+pub struct IXpsOMFontResource(i32);
+pub struct IXpsOMFontResourceCollection(i32);
+pub struct IXpsOMGeometry(i32);
+pub struct IXpsOMGeometryFigure(i32);
+pub struct IXpsOMGeometryFigureCollection(i32);
+pub struct IXpsOMGlyphs(i32);
+pub struct IXpsOMGlyphsEditor(i32);
+pub struct IXpsOMGradientBrush(i32);
+pub struct IXpsOMGradientStop(i32);
+pub struct IXpsOMGradientStopCollection(i32);
+pub struct IXpsOMImageBrush(i32);
+pub struct IXpsOMImageResource(i32);
+pub struct IXpsOMImageResourceCollection(i32);
+pub struct IXpsOMLinearGradientBrush(i32);
+pub struct IXpsOMMatrixTransform(i32);
+pub struct IXpsOMNameCollection(i32);
+pub struct IXpsOMObjectFactory(i32);
+pub struct IXpsOMObjectFactory1(i32);
+pub struct IXpsOMPackage(i32);
+pub struct IXpsOMPackage1(i32);
+pub struct IXpsOMPackageTarget(i32);
+pub struct IXpsOMPackageWriter(i32);
+pub struct IXpsOMPackageWriter3D(i32);
+pub struct IXpsOMPage(i32);
+pub struct IXpsOMPage1(i32);
+pub struct IXpsOMPageReference(i32);
+pub struct IXpsOMPageReferenceCollection(i32);
+pub struct IXpsOMPart(i32);
+pub struct IXpsOMPartResources(i32);
+pub struct IXpsOMPartUriCollection(i32);
+pub struct IXpsOMPath(i32);
+pub struct IXpsOMPrintTicketResource(i32);
+pub struct IXpsOMRadialGradientBrush(i32);
+pub struct IXpsOMRemoteDictionaryResource(i32);
+pub struct IXpsOMRemoteDictionaryResource1(i32);
+pub struct IXpsOMRemoteDictionaryResourceCollection(i32);
+pub struct IXpsOMResource(i32);
+pub struct IXpsOMShareable(i32);
+pub struct IXpsOMSignatureBlockResource(i32);
+pub struct IXpsOMSignatureBlockResourceCollection(i32);
+pub struct IXpsOMSolidColorBrush(i32);
+pub struct IXpsOMStoryFragmentsResource(i32);
+pub struct IXpsOMThumbnailGenerator(i32);
+pub struct IXpsOMTileBrush(i32);
+pub struct IXpsOMVisual(i32);
+pub struct IXpsOMVisualBrush(i32);
+pub struct IXpsOMVisualCollection(i32);
+pub struct IXpsSignature(i32);
+pub struct IXpsSignatureBlock(i32);
+pub struct IXpsSignatureBlockCollection(i32);
+pub struct IXpsSignatureCollection(i32);
+pub struct IXpsSignatureManager(i32);
+pub struct IXpsSignatureRequest(i32);
+pub struct IXpsSignatureRequestCollection(i32);
+pub struct IXpsSigningOptions(i32);
+pub struct PRINT_WINDOW_FLAGS(i32);
+pub struct PSFEATURE_CUSTPAPER(i32);
+pub struct PSFEATURE_OUTPUT(i32);
+pub struct PSINJECTDATA(i32);
+pub struct PSINJECT_POINT(i32);
+pub struct XPS_COLOR(i32);
+pub struct XPS_COLOR_INTERPOLATION(i32);
+pub struct XPS_COLOR_TYPE(i32);
+pub struct XPS_DASH(i32);
+pub struct XPS_DASH_CAP(i32);
+pub struct XPS_DOCUMENT_TYPE(i32);
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 pub const XPS_E_ABSOLUTE_REFERENCE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142108159i32 as _);
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
@@ -171,42 +295,28 @@ pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: ::windows_sys::core::HR
 pub const XPS_E_VISUAL_CIRCULAR_REF: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142108415i32 as _);
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142108672i32 as _);
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DeviceCapabilitiesA(pdevice: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DeviceCapabilitiesW(pdevice: super::super::Foundation::PWSTR, pport: super::super::Foundation::PWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: super::super::Foundation::PSTR, pvout: *mut ::core::ffi::c_void) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: super::super::Foundation::PSTR, cjoutput: i32, lpoutdata: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn SetAbortProc(hdc: super::super::Graphics::Gdi::HDC, proc: ABORTPROC) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn StartDocA(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn StartDocW(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Graphics_Gdi`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
-}
+pub struct XPS_FILL_RULE(i32);
+pub struct XPS_FONT_EMBEDDING(i32);
+pub struct XPS_GLYPH_INDEX(i32);
+pub struct XPS_GLYPH_MAPPING(i32);
+pub struct XPS_IMAGE_TYPE(i32);
+pub struct XPS_INTERLEAVING(i32);
+pub struct XPS_LINE_CAP(i32);
+pub struct XPS_LINE_JOIN(i32);
+pub struct XPS_MATRIX(i32);
+pub struct XPS_OBJECT_TYPE(i32);
+pub struct XPS_POINT(i32);
+pub struct XPS_RECT(i32);
+pub struct XPS_SEGMENT_STROKE_PATTERN(i32);
+pub struct XPS_SEGMENT_TYPE(i32);
+pub struct XPS_SIGNATURE_STATUS(i32);
+pub struct XPS_SIGN_FLAGS(i32);
+pub struct XPS_SIGN_POLICY(i32);
+pub struct XPS_SIZE(i32);
+pub struct XPS_SPREAD_METHOD(i32);
+pub struct XPS_STYLE_SIMULATION(i32);
+pub struct XPS_THUMBNAIL_SIZE(i32);
+pub struct XPS_TILE_MODE(i32);
+pub struct XpsOMObjectFactory(i32);
+pub struct XpsOMThumbnailGenerator(i32);
+pub struct XpsSignatureManager(i32);

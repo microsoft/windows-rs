@@ -1,3 +1,26 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct Ellipse(i32);
+pub struct IEllipse(i32);
+pub struct ILine(i32);
+pub struct ILineStatics(i32);
+pub struct IPath(i32);
+pub struct IPathFactory(i32);
+pub struct IPathStatics(i32);
+pub struct IPolygon(i32);
+pub struct IPolygonStatics(i32);
+pub struct IPolyline(i32);
+pub struct IPolylineStatics(i32);
+pub struct IRectangle(i32);
+pub struct IRectangleStatics(i32);
+pub struct IShape(i32);
+pub struct IShape2(i32);
+pub struct IShapeFactory(i32);
+pub struct IShapeStatics(i32);
+pub struct Line(i32);
+pub struct Path(i32);
+pub struct Polygon(i32);
+pub struct Polyline(i32);
+pub struct Rectangle(i32);
+pub struct Shape(i32);

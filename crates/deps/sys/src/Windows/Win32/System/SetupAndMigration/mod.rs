@@ -11,3 +11,4 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 }
+pub struct OOBE_COMPLETED_CALLBACK(i32);

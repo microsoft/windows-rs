@@ -1,5 +1,6 @@
 use super::*;
 
+// TODO: add option to elide doc comments for the package itself - its only needed for the published docs
 pub struct Gen {
     pub relative: &'static str,
     pub root: &'static str,

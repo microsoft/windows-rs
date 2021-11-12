@@ -1,16 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_EventLog`*"]
-pub const EVT_ALL_ACCESS: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_EventLog`*"]
-pub const EVT_CLEAR_ACCESS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_EventLog`*"]
-pub const EVT_READ_ACCESS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_EventLog`*"]
-pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_EventLog`*"]
-pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
-#[doc = "*Required features: `Win32_System_EventLog`*"]
-pub const EVT_WRITE_ACCESS: u32 = 2u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
@@ -174,3 +162,49 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 }
+pub struct EVENTLOGRECORD(i32);
+pub struct EVENTLOG_FULL_INFORMATION(i32);
+pub struct EVENTSFORLOGFILE(i32);
+#[doc = "*Required features: `Win32_System_EventLog`*"]
+pub const EVT_ALL_ACCESS: u32 = 7u32;
+pub struct EVT_CHANNEL_CLOCK_TYPE(i32);
+pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(i32);
+pub struct EVT_CHANNEL_ISOLATION_TYPE(i32);
+pub struct EVT_CHANNEL_REFERENCE_FLAGS(i32);
+pub struct EVT_CHANNEL_SID_TYPE(i32);
+pub struct EVT_CHANNEL_TYPE(i32);
+#[doc = "*Required features: `Win32_System_EventLog`*"]
+pub const EVT_CLEAR_ACCESS: u32 = 4u32;
+pub struct EVT_EVENT_METADATA_PROPERTY_ID(i32);
+pub struct EVT_EVENT_PROPERTY_ID(i32);
+pub struct EVT_EXPORTLOG_FLAGS(i32);
+pub struct EVT_FORMAT_MESSAGE_FLAGS(i32);
+pub struct EVT_LOGIN_CLASS(i32);
+pub struct EVT_LOG_PROPERTY_ID(i32);
+pub struct EVT_OPEN_LOG_FLAGS(i32);
+pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(i32);
+pub struct EVT_QUERY_FLAGS(i32);
+pub struct EVT_QUERY_PROPERTY_ID(i32);
+#[doc = "*Required features: `Win32_System_EventLog`*"]
+pub const EVT_READ_ACCESS: u32 = 1u32;
+pub struct EVT_RENDER_CONTEXT_FLAGS(i32);
+pub struct EVT_RENDER_FLAGS(i32);
+pub struct EVT_RPC_LOGIN(i32);
+pub struct EVT_RPC_LOGIN_FLAGS(i32);
+pub struct EVT_SEEK_FLAGS(i32);
+pub struct EVT_SUBSCRIBE_CALLBACK(i32);
+pub struct EVT_SUBSCRIBE_FLAGS(i32);
+pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(i32);
+pub struct EVT_SYSTEM_PROPERTY_ID(i32);
+pub struct EVT_VARIANT(i32);
+pub struct EVT_VARIANT_TYPE(i32);
+#[doc = "*Required features: `Win32_System_EventLog`*"]
+pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
+pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
+pub const EVT_WRITE_ACCESS: u32 = 2u32;
+pub struct EventLogHandle(i32);
+pub struct EventSourceHandle(i32);
+pub struct READ_EVENT_LOG_READ_FLAGS(i32);
+pub struct REPORT_EVENT_TYPE(i32);

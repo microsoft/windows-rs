@@ -1,5 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DMProcessConfigXMLFiltered(pszxmlin: super::super::Foundation::PWSTR, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+}
 pub const CLSID_WPD_NAMESPACE_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 897084732, data2: 45173, data3: 18873, data4: [136, 221, 2, 152, 118, 225, 28, 1] };
+pub struct DELETE_OBJECT_OPTIONS(i32);
+pub struct DEVICE_RADIO_STATE(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_MTPBTH_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -123,6 +131,7 @@ pub const E_WPD_SMS_INVALID_MESSAGE_BODY: ::windows_sys::core::HRESULT = ::windo
 pub const E_WPD_SMS_INVALID_RECIPIENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731036i32 as _);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_SMS_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731034i32 as _);
+pub struct EnumBthMtpConnectors(i32);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FACILITY_WPD: u32 = 42u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -154,10 +163,55 @@ pub const GUID_DEVINTERFACE_WPD_SERVICE: ::windows_sys::core::GUID = ::windows_s
     data3: 16966,
     data4: [166, 170, 32, 111, 50, 141, 30, 220],
 };
+pub struct IConnectionRequestCallback(i32);
+pub struct IEnumPortableDeviceConnectors(i32);
+pub struct IEnumPortableDeviceObjectIDs(i32);
+pub struct IMediaRadioManager(i32);
+pub struct IMediaRadioManagerNotifySink(i32);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const IOCTL_WPD_MESSAGE_READWRITE_ACCESS: u32 = 4243720u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const IOCTL_WPD_MESSAGE_READ_ACCESS: u32 = 4210952u32;
+pub struct IPortableDevice(i32);
+pub struct IPortableDeviceCapabilities(i32);
+pub struct IPortableDeviceConnector(i32);
+pub struct IPortableDeviceContent(i32);
+pub struct IPortableDeviceContent2(i32);
+pub struct IPortableDeviceDataStream(i32);
+pub struct IPortableDeviceDispatchFactory(i32);
+pub struct IPortableDeviceEventCallback(i32);
+pub struct IPortableDeviceKeyCollection(i32);
+pub struct IPortableDeviceManager(i32);
+pub struct IPortableDevicePropVariantCollection(i32);
+pub struct IPortableDeviceProperties(i32);
+pub struct IPortableDevicePropertiesBulk(i32);
+pub struct IPortableDevicePropertiesBulkCallback(i32);
+pub struct IPortableDeviceResources(i32);
+pub struct IPortableDeviceService(i32);
+pub struct IPortableDeviceServiceActivation(i32);
+pub struct IPortableDeviceServiceCapabilities(i32);
+pub struct IPortableDeviceServiceManager(i32);
+pub struct IPortableDeviceServiceMethodCallback(i32);
+pub struct IPortableDeviceServiceMethods(i32);
+pub struct IPortableDeviceServiceOpenCallback(i32);
+pub struct IPortableDeviceUnitsStream(i32);
+pub struct IPortableDeviceValues(i32);
+pub struct IPortableDeviceValuesCollection(i32);
+pub struct IPortableDeviceWebControl(i32);
+pub struct IRadioInstance(i32);
+pub struct IRadioInstanceCollection(i32);
+pub struct IWpdSerializer(i32);
+pub struct PortableDevice(i32);
+pub struct PortableDeviceDispatchFactory(i32);
+pub struct PortableDeviceFTM(i32);
+pub struct PortableDeviceKeyCollection(i32);
+pub struct PortableDeviceManager(i32);
+pub struct PortableDevicePropVariantCollection(i32);
+pub struct PortableDeviceService(i32);
+pub struct PortableDeviceServiceFTM(i32);
+pub struct PortableDeviceValues(i32);
+pub struct PortableDeviceValuesCollection(i32);
+pub struct PortableDeviceWebControl(i32);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_MessageObj_PatternDayOfMonth: u32 = 31u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -190,6 +244,7 @@ pub const RANGESTEP_MessageObj_PatternMonthOfYear: u32 = 1u32;
 pub const RANGESTEP_StatusSvc_BatteryLife: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGESTEP_StatusSvc_SignalStrength: u32 = 1u32;
+pub struct SMS_MESSAGE_TYPES(i32);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const SYNCSVC_FILTER_CALENDAR_WINDOW_WITH_RECURRENCE: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -198,6 +253,7 @@ pub const SYNCSVC_FILTER_CONTACTS_WITH_PHONE: u32 = 1u32;
 pub const SYNCSVC_FILTER_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const SYNCSVC_FILTER_TASK_ACTIVE: u32 = 2u32;
+pub struct SYSTEM_RADIO_STATE(i32);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_AnchorSyncSvc: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -466,6 +522,8 @@ pub const WPD_AUDIO_FORMAT_CODE: super::super::UI::Shell::PropertiesSystem::PROP
     },
     pid: 11u32,
 };
+pub struct WPD_BITRATE_TYPES(i32);
+pub struct WPD_CAPTURE_MODES(i32);
 pub const WPD_CATEGORY_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] };
 pub const WPD_CATEGORY_COMMON: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4030868124,
@@ -704,6 +762,9 @@ pub const WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY: super::super::UI::Shell::Pro
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 6u32,
 };
+pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(i32);
+pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY(i32);
+pub struct WPD_COMMAND_ACCESS_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -2263,6 +2324,7 @@ pub const WPD_CONTENT_TYPE_WIRELESS_PROFILE: ::windows_sys::core::GUID = ::windo
 };
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPD_CONTROL_FUNCTION_GENERIC_MESSAGE: u32 = 66u32;
+pub struct WPD_CROPPED_STATUS_VALUES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -2479,6 +2541,7 @@ pub const WPD_DEVICE_TRANSPORT: super::super::UI::Shell::PropertiesSystem::PROPE
     },
     pid: 4u32,
 };
+pub struct WPD_DEVICE_TRANSPORTS(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -2490,6 +2553,7 @@ pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     },
     pid: 15u32,
 };
+pub struct WPD_DEVICE_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -2502,6 +2566,7 @@ pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem
     pid: 5u32,
 };
 pub const WPD_DOCUMENT_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 185664003, data2: 60309, data3: 20226, data4: [147, 224, 151, 198, 49, 73, 58, 213] };
+pub struct WPD_EFFECT_MODES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_BCC_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -2688,6 +2753,11 @@ pub const WPD_EVENT_PROPERTIES_V2: ::windows_sys::core::GUID = ::windows_sys::GU
 };
 pub const WPD_EVENT_SERVICE_METHOD_COMPLETE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2318661112, data2: 2764, data3: 19867, data4: [156, 196, 17, 45, 53, 59, 134, 202] };
 pub const WPD_EVENT_STORAGE_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 931291499, data2: 8892, data3: 17524, data4: [162, 81, 48, 112, 248, 211, 136, 87] };
+pub struct WPD_EXPOSURE_METERING_MODES(i32);
+pub struct WPD_EXPOSURE_PROGRAM_MODES(i32);
+pub struct WPD_FLASH_MODES(i32);
+pub struct WPD_FOCUS_METERING_MODES(i32);
+pub struct WPD_FOCUS_MODES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_FOLDER_CONTENT_TYPES_ALLOWED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -3284,6 +3354,7 @@ pub const WPD_MEDIA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 22u32,
 };
 pub const WPD_MEMO_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1610349691, data2: 29827, data3: 16813, data4: [175, 185, 218, 63, 78, 89, 43, 141] };
+pub struct WPD_META_GENRES(i32);
 pub const WPD_METHOD_ATTRIBUTES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4051325041, data2: 61497, data3: 17583, data4: [142, 254, 67, 44, 243, 46, 67, 42] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
@@ -4065,6 +4136,7 @@ pub const WPD_OBJECT_SYNC_ID: super::super::UI::Shell::PropertiesSystem::PROPERT
     },
     pid: 16u32,
 };
+pub struct WPD_OPERATION_STATES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -4254,6 +4326,8 @@ pub const WPD_PARAMETER_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSy
     },
     pid: 12u32,
 };
+pub struct WPD_PARAMETER_USAGE_TYPES(i32);
+pub struct WPD_POWER_SOURCES(i32);
 pub const WPD_PROPERTIES_MTP_VENDOR_EXTENDED_DEVICE_PROPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1297371224,
     data2: 35072,
@@ -5507,6 +5581,7 @@ pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE: super::super::UI::Shell:
     },
     pid: 3u32,
 };
+pub struct WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ALBUM_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -5729,12 +5804,14 @@ pub const WPD_SECTION_DATA_UNITS: super::super::UI::Shell::PropertiesSystem::PRO
     },
     pid: 4u32,
 };
+pub struct WPD_SECTION_DATA_UNITS_VALUES(i32);
 pub const WPD_SECTION_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1365966123,
     data2: 50766,
     data3: 17648,
     data4: [152, 220, 190, 225, 200, 143, 125, 102],
 };
+pub struct WPD_SERVICE_INHERITANCE_TYPES(i32);
 pub const WPD_SERVICE_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1964009866, data2: 52052, data3: 18460, data4: [184, 219, 13, 117, 201, 63, 28, 6] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
@@ -5748,6 +5825,7 @@ pub const WPD_SMS_ENCODING: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     fmtid: ::windows_sys::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] },
     pid: 5u32,
 };
+pub struct WPD_SMS_ENCODING_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SMS_MAX_PAYLOAD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -5954,6 +6032,7 @@ pub const WPD_STORAGE_ACCESS_CAPABILITY: super::super::UI::Shell::PropertiesSyst
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 11u32,
 };
+pub struct WPD_STORAGE_ACCESS_CAPABILITY_VALUES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_CAPACITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -6009,6 +6088,8 @@ pub const WPD_STORAGE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 2u32,
 };
+pub struct WPD_STORAGE_TYPE_VALUES(i32);
+pub struct WPD_STREAM_UNITS(i32);
 pub const WPD_TASK_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3813992798,
     data2: 55456,
@@ -6132,9 +6213,8 @@ pub const WPD_VIDEO_SCAN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPER
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 12u32,
 };
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DMProcessConfigXMLFiltered(pszxmlin: super::super::Foundation::PWSTR, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-}
+pub struct WPD_VIDEO_SCAN_TYPES(i32);
+pub struct WPD_WHITE_BALANCE_SETTINGS(i32);
+pub struct WpdAttributeForm(i32);
+pub struct WpdParameterAttributeForm(i32);
+pub struct WpdSerializer(i32);

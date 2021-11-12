@@ -5,3 +5,8 @@ pub mod Core;
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
+pub struct EnterpriseKeyCredentialRegistrationInfo(i32);
+pub struct EnterpriseKeyCredentialRegistrationManager(i32);
+pub struct IEnterpriseKeyCredentialRegistrationInfo(i32);
+pub struct IEnterpriseKeyCredentialRegistrationManager(i32);
+pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(i32);

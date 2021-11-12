@@ -1,4 +1,31 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateBackupRestorer(pcallback: ::windows_sys::core::IUnknown, ppbackup: *mut IWMLicenseBackup) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateEditor(ppeditor: *mut IWMMetadataEditor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateIndexer(ppindexer: *mut IWMIndexer) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateProfileManager(ppprofilemanager: *mut IWMProfileManager) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppreader: *mut IWMReader) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateSyncReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppsyncreader: *mut IWMSyncReader) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateWriter(punkcert: ::windows_sys::core::IUnknown, ppwriter: *mut IWMWriter) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateWriterFileSink(ppsink: *mut IWMWriterFileSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateWriterNetworkSink(ppsink: *mut IWMWriterNetworkSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
+    pub fn WMCreateWriterPushSink(ppsink: *mut IWMWriterPushSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WMIsContentProtected(pwszfilename: super::super::Foundation::PWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+}
+pub struct AM_WMT_EVENT_DATA(i32);
 pub const CLSID_ClientNetManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3440550862, data2: 40002, data3: 4562, data4: [190, 237, 0, 96, 8, 47, 32, 84] };
 pub const CLSID_WMBandwidthSharing_Exclusive: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2942329002, data2: 20887, data3: 4562, data4: [182, 175, 0, 192, 79, 217, 8, 233] };
 pub const CLSID_WMBandwidthSharing_Partial: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2942329003, data2: 20887, data3: 4562, data4: [182, 175, 0, 192, 79, 217, 8, 233] };
@@ -6,8 +33,128 @@ pub const CLSID_WMMUTEX_Bitrate: ::windows_sys::core::GUID = ::windows_sys::GUID
 pub const CLSID_WMMUTEX_Language: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3605146112, data2: 13786, data3: 4561, data4: [144, 52, 0, 160, 201, 3, 73, 190] };
 pub const CLSID_WMMUTEX_Presentation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3605146114, data2: 13786, data3: 4561, data4: [144, 52, 0, 160, 201, 3, 73, 190] };
 pub const CLSID_WMMUTEX_Unknown: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3605146115, data2: 13786, data3: 4561, data4: [144, 52, 0, 160, 201, 3, 73, 190] };
+pub struct DRM_COPY_OPL(i32);
+pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS(i32);
+pub struct DRM_OPL_OUTPUT_IDS(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const DRM_OPL_TYPES: u32 = 1u32;
+pub struct DRM_OUTPUT_PROTECTION(i32);
+pub struct DRM_PLAY_OPL(i32);
+pub struct DRM_VAL16(i32);
+pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS(i32);
+pub struct IAMWMBufferPass(i32);
+pub struct IAMWMBufferPassCallback(i32);
+pub struct INSNetSourceCreator(i32);
+pub struct INSSBuffer(i32);
+pub struct INSSBuffer2(i32);
+pub struct INSSBuffer3(i32);
+pub struct INSSBuffer4(i32);
+pub struct IWMAddressAccess(i32);
+pub struct IWMAddressAccess2(i32);
+pub struct IWMAuthorizer(i32);
+pub struct IWMBackupRestoreProps(i32);
+pub struct IWMBandwidthSharing(i32);
+pub struct IWMClientConnections(i32);
+pub struct IWMClientConnections2(i32);
+pub struct IWMCodecAMVideoAccelerator(i32);
+pub struct IWMCodecInfo(i32);
+pub struct IWMCodecInfo2(i32);
+pub struct IWMCodecInfo3(i32);
+pub struct IWMCodecVideoAccelerator(i32);
+pub struct IWMCredentialCallback(i32);
+pub struct IWMDRMEditor(i32);
+pub struct IWMDRMMessageParser(i32);
+pub struct IWMDRMReader(i32);
+pub struct IWMDRMReader2(i32);
+pub struct IWMDRMReader3(i32);
+pub struct IWMDRMTranscryptionManager(i32);
+pub struct IWMDRMTranscryptor(i32);
+pub struct IWMDRMTranscryptor2(i32);
+pub struct IWMDRMWriter(i32);
+pub struct IWMDRMWriter2(i32);
+pub struct IWMDRMWriter3(i32);
+pub struct IWMDeviceRegistration(i32);
+pub struct IWMGetSecureChannel(i32);
+pub struct IWMHeaderInfo(i32);
+pub struct IWMHeaderInfo2(i32);
+pub struct IWMHeaderInfo3(i32);
+pub struct IWMIStreamProps(i32);
+pub struct IWMImageInfo(i32);
+pub struct IWMIndexer(i32);
+pub struct IWMIndexer2(i32);
+pub struct IWMInputMediaProps(i32);
+pub struct IWMLanguageList(i32);
+pub struct IWMLicenseBackup(i32);
+pub struct IWMLicenseRestore(i32);
+pub struct IWMLicenseRevocationAgent(i32);
+pub struct IWMMediaProps(i32);
+pub struct IWMMetadataEditor(i32);
+pub struct IWMMetadataEditor2(i32);
+pub struct IWMMutualExclusion(i32);
+pub struct IWMMutualExclusion2(i32);
+pub struct IWMOutputMediaProps(i32);
+pub struct IWMPacketSize(i32);
+pub struct IWMPacketSize2(i32);
+pub struct IWMPlayerHook(i32);
+pub struct IWMPlayerTimestampHook(i32);
+pub struct IWMProfile(i32);
+pub struct IWMProfile2(i32);
+pub struct IWMProfile3(i32);
+pub struct IWMProfileManager(i32);
+pub struct IWMProfileManager2(i32);
+pub struct IWMProfileManagerLanguage(i32);
+pub struct IWMPropertyVault(i32);
+pub struct IWMProximityDetection(i32);
+pub struct IWMReader(i32);
+pub struct IWMReaderAccelerator(i32);
+pub struct IWMReaderAdvanced(i32);
+pub struct IWMReaderAdvanced2(i32);
+pub struct IWMReaderAdvanced3(i32);
+pub struct IWMReaderAdvanced4(i32);
+pub struct IWMReaderAdvanced5(i32);
+pub struct IWMReaderAdvanced6(i32);
+pub struct IWMReaderAllocatorEx(i32);
+pub struct IWMReaderCallback(i32);
+pub struct IWMReaderCallbackAdvanced(i32);
+pub struct IWMReaderNetworkConfig(i32);
+pub struct IWMReaderNetworkConfig2(i32);
+pub struct IWMReaderPlaylistBurn(i32);
+pub struct IWMReaderStreamClock(i32);
+pub struct IWMReaderTimecode(i32);
+pub struct IWMReaderTypeNegotiation(i32);
+pub struct IWMRegisterCallback(i32);
+pub struct IWMRegisteredDevice(i32);
+pub struct IWMSBufferAllocator(i32);
+pub struct IWMSInternalAdminNetSource(i32);
+pub struct IWMSInternalAdminNetSource2(i32);
+pub struct IWMSInternalAdminNetSource3(i32);
+pub struct IWMSecureChannel(i32);
+pub struct IWMStatusCallback(i32);
+pub struct IWMStreamConfig(i32);
+pub struct IWMStreamConfig2(i32);
+pub struct IWMStreamConfig3(i32);
+pub struct IWMStreamList(i32);
+pub struct IWMStreamPrioritization(i32);
+pub struct IWMSyncReader(i32);
+pub struct IWMSyncReader2(i32);
+pub struct IWMVideoMediaProps(i32);
+pub struct IWMWatermarkInfo(i32);
+pub struct IWMWriter(i32);
+pub struct IWMWriterAdvanced(i32);
+pub struct IWMWriterAdvanced2(i32);
+pub struct IWMWriterAdvanced3(i32);
+pub struct IWMWriterFileSink(i32);
+pub struct IWMWriterFileSink2(i32);
+pub struct IWMWriterFileSink3(i32);
+pub struct IWMWriterNetworkSink(i32);
+pub struct IWMWriterPostView(i32);
+pub struct IWMWriterPostViewCallback(i32);
+pub struct IWMWriterPreprocess(i32);
+pub struct IWMWriterPushSink(i32);
+pub struct IWMWriterSink(i32);
+pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(i32);
+pub struct WEBSTREAM_SAMPLE_TYPE(i32);
+pub struct WMDRM_IMPORT_INIT_STRUCT(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
 pub const WMFORMAT_MPEG2Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3765272803, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
@@ -88,7 +235,15 @@ pub const WMMEDIATYPE_Image: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const WMMEDIATYPE_Script: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935895908, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIATYPE_Text: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2612666023, data2: 23218, data3: 18473, data4: [186, 87, 9, 64, 32, 155, 207, 62] };
 pub const WMMEDIATYPE_Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935960438, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub struct WMMPEG2VIDEOINFO(i32);
+pub struct WMSCRIPTFORMAT(i32);
 pub const WMSCRIPTTYPE_TwoStrings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2196998768, data2: 49823, data3: 4561, data4: [151, 173, 0, 160, 201, 94, 168, 80] };
+pub struct WMT_ATTR_DATATYPE(i32);
+pub struct WMT_ATTR_IMAGETYPE(i32);
+pub struct WMT_BUFFER_SEGMENT(i32);
+pub struct WMT_CODEC_INFO_TYPE(i32);
+pub struct WMT_COLORSPACEINFO_EXTENSION_DATA(i32);
+pub struct WMT_CREDENTIAL_FLAGS(i32);
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1696734298, data2: 64117, data3: 19257, data4: [181, 12, 6, 195, 54, 182, 163, 239] };
 pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 410831138,
@@ -96,12 +251,34 @@ pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows_sys::core::GUID = ::windows
     data3: 17412,
     data4: [157, 175, 99, 244, 131, 13, 241, 188],
 };
+pub struct WMT_DRMLA_TRUST(i32);
+pub struct WMT_FILESINK_DATA_UNIT(i32);
+pub struct WMT_FILESINK_MODE(i32);
+pub struct WMT_IMAGE_TYPE(i32);
+pub struct WMT_INDEXER_TYPE(i32);
+pub struct WMT_INDEX_TYPE(i32);
+pub struct WMT_MUSICSPEECH_CLASS_MODE(i32);
+pub struct WMT_NET_PROTOCOL(i32);
+pub struct WMT_OFFSET_FORMAT(i32);
+pub struct WMT_PAYLOAD_FRAGMENT(i32);
+pub struct WMT_PLAY_MODE(i32);
+pub struct WMT_PROXY_SETTINGS(i32);
+pub struct WMT_RIGHTS(i32);
+pub struct WMT_STATUS(i32);
+pub struct WMT_STORAGE_FORMAT(i32);
+pub struct WMT_STREAM_SELECTION(i32);
+pub struct WMT_TIMECODE_EXTENSION_DATA(i32);
+pub struct WMT_TIMECODE_FRAMERATE(i32);
+pub struct WMT_TRANSPORT_TYPE(i32);
+pub struct WMT_VERSION(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
+pub struct WMT_VIDEOIMAGE_SAMPLE(i32);
+pub struct WMT_VIDEOIMAGE_SAMPLE2(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
@@ -152,6 +329,16 @@ pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29u32;
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31u32;
+pub struct WMT_WATERMARK_ENTRY(i32);
+pub struct WMT_WATERMARK_ENTRY_TYPE(i32);
+pub struct WMT_WEBSTREAM_FORMAT(i32);
+pub struct WMT_WEBSTREAM_SAMPLE_HEADER(i32);
+pub struct WMVIDEOINFOHEADER(i32);
+pub struct WMVIDEOINFOHEADER2(i32);
+pub struct WM_ADDRESS_ACCESSENTRY(i32);
+pub struct WM_AETYPE(i32);
+pub struct WM_CLIENT_PROPERTIES(i32);
+pub struct WM_CLIENT_PROPERTIES_EX(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CL_INTERLACED420: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
@@ -164,10 +351,24 @@ pub const WM_CT_INTERLACED: u32 = 128u32;
 pub const WM_CT_REPEAT_FIRST_FIELD: u32 = 16u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CT_TOP_FIELD_FIRST: u32 = 64u32;
+pub struct WM_DM_INTERLACED_TYPE(i32);
+pub struct WM_DM_IT_FIRST_FRAME_COHERENCY(i32);
+pub struct WM_LEAKY_BUCKET_PAIR(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_MAX_STREAMS: u32 = 63u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
+pub struct WM_MEDIA_TYPE(i32);
+pub struct WM_PICTURE(i32);
+pub struct WM_PLAYBACK_DRC_LEVEL(i32);
+pub struct WM_PORT_NUMBER_RANGE(i32);
+pub struct WM_READER_CLIENTINFO(i32);
+pub struct WM_READER_STATISTICS(i32);
+pub struct WM_SFEX_TYPE(i32);
+pub struct WM_SF_TYPE(i32);
+pub struct WM_STREAM_PRIORITY_RECORD(i32);
+pub struct WM_STREAM_TYPE_INFO(i32);
+pub struct WM_SYNCHRONISED_LYRICS(i32);
 pub const WM_SampleExtensionGUID_ChromaLocation: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1281019040,
     data2: 37494,
@@ -220,6 +421,11 @@ pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
+pub struct WM_USER_TEXT(i32);
+pub struct WM_USER_WEB_URL(i32);
+pub struct WM_WRITER_STATISTICS(i32);
+pub struct WM_WRITER_STATISTICS_EX(i32);
+pub struct _AM_ASFWRITERCONFIG_PARAM(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_dwWMContentAttributes: u32 = 5u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
@@ -670,29 +876,3 @@ pub const g_wszWMYear: &'static str = "WM/Year";
 pub const g_wszWatermarkCLSID: &'static str = "WatermarkCLSID";
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWatermarkConfig: &'static str = "WatermarkConfig";
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateBackupRestorer(pcallback: ::windows_sys::core::IUnknown, ppbackup: *mut IWMLicenseBackup) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateEditor(ppeditor: *mut IWMMetadataEditor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateIndexer(ppindexer: *mut IWMIndexer) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateProfileManager(ppprofilemanager: *mut IWMProfileManager) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppreader: *mut IWMReader) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateSyncReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppsyncreader: *mut IWMSyncReader) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriter(punkcert: ::windows_sys::core::IUnknown, ppwriter: *mut IWMWriter) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriterFileSink(ppsink: *mut IWMWriterFileSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriterNetworkSink(ppsink: *mut IWMWriterNetworkSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
-    pub fn WMCreateWriterPushSink(ppsink: *mut IWMWriterPushSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WMIsContentProtected(pwszfilename: super::super::Foundation::PWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-}

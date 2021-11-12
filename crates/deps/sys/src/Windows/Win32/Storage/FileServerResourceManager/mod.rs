@@ -1,4 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct AdSyncTask(i32);
+pub struct AdrClientDisplayFlags(i32);
+pub struct AdrClientErrorType(i32);
+pub struct AdrClientFlags(i32);
+pub struct AdrEmailFlags(i32);
+pub struct DIFsrmClassificationEvents(i32);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -285,8 +293,31 @@ pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows_sys::core::HRESULT = ::
 pub const FSRM_S_PARTIAL_BATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283396i32 as _);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283397i32 as _);
+pub struct FsrmAccessDeniedRemediationClient(i32);
+pub struct FsrmAccountType(i32);
+pub struct FsrmActionType(i32);
+pub struct FsrmClassificationLoggingFlags(i32);
+pub struct FsrmClassificationManager(i32);
+pub struct FsrmCollectionState(i32);
+pub struct FsrmCommitOptions(i32);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmDaysNotSpecified: i32 = -1i32;
+pub struct FsrmEnumOptions(i32);
+pub struct FsrmEventType(i32);
+pub struct FsrmExecutionOption(i32);
+pub struct FsrmExportImport(i32);
+pub struct FsrmFileConditionType(i32);
+pub struct FsrmFileGroupManager(i32);
+pub struct FsrmFileManagementJobManager(i32);
+pub struct FsrmFileManagementLoggingFlags(i32);
+pub struct FsrmFileManagementType(i32);
+pub struct FsrmFileScreenFlags(i32);
+pub struct FsrmFileScreenManager(i32);
+pub struct FsrmFileScreenTemplateManager(i32);
+pub struct FsrmFileStreamingInterfaceType(i32);
+pub struct FsrmFileStreamingMode(i32);
+pub struct FsrmFileSystemPropertyId(i32);
+pub struct FsrmGetFilePropertyOptions(i32);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMaxExcludeFolders: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -299,7 +330,93 @@ pub const FsrmMaxThresholdValue: u32 = 250u32;
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMinThresholdValue: u32 = 1u32;
+pub struct FsrmPathMapper(i32);
+pub struct FsrmPipelineModuleConnector(i32);
+pub struct FsrmPipelineModuleType(i32);
+pub struct FsrmPropertyBagField(i32);
+pub struct FsrmPropertyBagFlags(i32);
+pub struct FsrmPropertyConditionType(i32);
+pub struct FsrmPropertyDefinitionAppliesTo(i32);
+pub struct FsrmPropertyDefinitionFlags(i32);
+pub struct FsrmPropertyDefinitionType(i32);
+pub struct FsrmPropertyFlags(i32);
+pub struct FsrmPropertyValueType(i32);
+pub struct FsrmQuotaFlags(i32);
+pub struct FsrmQuotaManager(i32);
+pub struct FsrmQuotaTemplateManager(i32);
+pub struct FsrmReportFilter(i32);
+pub struct FsrmReportFormat(i32);
+pub struct FsrmReportGenerationContext(i32);
+pub struct FsrmReportLimit(i32);
+pub struct FsrmReportManager(i32);
+pub struct FsrmReportRunningStatus(i32);
+pub struct FsrmReportScheduler(i32);
+pub struct FsrmReportType(i32);
+pub struct FsrmRuleFlags(i32);
+pub struct FsrmRuleType(i32);
+pub struct FsrmSetting(i32);
+pub struct FsrmStorageModuleCaps(i32);
+pub struct FsrmStorageModuleType(i32);
+pub struct FsrmTemplateApplyOptions(i32);
+pub struct IFsrmAccessDeniedRemediationClient(i32);
+pub struct IFsrmAction(i32);
+pub struct IFsrmActionCommand(i32);
+pub struct IFsrmActionEmail(i32);
+pub struct IFsrmActionEmail2(i32);
+pub struct IFsrmActionEventLog(i32);
+pub struct IFsrmActionReport(i32);
+pub struct IFsrmAutoApplyQuota(i32);
+pub struct IFsrmClassificationManager(i32);
+pub struct IFsrmClassificationManager2(i32);
+pub struct IFsrmClassificationRule(i32);
+pub struct IFsrmClassifierModuleDefinition(i32);
+pub struct IFsrmClassifierModuleImplementation(i32);
+pub struct IFsrmCollection(i32);
+pub struct IFsrmCommittableCollection(i32);
+pub struct IFsrmDerivedObjectsResult(i32);
+pub struct IFsrmExportImport(i32);
+pub struct IFsrmFileCondition(i32);
+pub struct IFsrmFileConditionProperty(i32);
+pub struct IFsrmFileGroup(i32);
+pub struct IFsrmFileGroupImported(i32);
+pub struct IFsrmFileGroupManager(i32);
+pub struct IFsrmFileManagementJob(i32);
+pub struct IFsrmFileManagementJobManager(i32);
+pub struct IFsrmFileScreen(i32);
+pub struct IFsrmFileScreenBase(i32);
+pub struct IFsrmFileScreenException(i32);
+pub struct IFsrmFileScreenManager(i32);
+pub struct IFsrmFileScreenTemplate(i32);
+pub struct IFsrmFileScreenTemplateImported(i32);
+pub struct IFsrmFileScreenTemplateManager(i32);
+pub struct IFsrmMutableCollection(i32);
+pub struct IFsrmObject(i32);
+pub struct IFsrmPathMapper(i32);
+pub struct IFsrmPipelineModuleConnector(i32);
+pub struct IFsrmPipelineModuleDefinition(i32);
+pub struct IFsrmPipelineModuleImplementation(i32);
+pub struct IFsrmProperty(i32);
+pub struct IFsrmPropertyBag(i32);
+pub struct IFsrmPropertyBag2(i32);
+pub struct IFsrmPropertyCondition(i32);
+pub struct IFsrmPropertyDefinition(i32);
+pub struct IFsrmPropertyDefinition2(i32);
+pub struct IFsrmPropertyDefinitionValue(i32);
+pub struct IFsrmQuota(i32);
+pub struct IFsrmQuotaBase(i32);
+pub struct IFsrmQuotaManager(i32);
+pub struct IFsrmQuotaManagerEx(i32);
+pub struct IFsrmQuotaObject(i32);
+pub struct IFsrmQuotaTemplate(i32);
+pub struct IFsrmQuotaTemplateImported(i32);
+pub struct IFsrmQuotaTemplateManager(i32);
+pub struct IFsrmReport(i32);
+pub struct IFsrmReportJob(i32);
+pub struct IFsrmReportManager(i32);
+pub struct IFsrmReportScheduler(i32);
+pub struct IFsrmRule(i32);
+pub struct IFsrmSetting(i32);
+pub struct IFsrmStorageModuleDefinition(i32);
+pub struct IFsrmStorageModuleImplementation(i32);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const MessageSizeLimit: u32 = 4096u32;
-#[link(name = "windows")]
-extern "system" {}

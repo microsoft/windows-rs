@@ -1,3 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IPushNotificationChannel(i32);
+pub struct IPushNotificationChannelManagerForUser(i32);
+pub struct IPushNotificationChannelManagerForUser2(i32);
+pub struct IPushNotificationChannelManagerStatics(i32);
+pub struct IPushNotificationChannelManagerStatics2(i32);
+pub struct IPushNotificationChannelManagerStatics3(i32);
+pub struct IPushNotificationChannelManagerStatics4(i32);
+pub struct IPushNotificationChannelsRevokedEventArgs(i32);
+pub struct IPushNotificationReceivedEventArgs(i32);
+pub struct IRawNotification(i32);
+pub struct IRawNotification2(i32);
+pub struct IRawNotification3(i32);
+pub struct PushNotificationChannel(i32);
+pub struct PushNotificationChannelManager(i32);
+pub struct PushNotificationChannelManagerForUser(i32);
+pub struct PushNotificationChannelsRevokedEventArgs(i32);
+pub struct PushNotificationReceivedEventArgs(i32);
+pub struct PushNotificationType(i32);
+pub struct RawNotification(i32);

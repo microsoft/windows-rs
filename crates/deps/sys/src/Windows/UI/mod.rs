@@ -31,3 +31,16 @@ pub mod WindowManagement;
 pub mod Xaml;
 #[link(name = "windows")]
 extern "system" {}
+pub struct Color(i32);
+pub struct ColorHelper(i32);
+pub struct Colors(i32);
+pub struct IColorHelper(i32);
+pub struct IColorHelperStatics(i32);
+pub struct IColorHelperStatics2(i32);
+pub struct IColors(i32);
+pub struct IColorsStatics(i32);
+pub struct IUIContentRoot(i32);
+pub struct IUIContext(i32);
+pub struct UIContentRoot(i32);
+pub struct UIContext(i32);
+pub struct WindowId(i32);

@@ -1,4 +1,149 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpAddRequestHeaders(hrequest: *mut ::core::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, dwmodifiers: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpAddRequestHeadersEx(hrequest: *mut ::core::ffi::c_void, dwmodifiers: u32, ullflags: u64, ullextra: u64, cheaders: u32, pheaders: *const WINHTTP_EXTENDED_HEADER) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpCloseHandle(hinternet: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpConnect(hsession: *mut ::core::ffi::c_void, pswzservername: super::super::Foundation::PWSTR, nserverport: INTERNET_PORT, dwreserved: u32) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpCrackUrl(pwszurl: super::super::Foundation::PWSTR, dwurllength: u32, dwflags: u32, lpurlcomponents: *mut URL_COMPONENTS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpCreateProxyResolver(hsession: *const ::core::ffi::c_void, phresolver: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpCreateUrl(lpurlcomponents: *const URL_COMPONENTS, dwflags: WIN_HTTP_CREATE_URL_FLAGS, pwszurl: super::super::Foundation::PWSTR, pdwurllength: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrautoconfigurl: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT);
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX);
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS);
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT);
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpGetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpGetProxyForUrl(hsession: *mut ::core::ffi::c_void, lpcwszurl: super::super::Foundation::PWSTR, pautoproxyoptions: *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpGetProxyForUrlEx(hresolver: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, pcontext: usize) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpGetProxyForUrlEx2(hresolver: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext: u32, pinterfaceselectioncontext: *const u8, pcontext: usize) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpGetProxyResult(hresolver: *const ::core::ffi::c_void, pproxyresult: *mut WINHTTP_PROXY_RESULT) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpGetProxyResultEx(hresolver: *const ::core::ffi::c_void, pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpGetProxySettingsVersion(hsession: *const ::core::ffi::c_void, pdwproxysettingsversion: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpOpen(pszagentw: super::super::Foundation::PWSTR, dwaccesstype: WINHTTP_ACCESS_TYPE, pszproxyw: super::super::Foundation::PWSTR, pszproxybypassw: super::super::Foundation::PWSTR, dwflags: u32) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpOpenRequest(hconnect: *mut ::core::ffi::c_void, pwszverb: super::super::Foundation::PWSTR, pwszobjectname: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, pwszreferrer: super::super::Foundation::PWSTR, ppwszaccepttypes: *mut super::super::Foundation::PWSTR, dwflags: WINHTTP_OPEN_REQUEST_FLAGS) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpQueryAuthSchemes(hrequest: *mut ::core::ffi::c_void, lpdwsupportedschemes: *mut u32, lpdwfirstscheme: *mut u32, pdwauthtarget: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void, pguidconnection: *const ::windows_sys::core::GUID, ullflags: u64, ppresult: *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpQueryDataAvailable(hrequest: *mut ::core::ffi::c_void, lpdwnumberofbytesavailable: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpQueryHeaders(hrequest: *mut ::core::ffi::c_void, dwinfolevel: u32, pwszname: super::super::Foundation::PWSTR, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpQueryHeadersEx(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, ullflags: u64, uicodepage: u32, pdwindex: *mut u32, pheadername: *const WINHTTP_HEADER_NAME, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, ppheaders: *mut *mut WINHTTP_EXTENDED_HEADER, pdwheaderscount: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpQueryOption(hinternet: *mut ::core::ffi::c_void, dwoption: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpReadData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpReadDataEx(hrequest: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32, ullflags: u64, cbproperty: u32, pvproperty: *const ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpReadProxySettings(hsession: *const ::core::ffi::c_void, pcwszconnectionname: super::super::Foundation::PWSTR, ffallbacktodefaultsettings: super::super::Foundation::BOOL, fsetautodiscoverfordefaultsettings: super::super::Foundation::BOOL, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpReceiveResponse(hrequest: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpResetAutoProxy(hsession: *const ::core::ffi::c_void, dwflags: u32) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpSendRequest(hrequest: *mut ::core::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32, dwtotallength: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpSetCredentials(hrequest: *mut ::core::ffi::c_void, authtargets: u32, authscheme: u32, pwszusername: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR, pauthparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpSetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpSetOption(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser: super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> ::core::option::Option<WINHTTP_STATUS_CALLBACK>;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpSetTimeouts(hinternet: *mut ::core::ffi::c_void, nresolvetimeout: i32, nconnecttimeout: i32, nsendtimeout: i32, nreceivetimeout: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpTimeToSystemTime(pwsztime: super::super::Foundation::PWSTR, pst: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_void, pcontext: usize) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::core::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pebuffertype: *mut WINHTTP_WEB_SOCKET_BUFFER_TYPE) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+    pub fn WinHttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> u32;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpWriteData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WinHttpWriteProxySettings(hsession: *const ::core::ffi::c_void, fforceupdate: super::super::Foundation::BOOL, pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) -> u32;
+}
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -207,6 +352,7 @@ pub const HTTP_STATUS_USE_PROXY: u32 = 305u32;
 pub const HTTP_STATUS_VERSION_NOT_SUP: u32 = 505u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const HTTP_STATUS_WEBDAV_MULTI_STATUS: u32 = 207u32;
+pub struct HTTP_VERSION_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const ICU_BROWSER_MODE: u32 = 33554432u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -219,6 +365,8 @@ pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
 pub const ICU_NO_ENCODE: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const ICU_NO_META: u32 = 134217728u32;
+pub struct INTERNET_PORT(i32);
+pub struct LPWINHTTP_STATUS_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -237,6 +385,8 @@ pub const SECURITY_FLAG_STRENGTH_MEDIUM: u32 = 1073741824u32;
 pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
+pub struct URL_COMPONENTS(i32);
+pub struct WINHTTP_ACCESS_TYPE(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -253,6 +403,7 @@ pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: u32 = 16777216u32;
 pub const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_ADDREQ_INDEX_MASK: u32 = 65535u32;
+pub struct WINHTTP_ASYNC_RESULT(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_AUTH_SCHEME_DIGEST: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -289,6 +440,7 @@ pub const WINHTTP_AUTOPROXY_NO_CACHE_CLIENT: u32 = 524288u32;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_SVC: u32 = 1048576u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: u32 = 262144u32;
+pub struct WINHTTP_AUTOPROXY_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_AUTOPROXY_RUN_INPROCESS: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -393,6 +545,10 @@ pub const WINHTTP_CALLBACK_STATUS_SETTINGS_WRITE_COMPLETE: u32 = 268435456u32;
 pub const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: u32 = 67108864u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: u32 = 1048576u32;
+pub struct WINHTTP_CERTIFICATE_INFO(i32);
+pub struct WINHTTP_CONNECTION_GROUP(i32);
+pub struct WINHTTP_CONNECTION_INFO(i32);
+pub struct WINHTTP_CONNECTION_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -401,6 +557,10 @@ pub const WINHTTP_CONNECTION_RETRY_CONDITION_SSL_HANDSHAKE: u32 = 2u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_STALE_CONNECTION: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295u32;
+pub struct WINHTTP_CREDS(i32);
+pub struct WINHTTP_CREDS_AUTHSCHEME(i32);
+pub struct WINHTTP_CREDS_EX(i32);
+pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_DECOMPRESSION_FLAG_DEFLATE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -433,8 +593,10 @@ pub const WINHTTP_ENABLE_SSL_REVOCATION: u32 = 1u32;
 pub const WINHTTP_ERROR_BASE: u32 = 12000u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_ERROR_LAST: u32 = 12192u32;
+pub struct WINHTTP_EXTENDED_HEADER(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_EXTENDED_HEADER_FLAG_UNICODE: u32 = 1u32;
+pub struct WINHTTP_FAILED_CONNECTION_RETRIES(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_FLAG_ASYNC: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -457,14 +619,21 @@ pub const WINHTTP_HANDLE_TYPE_CONNECT: u32 = 2u32;
 pub const WINHTTP_HANDLE_TYPE_REQUEST: u32 = 3u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_HANDLE_TYPE_SESSION: u32 = 1u32;
+pub struct WINHTTP_HEADER_NAME(i32);
+pub struct WINHTTP_HOST_CONNECTION_GROUP(i32);
+pub struct WINHTTP_HTTP2_RECEIVE_WINDOW(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
+pub struct WINHTTP_INTERNET_SCHEME(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_LAST_OPTION: u32 = 183u32;
+pub struct WINHTTP_MATCH_CONNECTION_GUID(i32);
+pub struct WINHTTP_MATCH_CONNECTION_GUID(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAGS_MASK: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAG_REQUIRE_MARKED_CONNECTION: u32 = 1u32;
+pub struct WINHTTP_OPEN_REQUEST_FLAGS(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_OPTION_AGGREGATE_PROXY_CONFIG: u32 = 181u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -717,6 +886,11 @@ pub const WINHTTP_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP2: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_PROTOCOL_FLAG_HTTP3: u32 = 2u32;
+pub struct WINHTTP_PROXY_INFO(i32);
+pub struct WINHTTP_PROXY_RESULT(i32);
+pub struct WINHTTP_PROXY_RESULT_ENTRY(i32);
+pub struct WINHTTP_PROXY_RESULT_EX(i32);
+pub struct WINHTTP_PROXY_SETTINGS(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -747,6 +921,7 @@ pub const WINHTTP_QUERY_AUTHORIZATION: u32 = 28u32;
 pub const WINHTTP_QUERY_CACHE_CONTROL: u32 = 49u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_QUERY_CONNECTION: u32 = 23u32;
+pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_QUERY_CONTENT_BASE: u32 = 50u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -893,6 +1068,9 @@ pub const WINHTTP_QUERY_VIA: u32 = 66u32;
 pub const WINHTTP_QUERY_WARNING: u32 = 67u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_QUERY_WWW_AUTHENTICATE: u32 = 40u32;
+pub struct WINHTTP_REQUEST_STATS(i32);
+pub struct WINHTTP_REQUEST_STATS(i32);
+pub struct WINHTTP_REQUEST_STAT_ENTRY(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_REQUEST_STAT_FLAG_FIRST_REQUEST: u32 = 32u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -905,6 +1083,9 @@ pub const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
+pub struct WINHTTP_REQUEST_TIMES(i32);
+pub struct WINHTTP_REQUEST_TIMES(i32);
+pub struct WINHTTP_REQUEST_TIME_ENTRY(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_RESET_ALL: u32 = 65535u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -921,6 +1102,8 @@ pub const WINHTTP_RESET_STATE: u32 = 1u32;
 pub const WINHTTP_RESET_SWPAD_ALL: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: u32 = 2u32;
+pub struct WINHTTP_RESOLVER_CACHE_CONFIG(i32);
+pub struct WINHTTP_RESOLVER_CACHE_CONFIG(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -929,154 +1112,18 @@ pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_CONN_USE_TTL: u32 = 8u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
+pub struct WINHTTP_SECURE_DNS_SETTING(i32);
+pub struct WINHTTP_STATUS_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
+pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT(i32);
+pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(i32);
+pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(i32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpAddRequestHeaders(hrequest: *mut ::core::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, dwmodifiers: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpAddRequestHeadersEx(hrequest: *mut ::core::ffi::c_void, dwmodifiers: u32, ullflags: u64, ullextra: u64, cheaders: u32, pheaders: *const WINHTTP_EXTENDED_HEADER) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpCloseHandle(hinternet: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpConnect(hsession: *mut ::core::ffi::c_void, pswzservername: super::super::Foundation::PWSTR, nserverport: INTERNET_PORT, dwreserved: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpCrackUrl(pwszurl: super::super::Foundation::PWSTR, dwurllength: u32, dwflags: u32, lpurlcomponents: *mut URL_COMPONENTS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpCreateProxyResolver(hsession: *const ::core::ffi::c_void, phresolver: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpCreateUrl(lpurlcomponents: *const URL_COMPONENTS, dwflags: WIN_HTTP_CREATE_URL_FLAGS, pwszurl: super::super::Foundation::PWSTR, pdwurllength: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrautoconfigurl: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT);
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX);
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS);
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT);
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpGetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpGetProxyForUrl(hsession: *mut ::core::ffi::c_void, lpcwszurl: super::super::Foundation::PWSTR, pautoproxyoptions: *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpGetProxyForUrlEx(hresolver: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, pcontext: usize) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpGetProxyForUrlEx2(hresolver: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext: u32, pinterfaceselectioncontext: *const u8, pcontext: usize) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpGetProxyResult(hresolver: *const ::core::ffi::c_void, pproxyresult: *mut WINHTTP_PROXY_RESULT) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpGetProxyResultEx(hresolver: *const ::core::ffi::c_void, pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpGetProxySettingsVersion(hsession: *const ::core::ffi::c_void, pdwproxysettingsversion: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpOpen(pszagentw: super::super::Foundation::PWSTR, dwaccesstype: WINHTTP_ACCESS_TYPE, pszproxyw: super::super::Foundation::PWSTR, pszproxybypassw: super::super::Foundation::PWSTR, dwflags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpOpenRequest(hconnect: *mut ::core::ffi::c_void, pwszverb: super::super::Foundation::PWSTR, pwszobjectname: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, pwszreferrer: super::super::Foundation::PWSTR, ppwszaccepttypes: *mut super::super::Foundation::PWSTR, dwflags: WINHTTP_OPEN_REQUEST_FLAGS) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpQueryAuthSchemes(hrequest: *mut ::core::ffi::c_void, lpdwsupportedschemes: *mut u32, lpdwfirstscheme: *mut u32, pdwauthtarget: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void, pguidconnection: *const ::windows_sys::core::GUID, ullflags: u64, ppresult: *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpQueryDataAvailable(hrequest: *mut ::core::ffi::c_void, lpdwnumberofbytesavailable: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpQueryHeaders(hrequest: *mut ::core::ffi::c_void, dwinfolevel: u32, pwszname: super::super::Foundation::PWSTR, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpQueryHeadersEx(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, ullflags: u64, uicodepage: u32, pdwindex: *mut u32, pheadername: *const WINHTTP_HEADER_NAME, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, ppheaders: *mut *mut WINHTTP_EXTENDED_HEADER, pdwheaderscount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpQueryOption(hinternet: *mut ::core::ffi::c_void, dwoption: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpReadData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpReadDataEx(hrequest: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32, ullflags: u64, cbproperty: u32, pvproperty: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpReadProxySettings(hsession: *const ::core::ffi::c_void, pcwszconnectionname: super::super::Foundation::PWSTR, ffallbacktodefaultsettings: super::super::Foundation::BOOL, fsetautodiscoverfordefaultsettings: super::super::Foundation::BOOL, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpReceiveResponse(hrequest: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpResetAutoProxy(hsession: *const ::core::ffi::c_void, dwflags: u32) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpSendRequest(hrequest: *mut ::core::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32, dwtotallength: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpSetCredentials(hrequest: *mut ::core::ffi::c_void, authtargets: u32, authscheme: u32, pwszusername: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR, pauthparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpSetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpSetOption(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> ::core::option::Option<WINHTTP_STATUS_CALLBACK>;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpSetTimeouts(hinternet: *mut ::core::ffi::c_void, nresolvetimeout: i32, nconnecttimeout: i32, nsendtimeout: i32, nreceivetimeout: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpTimeToSystemTime(pwsztime: super::super::Foundation::PWSTR, pst: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_void, pcontext: usize) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::core::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pebuffertype: *mut WINHTTP_WEB_SOCKET_BUFFER_TYPE) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
-    pub fn WinHttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> u32;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpWriteData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WinHttpWriteProxySettings(hsession: *const ::core::ffi::c_void, fforceupdate: super::super::Foundation::BOOL, pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) -> u32;
-}
+pub struct WINHTTP_WEB_SOCKET_OPERATION(i32);
+pub struct WINHTTP_WEB_SOCKET_STATUS(i32);
+pub struct WIN_HTTP_CREATE_URL_FLAGS(i32);
+pub struct _WinHttpProxyNetworkKey(i32);

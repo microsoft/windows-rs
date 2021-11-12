@@ -24,3 +24,4 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_Recovery`*"]
     pub fn UnregisterApplicationRestart() -> ::windows_sys::core::HRESULT;
 }
+pub struct REGISTER_APPLICATION_RESTART_FLAGS(i32);

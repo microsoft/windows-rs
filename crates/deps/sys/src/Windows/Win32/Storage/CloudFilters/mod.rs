@@ -1,14 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
-pub const CF_MAX_PRIORITY_HINT: u32 = 15u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
-pub const CF_MAX_PROVIDER_NAME_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
-pub const CF_MAX_PROVIDER_VERSION_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
-pub const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
-pub const CF_REQUEST_KEY_DEFAULT: u32 = 0u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
@@ -110,3 +100,88 @@ extern "system" {
     #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
     pub fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows_sys::core::HRESULT;
 }
+pub struct CF_CALLBACK(i32);
+pub struct CF_CALLBACK_CANCEL_FLAGS(i32);
+pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(i32);
+pub struct CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(i32);
+pub struct CF_CALLBACK_DEHYDRATE_FLAGS(i32);
+pub struct CF_CALLBACK_DEHYDRATION_REASON(i32);
+pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(i32);
+pub struct CF_CALLBACK_DELETE_FLAGS(i32);
+pub struct CF_CALLBACK_FETCH_DATA_FLAGS(i32);
+pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(i32);
+pub struct CF_CALLBACK_INFO(i32);
+pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(i32);
+pub struct CF_CALLBACK_PARAMETERS(i32);
+pub struct CF_CALLBACK_REGISTRATION(i32);
+pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(i32);
+pub struct CF_CALLBACK_RENAME_FLAGS(i32);
+pub struct CF_CALLBACK_TYPE(i32);
+pub struct CF_CALLBACK_VALIDATE_DATA_FLAGS(i32);
+pub struct CF_CONNECTION_KEY(i32);
+pub struct CF_CONNECT_FLAGS(i32);
+pub struct CF_CONVERT_FLAGS(i32);
+pub struct CF_CREATE_FLAGS(i32);
+pub struct CF_DEHYDRATE_FLAGS(i32);
+pub struct CF_FILE_RANGE(i32);
+pub struct CF_FS_METADATA(i32);
+pub struct CF_HARDLINK_POLICY(i32);
+pub struct CF_HYDRATE_FLAGS(i32);
+pub struct CF_HYDRATION_POLICY(i32);
+pub struct CF_HYDRATION_POLICY_MODIFIER(i32);
+pub struct CF_HYDRATION_POLICY_MODIFIER_USHORT(i32);
+pub struct CF_HYDRATION_POLICY_PRIMARY(i32);
+pub struct CF_HYDRATION_POLICY_PRIMARY_USHORT(i32);
+pub struct CF_INSYNC_POLICY(i32);
+pub struct CF_IN_SYNC_STATE(i32);
+#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+pub const CF_MAX_PRIORITY_HINT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+pub const CF_MAX_PROVIDER_NAME_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+pub const CF_MAX_PROVIDER_VERSION_LENGTH: u32 = 255u32;
+pub struct CF_OPEN_FILE_FLAGS(i32);
+pub struct CF_OPERATION_ACK_DATA_FLAGS(i32);
+pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(i32);
+pub struct CF_OPERATION_ACK_DELETE_FLAGS(i32);
+pub struct CF_OPERATION_ACK_RENAME_FLAGS(i32);
+pub struct CF_OPERATION_INFO(i32);
+pub struct CF_OPERATION_PARAMETERS(i32);
+pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(i32);
+pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(i32);
+pub struct CF_OPERATION_TRANSFER_DATA_FLAGS(i32);
+pub struct CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(i32);
+pub struct CF_OPERATION_TYPE(i32);
+pub struct CF_PIN_STATE(i32);
+pub struct CF_PLACEHOLDER_BASIC_INFO(i32);
+pub struct CF_PLACEHOLDER_CREATE_FLAGS(i32);
+pub struct CF_PLACEHOLDER_CREATE_INFO(i32);
+pub struct CF_PLACEHOLDER_INFO_CLASS(i32);
+pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(i32);
+#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+pub const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: u32 = 4096u32;
+pub struct CF_PLACEHOLDER_RANGE_INFO_CLASS(i32);
+pub struct CF_PLACEHOLDER_STANDARD_INFO(i32);
+pub struct CF_PLACEHOLDER_STATE(i32);
+pub struct CF_PLATFORM_INFO(i32);
+pub struct CF_POPULATION_POLICY(i32);
+pub struct CF_POPULATION_POLICY_MODIFIER(i32);
+pub struct CF_POPULATION_POLICY_MODIFIER_USHORT(i32);
+pub struct CF_POPULATION_POLICY_PRIMARY(i32);
+pub struct CF_POPULATION_POLICY_PRIMARY_USHORT(i32);
+pub struct CF_PROCESS_INFO(i32);
+pub struct CF_REGISTER_FLAGS(i32);
+#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+pub const CF_REQUEST_KEY_DEFAULT: u32 = 0u32;
+pub struct CF_REVERT_FLAGS(i32);
+pub struct CF_SET_IN_SYNC_FLAGS(i32);
+pub struct CF_SET_PIN_FLAGS(i32);
+pub struct CF_SYNC_POLICIES(i32);
+pub struct CF_SYNC_PROVIDER_STATUS(i32);
+pub struct CF_SYNC_REGISTRATION(i32);
+pub struct CF_SYNC_ROOT_BASIC_INFO(i32);
+pub struct CF_SYNC_ROOT_INFO_CLASS(i32);
+pub struct CF_SYNC_ROOT_PROVIDER_INFO(i32);
+pub struct CF_SYNC_ROOT_STANDARD_INFO(i32);
+pub struct CF_SYNC_STATUS(i32);
+pub struct CF_UPDATE_FLAGS(i32);

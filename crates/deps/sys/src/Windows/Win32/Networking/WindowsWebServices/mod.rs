@@ -1,254 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_DIRECT: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_INDIRECT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_NONE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ATTESTATION_DECODE_COMMON: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ATTESTATION_DECODE_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P384_WITH_SHA384: i32 = -35i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P521_WITH_SHA512: i32 = -36i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA256: i32 = -257i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA384: i32 = -258i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA512: i32 = -259i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: i32 = -37i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_GET: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_SET: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_AUTHENTICATOR_ERROR: u32 = 9u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_DATA: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_PARAMETER: u32 = 4u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_LACK_OF_SPACE: u32 = 7u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_MULTIPLE_CREDENTIALS: u32 = 6u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_FOUND: u32 = 5u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_SUPPORTED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CTAP_TRANSPORT_INTERNAL: u32 = 16u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CTAP_TRANSPORT_NFC: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CTAP_TRANSPORT_TEST: u32 = 8u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_CTAP_TRANSPORT_USB: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ENTERPRISE_ATTESTATION_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_MAX_USER_ID_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_ANY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_OPTIONAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_OPTIONAL_WITH_CREDENTIAL_ID_LIST: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_REQUIRED: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_ANY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_DISCOURAGED: u32 = 3u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_CERT_FAILURE_CN_MISMATCH: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_CERT_FAILURE_INVALID_DATE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_FIELD_NILLABLE: i32 = 4i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_FIELD_NILLABLE_ITEM: i32 = 8i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_FIELD_OPTIONAL: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_FIELD_OTHER_NAMESPACE: i32 = 16i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_FIELD_POINTER: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_AUTH_SCHEME_BASIC: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_AUTH_SCHEME_DIGEST: i32 = 4i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_AUTH_SCHEME_NEGOTIATE: i32 = 16i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_AUTH_SCHEME_NONE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_AUTH_SCHEME_NTLM: i32 = 8i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_AUTH_SCHEME_PASSPORT: i32 = 32i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_HTTP_RESPONSE_MAPPING_STATUS_TEXT: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_DNS_FULLY_QUALIFIED_HOST: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_DNS_HOST: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_EXACT_PATH: i32 = 64i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_HOST_ADDRESSES: i32 = 16i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_LOCAL_HOST: i32 = 8i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_NETBIOS_HOST: i32 = 4i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_NO_QUERY: i32 = 256i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_PORT: i32 = 32i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_RELAY_HEADER_ATTRIBUTE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: i32 = 1i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_URL_FLAGS_NO_PATH_COLLAPSE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
-pub const WS_URL_FLAGS_ZERO_TERMINATE: i32 = 4i32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
@@ -760,3 +510,704 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 }
+pub struct IContentPrefetcherTaskTrigger(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
+pub struct WEBAUTHN_ASSERTION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_DIRECT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_INDIRECT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_NONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ATTESTATION_DECODE_COMMON: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ATTESTATION_DECODE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
+pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
+pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
+pub struct WEBAUTHN_CLIENT_DATA(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
+pub struct WEBAUTHN_COMMON_ATTESTATION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P384_WITH_SHA384: i32 = -35i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P521_WITH_SHA512: i32 = -36i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA256: i32 = -257i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA384: i32 = -258i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA512: i32 = -259i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: i32 = -37i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
+pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER(i32);
+pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
+pub struct WEBAUTHN_CREDENTIAL(i32);
+pub struct WEBAUTHN_CREDENTIALS(i32);
+pub struct WEBAUTHN_CREDENTIAL_ATTESTATION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
+pub struct WEBAUTHN_CREDENTIAL_EX(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
+pub struct WEBAUTHN_CREDENTIAL_LIST(i32);
+pub struct WEBAUTHN_CRED_BLOB_EXTENSION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_GET: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_SET: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_AUTHENTICATOR_ERROR: u32 = 9u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_DATA: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_PARAMETER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_LACK_OF_SPACE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_MULTIPLE_CREDENTIALS: u32 = 6u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_FOUND: u32 = 5u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_SUPPORTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
+pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CTAP_TRANSPORT_INTERNAL: u32 = 16u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CTAP_TRANSPORT_NFC: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CTAP_TRANSPORT_TEST: u32 = 8u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_CTAP_TRANSPORT_USB: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ENTERPRISE_ATTESTATION_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: u32 = 1u32;
+pub struct WEBAUTHN_EXTENSION(i32);
+pub struct WEBAUTHN_EXTENSIONS(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_MAX_USER_ID_LENGTH: u32 = 64u32;
+pub struct WEBAUTHN_RP_ENTITY_INFORMATION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
+pub struct WEBAUTHN_USER_ENTITY_INFORMATION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_OPTIONAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_OPTIONAL_WITH_CREDENTIAL_ID_LIST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_REQUIRED: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_DISCOURAGED: u32 = 3u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: u32 = 1u32;
+pub struct WEBAUTHN_X5C(i32);
+pub struct WS_ABANDON_MESSAGE_CALLBACK(i32);
+pub struct WS_ABORT_CHANNEL_CALLBACK(i32);
+pub struct WS_ABORT_LISTENER_CALLBACK(i32);
+pub struct WS_ACCEPT_CHANNEL_CALLBACK(i32);
+pub struct WS_ADDRESSING_VERSION(i32);
+pub struct WS_ANY_ATTRIBUTE(i32);
+pub struct WS_ANY_ATTRIBUTES(i32);
+pub struct WS_ASYNC_CALLBACK(i32);
+pub struct WS_ASYNC_CONTEXT(i32);
+pub struct WS_ASYNC_FUNCTION(i32);
+pub struct WS_ASYNC_OPERATION(i32);
+pub struct WS_ASYNC_STATE(i32);
+pub struct WS_ATTRIBUTE_DESCRIPTION(i32);
+pub struct WS_BINDING_TEMPLATE_TYPE(i32);
+pub struct WS_BOOL_DESCRIPTION(i32);
+pub struct WS_BUFFERS(i32);
+pub struct WS_BYTES(i32);
+pub struct WS_BYTES_DESCRIPTION(i32);
+pub struct WS_BYTE_ARRAY_DESCRIPTION(i32);
+pub struct WS_CALLBACK_MODEL(i32);
+pub struct WS_CALL_PROPERTY(i32);
+pub struct WS_CALL_PROPERTY_ID(i32);
+pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE(i32);
+pub struct WS_CERTIFICATE_VALIDATION_CALLBACK(i32);
+pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT(i32);
+pub struct WS_CERT_CREDENTIAL(i32);
+pub struct WS_CERT_CREDENTIAL_TYPE(i32);
+pub struct WS_CERT_ENDPOINT_IDENTITY(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_CERT_FAILURE_CN_MISMATCH: i32 = 1i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_CERT_FAILURE_INVALID_DATE: i32 = 2i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
+pub struct WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK(i32);
+pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR(i32);
+pub struct WS_CHANNEL(i32);
+pub struct WS_CHANNEL_BINDING(i32);
+pub struct WS_CHANNEL_DECODER(i32);
+pub struct WS_CHANNEL_ENCODER(i32);
+pub struct WS_CHANNEL_PROPERTIES(i32);
+pub struct WS_CHANNEL_PROPERTY(i32);
+pub struct WS_CHANNEL_PROPERTY_CONSTRAINT(i32);
+pub struct WS_CHANNEL_PROPERTY_ID(i32);
+pub struct WS_CHANNEL_STATE(i32);
+pub struct WS_CHANNEL_TYPE(i32);
+pub struct WS_CHARSET(i32);
+pub struct WS_CHAR_ARRAY_DESCRIPTION(i32);
+pub struct WS_CLOSE_CHANNEL_CALLBACK(i32);
+pub struct WS_CLOSE_LISTENER_CALLBACK(i32);
+pub struct WS_CONTRACT_DESCRIPTION(i32);
+pub struct WS_COOKIE_MODE(i32);
+pub struct WS_CREATE_CHANNEL_CALLBACK(i32);
+pub struct WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK(i32);
+pub struct WS_CREATE_DECODER_CALLBACK(i32);
+pub struct WS_CREATE_ENCODER_CALLBACK(i32);
+pub struct WS_CREATE_LISTENER_CALLBACK(i32);
+pub struct WS_CUSTOM_CERT_CREDENTIAL(i32);
+pub struct WS_CUSTOM_CHANNEL_CALLBACKS(i32);
+pub struct WS_CUSTOM_HTTP_PROXY(i32);
+pub struct WS_CUSTOM_LISTENER_CALLBACKS(i32);
+pub struct WS_CUSTOM_TYPE_DESCRIPTION(i32);
+pub struct WS_DATETIME(i32);
+pub struct WS_DATETIME_DESCRIPTION(i32);
+pub struct WS_DATETIME_FORMAT(i32);
+pub struct WS_DECIMAL_DESCRIPTION(i32);
+pub struct WS_DECODER_DECODE_CALLBACK(i32);
+pub struct WS_DECODER_END_CALLBACK(i32);
+pub struct WS_DECODER_GET_CONTENT_TYPE_CALLBACK(i32);
+pub struct WS_DECODER_START_CALLBACK(i32);
+pub struct WS_DEFAULT_VALUE(i32);
+pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS(i32);
+pub struct WS_DNS_ENDPOINT_IDENTITY(i32);
+pub struct WS_DOUBLE_DESCRIPTION(i32);
+pub struct WS_DURATION(i32);
+pub struct WS_DURATION_COMPARISON_CALLBACK(i32);
+pub struct WS_DURATION_DESCRIPTION(i32);
+pub struct WS_DYNAMIC_STRING_CALLBACK(i32);
+pub struct WS_ELEMENT_DESCRIPTION(i32);
+pub struct WS_ENCODER_ENCODE_CALLBACK(i32);
+pub struct WS_ENCODER_END_CALLBACK(i32);
+pub struct WS_ENCODER_GET_CONTENT_TYPE_CALLBACK(i32);
+pub struct WS_ENCODER_START_CALLBACK(i32);
+pub struct WS_ENCODING(i32);
+pub struct WS_ENDPOINT_ADDRESS(i32);
+pub struct WS_ENDPOINT_ADDRESS_DESCRIPTION(i32);
+pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(i32);
+pub struct WS_ENDPOINT_IDENTITY(i32);
+pub struct WS_ENDPOINT_IDENTITY_TYPE(i32);
+pub struct WS_ENDPOINT_POLICY_EXTENSION(i32);
+pub struct WS_ENUM_DESCRIPTION(i32);
+pub struct WS_ENUM_VALUE(i32);
+pub struct WS_ENVELOPE_VERSION(i32);
+pub struct WS_ERROR(i32);
+pub struct WS_ERROR_PROPERTY(i32);
+pub struct WS_ERROR_PROPERTY_ID(i32);
+pub struct WS_EXCEPTION_CODE(i32);
+pub struct WS_EXTENDED_PROTECTION_POLICY(i32);
+pub struct WS_EXTENDED_PROTECTION_SCENARIO(i32);
+pub struct WS_FAULT(i32);
+pub struct WS_FAULT_CODE(i32);
+pub struct WS_FAULT_DESCRIPTION(i32);
+pub struct WS_FAULT_DETAIL_DESCRIPTION(i32);
+pub struct WS_FAULT_DISCLOSURE(i32);
+pub struct WS_FAULT_ERROR_PROPERTY_ID(i32);
+pub struct WS_FAULT_REASON(i32);
+pub struct WS_FIELD_DESCRIPTION(i32);
+pub struct WS_FIELD_MAPPING(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_FIELD_NILLABLE: i32 = 4i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_FIELD_NILLABLE_ITEM: i32 = 8i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_FIELD_OPTIONAL: i32 = 2i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_FIELD_OTHER_NAMESPACE: i32 = 16i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_FIELD_POINTER: i32 = 1i32;
+pub struct WS_FLOAT_DESCRIPTION(i32);
+pub struct WS_FREE_CHANNEL_CALLBACK(i32);
+pub struct WS_FREE_DECODER_CALLBACK(i32);
+pub struct WS_FREE_ENCODER_CALLBACK(i32);
+pub struct WS_FREE_LISTENER_CALLBACK(i32);
+pub struct WS_GET_CERT_CALLBACK(i32);
+pub struct WS_GET_CHANNEL_PROPERTY_CALLBACK(i32);
+pub struct WS_GET_LISTENER_PROPERTY_CALLBACK(i32);
+pub struct WS_GUID_DESCRIPTION(i32);
+pub struct WS_HEADER_TYPE(i32);
+pub struct WS_HEAP(i32);
+pub struct WS_HEAP_PROPERTIES(i32);
+pub struct WS_HEAP_PROPERTY(i32);
+pub struct WS_HEAP_PROPERTY_ID(i32);
+pub struct WS_HOST_NAMES(i32);
+pub struct WS_HTTPS_URL(i32);
+pub struct WS_HTTP_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_AUTH_SCHEME_BASIC: i32 = 2i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_AUTH_SCHEME_DIGEST: i32 = 4i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_AUTH_SCHEME_NEGOTIATE: i32 = 16i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_AUTH_SCHEME_NONE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_AUTH_SCHEME_NTLM: i32 = 8i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_AUTH_SCHEME_PASSPORT: i32 = 32i32;
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING(i32);
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_HEADER_AUTH_TARGET(i32);
+pub struct WS_HTTP_HEADER_MAPPING(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: i32 = 2i32;
+pub struct WS_HTTP_MESSAGE_MAPPING(i32);
+pub struct WS_HTTP_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_PROXY_SETTING_MODE(i32);
+pub struct WS_HTTP_REDIRECT_CALLBACK(i32);
+pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_HTTP_RESPONSE_MAPPING_STATUS_TEXT: i32 = 2i32;
+pub struct WS_HTTP_SSL_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_URL(i32);
+pub struct WS_INT16_DESCRIPTION(i32);
+pub struct WS_INT32_DESCRIPTION(i32);
+pub struct WS_INT64_DESCRIPTION(i32);
+pub struct WS_INT8_DESCRIPTION(i32);
+pub struct WS_IP_VERSION(i32);
+pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_IS_DEFAULT_VALUE_CALLBACK(i32);
+pub struct WS_ITEM_RANGE(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_LISTENER(i32);
+pub struct WS_LISTENER_PROPERTIES(i32);
+pub struct WS_LISTENER_PROPERTY(i32);
+pub struct WS_LISTENER_PROPERTY_ID(i32);
+pub struct WS_LISTENER_STATE(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_DNS_FULLY_QUALIFIED_HOST: i32 = 2i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_DNS_HOST: i32 = 1i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_EXACT_PATH: i32 = 64i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_HOST_ADDRESSES: i32 = 16i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_LOCAL_HOST: i32 = 8i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_NETBIOS_HOST: i32 = 4i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_NO_QUERY: i32 = 256i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_PORT: i32 = 32i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
+pub struct WS_MESSAGE(i32);
+pub struct WS_MESSAGE_DESCRIPTION(i32);
+pub struct WS_MESSAGE_DONE_CALLBACK(i32);
+pub struct WS_MESSAGE_INITIALIZATION(i32);
+pub struct WS_MESSAGE_PROPERTIES(i32);
+pub struct WS_MESSAGE_PROPERTY(i32);
+pub struct WS_MESSAGE_PROPERTY_ID(i32);
+pub struct WS_MESSAGE_SECURITY_USAGE(i32);
+pub struct WS_MESSAGE_STATE(i32);
+pub struct WS_METADATA(i32);
+pub struct WS_METADATA_ENDPOINT(i32);
+pub struct WS_METADATA_ENDPOINTS(i32);
+pub struct WS_METADATA_EXCHANGE_TYPE(i32);
+pub struct WS_METADATA_PROPERTY(i32);
+pub struct WS_METADATA_PROPERTY_ID(i32);
+pub struct WS_METADATA_STATE(i32);
+pub struct WS_MOVE_TO(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1i32;
+pub struct WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING(i32);
+pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE(i32);
+pub struct WS_NETPIPE_URL(i32);
+pub struct WS_NETTCP_URL(i32);
+pub struct WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+pub struct WS_OPEN_CHANNEL_CALLBACK(i32);
+pub struct WS_OPEN_LISTENER_CALLBACK(i32);
+pub struct WS_OPERATION_CANCEL_CALLBACK(i32);
+pub struct WS_OPERATION_CONTEXT(i32);
+pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(i32);
+pub struct WS_OPERATION_DESCRIPTION(i32);
+pub struct WS_OPERATION_FREE_STATE_CALLBACK(i32);
+pub struct WS_OPERATION_STYLE(i32);
+pub struct WS_PARAMETER_DESCRIPTION(i32);
+pub struct WS_PARAMETER_TYPE(i32);
+pub struct WS_POLICY(i32);
+pub struct WS_POLICY_CONSTRAINTS(i32);
+pub struct WS_POLICY_EXTENSION(i32);
+pub struct WS_POLICY_EXTENSION_TYPE(i32);
+pub struct WS_POLICY_PROPERTIES(i32);
+pub struct WS_POLICY_PROPERTY(i32);
+pub struct WS_POLICY_PROPERTY_ID(i32);
+pub struct WS_POLICY_STATE(i32);
+pub struct WS_PROTECTION_LEVEL(i32);
+pub struct WS_PROXY_MESSAGE_CALLBACK(i32);
+pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT(i32);
+pub struct WS_PROXY_PROPERTY(i32);
+pub struct WS_PROXY_PROPERTY_ID(i32);
+pub struct WS_PULL_BYTES_CALLBACK(i32);
+pub struct WS_PUSH_BYTES_CALLBACK(i32);
+pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE(i32);
+pub struct WS_READ_CALLBACK(i32);
+pub struct WS_READ_MESSAGE_END_CALLBACK(i32);
+pub struct WS_READ_MESSAGE_START_CALLBACK(i32);
+pub struct WS_READ_OPTION(i32);
+pub struct WS_READ_TYPE_CALLBACK(i32);
+pub struct WS_RECEIVE_OPTION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_RELAY_HEADER_ATTRIBUTE: i32 = 2i32;
+pub struct WS_REPEATING_HEADER_OPTION(i32);
+pub struct WS_REQUEST_SECURITY_TOKEN_ACTION(i32);
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY(i32);
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT(i32);
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(i32);
+pub struct WS_RESET_CHANNEL_CALLBACK(i32);
+pub struct WS_RESET_LISTENER_CALLBACK(i32);
+pub struct WS_RSA_ENDPOINT_IDENTITY(i32);
+pub struct WS_SAML_AUTHENTICATOR(i32);
+pub struct WS_SAML_AUTHENTICATOR_TYPE(i32);
+pub struct WS_SAML_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_SECURE_CONVERSATION_VERSION(i32);
+pub struct WS_SECURE_PROTOCOL(i32);
+pub struct WS_SECURITY_ALGORITHM_ID(i32);
+pub struct WS_SECURITY_ALGORITHM_PROPERTY(i32);
+pub struct WS_SECURITY_ALGORITHM_PROPERTY_ID(i32);
+pub struct WS_SECURITY_ALGORITHM_SUITE(i32);
+pub struct WS_SECURITY_ALGORITHM_SUITE_NAME(i32);
+pub struct WS_SECURITY_BEARER_KEY_TYPE_VERSION(i32);
+pub struct WS_SECURITY_BINDING(i32);
+pub struct WS_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_SECURITY_BINDING_CONSTRAINT_TYPE(i32);
+pub struct WS_SECURITY_BINDING_PROPERTIES(i32);
+pub struct WS_SECURITY_BINDING_PROPERTY(i32);
+pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT(i32);
+pub struct WS_SECURITY_BINDING_PROPERTY_ID(i32);
+pub struct WS_SECURITY_BINDING_TYPE(i32);
+pub struct WS_SECURITY_CONSTRAINTS(i32);
+pub struct WS_SECURITY_CONTEXT(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_SECURITY_CONTEXT_PROPERTY(i32);
+pub struct WS_SECURITY_CONTEXT_PROPERTY_ID(i32);
+pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_SECURITY_DESCRIPTION(i32);
+pub struct WS_SECURITY_HEADER_LAYOUT(i32);
+pub struct WS_SECURITY_HEADER_VERSION(i32);
+pub struct WS_SECURITY_KEY_ENTROPY_MODE(i32);
+pub struct WS_SECURITY_KEY_HANDLE(i32);
+pub struct WS_SECURITY_KEY_HANDLE_TYPE(i32);
+pub struct WS_SECURITY_KEY_TYPE(i32);
+pub struct WS_SECURITY_PROPERTIES(i32);
+pub struct WS_SECURITY_PROPERTY(i32);
+pub struct WS_SECURITY_PROPERTY_CONSTRAINT(i32);
+pub struct WS_SECURITY_PROPERTY_ID(i32);
+pub struct WS_SECURITY_TIMESTAMP_USAGE(i32);
+pub struct WS_SECURITY_TOKEN(i32);
+pub struct WS_SECURITY_TOKEN_PROPERTY_ID(i32);
+pub struct WS_SECURITY_TOKEN_REFERENCE_MODE(i32);
+pub struct WS_SERVICE_ACCEPT_CHANNEL_CALLBACK(i32);
+pub struct WS_SERVICE_CANCEL_REASON(i32);
+pub struct WS_SERVICE_CLOSE_CHANNEL_CALLBACK(i32);
+pub struct WS_SERVICE_CONTRACT(i32);
+pub struct WS_SERVICE_ENDPOINT(i32);
+pub struct WS_SERVICE_ENDPOINT_METADATA(i32);
+pub struct WS_SERVICE_ENDPOINT_PROPERTY(i32);
+pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(i32);
+pub struct WS_SERVICE_HOST(i32);
+pub struct WS_SERVICE_HOST_STATE(i32);
+pub struct WS_SERVICE_MESSAGE_RECEIVE_CALLBACK(i32);
+pub struct WS_SERVICE_METADATA(i32);
+pub struct WS_SERVICE_METADATA_DOCUMENT(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
+pub struct WS_SERVICE_PROPERTY(i32);
+pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK(i32);
+pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK(i32);
+pub struct WS_SERVICE_PROPERTY_ID(i32);
+pub struct WS_SERVICE_PROXY(i32);
+pub struct WS_SERVICE_PROXY_STATE(i32);
+pub struct WS_SERVICE_SECURITY_CALLBACK(i32);
+pub struct WS_SERVICE_SECURITY_IDENTITIES(i32);
+pub struct WS_SERVICE_STUB_CALLBACK(i32);
+pub struct WS_SET_CHANNEL_PROPERTY_CALLBACK(i32);
+pub struct WS_SET_LISTENER_PROPERTY_CALLBACK(i32);
+pub struct WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK(i32);
+pub struct WS_SOAPUDP_URL(i32);
+pub struct WS_SPN_ENDPOINT_IDENTITY(i32);
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING(i32);
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_STRING(i32);
+pub struct WS_STRING_DESCRIPTION(i32);
+pub struct WS_STRING_USERNAME_CREDENTIAL(i32);
+pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
+pub struct WS_STRUCT_DESCRIPTION(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
+pub struct WS_SUBJECT_NAME_CERT_CREDENTIAL(i32);
+pub struct WS_TCP_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_POLICY_DESCRIPTION(i32);
+pub struct WS_TCP_SSPI_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION(i32);
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+pub struct WS_TCP_SSPI_POLICY_DESCRIPTION(i32);
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING(i32);
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION(i32);
+pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+pub struct WS_THUMBPRINT_CERT_CREDENTIAL(i32);
+pub struct WS_TIMESPAN(i32);
+pub struct WS_TIMESPAN_DESCRIPTION(i32);
+pub struct WS_TRACE_API(i32);
+pub struct WS_TRANSFER_MODE(i32);
+pub struct WS_TRUST_VERSION(i32);
+pub struct WS_TYPE(i32);
+pub struct WS_TYPE_MAPPING(i32);
+pub struct WS_UINT16_DESCRIPTION(i32);
+pub struct WS_UINT32_DESCRIPTION(i32);
+pub struct WS_UINT64_DESCRIPTION(i32);
+pub struct WS_UINT8_DESCRIPTION(i32);
+pub struct WS_UNION_DESCRIPTION(i32);
+pub struct WS_UNION_FIELD_DESCRIPTION(i32);
+pub struct WS_UNIQUE_ID(i32);
+pub struct WS_UNIQUE_ID_DESCRIPTION(i32);
+pub struct WS_UNKNOWN_ENDPOINT_IDENTITY(i32);
+pub struct WS_UPN_ENDPOINT_IDENTITY(i32);
+pub struct WS_URL(i32);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: i32 = 1i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_URL_FLAGS_NO_PATH_COLLAPSE: i32 = 2i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+pub const WS_URL_FLAGS_ZERO_TERMINATE: i32 = 4i32;
+pub struct WS_URL_SCHEME_TYPE(i32);
+pub struct WS_USERNAME_CREDENTIAL(i32);
+pub struct WS_USERNAME_CREDENTIAL_TYPE(i32);
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_UTF8_ARRAY_DESCRIPTION(i32);
+pub struct WS_VALIDATE_PASSWORD_CALLBACK(i32);
+pub struct WS_VALIDATE_SAML_CALLBACK(i32);
+pub struct WS_VALUE_TYPE(i32);
+pub struct WS_VOID_DESCRIPTION(i32);
+pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(i32);
+pub struct WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(i32);
+pub struct WS_WRITE_CALLBACK(i32);
+pub struct WS_WRITE_MESSAGE_END_CALLBACK(i32);
+pub struct WS_WRITE_MESSAGE_START_CALLBACK(i32);
+pub struct WS_WRITE_OPTION(i32);
+pub struct WS_WRITE_TYPE_CALLBACK(i32);
+pub struct WS_WSZ_DESCRIPTION(i32);
+pub struct WS_XML_ATTRIBUTE(i32);
+pub struct WS_XML_BASE64_TEXT(i32);
+pub struct WS_XML_BOOL_TEXT(i32);
+pub struct WS_XML_BUFFER(i32);
+pub struct WS_XML_BUFFER_PROPERTY(i32);
+pub struct WS_XML_BUFFER_PROPERTY_ID(i32);
+pub struct WS_XML_CANONICALIZATION_ALGORITHM(i32);
+pub struct WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES(i32);
+pub struct WS_XML_CANONICALIZATION_PROPERTY(i32);
+pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(i32);
+pub struct WS_XML_COMMENT_NODE(i32);
+pub struct WS_XML_DATETIME_TEXT(i32);
+pub struct WS_XML_DECIMAL_TEXT(i32);
+pub struct WS_XML_DICTIONARY(i32);
+pub struct WS_XML_DOUBLE_TEXT(i32);
+pub struct WS_XML_ELEMENT_NODE(i32);
+pub struct WS_XML_FLOAT_TEXT(i32);
+pub struct WS_XML_GUID_TEXT(i32);
+pub struct WS_XML_INT32_TEXT(i32);
+pub struct WS_XML_INT64_TEXT(i32);
+pub struct WS_XML_LIST_TEXT(i32);
+pub struct WS_XML_NODE(i32);
+pub struct WS_XML_NODE_POSITION(i32);
+pub struct WS_XML_NODE_TYPE(i32);
+pub struct WS_XML_QNAME(i32);
+pub struct WS_XML_QNAME_DESCRIPTION(i32);
+pub struct WS_XML_QNAME_TEXT(i32);
+pub struct WS_XML_READER(i32);
+pub struct WS_XML_READER_BINARY_ENCODING(i32);
+pub struct WS_XML_READER_BUFFER_INPUT(i32);
+pub struct WS_XML_READER_ENCODING(i32);
+pub struct WS_XML_READER_ENCODING_TYPE(i32);
+pub struct WS_XML_READER_INPUT(i32);
+pub struct WS_XML_READER_INPUT_TYPE(i32);
+pub struct WS_XML_READER_MTOM_ENCODING(i32);
+pub struct WS_XML_READER_PROPERTIES(i32);
+pub struct WS_XML_READER_PROPERTY(i32);
+pub struct WS_XML_READER_PROPERTY_ID(i32);
+pub struct WS_XML_READER_RAW_ENCODING(i32);
+pub struct WS_XML_READER_STREAM_INPUT(i32);
+pub struct WS_XML_READER_TEXT_ENCODING(i32);
+pub struct WS_XML_SECURITY_TOKEN_PROPERTY(i32);
+pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(i32);
+pub struct WS_XML_STRING(i32);
+pub struct WS_XML_STRING_DESCRIPTION(i32);
+pub struct WS_XML_TEXT(i32);
+pub struct WS_XML_TEXT_NODE(i32);
+pub struct WS_XML_TEXT_TYPE(i32);
+pub struct WS_XML_TIMESPAN_TEXT(i32);
+pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_XML_UINT64_TEXT(i32);
+pub struct WS_XML_UNIQUE_ID_TEXT(i32);
+pub struct WS_XML_UTF16_TEXT(i32);
+pub struct WS_XML_UTF8_TEXT(i32);
+pub struct WS_XML_WRITER(i32);
+pub struct WS_XML_WRITER_BINARY_ENCODING(i32);
+pub struct WS_XML_WRITER_BUFFER_OUTPUT(i32);
+pub struct WS_XML_WRITER_ENCODING(i32);
+pub struct WS_XML_WRITER_ENCODING_TYPE(i32);
+pub struct WS_XML_WRITER_MTOM_ENCODING(i32);
+pub struct WS_XML_WRITER_OUTPUT(i32);
+pub struct WS_XML_WRITER_OUTPUT_TYPE(i32);
+pub struct WS_XML_WRITER_PROPERTIES(i32);
+pub struct WS_XML_WRITER_PROPERTY(i32);
+pub struct WS_XML_WRITER_PROPERTY_ID(i32);
+pub struct WS_XML_WRITER_RAW_ENCODING(i32);
+pub struct WS_XML_WRITER_STREAM_OUTPUT(i32);
+pub struct WS_XML_WRITER_TEXT_ENCODING(i32);

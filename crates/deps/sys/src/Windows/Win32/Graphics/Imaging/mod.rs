@@ -1,6 +1,34 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[cfg(feature = "Win32_Graphics_Imaging_D2D")]
 pub mod D2D;
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
+    pub fn WICConvertBitmapSource(dstformat: *const ::windows_sys::core::GUID, pisrc: IWICBitmapSource, ppidst: *mut IWICBitmapSource) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
+    pub fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, pcbsize: *mut u64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICMapGuidToShortName(guid: *const ::windows_sys::core::GUID, cchname: u32, wzname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICMapSchemaToName(guidmetadataformat: *const ::windows_sys::core::GUID, pwzschema: super::super::Foundation::PWSTR, cchname: u32, wzname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WICMapShortNameToGuid(wzname: super::super::Foundation::PWSTR, pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn WICMatchMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, pguidvendor: *const ::windows_sys::core::GUID, pistream: super::super::System::Com::IStream, pguidmetadataformat: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, dwpersistoptions: u32, pistream: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+}
 pub const CATID_WICBitmapDecoders: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2128177207, data2: 38640, data3: 18450, data4: [178, 17, 241, 60, 36, 17, 126, 211] };
 pub const CATID_WICBitmapEncoders: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2893378198,
@@ -1063,6 +1091,119 @@ pub const GUID_WICPixelFormatDontCare: ::windows_sys::core::GUID = ::windows_sys
     data3: 19454,
     data4: [177, 133, 61, 119, 118, 141, 201, 0],
 };
+pub struct IWICBitmap(i32);
+pub struct IWICBitmapClipper(i32);
+pub struct IWICBitmapCodecInfo(i32);
+pub struct IWICBitmapCodecProgressNotification(i32);
+pub struct IWICBitmapDecoder(i32);
+pub struct IWICBitmapDecoderInfo(i32);
+pub struct IWICBitmapEncoder(i32);
+pub struct IWICBitmapEncoderInfo(i32);
+pub struct IWICBitmapFlipRotator(i32);
+pub struct IWICBitmapFrameDecode(i32);
+pub struct IWICBitmapFrameEncode(i32);
+pub struct IWICBitmapLock(i32);
+pub struct IWICBitmapScaler(i32);
+pub struct IWICBitmapSource(i32);
+pub struct IWICBitmapSourceTransform(i32);
+pub struct IWICColorContext(i32);
+pub struct IWICColorTransform(i32);
+pub struct IWICComponentFactory(i32);
+pub struct IWICComponentInfo(i32);
+pub struct IWICDdsDecoder(i32);
+pub struct IWICDdsEncoder(i32);
+pub struct IWICDdsFrameDecode(i32);
+pub struct IWICDevelopRaw(i32);
+pub struct IWICDevelopRawNotificationCallback(i32);
+pub struct IWICEnumMetadataItem(i32);
+pub struct IWICFastMetadataEncoder(i32);
+pub struct IWICFormatConverter(i32);
+pub struct IWICFormatConverterInfo(i32);
+pub struct IWICImagingFactory(i32);
+pub struct IWICJpegFrameDecode(i32);
+pub struct IWICJpegFrameEncode(i32);
+pub struct IWICMetadataBlockReader(i32);
+pub struct IWICMetadataBlockWriter(i32);
+pub struct IWICMetadataHandlerInfo(i32);
+pub struct IWICMetadataQueryReader(i32);
+pub struct IWICMetadataQueryWriter(i32);
+pub struct IWICMetadataReader(i32);
+pub struct IWICMetadataReaderInfo(i32);
+pub struct IWICMetadataWriter(i32);
+pub struct IWICMetadataWriterInfo(i32);
+pub struct IWICPalette(i32);
+pub struct IWICPersistStream(i32);
+pub struct IWICPixelFormatInfo(i32);
+pub struct IWICPixelFormatInfo2(i32);
+pub struct IWICPlanarBitmapFrameEncode(i32);
+pub struct IWICPlanarBitmapSourceTransform(i32);
+pub struct IWICPlanarFormatConverter(i32);
+pub struct IWICProgressCallback(i32);
+pub struct IWICProgressiveLevelControl(i32);
+pub struct IWICStream(i32);
+pub struct IWICStreamProvider(i32);
+pub struct PFNProgressNotification(i32);
+pub struct WIC8BIMIptcDigestProperties(i32);
+pub struct WIC8BIMIptcProperties(i32);
+pub struct WIC8BIMResolutionInfoProperties(i32);
+pub struct WICBitmapAlphaChannelOption(i32);
+pub struct WICBitmapCreateCacheOption(i32);
+pub struct WICBitmapDecoderCapabilities(i32);
+pub struct WICBitmapDitherType(i32);
+pub struct WICBitmapEncoderCacheOption(i32);
+pub struct WICBitmapInterpolationMode(i32);
+pub struct WICBitmapLockFlags(i32);
+pub struct WICBitmapPaletteType(i32);
+pub struct WICBitmapPattern(i32);
+pub struct WICBitmapPlane(i32);
+pub struct WICBitmapPlaneDescription(i32);
+pub struct WICBitmapTransformOptions(i32);
+pub struct WICColorContextType(i32);
+pub struct WICComponentEnumerateOptions(i32);
+pub struct WICComponentSigning(i32);
+pub struct WICComponentType(i32);
+pub struct WICDdsAlphaMode(i32);
+pub struct WICDdsDimension(i32);
+pub struct WICDdsFormatInfo(i32);
+pub struct WICDdsParameters(i32);
+pub struct WICDecodeOptions(i32);
+pub struct WICGifApplicationExtensionProperties(i32);
+pub struct WICGifCommentExtensionProperties(i32);
+pub struct WICGifGraphicControlExtensionProperties(i32);
+pub struct WICGifImageDescriptorProperties(i32);
+pub struct WICGifLogicalScreenDescriptorProperties(i32);
+pub struct WICHeifHdrProperties(i32);
+pub struct WICHeifProperties(i32);
+pub struct WICImageParameters(i32);
+pub struct WICJpegChrominanceProperties(i32);
+pub struct WICJpegCommentProperties(i32);
+pub struct WICJpegFrameHeader(i32);
+pub struct WICJpegIndexingOptions(i32);
+pub struct WICJpegLuminanceProperties(i32);
+pub struct WICJpegScanHeader(i32);
+pub struct WICJpegScanType(i32);
+pub struct WICJpegTransferMatrix(i32);
+pub struct WICJpegYCrCbSubsamplingOption(i32);
+pub struct WICMetadataCreationOptions(i32);
+pub struct WICMetadataHeader(i32);
+pub struct WICMetadataPattern(i32);
+pub struct WICNamedWhitePoint(i32);
+pub struct WICPersistOptions(i32);
+pub struct WICPixelFormatNumericRepresentation(i32);
+pub struct WICPlanarOptions(i32);
+pub struct WICPngBkgdProperties(i32);
+pub struct WICPngChrmProperties(i32);
+pub struct WICPngFilterOption(i32);
+pub struct WICPngGamaProperties(i32);
+pub struct WICPngHistProperties(i32);
+pub struct WICPngIccpProperties(i32);
+pub struct WICPngItxtProperties(i32);
+pub struct WICPngSrgbProperties(i32);
+pub struct WICPngTimeProperties(i32);
+pub struct WICProgressNotification(i32);
+pub struct WICProgressOperation(i32);
+pub struct WICRawCapabilities(i32);
+pub struct WICRawCapabilitiesInfo(i32);
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Contrast: u32 = 16u32;
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
@@ -1091,6 +1232,16 @@ pub const WICRawChangeNotification_Sharpness: u32 = 64u32;
 pub const WICRawChangeNotification_Tint: u32 = 256u32;
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
+pub struct WICRawParameterSet(i32);
+pub struct WICRawRenderMode(i32);
+pub struct WICRawRotationCapabilities(i32);
+pub struct WICRawToneCurve(i32);
+pub struct WICRawToneCurvePoint(i32);
+pub struct WICRect(i32);
+pub struct WICSectionAccessLevel(i32);
+pub struct WICTiffCompressionOption(i32);
+pub struct WICWebpAnimProperties(i32);
+pub struct WICWebpAnmfProperties(i32);
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
@@ -1133,31 +1284,3 @@ pub const WINCODEC_SDK_VERSION: u32 = 567u32;
 pub const WINCODEC_SDK_VERSION1: u32 = 566u32;
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_SDK_VERSION2: u32 = 567u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
-    pub fn WICConvertBitmapSource(dstformat: *const ::windows_sys::core::GUID, pisrc: IWICBitmapSource, ppidst: *mut IWICBitmapSource) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
-    pub fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, pcbsize: *mut u64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WICMapGuidToShortName(guid: *const ::windows_sys::core::GUID, cchname: u32, wzname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WICMapSchemaToName(guidmetadataformat: *const ::windows_sys::core::GUID, pwzschema: super::super::Foundation::PWSTR, cchname: u32, wzname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WICMapShortNameToGuid(wzname: super::super::Foundation::PWSTR, pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn WICMatchMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, pguidvendor: *const ::windows_sys::core::GUID, pistream: super::super::System::Com::IStream, pguidmetadataformat: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, dwpersistoptions: u32, pistream: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
-}

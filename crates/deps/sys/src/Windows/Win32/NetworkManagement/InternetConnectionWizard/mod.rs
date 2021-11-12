@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[doc = "*Required features: `Win32_NetworkManagement_InternetConnectionWizard`*"]
 pub const ICW_ALREADYRUN: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_InternetConnectionWizard`*"]
@@ -35,5 +37,5 @@ pub const ICW_MAX_SERVERNAME: u32 = 64u32;
 pub const ICW_USEDEFAULTS: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_InternetConnectionWizard`*"]
 pub const ICW_USE_SHELLNEXT: u32 = 1024u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct PFNCHECKCONNECTIONWIZARD(i32);
+pub struct PFNSETSHELLNEXT(i32);

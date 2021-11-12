@@ -1,24 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const CB_MAX_CABINET_NAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const CB_MAX_CAB_PATH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const CB_MAX_DISK: i32 = 2147483647i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const CB_MAX_DISK_NAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const CB_MAX_FILENAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const INCLUDED_FCI: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const INCLUDED_FDI: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const _A_EXEC: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
-pub const _A_NAME_IS_UTF: u32 = 128u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
@@ -52,3 +32,57 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn FDITruncateCabinet(hfdi: *const ::core::ffi::c_void, pszcabinetname: super::super::Foundation::PSTR, ifoldertodelete: u16) -> super::super::Foundation::BOOL;
 }
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const CB_MAX_CABINET_NAME: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const CB_MAX_CAB_PATH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const CB_MAX_DISK: i32 = 2147483647i32;
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const CB_MAX_DISK_NAME: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const CB_MAX_FILENAME: u32 = 256u32;
+pub struct CCAB(i32);
+pub struct ERF(i32);
+pub struct FCIERROR(i32);
+pub struct FDICABINETINFO(i32);
+pub struct FDICREATE_CPU_TYPE(i32);
+pub struct FDIDECRYPT(i32);
+pub struct FDIDECRYPTTYPE(i32);
+pub struct FDIERROR(i32);
+pub struct FDINOTIFICATION(i32);
+pub struct FDINOTIFICATIONTYPE(i32);
+pub struct FDISPILLFILE(i32);
+pub struct FDISPILLFILE(i32);
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const INCLUDED_FCI: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const INCLUDED_FDI: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;
+pub struct PFNALLOC(i32);
+pub struct PFNCLOSE(i32);
+pub struct PFNFCIALLOC(i32);
+pub struct PFNFCICLOSE(i32);
+pub struct PFNFCIDELETE(i32);
+pub struct PFNFCIFILEPLACED(i32);
+pub struct PFNFCIFREE(i32);
+pub struct PFNFCIGETNEXTCABINET(i32);
+pub struct PFNFCIGETOPENINFO(i32);
+pub struct PFNFCIGETTEMPFILE(i32);
+pub struct PFNFCIOPEN(i32);
+pub struct PFNFCIREAD(i32);
+pub struct PFNFCISEEK(i32);
+pub struct PFNFCISTATUS(i32);
+pub struct PFNFCIWRITE(i32);
+pub struct PFNFDIDECRYPT(i32);
+pub struct PFNFDINOTIFY(i32);
+pub struct PFNFREE(i32);
+pub struct PFNOPEN(i32);
+pub struct PFNREAD(i32);
+pub struct PFNSEEK(i32);
+pub struct PFNWRITE(i32);
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const _A_EXEC: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+pub const _A_NAME_IS_UTF: u32 = 128u32;

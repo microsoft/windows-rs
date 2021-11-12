@@ -1,4 +1,83 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
+    pub fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
+    pub fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
+    pub fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void);
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvBackupPrepareW(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
+    pub fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
+    pub fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvIsServerOnlineW(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
+    pub fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvRestorePrepareW(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
+    pub fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CertSrvServerControlW(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+    pub fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, bisclient: super::super::super::Foundation::BOOL, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+    pub fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+    pub fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+    pub fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PstValidate(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: super::super::super::Foundation::BOOL, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const *const ::core::ffi::c_void, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::NTSTATUS;
+}
+pub struct ADDED_CERT_TYPE(i32);
+pub struct AlgorithmFlags(i32);
+pub struct AlgorithmOperationFlags(i32);
+pub struct AlgorithmType(i32);
+pub struct AlternativeNameType(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CAIF_DSENTRY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -9,6 +88,7 @@ pub const CAIF_REGISTRY: u32 = 4u32;
 pub const CAIF_REGISTRYPARENT: u32 = 16u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
+pub struct CAINFO(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -31,16 +111,73 @@ pub const CA_DISP_REVOKED: u32 = 2u32;
 pub const CA_DISP_UNDER_SUBMISSION: u32 = 5u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CA_DISP_VALID: u32 = 3u32;
+pub struct CAlternativeName(i32);
+pub struct CAlternativeNames(i32);
+pub struct CBinaryConverter(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CCLOCKSKEWMINUTESDEFAULT: u32 = 10u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CC_UIPICKCONFIGSKIPLOCALCA: u32 = 5u32;
+pub struct CCertAdmin(i32);
+pub struct CCertConfig(i32);
+pub struct CCertEncodeAltName(i32);
+pub struct CCertEncodeBitString(i32);
+pub struct CCertEncodeCRLDistInfo(i32);
+pub struct CCertEncodeDateArray(i32);
+pub struct CCertEncodeLongArray(i32);
+pub struct CCertEncodeStringArray(i32);
+pub struct CCertGetConfig(i32);
+pub struct CCertProperties(i32);
+pub struct CCertProperty(i32);
+pub struct CCertPropertyArchived(i32);
+pub struct CCertPropertyArchivedKeyHash(i32);
+pub struct CCertPropertyAutoEnroll(i32);
+pub struct CCertPropertyBackedUp(i32);
+pub struct CCertPropertyDescription(i32);
+pub struct CCertPropertyEnrollment(i32);
+pub struct CCertPropertyEnrollmentPolicyServer(i32);
+pub struct CCertPropertyFriendlyName(i32);
+pub struct CCertPropertyKeyProvInfo(i32);
+pub struct CCertPropertyRenewal(i32);
+pub struct CCertPropertyRequestOriginator(i32);
+pub struct CCertPropertySHA1Hash(i32);
+pub struct CCertRequest(i32);
+pub struct CCertServerExit(i32);
+pub struct CCertServerPolicy(i32);
+pub struct CCertView(i32);
+pub struct CCertificateAttestationChallenge(i32);
+pub struct CCertificatePolicies(i32);
+pub struct CCertificatePolicy(i32);
+pub struct CCryptAttribute(i32);
+pub struct CCryptAttributes(i32);
+pub struct CCspInformation(i32);
+pub struct CCspInformations(i32);
+pub struct CCspStatus(i32);
+pub struct CERTADMIN_GET_ROLES_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CERTENROLL_INDEX_BASE: u32 = 0u32;
+pub struct CERTENROLL_OBJECTID(i32);
+pub struct CERTENROLL_PROPERTYID(i32);
+pub struct CERTTRANSBLOB(i32);
+pub struct CERTVIEWRESTRICTION(i32);
+pub struct CERT_ALT_NAME(i32);
+pub struct CERT_CREATE_REQUEST_FLAGS(i32);
+pub struct CERT_DELETE_ROW_FLAGS(i32);
+pub struct CERT_EXIT_EVENT_MASK(i32);
+pub struct CERT_GET_CONFIG_FLAGS(i32);
+pub struct CERT_IMPORT_FLAGS(i32);
+pub struct CERT_PROPERTY_TYPE(i32);
+pub struct CERT_REQUEST_OUT_TYPE(i32);
+pub struct CERT_VIEW_COLUMN_INDEX(i32);
+pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(i32);
+pub struct CEnroll(i32);
+pub struct CEnroll2(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CMM_READONLY: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CMM_REFRESHONLY: u32 = 1u32;
+pub struct CObjectId(i32);
+pub struct CObjectIds(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CPF_BADURL_ERROR: u32 = 32u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -69,6 +206,8 @@ pub const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096u32;
 pub const CPF_SHADOW: u32 = 8u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CPF_SIGNATURE_ERROR: u32 = 128u32;
+pub struct CPolicyQualifier(i32);
+pub struct CPolicyQualifiers(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -113,8 +252,10 @@ pub const CRLF_SAVE_FAILED_CERTS: u32 = 64u32;
 pub const CRLF_USE_CROSS_CERT_TEMPLATE: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CRLF_USE_XCHG_CERT_TEMPLATE: u32 = 16384u32;
+pub struct CRLRevocationReason(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CRYPT_ENUM_ALL_PROVIDERS: u32 = 1u32;
+pub struct CR_DISP(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CR_DISP_REVOKED: u32 = 6u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -327,6 +468,7 @@ pub const CR_PROP_SUBJECTTEMPLATE_OIDS: u32 = 45u32;
 pub const CR_PROP_TEMPLATES: u32 = 29u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295u32;
+pub struct CSBACKUP_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSBACKUP_TYPE_MASK: u32 = 3u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -341,6 +483,7 @@ pub const CSCONTROL_RESTART: u64 = 3u64;
 pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSCONTROL_SUSPEND: u64 = 2u64;
+pub struct CSEDB_RSTMAPW(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -399,8 +542,13 @@ pub const CSVER_MINOR_WIN7: u32 = 1u32;
 pub const CSVER_MINOR_WIN8: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSVER_MINOR_WINBLUE: u32 = 1u32;
+pub struct CSignerCertificate(i32);
+pub struct CSmimeCapabilities(i32);
+pub struct CSmimeCapability(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
+pub struct CVRC_COLUMN(i32);
+pub struct CVRC_TABLE(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CVRC_TABLE_MASK: u32 = 61440u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -433,6 +581,52 @@ pub const CV_OUT_HEXRAW: u32 = 12u32;
 pub const CV_OUT_NOCR: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CV_OUT_NOCRLF: u32 = 1073741824u32;
+pub struct CX500DistinguishedName(i32);
+pub struct CX509Attribute(i32);
+pub struct CX509AttributeArchiveKey(i32);
+pub struct CX509AttributeArchiveKeyHash(i32);
+pub struct CX509AttributeClientId(i32);
+pub struct CX509AttributeCspProvider(i32);
+pub struct CX509AttributeExtensions(i32);
+pub struct CX509AttributeOSVersion(i32);
+pub struct CX509AttributeRenewalCertificate(i32);
+pub struct CX509Attributes(i32);
+pub struct CX509CertificateRequestCertificate(i32);
+pub struct CX509CertificateRequestCmc(i32);
+pub struct CX509CertificateRequestPkcs10(i32);
+pub struct CX509CertificateRequestPkcs7(i32);
+pub struct CX509CertificateRevocationList(i32);
+pub struct CX509CertificateRevocationListEntries(i32);
+pub struct CX509CertificateRevocationListEntry(i32);
+pub struct CX509CertificateTemplateADWritable(i32);
+pub struct CX509EndorsementKey(i32);
+pub struct CX509Enrollment(i32);
+pub struct CX509EnrollmentHelper(i32);
+pub struct CX509EnrollmentPolicyActiveDirectory(i32);
+pub struct CX509EnrollmentPolicyWebService(i32);
+pub struct CX509EnrollmentWebClassFactory(i32);
+pub struct CX509Extension(i32);
+pub struct CX509ExtensionAlternativeNames(i32);
+pub struct CX509ExtensionAuthorityKeyIdentifier(i32);
+pub struct CX509ExtensionBasicConstraints(i32);
+pub struct CX509ExtensionCertificatePolicies(i32);
+pub struct CX509ExtensionEnhancedKeyUsage(i32);
+pub struct CX509ExtensionKeyUsage(i32);
+pub struct CX509ExtensionMSApplicationPolicies(i32);
+pub struct CX509ExtensionSmimeCapabilities(i32);
+pub struct CX509ExtensionSubjectKeyIdentifier(i32);
+pub struct CX509ExtensionTemplate(i32);
+pub struct CX509ExtensionTemplateName(i32);
+pub struct CX509Extensions(i32);
+pub struct CX509MachineEnrollmentFactory(i32);
+pub struct CX509NameValuePair(i32);
+pub struct CX509PolicyServerListManager(i32);
+pub struct CX509PolicyServerUrl(i32);
+pub struct CX509PrivateKey(i32);
+pub struct CX509PublicKey(i32);
+pub struct CX509SCEPEnrollment(i32);
+pub struct CX509SCEPEnrollmentHelper(i32);
+pub struct CommitTemplateFlags(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const DBFLAGS_CHECKPOINTDEPTH60MB: u32 = 32u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -485,6 +679,7 @@ pub const DB_DISP_PENDING: u32 = 9u32;
 pub const DB_DISP_QUEUE_MAX: u32 = 9u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const DB_DISP_REVOKED: u32 = 21u32;
+pub struct DelayRetryAction(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const EANR_SUPPRESS_IA5CONVERSION: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -547,6 +742,8 @@ pub const EDITF_REQUESTEXTENSIONLIST: u32 = 2u32;
 pub const EDITF_SERVERUPGRADED: u32 = 16384u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ENUMEXT_OBJECTID: u32 = 1u32;
+pub struct ENUM_CATYPES(i32);
+pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const EXITEVENT_CERTIMPORTED: u32 = 512u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -591,12 +788,114 @@ pub const EXTENSION_ORIGIN_REQUEST: u32 = 65536u32;
 pub const EXTENSION_ORIGIN_SERVER: u32 = 262144u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const EXTENSION_POLICY_MASK: u32 = 65535u32;
+pub struct EncodingType(i32);
+pub struct EnrollmentCAProperty(i32);
+pub struct EnrollmentDisplayStatus(i32);
+pub struct EnrollmentEnrollStatus(i32);
+pub struct EnrollmentPolicyFlags(i32);
+pub struct EnrollmentPolicyServerPropertyFlags(i32);
+pub struct EnrollmentSelectionStatus(i32);
+pub struct EnrollmentTemplateProperty(i32);
+pub struct FNCERTSRVBACKUPCLOSE(i32);
+pub struct FNCERTSRVBACKUPEND(i32);
+pub struct FNCERTSRVBACKUPFREE(i32);
+pub struct FNCERTSRVBACKUPGETBACKUPLOGSW(i32);
+pub struct FNCERTSRVBACKUPGETDATABASENAMESW(i32);
+pub struct FNCERTSRVBACKUPGETDYNAMICFILELISTW(i32);
+pub struct FNCERTSRVBACKUPOPENFILEW(i32);
+pub struct FNCERTSRVBACKUPPREPAREW(i32);
+pub struct FNCERTSRVBACKUPREAD(i32);
+pub struct FNCERTSRVBACKUPTRUNCATELOGS(i32);
+pub struct FNCERTSRVISSERVERONLINEW(i32);
+pub struct FNCERTSRVRESTOREEND(i32);
+pub struct FNCERTSRVRESTOREGETDATABASELOCATIONSW(i32);
+pub struct FNCERTSRVRESTOREPREPAREW(i32);
+pub struct FNCERTSRVRESTOREREGISTERCOMPLETE(i32);
+pub struct FNCERTSRVRESTOREREGISTERW(i32);
+pub struct FNCERTSRVSERVERCONTROLW(i32);
+pub struct FNIMPORTPFXTOPROVIDER(i32);
+pub struct FNIMPORTPFXTOPROVIDERFREEDATA(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
+pub struct FULL_RESPONSE_PROPERTY_ID(i32);
+pub struct IAlternativeName(i32);
+pub struct IAlternativeNames(i32);
+pub struct IBinaryConverter(i32);
+pub struct IBinaryConverter2(i32);
+pub struct ICEnroll(i32);
+pub struct ICEnroll2(i32);
+pub struct ICEnroll3(i32);
+pub struct ICEnroll4(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ICF_ALLOWFOREIGN: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ICF_EXISTINGROW: u32 = 131072u32;
+pub struct ICertAdmin(i32);
+pub struct ICertAdmin2(i32);
+pub struct ICertConfig(i32);
+pub struct ICertConfig2(i32);
+pub struct ICertEncodeAltName(i32);
+pub struct ICertEncodeAltName2(i32);
+pub struct ICertEncodeBitString(i32);
+pub struct ICertEncodeBitString2(i32);
+pub struct ICertEncodeCRLDistInfo(i32);
+pub struct ICertEncodeCRLDistInfo2(i32);
+pub struct ICertEncodeDateArray(i32);
+pub struct ICertEncodeDateArray2(i32);
+pub struct ICertEncodeLongArray(i32);
+pub struct ICertEncodeLongArray2(i32);
+pub struct ICertEncodeStringArray(i32);
+pub struct ICertEncodeStringArray2(i32);
+pub struct ICertExit(i32);
+pub struct ICertExit2(i32);
+pub struct ICertGetConfig(i32);
+pub struct ICertManageModule(i32);
+pub struct ICertPolicy(i32);
+pub struct ICertPolicy2(i32);
+pub struct ICertProperties(i32);
+pub struct ICertProperty(i32);
+pub struct ICertPropertyArchived(i32);
+pub struct ICertPropertyArchivedKeyHash(i32);
+pub struct ICertPropertyAutoEnroll(i32);
+pub struct ICertPropertyBackedUp(i32);
+pub struct ICertPropertyDescription(i32);
+pub struct ICertPropertyEnrollment(i32);
+pub struct ICertPropertyEnrollmentPolicyServer(i32);
+pub struct ICertPropertyFriendlyName(i32);
+pub struct ICertPropertyKeyProvInfo(i32);
+pub struct ICertPropertyRenewal(i32);
+pub struct ICertPropertyRequestOriginator(i32);
+pub struct ICertPropertySHA1Hash(i32);
+pub struct ICertRequest(i32);
+pub struct ICertRequest2(i32);
+pub struct ICertRequest3(i32);
+pub struct ICertRequestD(i32);
+pub struct ICertRequestD2(i32);
+pub struct ICertServerExit(i32);
+pub struct ICertServerPolicy(i32);
+pub struct ICertView(i32);
+pub struct ICertView2(i32);
+pub struct ICertificateAttestationChallenge(i32);
+pub struct ICertificateAttestationChallenge2(i32);
+pub struct ICertificatePolicies(i32);
+pub struct ICertificatePolicy(i32);
+pub struct ICertificationAuthorities(i32);
+pub struct ICertificationAuthority(i32);
+pub struct ICryptAttribute(i32);
+pub struct ICryptAttributes(i32);
+pub struct ICspAlgorithm(i32);
+pub struct ICspAlgorithms(i32);
+pub struct ICspInformation(i32);
+pub struct ICspInformations(i32);
+pub struct ICspStatus(i32);
+pub struct ICspStatuses(i32);
+pub struct IEnroll(i32);
+pub struct IEnroll2(i32);
+pub struct IEnroll4(i32);
+pub struct IEnumCERTVIEWATTRIBUTE(i32);
+pub struct IEnumCERTVIEWCOLUMN(i32);
+pub struct IEnumCERTVIEWEXTENSION(i32);
+pub struct IEnumCERTVIEWROW(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const IF_ENABLEADMINASAUDITOR: u32 = 4096u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -625,6 +924,16 @@ pub const IF_NORPCICERTREQUEST: u32 = 8u32;
 pub const IF_NOSNAPSHOTBACKUP: u32 = 256u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const IKF_OVERWRITE: u32 = 65536u32;
+pub struct INDESPolicy(i32);
+pub struct IOCSPAdmin(i32);
+pub struct IOCSPCAConfiguration(i32);
+pub struct IOCSPCAConfigurationCollection(i32);
+pub struct IOCSPProperty(i32);
+pub struct IOCSPPropertyCollection(i32);
+pub struct IObjectId(i32);
+pub struct IObjectIds(i32);
+pub struct IPolicyQualifier(i32);
+pub struct IPolicyQualifiers(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ISSCERT_DEFAULT_DS: u32 = 256u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -641,6 +950,72 @@ pub const ISSCERT_HTTPURL_OLD: u32 = 2u32;
 pub const ISSCERT_LDAPURL_OLD: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ISSCERT_URLMASK_OLD: u32 = 255u32;
+pub struct ISignerCertificate(i32);
+pub struct ISignerCertificates(i32);
+pub struct ISmimeCapabilities(i32);
+pub struct ISmimeCapability(i32);
+pub struct IX500DistinguishedName(i32);
+pub struct IX509Attribute(i32);
+pub struct IX509AttributeArchiveKey(i32);
+pub struct IX509AttributeArchiveKeyHash(i32);
+pub struct IX509AttributeClientId(i32);
+pub struct IX509AttributeCspProvider(i32);
+pub struct IX509AttributeExtensions(i32);
+pub struct IX509AttributeOSVersion(i32);
+pub struct IX509AttributeRenewalCertificate(i32);
+pub struct IX509Attributes(i32);
+pub struct IX509CertificateRequest(i32);
+pub struct IX509CertificateRequestCertificate(i32);
+pub struct IX509CertificateRequestCertificate2(i32);
+pub struct IX509CertificateRequestCmc(i32);
+pub struct IX509CertificateRequestCmc2(i32);
+pub struct IX509CertificateRequestPkcs10(i32);
+pub struct IX509CertificateRequestPkcs10V2(i32);
+pub struct IX509CertificateRequestPkcs10V3(i32);
+pub struct IX509CertificateRequestPkcs10V4(i32);
+pub struct IX509CertificateRequestPkcs7(i32);
+pub struct IX509CertificateRequestPkcs7V2(i32);
+pub struct IX509CertificateRevocationList(i32);
+pub struct IX509CertificateRevocationListEntries(i32);
+pub struct IX509CertificateRevocationListEntry(i32);
+pub struct IX509CertificateTemplate(i32);
+pub struct IX509CertificateTemplateWritable(i32);
+pub struct IX509CertificateTemplates(i32);
+pub struct IX509EndorsementKey(i32);
+pub struct IX509Enrollment(i32);
+pub struct IX509Enrollment2(i32);
+pub struct IX509EnrollmentHelper(i32);
+pub struct IX509EnrollmentPolicyServer(i32);
+pub struct IX509EnrollmentStatus(i32);
+pub struct IX509EnrollmentWebClassFactory(i32);
+pub struct IX509Extension(i32);
+pub struct IX509ExtensionAlternativeNames(i32);
+pub struct IX509ExtensionAuthorityKeyIdentifier(i32);
+pub struct IX509ExtensionBasicConstraints(i32);
+pub struct IX509ExtensionCertificatePolicies(i32);
+pub struct IX509ExtensionEnhancedKeyUsage(i32);
+pub struct IX509ExtensionKeyUsage(i32);
+pub struct IX509ExtensionMSApplicationPolicies(i32);
+pub struct IX509ExtensionSmimeCapabilities(i32);
+pub struct IX509ExtensionSubjectKeyIdentifier(i32);
+pub struct IX509ExtensionTemplate(i32);
+pub struct IX509ExtensionTemplateName(i32);
+pub struct IX509Extensions(i32);
+pub struct IX509MachineEnrollmentFactory(i32);
+pub struct IX509NameValuePair(i32);
+pub struct IX509NameValuePairs(i32);
+pub struct IX509PolicyServerListManager(i32);
+pub struct IX509PolicyServerUrl(i32);
+pub struct IX509PrivateKey(i32);
+pub struct IX509PrivateKey2(i32);
+pub struct IX509PublicKey(i32);
+pub struct IX509SCEPEnrollment(i32);
+pub struct IX509SCEPEnrollment2(i32);
+pub struct IX509SCEPEnrollmentHelper(i32);
+pub struct IX509SignatureInformation(i32);
+pub struct ImportPFXFlags(i32);
+pub struct InnerRequestLevel(i32);
+pub struct InstallResponseRestrictionFlags(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const KRAF_DISABLEUSEDEFAULTPROVIDER: u32 = 8u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -667,10 +1042,20 @@ pub const KRA_DISP_VALID: u32 = 3u32;
 pub const KR_ENABLE_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const KR_ENABLE_USER: u32 = 2u32;
+pub struct KeyAttestationClaimType(i32);
+pub struct KeyIdentifierHashAlgorithm(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const LDAPF_SSLENABLE: u32 = 1u32;
+pub struct OCSPAdmin(i32);
+pub struct OCSPPropertyCollection(i32);
+pub struct OCSPRequestFlag(i32);
+pub struct OCSPSigningFlag(i32);
+pub struct ObjectIdGroupId(i32);
+pub struct ObjectIdPublicKeyFlags(i32);
+pub struct PENDING_REQUEST_DESIRED_PROPERTY(i32);
+pub struct PFXExportOptions(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const PROCFLG_ENFORCEGOODKEYS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -691,6 +1076,10 @@ pub const PROPCALLER_SERVER: u32 = 256u32;
 pub const PROPFLAGS_INDEXED: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const PROPTYPE_MASK: u32 = 255u32;
+pub struct Pkcs10AllowedSignatureTypes(i32);
+pub struct PolicyQualifierType(i32);
+pub struct PolicyServerUrlFlags(i32);
+pub struct PolicyServerUrlPropertyID(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const REQDISP_DEFAULT_ENTERPRISE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -723,6 +1112,7 @@ pub const REVEXT_CDPURLMASK_OLD: u32 = 255u32;
 pub const REVEXT_DEFAULT_DS: u32 = 256u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const REVEXT_DEFAULT_NODS: u32 = 256u32;
+pub struct RequestClientInfoClientId(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const SETUP_ATTEMPT_VROOT_CREATE: u32 = 128u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -761,6 +1151,32 @@ pub const VR_INSTANT_BAD: u32 = 2u32;
 pub const VR_INSTANT_OK: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const VR_PENDING: u32 = 0u32;
+pub struct WebEnrollmentFlags(i32);
+pub struct WebSecurityLevel(i32);
+pub struct X500NameFlags(i32);
+pub struct X509CertificateEnrollmentContext(i32);
+pub struct X509CertificateTemplateEnrollmentFlag(i32);
+pub struct X509CertificateTemplateGeneralFlag(i32);
+pub struct X509CertificateTemplatePrivateKeyFlag(i32);
+pub struct X509CertificateTemplateSubjectNameFlag(i32);
+pub struct X509EnrollmentAuthFlags(i32);
+pub struct X509EnrollmentPolicyExportFlags(i32);
+pub struct X509EnrollmentPolicyLoadOption(i32);
+pub struct X509HardwareKeyUsageFlags(i32);
+pub struct X509KeyParametersExportType(i32);
+pub struct X509KeySpec(i32);
+pub struct X509KeyUsageFlags(i32);
+pub struct X509PrivateKeyExportFlags(i32);
+pub struct X509PrivateKeyProtection(i32);
+pub struct X509PrivateKeyUsageFlags(i32);
+pub struct X509PrivateKeyVerify(i32);
+pub struct X509ProviderType(i32);
+pub struct X509RequestInheritOptions(i32);
+pub struct X509RequestType(i32);
+pub struct X509SCEPDisposition(i32);
+pub struct X509SCEPFailInfo(i32);
+pub struct X509SCEPMessageType(i32);
+pub struct X509SCEPProcessMessageFlags(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const XECI_AUTOENROLL: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -773,8 +1189,10 @@ pub const XECI_REQWIZARD: u32 = 3u32;
 pub const XECI_XENROLL: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const XECP_STRING_PROPERTY: u32 = 1u32;
+pub struct XEKL_KEYSIZE(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const XEKL_KEYSIZE_DEFAULT: u32 = 4u32;
+pub struct XEKL_KEYSPEC(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const XEPR_DATE: u32 = 5u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
@@ -801,77 +1219,3 @@ pub const wszCMM_PROP_ISMULTITHREADED: &'static str = "IsMultiThreaded";
 pub const wszCMM_PROP_NAME: &'static str = "Name";
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const wszCMM_PROP_PRODUCTVER: &'static str = "Product Version";
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
-    pub fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
-    pub fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
-    pub fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvBackupPrepareW(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
-    pub fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
-    pub fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvIsServerOnlineW(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
-    pub fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvRestorePrepareW(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
-    pub fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CertSrvServerControlW(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-    pub fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, bisclient: super::super::super::Foundation::BOOL, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-    pub fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-    pub fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`, `Win32_Security_Authentication_Identity`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-    pub fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PstValidate(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: super::super::super::Foundation::BOOL, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const *const ::core::ffi::c_void, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::NTSTATUS;
-}

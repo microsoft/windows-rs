@@ -1,3 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct ContactDataProviderConnection(i32);
+pub struct ContactDataProviderTriggerDetails(i32);
+pub struct ContactListCreateOrUpdateContactRequest(i32);
+pub struct ContactListCreateOrUpdateContactRequestEventArgs(i32);
+pub struct ContactListDeleteContactRequest(i32);
+pub struct ContactListDeleteContactRequestEventArgs(i32);
+pub struct ContactListServerSearchReadBatchRequest(i32);
+pub struct ContactListServerSearchReadBatchRequestEventArgs(i32);
+pub struct ContactListSyncManagerSyncRequest(i32);
+pub struct ContactListSyncManagerSyncRequestEventArgs(i32);
+pub struct IContactDataProviderConnection(i32);
+pub struct IContactDataProviderConnection2(i32);
+pub struct IContactDataProviderTriggerDetails(i32);
+pub struct IContactListCreateOrUpdateContactRequest(i32);
+pub struct IContactListCreateOrUpdateContactRequestEventArgs(i32);
+pub struct IContactListDeleteContactRequest(i32);
+pub struct IContactListDeleteContactRequestEventArgs(i32);
+pub struct IContactListServerSearchReadBatchRequest(i32);
+pub struct IContactListServerSearchReadBatchRequestEventArgs(i32);
+pub struct IContactListSyncManagerSyncRequest(i32);
+pub struct IContactListSyncManagerSyncRequestEventArgs(i32);

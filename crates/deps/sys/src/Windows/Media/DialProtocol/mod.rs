@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct DialApp(i32);
+pub struct DialAppLaunchResult(i32);
+pub struct DialAppState(i32);
+pub struct DialAppStateDetails(i32);
+pub struct DialAppStopResult(i32);
+pub struct DialDevice(i32);
+pub struct DialDeviceDisplayStatus(i32);
+pub struct DialDevicePicker(i32);
+pub struct DialDevicePickerFilter(i32);
+pub struct DialDeviceSelectedEventArgs(i32);
+pub struct DialDisconnectButtonClickedEventArgs(i32);
+pub struct DialReceiverApp(i32);
+pub struct IDialApp(i32);
+pub struct IDialAppStateDetails(i32);
+pub struct IDialDevice(i32);
+pub struct IDialDevice2(i32);
+pub struct IDialDevicePicker(i32);
+pub struct IDialDevicePickerFilter(i32);
+pub struct IDialDeviceSelectedEventArgs(i32);
+pub struct IDialDeviceStatics(i32);
+pub struct IDialDisconnectButtonClickedEventArgs(i32);
+pub struct IDialReceiverApp(i32);
+pub struct IDialReceiverApp2(i32);
+pub struct IDialReceiverAppStatics(i32);

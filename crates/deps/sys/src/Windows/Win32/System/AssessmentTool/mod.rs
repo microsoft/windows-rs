@@ -1,3 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct CAccessiblityWinSAT(i32);
+pub struct CInitiateWinSAT(i32);
+pub struct CProvideWinSATVisuals(i32);
+pub struct CQueryAllWinSAT(i32);
+pub struct CQueryOEMWinSATCustomization(i32);
+pub struct CQueryWinSAT(i32);
+pub struct IAccessibleWinSAT(i32);
+pub struct IInitiateWinSATAssessment(i32);
+pub struct IProvideWinSATAssessmentInfo(i32);
+pub struct IProvideWinSATResultsInfo(i32);
+pub struct IProvideWinSATVisuals(i32);
+pub struct IQueryAllWinSATAssessments(i32);
+pub struct IQueryOEMWinSATCustomization(i32);
+pub struct IQueryRecentWinSATAssessment(i32);
+pub struct IWinSATInitiateEvents(i32);
+pub struct WINSAT_ASSESSMENT_STATE(i32);
+pub struct WINSAT_ASSESSMENT_TYPE(i32);
+pub struct WINSAT_BITMAP_SIZE(i32);
+pub struct WINSAT_OEM_DATA_TYPE(i32);

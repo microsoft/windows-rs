@@ -1,4 +1,323 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn AccessibleChildren(pacccontainer: IAccessible, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut IAccessible, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut IAccessible, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PWSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR, cchrolemax: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR, cchrolemax: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation::PSTR, cchstate: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: super::super::System::Com::VARIANT, pfound: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut IAccessible) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LresultFromObject(riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::LRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: super::super::System::Com::VARIANT, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TextRange_FindText(hobj: HUIATEXTRANGE, text: super::super::Foundation::BSTR, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaDisconnectAllProviders() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaDisconnectProvider(pprovider: IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn UiaIAccessibleFromProvider(pprovider: IRawElementProviderSimple, dwflags: u32, ppaccessible: *mut IAccessible, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows_sys::core::GUID) -> i32;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaNodeFromProvider(pprovider: IRawElementProviderSimple, phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaProviderFromIAccessible(paccessible: IAccessible, idchild: i32, dwflags: u32, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaRaiseActiveTextPositionChangedEvent(provider: IRawElementProviderSimple, textrange: ITextRangeProvider) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaRaiseAsyncContentLoadedEvent(pprovider: IRawElementProviderSimple, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaRaiseAutomationEvent(pprovider: IRawElementProviderSimple, id: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn UiaRaiseAutomationPropertyChangedEvent(pprovider: IRawElementProviderSimple, id: i32, oldvalue: super::super::System::Com::VARIANT, newvalue: super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub fn UiaRaiseChangesEvent(pprovider: IRawElementProviderSimple, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaRaiseNotificationEvent(provider: IRawElementProviderSimple, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: super::super::Foundation::BSTR, activityid: super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaRaiseStructureChangedEvent(pprovider: IRawElementProviderSimple, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn UiaRaiseTextEditTextChangedEvent(pprovider: IRawElementProviderSimple, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback);
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: IRawElementProviderSimple) -> super::super::Foundation::LRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn UiaSetFocus(hnode: HUIANODE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WindowFromAccessibleObject(param0: IAccessible, phwnd: *mut super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
+    pub fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+}
+pub struct ACCESSTIMEOUT(i32);
+pub struct ACC_UTILITY_STATE_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 pub const AcceleratorKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1363699167, data2: 9559, data3: 19641, data4: [174, 237, 108, 237, 8, 76, 229, 44] };
@@ -8,12 +327,15 @@ pub const AccessKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GU
     data3: 18965,
     data4: [145, 124, 255, 165, 173, 62, 176, 167],
 };
+pub struct ActiveEnd(i32);
 pub const ActiveTextPositionChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2780864156,
     data2: 51069,
     data3: 20261,
     data4: [180, 145, 229, 187, 112, 23, 203, 212],
 };
+pub struct AnimationStyle(i32);
+pub struct AnnoScope(i32);
 pub const AnnotationObjects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 822677704, data2: 31854, data3: 20256, data4: [190, 205, 74, 175, 109, 25, 17, 86] };
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
@@ -200,12 +522,14 @@ pub const AriaProperties_Property_GUID: ::windows_sys::core::GUID = ::windows_sy
     data4: [190, 181, 228, 59, 160, 142, 98, 33],
 };
 pub const AriaRole_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3709893525, data2: 48714, data3: 19981, data4: [183, 39, 99, 172, 233, 75, 105, 22] };
+pub struct AsyncContentLoadedState(i32);
 pub const AsyncContentLoaded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1608442140,
     data2: 54010,
     data3: 20409,
     data4: [144, 78, 92, 190, 232, 148, 213, 239],
 };
+pub struct AutomationElementMode(i32);
 pub const AutomationFocusChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3062505239,
     data2: 62989,
@@ -213,6 +537,7 @@ pub const AutomationFocusChanged_Event_GUID: ::windows_sys::core::GUID = ::windo
     data4: [163, 204, 176, 82, 146, 21, 95, 224],
 };
 pub const AutomationId_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3358328064, data2: 46606, data3: 17168, data4: [162, 103, 48, 60, 83, 31, 142, 229] };
+pub struct AutomationIdentifierType(i32);
 pub const AutomationPropertyChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 623377313, data2: 36218, data3: 17968, data4: [164, 204, 230, 99, 21, 148, 47, 82] };
 pub const BoundingRectangle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2076174514,
@@ -220,19 +545,27 @@ pub const BoundingRectangle_Property_GUID: ::windows_sys::core::GUID = ::windows
     data3: 18653,
     data4: [183, 41, 199, 148, 184, 70, 233, 161],
 };
+pub struct BulletStyle(i32);
 pub const Button_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1517871977,
     data2: 50849,
     data3: 20275,
     data4: [169, 215, 121, 242, 13, 12, 120, 142],
 };
+pub struct CAccPropServices(i32);
 pub const CLSID_AccPropServices: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3052942603,
     data2: 1352,
     data3: 18609,
     data4: [166, 238, 136, 189, 0, 180, 165, 231],
 };
+pub struct CUIAutomation(i32);
+pub struct CUIAutomation8(i32);
+pub struct CUIAutomationRegistrar(i32);
 pub const Calendar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2299784072, data2: 229, data3: 18108, data4: [142, 78, 20, 167, 134, 225, 101, 161] };
+pub struct CapStyle(i32);
+pub struct CaretBidiMode(i32);
+pub struct CaretPosition(i32);
 pub const CenterPoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 212864008, data2: 21516, data3: 20187, data4: [148, 69, 38, 53, 158, 166, 151, 133] };
 pub const Changes_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2113038100,
@@ -254,12 +587,15 @@ pub const ClassName_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [132, 226, 170, 192, 218, 8, 177, 107],
 };
 pub const ClickablePoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 26644539, data2: 45571, data3: 18456, data4: [169, 243, 240, 142, 103, 95, 35, 65] };
+pub struct CoalesceEventsOptions(i32);
 pub const ComboBox_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1422606956,
     data2: 12083,
     data3: 20479,
     data4: [170, 161, 174, 246, 13, 172, 93, 235],
 };
+pub struct ConditionType(i32);
+pub struct ConnectionRecoveryBehaviorOptions(i32);
 pub const ControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3396816874,
     data2: 10412,
@@ -336,6 +672,7 @@ pub const DescribedBy_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data3: 16637,
     data4: [141, 176, 107, 241, 211, 23, 249, 152],
 };
+pub struct DockPosition(i32);
 pub const Dock_DockPosition_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1835528238,
     data2: 49328,
@@ -404,6 +741,8 @@ pub const Edit_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20359,
     data4: [174, 123, 26, 189, 220, 129, 12, 249],
 };
+pub struct EventArgsType(i32);
+pub struct ExpandCollapseState(i32);
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660229192, data2: 34215, data3: 20329, data4: [171, 160, 175, 21, 118, 16, 0, 43] };
 pub const ExpandCollapse_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2919624610,
@@ -411,18 +750,22 @@ pub const ExpandCollapse_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys
     data3: 17034,
     data4: [131, 76, 83, 165, 197, 47, 155, 139],
 };
+pub struct ExtendedProperty(i32);
+pub struct FILTERKEYS(i32);
 pub const FillColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1846461648,
     data2: 58024,
     data3: 19030,
     data4: [157, 231, 149, 51, 137, 147, 59, 57],
 };
+pub struct FillType(i32);
 pub const FillType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3338433764,
     data2: 36025,
     data3: 17052,
     data4: [169, 225, 155, 196, 172, 55, 43, 98],
 };
+pub struct FlowDirections(i32);
 pub const FlowsFrom_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 96896079, data2: 6622, data3: 18680, data4: [149, 250, 136, 13, 91, 15, 214, 21] };
 pub const FlowsTo_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3841146144,
@@ -472,6 +815,14 @@ pub const Group_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18292,
     data4: [174, 27, 221, 134, 223, 11, 59, 220],
 };
+pub struct HIGHCONTRASTA(i32);
+pub struct HIGHCONTRASTW(i32);
+pub struct HIGHCONTRASTW_FLAGS(i32);
+pub struct HUIAEVENT(i32);
+pub struct HUIANODE(i32);
+pub struct HUIAPATTERNOBJECT(i32);
+pub struct HUIATEXTRANGE(i32);
+pub struct HWINEVENTHOOK(i32);
 pub const HasKeyboardFocus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481992505, data2: 16198, data3: 18432, data4: [150, 86, 178, 191, 18, 82, 153, 5] };
 pub const HeaderItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3871085259,
@@ -507,6 +858,7 @@ pub const HeadingLevel9: i32 = 80059i32;
 pub const HeadingLevel_None: i32 = 80050i32;
 pub const HeadingLevel_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 688407154, data2: 43695, data3: 18992, data4: [135, 150, 60, 18, 246, 43, 107, 187] };
 pub const HelpText_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 139810437, data2: 2423, data3: 17863, data4: [167, 166, 171, 175, 86, 132, 18, 26] };
+pub struct HorizontalTextAlignment(i32);
 pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3871191102,
     data2: 2337,
@@ -514,8 +866,144 @@ pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID =
     data4: [141, 207, 234, 232, 119, 176, 66, 107],
 };
 pub const Hyperlink_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2320892460, data2: 45069, data3: 19733, data4: [143, 240, 91, 107, 38, 110, 94, 2] };
+pub struct IAccIdentity(i32);
+pub struct IAccPropServer(i32);
+pub struct IAccPropServices(i32);
+pub struct IAccessible(i32);
+pub struct IAccessibleEx(i32);
+pub struct IAccessibleHandler(i32);
+pub struct IAccessibleHostingElementProviders(i32);
+pub struct IAccessibleWindowlessSite(i32);
+pub struct IAnnotationProvider(i32);
+pub struct ICustomNavigationProvider(i32);
+pub struct IDockProvider(i32);
+pub struct IDragProvider(i32);
+pub struct IDropTargetProvider(i32);
+pub struct IExpandCollapseProvider(i32);
+pub struct IGridItemProvider(i32);
+pub struct IGridProvider(i32);
 pub const IIS_ControlAccessible: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 952533670, data2: 38705, data3: 17394, data4: [159, 174, 233, 1, 230, 65, 177, 1] };
 pub const IIS_IsOleaccProxy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2418448378, data2: 32996, data3: 17760, data4: [128, 42, 161, 63, 34, 166, 71, 9] };
+pub struct IInvokeProvider(i32);
+pub struct IItemContainerProvider(i32);
+pub struct ILegacyIAccessibleProvider(i32);
+pub struct IMultipleViewProvider(i32);
+pub struct IObjectModelProvider(i32);
+pub struct IProxyProviderWinEventHandler(i32);
+pub struct IProxyProviderWinEventSink(i32);
+pub struct IRangeValueProvider(i32);
+pub struct IRawElementProviderAdviseEvents(i32);
+pub struct IRawElementProviderFragment(i32);
+pub struct IRawElementProviderFragmentRoot(i32);
+pub struct IRawElementProviderHostingAccessibles(i32);
+pub struct IRawElementProviderHwndOverride(i32);
+pub struct IRawElementProviderSimple(i32);
+pub struct IRawElementProviderSimple2(i32);
+pub struct IRawElementProviderSimple3(i32);
+pub struct IRawElementProviderWindowlessSite(i32);
+pub struct IRichEditUiaInformation(i32);
+pub struct IRicheditWindowlessAccessibility(i32);
+pub struct IScrollItemProvider(i32);
+pub struct IScrollProvider(i32);
+pub struct ISelectionItemProvider(i32);
+pub struct ISelectionProvider(i32);
+pub struct ISelectionProvider2(i32);
+pub struct ISpreadsheetItemProvider(i32);
+pub struct ISpreadsheetProvider(i32);
+pub struct IStylesProvider(i32);
+pub struct ISynchronizedInputProvider(i32);
+pub struct ITableItemProvider(i32);
+pub struct ITableProvider(i32);
+pub struct ITextChildProvider(i32);
+pub struct ITextEditProvider(i32);
+pub struct ITextProvider(i32);
+pub struct ITextProvider2(i32);
+pub struct ITextRangeProvider(i32);
+pub struct ITextRangeProvider2(i32);
+pub struct IToggleProvider(i32);
+pub struct ITransformProvider(i32);
+pub struct ITransformProvider2(i32);
+pub struct IUIAutomation(i32);
+pub struct IUIAutomation2(i32);
+pub struct IUIAutomation3(i32);
+pub struct IUIAutomation4(i32);
+pub struct IUIAutomation5(i32);
+pub struct IUIAutomation6(i32);
+pub struct IUIAutomationActiveTextPositionChangedEventHandler(i32);
+pub struct IUIAutomationAndCondition(i32);
+pub struct IUIAutomationAnnotationPattern(i32);
+pub struct IUIAutomationBoolCondition(i32);
+pub struct IUIAutomationCacheRequest(i32);
+pub struct IUIAutomationChangesEventHandler(i32);
+pub struct IUIAutomationCondition(i32);
+pub struct IUIAutomationCustomNavigationPattern(i32);
+pub struct IUIAutomationDockPattern(i32);
+pub struct IUIAutomationDragPattern(i32);
+pub struct IUIAutomationDropTargetPattern(i32);
+pub struct IUIAutomationElement(i32);
+pub struct IUIAutomationElement2(i32);
+pub struct IUIAutomationElement3(i32);
+pub struct IUIAutomationElement4(i32);
+pub struct IUIAutomationElement5(i32);
+pub struct IUIAutomationElement6(i32);
+pub struct IUIAutomationElement7(i32);
+pub struct IUIAutomationElement8(i32);
+pub struct IUIAutomationElement9(i32);
+pub struct IUIAutomationElementArray(i32);
+pub struct IUIAutomationEventHandler(i32);
+pub struct IUIAutomationEventHandlerGroup(i32);
+pub struct IUIAutomationExpandCollapsePattern(i32);
+pub struct IUIAutomationFocusChangedEventHandler(i32);
+pub struct IUIAutomationGridItemPattern(i32);
+pub struct IUIAutomationGridPattern(i32);
+pub struct IUIAutomationInvokePattern(i32);
+pub struct IUIAutomationItemContainerPattern(i32);
+pub struct IUIAutomationLegacyIAccessiblePattern(i32);
+pub struct IUIAutomationMultipleViewPattern(i32);
+pub struct IUIAutomationNotCondition(i32);
+pub struct IUIAutomationNotificationEventHandler(i32);
+pub struct IUIAutomationObjectModelPattern(i32);
+pub struct IUIAutomationOrCondition(i32);
+pub struct IUIAutomationPatternHandler(i32);
+pub struct IUIAutomationPatternInstance(i32);
+pub struct IUIAutomationPropertyChangedEventHandler(i32);
+pub struct IUIAutomationPropertyCondition(i32);
+pub struct IUIAutomationProxyFactory(i32);
+pub struct IUIAutomationProxyFactoryEntry(i32);
+pub struct IUIAutomationProxyFactoryMapping(i32);
+pub struct IUIAutomationRangeValuePattern(i32);
+pub struct IUIAutomationRegistrar(i32);
+pub struct IUIAutomationScrollItemPattern(i32);
+pub struct IUIAutomationScrollPattern(i32);
+pub struct IUIAutomationSelectionItemPattern(i32);
+pub struct IUIAutomationSelectionPattern(i32);
+pub struct IUIAutomationSelectionPattern2(i32);
+pub struct IUIAutomationSpreadsheetItemPattern(i32);
+pub struct IUIAutomationSpreadsheetPattern(i32);
+pub struct IUIAutomationStructureChangedEventHandler(i32);
+pub struct IUIAutomationStylesPattern(i32);
+pub struct IUIAutomationSynchronizedInputPattern(i32);
+pub struct IUIAutomationTableItemPattern(i32);
+pub struct IUIAutomationTablePattern(i32);
+pub struct IUIAutomationTextChildPattern(i32);
+pub struct IUIAutomationTextEditPattern(i32);
+pub struct IUIAutomationTextEditTextChangedEventHandler(i32);
+pub struct IUIAutomationTextPattern(i32);
+pub struct IUIAutomationTextPattern2(i32);
+pub struct IUIAutomationTextRange(i32);
+pub struct IUIAutomationTextRange2(i32);
+pub struct IUIAutomationTextRange3(i32);
+pub struct IUIAutomationTextRangeArray(i32);
+pub struct IUIAutomationTogglePattern(i32);
+pub struct IUIAutomationTransformPattern(i32);
+pub struct IUIAutomationTransformPattern2(i32);
+pub struct IUIAutomationTreeWalker(i32);
+pub struct IUIAutomationValuePattern(i32);
+pub struct IUIAutomationVirtualizedItemPattern(i32);
+pub struct IUIAutomationWindowPattern(i32);
+pub struct IValueProvider(i32);
+pub struct IVirtualizedItemProvider(i32);
+pub struct IWindowProvider(i32);
 pub const Image_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 758593252, data2: 27414, data3: 19543, data4: [169, 98, 249, 50, 96, 167, 82, 67] };
 pub const InputDiscarded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2134295399,
@@ -732,6 +1220,12 @@ pub const ItemContainer_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys:
 pub const ItemStatus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1373504289, data2: 14707, data3: 17383, data4: [137, 19, 11, 8, 232, 19, 195, 127] };
 pub const ItemType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3453633357, data2: 25122, data3: 16699, data4: [166, 138, 50, 93, 209, 212, 15, 57] };
 pub const LIBID_Accessibility: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 514120688, data2: 15419, data3: 4559, data4: [129, 12, 0, 170, 0, 56, 155, 113] };
+pub struct LPFNACCESSIBLECHILDREN(i32);
+pub struct LPFNACCESSIBLEOBJECTFROMPOINT(i32);
+pub struct LPFNACCESSIBLEOBJECTFROMWINDOW(i32);
+pub struct LPFNCREATESTDACCESSIBLEOBJECT(i32);
+pub struct LPFNLRESULTFROMOBJECT(i32);
+pub struct LPFNOBJECTFROMLRESULT(i32);
 pub const LabeledBy_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3854078539,
     data2: 64650,
@@ -810,6 +1304,7 @@ pub const LiveRegionChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sy
     data3: 16822,
     data4: [177, 197, 169, 177, 146, 157, 149, 16],
 };
+pub struct LiveSetting(i32);
 pub const LiveSetting_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3240873358, data2: 10894, data3: 18768, data4: [138, 231, 54, 37, 17, 29, 88, 235] };
 pub const LocalizedControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2271428687, data2: 41405, data3: 17706, data4: [137, 196, 63, 1, 211, 131, 56, 6] };
 pub const LocalizedLandmarkType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -818,6 +1313,8 @@ pub const LocalizedLandmarkType_Property_GUID: ::windows_sys::core::GUID = ::win
     data3: 20402,
     data4: [191, 145, 244, 133, 190, 245, 232, 225],
 };
+pub struct MOUSEKEYS(i32);
+pub struct MSAAMENUINFO(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3426239056, data2: 3707, data3: 19176, data4: [149, 174, 160, 143, 38, 27, 82, 238] };
@@ -861,12 +1358,16 @@ pub const NAVDIR_RIGHT: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const NAVDIR_UP: u32 = 1u32;
 pub const Name_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3282473499, data2: 19097, data3: 17649, data4: [188, 166, 97, 24, 112, 82, 196, 49] };
+pub struct NavigateDirection(i32);
 pub const NewNativeWindowHandle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1368830779,
     data2: 14346,
     data3: 18818,
     data4: [149, 225, 145, 243, 239, 96, 224, 36],
 };
+pub struct NormalizeState(i32);
+pub struct NotificationKind(i32);
+pub struct NotificationProcessing(i32);
 pub const Notification_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1925554935, data2: 38792, data3: 18447, data4: [184, 235, 77, 238, 0, 246, 24, 111] };
 pub const ObjectModel_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1040493822, data2: 2300, data3: 18412, data4: [150, 188, 53, 63, 163, 179, 74, 167] };
 pub const OptimizeForVisualContent_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -875,6 +1376,7 @@ pub const OptimizeForVisualContent_Property_GUID: ::windows_sys::core::GUID = ::
     data3: 20061,
     data4: [184, 88, 227, 129, 176, 247, 136, 97],
 };
+pub struct OrientationType(i32);
 pub const Orientation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2686381666,
     data2: 14468,
@@ -882,6 +1384,7 @@ pub const Orientation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data4: [136, 126, 103, 142, 194, 30, 57, 186],
 };
 pub const OutlineColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3281376960, data2: 19285, data3: 18274, data4: [160, 115, 253, 48, 58, 99, 79, 82] };
+pub struct OutlineStyles(i32);
 pub const OutlineThickness_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 333872327, data2: 56002, data3: 18568, data4: [189, 211, 55, 92, 98, 250, 150, 24] };
 pub const PROPID_ACC_DEFAULTACTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 403441451, data2: 49791, data3: 17351, data4: [153, 34, 246, 53, 98, 164, 99, 43] };
 pub const PROPID_ACC_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1296621540, data2: 48447, data3: 18719, data4: [166, 72, 73, 45, 111, 32, 197, 136] };
@@ -957,12 +1460,15 @@ pub const ProgressBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 18363,
     data4: [159, 182, 165, 131, 75, 252, 83, 164],
 };
+pub struct PropertyConditionFlags(i32);
 pub const ProviderDescription_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3701829770,
     data2: 49515,
     data3: 19673,
     data4: [184, 137, 190, 177, 106, 128, 73, 4],
 };
+pub struct ProviderOptions(i32);
+pub struct ProviderType(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const ROLE_SYSTEM_ALERT: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -1115,6 +1621,7 @@ pub const RangeValue_SmallChange_Property_GUID: ::windows_sys::core::GUID = ::wi
 };
 pub const RangeValue_Value_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 320822680, data2: 50444, data3: 18589, data4: [171, 229, 174, 34, 8, 152, 197, 247] };
 pub const Rotation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1987894397, data2: 44736, data3: 16656, data4: [173, 50, 48, 237, 212, 3, 73, 46] };
+pub struct RowOrColumnMajor(i32);
 pub const RuntimeId_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2745101306,
     data2: 32698,
@@ -1135,6 +1642,9 @@ pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const SELFLAG_VALID: u32 = 31u32;
+pub struct SERIALKEYSA(i32);
+pub struct SERIALKEYSW(i32);
+pub struct SERIALKEYS_FLAGS(i32);
 pub const SID_ControlElementProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4101578088, data2: 57940, data3: 19363, data4: [154, 83, 38, 165, 197, 73, 121, 70] };
 pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3111115653,
@@ -1142,10 +1652,20 @@ pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 18212,
     data4: [132, 43, 199, 5, 157, 237, 185, 208],
 };
+pub struct SOUNDSENTRYA(i32);
+pub struct SOUNDSENTRYW(i32);
+pub struct SOUNDSENTRY_FLAGS(i32);
+pub struct SOUNDSENTRY_TEXT_EFFECT(i32);
+pub struct SOUNDSENTRY_WINDOWS_EFFECT(i32);
+pub struct SOUND_SENTRY_GRAPHICS_EFFECT(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
+pub struct STICKYKEYS(i32);
+pub struct STICKYKEYS_FLAGS(i32);
+pub struct SayAsInterpretAs(i32);
+pub struct ScrollAmount(i32);
 pub const ScrollBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3673377590, data2: 20581, data3: 18758, data4: [178, 47, 146, 89, 95, 192, 117, 26] };
 pub const ScrollItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1167183877, data2: 43011, data3: 19804, data4: [180, 213, 141, 40, 0, 249, 6, 167] };
 pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1274,6 +1794,7 @@ pub const SpreadsheetItem_Formula_Property_GUID: ::windows_sys::core::GUID = ::w
 pub const SpreadsheetItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 852460543, data2: 61864, data3: 19084, data4: [134, 88, 212, 123, 167, 78, 32, 186] };
 pub const Spreadsheet_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1784358089, data2: 40222, data3: 19333, data4: [158, 68, 192, 46, 49, 105, 177, 11] };
 pub const StatusBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3562962203, data2: 22643, data3: 18271, data4: [149, 164, 4, 51, 225, 241, 176, 10] };
+pub struct StructureChangeType(i32);
 pub const StructureChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1503099233,
     data2: 16093,
@@ -1418,6 +1939,8 @@ pub const Styles_StyleId_Property_GUID: ::windows_sys::core::GUID = ::windows_sy
     data4: [130, 175, 2, 39, 158, 114, 204, 119],
 };
 pub const Styles_StyleName_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 470986805, data2: 1489, data3: 20309, data4: [158, 142, 20, 137, 243, 255, 85, 13] };
+pub struct SupportedTextSelection(i32);
+pub struct SynchronizedInputType(i32);
 pub const SynchronizedInput_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 96635046, data2: 50299, data3: 18571, data4: [182, 83, 51, 151, 122, 85, 27, 139] };
 pub const SystemAlert_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3530642525,
@@ -1425,6 +1948,7 @@ pub const SystemAlert_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUI
     data3: 18343,
     data4: [132, 116, 129, 210, 154, 36, 81, 201],
 };
+pub struct TOGGLEKEYS(i32);
 pub const TabItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 745169743, data2: 37403, data3: 20078, data4: [178, 110, 8, 252, 176, 121, 143, 76] };
 pub const Tab_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 952966957,
@@ -1461,6 +1985,8 @@ pub const TextChild_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUI
     data3: 16879,
     data4: [158, 133, 226, 99, 140, 190, 22, 158],
 };
+pub struct TextDecorationLineStyle(i32);
+pub struct TextEditChangeType(i32);
 pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 864600451, data2: 60751, data3: 19595, data4: [155, 170, 54, 77, 81, 216, 132, 127] };
 pub const TextEdit_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1777598345, data2: 23289, data3: 19573, data4: [147, 64, 242, 222, 41, 46, 69, 145] };
 pub const TextEdit_TextChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1469,6 +1995,8 @@ pub const TextEdit_TextChanged_Event_GUID: ::windows_sys::core::GUID = ::windows
     data3: 20152,
     data4: [156, 152, 152, 103, 205, 161, 177, 101],
 };
+pub struct TextPatternRangeEndpoint(i32);
+pub struct TextUnit(i32);
 pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1485617976,
     data2: 58927,
@@ -1672,6 +2200,7 @@ pub const Thumb_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [182, 68, 121, 126, 79, 174, 162, 19],
 };
 pub const TitleBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2561299903, data2: 15280, data3: 19301, data4: [131, 110, 46, 163, 13, 188, 23, 31] };
+pub struct ToggleState(i32);
 pub const Toggle_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 188847968, data2: 58100, data3: 17407, data4: [140, 95, 148, 87, 200, 43, 86, 233] };
 pub const Toggle_ToggleState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2990333010,
@@ -1728,6 +2257,8 @@ pub const Transform_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUI
     data4: [156, 74, 216, 233, 139, 102, 75, 123],
 };
 pub const TreeItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1657405113, data2: 36860, data3: 18552, data4: [163, 164, 150, 176, 48, 49, 92, 24] };
+pub struct TreeScope(i32);
+pub struct TreeTraversalOptions(i32);
 pub const Tree_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1969304732,
     data2: 53825,
@@ -2436,10 +2967,34 @@ pub const UIA_WindowWindowVisualStatePropertyId: i32 = 30075i32;
 pub const UIA_Window_WindowClosedEventId: i32 = 20017i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const UIA_Window_WindowOpenedEventId: i32 = 20016i32;
+pub struct UIAutomationEventInfo(i32);
+pub struct UIAutomationMethodInfo(i32);
+pub struct UIAutomationParameter(i32);
+pub struct UIAutomationPatternInfo(i32);
+pub struct UIAutomationPropertyInfo(i32);
+pub struct UIAutomationType(i32);
+pub struct UiaAndOrCondition(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const UiaAppendRuntimeId: u32 = 3u32;
+pub struct UiaAsyncContentLoadedEventArgs(i32);
+pub struct UiaCacheRequest(i32);
+pub struct UiaChangeInfo(i32);
+pub struct UiaChangesEventArgs(i32);
+pub struct UiaCondition(i32);
+pub struct UiaEventArgs(i32);
+pub struct UiaEventCallback(i32);
+pub struct UiaFindParams(i32);
+pub struct UiaNotCondition(i32);
+pub struct UiaPoint(i32);
+pub struct UiaPropertyChangedEventArgs(i32);
+pub struct UiaPropertyCondition(i32);
+pub struct UiaProviderCallback(i32);
+pub struct UiaRect(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const UiaRootObjectId: i32 = -25i32;
+pub struct UiaStructureChangedEventArgs(i32);
+pub struct UiaTextEditTextChangedEventArgs(i32);
+pub struct UiaWindowClosedEventArgs(i32);
 pub const Value_IsReadOnly_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3943239472, data2: 57932, data3: 18329, data4: [167, 5, 13, 36, 123, 192, 55, 248] };
 pub const Value_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 402304414, data2: 51319, data3: 18267, data4: [185, 51, 119, 51, 39, 121, 182, 55] };
 pub const Value_Value_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2454,12 +3009,16 @@ pub const VirtualizedItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sy
     data3: 17897,
     data4: [166, 229, 98, 246, 237, 130, 137, 213],
 };
+pub struct VisualEffects(i32);
 pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3860497765,
     data2: 43737,
     data3: 18135,
     data4: [158, 112, 78, 138, 132, 32, 212, 32],
 };
+pub struct WINEVENTPROC(i32);
+pub struct WindowInteractionState(i32);
+pub struct WindowVisualState(i32);
 pub const Window_CanMaximize_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1694496063,
     data2: 25437,
@@ -2500,320 +3059,4 @@ pub const Window_WindowOpened_Event_GUID: ::windows_sys::core::GUID = ::windows_
     data4: [150, 51, 222, 158, 2, 251, 101, 175],
 };
 pub const Window_WindowVisualState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1253544031, data2: 59488, data3: 17726, data4: [163, 10, 246, 67, 30, 93, 170, 213] };
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn AccessibleChildren(pacccontainer: IAccessible, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut IAccessible, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut IAccessible, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PWSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR, cchrolemax: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR, cchrolemax: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation::PSTR, cchstate: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: super::super::System::Com::VARIANT, pfound: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut IAccessible) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LresultFromObject(riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::LRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: super::super::System::Com::VARIANT, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TextRange_FindText(hobj: HUIATEXTRANGE, text: super::super::Foundation::BSTR, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaDisconnectAllProviders() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaDisconnectProvider(pprovider: IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn UiaIAccessibleFromProvider(pprovider: IRawElementProviderSimple, dwflags: u32, ppaccessible: *mut IAccessible, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows_sys::core::GUID) -> i32;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaNodeFromProvider(pprovider: IRawElementProviderSimple, phnode: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaProviderFromIAccessible(paccessible: IAccessible, idchild: i32, dwflags: u32, ppprovider: *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaRaiseActiveTextPositionChangedEvent(provider: IRawElementProviderSimple, textrange: ITextRangeProvider) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaRaiseAsyncContentLoadedEvent(pprovider: IRawElementProviderSimple, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaRaiseAutomationEvent(pprovider: IRawElementProviderSimple, id: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn UiaRaiseAutomationPropertyChangedEvent(pprovider: IRawElementProviderSimple, id: i32, oldvalue: super::super::System::Com::VARIANT, newvalue: super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn UiaRaiseChangesEvent(pprovider: IRawElementProviderSimple, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaRaiseNotificationEvent(provider: IRawElementProviderSimple, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: super::super::Foundation::BSTR, activityid: super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaRaiseStructureChangedEvent(pprovider: IRawElementProviderSimple, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn UiaRaiseTextEditTextChangedEvent(pprovider: IRawElementProviderSimple, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback);
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: IRawElementProviderSimple) -> super::super::Foundation::LRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn UiaSetFocus(hnode: HUIANODE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WindowFromAccessibleObject(param0: IAccessible, phwnd: *mut super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`*"]
-    pub fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-}
+pub struct ZoomUnit(i32);

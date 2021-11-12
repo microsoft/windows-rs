@@ -1,4 +1,73 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Graphics_Gdi`*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn CreateRecognizer(pclsid: *mut ::windows_sys::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn DestroyContext(hrc: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn DestroyRecognizer(hrec: HRECOGNIZER) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn DestroyWordList(hwl: HRECOWORDLIST) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn EndInkInput(hrc: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows_sys::core::GUID, count: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn LoadCachedAttributes(clsid: ::windows_sys::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MakeWordList(hrec: HRECOGNIZER, pbuffer: super::super::Foundation::PWSTR, phwl: *mut HRECOWORDLIST) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetTextContext(hrc: HRECOCONTEXT, cwcbefore: u32, pwcbefore: super::super::Foundation::PWSTR, cwcafter: u32, pwcafter: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
+    pub fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows_sys::core::HRESULT;
+}
+pub struct ALT_BREAKS(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const ASYNC_RECO_ADDSTROKE_FAILED: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -19,14 +88,66 @@ pub const ASYNC_RECO_SETGUIDE_FAILED: u32 = 32u32;
 pub const ASYNC_RECO_SETTEXTCONTEXT_FAILED: u32 = 256u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
+pub struct AppearanceConstants(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const BEST_COMPLETE: u32 = 2u32;
+pub struct BorderStyleConstants(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const CAC_FULL: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const CAC_PREFIX: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const CAC_RANDOM: u32 = 2u32;
+pub struct CHARACTER_RANGE(i32);
+pub struct CONFIDENCE_LEVEL(i32);
+pub struct CorrectionMode(i32);
+pub struct CorrectionPosition(i32);
+pub struct DISPID_Ink(i32);
+pub struct DISPID_InkCollector(i32);
+pub struct DISPID_InkCollectorEvent(i32);
+pub struct DISPID_InkCursor(i32);
+pub struct DISPID_InkCursorButton(i32);
+pub struct DISPID_InkCursorButtons(i32);
+pub struct DISPID_InkCursors(i32);
+pub struct DISPID_InkCustomStrokes(i32);
+pub struct DISPID_InkDivider(i32);
+pub struct DISPID_InkDivisionResult(i32);
+pub struct DISPID_InkDivisionUnit(i32);
+pub struct DISPID_InkDivisionUnits(i32);
+pub struct DISPID_InkDrawingAttributes(i32);
+pub struct DISPID_InkEdit(i32);
+pub struct DISPID_InkEditEvents(i32);
+pub struct DISPID_InkEvent(i32);
+pub struct DISPID_InkExtendedProperties(i32);
+pub struct DISPID_InkExtendedProperty(i32);
+pub struct DISPID_InkGesture(i32);
+pub struct DISPID_InkRecoAlternate(i32);
+pub struct DISPID_InkRecoContext(i32);
+pub struct DISPID_InkRecoContext2(i32);
+pub struct DISPID_InkRecognitionAlternates(i32);
+pub struct DISPID_InkRecognitionEvent(i32);
+pub struct DISPID_InkRecognitionResult(i32);
+pub struct DISPID_InkRecognizer(i32);
+pub struct DISPID_InkRecognizer2(i32);
+pub struct DISPID_InkRecognizerGuide(i32);
+pub struct DISPID_InkRecognizers(i32);
+pub struct DISPID_InkRectangle(i32);
+pub struct DISPID_InkRenderer(i32);
+pub struct DISPID_InkStrokeDisp(i32);
+pub struct DISPID_InkStrokes(i32);
+pub struct DISPID_InkTablet(i32);
+pub struct DISPID_InkTablet2(i32);
+pub struct DISPID_InkTablet3(i32);
+pub struct DISPID_InkTablets(i32);
+pub struct DISPID_InkTransform(i32);
+pub struct DISPID_InkWordList(i32);
+pub struct DISPID_InkWordList2(i32);
+pub struct DISPID_MathInputControlEvents(i32);
+pub struct DISPID_PenInputPanel(i32);
+pub struct DISPID_PenInputPanelEvents(i32);
+pub struct DISPID_StrokeEvent(i32);
+pub struct DYNAMIC_RENDERER_CACHED_DATA(i32);
+pub struct DynamicRenderer(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const EM_GETDRAWATTR: u32 = 1541u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -79,8 +200,14 @@ pub const EM_SETSELINK: u32 = 1552u32;
 pub const EM_SETSELINKDISPLAYMODE: u32 = 1561u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
+pub struct EventMask(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const FACILITY_INK: u32 = 40u32;
+pub struct FLICKACTION_COMMANDCODE(i32);
+pub struct FLICKDIRECTION(i32);
+pub struct FLICKMODE(i32);
+pub struct FLICK_DATA(i32);
+pub struct FLICK_POINT(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -141,6 +268,7 @@ pub const GESTURE_CLOSEUP: u32 = 61455u32;
 pub const GESTURE_CROSS: u32 = 61447u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const GESTURE_CURLICUE: u32 = 61456u32;
+pub struct GESTURE_DATA(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -434,6 +562,14 @@ pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows_sys::core::GUID = ::w
 };
 pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 244523913, data2: 7543, data3: 17327, data4: [172, 0, 91, 149, 13, 109, 75, 45] };
 pub const GUID_PACKETPROPERTY_GUID_Z: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935334192, data2: 3771, data3: 18312, data4: [160, 228, 15, 49, 100, 144, 5, 93] };
+pub struct GestureRecognizer(i32);
+pub struct HRECOALT(i32);
+pub struct HRECOCONTEXT(i32);
+pub struct HRECOGNIZER(i32);
+pub struct HRECOLATTICE(i32);
+pub struct HRECOWORDLIST(i32);
+pub struct HandwrittenTextInsertion(i32);
+pub struct IDynamicRenderer(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IECN_GESTURE: u32 = 2050u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -442,22 +578,142 @@ pub const IECN_RECOGNITIONRESULT: u32 = 2051u32;
 pub const IECN_STROKE: u32 = 2049u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IECN__BASE: u32 = 2048u32;
+pub struct IEC_GESTUREINFO(i32);
+pub struct IEC_RECOGNITIONRESULTINFO(i32);
+pub struct IEC_STROKEINFO(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IEC__BASE: u32 = 1536u32;
+pub struct IGestureRecognizer(i32);
+pub struct IHandwrittenTextInsertion(i32);
+pub struct IInk(i32);
+pub struct IInkCollector(i32);
+pub struct IInkCursor(i32);
+pub struct IInkCursorButton(i32);
+pub struct IInkCursorButtons(i32);
+pub struct IInkCursors(i32);
+pub struct IInkCustomStrokes(i32);
+pub struct IInkDisp(i32);
+pub struct IInkDivider(i32);
+pub struct IInkDivisionResult(i32);
+pub struct IInkDivisionUnit(i32);
+pub struct IInkDivisionUnits(i32);
+pub struct IInkDrawingAttributes(i32);
+pub struct IInkEdit(i32);
+pub struct IInkExtendedProperties(i32);
+pub struct IInkExtendedProperty(i32);
+pub struct IInkGesture(i32);
+pub struct IInkLineInfo(i32);
+pub struct IInkOverlay(i32);
+pub struct IInkPicture(i32);
+pub struct IInkRecognitionAlternate(i32);
+pub struct IInkRecognitionAlternates(i32);
+pub struct IInkRecognitionResult(i32);
+pub struct IInkRecognizer(i32);
+pub struct IInkRecognizer2(i32);
+pub struct IInkRecognizerContext(i32);
+pub struct IInkRecognizerContext2(i32);
+pub struct IInkRecognizerGuide(i32);
+pub struct IInkRecognizers(i32);
+pub struct IInkRectangle(i32);
+pub struct IInkRenderer(i32);
+pub struct IInkStrokeDisp(i32);
+pub struct IInkStrokes(i32);
+pub struct IInkTablet(i32);
+pub struct IInkTablet2(i32);
+pub struct IInkTablet3(i32);
+pub struct IInkTablets(i32);
+pub struct IInkTransform(i32);
+pub struct IInkWordList(i32);
+pub struct IInkWordList2(i32);
+pub struct IInputPanelWindowHandle(i32);
+pub struct IMathInputControl(i32);
+pub struct INKMETRIC(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IP_CURSOR_DOWN: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IP_INVERTED: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IP_MARGIN: u32 = 4u32;
+pub struct IPenInputPanel(i32);
+pub struct IRealTimeStylus(i32);
+pub struct IRealTimeStylus2(i32);
+pub struct IRealTimeStylus3(i32);
+pub struct IRealTimeStylusSynchronization(i32);
+pub struct ISketchInk(i32);
+pub struct IStrokeBuilder(i32);
+pub struct IStylusAsyncPlugin(i32);
+pub struct IStylusPlugin(i32);
+pub struct IStylusSyncPlugin(i32);
+pub struct ITextInputPanel(i32);
+pub struct ITextInputPanelEventSink(i32);
+pub struct ITextInputPanelRunInfo(i32);
+pub struct ITipAutoCompleteClient(i32);
+pub struct ITipAutoCompleteProvider(i32);
+pub struct InPlaceDirection(i32);
+pub struct InPlaceState(i32);
+pub struct Ink(i32);
+pub struct InkApplicationGesture(i32);
+pub struct InkBoundingBoxMode(i32);
+pub struct InkClipboardFormats(i32);
+pub struct InkClipboardModes(i32);
+pub struct InkCollectionMode(i32);
+pub struct InkCollector(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const InkCollectorClipInkToMargin: i32 = 0i32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const InkCollectorDefaultMargin: i32 = -2147483648i32;
+pub struct InkCollectorEventInterest(i32);
+pub struct InkCursorButtonState(i32);
+pub struct InkDisp(i32);
+pub struct InkDisplayMode(i32);
+pub struct InkDivider(i32);
+pub struct InkDivisionType(i32);
+pub struct InkDrawingAttributes(i32);
+pub struct InkEdit(i32);
+pub struct InkEditStatus(i32);
+pub struct InkExtractFlags(i32);
+pub struct InkInsertMode(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const InkMaxTransparencyValue: i32 = 255i32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const InkMinTransparencyValue: i32 = 0i32;
+pub struct InkMode(i32);
+pub struct InkMouseButton(i32);
+pub struct InkMousePointer(i32);
+pub struct InkOverlay(i32);
+pub struct InkOverlayAttachMode(i32);
+pub struct InkOverlayEditingMode(i32);
+pub struct InkOverlayEraserMode(i32);
+pub struct InkPenTip(i32);
+pub struct InkPersistenceCompressionMode(i32);
+pub struct InkPersistenceFormat(i32);
+pub struct InkPicture(i32);
+pub struct InkPictureSizeMode(i32);
+pub struct InkRasterOperation(i32);
+pub struct InkRecoGuide(i32);
+pub struct InkRecognitionAlternatesSelection(i32);
+pub struct InkRecognitionConfidence(i32);
+pub struct InkRecognitionModes(i32);
+pub struct InkRecognitionStatus(i32);
+pub struct InkRecognizerCapabilities(i32);
+pub struct InkRecognizerCharacterAutoCompletionMode(i32);
+pub struct InkRecognizerContext(i32);
+pub struct InkRecognizerGuide(i32);
+pub struct InkRecognizers(i32);
+pub struct InkRectangle(i32);
+pub struct InkRenderer(i32);
+pub struct InkSelectionConstants(i32);
+pub struct InkShiftKeyModifierFlags(i32);
+pub struct InkStrokes(i32);
+pub struct InkSystemGesture(i32);
+pub struct InkTablets(i32);
+pub struct InkTransform(i32);
+pub struct InkWordList(i32);
+pub struct InteractionMode(i32);
+pub struct KEYMODIFIER(i32);
+pub struct LATTICE_METRICS(i32);
+pub struct LINE_METRICS(i32);
+pub struct LINE_SEGMENT(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const MAX_FRIENDLYNAME: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -476,8 +732,21 @@ pub const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: &'static str = "Microsoft TIP
 pub const MICROSOFT_TIP_OPENING_MSG: &'static str = "TabletInputPanelOpening";
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const MICROSOFT_URL_EXPERIENCE_PROPERTY: &'static str = "Microsoft TIP URL Experience";
+pub struct MICUIELEMENT(i32);
+pub struct MICUIELEMENTSTATE(i32);
+pub struct MathInputControl(i32);
+pub struct MouseButton(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const NUM_FLICK_DIRECTIONS: u32 = 8u32;
+pub struct PACKET_DESCRIPTION(i32);
+pub struct PACKET_PROPERTY(i32);
+pub struct PROPERTY_METRICS(i32);
+pub struct PROPERTY_UNITS(i32);
+pub struct PanelInputArea(i32);
+pub struct PanelType(i32);
+pub struct PenInputPanel(i32);
+pub struct PenInputPanel_Internal(i32);
+pub struct PfnRecoCallback(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -500,6 +769,14 @@ pub const RECOFLAG_PREFIXOK: u32 = 8u32;
 pub const RECOFLAG_SINGLESEG: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const RECOFLAG_WORDMODE: u32 = 1u32;
+pub struct RECO_ATTRS(i32);
+pub struct RECO_GUIDE(i32);
+pub struct RECO_LATTICE(i32);
+pub struct RECO_LATTICE_COLUMN(i32);
+pub struct RECO_LATTICE_ELEMENT(i32);
+pub struct RECO_LATTICE_PROPERTIES(i32);
+pub struct RECO_LATTICE_PROPERTY(i32);
+pub struct RECO_RANGE(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const RF_ADVISEINKCHANGE: i32 = 4096i32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -534,8 +811,21 @@ pub const RF_REQUIRESSEGMENTATIONBREAKING: i32 = 131072i32;
 pub const RF_RIGHT_AND_DOWN: i32 = 64i32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const RF_STROKEREORDER: i32 = 8192i32;
+pub struct RealTimeStylus(i32);
+pub struct RealTimeStylusDataInterest(i32);
+pub struct RealTimeStylusLockType(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const SAFE_PARTIAL: u32 = 1u32;
+pub struct SCROLLDIRECTION(i32);
+pub struct STROKE_RANGE(i32);
+pub struct SYSTEM_EVENT_DATA(i32);
+pub struct ScrollBarsConstants(i32);
+pub struct SelAlignmentConstants(i32);
+pub struct SelectionHitResult(i32);
+pub struct SketchInk(i32);
+pub struct StrokeBuilder(i32);
+pub struct StylusInfo(i32);
+pub struct StylusQueue(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -560,6 +850,12 @@ pub const TABLET_ENABLE_FLICKLEARNINGMODE: u32 = 262144u32;
 pub const TABLET_ENABLE_FLICKSONCONTEXT: u32 = 131072u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const TABLET_ENABLE_MULTITOUCHDATA: u32 = 16777216u32;
+pub struct TabletDeviceKind(i32);
+pub struct TabletHardwareCapabilities(i32);
+pub struct TabletPropertyMetricUnit(i32);
+pub struct TextInputPanel(i32);
+pub struct TipAutoCompleteClient(i32);
+pub struct VisualState(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const WM_TABLET_ADDED: u32 = 712u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -572,71 +868,15 @@ pub const WM_TABLET_FLICK: u32 = 715u32;
 pub const WM_TABLET_MAXOFFSET: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Graphics_Gdi`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn CreateRecognizer(pclsid: *mut ::windows_sys::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn DestroyContext(hrc: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn DestroyRecognizer(hrec: HRECOGNIZER) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn DestroyWordList(hwl: HRECOWORDLIST) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn EndInkInput(hrc: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows_sys::core::GUID, count: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn LoadCachedAttributes(clsid: ::windows_sys::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MakeWordList(hrec: HRECOGNIZER, pbuffer: super::super::Foundation::PWSTR, phwl: *mut HRECOWORDLIST) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetTextContext(hrc: HRECOCONTEXT, cwcbefore: u32, pwcbefore: super::super::Foundation::PWSTR, cwcafter: u32, pwcafter: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_UI_TabletPC`*"]
-    pub fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows_sys::core::HRESULT;
-}
+pub struct _IInkCollectorEvents(i32);
+pub struct _IInkEditEvents(i32);
+pub struct _IInkEvents(i32);
+pub struct _IInkOverlayEvents(i32);
+pub struct _IInkPictureEvents(i32);
+pub struct _IInkRecognitionEvents(i32);
+pub struct _IInkStrokesEvents(i32);
+pub struct _IMathInputControlEvents(i32);
+pub struct _IPenInputPanelEvents(i32);
+pub struct enumGetCandidateFlags(i32);
+pub struct enumINKMETRIC_FLAGS(i32);
+pub struct enumRECO_TYPE(i32);

@@ -1,3 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct AppExtension(i32);
+pub struct AppExtensionCatalog(i32);
+pub struct AppExtensionPackageInstalledEventArgs(i32);
+pub struct AppExtensionPackageStatusChangedEventArgs(i32);
+pub struct AppExtensionPackageUninstallingEventArgs(i32);
+pub struct AppExtensionPackageUpdatedEventArgs(i32);
+pub struct AppExtensionPackageUpdatingEventArgs(i32);
+pub struct IAppExtension(i32);
+pub struct IAppExtension2(i32);
+pub struct IAppExtensionCatalog(i32);
+pub struct IAppExtensionCatalogStatics(i32);
+pub struct IAppExtensionPackageInstalledEventArgs(i32);
+pub struct IAppExtensionPackageStatusChangedEventArgs(i32);
+pub struct IAppExtensionPackageUninstallingEventArgs(i32);
+pub struct IAppExtensionPackageUpdatedEventArgs(i32);
+pub struct IAppExtensionPackageUpdatingEventArgs(i32);

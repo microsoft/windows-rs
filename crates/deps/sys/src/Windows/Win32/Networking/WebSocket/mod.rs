@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
-pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
@@ -33,3 +31,14 @@ extern "system" {
     #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
     pub fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+pub struct WEB_SOCKET_ACTION(i32);
+pub struct WEB_SOCKET_ACTION_QUEUE(i32);
+pub struct WEB_SOCKET_BUFFER(i32);
+pub struct WEB_SOCKET_BUFFER_TYPE(i32);
+pub struct WEB_SOCKET_CLOSE_STATUS(i32);
+pub struct WEB_SOCKET_HANDLE(i32);
+pub struct WEB_SOCKET_HTTP_HEADER(i32);
+#[doc = "*Required features: `Win32_Networking_WebSocket`*"]
+pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
+pub struct WEB_SOCKET_PROPERTY(i32);
+pub struct WEB_SOCKET_PROPERTY_TYPE(i32);

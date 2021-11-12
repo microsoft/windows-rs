@@ -1,3 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct ConditionForceEffect(i32);
+pub struct ConditionForceEffectKind(i32);
+pub struct ConstantForceEffect(i32);
+pub struct ForceFeedbackEffectAxes(i32);
+pub struct ForceFeedbackEffectState(i32);
+pub struct ForceFeedbackLoadEffectResult(i32);
+pub struct ForceFeedbackMotor(i32);
+pub struct IConditionForceEffect(i32);
+pub struct IConditionForceEffectFactory(i32);
+pub struct IConstantForceEffect(i32);
+pub struct IForceFeedbackEffect(i32);
+pub struct IForceFeedbackMotor(i32);
+pub struct IPeriodicForceEffect(i32);
+pub struct IPeriodicForceEffectFactory(i32);
+pub struct IRampForceEffect(i32);
+pub struct PeriodicForceEffect(i32);
+pub struct PeriodicForceEffectKind(i32);
+pub struct RampForceEffect(i32);

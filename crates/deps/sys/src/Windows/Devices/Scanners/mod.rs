@@ -1,3 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IImageScanner(i32);
+pub struct IImageScannerFeederConfiguration(i32);
+pub struct IImageScannerFormatConfiguration(i32);
+pub struct IImageScannerPreviewResult(i32);
+pub struct IImageScannerScanResult(i32);
+pub struct IImageScannerSourceConfiguration(i32);
+pub struct IImageScannerStatics(i32);
+pub struct ImageScanner(i32);
+pub struct ImageScannerAutoConfiguration(i32);
+pub struct ImageScannerAutoCroppingMode(i32);
+pub struct ImageScannerColorMode(i32);
+pub struct ImageScannerFeederConfiguration(i32);
+pub struct ImageScannerFlatbedConfiguration(i32);
+pub struct ImageScannerFormat(i32);
+pub struct ImageScannerPreviewResult(i32);
+pub struct ImageScannerResolution(i32);
+pub struct ImageScannerScanResult(i32);
+pub struct ImageScannerScanSource(i32);
+pub struct ScannerDeviceContract(i32);

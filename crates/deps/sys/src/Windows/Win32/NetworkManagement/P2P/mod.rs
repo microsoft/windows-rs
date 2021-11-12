@@ -1,181 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052914i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052913i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_CAPABILITY_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052657i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_DUPLICATE_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052919i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_FAULTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052662i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INSUFFICIENT_BUFFER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052660i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_ADDRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052923i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_BOOTSTRAP_PROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052924i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_CERT_CHAIN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057020i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_INSTANCE_PREFIX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052659i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057015i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_KEY_SIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057022i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_MAX_ADDRESSES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057017i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_MAX_ENDPOINTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057007i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_MESSAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057019i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_PORT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052928i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_SCOPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052922i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_SEARCH_INFO: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052663i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_SEARCH_RANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057006i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_SECURITY_MODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052658i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_SECURITY_PROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052926i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_SETTINGS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052664i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_INVALID_TRANSPORT_PROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052927i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_NO_ADDRESSES_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052920i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_NO_MORE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057018i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_SEARCH_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057016i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_SECURITYPROVIDER_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052916i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_SECURITYPROVIDER_NOT_ATTACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052915i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_STILL_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052925i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TIMEOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057023i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORTPROVIDER_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052918i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052917i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_ALREADY_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052671i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052665i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_EXECUTING_CALLBACK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052666i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_INVALID_ARGUMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052668i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_NOT_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052670i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_NO_DEST_ADDRESSES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052667i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_SHUTTING_DOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052921i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052661i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052669i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_MAX_INSTANCE_PREFIX_LEN: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_MAX_PAYLOAD_SIZE: u32 = 5120u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_MAX_ROUTING_ADDRESSES: u32 = 20u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_MIN_ROUTING_ADDRESSES: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_PAYLOAD_REVOKED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const DRT_S_RETRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(6426640i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const FACILITY_DRT: u32 = 98u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const NS_PNRPCLOUD: u32 = 39u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const NS_PNRPNAME: u32 = 38u32;
-pub const NS_PROVIDER_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013070, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
-pub const NS_PROVIDER_PNRPNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013069, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEERDIST_PUBLICATION_OPTIONS_VERSION: i32 = 2i32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_1: i32 = 1i32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_2: i32 = 2i32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEERDIST_READ_TIMEOUT_DEFAULT: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEERDIST_READ_TIMEOUT_LOCAL_CACHE_ONLY: u32 = 0u32;
-pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3709203487, data2: 64590, data3: 18722, data4: [176, 53, 76, 6, 167, 84, 208, 29] };
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024713i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013390i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_CLOUD_DISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013394i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_CLOUD_IS_DEAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013387i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_CLOUD_IS_SEARCH_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013391i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_CLOUD_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013395i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_DISK_FULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024784i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_DUPLICATE_PEER_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013388i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_INVALID_IDENTITY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013393i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023728i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PEER_E_TOO_MUCH_LOAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013392i32 as _);
-pub const PEER_GROUP_ROLE_ADMIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 70807847, data2: 43606, data3: 17674, data4: [140, 229, 79, 86, 92, 103, 144, 244] };
-pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1131478409,
-    data2: 56344,
-    data3: 19707,
-    data4: [141, 191, 152, 83, 168, 169, 249, 5],
-};
-pub const PEER_GROUP_ROLE_MEMBER: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 4046308551,
-    data2: 2135,
-    data3: 19616,
-    data4: [147, 252, 177, 187, 25, 163, 216, 194],
-};
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PNRPINFO_HINT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const PNRP_MAX_EXTENDED_PAYLOAD_BYTES: u32 = 4096u32;
-pub const SVCID_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113830, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
-pub const SVCID_PNRPNAME_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113829, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
-pub const SVCID_PNRPNAME_V2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113831, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: u32 = 11506u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_CLOUD_DISABLED: u32 = 11502u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_CLOUD_IS_DEAD: u32 = 11509u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_CLOUD_IS_SEARCH_ONLY: u32 = 11505u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_CLOUD_NOT_FOUND: u32 = 11501u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_DUPLICATE_PEER_NAME: u32 = 11508u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_ERROR_BASE: u32 = 11500u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
-pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
@@ -705,3 +528,290 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerPnrpUpdateRegistration(hregistration: *const ::core::ffi::c_void, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO) -> ::windows_sys::core::HRESULT;
 }
+pub struct DRT_ADDRESS(i32);
+pub struct DRT_ADDRESS_FLAGS(i32);
+pub struct DRT_ADDRESS_LIST(i32);
+pub struct DRT_BOOTSTRAP_PROVIDER(i32);
+pub struct DRT_BOOTSTRAP_RESOLVE_CALLBACK(i32);
+pub struct DRT_DATA(i32);
+pub struct DRT_EVENT_DATA(i32);
+pub struct DRT_EVENT_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052914i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052913i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_CAPABILITY_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052657i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_DUPLICATE_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052919i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_FAULTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052662i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INSUFFICIENT_BUFFER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052660i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_ADDRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052923i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_BOOTSTRAP_PROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052924i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_CERT_CHAIN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057020i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_INSTANCE_PREFIX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052659i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057015i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_KEY_SIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057022i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_MAX_ADDRESSES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057017i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_MAX_ENDPOINTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057007i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_MESSAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057019i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_PORT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052928i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_SCOPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052922i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_SEARCH_INFO: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052663i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_SEARCH_RANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057006i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_SECURITY_MODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052658i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_SECURITY_PROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052926i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_SETTINGS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052664i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_INVALID_TRANSPORT_PROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052927i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_NO_ADDRESSES_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052920i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_NO_MORE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057018i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_SEARCH_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057016i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_SECURITYPROVIDER_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052916i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_SECURITYPROVIDER_NOT_ATTACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052915i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_STILL_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052925i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TIMEOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141057023i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORTPROVIDER_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052918i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052917i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_ALREADY_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052671i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052665i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_EXECUTING_CALLBACK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052666i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_INVALID_ARGUMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052668i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_NOT_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052670i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_NO_DEST_ADDRESSES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052667i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_SHUTTING_DOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052921i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052661i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2141052669i32 as _);
+pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
+pub struct DRT_MATCH_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_MAX_INSTANCE_PREFIX_LEN: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_MAX_PAYLOAD_SIZE: u32 = 5120u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_MAX_ROUTING_ADDRESSES: u32 = 20u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_MIN_ROUTING_ADDRESSES: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_PAYLOAD_REVOKED: u32 = 1u32;
+pub struct DRT_REGISTRATION(i32);
+pub struct DRT_REGISTRATION_STATE(i32);
+pub struct DRT_SCOPE(i32);
+pub struct DRT_SEARCH_INFO(i32);
+pub struct DRT_SEARCH_RESULT(i32);
+pub struct DRT_SECURITY_MODE(i32);
+pub struct DRT_SECURITY_PROVIDER(i32);
+pub struct DRT_SETTINGS(i32);
+pub struct DRT_STATUS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const DRT_S_RETRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(6426640i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const FACILITY_DRT: u32 = 98u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const NS_PNRPCLOUD: u32 = 39u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const NS_PNRPNAME: u32 = 38u32;
+pub const NS_PROVIDER_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013070, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
+pub const NS_PROVIDER_PNRPNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013069, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
+pub struct PEERDIST_CLIENT_BASIC_INFO(i32);
+pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(i32);
+pub struct PEERDIST_CONTENT_TAG(i32);
+pub struct PEERDIST_PUBLICATION_OPTIONS(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEERDIST_PUBLICATION_OPTIONS_VERSION: i32 = 2i32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_2: i32 = 2i32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEERDIST_READ_TIMEOUT_DEFAULT: u32 = 4294967294u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEERDIST_READ_TIMEOUT_LOCAL_CACHE_ONLY: u32 = 0u32;
+pub struct PEERDIST_RETRIEVAL_OPTIONS(i32);
+pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(i32);
+pub struct PEERDIST_STATUS(i32);
+pub struct PEERDIST_STATUS_INFO(i32);
+pub struct PEER_ADDRESS(i32);
+pub struct PEER_APPLICATION(i32);
+pub struct PEER_APPLICATION_REGISTRATION_INFO(i32);
+pub struct PEER_APPLICATION_REGISTRATION_TYPE(i32);
+pub struct PEER_APP_LAUNCH_INFO(i32);
+pub struct PEER_CHANGE_TYPE(i32);
+pub struct PEER_COLLAB_EVENT_DATA(i32);
+pub struct PEER_COLLAB_EVENT_REGISTRATION(i32);
+pub struct PEER_COLLAB_EVENT_TYPE(i32);
+pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3709203487, data2: 64590, data3: 18722, data4: [176, 53, 76, 6, 167, 84, 208, 29] };
+pub struct PEER_CONNECTION_FLAGS(i32);
+pub struct PEER_CONNECTION_INFO(i32);
+pub struct PEER_CONNECTION_STATUS(i32);
+pub struct PEER_CONTACT(i32);
+pub struct PEER_CREDENTIAL_INFO(i32);
+pub struct PEER_DATA(i32);
+pub struct PEER_ENDPOINT(i32);
+pub struct PEER_EVENT_APPLICATION_CHANGED_DATA(i32);
+pub struct PEER_EVENT_CONNECTION_CHANGE_DATA(i32);
+pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA(i32);
+pub struct PEER_EVENT_INCOMING_DATA(i32);
+pub struct PEER_EVENT_MEMBER_CHANGE_DATA(i32);
+pub struct PEER_EVENT_NODE_CHANGE_DATA(i32);
+pub struct PEER_EVENT_OBJECT_CHANGED_DATA(i32);
+pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA(i32);
+pub struct PEER_EVENT_PRESENCE_CHANGED_DATA(i32);
+pub struct PEER_EVENT_RECORD_CHANGE_DATA(i32);
+pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA(i32);
+pub struct PEER_EVENT_SYNCHRONIZED_DATA(i32);
+pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024713i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013390i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_CLOUD_DISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013394i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_CLOUD_IS_DEAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013387i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_CLOUD_IS_SEARCH_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013391i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_CLOUD_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013395i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_DISK_FULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024784i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_DUPLICATE_PEER_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013388i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_INVALID_IDENTITY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013393i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023728i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PEER_E_TOO_MUCH_LOAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013392i32 as _);
+pub struct PEER_GRAPH_EVENT_DATA(i32);
+pub struct PEER_GRAPH_EVENT_REGISTRATION(i32);
+pub struct PEER_GRAPH_EVENT_TYPE(i32);
+pub struct PEER_GRAPH_PROPERTIES(i32);
+pub struct PEER_GRAPH_PROPERTY_FLAGS(i32);
+pub struct PEER_GRAPH_SCOPE(i32);
+pub struct PEER_GRAPH_STATUS_FLAGS(i32);
+pub struct PEER_GROUP_AUTHENTICATION_SCHEME(i32);
+pub struct PEER_GROUP_EVENT_DATA(i32);
+pub struct PEER_GROUP_EVENT_REGISTRATION(i32);
+pub struct PEER_GROUP_EVENT_TYPE(i32);
+pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(i32);
+pub struct PEER_GROUP_PROPERTIES(i32);
+pub struct PEER_GROUP_PROPERTY_FLAGS(i32);
+pub const PEER_GROUP_ROLE_ADMIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 70807847, data2: 43606, data3: 17674, data4: [140, 229, 79, 86, 92, 103, 144, 244] };
+pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1131478409,
+    data2: 56344,
+    data3: 19707,
+    data4: [141, 191, 152, 83, 168, 169, 249, 5],
+};
+pub const PEER_GROUP_ROLE_MEMBER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4046308551,
+    data2: 2135,
+    data3: 19616,
+    data4: [147, 252, 177, 187, 25, 163, 216, 194],
+};
+pub struct PEER_GROUP_STATUS(i32);
+pub struct PEER_INVITATION(i32);
+pub struct PEER_INVITATION_INFO(i32);
+pub struct PEER_INVITATION_RESPONSE(i32);
+pub struct PEER_INVITATION_RESPONSE_TYPE(i32);
+pub struct PEER_MEMBER(i32);
+pub struct PEER_MEMBER_CHANGE_TYPE(i32);
+pub struct PEER_MEMBER_FLAGS(i32);
+pub struct PEER_NAME_PAIR(i32);
+pub struct PEER_NODE_CHANGE_TYPE(i32);
+pub struct PEER_NODE_INFO(i32);
+pub struct PEER_OBJECT(i32);
+pub struct PEER_PEOPLE_NEAR_ME(i32);
+pub struct PEER_PNRP_CLOUD_INFO(i32);
+pub struct PEER_PNRP_ENDPOINT_INFO(i32);
+pub struct PEER_PNRP_REGISTRATION_INFO(i32);
+pub struct PEER_PRESENCE_INFO(i32);
+pub struct PEER_PRESENCE_STATUS(i32);
+pub struct PEER_PUBLICATION_SCOPE(i32);
+pub struct PEER_RECORD(i32);
+pub struct PEER_RECORD_CHANGE_TYPE(i32);
+pub struct PEER_RECORD_FLAGS(i32);
+pub struct PEER_SECURITY_INTERFACE(i32);
+pub struct PEER_SIGNIN_FLAGS(i32);
+pub struct PEER_VERSION_DATA(i32);
+pub struct PEER_WATCH_PERMISSION(i32);
+pub struct PFNPEER_FREE_SECURITY_DATA(i32);
+pub struct PFNPEER_ON_PASSWORD_AUTH_FAILED(i32);
+pub struct PFNPEER_SECURE_RECORD(i32);
+pub struct PFNPEER_VALIDATE_RECORD(i32);
+pub struct PNRPCLOUDINFO(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PNRPINFO_HINT: u32 = 1u32;
+pub struct PNRPINFO_V1(i32);
+pub struct PNRPINFO_V2(i32);
+pub struct PNRP_CLOUD_FLAGS(i32);
+pub struct PNRP_CLOUD_ID(i32);
+pub struct PNRP_CLOUD_STATE(i32);
+pub struct PNRP_EXTENDED_PAYLOAD_TYPE(i32);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const PNRP_MAX_EXTENDED_PAYLOAD_BYTES: u32 = 4096u32;
+pub struct PNRP_REGISTERED_ID_STATE(i32);
+pub struct PNRP_RESOLVE_CRITERIA(i32);
+pub struct PNRP_SCOPE(i32);
+pub const SVCID_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113830, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
+pub const SVCID_PNRPNAME_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113829, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
+pub const SVCID_PNRPNAME_V2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113831, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: u32 = 11506u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_CLOUD_DISABLED: u32 = 11502u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_CLOUD_IS_DEAD: u32 = 11509u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_CLOUD_IS_SEARCH_ONLY: u32 = 11505u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_CLOUD_NOT_FOUND: u32 = 11501u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_DUPLICATE_PEER_NAME: u32 = 11508u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_ERROR_BASE: u32 = 11500u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;

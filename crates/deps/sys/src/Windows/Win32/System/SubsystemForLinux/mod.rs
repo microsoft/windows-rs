@@ -23,3 +23,4 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WslUnregisterDistribution(distributionname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
+pub struct WSL_DISTRIBUTION_FLAGS(i32);

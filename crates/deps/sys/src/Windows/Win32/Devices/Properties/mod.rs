@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Properties`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_DevQuery_ObjectType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -1729,8 +1731,12 @@ pub const DEVPKEY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY =
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 10u32,
 };
+pub struct DEVPROPCOMPKEY(i32);
+pub struct DEVPROPERTY(i32);
 #[doc = "*Required features: `Win32_Devices_Properties`*"]
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
+pub struct DEVPROPKEY(i32);
+pub struct DEVPROPSTORE(i32);
 #[doc = "*Required features: `Win32_Devices_Properties`*"]
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 #[doc = "*Required features: `Win32_Devices_Properties`*"]
@@ -1795,5 +1801,3 @@ pub const DEVPROP_TYPE_UINT64: u32 = 9u32;
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
 #[doc = "*Required features: `Win32_Devices_Properties`*"]
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
-#[link(name = "windows")]
-extern "system" {}

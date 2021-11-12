@@ -1,3 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IPrintTicketCapabilities(i32);
+pub struct IPrintTicketFeature(i32);
+pub struct IPrintTicketOption(i32);
+pub struct IPrintTicketParameterDefinition(i32);
+pub struct IPrintTicketParameterInitializer(i32);
+pub struct IPrintTicketValue(i32);
+pub struct IWorkflowPrintTicket(i32);
+pub struct IWorkflowPrintTicketValidationResult(i32);
+pub struct PrintTicketCapabilities(i32);
+pub struct PrintTicketFeature(i32);
+pub struct PrintTicketFeatureSelectionType(i32);
+pub struct PrintTicketOption(i32);
+pub struct PrintTicketParameterDataType(i32);
+pub struct PrintTicketParameterDefinition(i32);
+pub struct PrintTicketParameterInitializer(i32);
+pub struct PrintTicketValue(i32);
+pub struct PrintTicketValueType(i32);
+pub struct WorkflowPrintTicket(i32);
+pub struct WorkflowPrintTicketValidationResult(i32);

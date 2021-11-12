@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 pub const E_FDPAIRING_AUTHFAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193917i32 as _);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -62,6 +64,25 @@ pub const FMTID_WSD: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18212,
     data4: [160, 90, 91, 129, 136, 90, 124, 146],
 };
+pub struct FunctionDiscovery(i32);
+pub struct FunctionInstanceCollection(i32);
+pub struct IFunctionDiscovery(i32);
+pub struct IFunctionDiscoveryNotification(i32);
+pub struct IFunctionDiscoveryProvider(i32);
+pub struct IFunctionDiscoveryProviderFactory(i32);
+pub struct IFunctionDiscoveryProviderQuery(i32);
+pub struct IFunctionDiscoveryServiceProvider(i32);
+pub struct IFunctionInstance(i32);
+pub struct IFunctionInstanceCollection(i32);
+pub struct IFunctionInstanceCollectionQuery(i32);
+pub struct IFunctionInstanceQuery(i32);
+pub struct IPNPXAssociation(i32);
+pub struct IPNPXDeviceAssociation(i32);
+pub struct IPropertyStoreCollection(i32);
+pub struct IProviderProperties(i32);
+pub struct IProviderPropertyConstraintCollection(i32);
+pub struct IProviderPublishing(i32);
+pub struct IProviderQueryConstraintCollection(i32);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -2199,6 +2220,8 @@ pub const PKEY_WNET_Usage: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     },
     pid: 4u32,
 };
+pub struct PNPXAssociation(i32);
+pub struct PNPXPairingHandler(i32);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
@@ -2207,6 +2230,11 @@ pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
 pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
+pub struct PropertyConstraint(i32);
+pub struct PropertyStore(i32);
+pub struct PropertyStoreCollection(i32);
+pub struct QueryCategoryType(i32);
+pub struct QueryUpdateAction(i32);
 pub const SID_DeviceDisplayStatusManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4120552787, data2: 33545, data3: 18122, data4: [151, 54, 26, 195, 198, 45, 96, 49] };
 pub const SID_EnumDeviceFunction: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 333507042,
@@ -2249,5 +2277,4 @@ pub const SID_UninstallDeviceFunction: ::windows_sys::core::GUID = ::windows_sys
     data4: [128, 37, 191, 11, 137, 189, 68, 205],
 };
 pub const SID_UnpairProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2309292796, data2: 34171, data3: 18072, data4: [160, 183, 2, 113, 146, 0, 47, 158] };
-#[link(name = "windows")]
-extern "system" {}
+pub struct SystemVisibilityFlags(i32);

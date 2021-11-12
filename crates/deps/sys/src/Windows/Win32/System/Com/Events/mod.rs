@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct CEventClass(i32);
+pub struct CEventPublisher(i32);
+pub struct CEventSubscription(i32);
+pub struct CEventSystem(i32);
+pub struct COMEVENTSYSCHANGEINFO(i32);
+pub struct EOC_ChangeType(i32);
+pub struct EventObjectChange(i32);
+pub struct EventObjectChange2(i32);
+pub struct IDontSupportEventSubscription(i32);
+pub struct IEnumEventObject(i32);
+pub struct IEventClass(i32);
+pub struct IEventClass2(i32);
+pub struct IEventControl(i32);
+pub struct IEventObjectChange(i32);
+pub struct IEventObjectChange2(i32);
+pub struct IEventObjectCollection(i32);
+pub struct IEventProperty(i32);
+pub struct IEventPublisher(i32);
+pub struct IEventSubscription(i32);
+pub struct IEventSystem(i32);
+pub struct IFiringControl(i32);
+pub struct IMultiInterfaceEventControl(i32);
+pub struct IMultiInterfacePublisherFilter(i32);
+pub struct IPublisherFilter(i32);

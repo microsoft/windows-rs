@@ -1,4 +1,30 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
+    pub fn SwDeviceClose(hswdevice: HSWDEVICE);
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`, `Win32_Security`*"]
+    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub fn SwDeviceCreate(pszenumeratorname: super::super::super::Foundation::PWSTR, pszparentdeviceinstance: super::super::super::Foundation::PWSTR, pcreateinfo: *const SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *const ::core::ffi::c_void, phswdevice: *mut isize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
+    pub fn SwDeviceGetLifetime(hswdevice: HSWDEVICE, plifetime: *mut SW_DEVICE_LIFETIME) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+    pub fn SwDeviceInterfacePropertySet(hswdevice: HSWDEVICE, pszdeviceinterfaceid: super::super::super::Foundation::PWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+    pub fn SwDeviceInterfaceRegister(hswdevice: HSWDEVICE, pinterfaceclassguid: *const ::windows_sys::core::GUID, pszreferencestring: super::super::super::Foundation::PWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, fenabled: super::super::super::Foundation::BOOL, ppszdeviceinterfaceid: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SwDeviceInterfaceSetState(hswdevice: HSWDEVICE, pszdeviceinterfaceid: super::super::super::Foundation::PWSTR, fenabled: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
+    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+    pub fn SwDevicePropertySet(hswdevice: HSWDEVICE, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
+    pub fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
+    pub fn SwMemFree(pmem: *const ::core::ffi::c_void);
+}
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
@@ -13,6 +39,37 @@ pub const FAULT_INVALID_ARG: u32 = 402u32;
 pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
+pub struct HSWDEVICE(i32);
+pub struct IUPnPAddressFamilyControl(i32);
+pub struct IUPnPAsyncResult(i32);
+pub struct IUPnPDescriptionDocument(i32);
+pub struct IUPnPDescriptionDocumentCallback(i32);
+pub struct IUPnPDevice(i32);
+pub struct IUPnPDeviceControl(i32);
+pub struct IUPnPDeviceControlHttpHeaders(i32);
+pub struct IUPnPDeviceDocumentAccess(i32);
+pub struct IUPnPDeviceDocumentAccessEx(i32);
+pub struct IUPnPDeviceFinder(i32);
+pub struct IUPnPDeviceFinderAddCallbackWithInterface(i32);
+pub struct IUPnPDeviceFinderCallback(i32);
+pub struct IUPnPDeviceProvider(i32);
+pub struct IUPnPDevices(i32);
+pub struct IUPnPEventSink(i32);
+pub struct IUPnPEventSource(i32);
+pub struct IUPnPHttpHeaderControl(i32);
+pub struct IUPnPRegistrar(i32);
+pub struct IUPnPRemoteEndpointInfo(i32);
+pub struct IUPnPReregistrar(i32);
+pub struct IUPnPService(i32);
+pub struct IUPnPServiceAsync(i32);
+pub struct IUPnPServiceCallback(i32);
+pub struct IUPnPServiceDocumentAccess(i32);
+pub struct IUPnPServiceEnumProperty(i32);
+pub struct IUPnPServices(i32);
+pub struct SW_DEVICE_CAPABILITIES(i32);
+pub struct SW_DEVICE_CREATE_CALLBACK(i32);
+pub struct SW_DEVICE_CREATE_INFO(i32);
+pub struct SW_DEVICE_LIFETIME(i32);
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
@@ -89,29 +146,13 @@ pub const UPNP_E_VALUE_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_sys::c
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220974i32 as _);
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
-    pub fn SwDeviceClose(hswdevice: HSWDEVICE);
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`, `Win32_Security`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn SwDeviceCreate(pszenumeratorname: super::super::super::Foundation::PWSTR, pszparentdeviceinstance: super::super::super::Foundation::PWSTR, pcreateinfo: *const SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *const ::core::ffi::c_void, phswdevice: *mut isize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
-    pub fn SwDeviceGetLifetime(hswdevice: HSWDEVICE, plifetime: *mut SW_DEVICE_LIFETIME) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SwDeviceInterfacePropertySet(hswdevice: HSWDEVICE, pszdeviceinterfaceid: super::super::super::Foundation::PWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SwDeviceInterfaceRegister(hswdevice: HSWDEVICE, pinterfaceclassguid: *const ::windows_sys::core::GUID, pszreferencestring: super::super::super::Foundation::PWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, fenabled: super::super::super::Foundation::BOOL, ppszdeviceinterfaceid: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SwDeviceInterfaceSetState(hswdevice: HSWDEVICE, pszdeviceinterfaceid: super::super::super::Foundation::PWSTR, fenabled: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SwDevicePropertySet(hswdevice: HSWDEVICE, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
-    pub fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
-    pub fn SwMemFree(pmem: *const ::core::ffi::c_void);
-}
+pub struct UPnPDescriptionDocument(i32);
+pub struct UPnPDescriptionDocumentEx(i32);
+pub struct UPnPDevice(i32);
+pub struct UPnPDeviceFinder(i32);
+pub struct UPnPDeviceFinderEx(i32);
+pub struct UPnPDevices(i32);
+pub struct UPnPRegistrar(i32);
+pub struct UPnPRemoteEndpointInfo(i32);
+pub struct UPnPService(i32);
+pub struct UPnPServices(i32);

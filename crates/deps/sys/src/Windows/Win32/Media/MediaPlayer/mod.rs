@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 pub const CLSID_WMPMediaPluginRegistrar: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1433004021,
     data2: 16971,
@@ -968,10 +970,132 @@ pub const EFFECT_HASPROPERTYPAGE: u32 = 2u32;
 pub const EFFECT_VARIABLEFREQSTEP: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const EFFECT_WINDOWEDONLY: u32 = 8u32;
+pub struct FEEDS_BACKGROUNDSYNC_ACTION(i32);
+pub struct FEEDS_BACKGROUNDSYNC_STATUS(i32);
+pub struct FEEDS_DOWNLOAD_ERROR(i32);
+pub struct FEEDS_DOWNLOAD_STATUS(i32);
+pub struct FEEDS_ERROR_CODE(i32);
+pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(i32);
+pub struct FEEDS_EVENTS_MASK(i32);
+pub struct FEEDS_EVENTS_SCOPE(i32);
+pub struct FEEDS_SYNC_SETTING(i32);
+pub struct FEEDS_XML_FILTER_FLAGS(i32);
+pub struct FEEDS_XML_INCLUDE_FLAGS(i32);
+pub struct FEEDS_XML_SORT_ORDER(i32);
+pub struct FEEDS_XML_SORT_PROPERTY(i32);
+pub struct FeedFolderWatcher(i32);
+pub struct FeedWatcher(i32);
+pub struct FeedsManager(i32);
+pub struct IFeed(i32);
+pub struct IFeed2(i32);
+pub struct IFeedEnclosure(i32);
+pub struct IFeedEvents(i32);
+pub struct IFeedFolder(i32);
+pub struct IFeedFolderEvents(i32);
+pub struct IFeedItem(i32);
+pub struct IFeedItem2(i32);
+pub struct IFeedsEnum(i32);
+pub struct IFeedsManager(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const IOCTL_WMP_DEVICE_CAN_SYNC: u32 = 844123479u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const IOCTL_WMP_METADATA_ROUND_TRIP: u32 = 827346263u32;
+pub struct IWMPAudioRenderConfig(i32);
+pub struct IWMPCdrom(i32);
+pub struct IWMPCdromBurn(i32);
+pub struct IWMPCdromCollection(i32);
+pub struct IWMPCdromRip(i32);
+pub struct IWMPClosedCaption(i32);
+pub struct IWMPClosedCaption2(i32);
+pub struct IWMPContentContainer(i32);
+pub struct IWMPContentContainerList(i32);
+pub struct IWMPContentPartner(i32);
+pub struct IWMPContentPartnerCallback(i32);
+pub struct IWMPControls(i32);
+pub struct IWMPControls2(i32);
+pub struct IWMPControls3(i32);
+pub struct IWMPConvert(i32);
+pub struct IWMPCore(i32);
+pub struct IWMPCore2(i32);
+pub struct IWMPCore3(i32);
+pub struct IWMPDVD(i32);
+pub struct IWMPDownloadCollection(i32);
+pub struct IWMPDownloadItem(i32);
+pub struct IWMPDownloadItem2(i32);
+pub struct IWMPDownloadManager(i32);
+pub struct IWMPEffects(i32);
+pub struct IWMPEffects2(i32);
+pub struct IWMPError(i32);
+pub struct IWMPErrorItem(i32);
+pub struct IWMPErrorItem2(i32);
+pub struct IWMPEvents(i32);
+pub struct IWMPEvents2(i32);
+pub struct IWMPEvents3(i32);
+pub struct IWMPEvents4(i32);
+pub struct IWMPFolderMonitorServices(i32);
+pub struct IWMPGraphCreation(i32);
+pub struct IWMPLibrary(i32);
+pub struct IWMPLibrary2(i32);
+pub struct IWMPLibraryServices(i32);
+pub struct IWMPLibrarySharingServices(i32);
+pub struct IWMPMedia(i32);
+pub struct IWMPMedia2(i32);
+pub struct IWMPMedia3(i32);
+pub struct IWMPMediaCollection(i32);
+pub struct IWMPMediaCollection2(i32);
+pub struct IWMPMediaPluginRegistrar(i32);
+pub struct IWMPMetadataPicture(i32);
+pub struct IWMPMetadataText(i32);
+pub struct IWMPNetwork(i32);
+pub struct IWMPNodeRealEstate(i32);
+pub struct IWMPNodeRealEstateHost(i32);
+pub struct IWMPNodeWindowed(i32);
+pub struct IWMPNodeWindowedHost(i32);
+pub struct IWMPNodeWindowless(i32);
+pub struct IWMPNodeWindowlessHost(i32);
+pub struct IWMPPlayer(i32);
+pub struct IWMPPlayer2(i32);
+pub struct IWMPPlayer3(i32);
+pub struct IWMPPlayer4(i32);
+pub struct IWMPPlayerApplication(i32);
+pub struct IWMPPlayerServices(i32);
+pub struct IWMPPlayerServices2(i32);
+pub struct IWMPPlaylist(i32);
+pub struct IWMPPlaylistArray(i32);
+pub struct IWMPPlaylistCollection(i32);
+pub struct IWMPPlugin(i32);
+pub struct IWMPPluginEnable(i32);
+pub struct IWMPPluginUI(i32);
+pub struct IWMPQuery(i32);
+pub struct IWMPRemoteMediaServices(i32);
+pub struct IWMPRenderConfig(i32);
+pub struct IWMPServices(i32);
+pub struct IWMPSettings(i32);
+pub struct IWMPSettings2(i32);
+pub struct IWMPSkinManager(i32);
+pub struct IWMPStringCollection(i32);
+pub struct IWMPStringCollection2(i32);
+pub struct IWMPSubscriptionService(i32);
+pub struct IWMPSubscriptionService2(i32);
+pub struct IWMPSubscriptionServiceCallback(i32);
+pub struct IWMPSyncDevice(i32);
+pub struct IWMPSyncDevice2(i32);
+pub struct IWMPSyncDevice3(i32);
+pub struct IWMPSyncServices(i32);
+pub struct IWMPTranscodePolicy(i32);
+pub struct IWMPUserEventSink(i32);
+pub struct IWMPVideoRenderConfig(i32);
+pub struct IWMPWindowMessageSink(i32);
+pub struct IXFeed(i32);
+pub struct IXFeed2(i32);
+pub struct IXFeedEnclosure(i32);
+pub struct IXFeedEvents(i32);
+pub struct IXFeedFolder(i32);
+pub struct IXFeedFolderEvents(i32);
+pub struct IXFeedItem(i32);
+pub struct IXFeedItem2(i32);
+pub struct IXFeedsEnum(i32);
+pub struct IXFeedsManager(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const PLUGIN_FLAGS_ACCEPTSMEDIA: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -996,6 +1120,7 @@ pub const PLUGIN_TYPE_METADATAAREA: u32 = 5u32;
 pub const PLUGIN_TYPE_SEPARATEWINDOW: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const PLUGIN_TYPE_SETTINGSAREA: u32 = 4u32;
+pub struct PlayerState(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const SA_BUFFER_SIZE: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -1018,6 +1143,10 @@ pub const SUBSCRIPTION_CAP_PREPAREFORSYNC: u32 = 32u32;
 pub const SUBSCRIPTION_CAP_UILESSMODE_ALLOWPLAY: u32 = 256u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const SUBSCRIPTION_V1_CAPS: u32 = 15u32;
+pub struct TimedLevel(i32);
+pub struct WMPAccountType(i32);
+pub struct WMPBurnFormat(i32);
+pub struct WMPBurnState(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPCOREEVENT_BASE: u32 = 5000u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -1036,6 +1165,10 @@ pub const WMPCOREEVENT_PLAYLIST_BASE: u32 = 5800u32;
 pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
+pub struct WMPCallbackNotification(i32);
+pub struct WMPContextMenuInfo(i32);
+pub struct WMPDeviceStatus(i32);
+pub struct WMPFolderScanState(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPGC_FLAGS_ALLOW_PREROLL: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -1046,8 +1179,26 @@ pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
 pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
+pub struct WMPLib(i32);
+pub struct WMPLibraryType(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPOCXEVENT_BASE: u32 = 6500u32;
+pub struct WMPOpenState(i32);
+pub struct WMPPartnerNotification(i32);
+pub struct WMPPlayState(i32);
+pub struct WMPPlaylistChangeEventType(i32);
+pub struct WMPPlugin_Caps(i32);
+pub struct WMPRemoteMediaServices(i32);
+pub struct WMPRipState(i32);
+pub struct WMPServices_StreamState(i32);
+pub struct WMPStreamingType(i32);
+pub struct WMPStringCollectionChangeEventType(i32);
+pub struct WMPSubscriptionDownloadState(i32);
+pub struct WMPSubscriptionServiceEvent(i32);
+pub struct WMPSyncState(i32);
+pub struct WMPTaskType(i32);
+pub struct WMPTemplateSize(i32);
+pub struct WMPTransactionType(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPUE_EC_USER: u32 = 33024u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -1062,6 +1213,8 @@ pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows_sys::core::GUID = ::windows_sy
     data4: [154, 79, 35, 153, 17, 143, 243, 140],
 };
 pub const WMP_PLUGINTYPE_RENDERING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2824160577, data2: 4445, data3: 16490, data4: [164, 199, 81, 17, 28, 51, 1, 131] };
+pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC(i32);
+pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE(i32);
 pub const WMProfile_V40_100Video: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2409225688,
     data2: 26244,
@@ -1306,6 +1459,8 @@ pub const WMProfile_V80_HIGHVBRVideo: ::windows_sys::core::GUID = ::windows_sys:
     data3: 20400,
     data4: [163, 211, 136, 212, 172, 133, 74, 204],
 };
+pub struct WindowsMediaPlayer(i32);
+pub struct _WMPOCXEvents(i32);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const g_szAllAuthors: &'static str = "AllAuthors";
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
@@ -1460,5 +1615,3 @@ pub const g_szWMParentalRating: &'static str = "WMParentalRating";
 pub const kfltTimedLevelMaximumFrequency: f32 = 22050f32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const kfltTimedLevelMinimumFrequency: f32 = 20f32;
-#[link(name = "windows")]
-extern "system" {}

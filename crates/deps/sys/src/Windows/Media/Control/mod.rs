@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct CurrentSessionChangedEventArgs(i32);
+pub struct GlobalSystemMediaTransportControlsSession(i32);
+pub struct GlobalSystemMediaTransportControlsSessionManager(i32);
+pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(i32);
+pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(i32);
+pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(i32);
+pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(i32);
+pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(i32);
+pub struct ICurrentSessionChangedEventArgs(i32);
+pub struct IGlobalSystemMediaTransportControlsSession(i32);
+pub struct IGlobalSystemMediaTransportControlsSessionManager(i32);
+pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics(i32);
+pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(i32);
+pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(i32);
+pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo(i32);
+pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(i32);
+pub struct IMediaPropertiesChangedEventArgs(i32);
+pub struct IPlaybackInfoChangedEventArgs(i32);
+pub struct ISessionsChangedEventArgs(i32);
+pub struct ITimelinePropertiesChangedEventArgs(i32);
+pub struct MediaPropertiesChangedEventArgs(i32);
+pub struct PlaybackInfoChangedEventArgs(i32);
+pub struct SessionsChangedEventArgs(i32);
+pub struct TimelinePropertiesChangedEventArgs(i32);

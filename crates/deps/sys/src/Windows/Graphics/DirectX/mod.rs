@@ -3,3 +3,7 @@
 pub mod Direct3D11;
 #[link(name = "windows")]
 extern "system" {}
+pub struct DirectXAlphaMode(i32);
+pub struct DirectXColorSpace(i32);
+pub struct DirectXPixelFormat(i32);
+pub struct DirectXPrimitiveTopology(i32);

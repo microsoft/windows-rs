@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IUserDataTaskDataProviderConnection(i32);
+pub struct IUserDataTaskDataProviderTriggerDetails(i32);
+pub struct IUserDataTaskListCompleteTaskRequest(i32);
+pub struct IUserDataTaskListCompleteTaskRequestEventArgs(i32);
+pub struct IUserDataTaskListCreateOrUpdateTaskRequest(i32);
+pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(i32);
+pub struct IUserDataTaskListDeleteTaskRequest(i32);
+pub struct IUserDataTaskListDeleteTaskRequestEventArgs(i32);
+pub struct IUserDataTaskListSkipOccurrenceRequest(i32);
+pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(i32);
+pub struct IUserDataTaskListSyncManagerSyncRequest(i32);
+pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(i32);
+pub struct UserDataTaskDataProviderConnection(i32);
+pub struct UserDataTaskDataProviderTriggerDetails(i32);
+pub struct UserDataTaskListCompleteTaskRequest(i32);
+pub struct UserDataTaskListCompleteTaskRequestEventArgs(i32);
+pub struct UserDataTaskListCreateOrUpdateTaskRequest(i32);
+pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(i32);
+pub struct UserDataTaskListDeleteTaskRequest(i32);
+pub struct UserDataTaskListDeleteTaskRequestEventArgs(i32);
+pub struct UserDataTaskListSkipOccurrenceRequest(i32);
+pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(i32);
+pub struct UserDataTaskListSyncManagerSyncRequest(i32);
+pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(i32);

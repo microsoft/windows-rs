@@ -1,11 +1,216 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn CloseTrace(tracehandle: u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ControlTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ControlTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateTraceInstanceId(reghandle: super::super::super::Foundation::HANDLE, instinfo: *mut EVENT_INSTANCE_INFO) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CveEventWrite(cveid: super::super::super::Foundation::PWSTR, additionaldetails: super::super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows_sys::core::GUID, tracehandle: u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EnableTraceEx(providerid: *const ::windows_sys::core::GUID, sourceid: *const ::windows_sys::core::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows_sys::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EventAccessControl(guid: *const ::windows_sys::core::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_Security`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub fn EventAccessQuery(guid: *const ::windows_sys::core::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventAccessRemove(guid: *const ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventUnregister(reghandle: u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EventWriteString(reghandle: u64, level: u8, keyword: u64, string: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FlushTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FlushTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn GetTraceEnableFlags(tracehandle: u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn GetTraceEnableLevel(tracehandle: u64) -> u8;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn GetTraceLoggerHandle(buffer: *const ::core::ffi::c_void) -> u64;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+    pub fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+    pub fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ProcessTrace(handlearray: *const u64, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn QueryTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn QueryTraceProcessingHandle(processinghandle: u64, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn QueryTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn RemoveTraceCallback(pguid: *const ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: PEVENT_CALLBACK) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StartTraceA(tracehandle: *mut u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StartTraceW(tracehandle: *mut u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StopTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StopTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhCreatePayloadFilter(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows_sys::core::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhEnumerateProviderFilters(guid: *const ::windows_sys::core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhEnumerateProviders(pbuffer: *mut PROVIDER_ENUMERATION_INFO, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: super::super::super::Foundation::PWSTR, userdataconsumed: *mut u16) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhGetEventMapInformation(pevent: *const EVENT_RECORD, pmapname: super::super::super::Foundation::PWSTR, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhGetManifestEventInformation(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhGetWppProperty(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, propertyname: super::super::super::Foundation::PWSTR, buffersize: *mut u32, buffer: *mut u8) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhLoadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhLoadManifestFromBinary(binarypath: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhLoadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhQueryProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TdhUnloadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TdhUnloadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::core::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
+    pub fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+}
+pub struct CLASSIC_EVENT_ID(i32);
 pub const CLSID_TraceRelogger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2067822893, data2: 1535, data3: 17604, data4: [144, 88, 244, 64, 199, 31, 23, 212] };
+pub struct CTraceRelogger(i32);
+pub struct DECODING_SOURCE(i32);
 pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 135381423,
     data2: 31239,
     data3: 18950,
     data4: [130, 237, 134, 148, 85, 205, 247, 19],
 };
+pub struct ENABLECALLBACK_ENABLED_STATE(i32);
+pub struct ENABLE_TRACE_PARAMETERS(i32);
+pub struct ENABLE_TRACE_PARAMETERS_V1(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ENABLE_TRACE_PARAMETERS_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -18,10 +223,12 @@ pub const ETW_ASCIISTRING_TYPE_VALUE: u32 = 103u32;
 pub const ETW_BOOLEAN_TYPE_VALUE: u32 = 14u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_BOOL_TYPE_VALUE: u32 = 108u32;
+pub struct ETW_BUFFER_CONTEXT(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_BYTE_TYPE_VALUE: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_CHAR_TYPE_VALUE: u32 = 11u32;
+pub struct ETW_COMPRESSION_RESUMPTION_MODE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_COUNTED_ANSISTRING_TYPE_VALUE: u32 = 109u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -48,8 +255,13 @@ pub const ETW_NON_NULL_TERMINATED_STRING_TYPE_VALUE: u32 = 112u32;
 pub const ETW_NULL_TYPE_VALUE: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_OBJECT_TYPE_VALUE: u32 = 1u32;
+pub struct ETW_PMC_COUNTER_OWNER(i32);
+pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS(i32);
+pub struct ETW_PMC_COUNTER_OWNER_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
+pub struct ETW_PROCESS_HANDLE_INFO_TYPE(i32);
+pub struct ETW_PROVIDER_TRAIT_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_PTVECTOR_TYPE_VALUE: u32 = 117u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -72,6 +284,8 @@ pub const ETW_SINGLE_TYPE_VALUE: u32 = 12u32;
 pub const ETW_SIZET_TYPE_VALUE: u32 = 106u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_STRING_TYPE_VALUE: u32 = 2u32;
+pub struct ETW_TRACE_PARTITION_INFORMATION(i32);
+pub struct ETW_TRACE_PARTITION_INFORMATION_V2(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_UINT16_TYPE_VALUE: u32 = 6u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -82,6 +296,7 @@ pub const ETW_UINT64_TYPE_VALUE: u32 = 10u32;
 pub const ETW_VARIANT_TYPE_VALUE: u32 = 116u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_WMITIME_TYPE_VALUE: u32 = 118u32;
+pub struct EVENTSECURITYOPERATION(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -92,6 +307,7 @@ pub const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1u32;
 pub const EVENT_ACTIVITY_CTRL_GET_SET_ID: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_SET_ID: u32 = 2u32;
+pub struct EVENT_DATA_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -100,6 +316,7 @@ pub const EVENT_DATA_DESCRIPTOR_TYPE_NONE: u32 = 0u32;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3u32;
+pub struct EVENT_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_ENABLE_KEYWORD_0: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -124,6 +341,23 @@ pub const EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING: u32 = 2048u32;
 pub const EVENT_ENABLE_PROPERTY_STACK_TRACE: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_TS_ID: u32 = 2u32;
+pub struct EVENT_EXTENDED_ITEM_EVENT_KEY(i32);
+pub struct EVENT_EXTENDED_ITEM_INSTANCE(i32);
+pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX(i32);
+pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS(i32);
+pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY(i32);
+pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID(i32);
+pub struct EVENT_EXTENDED_ITEM_STACK_KEY32(i32);
+pub struct EVENT_EXTENDED_ITEM_STACK_KEY64(i32);
+pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32(i32);
+pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64(i32);
+pub struct EVENT_EXTENDED_ITEM_TS_ID(i32);
+pub struct EVENT_FIELD_TYPE(i32);
+pub struct EVENT_FILTER_DESCRIPTOR(i32);
+pub struct EVENT_FILTER_EVENT_ID(i32);
+pub struct EVENT_FILTER_EVENT_NAME(i32);
+pub struct EVENT_FILTER_HEADER(i32);
+pub struct EVENT_FILTER_LEVEL_KW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -154,6 +388,8 @@ pub const EVENT_FILTER_TYPE_STACKWALK_NAME: u32 = 2147491840u32;
 pub const EVENT_FILTER_TYPE_SYSTEM_FLAGS: u32 = 2147483649u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_TRACEHANDLE: u32 = 2147483650u32;
+pub struct EVENT_HEADER(i32);
+pub struct EVENT_HEADER_EXTENDED_DATA_ITEM(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_CONTAINER_ID: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -220,10 +456,18 @@ pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: u32 = 4u32;
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
+pub struct EVENT_INFO_CLASS(i32);
+pub struct EVENT_INSTANCE_HEADER(i32);
+pub struct EVENT_INSTANCE_INFO(i32);
+pub struct EVENT_MAP_ENTRY(i32);
+pub struct EVENT_MAP_INFO(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_MAX_LEVEL: u32 = 255u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_MIN_LEVEL: u32 = 0u32;
+pub struct EVENT_PROPERTY_INFO(i32);
+pub struct EVENT_RECORD(i32);
+pub struct EVENT_TRACE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_ADDTO_TRIAGE_DUMP: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -232,6 +476,7 @@ pub const EVENT_TRACE_ADD_HEADER_MODE: u32 = 4096u32;
 pub const EVENT_TRACE_BUFFERING_MODE: u32 = 1024u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_COMPRESSED_MODE: u32 = 67108864u32;
+pub struct EVENT_TRACE_CONTROL(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_CONTROL_CONVERT_TO_REALTIME: u32 = 5u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -250,6 +495,7 @@ pub const EVENT_TRACE_FILE_MODE_NONE: u32 = 0u32;
 pub const EVENT_TRACE_FILE_MODE_PREALLOCATE: u32 = 32u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FILE_MODE_SEQUENTIAL: u32 = 1u32;
+pub struct EVENT_TRACE_FLAG(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FLAG_DEBUG_EVENTS: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -258,8 +504,11 @@ pub const EVENT_TRACE_FLAG_ENABLE_RESERVE: u32 = 536870912u32;
 pub const EVENT_TRACE_FLAG_EXTENSION: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FLAG_FORWARD_WMI: u32 = 1073741824u32;
+pub struct EVENT_TRACE_HEADER(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728u32;
+pub struct EVENT_TRACE_LOGFILEA(i32);
+pub struct EVENT_TRACE_LOGFILEW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_MODE_RESERVED: u32 = 1048576u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -272,6 +521,8 @@ pub const EVENT_TRACE_PERSIST_ON_HYBRID_SHUTDOWN: u32 = 8388608u32;
 pub const EVENT_TRACE_PRIVATE_IN_PROC: u32 = 131072u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_PRIVATE_LOGGER_MODE: u32 = 2048u32;
+pub struct EVENT_TRACE_PROPERTIES(i32);
+pub struct EVENT_TRACE_PROPERTIES_V2(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_REAL_TIME_MODE: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -518,6 +769,11 @@ pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
 pub const EventTraceConfigGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 25508453, data2: 16783, data3: 20278, data4: [174, 252, 220, 15, 29, 47, 210, 53] };
 pub const EventTraceGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1761466624, data2: 19006, data3: 4561, data4: [132, 244, 0, 0, 248, 4, 100, 227] };
+pub struct ITraceEvent(i32);
+pub struct ITraceEventCallback(i32);
+pub struct ITraceRelogger(i32);
+pub struct MAP_FLAGS(i32);
+pub struct MAP_VALUETYPE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -536,12 +792,29 @@ pub const MAX_EVENT_FILTER_PID_COUNT: u32 = 8u32;
 pub const MAX_MOF_FIELDS: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_PAYLOAD_PREDICATES: u32 = 8u32;
+pub struct MOF_FIELD(i32);
+pub struct OFFSETINSTANCEDATAANDLENGTH(i32);
+pub struct PAYLOAD_FILTER_PREDICATE(i32);
+pub struct PAYLOAD_OPERATOR(i32);
+pub struct PENABLECALLBACK(i32);
+pub struct PEVENT_CALLBACK(i32);
+pub struct PEVENT_RECORD_CALLBACK(i32);
+pub struct PEVENT_TRACE_BUFFER_CALLBACKA(i32);
+pub struct PEVENT_TRACE_BUFFER_CALLBACKW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
+pub struct PROFILE_SOURCE_INFO(i32);
+pub struct PROPERTY_DATA_DESCRIPTOR(i32);
+pub struct PROPERTY_FLAGS(i32);
+pub struct PROVIDER_ENUMERATION_INFO(i32);
+pub struct PROVIDER_EVENT_INFO(i32);
+pub struct PROVIDER_FIELD_INFO(i32);
+pub struct PROVIDER_FIELD_INFOARRAY(i32);
+pub struct PROVIDER_FILTER_INFO(i32);
 pub const PrivateLoggerNotificationGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 899001180, data2: 1066, data3: 19598, data4: [185, 66, 45, 5, 155, 254, 177, 177] };
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_ALPC_KW_GENERAL: u64 = 1u64;
@@ -806,6 +1079,10 @@ pub const SystemTimerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [171, 46, 237, 160, 174, 137, 10, 91],
 };
 pub const SystemTraceControlGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2659273389, data2: 12804, data3: 4562, data4: [154, 130, 0, 96, 8, 168, 105, 57] };
+pub struct TDH_CONTEXT(i32);
+pub struct TDH_CONTEXT_TYPE(i32);
+pub struct TDH_HANDLE(i32);
+pub struct TEMPLATE_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -824,6 +1101,11 @@ pub const TRACELOG_JOIN_GROUP: u32 = 4096u32;
 pub const TRACELOG_LOG_EVENT: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_REGISTER_GUIDS: u32 = 2048u32;
+pub struct TRACE_ENABLE_INFO(i32);
+pub struct TRACE_EVENT_INFO(i32);
+pub struct TRACE_GUID_INFO(i32);
+pub struct TRACE_GUID_PROPERTIES(i32);
+pub struct TRACE_GUID_REGISTRATION(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_LOG_WNODE: u32 = 262144u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -856,6 +1138,10 @@ pub const TRACE_LEVEL_RESERVED9: u32 = 9u32;
 pub const TRACE_LEVEL_VERBOSE: u32 = 5u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_WARNING: u32 = 3u32;
+pub struct TRACE_LOGFILE_HEADER(i32);
+pub struct TRACE_LOGFILE_HEADER32(i32);
+pub struct TRACE_LOGFILE_HEADER64(i32);
+pub struct TRACE_MESSAGE_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_MESSAGE_FLAG_MASK: u32 = 65535u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -864,10 +1150,19 @@ pub const TRACE_MESSAGE_PERFORMANCE_TIMESTAMP: u32 = 16u32;
 pub const TRACE_MESSAGE_POINTER32: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_MESSAGE_POINTER64: u32 = 128u32;
+pub struct TRACE_PERIODIC_CAPTURE_STATE_INFO(i32);
+pub struct TRACE_PROFILE_INTERVAL(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_PROVIDER_FLAG_LEGACY: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2u32;
+pub struct TRACE_PROVIDER_INFO(i32);
+pub struct TRACE_PROVIDER_INSTANCE_INFO(i32);
+pub struct TRACE_QUERY_INFO_CLASS(i32);
+pub struct TRACE_STACK_CACHING_INFO(i32);
+pub struct TRACE_VERSION_INFO(i32);
+pub struct WMIDPREQUEST(i32);
+pub struct WMIDPREQUESTCODE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_EXECUTE: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -878,6 +1173,8 @@ pub const WMIGUID_QUERY: u32 = 1u32;
 pub const WMIGUID_READ_DESCRIPTION: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_SET: u32 = 2u32;
+pub struct WMIREGGUIDW(i32);
+pub struct WMIREGINFOW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_EVENT_ONLY_GUID: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -908,6 +1205,9 @@ pub const WMI_GUIDTYPE_EVENT: u32 = 3u32;
 pub const WMI_GUIDTYPE_TRACE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMI_GUIDTYPE_TRACECONTROL: u32 = 0u32;
+pub struct WNODE_ALL_DATA(i32);
+pub struct WNODE_EVENT_ITEM(i32);
+pub struct WNODE_EVENT_REFERENCE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_ALL_DATA: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -954,202 +1254,10 @@ pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn CloseTrace(tracehandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ControlTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ControlTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateTraceInstanceId(reghandle: super::super::super::Foundation::HANDLE, instinfo: *mut EVENT_INSTANCE_INFO) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CveEventWrite(cveid: super::super::super::Foundation::PWSTR, additionaldetails: super::super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows_sys::core::GUID, tracehandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EnableTraceEx(providerid: *const ::windows_sys::core::GUID, sourceid: *const ::windows_sys::core::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows_sys::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EventAccessControl(guid: *const ::windows_sys::core::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_Security`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn EventAccessQuery(guid: *const ::windows_sys::core::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventAccessRemove(guid: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventUnregister(reghandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EventWriteString(reghandle: u64, level: u8, keyword: u64, string: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FlushTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FlushTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn GetTraceEnableFlags(tracehandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn GetTraceEnableLevel(tracehandle: u64) -> u8;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn GetTraceLoggerHandle(buffer: *const ::core::ffi::c_void) -> u64;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-    pub fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-    pub fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ProcessTrace(handlearray: *const u64, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn QueryTraceProcessingHandle(processinghandle: u64, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn RemoveTraceCallback(pguid: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: PEVENT_CALLBACK) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn StartTraceA(tracehandle: *mut u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn StartTraceW(tracehandle: *mut u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn StopTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn StopTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhCreatePayloadFilter(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows_sys::core::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhEnumerateProviderFilters(guid: *const ::windows_sys::core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhEnumerateProviders(pbuffer: *mut PROVIDER_ENUMERATION_INFO, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: super::super::super::Foundation::PWSTR, userdataconsumed: *mut u16) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhGetEventMapInformation(pevent: *const EVENT_RECORD, pmapname: super::super::super::Foundation::PWSTR, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhGetManifestEventInformation(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhGetWppProperty(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, propertyname: super::super::super::Foundation::PWSTR, buffersize: *mut u32, buffer: *mut u8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhLoadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhLoadManifestFromBinary(binarypath: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhLoadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhQueryProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TdhUnloadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TdhUnloadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::core::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
-    pub fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-}
+pub struct WNODE_HEADER(i32);
+pub struct WNODE_METHOD_ITEM(i32);
+pub struct WNODE_SINGLE_INSTANCE(i32);
+pub struct WNODE_SINGLE_ITEM(i32);
+pub struct WNODE_TOO_SMALL(i32);
+pub struct _TDH_IN_TYPE(i32);
+pub struct _TDH_OUT_TYPE(i32);

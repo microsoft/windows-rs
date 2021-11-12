@@ -67,3 +67,24 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TryCancelPendingGameUI() -> super::Foundation::BOOL;
 }
+pub struct GAMESTATS_OPEN_RESULT(i32);
+pub struct GAMESTATS_OPEN_TYPE(i32);
+pub struct GAME_INSTALL_SCOPE(i32);
+pub struct GAMING_DEVICE_DEVICE_ID(i32);
+pub struct GAMING_DEVICE_MODEL_INFORMATION(i32);
+pub struct GAMING_DEVICE_VENDOR_ID(i32);
+pub struct GameExplorer(i32);
+pub struct GameStatistics(i32);
+pub struct GameUICompletionRoutine(i32);
+pub struct IGameExplorer(i32);
+pub struct IGameExplorer2(i32);
+pub struct IGameStatistics(i32);
+pub struct IGameStatisticsMgr(i32);
+pub struct IXblIdpAuthManager(i32);
+pub struct IXblIdpAuthTokenResult(i32);
+pub struct IXblIdpAuthTokenResult2(i32);
+pub struct KnownGamingPrivileges(i32);
+pub struct PlayerPickerUICompletionRoutine(i32);
+pub struct XBL_IDP_AUTH_TOKEN_STATUS(i32);
+pub struct XblIdpAuthManager(i32);
+pub struct XblIdpAuthTokenResult(i32);

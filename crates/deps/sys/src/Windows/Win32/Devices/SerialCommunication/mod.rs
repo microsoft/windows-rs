@@ -1,12 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
-pub const CDB_REPORT_BITS: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
-pub const CDB_REPORT_BYTES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
-pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
-pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
@@ -25,3 +17,12 @@ extern "system" {
     #[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
     pub fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32;
 }
+#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
+pub const CDB_REPORT_BITS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
+pub const CDB_REPORT_BYTES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
+pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Devices_SerialCommunication`*"]
+pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
+pub struct HCOMDB(i32);

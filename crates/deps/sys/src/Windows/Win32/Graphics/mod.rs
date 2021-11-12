@@ -43,3 +43,4 @@ pub mod OpenGL;
 pub mod Printing;
 #[link(name = "windows")]
 extern "system" {}
+pub struct D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(i32);

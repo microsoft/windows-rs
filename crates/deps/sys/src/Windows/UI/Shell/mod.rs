@@ -1,3 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct AdaptiveCardBuilder(i32);
+pub struct IAdaptiveCard(i32);
+pub struct IAdaptiveCardBuilderStatics(i32);
+pub struct ISecurityAppManager(i32);
+pub struct IShareWindowCommandEventArgs(i32);
+pub struct IShareWindowCommandSource(i32);
+pub struct IShareWindowCommandSourceStatics(i32);
+pub struct ITaskbarManager(i32);
+pub struct ITaskbarManager2(i32);
+pub struct ITaskbarManagerStatics(i32);
+pub struct SecurityAppKind(i32);
+pub struct SecurityAppManager(i32);
+pub struct SecurityAppManagerContract(i32);
+pub struct SecurityAppState(i32);
+pub struct SecurityAppSubstatus(i32);
+pub struct ShareWindowCommand(i32);
+pub struct ShareWindowCommandEventArgs(i32);
+pub struct ShareWindowCommandSource(i32);
+pub struct TaskbarManager(i32);

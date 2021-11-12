@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct HidBooleanControl(i32);
+pub struct HidBooleanControlDescription(i32);
+pub struct HidCollection(i32);
+pub struct HidCollectionType(i32);
+pub struct HidDevice(i32);
+pub struct HidFeatureReport(i32);
+pub struct HidInputReport(i32);
+pub struct HidInputReportReceivedEventArgs(i32);
+pub struct HidNumericControl(i32);
+pub struct HidNumericControlDescription(i32);
+pub struct HidOutputReport(i32);
+pub struct HidReportType(i32);
+pub struct IHidBooleanControl(i32);
+pub struct IHidBooleanControlDescription(i32);
+pub struct IHidBooleanControlDescription2(i32);
+pub struct IHidCollection(i32);
+pub struct IHidDevice(i32);
+pub struct IHidDeviceStatics(i32);
+pub struct IHidFeatureReport(i32);
+pub struct IHidInputReport(i32);
+pub struct IHidInputReportReceivedEventArgs(i32);
+pub struct IHidNumericControl(i32);
+pub struct IHidNumericControlDescription(i32);
+pub struct IHidOutputReport(i32);

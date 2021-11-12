@@ -1,8 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const FACILITY_WPC: u32 = 2457u32;
+pub struct IWPCGamesSettings(i32);
+pub struct IWPCProviderConfig(i32);
+pub struct IWPCProviderState(i32);
+pub struct IWPCProviderSupport(i32);
+pub struct IWPCSettings(i32);
+pub struct IWPCWebSettings(i32);
+pub struct IWindowsParentalControls(i32);
+pub struct IWindowsParentalControlsCore(i32);
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_AppBlocked: i32 = -1342177264i32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
@@ -147,6 +157,14 @@ pub const WPCEVENT_WEB_FILEDOWNLOAD_value: u32 = 10u32;
 pub const WPCEVENT_WEB_URLVISIT_value: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_WEB_WEBSITEVISIT_value: u32 = 19u32;
+pub struct WPCFLAG_IM_FEATURE(i32);
+pub struct WPCFLAG_IM_LEAVE(i32);
+pub struct WPCFLAG_ISBLOCKED(i32);
+pub struct WPCFLAG_LOGOFF_TYPE(i32);
+pub struct WPCFLAG_OVERRIDE(i32);
+pub struct WPCFLAG_RESTRICTION(i32);
+pub struct WPCFLAG_VISIBILITY(i32);
+pub struct WPCFLAG_WEB_SETTING(i32);
 pub const WPCPROV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 17367141, data2: 46183, data3: 17667, data4: [155, 40, 83, 55, 102, 118, 16, 135] };
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_KEYWORD_ThirdParty: u32 = 32u32;
@@ -196,6 +214,31 @@ pub const WPCPROV_TASK_WebOverride: u32 = 18u32;
 pub const WPCPROV_TASK_WebsiteVisit: u32 = 19u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_APP_LAUNCH: u32 = 22u32;
+pub struct WPC_ARGS_APPLICATIONEVENT(i32);
+pub struct WPC_ARGS_APPOVERRIDEEVENT(i32);
+pub struct WPC_ARGS_COMPUTERUSAGEEVENT(i32);
+pub struct WPC_ARGS_CONTENTUSAGEEVENT(i32);
+pub struct WPC_ARGS_CONVERSATIONINITEVENT(i32);
+pub struct WPC_ARGS_CONVERSATIONJOINEVENT(i32);
+pub struct WPC_ARGS_CONVERSATIONLEAVEEVENT(i32);
+pub struct WPC_ARGS_CUSTOMEVENT(i32);
+pub struct WPC_ARGS_EMAILCONTACTEVENT(i32);
+pub struct WPC_ARGS_EMAILRECEIEVEDEVENT(i32);
+pub struct WPC_ARGS_EMAILSENTEVENT(i32);
+pub struct WPC_ARGS_FILEDOWNLOADEVENT(i32);
+pub struct WPC_ARGS_GAMESTARTEVENT(i32);
+pub struct WPC_ARGS_IMCONTACTEVENT(i32);
+pub struct WPC_ARGS_IMFEATUREEVENT(i32);
+pub struct WPC_ARGS_MEDIADOWNLOADEVENT(i32);
+pub struct WPC_ARGS_MEDIAPLAYBACKEVENT(i32);
+pub struct WPC_ARGS_SAFERAPPBLOCKED(i32);
+pub struct WPC_ARGS_SETTINGSCHANGEEVENT(i32);
+pub struct WPC_ARGS_URLVISITEVENT(i32);
+pub struct WPC_ARGS_WEBOVERRIDEEVENT(i32);
+pub struct WPC_ARGS_WEBSITEVISITEVENT(i32);
+pub struct WPC_MEDIA_EXPLICIT(i32);
+pub struct WPC_MEDIA_TYPE(i32);
+pub struct WPC_SETTINGS(i32);
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_SETTINGS_LOCATE: u32 = 20u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
@@ -204,5 +247,6 @@ pub const WPC_SETTINGS_MODIFY: u32 = 21u32;
 pub const WPC_SYSTEM: u32 = 23u32;
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_WEB: u32 = 24u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct WindowsParentalControls(i32);
+pub struct WpcProviderSupport(i32);
+pub struct WpcSettingsProvider(i32);

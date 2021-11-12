@@ -1,36 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Environment`*"]
-pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
@@ -140,3 +108,64 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TerminateEnclave(lpaddress: *const ::core::ffi::c_void, fwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
+pub struct ENCLAVE_IDENTITY(i32);
+pub struct ENCLAVE_INFORMATION(i32);
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
+pub struct ENCLAVE_SEALING_IDENTITY_POLICY(i32);
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
+pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(i32);
+pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(i32);
+pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64(i32);
+pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE(i32);
+pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32(i32);
+pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64(i32);
+pub struct VBS_ENCLAVE_REPORT(i32);
+pub struct VBS_ENCLAVE_REPORT_MODULE(i32);
+pub struct VBS_ENCLAVE_REPORT_PKG_HEADER(i32);
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
+pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER(i32);
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
+pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;

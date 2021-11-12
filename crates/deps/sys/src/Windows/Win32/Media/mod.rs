@@ -25,8 +25,31 @@ pub mod Speech;
 pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub mod WindowsMediaFormat;
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeBeginPeriod(uperiod: u32) -> u32;
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeEndPeriod(uperiod: u32) -> u32;
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeGetTime() -> u32;
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeKillEvent(utimerid: u32) -> u32;
+    #[doc = "*Required features: `Win32_Media`*"]
+    pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
+}
+pub struct HTASK(i32);
+pub struct IReferenceClock(i32);
+pub struct IReferenceClock2(i32);
+pub struct IReferenceClockTimerControl(i32);
 #[doc = "*Required features: `Win32_Media`*"]
 pub const JOYERR_BASE: u32 = 160u32;
+pub struct LPDRVCALLBACK(i32);
+pub struct LPTIMECALLBACK(i32);
 #[doc = "*Required features: `Win32_Media`*"]
 pub const MAXERRORLENGTH: u32 = 256u32;
 #[doc = "*Required features: `Win32_Media`*"]
@@ -95,6 +118,7 @@ pub const MMSYSERR_READERROR: u32 = 16u32;
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
 #[doc = "*Required features: `Win32_Media`*"]
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
+pub struct MMTIME(i32);
 #[doc = "*Required features: `Win32_Media`*"]
 pub const MM_ADLIB: u32 = 9u32;
 #[doc = "*Required features: `Win32_Media`*"]
@@ -193,6 +217,10 @@ pub const MM_WOM_CLOSE: u32 = 956u32;
 pub const MM_WOM_DONE: u32 = 957u32;
 #[doc = "*Required features: `Win32_Media`*"]
 pub const MM_WOM_OPEN: u32 = 955u32;
+pub struct TIMECAPS(i32);
+pub struct TIMECODE(i32);
+pub struct TIMECODE_SAMPLE(i32);
+pub struct TIMECODE_SAMPLE_FLAGS(i32);
 #[doc = "*Required features: `Win32_Media`*"]
 pub const TIMERR_BASE: u32 = 96u32;
 #[doc = "*Required features: `Win32_Media`*"]
@@ -227,20 +255,3 @@ pub const TIME_SMPTE: u32 = 8u32;
 pub const TIME_TICKS: u32 = 32u32;
 #[doc = "*Required features: `Win32_Media`*"]
 pub const WAVERR_BASE: u32 = 32u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeBeginPeriod(uperiod: u32) -> u32;
-    #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeEndPeriod(uperiod: u32) -> u32;
-    #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
-    #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
-    #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeGetTime() -> u32;
-    #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeKillEvent(utimerid: u32) -> u32;
-    #[doc = "*Required features: `Win32_Media`*"]
-    pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
-}

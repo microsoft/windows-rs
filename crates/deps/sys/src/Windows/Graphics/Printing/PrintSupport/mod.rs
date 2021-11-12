@@ -1,3 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IPrintSupportExtensionSession(i32);
+pub struct IPrintSupportExtensionTriggerDetails(i32);
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs(i32);
+pub struct IPrintSupportPrintTicketValidationRequestedEventArgs(i32);
+pub struct IPrintSupportSessionInfo(i32);
+pub struct IPrintSupportSettingsActivatedEventArgs(i32);
+pub struct IPrintSupportSettingsUISession(i32);
+pub struct PrintSupportExtensionSession(i32);
+pub struct PrintSupportExtensionTriggerDetails(i32);
+pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(i32);
+pub struct PrintSupportPrintTicketValidationRequestedEventArgs(i32);
+pub struct PrintSupportSessionInfo(i32);
+pub struct PrintSupportSettingsActivatedEventArgs(i32);
+pub struct PrintSupportSettingsUISession(i32);
+pub struct SettingsLaunchKind(i32);
+pub struct WorkflowPrintTicketValidationStatus(i32);

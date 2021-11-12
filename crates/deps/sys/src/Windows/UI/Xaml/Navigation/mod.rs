@@ -1,3 +1,25 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct FrameNavigationOptions(i32);
+pub struct IFrameNavigationOptions(i32);
+pub struct IFrameNavigationOptionsFactory(i32);
+pub struct INavigatingCancelEventArgs(i32);
+pub struct INavigatingCancelEventArgs2(i32);
+pub struct INavigationEventArgs(i32);
+pub struct INavigationEventArgs2(i32);
+pub struct INavigationFailedEventArgs(i32);
+pub struct IPageStackEntry(i32);
+pub struct IPageStackEntryFactory(i32);
+pub struct IPageStackEntryStatics(i32);
+pub struct LoadCompletedEventHandler(i32);
+pub struct NavigatedEventHandler(i32);
+pub struct NavigatingCancelEventArgs(i32);
+pub struct NavigatingCancelEventHandler(i32);
+pub struct NavigationCacheMode(i32);
+pub struct NavigationEventArgs(i32);
+pub struct NavigationFailedEventArgs(i32);
+pub struct NavigationFailedEventHandler(i32);
+pub struct NavigationMode(i32);
+pub struct NavigationStoppedEventHandler(i32);
+pub struct PageStackEntry(i32);

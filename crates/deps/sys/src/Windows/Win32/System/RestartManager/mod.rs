@@ -1,14 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_RestartManager`*"]
-pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
-#[doc = "*Required features: `Win32_System_RestartManager`*"]
-pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
-#[doc = "*Required features: `Win32_System_RestartManager`*"]
-pub const CCH_RM_SESSION_KEY: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_RestartManager`*"]
-pub const RM_INVALID_PROCESS: i32 = -1i32;
-#[doc = "*Required features: `Win32_System_RestartManager`*"]
-pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
@@ -40,3 +30,23 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strsessionkey: super::super::Foundation::PWSTR) -> u32;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
+pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
+pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
+pub const CCH_RM_SESSION_KEY: u32 = 32u32;
+pub struct RM_APP_STATUS(i32);
+pub struct RM_APP_TYPE(i32);
+pub struct RM_FILTER_ACTION(i32);
+pub struct RM_FILTER_INFO(i32);
+pub struct RM_FILTER_TRIGGER(i32);
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
+pub const RM_INVALID_PROCESS: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
+pub const RM_INVALID_TS_SESSION: i32 = -1i32;
+pub struct RM_PROCESS_INFO(i32);
+pub struct RM_REBOOT_REASON(i32);
+pub struct RM_SHUTDOWN_TYPE(i32);
+pub struct RM_UNIQUE_PROCESS(i32);
+pub struct RM_WRITE_STATUS_CALLBACK(i32);

@@ -1,3 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct AddFileResult(i32);
+pub struct FileOpenPickerUI(i32);
+pub struct FileRemovedEventArgs(i32);
+pub struct FileSavePickerUI(i32);
+pub struct FileSelectionMode(i32);
+pub struct IFileOpenPickerUI(i32);
+pub struct IFileRemovedEventArgs(i32);
+pub struct IFileSavePickerUI(i32);
+pub struct IPickerClosingDeferral(i32);
+pub struct IPickerClosingEventArgs(i32);
+pub struct IPickerClosingOperation(i32);
+pub struct ITargetFileRequest(i32);
+pub struct ITargetFileRequestDeferral(i32);
+pub struct ITargetFileRequestedEventArgs(i32);
+pub struct PickerClosingDeferral(i32);
+pub struct PickerClosingEventArgs(i32);
+pub struct PickerClosingOperation(i32);
+pub struct SetFileNameResult(i32);
+pub struct TargetFileRequest(i32);
+pub struct TargetFileRequestDeferral(i32);
+pub struct TargetFileRequestedEventArgs(i32);

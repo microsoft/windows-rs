@@ -1,10 +1,78 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
+pub struct INetworkTransportSettings(i32);
+pub struct INotificationTransportSync(i32);
+pub struct IRTCBuddy(i32);
+pub struct IRTCBuddy2(i32);
+pub struct IRTCBuddyEvent(i32);
+pub struct IRTCBuddyEvent2(i32);
+pub struct IRTCBuddyGroup(i32);
+pub struct IRTCBuddyGroupEvent(i32);
+pub struct IRTCClient(i32);
+pub struct IRTCClient2(i32);
+pub struct IRTCClientEvent(i32);
+pub struct IRTCClientPortManagement(i32);
+pub struct IRTCClientPresence(i32);
+pub struct IRTCClientPresence2(i32);
+pub struct IRTCClientProvisioning(i32);
+pub struct IRTCClientProvisioning2(i32);
+pub struct IRTCCollection(i32);
+pub struct IRTCDispatchEventNotification(i32);
+pub struct IRTCEnumBuddies(i32);
+pub struct IRTCEnumGroups(i32);
+pub struct IRTCEnumParticipants(i32);
+pub struct IRTCEnumPresenceDevices(i32);
+pub struct IRTCEnumProfiles(i32);
+pub struct IRTCEnumUserSearchResults(i32);
+pub struct IRTCEnumWatchers(i32);
+pub struct IRTCEventNotification(i32);
+pub struct IRTCInfoEvent(i32);
+pub struct IRTCIntensityEvent(i32);
+pub struct IRTCMediaEvent(i32);
+pub struct IRTCMediaRequestEvent(i32);
+pub struct IRTCMessagingEvent(i32);
+pub struct IRTCParticipant(i32);
+pub struct IRTCParticipantStateChangeEvent(i32);
+pub struct IRTCPortManager(i32);
+pub struct IRTCPresenceContact(i32);
+pub struct IRTCPresenceDataEvent(i32);
+pub struct IRTCPresenceDevice(i32);
+pub struct IRTCPresencePropertyEvent(i32);
+pub struct IRTCPresenceStatusEvent(i32);
+pub struct IRTCProfile(i32);
+pub struct IRTCProfile2(i32);
+pub struct IRTCProfileEvent(i32);
+pub struct IRTCProfileEvent2(i32);
+pub struct IRTCReInviteEvent(i32);
+pub struct IRTCRegistrationStateChangeEvent(i32);
+pub struct IRTCRoamingEvent(i32);
+pub struct IRTCSession(i32);
+pub struct IRTCSession2(i32);
+pub struct IRTCSessionCallControl(i32);
+pub struct IRTCSessionDescriptionManager(i32);
+pub struct IRTCSessionOperationCompleteEvent(i32);
+pub struct IRTCSessionOperationCompleteEvent2(i32);
+pub struct IRTCSessionPortManagement(i32);
+pub struct IRTCSessionReferStatusEvent(i32);
+pub struct IRTCSessionReferredEvent(i32);
+pub struct IRTCSessionStateChangeEvent(i32);
+pub struct IRTCSessionStateChangeEvent2(i32);
+pub struct IRTCUserSearch(i32);
+pub struct IRTCUserSearchQuery(i32);
+pub struct IRTCUserSearchResult(i32);
+pub struct IRTCUserSearchResultsEvent(i32);
+pub struct IRTCWatcher(i32);
+pub struct IRTCWatcher2(i32);
+pub struct IRTCWatcherEvent(i32);
+pub struct IRTCWatcherEvent2(i32);
+pub struct ITransportSettingsInternal(i32);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCAU_BASIC: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
@@ -19,6 +87,7 @@ pub const RTCAU_USE_LOGON_CRED: u32 = 65536u32;
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
+pub struct RTCClient(i32);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_ALL: u32 = 33554431u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
@@ -125,6 +194,14 @@ pub const RTCTR_TCP: u32 = 2u32;
 pub const RTCTR_TLS: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCTR_UDP: u32 = 1u32;
+pub struct RTC_ACE_SCOPE(i32);
+pub struct RTC_ANSWER_MODE(i32);
+pub struct RTC_AUDIO_DEVICE(i32);
+pub struct RTC_BUDDY_EVENT_TYPE(i32);
+pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(i32);
+pub struct RTC_CLIENT_EVENT_TYPE(i32);
+pub struct RTC_DTMF(i32);
+pub struct RTC_EVENT(i32);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885961i32 as _);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
@@ -499,9 +576,39 @@ pub const RTC_E_TOO_MANY_RETRIES: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const RTC_E_TOO_SMALL_EXPIRES_VALUE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885976i32 as _);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_UDP_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885954i32 as _);
+pub struct RTC_GROUP_EVENT_TYPE(i32);
+pub struct RTC_LISTEN_MODE(i32);
+pub struct RTC_MEDIA_EVENT_REASON(i32);
+pub struct RTC_MEDIA_EVENT_TYPE(i32);
+pub struct RTC_MESSAGING_EVENT_TYPE(i32);
+pub struct RTC_MESSAGING_USER_STATUS(i32);
+pub struct RTC_OFFER_WATCHER_MODE(i32);
+pub struct RTC_PARTICIPANT_STATE(i32);
+pub struct RTC_PORT_TYPE(i32);
+pub struct RTC_PRESENCE_PROPERTY(i32);
+pub struct RTC_PRESENCE_STATUS(i32);
+pub struct RTC_PRIVACY_MODE(i32);
+pub struct RTC_PROFILE_EVENT_TYPE(i32);
+pub struct RTC_PROVIDER_URI(i32);
+pub struct RTC_REGISTRATION_STATE(i32);
+pub struct RTC_REINVITE_STATE(i32);
+pub struct RTC_RING_TYPE(i32);
+pub struct RTC_ROAMING_EVENT_TYPE(i32);
+pub struct RTC_SECURITY_LEVEL(i32);
+pub struct RTC_SECURITY_TYPE(i32);
+pub struct RTC_SESSION_REFER_STATUS(i32);
+pub struct RTC_SESSION_STATE(i32);
+pub struct RTC_SESSION_TYPE(i32);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(15597633i32 as _);
+pub struct RTC_T120_APPLET(i32);
+pub struct RTC_TERMINATE_REASON(i32);
+pub struct RTC_USER_SEARCH_COLUMN(i32);
+pub struct RTC_USER_SEARCH_PREFERENCE(i32);
+pub struct RTC_VIDEO_DEVICE(i32);
+pub struct RTC_WATCHER_EVENT_TYPE(i32);
+pub struct RTC_WATCHER_MATCH_MODE(i32);
+pub struct RTC_WATCHER_STATE(i32);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct TRANSPORT_SETTING(i32);

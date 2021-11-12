@@ -1,4 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_System_Mapi`*"]
+    pub fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
+}
+pub struct LPMAPIADDRESS(i32);
+pub struct LPMAPIDELETEMAIL(i32);
+pub struct LPMAPIDETAILS(i32);
+pub struct LPMAPIFINDNEXT(i32);
+pub struct LPMAPIFREEBUFFER(i32);
+pub struct LPMAPILOGOFF(i32);
+pub struct LPMAPILOGON(i32);
+pub struct LPMAPIREADMAIL(i32);
+pub struct LPMAPIRESOLVENAME(i32);
+pub struct LPMAPISAVEMAIL(i32);
+pub struct LPMAPISENDDOCUMENTS(i32);
+pub struct LPMAPISENDMAIL(i32);
+pub struct LPMAPISENDMAILW(i32);
 #[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;
 #[doc = "*Required features: `Win32_System_Mapi`*"]
@@ -107,10 +125,12 @@ pub const MAPI_UNREAD: u32 = 1u32;
 pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 #[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_USER_ABORT: u32 = 1u32;
+pub struct MapiFileDesc(i32);
+pub struct MapiFileDescW(i32);
+pub struct MapiFileTagExt(i32);
+pub struct MapiMessage(i32);
+pub struct MapiMessageW(i32);
+pub struct MapiRecipDesc(i32);
+pub struct MapiRecipDescW(i32);
 #[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const SUCCESS_SUCCESS: u32 = 0u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_System_Mapi`*"]
-    pub fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
-}

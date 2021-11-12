@@ -1,20 +1,96 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct BSSID_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const CLOCK_PRECISION: u32 = 4u32;
+pub struct DOT11EXTIHV_ADAPTER_RESET(i32);
+pub struct DOT11EXTIHV_CONTROL(i32);
+pub struct DOT11EXTIHV_CREATE_DISCOVERY_PROFILES(i32);
+pub struct DOT11EXTIHV_DEINIT_ADAPTER(i32);
+pub struct DOT11EXTIHV_DEINIT_SERVICE(i32);
+pub struct DOT11EXTIHV_GET_VERSION_INFO(i32);
+pub struct DOT11EXTIHV_INIT_ADAPTER(i32);
+pub struct DOT11EXTIHV_INIT_SERVICE(i32);
+pub struct DOT11EXTIHV_INIT_VIRTUAL_STATION(i32);
+pub struct DOT11EXTIHV_IS_UI_REQUEST_PENDING(i32);
+pub struct DOT11EXTIHV_ONEX_INDICATE_RESULT(i32);
+pub struct DOT11EXTIHV_PERFORM_CAPABILITY_MATCH(i32);
+pub struct DOT11EXTIHV_PERFORM_POST_ASSOCIATE(i32);
+pub struct DOT11EXTIHV_PERFORM_PRE_ASSOCIATE(i32);
+pub struct DOT11EXTIHV_PROCESS_SESSION_CHANGE(i32);
+pub struct DOT11EXTIHV_PROCESS_UI_RESPONSE(i32);
+pub struct DOT11EXTIHV_QUERY_UI_REQUEST(i32);
+pub struct DOT11EXTIHV_RECEIVE_INDICATION(i32);
+pub struct DOT11EXTIHV_RECEIVE_PACKET(i32);
+pub struct DOT11EXTIHV_SEND_PACKET_COMPLETION(i32);
+pub struct DOT11EXTIHV_STOP_POST_ASSOCIATE(i32);
+pub struct DOT11EXTIHV_VALIDATE_PROFILE(i32);
+pub struct DOT11EXT_ALLOCATE_BUFFER(i32);
+pub struct DOT11EXT_APIS(i32);
+pub struct DOT11EXT_FREE_BUFFER(i32);
+pub struct DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA(i32);
+pub struct DOT11EXT_IHV_CONNECTION_PHASE(i32);
+pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE(i32);
+pub struct DOT11EXT_IHV_DISCOVERY_PROFILE(i32);
+pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST(i32);
+pub struct DOT11EXT_IHV_HANDLERS(i32);
+pub struct DOT11EXT_IHV_INDICATION_TYPE(i32);
+pub struct DOT11EXT_IHV_PARAMS(i32);
+pub struct DOT11EXT_IHV_PROFILE_PARAMS(i32);
+pub struct DOT11EXT_IHV_SECURITY_PROFILE(i32);
+pub struct DOT11EXT_IHV_SSID_LIST(i32);
+pub struct DOT11EXT_IHV_UI_REQUEST(i32);
+pub struct DOT11EXT_NIC_SPECIFIC_EXTENSION(i32);
+pub struct DOT11EXT_ONEX_START(i32);
+pub struct DOT11EXT_ONEX_STOP(i32);
+pub struct DOT11EXT_POST_ASSOCIATE_COMPLETION(i32);
+pub struct DOT11EXT_PRE_ASSOCIATE_COMPLETION(i32);
+pub struct DOT11EXT_PROCESS_ONEX_PACKET(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
+pub struct DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES(i32);
+pub struct DOT11EXT_RELEASE_VIRTUAL_STATION(i32);
+pub struct DOT11EXT_REQUEST_VIRTUAL_STATION(i32);
+pub struct DOT11EXT_SEND_NOTIFICATION(i32);
+pub struct DOT11EXT_SEND_PACKET(i32);
+pub struct DOT11EXT_SEND_UI_REQUEST(i32);
+pub struct DOT11EXT_SET_AUTH_ALGORITHM(i32);
+pub struct DOT11EXT_SET_CURRENT_PROFILE(i32);
+pub struct DOT11EXT_SET_DEFAULT_KEY(i32);
+pub struct DOT11EXT_SET_DEFAULT_KEY_ID(i32);
+pub struct DOT11EXT_SET_ETHERTYPE_HANDLING(i32);
+pub struct DOT11EXT_SET_EXCLUDE_UNENCRYPTED(i32);
+pub struct DOT11EXT_SET_KEY_MAPPING_KEY(i32);
+pub struct DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM(i32);
+pub struct DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA(i32);
+pub struct DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM(i32);
+pub struct DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES(i32);
+pub struct DOT11EXT_VIRTUAL_STATION_APIS(i32);
+pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY(i32);
+pub struct DOT11_ADAPTER(i32);
+pub struct DOT11_BSS_LIST(i32);
+pub struct DOT11_EAP_RESULT(i32);
+pub struct DOT11_IHV_VERSION_INFO(i32);
+pub struct DOT11_MSONEX_RESULT(i32);
+pub struct DOT11_MSONEX_RESULT_PARAMS(i32);
+pub struct DOT11_MSSECURITY_SETTINGS(i32);
+pub struct DOT11_PORT_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11_RSN_KCK_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11_RSN_KEK_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11_RSN_MAX_CIPHER_KEY_LENGTH: u32 = 32u32;
+pub struct DOT11_SECURITY_PACKET_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const EAPOL_REQUEST_ID_WOL_FLAG_MUST_ENCRYPT: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const ETHERNET_LENGTH_OF_ADDRESS: u32 = 6u32;
+pub struct GEN_GET_NETCARD_TIME(i32);
+pub struct GEN_GET_TIME_CAPS(i32);
 pub const GUID_DEVINTERFACE_NET: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3402138756,
     data2: 29973,
@@ -476,18 +552,25 @@ pub const MS_MAX_PROFILE_NAME_LENGTH: u32 = 256u32;
 pub const MS_PROFILE_GROUP_POLICY: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const MS_PROFILE_USER: u32 = 2u32;
+pub struct NDIS_802_11_AI_REQFI(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_REQFI_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_REQFI_CURRENTAPADDRESS: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_REQFI_LISTENINTERVAL: u32 = 2u32;
+pub struct NDIS_802_11_AI_RESFI(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_RESFI_ASSOCIATIONID: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_RESFI_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_RESFI_STATUSCODE: u32 = 2u32;
+pub struct NDIS_802_11_ASSOCIATION_INFORMATION(i32);
+pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION(i32);
+pub struct NDIS_802_11_AUTHENTICATION_EVENT(i32);
+pub struct NDIS_802_11_AUTHENTICATION_MODE(i32);
+pub struct NDIS_802_11_AUTHENTICATION_REQUEST(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AUTH_REQUEST_AUTH_FIELDS: u32 = 15u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -498,16 +581,46 @@ pub const NDIS_802_11_AUTH_REQUEST_KEYUPDATE: u32 = 2u32;
 pub const NDIS_802_11_AUTH_REQUEST_PAIRWISE_ERROR: u32 = 6u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AUTH_REQUEST_REAUTH: u32 = 1u32;
+pub struct NDIS_802_11_BSSID_LIST(i32);
+pub struct NDIS_802_11_BSSID_LIST_EX(i32);
+pub struct NDIS_802_11_CAPABILITY(i32);
+pub struct NDIS_802_11_CONFIGURATION(i32);
+pub struct NDIS_802_11_CONFIGURATION_FH(i32);
+pub struct NDIS_802_11_FIXED_IEs(i32);
+pub struct NDIS_802_11_KEY(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_LENGTH_RATES: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_LENGTH_RATES_EX: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_LENGTH_SSID: u32 = 32u32;
+pub struct NDIS_802_11_MEDIA_STREAM_MODE(i32);
+pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(i32);
+pub struct NDIS_802_11_NETWORK_TYPE(i32);
+pub struct NDIS_802_11_NETWORK_TYPE_LIST(i32);
+pub struct NDIS_802_11_NON_BCAST_SSID_LIST(i32);
+pub struct NDIS_802_11_PMKID(i32);
+pub struct NDIS_802_11_PMKID_CANDIDATE_LIST(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1u32;
+pub struct NDIS_802_11_POWER_MODE(i32);
+pub struct NDIS_802_11_PRIVACY_FILTER(i32);
+pub struct NDIS_802_11_RADIO_STATUS(i32);
+pub struct NDIS_802_11_RELOAD_DEFAULTS(i32);
+pub struct NDIS_802_11_REMOVE_KEY(i32);
+pub struct NDIS_802_11_SSID(i32);
+pub struct NDIS_802_11_STATISTICS(i32);
+pub struct NDIS_802_11_STATUS_INDICATION(i32);
+pub struct NDIS_802_11_STATUS_TYPE(i32);
+pub struct NDIS_802_11_TEST(i32);
+pub struct NDIS_802_11_VARIABLE_IEs(i32);
+pub struct NDIS_802_11_WEP(i32);
+pub struct NDIS_802_11_WEP_STATUS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1u32;
+pub struct NDIS_802_5_RING_STATE(i32);
+pub struct NDIS_CO_DEVICE_PROFILE(i32);
+pub struct NDIS_CO_LINK_SPEED(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_CO_MAC_OPTION_DYNAMIC_LINK_SPEED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -520,6 +633,7 @@ pub const NDIS_DEFAULT_RECEIVE_QUEUE_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_SWITCH_ID: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_DEFAULT_VPORT_ID: u32 = 0u32;
+pub struct NDIS_DEVICE_POWER_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_DEVICE_TYPE_ENDPOINT: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -566,6 +680,9 @@ pub const NDIS_ETH_TYPE_IPV4: u32 = 2048u32;
 pub const NDIS_ETH_TYPE_IPV6: u32 = 34525u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_ETH_TYPE_SLOW_PROTOCOL: u32 = 34825u32;
+pub struct NDIS_FDDI_ATTACHMENT_TYPE(i32);
+pub struct NDIS_FDDI_LCONNECTION_STATE(i32);
+pub struct NDIS_FDDI_RING_MGT_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_GFP_ENCAPSULATION_TYPE_IP_IN_GRE: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -914,8 +1031,11 @@ pub const NDIS_GFT_WCFE_REDIRECT_TO_INGRESS_QUEUE_OF_VPORT: u32 = 2u32;
 pub const NDIS_GFT_WCFE_REDIRECT_TO_INGRESS_QUEUE_OF_VPORT_IF_TTL_IS_ONE: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_GFT_WILDCARD_MATCH_FLOW_ENTRY_REVISION_1: u32 = 1u32;
+pub struct NDIS_GUID(i32);
+pub struct NDIS_HARDWARE_CROSSTIMESTAMP(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1u32;
+pub struct NDIS_HARDWARE_STATUS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_HASH_FUNCTION_MASK: u32 = 255u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -960,22 +1080,32 @@ pub const NDIS_HYPERVISOR_INFO_FLAG_HYPERVISOR_PRESENT: u32 = 1u32;
 pub const NDIS_HYPERVISOR_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_IF_MAX_STRING_SIZE: u32 = 256u32;
+pub struct NDIS_INTERRUPT_MODERATION(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: u32 = 1u32;
+pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u32 = 1u32;
+pub struct NDIS_IPSEC_OFFLOAD_V1(i32);
+pub struct NDIS_IP_OPER_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1u32;
+pub struct NDIS_IP_OPER_STATUS(i32);
+pub struct NDIS_IP_OPER_STATUS_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_IP_OPER_STATUS_INFO_REVISION_1: u32 = 1u32;
+pub struct NDIS_IRDA_PACKET_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_ISOLATION_NAME_MAX_STRING_SIZE: u32 = 127u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_ISOLATION_PARAMETERS_REVISION_1: u32 = 1u32;
+pub struct NDIS_LINK_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_LINK_PARAMETERS_REVISION_1: u32 = 1u32;
+pub struct NDIS_LINK_SPEED(i32);
+pub struct NDIS_LINK_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_LINK_STATE_DUPLEX_AUTO_NEGOTIATED: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1016,6 +1146,8 @@ pub const NDIS_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 pub const NDIS_MEDIA_CAP_RECEIVE: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_MEDIA_CAP_TRANSMIT: u32 = 1u32;
+pub struct NDIS_MEDIA_STATE(i32);
+pub struct NDIS_MEDIUM(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_NDK_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1024,6 +1156,7 @@ pub const NDIS_NDK_CONNECTIONS_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_LOCAL_ENDPOINTS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_NDK_STATISTICS_INFO_REVISION_1: u32 = 1u32;
+pub struct NDIS_NETWORK_CHANGE_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_NIC_SWITCH_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1126,6 +1259,7 @@ pub const NDIS_NIC_SWITCH_VPORT_PARAMS_PROCESSOR_AFFINITY_CHANGED: u32 = 1048576
 pub const NDIS_NIC_SWITCH_VPORT_PARAMS_QOS_SQ_ID_CHANGED: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_NIC_SWITCH_VPORT_PARAMS_STATE_CHANGED: u32 = 524288u32;
+pub struct NDIS_OBJECT_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OBJECT_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1258,10 +1392,12 @@ pub const NDIS_OBJECT_TYPE_STATUS_INDICATION: u32 = 152u32;
 pub const NDIS_OBJECT_TYPE_SWITCH_OPTIONAL_HANDLERS: u32 = 184u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OBJECT_TYPE_TIMER_CHARACTERISTICS: u32 = 151u32;
+pub struct NDIS_OFFLOAD(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OFFLOAD_NOT_SUPPORTED: u32 = 0u32;
+pub struct NDIS_OFFLOAD_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_DISABLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1342,6 +1478,7 @@ pub const NDIS_OFFLOAD_SET_OFF: u32 = 2u32;
 pub const NDIS_OFFLOAD_SET_ON: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OFFLOAD_SUPPORTED: u32 = 1u32;
+pub struct NDIS_OPER_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OPER_STATE_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1370,6 +1507,7 @@ pub const NDIS_PACKET_TYPE_PROMISCUOUS: u32 = 32u32;
 pub const NDIS_PACKET_TYPE_SMT: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PACKET_TYPE_SOURCE_ROUTING: u32 = 16u32;
+pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PD_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1382,6 +1520,7 @@ pub const NDIS_PD_CAPS_NOTIFICATION_MODERATION_INTERVAL_SUPPORTED: u32 = 4u32;
 pub const NDIS_PD_CAPS_RECEIVE_FILTER_COUNTERS_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PD_CONFIG_REVISION_1: u32 = 1u32;
+pub struct NDIS_PHYSICAL_MEDIUM(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1390,6 +1529,7 @@ pub const NDIS_PM_CAPABILITIES_REVISION_2: u32 = 2u32;
 pub const NDIS_PM_MAX_PATTERN_ID: u32 = 65535u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_MAX_STRING_SIZE: u32 = 64u32;
+pub struct NDIS_PM_PACKET_PATTERN(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1436,6 +1576,7 @@ pub const NDIS_PM_WAKE_PACKET_INDICATION_SUPPORTED: u32 = 1u32;
 pub const NDIS_PM_WAKE_PACKET_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_WAKE_REASON_REVISION_1: u32 = 1u32;
+pub struct NDIS_PM_WAKE_UP_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_WOL_BITMAP_PATTERN_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1474,22 +1615,32 @@ pub const NDIS_PM_WOL_PRIORITY_HIGHEST: u32 = 1u32;
 pub const NDIS_PM_WOL_PRIORITY_LOWEST: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_WOL_PRIORITY_NORMAL: u32 = 268435456u32;
+pub struct NDIS_PNP_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PNP_WAKE_UP_LINK_CHANGE: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2u32;
+pub struct NDIS_PORT(i32);
+pub struct NDIS_PORT_ARRAY(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_ARRAY_REVISION_1: u32 = 1u32;
+pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1u32;
+pub struct NDIS_PORT_AUTHORIZATION_STATE(i32);
+pub struct NDIS_PORT_CHARACTERISTICS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1u32;
+pub struct NDIS_PORT_CONTROL_STATE(i32);
+pub struct NDIS_PORT_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_STATE_REVISION_1: u32 = 1u32;
+pub struct NDIS_PORT_TYPE(i32);
+pub struct NDIS_PROCESSOR_VENDOR(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PROTOCOL_ID_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1710,6 +1861,7 @@ pub const NDIS_RECEIVE_HASH_FLAG_ENABLE_HASH: u32 = 1u32;
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_INFO_UNCHANGED: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_KEY_UNCHANGED: u32 = 4u32;
+pub struct NDIS_RECEIVE_HASH_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1748,12 +1900,14 @@ pub const NDIS_RECEIVE_QUEUE_PARAMETERS_REVISION_2: u32 = 2u32;
 pub const NDIS_RECEIVE_QUEUE_PARAMETERS_REVISION_3: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_QUEUE_PARAMETERS_SUGGESTED_RECV_BUFFER_NUMBERS_CHANGED: u32 = 262144u32;
+pub struct NDIS_RECEIVE_SCALE_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_2: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_3: u32 = 3u32;
+pub struct NDIS_RECEIVE_SCALE_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_SCALE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1772,6 +1926,7 @@ pub const NDIS_RECEIVE_SCALE_PARAM_HASH_KEY_CHANGED: u32 = 4u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_ENTRIES_CHANGED: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_QUEUES_CHANGED: u32 = 8u32;
+pub struct NDIS_REQUEST_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RING_AUTO_REMOVAL_ERROR: u32 = 1024u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -1932,8 +2087,12 @@ pub const NDIS_STATISTICS_FLAGS_VALID_RCV_ERROR: u32 = 32u32;
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_DISCARDS: u32 = 32768u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_ERROR: u32 = 1024u32;
+pub struct NDIS_STATISTICS_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_STATISTICS_INFO_REVISION_1: u32 = 1u32;
+pub struct NDIS_STATISTICS_VALUE(i32);
+pub struct NDIS_STATISTICS_VALUE_EX(i32);
+pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_SUPPORT_NDIS6: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -2040,16 +2199,30 @@ pub const NDIS_SWITCH_PROPERTY_ENUM_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const NDIS_SWITCH_PROPERTY_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_SYSTEM_PROCESSOR_INFO_EX_REVISION_1: u32 = 1u32;
+pub struct NDIS_TCP_CONNECTION_OFFLOAD(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_2: u32 = 2u32;
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD(i32);
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1(i32);
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TCP_RECV_SEG_COALESC_OFFLOAD_REVISION_1: u32 = 1u32;
+pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 1u32;
+pub struct NDIS_TIMESTAMP_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 1u32;
+pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS(i32);
+pub struct NDIS_VAR_DATA_DESC(i32);
+pub struct NDIS_WAN_HEADER_FORMAT(i32);
+pub struct NDIS_WAN_MEDIUM_SUBTYPE(i32);
+pub struct NDIS_WAN_PROTOCOL_CAPS(i32);
+pub struct NDIS_WAN_QUALITY(i32);
+pub struct NDIS_WLAN_BSSID(i32);
+pub struct NDIS_WLAN_BSSID_EX(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WLAN_WAKE_ON_4WAY_HANDSHAKE_REQUEST_ENABLED: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -2068,10 +2241,14 @@ pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_ENABLED: u32 = 1u32;
 pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1u32;
+pub struct NDIS_WMI_ENUM_ADAPTER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_ENUM_ADAPTER_REVISION_1: u32 = 1u32;
+pub struct NDIS_WMI_EVENT_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_EVENT_HEADER_REVISION_1: u32 = 1u32;
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1(i32);
+pub struct NDIS_WMI_METHOD_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_METHOD_HEADER_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -2084,6 +2261,8 @@ pub const NDIS_WMI_OBJECT_TYPE_METHOD: u32 = 2u32;
 pub const NDIS_WMI_OBJECT_TYPE_OUTPUT_INFO: u32 = 5u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_OBJECT_TYPE_SET: u32 = 1u32;
+pub struct NDIS_WMI_OFFLOAD(i32);
+pub struct NDIS_WMI_OUTPUT_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_PM_ACTIVE_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -2092,8 +2271,13 @@ pub const NDIS_WMI_PM_ADMIN_CONFIG_REVISION_1: u32 = 1u32;
 pub const NDIS_WMI_RECEIVE_QUEUE_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_RECEIVE_QUEUE_PARAMETERS_REVISION_1: u32 = 1u32;
+pub struct NDIS_WMI_SET_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_SET_HEADER_REVISION_1: u32 = 1u32;
+pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD(i32);
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD(i32);
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1(i32);
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WWAN_WAKE_ON_PACKET_STATE_ENABLED: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -2128,6 +2312,14 @@ pub const NDK_ADAPTER_FLAG_MULTI_ENGINE_SUPPORTED: u32 = 8u32;
 pub const NDK_ADAPTER_FLAG_RDMA_READ_LOCAL_INVALIDATE_SUPPORTED: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDK_ADAPTER_FLAG_RDMA_READ_SINK_NOT_REQUIRED: u32 = 2u32;
+pub struct NDK_ADAPTER_INFO(i32);
+pub struct NDK_RDMA_TECHNOLOGY(i32);
+pub struct NDK_VERSION(i32);
+pub struct NETWORK_ADDRESS(i32);
+pub struct NETWORK_ADDRESS_IP(i32);
+pub struct NETWORK_ADDRESS_IP6(i32);
+pub struct NETWORK_ADDRESS_IPX(i32);
+pub struct NETWORK_ADDRESS_LIST(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NdisHashFunctionReserved1: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -2136,12 +2328,22 @@ pub const NdisHashFunctionReserved2: u32 = 4u32;
 pub const NdisHashFunctionReserved3: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NdisHashFunctionToeplitz: u32 = 1u32;
+pub struct OFFLOAD_ALGO_INFO(i32);
+pub struct OFFLOAD_CONF_ALGO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OFFLOAD_INBOUND_SA: u32 = 1u32;
+pub struct OFFLOAD_INTEGRITY_ALGO(i32);
+pub struct OFFLOAD_IPSEC_ADD_SA(i32);
+pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA(i32);
+pub struct OFFLOAD_IPSEC_DELETE_SA(i32);
+pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA(i32);
+pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OFFLOAD_MAX_SAS: u32 = 3u32;
+pub struct OFFLOAD_OPERATION_E(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OFFLOAD_OUTBOUND_SA: u32 = 2u32;
+pub struct OFFLOAD_SECURITY_ASSOCIATION(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OID_1394_LOCAL_NODE_INFO: u32 = 201392385u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -3682,6 +3884,7 @@ pub const OID_WWAN_VENDOR_SPECIFIC: u32 = 234946836u32;
 pub const OID_WWAN_VISIBLE_PROVIDERS: u32 = 234946824u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OID_XBOX_ACC_RESERVED0: u32 = 4194304000u32;
+pub struct PMKID_CANDIDATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const READABLE_LOCAL_CLOCK: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -3690,10 +3893,11 @@ pub const RECEIVE_TIME_INDICATION_CAPABLE: u32 = 8u32;
 pub const TIMED_SEND_CAPABLE: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const TIME_STAMP_CAPABLE: u32 = 32u32;
+pub struct TRANSPORT_HEADER_OFFSET(i32);
+pub struct UDP_ENCAP_TYPE(i32);
 pub const UNSPECIFIED_NETWORK_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 314203102, data2: 5182, data3: 19469, data4: [182, 109, 35, 121, 187, 20, 25, 19] };
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
+pub struct WDIAG_IHV_WLAN_ID(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;
-#[link(name = "windows")]
-extern "system" {}

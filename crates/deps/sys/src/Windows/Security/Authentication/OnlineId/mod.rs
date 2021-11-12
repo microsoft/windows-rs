@@ -1,3 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct CredentialPromptType(i32);
+pub struct IOnlineIdAuthenticator(i32);
+pub struct IOnlineIdServiceTicket(i32);
+pub struct IOnlineIdServiceTicketRequest(i32);
+pub struct IOnlineIdServiceTicketRequestFactory(i32);
+pub struct IOnlineIdSystemAuthenticatorForUser(i32);
+pub struct IOnlineIdSystemAuthenticatorStatics(i32);
+pub struct IOnlineIdSystemIdentity(i32);
+pub struct IOnlineIdSystemTicketResult(i32);
+pub struct IUserIdentity(i32);
+pub struct OnlineIdAuthenticator(i32);
+pub struct OnlineIdServiceTicket(i32);
+pub struct OnlineIdServiceTicketRequest(i32);
+pub struct OnlineIdSystemAuthenticator(i32);
+pub struct OnlineIdSystemAuthenticatorForUser(i32);
+pub struct OnlineIdSystemIdentity(i32);
+pub struct OnlineIdSystemTicketResult(i32);
+pub struct OnlineIdSystemTicketStatus(i32);
+pub struct SignOutUserOperation(i32);
+pub struct UserAuthenticationOperation(i32);
+pub struct UserIdentity(i32);

@@ -1,5 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
-pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 #[link(name = "windows")]
 extern "system" {}
+pub struct DDP_FILE_EXTENT(i32);
+pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(i32);
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
+pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
+pub struct DEDUP_CHUNK_INFO_HASH32(i32);
+pub struct DEDUP_CONTAINER_EXTENT(i32);
+pub struct DEDUP_SET_PARAM_TYPE(i32);
+pub struct DedupBackupSupport(i32);
+pub struct DedupChunk(i32);
+pub struct DedupChunkFlags(i32);
+pub struct DedupChunkingAlgorithm(i32);
+pub struct DedupCompressionAlgorithm(i32);
+pub struct DedupDataPort(i32);
+pub struct DedupDataPortManagerOption(i32);
+pub struct DedupDataPortRequestStatus(i32);
+pub struct DedupDataPortVolumeStatus(i32);
+pub struct DedupHash(i32);
+pub struct DedupHashingAlgorithm(i32);
+pub struct DedupStream(i32);
+pub struct DedupStreamEntry(i32);
+pub struct IDedupBackupSupport(i32);
+pub struct IDedupChunkLibrary(i32);
+pub struct IDedupDataPort(i32);
+pub struct IDedupDataPortManager(i32);
+pub struct IDedupIterateChunksHash32(i32);
+pub struct IDedupReadFileCallback(i32);

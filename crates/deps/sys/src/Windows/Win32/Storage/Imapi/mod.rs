@@ -1,4 +1,38 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {
+    #[doc = "*Required features: `Win32_Storage_Imapi`*"]
+    pub fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS);
+    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
+    #[cfg(feature = "Win32_System_AddressBook")]
+    pub fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `Win32_Storage_Imapi`*"]
+    pub fn MapStorageSCode(stgscode: i32) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+    #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub fn OpenIMsgOnIStg(
+        lpmsgsess: *mut _MSGSESS,
+        lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
+        lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
+        lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
+        lpmalloc: super::super::System::Com::IMalloc,
+        lpmapisup: *mut ::core::ffi::c_void,
+        lpstg: super::super::System::Com::StructuredStorage::IStorage,
+        lpfmsgcallrelease: *mut MSGCALLRELEASE,
+        ulcallerdata: u32,
+        ulflags: u32,
+        lppmsg: *mut super::super::System::AddressBook::IMessage,
+    ) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_Com`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn OpenIMsgSession(lpmalloc: super::super::System::Com::IMalloc, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32;
+    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
+    #[cfg(feature = "Win32_System_AddressBook")]
+    pub fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows_sys::core::HRESULT;
+}
+pub struct BlockRange(i32);
+pub struct BlockRangeList(i32);
+pub struct BootOptions(i32);
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3171631974, data2: 36355, data3: 4562, data4: [148, 246, 0, 192, 79, 121, 241, 214] };
 pub const CATID_SMTP_DSN: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 582309681,
@@ -34,6 +68,14 @@ pub const CATID_SMTP_TRANSPORT_PRECATEGORIZE: ::windows_sys::core::GUID = ::wind
 pub const CATID_SMTP_TRANSPORT_ROUTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 674509001, data2: 6224, data3: 4562, data4: [158, 3, 0, 192, 79, 163, 34, 186] };
 pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4282165795, data2: 185, data3: 4562, data4: [157, 251, 0, 192, 79, 163, 34, 186] };
 pub const CLSID_SmtpCat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2990290359, data2: 37401, data3: 4562, data4: [158, 23, 0, 192, 79, 163, 34, 186] };
+pub struct DDiscFormat2DataEvents(i32);
+pub struct DDiscFormat2EraseEvents(i32);
+pub struct DDiscFormat2RawCDEvents(i32);
+pub struct DDiscFormat2TrackAtOnceEvents(i32);
+pub struct DDiscMaster2Events(i32);
+pub struct DFileSystemImageEvents(i32);
+pub struct DFileSystemImageImportEvents(i32);
+pub struct DISC_RECORDER_STATE_FLAGS(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: u32 = 512u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -378,8 +420,54 @@ pub const DISPID_IWRITEENGINE2_USESTREAMINGWRITE12: u32 = 257u32;
 pub const DISPID_IWRITEENGINE2_WRITEINPROGRESS: u32 = 261u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const DISPID_IWRITEENGINE2_WRITESECTION: u32 = 512u32;
+pub struct DWriteEngine2Events(i32);
+pub struct EmulationType(i32);
+pub struct EnumFsiItems(i32);
+pub struct EnumProgressItems(i32);
+pub struct FileSystemImageResult(i32);
+pub struct FsiDirectoryItem(i32);
+pub struct FsiFileItem(i32);
+pub struct FsiFileSystems(i32);
+pub struct FsiItemType(i32);
+pub struct FsiNamedStreams(i32);
+pub struct FsiStream(i32);
 pub const GUID_SMTPSVC_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456918630, data2: 58480, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4217750748, data2: 58472, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
+pub struct IBlockRange(i32);
+pub struct IBlockRangeList(i32);
+pub struct IBootOptions(i32);
+pub struct IBurnVerification(i32);
+pub struct IDiscFormat2(i32);
+pub struct IDiscFormat2Data(i32);
+pub struct IDiscFormat2DataEventArgs(i32);
+pub struct IDiscFormat2Erase(i32);
+pub struct IDiscFormat2RawCD(i32);
+pub struct IDiscFormat2RawCDEventArgs(i32);
+pub struct IDiscFormat2TrackAtOnce(i32);
+pub struct IDiscFormat2TrackAtOnceEventArgs(i32);
+pub struct IDiscMaster(i32);
+pub struct IDiscMaster2(i32);
+pub struct IDiscMasterProgressEvents(i32);
+pub struct IDiscRecorder(i32);
+pub struct IDiscRecorder2(i32);
+pub struct IDiscRecorder2Ex(i32);
+pub struct IEnumDiscMasterFormats(i32);
+pub struct IEnumDiscRecorders(i32);
+pub struct IEnumFsiItems(i32);
+pub struct IEnumProgressItems(i32);
+pub struct IFileSystemImage(i32);
+pub struct IFileSystemImage2(i32);
+pub struct IFileSystemImage3(i32);
+pub struct IFileSystemImageResult(i32);
+pub struct IFileSystemImageResult2(i32);
+pub struct IFsiDirectoryItem(i32);
+pub struct IFsiDirectoryItem2(i32);
+pub struct IFsiFileItem(i32);
+pub struct IFsiFileItem2(i32);
+pub struct IFsiItem(i32);
+pub struct IFsiNamedStreams(i32);
+pub struct IIsoImageManager(i32);
+pub struct IJolietDiscMaster(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -392,6 +480,9 @@ pub const IMAPI2_DEFAULT_COMMAND_TIMEOUT: u32 = 10u32;
 pub const IMAPILib2_MajorVersion: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPILib2_MinorVersion: u32 = 0u32;
+pub struct IMAPI_BURN_VERIFICATION_LEVEL(i32);
+pub struct IMAPI_CD_SECTOR_TYPE(i32);
+pub struct IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI_E_ALREADYOPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220958i32 as _);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -464,6 +555,18 @@ pub const IMAPI_E_USERABORT: ::windows_sys::core::HRESULT = ::windows_sys::core:
 pub const IMAPI_E_WRONGDISC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220957i32 as _);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI_E_WRONGFORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220959i32 as _);
+pub struct IMAPI_FEATURE_PAGE_TYPE(i32);
+pub struct IMAPI_FORMAT2_DATA_MEDIA_STATE(i32);
+pub struct IMAPI_FORMAT2_DATA_WRITE_ACTION(i32);
+pub struct IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(i32);
+pub struct IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(i32);
+pub struct IMAPI_FORMAT2_TAO_WRITE_ACTION(i32);
+pub struct IMAPI_MEDIA_PHYSICAL_TYPE(i32);
+pub struct IMAPI_MEDIA_WRITE_PROTECT_STATE(i32);
+pub struct IMAPI_MODE_PAGE_REQUEST_TYPE(i32);
+pub struct IMAPI_MODE_PAGE_TYPE(i32);
+pub struct IMAPI_PROFILE_TYPE(i32);
+pub struct IMAPI_READ_TRACK_ADDRESS_TYPE(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_BD: u32 = 2195u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -478,6 +581,30 @@ pub const IMAPI_SECTOR_SIZE: u32 = 2048u32;
 pub const IMAPI_S_BUFFER_TO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI_S_PROPERTIESIGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262656i32 as _);
+pub struct IMMPID_CPV_ENUM(i32);
+pub struct IMMPID_MPV_ENUM(i32);
+pub struct IMMPID_MP_ENUM(i32);
+pub struct IMMPID_NMP_ENUM(i32);
+pub struct IMMPID_RPV_ENUM(i32);
+pub struct IMMPID_RP_ENUM(i32);
+pub struct IMMP_MPV_STORE_DRIVER_HANDLE(i32);
+pub struct IMultisession(i32);
+pub struct IMultisessionRandomWrite(i32);
+pub struct IMultisessionSequential(i32);
+pub struct IMultisessionSequential2(i32);
+pub struct IProgressItem(i32);
+pub struct IProgressItems(i32);
+pub struct IRawCDImageCreator(i32);
+pub struct IRawCDImageTrackInfo(i32);
+pub struct IRedbookDiscMaster(i32);
+pub struct IStreamConcatenate(i32);
+pub struct IStreamInterleave(i32);
+pub struct IStreamPseudoRandomBased(i32);
+pub struct IWriteEngine2(i32);
+pub struct IWriteEngine2EventArgs(i32);
+pub struct IWriteSpeedDescriptor(i32);
+pub struct MEDIA_FLAGS(i32);
+pub struct MEDIA_TYPES(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const MPV_INBOUND_CUTOFF_EXCEEDED: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -504,12 +631,37 @@ pub const MP_STATUS_RETRY: u32 = 1u32;
 pub const MP_STATUS_SUBMITTED: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const MP_STATUS_SUCCESS: u32 = 0u32;
+pub struct MSDiscMasterObj(i32);
+pub struct MSDiscRecorderObj(i32);
+pub struct MSEnumDiscRecordersObj(i32);
+pub struct MSGCALLRELEASE(i32);
+pub struct MsftDiscFormat2Data(i32);
+pub struct MsftDiscFormat2Erase(i32);
+pub struct MsftDiscFormat2RawCD(i32);
+pub struct MsftDiscFormat2TrackAtOnce(i32);
+pub struct MsftDiscMaster2(i32);
+pub struct MsftDiscRecorder2(i32);
+pub struct MsftFileSystemImage(i32);
+pub struct MsftIsoImageManager(i32);
+pub struct MsftMultisessionRandomWrite(i32);
+pub struct MsftMultisessionSequential(i32);
+pub struct MsftRawCDImageCreator(i32);
+pub struct MsftStreamConcatenate(i32);
+pub struct MsftStreamInterleave(i32);
+pub struct MsftStreamPrng001(i32);
+pub struct MsftStreamZero(i32);
+pub struct MsftWriteEngine2(i32);
+pub struct MsftWriteSpeedDescriptor(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const NMP_PROCESS_CONTROL: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const NMP_PROCESS_MODERATOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const NMP_PROCESS_POST: u32 = 1u32;
+pub struct PlatformId(i32);
+pub struct ProgressItem(i32);
+pub struct ProgressItems(i32);
+pub struct RECORDER_TYPES(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const RP_DELIVERED: u32 = 272u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -560,34 +712,12 @@ pub const RP_REMOTE_MTA_NO_DSN: u32 = 524288u32;
 pub const RP_UNRESOLVED: u32 = 4144u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
-#[link(name = "windows")]
-extern "system" {
-    #[doc = "*Required features: `Win32_Storage_Imapi`*"]
-    pub fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS);
-    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
-    #[cfg(feature = "Win32_System_AddressBook")]
-    pub fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Storage_Imapi`*"]
-    pub fn MapStorageSCode(stgscode: i32) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
-    #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn OpenIMsgOnIStg(
-        lpmsgsess: *mut _MSGSESS,
-        lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
-        lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
-        lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
-        lpmalloc: super::super::System::Com::IMalloc,
-        lpmapisup: *mut ::core::ffi::c_void,
-        lpstg: super::super::System::Com::StructuredStorage::IStorage,
-        lpfmsgcallrelease: *mut MSGCALLRELEASE,
-        ulcallerdata: u32,
-        ulflags: u32,
-        lppmsg: *mut super::super::System::AddressBook::IMessage,
-    ) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_Com`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn OpenIMsgSession(lpmalloc: super::super::System::Com::IMalloc, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32;
-    #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
-    #[cfg(feature = "Win32_System_AddressBook")]
-    pub fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows_sys::core::HRESULT;
-}
+pub struct SPropAttrArray(i32);
+pub struct _MSGSESS(i32);
+pub struct tagIMMPID_CPV_STRUCT(i32);
+pub struct tagIMMPID_GUIDLIST_ITEM(i32);
+pub struct tagIMMPID_MPV_STRUCT(i32);
+pub struct tagIMMPID_MP_STRUCT(i32);
+pub struct tagIMMPID_NMP_STRUCT(i32);
+pub struct tagIMMPID_RPV_STRUCT(i32);
+pub struct tagIMMPID_RP_STRUCT(i32);

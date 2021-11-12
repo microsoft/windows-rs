@@ -1,3 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct IVoiceCommand(i32);
+pub struct IVoiceCommandCompletedEventArgs(i32);
+pub struct IVoiceCommandConfirmationResult(i32);
+pub struct IVoiceCommandContentTile(i32);
+pub struct IVoiceCommandDefinition(i32);
+pub struct IVoiceCommandDefinitionManagerStatics(i32);
+pub struct IVoiceCommandDisambiguationResult(i32);
+pub struct IVoiceCommandResponse(i32);
+pub struct IVoiceCommandResponseStatics(i32);
+pub struct IVoiceCommandServiceConnection(i32);
+pub struct IVoiceCommandServiceConnectionStatics(i32);
+pub struct IVoiceCommandUserMessage(i32);
+pub struct VoiceCommand(i32);
+pub struct VoiceCommandCompletedEventArgs(i32);
+pub struct VoiceCommandCompletionReason(i32);
+pub struct VoiceCommandConfirmationResult(i32);
+pub struct VoiceCommandContentTile(i32);
+pub struct VoiceCommandContentTileType(i32);
+pub struct VoiceCommandDefinition(i32);
+pub struct VoiceCommandDefinitionManager(i32);
+pub struct VoiceCommandDisambiguationResult(i32);
+pub struct VoiceCommandResponse(i32);
+pub struct VoiceCommandServiceConnection(i32);
+pub struct VoiceCommandUserMessage(i32);

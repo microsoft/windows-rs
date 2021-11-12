@@ -85,3 +85,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL;
 }
+pub struct INPUT_INJECTION_VALUE(i32);
+pub struct INPUT_TRANSFORM(i32);
+pub struct POINTER_BUTTON_CHANGE_TYPE(i32);
+pub struct POINTER_FLAGS(i32);
+pub struct POINTER_INFO(i32);
+pub struct POINTER_PEN_INFO(i32);
+pub struct POINTER_TOUCH_INFO(i32);
+pub struct TOUCH_FEEDBACK_MODE(i32);

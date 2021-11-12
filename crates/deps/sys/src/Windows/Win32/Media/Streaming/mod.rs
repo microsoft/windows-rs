@@ -1,3 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct CapturedMetadataExposureCompensation(i32);
+pub struct CapturedMetadataISOGains(i32);
+pub struct CapturedMetadataWhiteBalanceGains(i32);
+pub struct FaceCharacterization(i32);
+pub struct FaceCharacterizationBlobHeader(i32);
+pub struct FaceRectInfo(i32);
+pub struct FaceRectInfoBlobHeader(i32);
+pub struct HistogramBlobHeader(i32);
+pub struct HistogramDataHeader(i32);
+pub struct HistogramGrid(i32);
+pub struct HistogramHeader(i32);
+pub struct IMFDeviceTransform(i32);
+pub struct IMFDeviceTransformCallback(i32);
+pub struct MF_MEDIASOURCE_STATUS_INFO(i32);
+pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(i32);
+pub struct MetadataTimeStamps(i32);

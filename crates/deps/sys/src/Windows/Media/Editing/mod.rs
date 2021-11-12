@@ -1,3 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct BackgroundAudioTrack(i32);
+pub struct EmbeddedAudioTrack(i32);
+pub struct IBackgroundAudioTrack(i32);
+pub struct IBackgroundAudioTrackStatics(i32);
+pub struct IEmbeddedAudioTrack(i32);
+pub struct IMediaClip(i32);
+pub struct IMediaClipStatics(i32);
+pub struct IMediaClipStatics2(i32);
+pub struct IMediaComposition(i32);
+pub struct IMediaComposition2(i32);
+pub struct IMediaCompositionStatics(i32);
+pub struct IMediaOverlay(i32);
+pub struct IMediaOverlayFactory(i32);
+pub struct IMediaOverlayLayer(i32);
+pub struct IMediaOverlayLayerFactory(i32);
+pub struct MediaClip(i32);
+pub struct MediaComposition(i32);
+pub struct MediaOverlay(i32);
+pub struct MediaOverlayLayer(i32);
+pub struct MediaTrimmingPreference(i32);
+pub struct VideoFramePrecision(i32);

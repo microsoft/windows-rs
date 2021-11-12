@@ -1,12 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
-pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
-pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
-pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
-pub const COMPRESS_RAW: u32 = 536870912u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
@@ -46,3 +38,17 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
 }
+pub struct COMPRESSOR_HANDLE(i32);
+pub struct COMPRESS_ALGORITHM(i32);
+#[doc = "*Required features: `Win32_Storage_Compression`*"]
+pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Compression`*"]
+pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
+#[doc = "*Required features: `Win32_Storage_Compression`*"]
+pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
+pub struct COMPRESS_ALLOCATION_ROUTINES(i32);
+pub struct COMPRESS_INFORMATION_CLASS(i32);
+#[doc = "*Required features: `Win32_Storage_Compression`*"]
+pub const COMPRESS_RAW: u32 = 536870912u32;
+pub struct PFN_COMPRESS_ALLOCATE(i32);
+pub struct PFN_COMPRESS_FREE(i32);

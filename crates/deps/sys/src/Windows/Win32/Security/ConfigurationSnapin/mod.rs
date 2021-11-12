@@ -1,4 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct ISceSvcAttachmentData(i32);
+pub struct ISceSvcAttachmentPersistInfo(i32);
+pub struct PFSCE_FREE_INFO(i32);
+pub struct PFSCE_LOG_INFO(i32);
+pub struct PFSCE_QUERY_INFO(i32);
+pub struct PFSCE_SET_INFO(i32);
+pub struct PF_ConfigAnalyzeService(i32);
+pub struct PF_UpdateService(i32);
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
@@ -39,10 +49,15 @@ pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
 pub const SCESTATUS_SUCCESS: i32 = 0i32;
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
+pub struct SCESVC_ANALYSIS_INFO(i32);
+pub struct SCESVC_ANALYSIS_LINE(i32);
+pub struct SCESVC_CALLBACK_INFO(i32);
+pub struct SCESVC_CONFIGURATION_INFO(i32);
+pub struct SCESVC_CONFIGURATION_LINE(i32);
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
+pub struct SCESVC_INFO_TYPE(i32);
+pub struct SCE_LOG_ERR_LEVEL(i32);
 pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
 pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };
 pub const cNodetypeSceTemplateServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 614987543, data2: 7948, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
-#[link(name = "windows")]
-extern "system" {}

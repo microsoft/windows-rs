@@ -8,3 +8,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL;
 }
+pub struct OPERATION_END_PARAMETERS(i32);
+pub struct OPERATION_END_PARAMETERS_FLAGS(i32);
+pub struct OPERATION_START_FLAGS(i32);
+pub struct OPERATION_START_PARAMETERS(i32);

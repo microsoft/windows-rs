@@ -1,4 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct ATTENDEE_DISCONNECT_REASON(i32);
+pub struct CHANNEL_ACCESS_ENUM(i32);
+pub struct CHANNEL_FLAGS(i32);
+pub struct CHANNEL_PRIORITY(i32);
+pub struct CTRL_LEVEL(i32);
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
@@ -247,5 +254,56 @@ pub const DISPID_RDPSRAPI_PROP_WINDOWSHARED: u32 = 212u32;
 pub const DISPID_RDPSRAPI_PROP_WINDOW_LIST: u32 = 216u32;
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_WNDFLAGS: u32 = 224u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct IRDPSRAPIApplication(i32);
+pub struct IRDPSRAPIApplicationFilter(i32);
+pub struct IRDPSRAPIApplicationList(i32);
+pub struct IRDPSRAPIAttendee(i32);
+pub struct IRDPSRAPIAttendeeDisconnectInfo(i32);
+pub struct IRDPSRAPIAttendeeManager(i32);
+pub struct IRDPSRAPIAudioStream(i32);
+pub struct IRDPSRAPIClipboardUseEvents(i32);
+pub struct IRDPSRAPIDebug(i32);
+pub struct IRDPSRAPIFrameBuffer(i32);
+pub struct IRDPSRAPIInvitation(i32);
+pub struct IRDPSRAPIInvitationManager(i32);
+pub struct IRDPSRAPIPerfCounterLogger(i32);
+pub struct IRDPSRAPIPerfCounterLoggingManager(i32);
+pub struct IRDPSRAPISessionProperties(i32);
+pub struct IRDPSRAPISharingSession(i32);
+pub struct IRDPSRAPISharingSession2(i32);
+pub struct IRDPSRAPITcpConnectionInfo(i32);
+pub struct IRDPSRAPITransportStream(i32);
+pub struct IRDPSRAPITransportStreamBuffer(i32);
+pub struct IRDPSRAPITransportStreamEvents(i32);
+pub struct IRDPSRAPIViewer(i32);
+pub struct IRDPSRAPIVirtualChannel(i32);
+pub struct IRDPSRAPIVirtualChannelManager(i32);
+pub struct IRDPSRAPIWindow(i32);
+pub struct IRDPSRAPIWindowList(i32);
+pub struct IRDPViewerInputSink(i32);
+pub struct RDPENCOMAPI_ATTENDEE_FLAGS(i32);
+pub struct RDPSRAPIApplication(i32);
+pub struct RDPSRAPIApplicationFilter(i32);
+pub struct RDPSRAPIApplicationList(i32);
+pub struct RDPSRAPIAttendee(i32);
+pub struct RDPSRAPIAttendeeDisconnectInfo(i32);
+pub struct RDPSRAPIAttendeeManager(i32);
+pub struct RDPSRAPIFrameBuffer(i32);
+pub struct RDPSRAPIInvitation(i32);
+pub struct RDPSRAPIInvitationManager(i32);
+pub struct RDPSRAPISessionProperties(i32);
+pub struct RDPSRAPITcpConnectionInfo(i32);
+pub struct RDPSRAPIWindow(i32);
+pub struct RDPSRAPIWindowList(i32);
+pub struct RDPSRAPI_APP_FLAGS(i32);
+pub struct RDPSRAPI_KBD_CODE_TYPE(i32);
+pub struct RDPSRAPI_KBD_SYNC_FLAG(i32);
+pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(i32);
+pub struct RDPSRAPI_WND_FLAGS(i32);
+pub struct RDPSession(i32);
+pub struct RDPTransportStreamBuffer(i32);
+pub struct RDPTransportStreamEvents(i32);
+pub struct RDPViewer(i32);
+pub struct _IRDPSessionEvents(i32);
+pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(i32);
+pub struct __ReferenceRemainingTypes__(i32);

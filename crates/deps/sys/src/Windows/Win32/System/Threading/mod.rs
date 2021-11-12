@@ -1,62 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const CREATE_MUTEX_INITIAL_OWNER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const INIT_ONCE_ASYNC: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const MUTEX_MODIFY_STATE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PME_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const WAIT_ABANDONED: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const WAIT_ABANDONED_0: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const WAIT_IO_COMPLETION: u32 = 192u32;
-#[doc = "*Required features: `Win32_System_Threading`*"]
-pub const WAIT_OBJECT_0: u32 = 0u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Threading`*"]
@@ -914,3 +856,145 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
 }
+pub struct APP_MEMORY_INFORMATION(i32);
+pub struct BoundaryDescriptorHandle(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
+pub struct CREATE_EVENT(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const CREATE_MUTEX_INITIAL_OWNER: u32 = 1u32;
+pub struct CREATE_PROCESS_LOGON_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
+pub struct GET_GUI_RESOURCES_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const INIT_ONCE_ASYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
+pub struct IO_COUNTERS(i32);
+pub struct LPFIBER_START_ROUTINE(i32);
+pub struct LPPROC_THREAD_ATTRIBUTE_LIST(i32);
+pub struct LPTHREAD_START_ROUTINE(i32);
+pub struct MACHINE_ATTRIBUTES(i32);
+pub struct MEMORY_PRIORITY(i32);
+pub struct MEMORY_PRIORITY_INFORMATION(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const MUTEX_MODIFY_STATE: u32 = 1u32;
+pub struct NamespaceHandle(i32);
+pub struct PEB(i32);
+pub struct PEB_LDR_DATA(i32);
+pub struct PFLS_CALLBACK_FUNCTION(i32);
+pub struct PINIT_ONCE_FN(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PME_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
+pub struct POWER_REQUEST_CONTEXT_FLAGS(i32);
+pub struct PPS_POST_PROCESS_INIT_ROUTINE(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
+pub struct PROCESSINFOCLASS(i32);
+pub struct PROCESSOR_FEATURE_ID(i32);
+pub struct PROCESS_ACCESS_RIGHTS(i32);
+pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(i32);
+pub struct PROCESS_BASIC_INFORMATION(i32);
+pub struct PROCESS_CREATION_FLAGS(i32);
+pub struct PROCESS_DEP_FLAGS(i32);
+pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET(i32);
+pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION(i32);
+pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE(i32);
+pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION(i32);
+pub struct PROCESS_INFORMATION(i32);
+pub struct PROCESS_INFORMATION_CLASS(i32);
+pub struct PROCESS_LEAP_SECOND_INFO(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
+pub struct PROCESS_MACHINE_INFORMATION(i32);
+pub struct PROCESS_MEMORY_EXHAUSTION_INFO(i32);
+pub struct PROCESS_MEMORY_EXHAUSTION_TYPE(i32);
+pub struct PROCESS_MITIGATION_POLICY(i32);
+pub struct PROCESS_NAME_FORMAT(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
+pub struct PROCESS_POWER_THROTTLING_STATE(i32);
+pub struct PROCESS_PROTECTION_LEVEL(i32);
+pub struct PROCESS_PROTECTION_LEVEL_INFORMATION(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
+pub struct PRTL_UMS_SCHEDULER_ENTRY_POINT(i32);
+pub struct PTIMERAPCROUTINE(i32);
+pub struct PTP_CLEANUP_GROUP_CANCEL_CALLBACK(i32);
+pub struct PTP_POOL(i32);
+pub struct PTP_SIMPLE_CALLBACK(i32);
+pub struct PTP_TIMER_CALLBACK(i32);
+pub struct PTP_WAIT_CALLBACK(i32);
+pub struct PTP_WIN32_IO_CALLBACK(i32);
+pub struct PTP_WORK_CALLBACK(i32);
+pub struct QUEUE_USER_APC_FLAGS(i32);
+pub struct REASON_CONTEXT(i32);
+pub struct RTL_BARRIER(i32);
+pub struct RTL_CONDITION_VARIABLE(i32);
+pub struct RTL_CRITICAL_SECTION(i32);
+pub struct RTL_CRITICAL_SECTION_DEBUG(i32);
+pub struct RTL_RUN_ONCE(i32);
+pub struct RTL_SRWLOCK(i32);
+pub struct RTL_UMS_THREAD_INFO_CLASS(i32);
+pub struct RTL_USER_PROCESS_PARAMETERS(i32);
+pub struct STARTUPINFOA(i32);
+pub struct STARTUPINFOEXA(i32);
+pub struct STARTUPINFOEXW(i32);
+pub struct STARTUPINFOW(i32);
+pub struct STARTUPINFOW_FLAGS(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
+pub struct THREADINFOCLASS(i32);
+pub struct THREAD_ACCESS_RIGHTS(i32);
+pub struct THREAD_CREATION_FLAGS(i32);
+pub struct THREAD_INFORMATION_CLASS(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
+pub struct THREAD_POWER_THROTTLING_STATE(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
+pub struct THREAD_PRIORITY(i32);
+pub struct TP_CALLBACK_ENVIRON_V3(i32);
+pub struct TP_CALLBACK_INSTANCE(i32);
+pub struct TP_CALLBACK_PRIORITY(i32);
+pub struct TP_IO(i32);
+pub struct TP_POOL_STACK_INFORMATION(i32);
+pub struct TP_TIMER(i32);
+pub struct TP_WAIT(i32);
+pub struct TP_WORK(i32);
+pub struct TimerQueueHandle(i32);
+pub struct UMS_SCHEDULER_STARTUP_INFO(i32);
+pub struct UMS_SYSTEM_THREAD_INFORMATION(i32);
+pub struct WAITORTIMERCALLBACK(i32);
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const WAIT_ABANDONED: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const WAIT_ABANDONED_0: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const WAIT_IO_COMPLETION: u32 = 192u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
+pub const WAIT_OBJECT_0: u32 = 0u32;
+pub struct WORKER_THREAD_FLAGS(i32);

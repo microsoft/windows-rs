@@ -1,3 +1,26 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct BasicProperties(i32);
+pub struct DocumentProperties(i32);
+pub struct GeotagHelper(i32);
+pub struct IBasicProperties(i32);
+pub struct IDocumentProperties(i32);
+pub struct IGeotagHelperStatics(i32);
+pub struct IImageProperties(i32);
+pub struct IMusicProperties(i32);
+pub struct IStorageItemContentProperties(i32);
+pub struct IStorageItemExtraProperties(i32);
+pub struct IThumbnailProperties(i32);
+pub struct IVideoProperties(i32);
+pub struct ImageProperties(i32);
+pub struct MusicProperties(i32);
+pub struct PhotoOrientation(i32);
+pub struct PropertyPrefetchOptions(i32);
+pub struct StorageItemContentProperties(i32);
+pub struct StorageItemThumbnail(i32);
+pub struct ThumbnailMode(i32);
+pub struct ThumbnailOptions(i32);
+pub struct ThumbnailType(i32);
+pub struct VideoOrientation(i32);
+pub struct VideoProperties(i32);

@@ -1,8 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct IItemEnumerator(i32);
+pub struct ISettingsContext(i32);
+pub struct ISettingsEngine(i32);
+pub struct ISettingsIdentity(i32);
+pub struct ISettingsItem(i32);
+pub struct ISettingsNamespace(i32);
+pub struct ISettingsResult(i32);
+pub struct ITargetInfo(i32);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
+pub struct SettingsEngine(i32);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const WCM_E_ABORTOPERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255384i32 as _);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
@@ -109,5 +120,10 @@ pub const WCM_S_INVALIDATTRIBUTECOMBINATION: ::windows_sys::core::HRESULT = ::wi
 pub const WCM_S_LEGACYSETTINGWARNING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232322i32 as _);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const WCM_S_NAMESPACENOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232326i32 as _);
-#[link(name = "windows")]
-extern "system" {}
+pub struct WcmDataType(i32);
+pub struct WcmNamespaceAccess(i32);
+pub struct WcmNamespaceEnumerationFlags(i32);
+pub struct WcmRestrictionFacets(i32);
+pub struct WcmSettingType(i32);
+pub struct WcmTargetMode(i32);
+pub struct WcmUserStatus(i32);

@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
@@ -19,6 +21,14 @@ pub const EVCF_SETTINGSMODE: u32 = 32u32;
 pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
+pub struct IADesktopP2(i32);
+pub struct IActiveDesktopP(i32);
+pub struct IBriefcaseInitiator(i32);
+pub struct IEmptyVolumeCache(i32);
+pub struct IEmptyVolumeCache2(i32);
+pub struct IEmptyVolumeCacheCallBack(i32);
+pub struct IReconcilableObject(i32);
+pub struct IReconcileInitiator(i32);
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_E_ABORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217408i32 as _);
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
@@ -37,5 +47,4 @@ pub const REC_S_NOTCOMPLETE: ::windows_sys::core::HRESULT = ::windows_sys::core:
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266242i32 as _);
 #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const STATEBITS_FLAT: u32 = 1u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct _reconcilef(i32);

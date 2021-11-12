@@ -1,4 +1,26 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
+pub struct FindSimilarFileIndexResults(i32);
+pub struct FindSimilarResults(i32);
+pub struct GeneratorParametersType(i32);
+pub struct IFindSimilarResults(i32);
+pub struct IRdcComparator(i32);
+pub struct IRdcFileReader(i32);
+pub struct IRdcFileWriter(i32);
+pub struct IRdcGenerator(i32);
+pub struct IRdcGeneratorFilterMaxParameters(i32);
+pub struct IRdcGeneratorParameters(i32);
+pub struct IRdcLibrary(i32);
+pub struct IRdcSignatureReader(i32);
+pub struct IRdcSimilarityGenerator(i32);
+pub struct ISimilarity(i32);
+pub struct ISimilarityFileIdTable(i32);
+pub struct ISimilarityReportProgress(i32);
+pub struct ISimilarityTableDumpState(i32);
+pub struct ISimilarityTraitsMappedView(i32);
+pub struct ISimilarityTraitsMapping(i32);
+pub struct ISimilarityTraitsTable(i32);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 pub const MSRDC_DEFAULT_COMPAREBUFFER: u32 = 3200000u32;
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
@@ -43,9 +65,35 @@ pub const MSRDC_VERSION: u32 = 65536u32;
 pub const RDCE_TABLE_CORRUPT: u32 = 2147745794u32;
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 pub const RDCE_TABLE_FULL: u32 = 2147745793u32;
+pub struct RDC_ErrorCode(i32);
+pub struct RdcBufferPointer(i32);
+pub struct RdcComparator(i32);
+pub struct RdcCreatedTables(i32);
+pub struct RdcFileReader(i32);
+pub struct RdcGenerator(i32);
+pub struct RdcGeneratorFilterMaxParameters(i32);
+pub struct RdcGeneratorParameters(i32);
+pub struct RdcLibrary(i32);
+pub struct RdcMappingAccessMode(i32);
+pub struct RdcNeed(i32);
+pub struct RdcNeedPointer(i32);
+pub struct RdcNeedType(i32);
+pub struct RdcSignature(i32);
+pub struct RdcSignaturePointer(i32);
+pub struct RdcSignatureReader(i32);
+pub struct RdcSimilarityGenerator(i32);
+pub struct Similarity(i32);
+pub struct SimilarityData(i32);
+pub struct SimilarityDumpData(i32);
+pub struct SimilarityFileId(i32);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 pub const SimilarityFileIdMinSize: u32 = 4u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct SimilarityFileIdTable(i32);
+pub struct SimilarityMappedViewInfo(i32);
+pub struct SimilarityReportProgress(i32);
+pub struct SimilarityTableDumpState(i32);
+pub struct SimilarityTraitsMappedView(i32);
+pub struct SimilarityTraitsMapping(i32);
+pub struct SimilarityTraitsTable(i32);

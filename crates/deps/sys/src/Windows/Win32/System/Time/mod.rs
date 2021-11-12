@@ -1,12 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_System_Time`*"]
-pub const TSF_Authenticated: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Time`*"]
-pub const TSF_Hardware: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Time`*"]
-pub const TSF_IPv6: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Time`*"]
-pub const TSF_SignatureAuthenticated: u32 = 8u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
@@ -55,3 +47,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
 }
+pub struct DYNAMIC_TIME_ZONE_INFORMATION(i32);
+pub struct TIME_ZONE_INFORMATION(i32);
+#[doc = "*Required features: `Win32_System_Time`*"]
+pub const TSF_Authenticated: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Time`*"]
+pub const TSF_Hardware: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Time`*"]
+pub const TSF_IPv6: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Time`*"]
+pub const TSF_SignatureAuthenticated: u32 = 8u32;

@@ -1,1543 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ALL_SERVICES: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ALL_SERVICE_TYPES: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_ALPHA: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_BLANK: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_CNTRL: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_DEFINED: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_DIGIT: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_LOWER: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_PUNCT: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_SPACE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_UPPER: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C1_XDIGIT: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_ARABICNUMBER: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_BLOCKSEPARATOR: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_COMMONSEPARATOR: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_EUROPENUMBER: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_EUROPESEPARATOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_EUROPETERMINATOR: u32 = 5u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_LEFTTORIGHT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_NOTAPPLICABLE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_OTHERNEUTRAL: u32 = 11u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_RIGHTTOLEFT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_SEGMENTSEPARATOR: u32 = 9u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C2_WHITESPACE: u32 = 10u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_ALPHA: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_DIACRITIC: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_FULLWIDTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_HALFWIDTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_HIGHSURROGATE: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_HIRAGANA: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_IDEOGRAPH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_KASHIDA: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_KATAKANA: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_LEXICAL: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_LOWSURROGATE: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_NONSPACING: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_NOTAPPLICABLE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_SYMBOL: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const C3_VOWELMARK: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_GREGORIAN: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_GREGORIAN_ARABIC: u32 = 10u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_GREGORIAN_ME_FRENCH: u32 = 9u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_GREGORIAN_US: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_GREGORIAN_XLIT_ENGLISH: u32 = 11u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_GREGORIAN_XLIT_FRENCH: u32 = 12u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_HEBREW: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_HIJRI: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_ICALINTVALUE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_ITWODIGITYEARMAX: u32 = 48u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_IYEAROFFSETRANGE: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_JAPAN: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_KOREA: u32 = 5u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_NOUSEROVERRIDE: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_PERSIAN: u32 = 22u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_RETURN_GENITIVE_NAMES: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_RETURN_NUMBER: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVDAYNAME1: u32 = 14u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVDAYNAME2: u32 = 15u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVDAYNAME3: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVDAYNAME4: u32 = 17u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVDAYNAME5: u32 = 18u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVDAYNAME6: u32 = 19u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVDAYNAME7: u32 = 20u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVERASTRING: u32 = 57u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME1: u32 = 34u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME10: u32 = 43u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME11: u32 = 44u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME12: u32 = 45u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME13: u32 = 46u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME2: u32 = 35u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME3: u32 = 36u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME4: u32 = 37u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME5: u32 = 38u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME6: u32 = 39u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME7: u32 = 40u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME8: u32 = 41u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SABBREVMONTHNAME9: u32 = 42u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SCALNAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SDAYNAME1: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SDAYNAME2: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SDAYNAME3: u32 = 9u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SDAYNAME4: u32 = 10u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SDAYNAME5: u32 = 11u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SDAYNAME6: u32 = 12u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SDAYNAME7: u32 = 13u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SENGLISHABBREVERANAME: u32 = 60u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SENGLISHERANAME: u32 = 59u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SERASTRING: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SJAPANESEERAFIRSTYEAR: u32 = 61u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SLONGDATE: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHDAY: u32 = 56u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME1: u32 = 21u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME10: u32 = 30u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME11: u32 = 31u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME12: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME13: u32 = 33u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME2: u32 = 22u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME3: u32 = 23u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME4: u32 = 24u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME5: u32 = 25u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME6: u32 = 26u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME7: u32 = 27u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME8: u32 = 28u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SMONTHNAME9: u32 = 29u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SRELATIVELONGDATE: u32 = 58u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTDATE: u32 = 5u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTESTDAYNAME1: u32 = 49u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTESTDAYNAME2: u32 = 50u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTESTDAYNAME3: u32 = 51u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTESTDAYNAME4: u32 = 52u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTESTDAYNAME5: u32 = 53u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTESTDAYNAME6: u32 = 54u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SSHORTESTDAYNAME7: u32 = 55u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_SYEARMONTH: u32 = 47u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_TAIWAN: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_THAI: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_UMALQURA: u32 = 23u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CANITER_SKIP_ZEROES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CPIOD_FORCE_PROMPT: i32 = -2147483648i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CPIOD_PEEK: i32 = 1073741824i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CP_ACP: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CP_MACCP: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CP_OEMCP: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CP_SYMBOL: u32 = 42u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CP_THREAD_ACP: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CP_UTF7: u32 = 65000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CP_UTF8: u32 = 65001u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CSTR_EQUAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CSTR_GREATER_THAN: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CSTR_LESS_THAN: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ALBANIA: u32 = 355u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ALGERIA: u32 = 213u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ARGENTINA: u32 = 54u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ARMENIA: u32 = 374u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_AUSTRALIA: u32 = 61u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_AUSTRIA: u32 = 43u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_AZERBAIJAN: u32 = 994u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BAHRAIN: u32 = 973u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BELARUS: u32 = 375u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BELGIUM: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BELIZE: u32 = 501u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BOLIVIA: u32 = 591u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BRAZIL: u32 = 55u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BRUNEI_DARUSSALAM: u32 = 673u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_BULGARIA: u32 = 359u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_CANADA: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_CARIBBEAN: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_CHILE: u32 = 56u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_COLOMBIA: u32 = 57u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_COSTA_RICA: u32 = 506u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_CROATIA: u32 = 385u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_CZECH: u32 = 420u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_DENMARK: u32 = 45u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_DOMINICAN_REPUBLIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ECUADOR: u32 = 593u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_EGYPT: u32 = 20u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_EL_SALVADOR: u32 = 503u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ESTONIA: u32 = 372u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_FAEROE_ISLANDS: u32 = 298u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_FINLAND: u32 = 358u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_FRANCE: u32 = 33u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_GEORGIA: u32 = 995u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_GERMANY: u32 = 49u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_GREECE: u32 = 30u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_GUATEMALA: u32 = 502u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_HONDURAS: u32 = 504u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_HONG_KONG: u32 = 852u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_HUNGARY: u32 = 36u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ICELAND: u32 = 354u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_INDIA: u32 = 91u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_INDONESIA: u32 = 62u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_IRAN: u32 = 981u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_IRAQ: u32 = 964u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_IRELAND: u32 = 353u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ISRAEL: u32 = 972u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ITALY: u32 = 39u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_JAMAICA: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_JAPAN: u32 = 81u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_JORDAN: u32 = 962u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_KAZAKSTAN: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_KENYA: u32 = 254u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_KUWAIT: u32 = 965u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_KYRGYZSTAN: u32 = 996u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_LATVIA: u32 = 371u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_LEBANON: u32 = 961u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_LIBYA: u32 = 218u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_LIECHTENSTEIN: u32 = 41u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_LITHUANIA: u32 = 370u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_LUXEMBOURG: u32 = 352u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MACAU: u32 = 853u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MACEDONIA: u32 = 389u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MALAYSIA: u32 = 60u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MALDIVES: u32 = 960u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MEXICO: u32 = 52u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MONACO: u32 = 33u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MONGOLIA: u32 = 976u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_MOROCCO: u32 = 212u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_NETHERLANDS: u32 = 31u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_NEW_ZEALAND: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_NICARAGUA: u32 = 505u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_NORWAY: u32 = 47u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_OMAN: u32 = 968u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PAKISTAN: u32 = 92u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PANAMA: u32 = 507u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PARAGUAY: u32 = 595u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PERU: u32 = 51u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PHILIPPINES: u32 = 63u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_POLAND: u32 = 48u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PORTUGAL: u32 = 351u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PRCHINA: u32 = 86u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_PUERTO_RICO: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_QATAR: u32 = 974u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ROMANIA: u32 = 40u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_RUSSIA: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SAUDI_ARABIA: u32 = 966u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SERBIA: u32 = 381u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SINGAPORE: u32 = 65u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SLOVAK: u32 = 421u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SLOVENIA: u32 = 386u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SOUTH_AFRICA: u32 = 27u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SOUTH_KOREA: u32 = 82u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SPAIN: u32 = 34u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SWEDEN: u32 = 46u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SWITZERLAND: u32 = 41u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_SYRIA: u32 = 963u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_TAIWAN: u32 = 886u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_TATARSTAN: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_THAILAND: u32 = 66u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_TRINIDAD_Y_TOBAGO: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_TUNISIA: u32 = 216u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_TURKEY: u32 = 90u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_UAE: u32 = 971u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_UKRAINE: u32 = 380u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_UNITED_KINGDOM: u32 = 44u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_UNITED_STATES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_URUGUAY: u32 = 598u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_UZBEKISTAN: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_VENEZUELA: u32 = 58u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_VIET_NAM: u32 = 84u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_YEMEN: u32 = 967u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CTRY_ZIMBABWE: u32 = 263u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CT_CTYPE1: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CT_CTYPE2: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const CT_CTYPE3: u32 = 4u32;
-pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
-pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 761574457,
-    data2: 27823,
-    data3: 20331,
-    data4: [182, 136, 229, 208, 244, 250, 167, 215],
-};
-pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 4108310565,
-    data2: 37284,
-    data3: 18591,
-    data4: [133, 94, 154, 217, 190, 229, 87, 39],
-};
-pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1037118104, data2: 23293, data3: 18691, data4: [161, 63, 225, 126, 108, 11, 254, 1] };
-pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3299138814, data2: 9825, data3: 19714, data4: [152, 53, 244, 129, 135, 16, 152, 3] };
-pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1268950817,
-    data2: 58429,
-    data3: 16823,
-    data4: [179, 48, 83, 106, 225, 228, 136, 99],
-};
-pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::windows_sys::GUID {
-    data1: 1017957832,
-    data2: 21904,
-    data3: 17116,
-    data4: [154, 123, 181, 166, 181, 179, 182, 59],
-};
-pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2745709371, data2: 62716, data3: 17142, data4: [160, 196, 4, 98, 254, 115, 23, 203] };
-pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3636036529, data2: 63679, data3: 18987, data4: [188, 213, 91, 94, 162, 6, 19, 225] };
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const FIND_ENDSWITH: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const FIND_FROMEND: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const FIND_FROMSTART: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const FIND_STARTSWITH: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const HIGH_SURROGATE_END: u32 = 56319u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const HIGH_SURROGATE_START: u32 = 55296u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IDN_RAW_PUNYCODE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_CHARCODE: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_CHINESE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_FULLSHAPE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_HANGUL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_HANJACONVERT: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_JAPANESE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_KATAKANA: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_LANGUAGE: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_NATIVE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const IME_CMODE_ROMAN: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCID_ALTERNATE_SORTS: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_BYTEREV: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_FULLWIDTH: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_HALFWIDTH: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_HASH: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_HIRAGANA: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_KATAKANA: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_LINGUISTIC_CASING: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_LOWERCASE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_SIMPLIFIED_CHINESE: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_SORTHANDLE: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_SORTKEY: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_TITLECASE: u32 = 768u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_TRADITIONAL_CHINESE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LCMAP_UPPERCASE: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_ARABIC: u32 = 13u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_ARMENIAN: u32 = 17u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_BALTIC: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_CENTRAL_EUROPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_CYRILLIC: u32 = 5u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_GEORGIAN: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_GREEK: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_HEBREW: u32 = 12u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_INDIC: u32 = 15u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_JAPANESE: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_KOREAN: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_SIMPLIFIED_CHINESE: u32 = 10u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_THAI: u32 = 11u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_TRADITIONAL_CHINESE: u32 = 9u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_TURKIC: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_TURKISH: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_VIETNAMESE: u32 = 14u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LGRPID_WESTERN_EUROPE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ALL: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_FONTSIGNATURE: u32 = 88u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ICALENDARTYPE: u32 = 4105u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ICENTURY: u32 = 36u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ICONSTRUCTEDLOCALE: u32 = 125u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ICOUNTRY: u32 = 5u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ICURRDIGITS: u32 = 25u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ICURRENCY: u32 = 27u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDATE: u32 = 33u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDAYLZERO: u32 = 38u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDEFAULTANSICODEPAGE: u32 = 4100u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDEFAULTCODEPAGE: u32 = 11u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDEFAULTCOUNTRY: u32 = 10u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDEFAULTEBCDICCODEPAGE: u32 = 4114u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDEFAULTLANGUAGE: u32 = 9u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDEFAULTMACCODEPAGE: u32 = 4113u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDIALINGCODE: u32 = 5u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDIGITS: u32 = 17u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IDIGITSUBSTITUTION: u32 = 4116u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IFIRSTDAYOFWEEK: u32 = 4108u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IFIRSTWEEKOFYEAR: u32 = 4109u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IGEOID: u32 = 91u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IINTLCURRDIGITS: u32 = 26u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ILANGUAGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ILDATE: u32 = 34u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ILZERO: u32 = 18u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IMEASURE: u32 = 13u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IMONLZERO: u32 = 39u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_INEGATIVEPERCENT: u32 = 116u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_INEGCURR: u32 = 28u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_INEGNUMBER: u32 = 4112u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_INEGSEPBYSPACE: u32 = 87u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_INEGSIGNPOSN: u32 = 83u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_INEGSYMPRECEDES: u32 = 86u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_INEUTRAL: u32 = 113u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IOPTIONALCALENDAR: u32 = 4107u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IPAPERSIZE: u32 = 4106u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IPOSITIVEPERCENT: u32 = 117u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IPOSSEPBYSPACE: u32 = 85u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IPOSSIGNPOSN: u32 = 82u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IPOSSYMPRECEDES: u32 = 84u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IREADINGLAYOUT: u32 = 112u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ITIME: u32 = 35u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ITIMEMARKPOSN: u32 = 4101u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_ITLZERO: u32 = 37u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IUSEUTF8LEGACYACP: u32 = 1638u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_IUSEUTF8LEGACYOEMCP: u32 = 2457u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_NEUTRALDATA: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_NOUSEROVERRIDE: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_REPLACEMENT: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_RETURN_GENITIVE_NAMES: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_RETURN_NUMBER: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_S1159: u32 = 40u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_S2359: u32 = 41u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVCTRYNAME: u32 = 7u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVDAYNAME1: u32 = 49u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVDAYNAME2: u32 = 50u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVDAYNAME3: u32 = 51u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVDAYNAME4: u32 = 52u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVDAYNAME5: u32 = 53u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVDAYNAME6: u32 = 54u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVDAYNAME7: u32 = 55u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVLANGNAME: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME1: u32 = 68u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME10: u32 = 77u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME11: u32 = 78u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME12: u32 = 79u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME13: u32 = 4111u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME2: u32 = 69u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME3: u32 = 70u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME4: u32 = 71u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME5: u32 = 72u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME6: u32 = 73u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME7: u32 = 74u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME8: u32 = 75u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SABBREVMONTHNAME9: u32 = 76u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SAM: u32 = 40u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SCONSOLEFALLBACKNAME: u32 = 110u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SCOUNTRY: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SCURRENCY: u32 = 20u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDATE: u32 = 29u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDAYNAME1: u32 = 42u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDAYNAME2: u32 = 43u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDAYNAME3: u32 = 44u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDAYNAME4: u32 = 45u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDAYNAME5: u32 = 46u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDAYNAME6: u32 = 47u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDAYNAME7: u32 = 48u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDECIMAL: u32 = 14u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SDURATION: u32 = 93u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SENGCOUNTRY: u32 = 4098u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SENGCURRNAME: u32 = 4103u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SENGLANGUAGE: u32 = 4097u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SENGLISHCOUNTRYNAME: u32 = 4098u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SENGLISHDISPLAYNAME: u32 = 114u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SENGLISHLANGUAGENAME: u32 = 4097u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SGROUPING: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SINTLSYMBOL: u32 = 21u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SISO3166CTRYNAME: u32 = 90u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SISO3166CTRYNAME2: u32 = 104u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SISO639LANGNAME: u32 = 89u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SISO639LANGNAME2: u32 = 103u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SKEYBOARDSTOINSTALL: u32 = 94u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SLANGDISPLAYNAME: u32 = 111u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SLANGUAGE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SLIST: u32 = 12u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SLOCALIZEDCOUNTRYNAME: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SLOCALIZEDDISPLAYNAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SLOCALIZEDLANGUAGENAME: u32 = 111u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SLONGDATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONDECIMALSEP: u32 = 22u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONGROUPING: u32 = 24u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHDAY: u32 = 120u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME1: u32 = 56u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME10: u32 = 65u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME11: u32 = 66u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME12: u32 = 67u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME13: u32 = 4110u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME2: u32 = 57u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME3: u32 = 58u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME4: u32 = 59u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME5: u32 = 60u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME6: u32 = 61u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME7: u32 = 62u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME8: u32 = 63u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHNAME9: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SMONTHOUSANDSEP: u32 = 23u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNAME: u32 = 92u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNAN: u32 = 105u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNATIVECOUNTRYNAME: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNATIVECTRYNAME: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNATIVECURRNAME: u32 = 4104u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNATIVEDIGITS: u32 = 19u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNATIVEDISPLAYNAME: u32 = 115u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNATIVELANGNAME: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNATIVELANGUAGENAME: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNEGATIVESIGN: u32 = 81u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SNEGINFINITY: u32 = 107u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SOPENTYPELANGUAGETAG: u32 = 122u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SPARENT: u32 = 109u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SPECIFICDATA: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SPERCENT: u32 = 118u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SPERMILLE: u32 = 119u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SPM: u32 = 41u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SPOSINFINITY: u32 = 106u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SPOSITIVESIGN: u32 = 80u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SRELATIVELONGDATE: u32 = 124u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSCRIPTS: u32 = 108u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTDATE: u32 = 31u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTAM: u32 = 126u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTDAYNAME1: u32 = 96u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTDAYNAME2: u32 = 97u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTDAYNAME3: u32 = 98u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTDAYNAME4: u32 = 99u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTDAYNAME5: u32 = 100u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTDAYNAME6: u32 = 101u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTDAYNAME7: u32 = 102u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTESTPM: u32 = 127u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSHORTTIME: u32 = 121u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSORTLOCALE: u32 = 123u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SSORTNAME: u32 = 4115u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_STHOUSAND: u32 = 15u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_STIME: u32 = 30u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_STIMEFORMAT: u32 = 4099u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SUPPLEMENTAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_SYEARMONTH: u32 = 4102u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_USE_CP_ACP: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOCALE_WINDOWS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOWLEVEL_SERVICE_TYPES: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOW_SURROGATE_END: u32 = 57343u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const LOW_SURROGATE_START: u32 = 56320u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_DEFAULTCHAR: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_LEADBYTES: u32 = 12u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_LOCALE_NAME: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_MIMECP_NAME: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_MIMECSET_NAME: u32 = 50u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_MIMEFACE_NAME: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_RFC1766_NAME: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MAX_SCRIPT_NAME: u32 = 48u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_CONSOLE_FILTER: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_FILEINFO_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_FILETYPE_LANGUAGE_NEUTRAL_MAIN: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_FILETYPE_LANGUAGE_NEUTRAL_MUI: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_FILETYPE_NOT_LANGUAGE_NEUTRAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_FORMAT_INF_COMPAT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_FORMAT_REG_COMPAT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_FULL_LANGUAGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_IMMUTABLE_LOOKUP: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_LANGUAGE_EXACT: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_LANGUAGE_ID: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_LANGUAGE_INSTALLED: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_LANGUAGE_LICENSED: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_LANGUAGE_NAME: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_LANG_NEUTRAL_PE_FILE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_LIP_LANGUAGE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_MACHINE_LANGUAGE_SETTINGS: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_MERGE_SYSTEM_FALLBACK: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_MERGE_USER_FALLBACK: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_NON_LANG_NEUTRAL_FILE: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_PARTIAL_LANGUAGE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_QUERY_CHECKSUM: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_QUERY_LANGUAGE_NAME: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_QUERY_RESOURCE_TYPES: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_QUERY_TYPE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_RESET_FILTERS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_SKIP_STRING_CACHE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_THREAD_LANGUAGES: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_USER_PREFERRED_UI_LANGUAGES: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_USE_INSTALLED_LANGUAGES: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const MUI_VERIFY_FILE_EXISTS: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const NLS_CP_CPINFO: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const OFFLINE_SERVICES: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ONLINE_SERVICES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SCRIPT_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SGCM_RTL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SORTING_PARADIGM_ICU: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SORTING_PARADIGM_NLS: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_BREAK: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_CLIP: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_DONTGLYPH: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_DZWG: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_FALLBACK: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_FIT: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_FULLMEASURE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_GCP: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_GLYPHS: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_HIDEHOTKEY: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_HOTKEY: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_HOTKEYONLY: u32 = 9216u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_LAYOUTRTL: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_LINK: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_LPKANSIFALLBACK: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_METAFILE: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_NOKASHIDA: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_PASSWORD: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_PIDX: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_RTL: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const SSA_TAB: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U16_MAX_LENGTH: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U8_MAX_LENGTH: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_DEFAULT_RTL: u32 = 255u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_DO_MIRRORING: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_INSERT_LRM_FOR_NUMERIC: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_KEEP_BASE_COMBINING: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_LEVEL_OVERRIDE: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_MAP_NOWHERE: i32 = -1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_MAX_EXPLICIT_LEVEL: u32 = 125u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_OUTPUT_REVERSE: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCHAR_MIN_VALUE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCNV_SI: u32 = 15u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCNV_SO: u32 = 14u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCPTRIE_FAST_DATA_MASK: i32 = 63i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCPTRIE_FAST_SHIFT: i32 = 6i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET: i32 = 2i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UCPTRIE_SMALL_MAX: i32 = 4095i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_CHECK_BIDI: i32 = 4i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_CHECK_CONTEXTJ: i32 = 8i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_CHECK_CONTEXTO: i32 = 64i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_DEFAULT: i32 = 0i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_BIDI: i32 = 2048i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_CONTEXTJ: i32 = 4096i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_CONTEXTO_DIGITS: i32 = 16384i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_CONTEXTO_PUNCTUATION: i32 = 8192i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_DISALLOWED: i32 = 128i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_DOMAIN_NAME_TOO_LONG: i32 = 4i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_EMPTY_LABEL: i32 = 1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_HYPHEN_3_4: i32 = 32i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_INVALID_ACE_LABEL: i32 = 1024i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_LABEL_HAS_DOT: i32 = 512i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_LABEL_TOO_LONG: i32 = 2i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_LEADING_COMBINING_MARK: i32 = 64i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_LEADING_HYPHEN: i32 = 8i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_PUNYCODE: i32 = 256i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_ERROR_TRAILING_HYPHEN: i32 = 16i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_NONTRANSITIONAL_TO_ASCII: i32 = 16i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_NONTRANSITIONAL_TO_UNICODE: i32 = 32i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_KEYWORDS_CAPACITY: u32 = 96u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_KEYWORD_AND_VALUES_CAPACITY: u32 = 100u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_KEYWORD_ASSIGN_UNICODE: u32 = 61u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_LANG_CAPACITY: u32 = 12u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UMSGPAT_ARG_NAME_NOT_VALID: i32 = -2i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UNORM_INPUT_IS_FCD: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USEARCH_DONE: i32 = -1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USET_ADD_CASE_MAPPINGS: i32 = 4i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USET_CASE_INSENSITIVE: i32 = 2i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USET_IGNORE_SPACE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USET_SERIALIZED_STATIC_ARRAY_CAPACITY: i32 = 8i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USPREP_ALLOW_UNASSIGNED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USPREP_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTEXT_MAGIC: i32 = 878368812i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTEXT_PROVIDER_HAS_META_DATA: i32 = 4i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTEXT_PROVIDER_LENGTH_IS_EXPENSIVE: i32 = 1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTEXT_PROVIDER_OWNS_TEXT: i32 = 5i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTEXT_PROVIDER_STABLE_CHUNKS: i32 = 2i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTEXT_PROVIDER_WRITABLE: i32 = 3i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF16_MAX_CHAR_LENGTH: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF32_MAX_CHAR_LENGTH: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF8_ERROR_VALUE_1: u32 = 21u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF8_ERROR_VALUE_2: u32 = 159u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF8_MAX_CHAR_LENGTH: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF_ERROR_VALUE: u32 = 65535u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF_MAX_CHAR_LENGTH: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const UTF_SIZE: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_ASCII_FAMILY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_CHECK_DYLOAD: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_COMBINED_IMPLEMENTATION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_COMPARE_CODE_POINT_ORDER: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_COMPARE_IGNORE_CASE: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_COPYRIGHT_STRING_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_DEFAULT_SHOW_DRAFT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_DEFINE_FALSE_AND_TRUE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_DISABLE_RENAMING: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_EBCDIC_FAMILY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_EDITS_NO_RESET: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_ENABLE_DYLOAD: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_ENABLE_TRACING: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_FOLD_CASE_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_FOLD_CASE_EXCLUDE_SPECIAL_I: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_HAVE_RBNF: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_HAVE_STD_STRING: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_HIDE_DEPRECATED_API: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_HIDE_DRAFT_API: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_HIDE_INTERNAL_API: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_HIDE_OBSOLETE_API: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_IOSTREAM_SOURCE: u32 = 199711u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_MAX_VERSION_LENGTH: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_MAX_VERSION_STRING_LENGTH: u32 = 20u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_MILLIS_PER_DAY: u32 = 86400000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_MILLIS_PER_HOUR: u32 = 3600000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_MILLIS_PER_MINUTE: u32 = 60000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_MILLIS_PER_SECOND: u32 = 1000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_NO_DEFAULT_INCLUDE_UTF_HEADERS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_OMIT_UNCHANGED_TEXT: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_OVERRIDE_CXX_ALLOCATION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PARSE_CONTEXT_LEN: i32 = 16i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_AIX: u32 = 3100u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_ANDROID: u32 = 4050u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_BROWSER_NATIVE_CLIENT: u32 = 4020u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_BSD: u32 = 3000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_CYGWIN: u32 = 1900u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_DARWIN: u32 = 3500u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_EMSCRIPTEN: u32 = 5010u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_FUCHSIA: u32 = 4100u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_HPUX: u32 = 2100u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_IPHONE: u32 = 3550u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_IRIX: u32 = 3200u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_LINUX: u32 = 4000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_MINGW: u32 = 1800u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_OS390: u32 = 9000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_OS400: u32 = 9400u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_QNX: u32 = 3700u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_SOLARIS: u32 = 2600u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_PF_WINDOWS: u32 = 1000u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SENTINEL: i32 = -1i32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_AGGREGATE_TASHKEEL: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_AGGREGATE_TASHKEEL_MASK: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_AGGREGATE_TASHKEEL_NOOP: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGITS_ALEN2AN_INIT_AL: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGITS_ALEN2AN_INIT_LR: u32 = 96u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGITS_AN2EN: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGITS_EN2AN: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGITS_MASK: u32 = 224u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGITS_NOOP: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGITS_RESERVED: u32 = 160u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGIT_TYPE_AN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGIT_TYPE_AN_EXTENDED: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGIT_TYPE_MASK: u32 = 768u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_DIGIT_TYPE_RESERVED: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LAMALEF_AUTO: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LAMALEF_BEGIN: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LAMALEF_END: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LAMALEF_MASK: u32 = 65539u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LAMALEF_NEAR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LAMALEF_RESIZE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LENGTH_FIXED_SPACES_AT_BEGINNING: u32 = 3u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LENGTH_FIXED_SPACES_AT_END: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LENGTH_FIXED_SPACES_NEAR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LENGTH_GROW_SHRINK: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LENGTH_MASK: u32 = 65539u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LETTERS_MASK: u32 = 24u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LETTERS_NOOP: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LETTERS_SHAPE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LETTERS_SHAPE_TASHKEEL_ISOLATED: u32 = 24u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_LETTERS_UNSHAPE: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_PRESERVE_PRESENTATION: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_PRESERVE_PRESENTATION_MASK: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_PRESERVE_PRESENTATION_NOOP: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_SEEN_MASK: u32 = 7340032u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_SEEN_TWOCELL_NEAR: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_SPACES_RELATIVE_TO_TEXT_BEGIN_END: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_SPACES_RELATIVE_TO_TEXT_MASK: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TAIL_NEW_UNICODE: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TAIL_TYPE_MASK: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TASHKEEL_BEGIN: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TASHKEEL_END: u32 = 393216u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TASHKEEL_MASK: u32 = 917504u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TASHKEEL_REPLACE_BY_TATWEEL: u32 = 786432u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TASHKEEL_RESIZE: u32 = 524288u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TEXT_DIRECTION_LOGICAL: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TEXT_DIRECTION_MASK: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TEXT_DIRECTION_VISUAL_LTR: u32 = 4u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_TEXT_DIRECTION_VISUAL_RTL: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_YEHHAMZA_MASK: u32 = 58720256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHAPE_YEHHAMZA_TWOCELL_NEAR: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SHOW_CPLUSPLUS_API: u32 = 0u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_SIZEOF_UCHAR: u32 = 2u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_TITLECASE_ADJUST_TO_CASED: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_TITLECASE_NO_BREAK_ADJUSTMENT: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_TITLECASE_NO_LOWERCASE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_TITLECASE_SENTENCES: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const U_TITLECASE_WHOLE_STRING: u32 = 32u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const VS_ALLOW_LATIN: u32 = 1u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const WC_COMPOSITECHECK: u32 = 512u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const WC_DEFAULTCHAR: u32 = 64u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const WC_DISCARDNS: u32 = 16u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const WC_ERR_INVALID_CHARS: u32 = 128u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Globalization`*"]
-pub const WC_SEPCHARS: u32 = 32u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -4387,3 +2848,1901 @@ extern "system" {
     #[doc = "*Required features: `Win32_Globalization`*"]
     pub fn utrans_unregisterID(id: *const u16, idlength: i32);
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ALL_SERVICES: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ALL_SERVICE_TYPES: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_ALPHA: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_BLANK: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_CNTRL: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_DEFINED: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_DIGIT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_LOWER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_PUNCT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_SPACE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_UPPER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C1_XDIGIT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_ARABICNUMBER: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_BLOCKSEPARATOR: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_COMMONSEPARATOR: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_EUROPENUMBER: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_EUROPESEPARATOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_EUROPETERMINATOR: u32 = 5u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_LEFTTORIGHT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_NOTAPPLICABLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_OTHERNEUTRAL: u32 = 11u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_RIGHTTOLEFT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_SEGMENTSEPARATOR: u32 = 9u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C2_WHITESPACE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_ALPHA: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_DIACRITIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_FULLWIDTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_HALFWIDTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_HIGHSURROGATE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_HIRAGANA: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_IDEOGRAPH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_KASHIDA: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_KATAKANA: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_LEXICAL: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_LOWSURROGATE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_NONSPACING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_NOTAPPLICABLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_SYMBOL: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const C3_VOWELMARK: u32 = 4u32;
+pub struct CALINFO_ENUMPROCA(i32);
+pub struct CALINFO_ENUMPROCEXA(i32);
+pub struct CALINFO_ENUMPROCEXEX(i32);
+pub struct CALINFO_ENUMPROCEXW(i32);
+pub struct CALINFO_ENUMPROCW(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_GREGORIAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_GREGORIAN_ARABIC: u32 = 10u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_GREGORIAN_ME_FRENCH: u32 = 9u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_GREGORIAN_US: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_GREGORIAN_XLIT_ENGLISH: u32 = 11u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_GREGORIAN_XLIT_FRENCH: u32 = 12u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_HEBREW: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_HIJRI: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_ICALINTVALUE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_ITWODIGITYEARMAX: u32 = 48u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_IYEAROFFSETRANGE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_JAPAN: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_KOREA: u32 = 5u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_NOUSEROVERRIDE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_PERSIAN: u32 = 22u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_RETURN_GENITIVE_NAMES: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_RETURN_NUMBER: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVDAYNAME1: u32 = 14u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVDAYNAME2: u32 = 15u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVDAYNAME3: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVDAYNAME4: u32 = 17u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVDAYNAME5: u32 = 18u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVDAYNAME6: u32 = 19u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVDAYNAME7: u32 = 20u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVERASTRING: u32 = 57u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME1: u32 = 34u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME10: u32 = 43u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME11: u32 = 44u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME12: u32 = 45u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME13: u32 = 46u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME2: u32 = 35u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME3: u32 = 36u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME4: u32 = 37u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME5: u32 = 38u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME6: u32 = 39u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME7: u32 = 40u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME8: u32 = 41u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SABBREVMONTHNAME9: u32 = 42u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SCALNAME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SDAYNAME1: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SDAYNAME2: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SDAYNAME3: u32 = 9u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SDAYNAME4: u32 = 10u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SDAYNAME5: u32 = 11u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SDAYNAME6: u32 = 12u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SDAYNAME7: u32 = 13u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SENGLISHABBREVERANAME: u32 = 60u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SENGLISHERANAME: u32 = 59u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SERASTRING: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SJAPANESEERAFIRSTYEAR: u32 = 61u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SLONGDATE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHDAY: u32 = 56u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME1: u32 = 21u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME10: u32 = 30u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME11: u32 = 31u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME12: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME13: u32 = 33u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME2: u32 = 22u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME3: u32 = 23u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME4: u32 = 24u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME5: u32 = 25u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME6: u32 = 26u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME7: u32 = 27u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME8: u32 = 28u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SMONTHNAME9: u32 = 29u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SRELATIVELONGDATE: u32 = 58u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTDATE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTESTDAYNAME1: u32 = 49u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTESTDAYNAME2: u32 = 50u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTESTDAYNAME3: u32 = 51u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTESTDAYNAME4: u32 = 52u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTESTDAYNAME5: u32 = 53u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTESTDAYNAME6: u32 = 54u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SSHORTESTDAYNAME7: u32 = 55u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_SYEARMONTH: u32 = 47u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_TAIWAN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_THAI: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_UMALQURA: u32 = 23u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CANITER_SKIP_ZEROES: u32 = 1u32;
+pub struct CHARSETINFO(i32);
+pub struct CMLangConvertCharset(i32);
+pub struct CMLangString(i32);
+pub struct CMultiLanguage(i32);
+pub struct CODEPAGE_ENUMPROCA(i32);
+pub struct CODEPAGE_ENUMPROCW(i32);
+pub struct COMPARE_STRING_FLAGS(i32);
+pub struct CORRECTIVE_ACTION(i32);
+pub struct CPINFO(i32);
+pub struct CPINFOEXA(i32);
+pub struct CPINFOEXW(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CPIOD_FORCE_PROMPT: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CPIOD_PEEK: i32 = 1073741824i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CP_ACP: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CP_MACCP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CP_OEMCP: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CP_SYMBOL: u32 = 42u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CP_THREAD_ACP: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CP_UTF7: u32 = 65000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CP_UTF8: u32 = 65001u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CSTR_EQUAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CSTR_GREATER_THAN: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CSTR_LESS_THAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ALBANIA: u32 = 355u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ALGERIA: u32 = 213u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ARGENTINA: u32 = 54u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ARMENIA: u32 = 374u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_AUSTRALIA: u32 = 61u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_AUSTRIA: u32 = 43u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_AZERBAIJAN: u32 = 994u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BAHRAIN: u32 = 973u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BELARUS: u32 = 375u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BELGIUM: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BELIZE: u32 = 501u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BOLIVIA: u32 = 591u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BRAZIL: u32 = 55u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BRUNEI_DARUSSALAM: u32 = 673u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_BULGARIA: u32 = 359u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_CANADA: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_CARIBBEAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_CHILE: u32 = 56u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_COLOMBIA: u32 = 57u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_COSTA_RICA: u32 = 506u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_CROATIA: u32 = 385u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_CZECH: u32 = 420u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_DENMARK: u32 = 45u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_DOMINICAN_REPUBLIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ECUADOR: u32 = 593u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_EGYPT: u32 = 20u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_EL_SALVADOR: u32 = 503u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ESTONIA: u32 = 372u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_FAEROE_ISLANDS: u32 = 298u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_FINLAND: u32 = 358u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_FRANCE: u32 = 33u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_GEORGIA: u32 = 995u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_GERMANY: u32 = 49u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_GREECE: u32 = 30u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_GUATEMALA: u32 = 502u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_HONDURAS: u32 = 504u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_HONG_KONG: u32 = 852u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_HUNGARY: u32 = 36u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ICELAND: u32 = 354u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_INDIA: u32 = 91u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_INDONESIA: u32 = 62u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_IRAN: u32 = 981u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_IRAQ: u32 = 964u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_IRELAND: u32 = 353u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ISRAEL: u32 = 972u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ITALY: u32 = 39u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_JAMAICA: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_JAPAN: u32 = 81u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_JORDAN: u32 = 962u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_KAZAKSTAN: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_KENYA: u32 = 254u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_KUWAIT: u32 = 965u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_KYRGYZSTAN: u32 = 996u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_LATVIA: u32 = 371u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_LEBANON: u32 = 961u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_LIBYA: u32 = 218u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_LIECHTENSTEIN: u32 = 41u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_LITHUANIA: u32 = 370u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_LUXEMBOURG: u32 = 352u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MACAU: u32 = 853u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MACEDONIA: u32 = 389u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MALAYSIA: u32 = 60u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MALDIVES: u32 = 960u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MEXICO: u32 = 52u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MONACO: u32 = 33u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MONGOLIA: u32 = 976u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_MOROCCO: u32 = 212u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_NETHERLANDS: u32 = 31u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_NEW_ZEALAND: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_NICARAGUA: u32 = 505u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_NORWAY: u32 = 47u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_OMAN: u32 = 968u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PAKISTAN: u32 = 92u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PANAMA: u32 = 507u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PARAGUAY: u32 = 595u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PERU: u32 = 51u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PHILIPPINES: u32 = 63u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_POLAND: u32 = 48u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PORTUGAL: u32 = 351u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PRCHINA: u32 = 86u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_PUERTO_RICO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_QATAR: u32 = 974u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ROMANIA: u32 = 40u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_RUSSIA: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SAUDI_ARABIA: u32 = 966u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SERBIA: u32 = 381u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SINGAPORE: u32 = 65u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SLOVAK: u32 = 421u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SLOVENIA: u32 = 386u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SOUTH_AFRICA: u32 = 27u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SOUTH_KOREA: u32 = 82u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SPAIN: u32 = 34u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SWEDEN: u32 = 46u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SWITZERLAND: u32 = 41u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_SYRIA: u32 = 963u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_TAIWAN: u32 = 886u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_TATARSTAN: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_THAILAND: u32 = 66u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_TRINIDAD_Y_TOBAGO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_TUNISIA: u32 = 216u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_TURKEY: u32 = 90u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_UAE: u32 = 971u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_UKRAINE: u32 = 380u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_UNITED_KINGDOM: u32 = 44u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_UNITED_STATES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_URUGUAY: u32 = 598u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_UZBEKISTAN: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_VENEZUELA: u32 = 58u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_VIET_NAM: u32 = 84u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_YEMEN: u32 = 967u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CTRY_ZIMBABWE: u32 = 263u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CT_CTYPE1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CT_CTYPE2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const CT_CTYPE3: u32 = 4u32;
+pub struct CURRENCYFMTA(i32);
+pub struct CURRENCYFMTW(i32);
+pub struct DATEFMT_ENUMPROCA(i32);
+pub struct DATEFMT_ENUMPROCEXA(i32);
+pub struct DATEFMT_ENUMPROCEXEX(i32);
+pub struct DATEFMT_ENUMPROCEXW(i32);
+pub struct DATEFMT_ENUMPROCW(i32);
+pub struct DetectEncodingInfo(i32);
+pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
+pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 761574457,
+    data2: 27823,
+    data3: 20331,
+    data4: [182, 136, 229, 208, 244, 250, 167, 215],
+};
+pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4108310565,
+    data2: 37284,
+    data3: 18591,
+    data4: [133, 94, 154, 217, 190, 229, 87, 39],
+};
+pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1037118104, data2: 23293, data3: 18691, data4: [161, 63, 225, 126, 108, 11, 254, 1] };
+pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3299138814, data2: 9825, data3: 19714, data4: [152, 53, 244, 129, 135, 16, 152, 3] };
+pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1268950817,
+    data2: 58429,
+    data3: 16823,
+    data4: [179, 48, 83, 106, 225, 228, 136, 99],
+};
+pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1017957832,
+    data2: 21904,
+    data3: 17116,
+    data4: [154, 123, 181, 166, 181, 179, 182, 59],
+};
+pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2745709371, data2: 62716, data3: 17142, data4: [160, 196, 4, 98, 254, 115, 23, 203] };
+pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3636036529, data2: 63679, data3: 18987, data4: [188, 213, 91, 94, 162, 6, 19, 225] };
+pub struct ENUMTEXTMETRICA(i32);
+pub struct ENUMTEXTMETRICW(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
+pub struct ENUM_DATE_FORMATS_FLAGS(i32);
+pub struct ENUM_SYSTEM_CODE_PAGES_FLAGS(i32);
+pub struct ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(i32);
+pub struct FILEMUIINFO(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const FIND_ENDSWITH: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const FIND_FROMEND: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const FIND_FROMSTART: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const FIND_STARTSWITH: u32 = 1048576u32;
+pub struct FOLD_STRING_MAP_FLAGS(i32);
+pub struct FONTSIGNATURE(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
+pub struct GEO_ENUMNAMEPROC(i32);
+pub struct GEO_ENUMPROC(i32);
+pub struct GOFFSET(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const HIGH_SURROGATE_END: u32 = 56319u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const HIGH_SURROGATE_START: u32 = 55296u32;
+pub struct HIMC(i32);
+pub struct HIMCC(i32);
+pub struct HSAVEDUILANGUAGES(i32);
+pub struct IComprehensiveSpellCheckProvider(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IDN_RAW_PUNYCODE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
+pub struct IEnumCodePage(i32);
+pub struct IEnumRfc1766(i32);
+pub struct IEnumScript(i32);
+pub struct IEnumSpellingError(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_CHARCODE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_CHINESE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_FULLSHAPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_HANGUL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_HANJACONVERT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_JAPANESE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_KATAKANA: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_LANGUAGE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_NATIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const IME_CMODE_ROMAN: u32 = 16u32;
+pub struct IMLangCodePages(i32);
+pub struct IMLangConvertCharset(i32);
+pub struct IMLangFontLink(i32);
+pub struct IMLangFontLink2(i32);
+pub struct IMLangLineBreakConsole(i32);
+pub struct IMLangString(i32);
+pub struct IMLangStringAStr(i32);
+pub struct IMLangStringBufA(i32);
+pub struct IMLangStringBufW(i32);
+pub struct IMLangStringWStr(i32);
+pub struct IMultiLanguage(i32);
+pub struct IMultiLanguage2(i32);
+pub struct IMultiLanguage3(i32);
+pub struct IOptionDescription(i32);
+pub struct IS_TEXT_UNICODE_RESULT(i32);
+pub struct IS_VALID_LOCALE_FLAGS(i32);
+pub struct ISpellCheckProvider(i32);
+pub struct ISpellCheckProviderFactory(i32);
+pub struct ISpellChecker(i32);
+pub struct ISpellChecker2(i32);
+pub struct ISpellCheckerChangedEventHandler(i32);
+pub struct ISpellCheckerFactory(i32);
+pub struct ISpellingError(i32);
+pub struct IUserDictionariesRegistrar(i32);
+pub struct LANGGROUPLOCALE_ENUMPROCA(i32);
+pub struct LANGGROUPLOCALE_ENUMPROCW(i32);
+pub struct LANGUAGEGROUP_ENUMPROCA(i32);
+pub struct LANGUAGEGROUP_ENUMPROCW(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCID_ALTERNATE_SORTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_BYTEREV: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_FULLWIDTH: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_HALFWIDTH: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_HASH: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_HIRAGANA: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_KATAKANA: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_LINGUISTIC_CASING: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_LOWERCASE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_SIMPLIFIED_CHINESE: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_SORTHANDLE: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_SORTKEY: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_TITLECASE: u32 = 768u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_TRADITIONAL_CHINESE: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LCMAP_UPPERCASE: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_ARABIC: u32 = 13u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_ARMENIAN: u32 = 17u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_BALTIC: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_CENTRAL_EUROPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_CYRILLIC: u32 = 5u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_GEORGIAN: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_GREEK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_HEBREW: u32 = 12u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_INDIC: u32 = 15u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_JAPANESE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_KOREAN: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_SIMPLIFIED_CHINESE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_THAI: u32 = 11u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_TRADITIONAL_CHINESE: u32 = 9u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_TURKIC: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_TURKISH: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_VIETNAMESE: u32 = 14u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LGRPID_WESTERN_EUROPE: u32 = 1u32;
+pub struct LOCALESIGNATURE(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ALL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
+pub struct LOCALE_ENUMPROCA(i32);
+pub struct LOCALE_ENUMPROCEX(i32);
+pub struct LOCALE_ENUMPROCW(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_FONTSIGNATURE: u32 = 88u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ICALENDARTYPE: u32 = 4105u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ICENTURY: u32 = 36u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ICONSTRUCTEDLOCALE: u32 = 125u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ICOUNTRY: u32 = 5u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ICURRDIGITS: u32 = 25u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ICURRENCY: u32 = 27u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDATE: u32 = 33u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDAYLZERO: u32 = 38u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDEFAULTANSICODEPAGE: u32 = 4100u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDEFAULTCODEPAGE: u32 = 11u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDEFAULTCOUNTRY: u32 = 10u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDEFAULTEBCDICCODEPAGE: u32 = 4114u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDEFAULTLANGUAGE: u32 = 9u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDEFAULTMACCODEPAGE: u32 = 4113u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDIALINGCODE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDIGITS: u32 = 17u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IDIGITSUBSTITUTION: u32 = 4116u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IFIRSTDAYOFWEEK: u32 = 4108u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IFIRSTWEEKOFYEAR: u32 = 4109u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IGEOID: u32 = 91u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IINTLCURRDIGITS: u32 = 26u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ILANGUAGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ILDATE: u32 = 34u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ILZERO: u32 = 18u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IMEASURE: u32 = 13u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IMONLZERO: u32 = 39u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_INEGATIVEPERCENT: u32 = 116u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_INEGCURR: u32 = 28u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_INEGNUMBER: u32 = 4112u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_INEGSEPBYSPACE: u32 = 87u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_INEGSIGNPOSN: u32 = 83u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_INEGSYMPRECEDES: u32 = 86u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_INEUTRAL: u32 = 113u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IOPTIONALCALENDAR: u32 = 4107u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IPAPERSIZE: u32 = 4106u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IPOSITIVEPERCENT: u32 = 117u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IPOSSEPBYSPACE: u32 = 85u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IPOSSIGNPOSN: u32 = 82u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IPOSSYMPRECEDES: u32 = 84u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IREADINGLAYOUT: u32 = 112u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ITIME: u32 = 35u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ITIMEMARKPOSN: u32 = 4101u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_ITLZERO: u32 = 37u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IUSEUTF8LEGACYACP: u32 = 1638u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_IUSEUTF8LEGACYOEMCP: u32 = 2457u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_NEUTRALDATA: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_NOUSEROVERRIDE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_REPLACEMENT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_RETURN_GENITIVE_NAMES: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_RETURN_NUMBER: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_S1159: u32 = 40u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_S2359: u32 = 41u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVCTRYNAME: u32 = 7u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVDAYNAME1: u32 = 49u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVDAYNAME2: u32 = 50u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVDAYNAME3: u32 = 51u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVDAYNAME4: u32 = 52u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVDAYNAME5: u32 = 53u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVDAYNAME6: u32 = 54u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVDAYNAME7: u32 = 55u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVLANGNAME: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME1: u32 = 68u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME10: u32 = 77u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME11: u32 = 78u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME12: u32 = 79u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME13: u32 = 4111u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME2: u32 = 69u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME3: u32 = 70u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME4: u32 = 71u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME5: u32 = 72u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME6: u32 = 73u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME7: u32 = 74u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME8: u32 = 75u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SABBREVMONTHNAME9: u32 = 76u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SAM: u32 = 40u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SCONSOLEFALLBACKNAME: u32 = 110u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SCOUNTRY: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SCURRENCY: u32 = 20u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDATE: u32 = 29u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDAYNAME1: u32 = 42u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDAYNAME2: u32 = 43u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDAYNAME3: u32 = 44u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDAYNAME4: u32 = 45u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDAYNAME5: u32 = 46u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDAYNAME6: u32 = 47u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDAYNAME7: u32 = 48u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDECIMAL: u32 = 14u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SDURATION: u32 = 93u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SENGCOUNTRY: u32 = 4098u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SENGCURRNAME: u32 = 4103u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SENGLANGUAGE: u32 = 4097u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SENGLISHCOUNTRYNAME: u32 = 4098u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SENGLISHDISPLAYNAME: u32 = 114u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SENGLISHLANGUAGENAME: u32 = 4097u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SGROUPING: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SINTLSYMBOL: u32 = 21u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SISO3166CTRYNAME: u32 = 90u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SISO3166CTRYNAME2: u32 = 104u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SISO639LANGNAME: u32 = 89u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SISO639LANGNAME2: u32 = 103u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SKEYBOARDSTOINSTALL: u32 = 94u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SLANGDISPLAYNAME: u32 = 111u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SLANGUAGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SLIST: u32 = 12u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SLOCALIZEDCOUNTRYNAME: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SLOCALIZEDDISPLAYNAME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SLOCALIZEDLANGUAGENAME: u32 = 111u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SLONGDATE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONDECIMALSEP: u32 = 22u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONGROUPING: u32 = 24u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHDAY: u32 = 120u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME1: u32 = 56u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME10: u32 = 65u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME11: u32 = 66u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME12: u32 = 67u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME13: u32 = 4110u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME2: u32 = 57u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME3: u32 = 58u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME4: u32 = 59u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME5: u32 = 60u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME6: u32 = 61u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME7: u32 = 62u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME8: u32 = 63u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHNAME9: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SMONTHOUSANDSEP: u32 = 23u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNAME: u32 = 92u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNAN: u32 = 105u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNATIVECOUNTRYNAME: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNATIVECTRYNAME: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNATIVECURRNAME: u32 = 4104u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNATIVEDIGITS: u32 = 19u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNATIVEDISPLAYNAME: u32 = 115u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNATIVELANGNAME: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNATIVELANGUAGENAME: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNEGATIVESIGN: u32 = 81u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SNEGINFINITY: u32 = 107u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SOPENTYPELANGUAGETAG: u32 = 122u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SPARENT: u32 = 109u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SPECIFICDATA: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SPERCENT: u32 = 118u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SPERMILLE: u32 = 119u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SPM: u32 = 41u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SPOSINFINITY: u32 = 106u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SPOSITIVESIGN: u32 = 80u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SRELATIVELONGDATE: u32 = 124u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSCRIPTS: u32 = 108u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTDATE: u32 = 31u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTAM: u32 = 126u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTDAYNAME1: u32 = 96u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTDAYNAME2: u32 = 97u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTDAYNAME3: u32 = 98u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTDAYNAME4: u32 = 99u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTDAYNAME5: u32 = 100u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTDAYNAME6: u32 = 101u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTDAYNAME7: u32 = 102u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTESTPM: u32 = 127u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSHORTTIME: u32 = 121u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSORTLOCALE: u32 = 123u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SSORTNAME: u32 = 4115u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_STHOUSAND: u32 = 15u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_STIME: u32 = 30u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_STIMEFORMAT: u32 = 4099u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SUPPLEMENTAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_SYEARMONTH: u32 = 4102u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_USE_CP_ACP: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOCALE_WINDOWS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOWLEVEL_SERVICE_TYPES: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOW_SURROGATE_END: u32 = 57343u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const LOW_SURROGATE_START: u32 = 56320u32;
+pub struct MAPPING_DATA_RANGE(i32);
+pub struct MAPPING_ENUM_OPTIONS(i32);
+pub struct MAPPING_OPTIONS(i32);
+pub struct MAPPING_PROPERTY_BAG(i32);
+pub struct MAPPING_SERVICE_INFO(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_DEFAULTCHAR: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_LEADBYTES: u32 = 12u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_LOCALE_NAME: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_MIMECP_NAME: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_MIMECSET_NAME: u32 = 50u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_MIMEFACE_NAME: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_RFC1766_NAME: u32 = 6u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MAX_SCRIPT_NAME: u32 = 48u32;
+pub struct MIMECONTF(i32);
+pub struct MIMECPINFO(i32);
+pub struct MIMECSETINFO(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
+pub struct MLDETECTCP(i32);
+pub struct MLSTR_FLAGS(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_CONSOLE_FILTER: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_FILEINFO_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_FILETYPE_LANGUAGE_NEUTRAL_MAIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_FILETYPE_LANGUAGE_NEUTRAL_MUI: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_FILETYPE_NOT_LANGUAGE_NEUTRAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_FORMAT_INF_COMPAT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_FORMAT_REG_COMPAT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_FULL_LANGUAGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_IMMUTABLE_LOOKUP: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_LANGUAGE_EXACT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_LANGUAGE_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_LANGUAGE_INSTALLED: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_LANGUAGE_LICENSED: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_LANGUAGE_NAME: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_LANG_NEUTRAL_PE_FILE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_LIP_LANGUAGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_MACHINE_LANGUAGE_SETTINGS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_MERGE_SYSTEM_FALLBACK: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_MERGE_USER_FALLBACK: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_NON_LANG_NEUTRAL_FILE: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_PARTIAL_LANGUAGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_QUERY_CHECKSUM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_QUERY_LANGUAGE_NAME: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_QUERY_RESOURCE_TYPES: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_QUERY_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_RESET_FILTERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_SKIP_STRING_CACHE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_THREAD_LANGUAGES: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_USER_PREFERRED_UI_LANGUAGES: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_USE_INSTALLED_LANGUAGES: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const MUI_VERIFY_FILE_EXISTS: u32 = 4u32;
+pub struct MULTI_BYTE_TO_WIDE_CHAR_FLAGS(i32);
+pub struct NEWTEXTMETRICEXA(i32);
+pub struct NEWTEXTMETRICEXW(i32);
+pub struct NLSVERSIONINFO(i32);
+pub struct NLSVERSIONINFOEX(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const NLS_CP_CPINFO: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
+pub struct NORM_FORM(i32);
+pub struct NUMBERFMTA(i32);
+pub struct NUMBERFMTW(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const OFFLINE_SERVICES: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ONLINE_SERVICES: u32 = 1u32;
+pub struct PFN_MAPPINGCALLBACKPROC(i32);
+pub struct RFC1766INFO(i32);
+pub struct SCRIPTCONTF(i32);
+pub struct SCRIPTFONTCONTF(i32);
+pub struct SCRIPTINFO(i32);
+pub struct SCRIPT_ANALYSIS(i32);
+pub struct SCRIPT_CONTROL(i32);
+pub struct SCRIPT_DIGITSUBSTITUTE(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3u32;
+pub struct SCRIPT_FONTPROPERTIES(i32);
+pub struct SCRIPT_IS_COMPLEX_FLAGS(i32);
+pub struct SCRIPT_ITEM(i32);
+pub struct SCRIPT_JUSTIFY(i32);
+pub struct SCRIPT_LOGATTR(i32);
+pub struct SCRIPT_PROPERTIES(i32);
+pub struct SCRIPT_STATE(i32);
+pub struct SCRIPT_TABDEF(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SCRIPT_UNDEFINED: u32 = 0u32;
+pub struct SCRIPT_VISATTR(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SGCM_RTL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SORTING_PARADIGM_ICU: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SORTING_PARADIGM_NLS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_BREAK: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_CLIP: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_DONTGLYPH: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_DZWG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_FALLBACK: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_FIT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_FULLMEASURE: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_GCP: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_GLYPHS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_HIDEHOTKEY: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_HOTKEY: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_HOTKEYONLY: u32 = 9216u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_LAYOUTRTL: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_LINK: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_LPKANSIFALLBACK: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_METAFILE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_NOKASHIDA: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_PASSWORD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_PIDX: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_RTL: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const SSA_TAB: u32 = 2u32;
+pub struct SYSGEOCLASS(i32);
+pub struct SYSGEOTYPE(i32);
+pub struct SYSNLS_FUNCTION(i32);
+pub struct SpellCheckerFactory(i32);
+pub struct TIMEFMT_ENUMPROCA(i32);
+pub struct TIMEFMT_ENUMPROCEX(i32);
+pub struct TIMEFMT_ENUMPROCW(i32);
+pub struct TIME_FORMAT_FLAGS(i32);
+pub struct TRANSLATE_CHARSET_INFO_FLAGS(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U16_MAX_LENGTH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U8_MAX_LENGTH: u32 = 4u32;
+pub struct UAcceptResult(i32);
+pub struct UAlphabeticIndexLabelType(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_DEFAULT_RTL: u32 = 255u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_DO_MIRRORING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_INSERT_LRM_FOR_NUMERIC: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_KEEP_BASE_COMBINING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_LEVEL_OVERRIDE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_MAP_NOWHERE: i32 = -1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_MAX_EXPLICIT_LEVEL: u32 = 125u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_OUTPUT_REVERSE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
+pub struct UBiDi(i32);
+pub struct UBiDiClassCallback(i32);
+pub struct UBiDiDirection(i32);
+pub struct UBiDiMirroring(i32);
+pub struct UBiDiOrder(i32);
+pub struct UBiDiReorderingMode(i32);
+pub struct UBiDiReorderingOption(i32);
+pub struct UBiDiTransform(i32);
+pub struct UBidiPairedBracketType(i32);
+pub struct UBlockCode(i32);
+pub struct UBreakIterator(i32);
+pub struct UBreakIteratorType(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCHAR_MIN_VALUE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCNV_SI: u32 = 15u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCNV_SO: u32 = 14u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
+pub struct UCPMap(i32);
+pub struct UCPMapRangeOption(i32);
+pub struct UCPMapValueFilter(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCPTRIE_FAST_DATA_MASK: i32 = 63i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCPTRIE_FAST_SHIFT: i32 = 6i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET: i32 = 2i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UCPTRIE_SMALL_MAX: i32 = 4095i32;
+pub struct UCPTrie(i32);
+pub struct UCPTrieData(i32);
+pub struct UCPTrieType(i32);
+pub struct UCPTrieValueWidth(i32);
+pub struct UCalendarAMPMs(i32);
+pub struct UCalendarAttribute(i32);
+pub struct UCalendarDateFields(i32);
+pub struct UCalendarDaysOfWeek(i32);
+pub struct UCalendarDisplayNameType(i32);
+pub struct UCalendarLimitType(i32);
+pub struct UCalendarMonths(i32);
+pub struct UCalendarType(i32);
+pub struct UCalendarWallTimeOption(i32);
+pub struct UCalendarWeekdayType(i32);
+pub struct UCaseMap(i32);
+pub struct UCharCategory(i32);
+pub struct UCharDirection(i32);
+pub struct UCharEnumTypeRange(i32);
+pub struct UCharIterator(i32);
+pub struct UCharIteratorCurrent(i32);
+pub struct UCharIteratorGetIndex(i32);
+pub struct UCharIteratorGetState(i32);
+pub struct UCharIteratorHasNext(i32);
+pub struct UCharIteratorHasPrevious(i32);
+pub struct UCharIteratorMove(i32);
+pub struct UCharIteratorNext(i32);
+pub struct UCharIteratorOrigin(i32);
+pub struct UCharIteratorPrevious(i32);
+pub struct UCharIteratorReserved(i32);
+pub struct UCharIteratorSetState(i32);
+pub struct UCharNameChoice(i32);
+pub struct UCharsetDetector(i32);
+pub struct UCharsetMatch(i32);
+pub struct UColAttribute(i32);
+pub struct UColAttributeValue(i32);
+pub struct UColBoundMode(i32);
+pub struct UColReorderCode(i32);
+pub struct UColRuleOption(i32);
+pub struct UCollationElements(i32);
+pub struct UCollationResult(i32);
+pub struct UCollator(i32);
+pub struct UConstrainedFieldPosition(i32);
+pub struct UConverter(i32);
+pub struct UConverterCallbackReason(i32);
+pub struct UConverterFromUCallback(i32);
+pub struct UConverterFromUnicodeArgs(i32);
+pub struct UConverterPlatform(i32);
+pub struct UConverterSelector(i32);
+pub struct UConverterToUCallback(i32);
+pub struct UConverterToUnicodeArgs(i32);
+pub struct UConverterType(i32);
+pub struct UConverterUnicodeSet(i32);
+pub struct UCurrCurrencyType(i32);
+pub struct UCurrNameStyle(i32);
+pub struct UCurrencySpacing(i32);
+pub struct UCurrencyUsage(i32);
+pub struct UDateAbsoluteUnit(i32);
+pub struct UDateDirection(i32);
+pub struct UDateFormatBooleanAttribute(i32);
+pub struct UDateFormatField(i32);
+pub struct UDateFormatStyle(i32);
+pub struct UDateFormatSymbolType(i32);
+pub struct UDateFormatSymbols(i32);
+pub struct UDateIntervalFormat(i32);
+pub struct UDateRelativeDateTimeFormatterStyle(i32);
+pub struct UDateRelativeUnit(i32);
+pub struct UDateTimePGDisplayWidth(i32);
+pub struct UDateTimePatternConflict(i32);
+pub struct UDateTimePatternField(i32);
+pub struct UDateTimePatternMatchOptions(i32);
+pub struct UDateTimeScale(i32);
+pub struct UDecompositionType(i32);
+pub struct UDialectHandling(i32);
+pub struct UDisplayContext(i32);
+pub struct UDisplayContextType(i32);
+pub struct UEastAsianWidth(i32);
+pub struct UEnumCharNamesFn(i32);
+pub struct UEnumeration(i32);
+pub struct UErrorCode(i32);
+pub struct UFieldCategory(i32);
+pub struct UFieldPosition(i32);
+pub struct UFieldPositionIterator(i32);
+pub struct UFormattableType(i32);
+pub struct UFormattedDateInterval(i32);
+pub struct UFormattedList(i32);
+pub struct UFormattedNumber(i32);
+pub struct UFormattedNumberRange(i32);
+pub struct UFormattedRelativeDateTime(i32);
+pub struct UFormattedValue(i32);
+pub struct UGender(i32);
+pub struct UGenderInfo(i32);
+pub struct UGraphemeClusterBreak(i32);
+pub struct UHangulSyllableType(i32);
+pub struct UHashtable(i32);
+pub struct UIDNA(i32);
+pub struct UIDNAInfo(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_CHECK_BIDI: i32 = 4i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_CHECK_CONTEXTJ: i32 = 8i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_CHECK_CONTEXTO: i32 = 64i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_DEFAULT: i32 = 0i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_BIDI: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_CONTEXTJ: i32 = 4096i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_CONTEXTO_DIGITS: i32 = 16384i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_CONTEXTO_PUNCTUATION: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_DISALLOWED: i32 = 128i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_DOMAIN_NAME_TOO_LONG: i32 = 4i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_EMPTY_LABEL: i32 = 1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_HYPHEN_3_4: i32 = 32i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_INVALID_ACE_LABEL: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_LABEL_HAS_DOT: i32 = 512i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_LABEL_TOO_LONG: i32 = 2i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_LEADING_COMBINING_MARK: i32 = 64i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_LEADING_HYPHEN: i32 = 8i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_PUNYCODE: i32 = 256i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_ERROR_TRAILING_HYPHEN: i32 = 16i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_NONTRANSITIONAL_TO_ASCII: i32 = 16i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_NONTRANSITIONAL_TO_UNICODE: i32 = 32i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
+pub struct UILANGUAGE_ENUMPROCA(i32);
+pub struct UILANGUAGE_ENUMPROCW(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
+pub struct UIndicPositionalCategory(i32);
+pub struct UIndicSyllabicCategory(i32);
+pub struct UJoiningGroup(i32);
+pub struct UJoiningType(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_KEYWORDS_CAPACITY: u32 = 96u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_KEYWORD_AND_VALUES_CAPACITY: u32 = 100u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_KEYWORD_ASSIGN_UNICODE: u32 = 61u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_LANG_CAPACITY: u32 = 12u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
+pub struct ULayoutType(i32);
+pub struct ULineBreak(i32);
+pub struct ULineBreakTag(i32);
+pub struct UListFormatter(i32);
+pub struct UListFormatterField(i32);
+pub struct UListFormatterType(i32);
+pub struct UListFormatterWidth(i32);
+pub struct ULocAvailableType(i32);
+pub struct ULocDataLocaleType(i32);
+pub struct ULocaleData(i32);
+pub struct ULocaleDataDelimiterType(i32);
+pub struct ULocaleDataExemplarSetType(i32);
+pub struct ULocaleDisplayNames(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UMSGPAT_ARG_NAME_NOT_VALID: i32 = -2i32;
+pub struct UMeasureFormatWidth(i32);
+pub struct UMeasurementSystem(i32);
+pub struct UMemAllocFn(i32);
+pub struct UMemFreeFn(i32);
+pub struct UMemReallocFn(i32);
+pub struct UMessagePatternApostropheMode(i32);
+pub struct UMessagePatternArgType(i32);
+pub struct UMessagePatternPartType(i32);
+pub struct UMutableCPTrie(i32);
+pub struct UNESCAPE_CHAR_AT(i32);
+pub struct UNICODERANGE(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UNORM_INPUT_IS_FCD: u32 = 131072u32;
+pub struct UNormalization2Mode(i32);
+pub struct UNormalizationCheckResult(i32);
+pub struct UNormalizationMode(i32);
+pub struct UNormalizer2(i32);
+pub struct UNumberCompactStyle(i32);
+pub struct UNumberDecimalSeparatorDisplay(i32);
+pub struct UNumberFormatAttribute(i32);
+pub struct UNumberFormatAttributeValue(i32);
+pub struct UNumberFormatFields(i32);
+pub struct UNumberFormatPadPosition(i32);
+pub struct UNumberFormatRoundingMode(i32);
+pub struct UNumberFormatStyle(i32);
+pub struct UNumberFormatSymbol(i32);
+pub struct UNumberFormatTextAttribute(i32);
+pub struct UNumberFormatter(i32);
+pub struct UNumberGroupingStrategy(i32);
+pub struct UNumberRangeCollapse(i32);
+pub struct UNumberRangeIdentityFallback(i32);
+pub struct UNumberRangeIdentityResult(i32);
+pub struct UNumberSignDisplay(i32);
+pub struct UNumberUnitWidth(i32);
+pub struct UNumberingSystem(i32);
+pub struct UNumericType(i32);
+pub struct UParseError(i32);
+pub struct UPluralRules(i32);
+pub struct UPluralType(i32);
+pub struct UProperty(i32);
+pub struct UPropertyNameChoice(i32);
+pub struct URegexFindProgressCallback(i32);
+pub struct URegexMatchCallback(i32);
+pub struct URegexpFlag(i32);
+pub struct URegion(i32);
+pub struct URegionType(i32);
+pub struct URegularExpression(i32);
+pub struct URelativeDateTimeFormatter(i32);
+pub struct URelativeDateTimeFormatterField(i32);
+pub struct URelativeDateTimeUnit(i32);
+pub struct UReplaceableCallbacks(i32);
+pub struct UResType(i32);
+pub struct UResourceBundle(i32);
+pub struct URestrictionLevel(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USEARCH_DONE: i32 = -1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USET_ADD_CASE_MAPPINGS: i32 = 4i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USET_CASE_INSENSITIVE: i32 = 2i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USET_IGNORE_SPACE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USET_SERIALIZED_STATIC_ARRAY_CAPACITY: i32 = 8i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USPREP_ALLOW_UNASSIGNED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USPREP_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
+pub struct UScriptCode(i32);
+pub struct UScriptUsage(i32);
+pub struct USearch(i32);
+pub struct USearchAttribute(i32);
+pub struct USearchAttributeValue(i32);
+pub struct USentenceBreak(i32);
+pub struct USentenceBreakTag(i32);
+pub struct USerializedSet(i32);
+pub struct USet(i32);
+pub struct USetSpanCondition(i32);
+pub struct USpoofCheckResult(i32);
+pub struct USpoofChecker(i32);
+pub struct USpoofChecks(i32);
+pub struct UStringCaseMapper(i32);
+pub struct UStringPrepProfile(i32);
+pub struct UStringPrepProfileType(i32);
+pub struct UStringSearch(i32);
+pub struct UStringTrieBuildOption(i32);
+pub struct UStringTrieResult(i32);
+pub struct USystemTimeZoneType(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTEXT_MAGIC: i32 = 878368812i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTEXT_PROVIDER_HAS_META_DATA: i32 = 4i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTEXT_PROVIDER_LENGTH_IS_EXPENSIVE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTEXT_PROVIDER_OWNS_TEXT: i32 = 5i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTEXT_PROVIDER_STABLE_CHUNKS: i32 = 2i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTEXT_PROVIDER_WRITABLE: i32 = 3i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF16_MAX_CHAR_LENGTH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF32_MAX_CHAR_LENGTH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF8_ERROR_VALUE_1: u32 = 21u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF8_ERROR_VALUE_2: u32 = 159u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF8_MAX_CHAR_LENGTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF_ERROR_VALUE: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF_MAX_CHAR_LENGTH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const UTF_SIZE: u32 = 16u32;
+pub struct UText(i32);
+pub struct UTextAccess(i32);
+pub struct UTextClone(i32);
+pub struct UTextClose(i32);
+pub struct UTextCopy(i32);
+pub struct UTextExtract(i32);
+pub struct UTextFuncs(i32);
+pub struct UTextMapNativeIndexToUTF16(i32);
+pub struct UTextMapOffsetToNative(i32);
+pub struct UTextNativeLength(i32);
+pub struct UTextReplace(i32);
+pub struct UTimeScaleValue(i32);
+pub struct UTimeZoneFormatGMTOffsetPatternType(i32);
+pub struct UTimeZoneFormatParseOption(i32);
+pub struct UTimeZoneFormatStyle(i32);
+pub struct UTimeZoneFormatTimeType(i32);
+pub struct UTimeZoneNameType(i32);
+pub struct UTimeZoneTransitionType(i32);
+pub struct UTraceData(i32);
+pub struct UTraceEntry(i32);
+pub struct UTraceExit(i32);
+pub struct UTraceFunctionNumber(i32);
+pub struct UTraceLevel(i32);
+pub struct UTransDirection(i32);
+pub struct UTransPosition(i32);
+pub struct UVerticalOrientation(i32);
+pub struct UWordBreak(i32);
+pub struct UWordBreakValues(i32);
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_ASCII_FAMILY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_CHECK_DYLOAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_COMBINED_IMPLEMENTATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_COMPARE_CODE_POINT_ORDER: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_COMPARE_IGNORE_CASE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_COPYRIGHT_STRING_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_DEFAULT_SHOW_DRAFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_DEFINE_FALSE_AND_TRUE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_DISABLE_RENAMING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_EBCDIC_FAMILY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_EDITS_NO_RESET: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_ENABLE_DYLOAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_ENABLE_TRACING: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_FOLD_CASE_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_FOLD_CASE_EXCLUDE_SPECIAL_I: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_HAVE_RBNF: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_HAVE_STD_STRING: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_HIDE_DEPRECATED_API: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_HIDE_DRAFT_API: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_HIDE_INTERNAL_API: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_HIDE_OBSOLETE_API: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_IOSTREAM_SOURCE: u32 = 199711u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_MAX_VERSION_LENGTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_MAX_VERSION_STRING_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_MILLIS_PER_DAY: u32 = 86400000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_MILLIS_PER_HOUR: u32 = 3600000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_MILLIS_PER_MINUTE: u32 = 60000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_MILLIS_PER_SECOND: u32 = 1000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_NO_DEFAULT_INCLUDE_UTF_HEADERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_OMIT_UNCHANGED_TEXT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_OVERRIDE_CXX_ALLOCATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PARSE_CONTEXT_LEN: i32 = 16i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_AIX: u32 = 3100u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_ANDROID: u32 = 4050u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_BROWSER_NATIVE_CLIENT: u32 = 4020u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_BSD: u32 = 3000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_CYGWIN: u32 = 1900u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_DARWIN: u32 = 3500u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_EMSCRIPTEN: u32 = 5010u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_FUCHSIA: u32 = 4100u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_HPUX: u32 = 2100u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_IPHONE: u32 = 3550u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_IRIX: u32 = 3200u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_LINUX: u32 = 4000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_MINGW: u32 = 1800u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_OS390: u32 = 9000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_OS400: u32 = 9400u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_QNX: u32 = 3700u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_SOLARIS: u32 = 2600u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_PF_WINDOWS: u32 = 1000u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SENTINEL: i32 = -1i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_AGGREGATE_TASHKEEL: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_AGGREGATE_TASHKEEL_MASK: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_AGGREGATE_TASHKEEL_NOOP: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGITS_ALEN2AN_INIT_AL: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGITS_ALEN2AN_INIT_LR: u32 = 96u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGITS_AN2EN: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGITS_EN2AN: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGITS_MASK: u32 = 224u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGITS_NOOP: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGITS_RESERVED: u32 = 160u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGIT_TYPE_AN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGIT_TYPE_AN_EXTENDED: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGIT_TYPE_MASK: u32 = 768u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_DIGIT_TYPE_RESERVED: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LAMALEF_AUTO: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LAMALEF_BEGIN: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LAMALEF_END: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LAMALEF_MASK: u32 = 65539u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LAMALEF_NEAR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LAMALEF_RESIZE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LENGTH_FIXED_SPACES_AT_BEGINNING: u32 = 3u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LENGTH_FIXED_SPACES_AT_END: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LENGTH_FIXED_SPACES_NEAR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LENGTH_GROW_SHRINK: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LENGTH_MASK: u32 = 65539u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LETTERS_MASK: u32 = 24u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LETTERS_NOOP: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LETTERS_SHAPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LETTERS_SHAPE_TASHKEEL_ISOLATED: u32 = 24u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_LETTERS_UNSHAPE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_PRESERVE_PRESENTATION: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_PRESERVE_PRESENTATION_MASK: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_PRESERVE_PRESENTATION_NOOP: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_SEEN_MASK: u32 = 7340032u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_SEEN_TWOCELL_NEAR: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_SPACES_RELATIVE_TO_TEXT_BEGIN_END: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_SPACES_RELATIVE_TO_TEXT_MASK: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TAIL_NEW_UNICODE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TAIL_TYPE_MASK: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TASHKEEL_BEGIN: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TASHKEEL_END: u32 = 393216u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TASHKEEL_MASK: u32 = 917504u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TASHKEEL_REPLACE_BY_TATWEEL: u32 = 786432u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TASHKEEL_RESIZE: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TEXT_DIRECTION_LOGICAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TEXT_DIRECTION_MASK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TEXT_DIRECTION_VISUAL_LTR: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_TEXT_DIRECTION_VISUAL_RTL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_YEHHAMZA_MASK: u32 = 58720256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHAPE_YEHHAMZA_TWOCELL_NEAR: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SHOW_CPLUSPLUS_API: u32 = 0u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_SIZEOF_UCHAR: u32 = 2u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_TITLECASE_ADJUST_TO_CASED: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_TITLECASE_NO_BREAK_ADJUSTMENT: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_TITLECASE_NO_LOWERCASE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_TITLECASE_SENTENCES: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const U_TITLECASE_WHOLE_STRING: u32 = 32u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const VS_ALLOW_LATIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const WC_COMPOSITECHECK: u32 = 512u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const WC_DEFAULTCHAR: u32 = 64u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const WC_DISCARDNS: u32 = 16u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const WC_ERR_INVALID_CHARS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
+pub const WC_SEPCHARS: u32 = 32u32;
+pub struct WORDLIST_TYPE(i32);
+pub struct opentype_feature_record(i32);
+pub struct script_charprop(i32);
+pub struct script_glyphprop(i32);
+pub struct tagMLCONVCHARF(i32);
+pub struct tagMLCPF(i32);
+pub struct tagSCRIPFONTINFO(i32);
+pub struct textrange_properties(i32);

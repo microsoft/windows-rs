@@ -180,3 +180,18 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
+pub struct HCS_CREATE_OPTIONS(i32);
+pub struct HCS_CREATE_OPTIONS_1(i32);
+pub struct HCS_EVENT(i32);
+pub struct HCS_EVENT_CALLBACK(i32);
+pub struct HCS_EVENT_OPTIONS(i32);
+pub struct HCS_EVENT_TYPE(i32);
+pub struct HCS_NOTIFICATIONS(i32);
+pub struct HCS_NOTIFICATION_CALLBACK(i32);
+pub struct HCS_NOTIFICATION_FLAGS(i32);
+pub struct HCS_OPERATION(i32);
+pub struct HCS_OPERATION_COMPLETION(i32);
+pub struct HCS_OPERATION_TYPE(i32);
+pub struct HCS_PROCESS(i32);
+pub struct HCS_PROCESS_INFORMATION(i32);
+pub struct HCS_SYSTEM(i32);

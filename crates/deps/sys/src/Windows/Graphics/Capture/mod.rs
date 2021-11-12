@@ -1,3 +1,23 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+pub struct Direct3D11CaptureFrame(i32);
+pub struct Direct3D11CaptureFramePool(i32);
+pub struct GraphicsCaptureAccess(i32);
+pub struct GraphicsCaptureAccessKind(i32);
+pub struct GraphicsCaptureItem(i32);
+pub struct GraphicsCapturePicker(i32);
+pub struct GraphicsCaptureSession(i32);
+pub struct IDirect3D11CaptureFrame(i32);
+pub struct IDirect3D11CaptureFramePool(i32);
+pub struct IDirect3D11CaptureFramePoolStatics(i32);
+pub struct IDirect3D11CaptureFramePoolStatics2(i32);
+pub struct IGraphicsCaptureAccessStatics(i32);
+pub struct IGraphicsCaptureItem(i32);
+pub struct IGraphicsCaptureItemStatics(i32);
+pub struct IGraphicsCaptureItemStatics2(i32);
+pub struct IGraphicsCapturePicker(i32);
+pub struct IGraphicsCaptureSession(i32);
+pub struct IGraphicsCaptureSession2(i32);
+pub struct IGraphicsCaptureSession3(i32);
+pub struct IGraphicsCaptureSessionStatics(i32);

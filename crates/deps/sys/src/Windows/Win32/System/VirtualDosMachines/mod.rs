@@ -1,4 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[link(name = "windows")]
+extern "system" {}
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_ATTACH: u32 = 14u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -43,6 +45,7 @@ pub const DBG_TEMPBP: u32 = 18u32;
 pub const DBG_TOOLHELP: u32 = 15u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_WOWINIT: u32 = 17u32;
+pub struct DEBUGEVENTPROC(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ACCELERATORS: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -75,6 +78,7 @@ pub const GD_RCDATA: u32 = 10u32;
 pub const GD_STRING: u32 = 6u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_USERDEFINED: u32 = 0u32;
+pub struct GLOBALENTRY(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GLOBAL_ALL: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -103,10 +107,14 @@ pub const GT_SENTINEL: u32 = 9u32;
 pub const GT_TASK: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_UNKNOWN: u32 = 0u32;
+pub struct IMAGE_NOTE(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const MAX_MODULE_NAME: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const MAX_PATH16: u32 = 255u32;
+pub struct MODULEENTRY(i32);
+pub struct PROCESSENUMPROC(i32);
+pub struct SEGMENT_NOTE(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const SN_CODE: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -115,6 +123,9 @@ pub const SN_DATA: u32 = 1u32;
 pub const SN_V86: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
+pub struct TASKENUMPROC(i32);
+pub struct TASKENUMPROCEX(i32);
+pub struct TEMP_BP_NOTE(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_ALIGNMENT: u32 = 262144u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -149,6 +160,9 @@ pub const VDMADDR_PM16: u32 = 4u32;
 pub const VDMADDR_PM32: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMADDR_V86: u32 = 2u32;
+pub struct VDMBREAKTHREADPROC(i32);
+pub struct VDMCONTEXT(i32);
+pub struct VDMCONTEXT_WITHOUT_XSAVE(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMCONTEXT_i386: u32 = 65536u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -171,6 +185,10 @@ pub const VDMDBG_INITIAL_FLAGS: u32 = 256u32;
 pub const VDMDBG_MAX_SYMBOL_BUFFER: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_TRACE_HISTORY: u32 = 128u32;
+pub struct VDMDETECTWOWPROC(i32);
+pub struct VDMENUMPROCESSWOWPROC(i32);
+pub struct VDMENUMTASKWOWEXPROC(i32);
+pub struct VDMENUMTASKWOWPROC(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_ALLFLAGS: u32 = 57344u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
@@ -183,9 +201,32 @@ pub const VDMEVENT_PM16: u32 = 2u32;
 pub const VDMEVENT_V86: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_VERBOSE: u32 = 16384u32;
+pub struct VDMGETADDREXPRESSIONPROC(i32);
+pub struct VDMGETCONTEXTPROC(i32);
+pub struct VDMGETCONTEXTPROC(i32);
+pub struct VDMGETDBGFLAGSPROC(i32);
+pub struct VDMGETMODULESELECTORPROC(i32);
+pub struct VDMGETPOINTERPROC(i32);
+pub struct VDMGETSEGMENTINFOPROC(i32);
+pub struct VDMGETSELECTORMODULEPROC(i32);
+pub struct VDMGETSYMBOLPROC(i32);
+pub struct VDMGETTHREADSELECTORENTRYPROC(i32);
+pub struct VDMGETTHREADSELECTORENTRYPROC(i32);
+pub struct VDMGLOBALFIRSTPROC(i32);
+pub struct VDMGLOBALNEXTPROC(i32);
+pub struct VDMISMODULELOADEDPROC(i32);
+pub struct VDMKILLWOWPROC(i32);
+pub struct VDMLDT_ENTRY(i32);
+pub struct VDMMODULEFIRSTPROC(i32);
+pub struct VDMMODULENEXTPROC(i32);
+pub struct VDMPROCESSEXCEPTIONPROC(i32);
+pub struct VDMSETCONTEXTPROC(i32);
+pub struct VDMSETCONTEXTPROC(i32);
+pub struct VDMSETDBGFLAGSPROC(i32);
+pub struct VDMSTARTTASKINWOWPROC(i32);
+pub struct VDMTERMINATETASKINWOWPROC(i32);
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
-#[link(name = "windows")]
-extern "system" {}
+pub struct VDM_SEGINFO(i32);

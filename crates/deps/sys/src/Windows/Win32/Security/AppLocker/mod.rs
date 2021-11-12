@@ -1,64 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types)]
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_LEVELID_NORMALUSER: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_LEVEL_OPEN: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_ONLY_AUDIT: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_ONLY_EXES: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_SANDBOX_INERT: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
-pub const SAFER_SCOPEID_USER: u32 = 2u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
@@ -92,3 +32,74 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SaferiIsExecutableFileType(szfullpathname: super::super::Foundation::PWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
 }
+pub struct SAFER_CODE_PROPERTIES_V1(i32);
+pub struct SAFER_CODE_PROPERTIES_V2(i32);
+pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(i32);
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
+pub struct SAFER_HASH_IDENTIFICATION(i32);
+pub struct SAFER_HASH_IDENTIFICATION2(i32);
+pub struct SAFER_IDENTIFICATION_HEADER(i32);
+pub struct SAFER_IDENTIFICATION_TYPES(i32);
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_LEVELID_NORMALUSER: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_LEVEL_OPEN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
+pub struct SAFER_OBJECT_INFO_CLASS(i32);
+pub struct SAFER_PATHNAME_IDENTIFICATION(i32);
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
+pub struct SAFER_POLICY_INFO_CLASS(i32);
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_ONLY_AUDIT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_ONLY_EXES: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_SANDBOX_INERT: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_AppLocker`*"]
+pub const SAFER_SCOPEID_USER: u32 = 2u32;
+pub struct SAFER_URLZONE_IDENTIFICATION(i32);

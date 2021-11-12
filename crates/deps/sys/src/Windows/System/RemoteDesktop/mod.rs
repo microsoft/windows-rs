@@ -3,3 +3,5 @@
 pub mod Input;
 #[link(name = "windows")]
 extern "system" {}
+pub struct IInteractiveSessionStatics(i32);
+pub struct InteractiveSession(i32);
