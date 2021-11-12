@@ -1,3 +1,5 @@
+#![allow(clippy::many_single_char_names)]
+
 use super::*;
 
 // TODO: move tool-specific code gen into the tool itself to avoid carrying this extra code in the shared crates?
