@@ -1,10 +1,12 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
 pub struct ACT_AUTHORIZATION_STATE(i32);
-#[repr(C)]
-pub struct ACT_AUTHORIZATION_STATE_VALUE(i32);
+#[repr(transparent)]
+pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
+pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
+pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
 pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
 pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;

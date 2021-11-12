@@ -1,30 +1,56 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
 pub struct BackgroundDownloadProgress(i32);
 #[repr(transparent)]
 pub struct BackgroundDownloader(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct BackgroundTransferBehavior(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferBehavior(pub i32);
+impl BackgroundTransferBehavior {
+    pub const Parallel: BackgroundTransferBehavior = BackgroundTransferBehavior(0i32);
+    pub const Serialized: BackgroundTransferBehavior = BackgroundTransferBehavior(1i32);
+}
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTransferContentPart(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct BackgroundTransferCostPolicy(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferCostPolicy(pub i32);
+impl BackgroundTransferCostPolicy {
+    pub const Default: BackgroundTransferCostPolicy = BackgroundTransferCostPolicy(0i32);
+    pub const UnrestrictedOnly: BackgroundTransferCostPolicy = BackgroundTransferCostPolicy(1i32);
+    pub const Always: BackgroundTransferCostPolicy = BackgroundTransferCostPolicy(2i32);
+}
 #[repr(C)]
 pub struct BackgroundTransferFileRange(i32);
 #[repr(transparent)]
 pub struct BackgroundTransferGroup(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct BackgroundTransferPriority(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferPriority(pub i32);
+impl BackgroundTransferPriority {
+    pub const Default: BackgroundTransferPriority = BackgroundTransferPriority(0i32);
+    pub const High: BackgroundTransferPriority = BackgroundTransferPriority(1i32);
+    pub const Low: BackgroundTransferPriority = BackgroundTransferPriority(2i32);
+}
 #[repr(transparent)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct BackgroundTransferStatus(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferStatus(pub i32);
+impl BackgroundTransferStatus {
+    pub const Idle: BackgroundTransferStatus = BackgroundTransferStatus(0i32);
+    pub const Running: BackgroundTransferStatus = BackgroundTransferStatus(1i32);
+    pub const PausedByApplication: BackgroundTransferStatus = BackgroundTransferStatus(2i32);
+    pub const PausedCostedNetwork: BackgroundTransferStatus = BackgroundTransferStatus(3i32);
+    pub const PausedNoNetwork: BackgroundTransferStatus = BackgroundTransferStatus(4i32);
+    pub const Completed: BackgroundTransferStatus = BackgroundTransferStatus(5i32);
+    pub const Canceled: BackgroundTransferStatus = BackgroundTransferStatus(6i32);
+    pub const Error: BackgroundTransferStatus = BackgroundTransferStatus(7i32);
+    pub const PausedRecoverableWebErrorStatus: BackgroundTransferStatus = BackgroundTransferStatus(8i32);
+    pub const PausedSystemPolicy: BackgroundTransferStatus = BackgroundTransferStatus(32i32);
+}
 #[repr(C)]
 pub struct BackgroundUploadProgress(i32);
 #[repr(transparent)]

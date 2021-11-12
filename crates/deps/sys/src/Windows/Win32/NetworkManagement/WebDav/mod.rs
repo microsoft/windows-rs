@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -23,8 +23,11 @@ extern "system" {
     pub fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32;
     pub fn DavUnregisterAuthCallback(hcallback: u32);
 }
-#[repr(C)]
-pub struct AUTHNEXTSTEP(i32);
+#[repr(transparent)]
+pub struct AUTHNEXTSTEP(pub i32);
+pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
+pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
+pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
 pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;

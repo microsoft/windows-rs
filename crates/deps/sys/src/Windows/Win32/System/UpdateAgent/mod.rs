@@ -1,28 +1,70 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct AddServiceFlag(i32);
-#[repr(C)]
-pub struct AutoDownloadMode(i32);
-#[repr(C)]
-pub struct AutoSelectionMode(i32);
+#[repr(transparent)]
+pub struct AddServiceFlag(pub i32);
+pub const asfAllowPendingRegistration: AddServiceFlag = AddServiceFlag(1i32);
+pub const asfAllowOnlineRegistration: AddServiceFlag = AddServiceFlag(2i32);
+pub const asfRegisterServiceWithAU: AddServiceFlag = AddServiceFlag(4i32);
+#[repr(transparent)]
+pub struct AutoDownloadMode(pub i32);
+pub const adLetWindowsUpdateDecide: AutoDownloadMode = AutoDownloadMode(0i32);
+pub const adNeverAutoDownload: AutoDownloadMode = AutoDownloadMode(1i32);
+pub const adAlwaysAutoDownload: AutoDownloadMode = AutoDownloadMode(2i32);
+#[repr(transparent)]
+pub struct AutoSelectionMode(pub i32);
+pub const asLetWindowsUpdateDecide: AutoSelectionMode = AutoSelectionMode(0i32);
+pub const asAutoSelectIfDownloaded: AutoSelectionMode = AutoSelectionMode(1i32);
+pub const asNeverAutoSelect: AutoSelectionMode = AutoSelectionMode(2i32);
+pub const asAlwaysAutoSelect: AutoSelectionMode = AutoSelectionMode(3i32);
 #[repr(C)]
 pub struct AutomaticUpdates(i32);
-#[repr(C)]
-pub struct AutomaticUpdatesNotificationLevel(i32);
-#[repr(C)]
-pub struct AutomaticUpdatesPermissionType(i32);
-#[repr(C)]
-pub struct AutomaticUpdatesScheduledInstallationDay(i32);
-#[repr(C)]
-pub struct AutomaticUpdatesUserType(i32);
-#[repr(C)]
-pub struct DeploymentAction(i32);
-#[repr(C)]
-pub struct DownloadPhase(i32);
-#[repr(C)]
-pub struct DownloadPriority(i32);
+#[repr(transparent)]
+pub struct AutomaticUpdatesNotificationLevel(pub i32);
+pub const aunlNotConfigured: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(0i32);
+pub const aunlDisabled: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(1i32);
+pub const aunlNotifyBeforeDownload: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(2i32);
+pub const aunlNotifyBeforeInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(3i32);
+pub const aunlScheduledInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(4i32);
+#[repr(transparent)]
+pub struct AutomaticUpdatesPermissionType(pub i32);
+pub const auptSetNotificationLevel: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(1i32);
+pub const auptDisableAutomaticUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(2i32);
+pub const auptSetIncludeRecommendedUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(3i32);
+pub const auptSetFeaturedUpdatesEnabled: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(4i32);
+pub const auptSetNonAdministratorsElevated: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(5i32);
+#[repr(transparent)]
+pub struct AutomaticUpdatesScheduledInstallationDay(pub i32);
+pub const ausidEveryDay: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(0i32);
+pub const ausidEverySunday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(1i32);
+pub const ausidEveryMonday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(2i32);
+pub const ausidEveryTuesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(3i32);
+pub const ausidEveryWednesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(4i32);
+pub const ausidEveryThursday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(5i32);
+pub const ausidEveryFriday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(6i32);
+pub const ausidEverySaturday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(7i32);
+#[repr(transparent)]
+pub struct AutomaticUpdatesUserType(pub i32);
+pub const auutCurrentUser: AutomaticUpdatesUserType = AutomaticUpdatesUserType(1i32);
+pub const auutLocalAdministrator: AutomaticUpdatesUserType = AutomaticUpdatesUserType(2i32);
+#[repr(transparent)]
+pub struct DeploymentAction(pub i32);
+pub const daNone: DeploymentAction = DeploymentAction(0i32);
+pub const daInstallation: DeploymentAction = DeploymentAction(1i32);
+pub const daUninstallation: DeploymentAction = DeploymentAction(2i32);
+pub const daDetection: DeploymentAction = DeploymentAction(3i32);
+pub const daOptionalInstallation: DeploymentAction = DeploymentAction(4i32);
+#[repr(transparent)]
+pub struct DownloadPhase(pub i32);
+pub const dphInitializing: DownloadPhase = DownloadPhase(1i32);
+pub const dphDownloading: DownloadPhase = DownloadPhase(2i32);
+pub const dphVerifying: DownloadPhase = DownloadPhase(3i32);
+#[repr(transparent)]
+pub struct DownloadPriority(pub i32);
+pub const dpLow: DownloadPriority = DownloadPriority(1i32);
+pub const dpNormal: DownloadPriority = DownloadPriority(2i32);
+pub const dpHigh: DownloadPriority = DownloadPriority(3i32);
+pub const dpExtraHigh: DownloadPriority = DownloadPriority(4i32);
 #[repr(transparent)]
 pub struct IAutomaticUpdates(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -177,17 +219,39 @@ pub struct IWindowsDriverUpdateEntryCollection(pub *mut ::core::ffi::c_void);
 pub struct IWindowsUpdateAgentInfo(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct InstallationAgent(i32);
-#[repr(C)]
-pub struct InstallationImpact(i32);
-#[repr(C)]
-pub struct InstallationRebootBehavior(i32);
+#[repr(transparent)]
+pub struct InstallationImpact(pub i32);
+pub const iiNormal: InstallationImpact = InstallationImpact(0i32);
+pub const iiMinor: InstallationImpact = InstallationImpact(1i32);
+pub const iiRequiresExclusiveHandling: InstallationImpact = InstallationImpact(2i32);
+#[repr(transparent)]
+pub struct InstallationRebootBehavior(pub i32);
+pub const irbNeverReboots: InstallationRebootBehavior = InstallationRebootBehavior(0i32);
+pub const irbAlwaysRequiresReboot: InstallationRebootBehavior = InstallationRebootBehavior(1i32);
+pub const irbCanRequestReboot: InstallationRebootBehavior = InstallationRebootBehavior(2i32);
 pub const LIBID_WUApiLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3046558879, data2: 22245, data3: 16798, data4: [166, 34, 224, 27, 180, 87, 67, 30] };
-#[repr(C)]
-pub struct OperationResultCode(i32);
-#[repr(C)]
-pub struct SearchScope(i32);
-#[repr(C)]
-pub struct ServerSelection(i32);
+#[repr(transparent)]
+pub struct OperationResultCode(pub i32);
+pub const orcNotStarted: OperationResultCode = OperationResultCode(0i32);
+pub const orcInProgress: OperationResultCode = OperationResultCode(1i32);
+pub const orcSucceeded: OperationResultCode = OperationResultCode(2i32);
+pub const orcSucceededWithErrors: OperationResultCode = OperationResultCode(3i32);
+pub const orcFailed: OperationResultCode = OperationResultCode(4i32);
+pub const orcAborted: OperationResultCode = OperationResultCode(5i32);
+#[repr(transparent)]
+pub struct SearchScope(pub i32);
+pub const searchScopeDefault: SearchScope = SearchScope(0i32);
+pub const searchScopeMachineOnly: SearchScope = SearchScope(1i32);
+pub const searchScopeCurrentUserOnly: SearchScope = SearchScope(2i32);
+pub const searchScopeMachineAndCurrentUser: SearchScope = SearchScope(3i32);
+pub const searchScopeMachineAndAllUsers: SearchScope = SearchScope(4i32);
+pub const searchScopeAllUsers: SearchScope = SearchScope(5i32);
+#[repr(transparent)]
+pub struct ServerSelection(pub i32);
+pub const ssDefault: ServerSelection = ServerSelection(0i32);
+pub const ssManagedServer: ServerSelection = ServerSelection(1i32);
+pub const ssWindowsUpdate: ServerSelection = ServerSelection(2i32);
+pub const ssOthers: ServerSelection = ServerSelection(3i32);
 #[repr(C)]
 pub struct StringCollection(i32);
 #[repr(C)]
@@ -197,26 +261,39 @@ pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
 pub struct UpdateCollection(i32);
 #[repr(C)]
 pub struct UpdateDownloader(i32);
-#[repr(C)]
-pub struct UpdateExceptionContext(i32);
+#[repr(transparent)]
+pub struct UpdateExceptionContext(pub i32);
+pub const uecGeneral: UpdateExceptionContext = UpdateExceptionContext(1i32);
+pub const uecWindowsDriver: UpdateExceptionContext = UpdateExceptionContext(2i32);
+pub const uecWindowsInstaller: UpdateExceptionContext = UpdateExceptionContext(3i32);
+pub const uecSearchIncomplete: UpdateExceptionContext = UpdateExceptionContext(4i32);
 #[repr(C)]
 pub struct UpdateInstaller(i32);
-#[repr(C)]
-pub struct UpdateLockdownOption(i32);
-#[repr(C)]
-pub struct UpdateOperation(i32);
+#[repr(transparent)]
+pub struct UpdateLockdownOption(pub i32);
+pub const uloForWebsiteAccess: UpdateLockdownOption = UpdateLockdownOption(1i32);
+#[repr(transparent)]
+pub struct UpdateOperation(pub i32);
+pub const uoInstallation: UpdateOperation = UpdateOperation(1i32);
+pub const uoUninstallation: UpdateOperation = UpdateOperation(2i32);
 #[repr(C)]
 pub struct UpdateSearcher(i32);
 #[repr(C)]
 pub struct UpdateServiceManager(i32);
-#[repr(C)]
-pub struct UpdateServiceOption(i32);
-#[repr(C)]
-pub struct UpdateServiceRegistrationState(i32);
+#[repr(transparent)]
+pub struct UpdateServiceOption(pub i32);
+pub const usoNonVolatileService: UpdateServiceOption = UpdateServiceOption(1i32);
+#[repr(transparent)]
+pub struct UpdateServiceRegistrationState(pub i32);
+pub const usrsNotRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(1i32);
+pub const usrsRegistrationPending: UpdateServiceRegistrationState = UpdateServiceRegistrationState(2i32);
+pub const usrsRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(3i32);
 #[repr(C)]
 pub struct UpdateSession(i32);
-#[repr(C)]
-pub struct UpdateType(i32);
+#[repr(transparent)]
+pub struct UpdateType(pub i32);
+pub const utSoftware: UpdateType = UpdateType(1i32);
+pub const utDriver: UpdateType = UpdateType(2i32);
 pub const WU_E_ALL_UPDATES_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145124318i32 as _);
 pub const WU_E_AUCLIENT_UNEXPECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145107969i32 as _);
 pub const WU_E_AU_CALL_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145124267i32 as _);

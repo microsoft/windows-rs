@@ -1,12 +1,14 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
 pub struct FindSimilarFileIndexResults(i32);
 #[repr(C)]
 pub struct FindSimilarResults(i32);
-#[repr(C)]
-pub struct GeneratorParametersType(i32);
+#[repr(transparent)]
+pub struct GeneratorParametersType(pub i32);
+pub const RDCGENTYPE_Unused: GeneratorParametersType = GeneratorParametersType(0i32);
+pub const RDCGENTYPE_FilterMax: GeneratorParametersType = GeneratorParametersType(1i32);
 #[repr(transparent)]
 pub struct IFindSimilarResults(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -63,14 +65,28 @@ pub const MSRDC_SIGNATURE_HASHSIZE: u32 = 16u32;
 pub const MSRDC_VERSION: u32 = 65536u32;
 pub const RDCE_TABLE_CORRUPT: u32 = 2147745794u32;
 pub const RDCE_TABLE_FULL: u32 = 2147745793u32;
-#[repr(C)]
-pub struct RDC_ErrorCode(i32);
+#[repr(transparent)]
+pub struct RDC_ErrorCode(pub i32);
+pub const RDC_NoError: RDC_ErrorCode = RDC_ErrorCode(0i32);
+pub const RDC_HeaderVersionNewer: RDC_ErrorCode = RDC_ErrorCode(1i32);
+pub const RDC_HeaderVersionOlder: RDC_ErrorCode = RDC_ErrorCode(2i32);
+pub const RDC_HeaderMissingOrCorrupt: RDC_ErrorCode = RDC_ErrorCode(3i32);
+pub const RDC_HeaderWrongType: RDC_ErrorCode = RDC_ErrorCode(4i32);
+pub const RDC_DataMissingOrCorrupt: RDC_ErrorCode = RDC_ErrorCode(5i32);
+pub const RDC_DataTooManyRecords: RDC_ErrorCode = RDC_ErrorCode(6i32);
+pub const RDC_FileChecksumMismatch: RDC_ErrorCode = RDC_ErrorCode(7i32);
+pub const RDC_ApplicationError: RDC_ErrorCode = RDC_ErrorCode(8i32);
+pub const RDC_Aborted: RDC_ErrorCode = RDC_ErrorCode(9i32);
+pub const RDC_Win32Error: RDC_ErrorCode = RDC_ErrorCode(10i32);
 #[repr(C)]
 pub struct RdcBufferPointer(i32);
 #[repr(C)]
 pub struct RdcComparator(i32);
-#[repr(C)]
-pub struct RdcCreatedTables(i32);
+#[repr(transparent)]
+pub struct RdcCreatedTables(pub i32);
+pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = RdcCreatedTables(0i32);
+pub const RDCTABLE_Existing: RdcCreatedTables = RdcCreatedTables(1i32);
+pub const RDCTABLE_New: RdcCreatedTables = RdcCreatedTables(2i32);
 #[repr(C)]
 pub struct RdcFileReader(i32);
 #[repr(C)]
@@ -81,14 +97,21 @@ pub struct RdcGeneratorFilterMaxParameters(i32);
 pub struct RdcGeneratorParameters(i32);
 #[repr(C)]
 pub struct RdcLibrary(i32);
-#[repr(C)]
-pub struct RdcMappingAccessMode(i32);
+#[repr(transparent)]
+pub struct RdcMappingAccessMode(pub i32);
+pub const RDCMAPPING_Undefined: RdcMappingAccessMode = RdcMappingAccessMode(0i32);
+pub const RDCMAPPING_ReadOnly: RdcMappingAccessMode = RdcMappingAccessMode(1i32);
+pub const RDCMAPPING_ReadWrite: RdcMappingAccessMode = RdcMappingAccessMode(2i32);
 #[repr(C)]
 pub struct RdcNeed(i32);
 #[repr(C)]
 pub struct RdcNeedPointer(i32);
-#[repr(C)]
-pub struct RdcNeedType(i32);
+#[repr(transparent)]
+pub struct RdcNeedType(pub i32);
+pub const RDCNEED_SOURCE: RdcNeedType = RdcNeedType(0i32);
+pub const RDCNEED_TARGET: RdcNeedType = RdcNeedType(1i32);
+pub const RDCNEED_SEED: RdcNeedType = RdcNeedType(2i32);
+pub const RDCNEED_SEED_MAX: RdcNeedType = RdcNeedType(255i32);
 #[repr(C)]
 pub struct RdcSignature(i32);
 #[repr(C)]

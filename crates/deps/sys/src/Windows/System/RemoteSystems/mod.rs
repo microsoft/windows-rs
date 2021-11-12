@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -139,32 +139,55 @@ pub struct IRemoteSystemWebAccountFilter(pub *mut ::core::ffi::c_void);
 pub struct IRemoteSystemWebAccountFilterFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystem(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemAccessStatus(i32);
+#[repr(transparent)]
+pub struct RemoteSystemAccessStatus(pub i32);
+impl RemoteSystemAccessStatus {
+    pub const Unspecified: RemoteSystemAccessStatus = RemoteSystemAccessStatus(0i32);
+    pub const Allowed: RemoteSystemAccessStatus = RemoteSystemAccessStatus(1i32);
+    pub const DeniedByUser: RemoteSystemAccessStatus = RemoteSystemAccessStatus(2i32);
+    pub const DeniedBySystem: RemoteSystemAccessStatus = RemoteSystemAccessStatus(3i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemAddedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemApp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemAppRegistration(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemAuthorizationKind(i32);
+#[repr(transparent)]
+pub struct RemoteSystemAuthorizationKind(pub i32);
+impl RemoteSystemAuthorizationKind {
+    pub const SameUser: RemoteSystemAuthorizationKind = RemoteSystemAuthorizationKind(0i32);
+    pub const Anonymous: RemoteSystemAuthorizationKind = RemoteSystemAuthorizationKind(1i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKindFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemConnectionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemConnectionRequest(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemDiscoveryType(i32);
+#[repr(transparent)]
+pub struct RemoteSystemDiscoveryType(pub i32);
+impl RemoteSystemDiscoveryType {
+    pub const Any: RemoteSystemDiscoveryType = RemoteSystemDiscoveryType(0i32);
+    pub const Proximal: RemoteSystemDiscoveryType = RemoteSystemDiscoveryType(1i32);
+    pub const Cloud: RemoteSystemDiscoveryType = RemoteSystemDiscoveryType(2i32);
+    pub const SpatiallyProximal: RemoteSystemDiscoveryType = RemoteSystemDiscoveryType(3i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryTypeFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemEnumerationCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemKindFilter(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemPlatform(i32);
+#[repr(transparent)]
+pub struct RemoteSystemPlatform(pub i32);
+impl RemoteSystemPlatform {
+    pub const Unknown: RemoteSystemPlatform = RemoteSystemPlatform(0i32);
+    pub const Windows: RemoteSystemPlatform = RemoteSystemPlatform(1i32);
+    pub const Android: RemoteSystemPlatform = RemoteSystemPlatform(2i32);
+    pub const Ios: RemoteSystemPlatform = RemoteSystemPlatform(3i32);
+    pub const Linux: RemoteSystemPlatform = RemoteSystemPlatform(4i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -175,12 +198,22 @@ pub struct RemoteSystemSessionAddedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemSessionController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemSessionCreationStatus(i32);
+#[repr(transparent)]
+pub struct RemoteSystemSessionCreationStatus(pub i32);
+impl RemoteSystemSessionCreationStatus {
+    pub const Success: RemoteSystemSessionCreationStatus = RemoteSystemSessionCreationStatus(0i32);
+    pub const SessionLimitsExceeded: RemoteSystemSessionCreationStatus = RemoteSystemSessionCreationStatus(1i32);
+    pub const OperationAborted: RemoteSystemSessionCreationStatus = RemoteSystemSessionCreationStatus(2i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemSessionDisconnectedReason(i32);
+#[repr(transparent)]
+pub struct RemoteSystemSessionDisconnectedReason(pub i32);
+impl RemoteSystemSessionDisconnectedReason {
+    pub const SessionUnavailable: RemoteSystemSessionDisconnectedReason = RemoteSystemSessionDisconnectedReason(0i32);
+    pub const RemovedByController: RemoteSystemSessionDisconnectedReason = RemoteSystemSessionDisconnectedReason(1i32);
+    pub const SessionClosed: RemoteSystemSessionDisconnectedReason = RemoteSystemSessionDisconnectedReason(2i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -195,12 +228,23 @@ pub struct RemoteSystemSessionJoinRequest(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemSessionJoinRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemSessionJoinStatus(i32);
+#[repr(transparent)]
+pub struct RemoteSystemSessionJoinStatus(pub i32);
+impl RemoteSystemSessionJoinStatus {
+    pub const Success: RemoteSystemSessionJoinStatus = RemoteSystemSessionJoinStatus(0i32);
+    pub const SessionLimitsExceeded: RemoteSystemSessionJoinStatus = RemoteSystemSessionJoinStatus(1i32);
+    pub const OperationAborted: RemoteSystemSessionJoinStatus = RemoteSystemSessionJoinStatus(2i32);
+    pub const SessionUnavailable: RemoteSystemSessionJoinStatus = RemoteSystemSessionJoinStatus(3i32);
+    pub const RejectedByController: RemoteSystemSessionJoinStatus = RemoteSystemSessionJoinStatus(4i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannel(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemSessionMessageChannelReliability(i32);
+#[repr(transparent)]
+pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
+impl RemoteSystemSessionMessageChannelReliability {
+    pub const Reliable: RemoteSystemSessionMessageChannelReliability = RemoteSystemSessionMessageChannelReliability(0i32);
+    pub const Unreliable: RemoteSystemSessionMessageChannelReliability = RemoteSystemSessionMessageChannelReliability(1i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -211,8 +255,16 @@ pub struct RemoteSystemSessionParticipantAddedEventArgs(pub *mut ::core::ffi::c_
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcher(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemSessionParticipantWatcherStatus(i32);
+#[repr(transparent)]
+pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
+impl RemoteSystemSessionParticipantWatcherStatus {
+    pub const Created: RemoteSystemSessionParticipantWatcherStatus = RemoteSystemSessionParticipantWatcherStatus(0i32);
+    pub const Started: RemoteSystemSessionParticipantWatcherStatus = RemoteSystemSessionParticipantWatcherStatus(1i32);
+    pub const EnumerationCompleted: RemoteSystemSessionParticipantWatcherStatus = RemoteSystemSessionParticipantWatcherStatus(2i32);
+    pub const Stopping: RemoteSystemSessionParticipantWatcherStatus = RemoteSystemSessionParticipantWatcherStatus(3i32);
+    pub const Stopped: RemoteSystemSessionParticipantWatcherStatus = RemoteSystemSessionParticipantWatcherStatus(4i32);
+    pub const Aborted: RemoteSystemSessionParticipantWatcherStatus = RemoteSystemSessionParticipantWatcherStatus(5i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -221,20 +273,43 @@ pub struct RemoteSystemSessionUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcher(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemSessionWatcherStatus(i32);
-#[repr(C)]
-pub struct RemoteSystemStatus(i32);
-#[repr(C)]
-pub struct RemoteSystemStatusType(i32);
+#[repr(transparent)]
+pub struct RemoteSystemSessionWatcherStatus(pub i32);
+impl RemoteSystemSessionWatcherStatus {
+    pub const Created: RemoteSystemSessionWatcherStatus = RemoteSystemSessionWatcherStatus(0i32);
+    pub const Started: RemoteSystemSessionWatcherStatus = RemoteSystemSessionWatcherStatus(1i32);
+    pub const EnumerationCompleted: RemoteSystemSessionWatcherStatus = RemoteSystemSessionWatcherStatus(2i32);
+    pub const Stopping: RemoteSystemSessionWatcherStatus = RemoteSystemSessionWatcherStatus(3i32);
+    pub const Stopped: RemoteSystemSessionWatcherStatus = RemoteSystemSessionWatcherStatus(4i32);
+    pub const Aborted: RemoteSystemSessionWatcherStatus = RemoteSystemSessionWatcherStatus(5i32);
+}
+#[repr(transparent)]
+pub struct RemoteSystemStatus(pub i32);
+impl RemoteSystemStatus {
+    pub const Unavailable: RemoteSystemStatus = RemoteSystemStatus(0i32);
+    pub const DiscoveringAvailability: RemoteSystemStatus = RemoteSystemStatus(1i32);
+    pub const Available: RemoteSystemStatus = RemoteSystemStatus(2i32);
+    pub const Unknown: RemoteSystemStatus = RemoteSystemStatus(3i32);
+}
+#[repr(transparent)]
+pub struct RemoteSystemStatusType(pub i32);
+impl RemoteSystemStatusType {
+    pub const Any: RemoteSystemStatusType = RemoteSystemStatusType(0i32);
+    pub const Available: RemoteSystemStatusType = RemoteSystemStatusType(1i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemStatusTypeFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemWatcher(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RemoteSystemWatcherError(i32);
+#[repr(transparent)]
+pub struct RemoteSystemWatcherError(pub i32);
+impl RemoteSystemWatcherError {
+    pub const Unknown: RemoteSystemWatcherError = RemoteSystemWatcherError(0i32);
+    pub const InternetNotAvailable: RemoteSystemWatcherError = RemoteSystemWatcherError(1i32);
+    pub const AuthenticationError: RemoteSystemWatcherError = RemoteSystemWatcherError(2i32);
+}
 #[repr(transparent)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

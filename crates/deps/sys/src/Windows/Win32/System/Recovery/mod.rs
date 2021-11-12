@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -16,5 +16,9 @@ extern "system" {
     pub fn UnregisterApplicationRecoveryCallback() -> ::windows_sys::core::HRESULT;
     pub fn UnregisterApplicationRestart() -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct REGISTER_APPLICATION_RESTART_FLAGS(i32);
+#[repr(transparent)]
+pub struct REGISTER_APPLICATION_RESTART_FLAGS(pub u32);
+pub const RESTART_NO_CRASH: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(1u32);
+pub const RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(2u32);
+pub const RESTART_NO_PATCH: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(4u32);
+pub const RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(8u32);

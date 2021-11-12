@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "UI_Input_Inking_Analysis")]
 pub mod Analysis;
 #[cfg(feature = "UI_Input_Inking_Core")]
@@ -7,8 +7,13 @@ pub mod Core;
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct HandwritingLineHeight(i32);
+#[repr(transparent)]
+pub struct HandwritingLineHeight(pub i32);
+impl HandwritingLineHeight {
+    pub const Small: HandwritingLineHeight = HandwritingLineHeight(0i32);
+    pub const Medium: HandwritingLineHeight = HandwritingLineHeight(1i32);
+    pub const Large: HandwritingLineHeight = HandwritingLineHeight(2i32);
+}
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -107,44 +112,85 @@ pub struct IPenAndInkSettings2(pub *mut ::core::ffi::c_void);
 pub struct IPenAndInkSettingsStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkDrawingAttributes(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkDrawingAttributesKind(i32);
+#[repr(transparent)]
+pub struct InkDrawingAttributesKind(pub i32);
+impl InkDrawingAttributesKind {
+    pub const Default: InkDrawingAttributesKind = InkDrawingAttributesKind(0i32);
+    pub const Pencil: InkDrawingAttributesKind = InkDrawingAttributesKind(1i32);
+}
 #[repr(transparent)]
 pub struct InkDrawingAttributesPencilProperties(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkHighContrastAdjustment(i32);
+#[repr(transparent)]
+pub struct InkHighContrastAdjustment(pub i32);
+impl InkHighContrastAdjustment {
+    pub const UseSystemColorsWhenNecessary: InkHighContrastAdjustment = InkHighContrastAdjustment(0i32);
+    pub const UseSystemColors: InkHighContrastAdjustment = InkHighContrastAdjustment(1i32);
+    pub const UseOriginalColors: InkHighContrastAdjustment = InkHighContrastAdjustment(2i32);
+}
 #[repr(transparent)]
 pub struct InkInputConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkInputProcessingConfiguration(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkInputProcessingMode(i32);
-#[repr(C)]
-pub struct InkInputRightDragAction(i32);
+#[repr(transparent)]
+pub struct InkInputProcessingMode(pub i32);
+impl InkInputProcessingMode {
+    pub const None: InkInputProcessingMode = InkInputProcessingMode(0i32);
+    pub const Inking: InkInputProcessingMode = InkInputProcessingMode(1i32);
+    pub const Erasing: InkInputProcessingMode = InkInputProcessingMode(2i32);
+}
+#[repr(transparent)]
+pub struct InkInputRightDragAction(pub i32);
+impl InkInputRightDragAction {
+    pub const LeaveUnprocessed: InkInputRightDragAction = InkInputRightDragAction(0i32);
+    pub const AllowProcessing: InkInputRightDragAction = InkInputRightDragAction(1i32);
+}
 #[repr(transparent)]
 pub struct InkManager(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkManipulationMode(i32);
+#[repr(transparent)]
+pub struct InkManipulationMode(pub i32);
+impl InkManipulationMode {
+    pub const Inking: InkManipulationMode = InkManipulationMode(0i32);
+    pub const Erasing: InkManipulationMode = InkManipulationMode(1i32);
+    pub const Selecting: InkManipulationMode = InkManipulationMode(2i32);
+}
 #[repr(transparent)]
 pub struct InkModelerAttributes(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkPersistenceFormat(i32);
+#[repr(transparent)]
+pub struct InkPersistenceFormat(pub i32);
+impl InkPersistenceFormat {
+    pub const GifWithEmbeddedIsf: InkPersistenceFormat = InkPersistenceFormat(0i32);
+    pub const Isf: InkPersistenceFormat = InkPersistenceFormat(1i32);
+}
 #[repr(transparent)]
 pub struct InkPoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkPresenter(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkPresenterPredefinedConfiguration(i32);
+#[repr(transparent)]
+pub struct InkPresenterPredefinedConfiguration(pub i32);
+impl InkPresenterPredefinedConfiguration {
+    pub const SimpleSinglePointer: InkPresenterPredefinedConfiguration = InkPresenterPredefinedConfiguration(0i32);
+    pub const SimpleMultiplePointer: InkPresenterPredefinedConfiguration = InkPresenterPredefinedConfiguration(1i32);
+}
 #[repr(transparent)]
 pub struct InkPresenterProtractor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkPresenterRuler(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkPresenterStencilKind(i32);
+#[repr(transparent)]
+pub struct InkPresenterStencilKind(pub i32);
+impl InkPresenterStencilKind {
+    pub const Other: InkPresenterStencilKind = InkPresenterStencilKind(0i32);
+    pub const Ruler: InkPresenterStencilKind = InkPresenterStencilKind(1i32);
+    pub const Protractor: InkPresenterStencilKind = InkPresenterStencilKind(2i32);
+}
 #[repr(transparent)]
 pub struct InkRecognitionResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InkRecognitionTarget(i32);
+#[repr(transparent)]
+pub struct InkRecognitionTarget(pub i32);
+impl InkRecognitionTarget {
+    pub const All: InkRecognitionTarget = InkRecognitionTarget(0i32);
+    pub const Selected: InkRecognitionTarget = InkRecognitionTarget(1i32);
+    pub const Recent: InkRecognitionTarget = InkRecognitionTarget(2i32);
+}
 #[repr(transparent)]
 pub struct InkRecognizer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -169,7 +215,15 @@ pub struct InkSynchronizer(pub *mut ::core::ffi::c_void);
 pub struct InkUnprocessedInput(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PenAndInkSettings(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PenHandedness(i32);
-#[repr(C)]
-pub struct PenTipShape(i32);
+#[repr(transparent)]
+pub struct PenHandedness(pub i32);
+impl PenHandedness {
+    pub const Right: PenHandedness = PenHandedness(0i32);
+    pub const Left: PenHandedness = PenHandedness(1i32);
+}
+#[repr(transparent)]
+pub struct PenTipShape(pub i32);
+impl PenTipShape {
+    pub const Circle: PenTipShape = PenTipShape(0i32);
+    pub const Rectangle: PenTipShape = PenTipShape(1i32);
+}

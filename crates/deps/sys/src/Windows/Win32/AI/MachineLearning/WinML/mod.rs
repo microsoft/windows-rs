@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn MLCreateOperatorRegistry(registry: *mut IMLOperatorRegistry) -> ::windows_sys::core::HRESULT;
@@ -42,44 +42,104 @@ pub struct MLOperatorAttribute(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MLOperatorAttributeNameValue(i32);
-#[repr(C)]
-pub struct MLOperatorAttributeType(i32);
+#[repr(transparent)]
+pub struct MLOperatorAttributeType(pub u32);
+impl MLOperatorAttributeType {
+    pub const Undefined: MLOperatorAttributeType = MLOperatorAttributeType(0u32);
+    pub const Float: MLOperatorAttributeType = MLOperatorAttributeType(2u32);
+    pub const Int: MLOperatorAttributeType = MLOperatorAttributeType(3u32);
+    pub const String: MLOperatorAttributeType = MLOperatorAttributeType(4u32);
+    pub const FloatArray: MLOperatorAttributeType = MLOperatorAttributeType(7u32);
+    pub const IntArray: MLOperatorAttributeType = MLOperatorAttributeType(8u32);
+    pub const StringArray: MLOperatorAttributeType = MLOperatorAttributeType(9u32);
+}
 #[repr(C)]
 pub struct MLOperatorEdgeDescription(i32);
-#[repr(C)]
-pub struct MLOperatorEdgeType(i32);
+#[repr(transparent)]
+pub struct MLOperatorEdgeType(pub u32);
+impl MLOperatorEdgeType {
+    pub const Undefined: MLOperatorEdgeType = MLOperatorEdgeType(0u32);
+    pub const Tensor: MLOperatorEdgeType = MLOperatorEdgeType(1u32);
+}
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MLOperatorEdgeTypeConstraint(i32);
-#[repr(C)]
-pub struct MLOperatorExecutionType(i32);
+#[repr(transparent)]
+pub struct MLOperatorExecutionType(pub u32);
+impl MLOperatorExecutionType {
+    pub const Undefined: MLOperatorExecutionType = MLOperatorExecutionType(0u32);
+    pub const Cpu: MLOperatorExecutionType = MLOperatorExecutionType(1u32);
+    pub const D3D12: MLOperatorExecutionType = MLOperatorExecutionType(2u32);
+}
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MLOperatorKernelDescription(i32);
-#[repr(C)]
-pub struct MLOperatorKernelOptions(i32);
-#[repr(C)]
-pub struct MLOperatorParameterOptions(i32);
+#[repr(transparent)]
+pub struct MLOperatorKernelOptions(pub u32);
+impl MLOperatorKernelOptions {
+    pub const None: MLOperatorKernelOptions = MLOperatorKernelOptions(0u32);
+    pub const AllowDynamicInputShapes: MLOperatorKernelOptions = MLOperatorKernelOptions(1u32);
+}
+#[repr(transparent)]
+pub struct MLOperatorParameterOptions(pub u32);
+impl MLOperatorParameterOptions {
+    pub const Single: MLOperatorParameterOptions = MLOperatorParameterOptions(0u32);
+    pub const Optional: MLOperatorParameterOptions = MLOperatorParameterOptions(1u32);
+    pub const Variadic: MLOperatorParameterOptions = MLOperatorParameterOptions(2u32);
+}
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MLOperatorSchemaDescription(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MLOperatorSchemaEdgeDescription(i32);
-#[repr(C)]
-pub struct MLOperatorSchemaEdgeTypeFormat(i32);
+#[repr(transparent)]
+pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
+impl MLOperatorSchemaEdgeTypeFormat {
+    pub const EdgeDescription: MLOperatorSchemaEdgeTypeFormat = MLOperatorSchemaEdgeTypeFormat(0i32);
+    pub const Label: MLOperatorSchemaEdgeTypeFormat = MLOperatorSchemaEdgeTypeFormat(1i32);
+}
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MLOperatorSetId(i32);
-#[repr(C)]
-pub struct MLOperatorTensorDataType(i32);
+#[repr(transparent)]
+pub struct MLOperatorTensorDataType(pub u32);
+impl MLOperatorTensorDataType {
+    pub const Undefined: MLOperatorTensorDataType = MLOperatorTensorDataType(0u32);
+    pub const Float: MLOperatorTensorDataType = MLOperatorTensorDataType(1u32);
+    pub const UInt8: MLOperatorTensorDataType = MLOperatorTensorDataType(2u32);
+    pub const Int8: MLOperatorTensorDataType = MLOperatorTensorDataType(3u32);
+    pub const UInt16: MLOperatorTensorDataType = MLOperatorTensorDataType(4u32);
+    pub const Int16: MLOperatorTensorDataType = MLOperatorTensorDataType(5u32);
+    pub const Int32: MLOperatorTensorDataType = MLOperatorTensorDataType(6u32);
+    pub const Int64: MLOperatorTensorDataType = MLOperatorTensorDataType(7u32);
+    pub const String: MLOperatorTensorDataType = MLOperatorTensorDataType(8u32);
+    pub const Bool: MLOperatorTensorDataType = MLOperatorTensorDataType(9u32);
+    pub const Float16: MLOperatorTensorDataType = MLOperatorTensorDataType(10u32);
+    pub const Double: MLOperatorTensorDataType = MLOperatorTensorDataType(11u32);
+    pub const UInt32: MLOperatorTensorDataType = MLOperatorTensorDataType(12u32);
+    pub const UInt64: MLOperatorTensorDataType = MLOperatorTensorDataType(13u32);
+    pub const Complex64: MLOperatorTensorDataType = MLOperatorTensorDataType(14u32);
+    pub const Complex128: MLOperatorTensorDataType = MLOperatorTensorDataType(15u32);
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 #[repr(C)]
 pub struct WINML_BINDING_DESC(i32);
-#[repr(C)]
-pub struct WINML_BINDING_TYPE(i32);
-#[repr(C)]
-pub struct WINML_FEATURE_TYPE(i32);
+#[repr(transparent)]
+pub struct WINML_BINDING_TYPE(pub i32);
+pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
+pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = WINML_BINDING_TYPE(1i32);
+pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(2i32);
+pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3i32);
+pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4i32);
+pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(5i32);
+#[repr(transparent)]
+pub struct WINML_FEATURE_TYPE(pub i32);
+pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
+pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(1i32);
+pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2i32);
+pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3i32);
+pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4i32);
 #[repr(C)]
 pub struct WINML_IMAGE_BINDING_DESC(i32);
 #[repr(C)]
@@ -95,8 +155,9 @@ pub struct WINML_MODEL_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 pub struct WINML_RESOURCE_BINDING_DESC(i32);
-#[repr(C)]
-pub struct WINML_RUNTIME_TYPE(i32);
+#[repr(transparent)]
+pub struct WINML_RUNTIME_TYPE(pub i32);
+pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WINML_SEQUENCE_BINDING_DESC(i32);
@@ -104,8 +165,24 @@ pub struct WINML_SEQUENCE_BINDING_DESC(i32);
 pub struct WINML_SEQUENCE_VARIABLE_DESC(i32);
 #[repr(C)]
 pub struct WINML_TENSOR_BINDING_DESC(i32);
-#[repr(C)]
-pub struct WINML_TENSOR_DATA_TYPE(i32);
+#[repr(transparent)]
+pub struct WINML_TENSOR_DATA_TYPE(pub i32);
+pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
+pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1i32);
+pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
+pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(3i32);
+pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(4i32);
+pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(5i32);
+pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(6i32);
+pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(7i32);
+pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(8i32);
+pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9i32);
+pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(10i32);
+pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(11i32);
+pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(12i32);
+pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(13i32);
+pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(14i32);
+pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[repr(C)]
 pub struct WINML_TENSOR_VARIABLE_DESC(i32);

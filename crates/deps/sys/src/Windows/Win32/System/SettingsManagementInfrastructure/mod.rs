@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -74,17 +74,47 @@ pub const WCM_S_INTERNALERROR: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const WCM_S_INVALIDATTRIBUTECOMBINATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232324i32 as _);
 pub const WCM_S_LEGACYSETTINGWARNING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232322i32 as _);
 pub const WCM_S_NAMESPACENOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232326i32 as _);
-#[repr(C)]
-pub struct WcmDataType(i32);
-#[repr(C)]
-pub struct WcmNamespaceAccess(i32);
-#[repr(C)]
-pub struct WcmNamespaceEnumerationFlags(i32);
-#[repr(C)]
-pub struct WcmRestrictionFacets(i32);
-#[repr(C)]
-pub struct WcmSettingType(i32);
-#[repr(C)]
-pub struct WcmTargetMode(i32);
-#[repr(C)]
-pub struct WcmUserStatus(i32);
+#[repr(transparent)]
+pub struct WcmDataType(pub i32);
+pub const dataTypeByte: WcmDataType = WcmDataType(1i32);
+pub const dataTypeSByte: WcmDataType = WcmDataType(2i32);
+pub const dataTypeUInt16: WcmDataType = WcmDataType(3i32);
+pub const dataTypeInt16: WcmDataType = WcmDataType(4i32);
+pub const dataTypeUInt32: WcmDataType = WcmDataType(5i32);
+pub const dataTypeInt32: WcmDataType = WcmDataType(6i32);
+pub const dataTypeUInt64: WcmDataType = WcmDataType(7i32);
+pub const dataTypeInt64: WcmDataType = WcmDataType(8i32);
+pub const dataTypeBoolean: WcmDataType = WcmDataType(11i32);
+pub const dataTypeString: WcmDataType = WcmDataType(12i32);
+pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768i32);
+#[repr(transparent)]
+pub struct WcmNamespaceAccess(pub i32);
+pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
+pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
+#[repr(transparent)]
+pub struct WcmNamespaceEnumerationFlags(pub i32);
+pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
+pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
+pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
+#[repr(transparent)]
+pub struct WcmRestrictionFacets(pub i32);
+pub const restrictionFacetMaxLength: WcmRestrictionFacets = WcmRestrictionFacets(1i32);
+pub const restrictionFacetEnumeration: WcmRestrictionFacets = WcmRestrictionFacets(2i32);
+pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = WcmRestrictionFacets(4i32);
+pub const restrictionFacetMinInclusive: WcmRestrictionFacets = WcmRestrictionFacets(8i32);
+#[repr(transparent)]
+pub struct WcmSettingType(pub i32);
+pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
+pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
+pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
+#[repr(transparent)]
+pub struct WcmTargetMode(pub i32);
+pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
+pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
+#[repr(transparent)]
+pub struct WcmUserStatus(pub i32);
+pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
+pub const UserRegistered: WcmUserStatus = WcmUserStatus(1i32);
+pub const UserUnregistered: WcmUserStatus = WcmUserStatus(2i32);
+pub const UserLoaded: WcmUserStatus = WcmUserStatus(3i32);
+pub const UserUnloaded: WcmUserStatus = WcmUserStatus(4i32);

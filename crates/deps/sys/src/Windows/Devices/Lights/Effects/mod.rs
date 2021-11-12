@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -41,14 +41,26 @@ pub struct LampArrayBlinkEffect(pub *mut ::core::ffi::c_void);
 pub struct LampArrayColorRampEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampArrayCustomEffect(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LampArrayEffectCompletionBehavior(i32);
+#[repr(transparent)]
+pub struct LampArrayEffectCompletionBehavior(pub i32);
+impl LampArrayEffectCompletionBehavior {
+    pub const ClearState: LampArrayEffectCompletionBehavior = LampArrayEffectCompletionBehavior(0i32);
+    pub const KeepState: LampArrayEffectCompletionBehavior = LampArrayEffectCompletionBehavior(1i32);
+}
 #[repr(transparent)]
 pub struct LampArrayEffectPlaylist(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LampArrayEffectStartMode(i32);
-#[repr(C)]
-pub struct LampArrayRepetitionMode(i32);
+#[repr(transparent)]
+pub struct LampArrayEffectStartMode(pub i32);
+impl LampArrayEffectStartMode {
+    pub const Sequential: LampArrayEffectStartMode = LampArrayEffectStartMode(0i32);
+    pub const Simultaneous: LampArrayEffectStartMode = LampArrayEffectStartMode(1i32);
+}
+#[repr(transparent)]
+pub struct LampArrayRepetitionMode(pub i32);
+impl LampArrayRepetitionMode {
+    pub const Occurrences: LampArrayRepetitionMode = LampArrayRepetitionMode(0i32);
+    pub const Forever: LampArrayRepetitionMode = LampArrayRepetitionMode(1i32);
+}
 #[repr(transparent)]
 pub struct LampArraySolidEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

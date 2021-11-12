@@ -1,12 +1,16 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct Direct3D11CaptureFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Direct3D11CaptureFramePool(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GraphicsCaptureAccessKind(i32);
+#[repr(transparent)]
+pub struct GraphicsCaptureAccessKind(pub i32);
+impl GraphicsCaptureAccessKind {
+    pub const Borderless: GraphicsCaptureAccessKind = GraphicsCaptureAccessKind(0i32);
+    pub const Programmatic: GraphicsCaptureAccessKind = GraphicsCaptureAccessKind(1i32);
+}
 #[repr(transparent)]
 pub struct GraphicsCaptureItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

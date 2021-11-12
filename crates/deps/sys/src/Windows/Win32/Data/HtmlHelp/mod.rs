@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 pub const CLSID_IITCmdInt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883618, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
@@ -215,8 +215,13 @@ pub const HH_GET_WIN_TYPE: u32 = 5u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[repr(C)]
 pub struct HH_GLOBAL_PROPERTY(i32);
-#[repr(C)]
-pub struct HH_GPROPID(i32);
+#[repr(transparent)]
+pub struct HH_GPROPID(pub i32);
+pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = HH_GPROPID(1i32);
+pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = HH_GPROPID(2i32);
+pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = HH_GPROPID(3i32);
+pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = HH_GPROPID(4i32);
+pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = HH_GPROPID(5i32);
 pub const HH_HELP_CONTEXT: u32 = 15u32;
 pub const HH_HELP_FINDER: u32 = 0u32;
 pub const HH_INITIALIZE: u32 = 28u32;
@@ -309,8 +314,11 @@ pub struct IWordBreakerConfig(pub *mut ::core::ffi::c_void);
 pub const MAX_COLUMNS: u32 = 256u32;
 #[repr(C)]
 pub struct PFNCOLHEAPFREE(i32);
-#[repr(C)]
-pub struct PRIORITY(i32);
+#[repr(transparent)]
+pub struct PRIORITY(pub i32);
+pub const PRIORITY_LOW: PRIORITY = PRIORITY(0i32);
+pub const PRIORITY_NORMAL: PRIORITY = PRIORITY(1i32);
+pub const PRIORITY_HIGH: PRIORITY = PRIORITY(2i32);
 pub const PROP_ADD: u32 = 0u32;
 pub const PROP_DELETE: u32 = 1u32;
 pub const PROP_UPDATE: u32 = 2u32;
@@ -335,5 +343,6 @@ pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
 pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
-#[repr(C)]
-pub struct WORD_WHEEL_OPEN_FLAGS(i32);
+#[repr(transparent)]
+pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
+pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);

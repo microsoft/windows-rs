@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Perception_Spatial_Preview")]
 pub mod Preview;
 #[cfg(feature = "Perception_Spatial_Surfaces")]
@@ -67,8 +67,12 @@ pub struct ISpatialStageFrameOfReferenceStatics(pub *mut ::core::ffi::c_void);
 pub struct ISpatialStationaryFrameOfReference(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAnchor(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SpatialAnchorExportPurpose(i32);
+#[repr(transparent)]
+pub struct SpatialAnchorExportPurpose(pub i32);
+impl SpatialAnchorExportPurpose {
+    pub const Relocalization: SpatialAnchorExportPurpose = SpatialAnchorExportPurpose(0i32);
+    pub const Sharing: SpatialAnchorExportPurpose = SpatialAnchorExportPurpose(1i32);
+}
 #[repr(transparent)]
 pub struct SpatialAnchorExportSufficiency(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -105,10 +109,25 @@ pub struct SpatialEntityStore(pub *mut ::core::ffi::c_void);
 pub struct SpatialEntityUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialEntityWatcher(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SpatialEntityWatcherStatus(i32);
-#[repr(C)]
-pub struct SpatialLocatability(i32);
+#[repr(transparent)]
+pub struct SpatialEntityWatcherStatus(pub i32);
+impl SpatialEntityWatcherStatus {
+    pub const Created: SpatialEntityWatcherStatus = SpatialEntityWatcherStatus(0i32);
+    pub const Started: SpatialEntityWatcherStatus = SpatialEntityWatcherStatus(1i32);
+    pub const EnumerationCompleted: SpatialEntityWatcherStatus = SpatialEntityWatcherStatus(2i32);
+    pub const Stopping: SpatialEntityWatcherStatus = SpatialEntityWatcherStatus(3i32);
+    pub const Stopped: SpatialEntityWatcherStatus = SpatialEntityWatcherStatus(4i32);
+    pub const Aborted: SpatialEntityWatcherStatus = SpatialEntityWatcherStatus(5i32);
+}
+#[repr(transparent)]
+pub struct SpatialLocatability(pub i32);
+impl SpatialLocatability {
+    pub const Unavailable: SpatialLocatability = SpatialLocatability(0i32);
+    pub const OrientationOnly: SpatialLocatability = SpatialLocatability(1i32);
+    pub const PositionalTrackingActivating: SpatialLocatability = SpatialLocatability(2i32);
+    pub const PositionalTrackingActive: SpatialLocatability = SpatialLocatability(3i32);
+    pub const PositionalTrackingInhibited: SpatialLocatability = SpatialLocatability(4i32);
+}
 #[repr(transparent)]
 pub struct SpatialLocation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -117,12 +136,26 @@ pub struct SpatialLocator(pub *mut ::core::ffi::c_void);
 pub struct SpatialLocatorAttachedFrameOfReference(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SpatialLookDirectionRange(i32);
-#[repr(C)]
-pub struct SpatialMovementRange(i32);
-#[repr(C)]
-pub struct SpatialPerceptionAccessStatus(i32);
+#[repr(transparent)]
+pub struct SpatialLookDirectionRange(pub i32);
+impl SpatialLookDirectionRange {
+    pub const ForwardOnly: SpatialLookDirectionRange = SpatialLookDirectionRange(0i32);
+    pub const Omnidirectional: SpatialLookDirectionRange = SpatialLookDirectionRange(1i32);
+}
+#[repr(transparent)]
+pub struct SpatialMovementRange(pub i32);
+impl SpatialMovementRange {
+    pub const NoMovement: SpatialMovementRange = SpatialMovementRange(0i32);
+    pub const Bounded: SpatialMovementRange = SpatialMovementRange(1i32);
+}
+#[repr(transparent)]
+pub struct SpatialPerceptionAccessStatus(pub i32);
+impl SpatialPerceptionAccessStatus {
+    pub const Unspecified: SpatialPerceptionAccessStatus = SpatialPerceptionAccessStatus(0i32);
+    pub const Allowed: SpatialPerceptionAccessStatus = SpatialPerceptionAccessStatus(1i32);
+    pub const DeniedByUser: SpatialPerceptionAccessStatus = SpatialPerceptionAccessStatus(2i32);
+    pub const DeniedBySystem: SpatialPerceptionAccessStatus = SpatialPerceptionAccessStatus(3i32);
+}
 #[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
 pub struct SpatialRay(i32);

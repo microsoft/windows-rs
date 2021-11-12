@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Globalization_Collation")]
 pub mod Collation;
 #[cfg(feature = "Globalization_DateTimeFormatting")]
@@ -15,8 +15,17 @@ extern "system" {}
 pub struct Calendar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CurrencyAmount(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DayOfWeek(i32);
+#[repr(transparent)]
+pub struct DayOfWeek(pub i32);
+impl DayOfWeek {
+    pub const Sunday: DayOfWeek = DayOfWeek(0i32);
+    pub const Monday: DayOfWeek = DayOfWeek(1i32);
+    pub const Tuesday: DayOfWeek = DayOfWeek(2i32);
+    pub const Wednesday: DayOfWeek = DayOfWeek(3i32);
+    pub const Thursday: DayOfWeek = DayOfWeek(4i32);
+    pub const Friday: DayOfWeek = DayOfWeek(5i32);
+    pub const Saturday: DayOfWeek = DayOfWeek(6i32);
+}
 #[repr(transparent)]
 pub struct GeographicRegion(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -85,5 +94,11 @@ pub struct ITimeZoneOnCalendar(pub *mut ::core::ffi::c_void);
 pub struct JapanesePhoneme(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Language(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LanguageLayoutDirection(i32);
+#[repr(transparent)]
+pub struct LanguageLayoutDirection(pub i32);
+impl LanguageLayoutDirection {
+    pub const Ltr: LanguageLayoutDirection = LanguageLayoutDirection(0i32);
+    pub const Rtl: LanguageLayoutDirection = LanguageLayoutDirection(1i32);
+    pub const TtbLtr: LanguageLayoutDirection = LanguageLayoutDirection(2i32);
+    pub const TtbRtl: LanguageLayoutDirection = LanguageLayoutDirection(3i32);
+}

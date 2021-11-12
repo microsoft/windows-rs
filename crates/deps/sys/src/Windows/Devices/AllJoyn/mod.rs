@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -9,12 +9,27 @@ pub struct AllJoynAboutDataView(pub *mut ::core::ffi::c_void);
 pub struct AllJoynAcceptSessionJoinerEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynAuthenticationCompleteEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AllJoynAuthenticationMechanism(i32);
+#[repr(transparent)]
+pub struct AllJoynAuthenticationMechanism(pub i32);
+impl AllJoynAuthenticationMechanism {
+    pub const None: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(0i32);
+    pub const SrpAnonymous: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(1i32);
+    pub const SrpLogon: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(2i32);
+    pub const EcdheNull: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(3i32);
+    pub const EcdhePsk: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(4i32);
+    pub const EcdheEcdsa: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(5i32);
+    pub const EcdheSpeke: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(6i32);
+}
 #[repr(transparent)]
 pub struct AllJoynBusAttachment(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AllJoynBusAttachmentState(i32);
+#[repr(transparent)]
+pub struct AllJoynBusAttachmentState(pub i32);
+impl AllJoynBusAttachmentState {
+    pub const Disconnected: AllJoynBusAttachmentState = AllJoynBusAttachmentState(0i32);
+    pub const Connecting: AllJoynBusAttachmentState = AllJoynBusAttachmentState(1i32);
+    pub const Connected: AllJoynBusAttachmentState = AllJoynBusAttachmentState(2i32);
+    pub const Disconnecting: AllJoynBusAttachmentState = AllJoynBusAttachmentState(3i32);
+}
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -41,14 +56,28 @@ pub struct AllJoynSession(pub *mut ::core::ffi::c_void);
 pub struct AllJoynSessionJoinedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynSessionLostEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AllJoynSessionLostReason(i32);
+#[repr(transparent)]
+pub struct AllJoynSessionLostReason(pub i32);
+impl AllJoynSessionLostReason {
+    pub const None: AllJoynSessionLostReason = AllJoynSessionLostReason(0i32);
+    pub const ProducerLeftSession: AllJoynSessionLostReason = AllJoynSessionLostReason(1i32);
+    pub const ProducerClosedAbruptly: AllJoynSessionLostReason = AllJoynSessionLostReason(2i32);
+    pub const RemovedByProducer: AllJoynSessionLostReason = AllJoynSessionLostReason(3i32);
+    pub const LinkTimeout: AllJoynSessionLostReason = AllJoynSessionLostReason(4i32);
+    pub const Other: AllJoynSessionLostReason = AllJoynSessionLostReason(5i32);
+}
 #[repr(transparent)]
 pub struct AllJoynSessionMemberAddedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynSessionMemberRemovedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AllJoynTrafficType(i32);
+#[repr(transparent)]
+pub struct AllJoynTrafficType(pub i32);
+impl AllJoynTrafficType {
+    pub const Unknown: AllJoynTrafficType = AllJoynTrafficType(0i32);
+    pub const Messages: AllJoynTrafficType = AllJoynTrafficType(1i32);
+    pub const RawUnreliable: AllJoynTrafficType = AllJoynTrafficType(2i32);
+    pub const RawReliable: AllJoynTrafficType = AllJoynTrafficType(4i32);
+}
 #[repr(transparent)]
 pub struct AllJoynWatcherStoppedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

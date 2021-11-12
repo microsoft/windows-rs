@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "ApplicationModel_UserActivities_Core")]
 pub mod Core;
 #[link(name = "windows")]
@@ -65,7 +65,11 @@ pub struct UserActivityRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct UserActivitySession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserActivitySessionHistoryItem(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct UserActivityState(i32);
+#[repr(transparent)]
+pub struct UserActivityState(pub i32);
+impl UserActivityState {
+    pub const New: UserActivityState = UserActivityState(0i32);
+    pub const Published: UserActivityState = UserActivityState(1i32);
+}
 #[repr(transparent)]
 pub struct UserActivityVisualElements(pub *mut ::core::ffi::c_void);

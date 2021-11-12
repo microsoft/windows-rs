@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DXCoreCreateAdapterFactory(riid: *const ::windows_sys::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -20,20 +20,46 @@ pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows_sys::core::GUID = :
 pub struct DXCoreAdapterMemoryBudget(i32);
 #[repr(C)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup(i32);
-#[repr(C)]
-pub struct DXCoreAdapterPreference(i32);
-#[repr(C)]
-pub struct DXCoreAdapterProperty(i32);
-#[repr(C)]
-pub struct DXCoreAdapterState(i32);
+#[repr(transparent)]
+pub struct DXCoreAdapterPreference(pub u32);
+pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
+pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
+pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
+#[repr(transparent)]
+pub struct DXCoreAdapterProperty(pub u32);
+pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
+pub const DriverVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(1u32);
+pub const DriverDescription: DXCoreAdapterProperty = DXCoreAdapterProperty(2u32);
+pub const HardwareID: DXCoreAdapterProperty = DXCoreAdapterProperty(3u32);
+pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
+pub const ComputePreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(5u32);
+pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(6u32);
+pub const DedicatedAdapterMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(7u32);
+pub const DedicatedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(8u32);
+pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
+pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
+pub const IsHardware: DXCoreAdapterProperty = DXCoreAdapterProperty(11u32);
+pub const IsIntegrated: DXCoreAdapterProperty = DXCoreAdapterProperty(12u32);
+pub const IsDetachable: DXCoreAdapterProperty = DXCoreAdapterProperty(13u32);
+pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
+#[repr(transparent)]
+pub struct DXCoreAdapterState(pub u32);
+pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
+pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
 #[repr(C)]
 pub struct DXCoreHardwareID(i32);
 #[repr(C)]
 pub struct DXCoreHardwareIDParts(i32);
-#[repr(C)]
-pub struct DXCoreNotificationType(i32);
-#[repr(C)]
-pub struct DXCoreSegmentGroup(i32);
+#[repr(transparent)]
+pub struct DXCoreNotificationType(pub u32);
+pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
+pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
+pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
+pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
+#[repr(transparent)]
+pub struct DXCoreSegmentGroup(pub u32);
+pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
+pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
 #[repr(transparent)]
 pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

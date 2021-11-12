@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 pub const ADVANCED_DUP: u32 = 8192u32;
@@ -286,8 +286,14 @@ pub struct WIAS_ENDORSER_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WIAS_ENDORSER_VALUE(i32);
-#[repr(C)]
-pub struct WIAVIDEO_STATE(i32);
+#[repr(transparent)]
+pub struct WIAVIDEO_STATE(pub i32);
+pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);
+pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
+pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
+pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
+pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
+pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
 pub const WIA_ALARM_BEEP1: u32 = 1u32;

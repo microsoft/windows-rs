@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -21,8 +21,13 @@ pub struct FrameExposureControl(pub *mut ::core::ffi::c_void);
 pub struct FrameFlashCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FrameFlashControl(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FrameFlashMode(i32);
+#[repr(transparent)]
+pub struct FrameFlashMode(pub i32);
+impl FrameFlashMode {
+    pub const Disable: FrameFlashMode = FrameFlashMode(0i32);
+    pub const Enable: FrameFlashMode = FrameFlashMode(1i32);
+    pub const Global: FrameFlashMode = FrameFlashMode(2i32);
+}
 #[repr(transparent)]
 pub struct FrameFocusCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

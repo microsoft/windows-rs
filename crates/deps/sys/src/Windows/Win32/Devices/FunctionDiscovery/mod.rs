@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 pub const E_FDPAIRING_AUTHFAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193917i32 as _);
@@ -1989,16 +1989,31 @@ pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
 pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
 pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
-#[repr(C)]
-pub struct PropertyConstraint(i32);
+#[repr(transparent)]
+pub struct PropertyConstraint(pub i32);
+pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
+pub const QC_NOTEQUAL: PropertyConstraint = PropertyConstraint(1i32);
+pub const QC_LESSTHAN: PropertyConstraint = PropertyConstraint(2i32);
+pub const QC_LESSTHANOREQUAL: PropertyConstraint = PropertyConstraint(3i32);
+pub const QC_GREATERTHAN: PropertyConstraint = PropertyConstraint(4i32);
+pub const QC_GREATERTHANOREQUAL: PropertyConstraint = PropertyConstraint(5i32);
+pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
+pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
+pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
+pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
 #[repr(C)]
 pub struct PropertyStore(i32);
 #[repr(C)]
 pub struct PropertyStoreCollection(i32);
-#[repr(C)]
-pub struct QueryCategoryType(i32);
-#[repr(C)]
-pub struct QueryUpdateAction(i32);
+#[repr(transparent)]
+pub struct QueryCategoryType(pub i32);
+pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
+pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
+#[repr(transparent)]
+pub struct QueryUpdateAction(pub i32);
+pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
+pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
+pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
 pub const SID_DeviceDisplayStatusManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4120552787, data2: 33545, data3: 18122, data4: [151, 54, 26, 195, 198, 45, 96, 49] };
 pub const SID_EnumDeviceFunction: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 333507042,
@@ -2041,5 +2056,7 @@ pub const SID_UninstallDeviceFunction: ::windows_sys::core::GUID = ::windows_sys
     data4: [128, 37, 191, 11, 137, 189, 68, 205],
 };
 pub const SID_UnpairProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2309292796, data2: 34171, data3: 18072, data4: [160, 183, 2, 113, 146, 0, 47, 158] };
-#[repr(C)]
-pub struct SystemVisibilityFlags(i32);
+#[repr(transparent)]
+pub struct SystemVisibilityFlags(pub i32);
+pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
+pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -13,8 +13,13 @@ pub struct BeginStoryboard(pub *mut ::core::ffi::c_void);
 pub struct BounceEase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CircleEase(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ClockState(i32);
+#[repr(transparent)]
+pub struct ClockState(pub i32);
+impl ClockState {
+    pub const Active: ClockState = ClockState(0i32);
+    pub const Filling: ClockState = ClockState(1i32);
+    pub const Stopped: ClockState = ClockState(2i32);
+}
 #[repr(transparent)]
 pub struct ColorAnimation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -27,8 +32,14 @@ pub struct ColorKeyFrameCollection(pub *mut ::core::ffi::c_void);
 pub struct CommonNavigationTransitionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ConnectedAnimation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ConnectedAnimationComponent(i32);
+#[repr(transparent)]
+pub struct ConnectedAnimationComponent(pub i32);
+impl ConnectedAnimationComponent {
+    pub const OffsetX: ConnectedAnimationComponent = ConnectedAnimationComponent(0i32);
+    pub const OffsetY: ConnectedAnimationComponent = ConnectedAnimationComponent(1i32);
+    pub const CrossFade: ConnectedAnimationComponent = ConnectedAnimationComponent(2i32);
+    pub const Scale: ConnectedAnimationComponent = ConnectedAnimationComponent(3i32);
+}
 #[repr(transparent)]
 pub struct ConnectedAnimationConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -75,8 +86,13 @@ pub struct EasingColorKeyFrame(pub *mut ::core::ffi::c_void);
 pub struct EasingDoubleKeyFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EasingFunctionBase(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct EasingMode(i32);
+#[repr(transparent)]
+pub struct EasingMode(pub i32);
+impl EasingMode {
+    pub const EaseOut: EasingMode = EasingMode(0i32);
+    pub const EaseIn: EasingMode = EasingMode(1i32);
+    pub const EaseInOut: EasingMode = EasingMode(2i32);
+}
 #[repr(transparent)]
 pub struct EasingPointKeyFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -93,8 +109,12 @@ pub struct ExponentialEase(pub *mut ::core::ffi::c_void);
 pub struct FadeInThemeAnimation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FadeOutThemeAnimation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FillBehavior(i32);
+#[repr(transparent)]
+pub struct FillBehavior(pub i32);
+impl FillBehavior {
+    pub const HoldEnd: FillBehavior = FillBehavior(0i32);
+    pub const Stop: FillBehavior = FillBehavior(1i32);
+}
 #[repr(transparent)]
 pub struct GravityConnectedAnimationConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -465,16 +485,26 @@ pub struct ReorderThemeTransition(pub *mut ::core::ffi::c_void);
 pub struct RepeatBehavior(i32);
 #[repr(transparent)]
 pub struct RepeatBehaviorHelper(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RepeatBehaviorType(i32);
+#[repr(transparent)]
+pub struct RepeatBehaviorType(pub i32);
+impl RepeatBehaviorType {
+    pub const Count: RepeatBehaviorType = RepeatBehaviorType(0i32);
+    pub const Duration: RepeatBehaviorType = RepeatBehaviorType(1i32);
+    pub const Forever: RepeatBehaviorType = RepeatBehaviorType(2i32);
+}
 #[repr(transparent)]
 pub struct RepositionThemeAnimation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RepositionThemeTransition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SineEase(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SlideNavigationTransitionEffect(i32);
+#[repr(transparent)]
+pub struct SlideNavigationTransitionEffect(pub i32);
+impl SlideNavigationTransitionEffect {
+    pub const FromBottom: SlideNavigationTransitionEffect = SlideNavigationTransitionEffect(0i32);
+    pub const FromLeft: SlideNavigationTransitionEffect = SlideNavigationTransitionEffect(1i32);
+    pub const FromRight: SlideNavigationTransitionEffect = SlideNavigationTransitionEffect(2i32);
+}
 #[repr(transparent)]
 pub struct SlideNavigationTransitionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

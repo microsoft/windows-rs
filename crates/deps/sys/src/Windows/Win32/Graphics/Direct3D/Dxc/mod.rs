@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DxcCreateInstance(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -66,11 +66,26 @@ pub const CLSID_DxcValidator: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 19699,
     data4: [140, 221, 136, 175, 145, 117, 135, 161],
 };
-#[repr(C)]
-pub struct DXC_CP(i32);
+#[repr(transparent)]
+pub struct DXC_CP(pub u32);
+pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
+pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
+pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
-#[repr(C)]
-pub struct DXC_OUT_KIND(i32);
+#[repr(transparent)]
+pub struct DXC_OUT_KIND(pub i32);
+pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);
+pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1i32);
+pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2i32);
+pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3i32);
+pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4i32);
+pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5i32);
+pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6i32);
+pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7i32);
+pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
+pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
+pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
+pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DxcArgPair(i32);

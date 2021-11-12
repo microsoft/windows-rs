@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
@@ -12,8 +12,11 @@ pub struct CEventSystem(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct COMEVENTSYSCHANGEINFO(i32);
-#[repr(C)]
-pub struct EOC_ChangeType(i32);
+#[repr(transparent)]
+pub struct EOC_ChangeType(pub i32);
+pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
+pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
+pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
 #[repr(C)]
 pub struct EventObjectChange(i32);
 #[repr(C)]

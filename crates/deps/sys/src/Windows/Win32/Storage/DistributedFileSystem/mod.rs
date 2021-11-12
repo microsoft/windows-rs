@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -119,8 +119,11 @@ pub struct DFS_INFO_8(i32);
 #[repr(C)]
 pub struct DFS_INFO_9(i32);
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
-#[repr(C)]
-pub struct DFS_NAMESPACE_VERSION_ORIGIN(i32);
+#[repr(transparent)]
+pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
+pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
+pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(1i32);
+pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(2i32);
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
 pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
 pub const DFS_PROPERTY_FLAG_INSITE_REFERRALS: u32 = 1u32;
@@ -153,8 +156,14 @@ pub const DFS_STORAGE_STATE_ONLINE: u32 = 2u32;
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO(i32);
 #[repr(C)]
 pub struct DFS_TARGET_PRIORITY(i32);
-#[repr(C)]
-pub struct DFS_TARGET_PRIORITY_CLASS(i32);
+#[repr(transparent)]
+pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
+pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);
+pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(0i32);
+pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(1i32);
+pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(2i32);
+pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(3i32);
+pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(4i32);
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;
 pub const DFS_VOLUME_FLAVOR_AD_BLOB: u32 = 512u32;
 pub const DFS_VOLUME_FLAVOR_STANDALONE: u32 = 256u32;

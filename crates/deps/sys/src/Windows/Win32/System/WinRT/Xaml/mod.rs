@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
@@ -38,5 +38,7 @@ pub struct IVirtualSurfaceImageSourceNative(pub *mut ::core::ffi::c_void);
 pub struct IVirtualSurfaceUpdatesCallbackNative(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct TrackerHandle__(i32);
-#[repr(C)]
-pub struct XAML_REFERENCETRACKER_DISCONNECT(i32);
+#[repr(transparent)]
+pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);
+pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(0i32);
+pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(1i32);

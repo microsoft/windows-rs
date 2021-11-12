@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -33,8 +33,13 @@ pub struct IResourceQualifier(pub *mut ::core::ffi::c_void);
 pub struct NamedResource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceCandidate(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ResourceCandidateKind(i32);
+#[repr(transparent)]
+pub struct ResourceCandidateKind(pub i32);
+impl ResourceCandidateKind {
+    pub const String: ResourceCandidateKind = ResourceCandidateKind(0i32);
+    pub const File: ResourceCandidateKind = ResourceCandidateKind(1i32);
+    pub const EmbeddedData: ResourceCandidateKind = ResourceCandidateKind(2i32);
+}
 #[repr(transparent)]
 pub struct ResourceCandidateVectorView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -59,7 +64,11 @@ pub struct ResourceQualifier(pub *mut ::core::ffi::c_void);
 pub struct ResourceQualifierMapView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceQualifierObservableMap(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ResourceQualifierPersistence(i32);
+#[repr(transparent)]
+pub struct ResourceQualifierPersistence(pub i32);
+impl ResourceQualifierPersistence {
+    pub const None: ResourceQualifierPersistence = ResourceQualifierPersistence(0i32);
+    pub const LocalMachine: ResourceQualifierPersistence = ResourceQualifierPersistence(1i32);
+}
 #[repr(transparent)]
 pub struct ResourceQualifierVectorView(pub *mut ::core::ffi::c_void);

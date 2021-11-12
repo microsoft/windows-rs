@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -35,8 +35,13 @@ pub struct SizeChangedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct WebUICommandBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebUICommandBarBitmapIcon(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WebUICommandBarClosedDisplayMode(i32);
+#[repr(transparent)]
+pub struct WebUICommandBarClosedDisplayMode(pub i32);
+impl WebUICommandBarClosedDisplayMode {
+    pub const Default: WebUICommandBarClosedDisplayMode = WebUICommandBarClosedDisplayMode(0i32);
+    pub const Minimal: WebUICommandBarClosedDisplayMode = WebUICommandBarClosedDisplayMode(1i32);
+    pub const Compact: WebUICommandBarClosedDisplayMode = WebUICommandBarClosedDisplayMode(2i32);
+}
 #[repr(transparent)]
 pub struct WebUICommandBarConfirmationButton(pub *mut ::core::ffi::c_void);
 #[repr(C)]

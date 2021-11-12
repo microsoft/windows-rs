@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
@@ -192,8 +192,12 @@ pub const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20u32;
 pub const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21u32;
 #[repr(C)]
 pub struct DNS_A_DATA(i32);
-#[repr(C)]
-pub struct DNS_CHARSET(i32);
+#[repr(transparent)]
+pub struct DNS_CHARSET(pub i32);
+pub const DnsCharSetUnknown: DNS_CHARSET = DNS_CHARSET(0i32);
+pub const DnsCharSetUnicode: DNS_CHARSET = DNS_CHARSET(1i32);
+pub const DnsCharSetUtf8: DNS_CHARSET = DNS_CHARSET(2i32);
+pub const DnsCharSetAnsi: DNS_CHARSET = DNS_CHARSET(3i32);
 pub const DNS_CLASS_ALL: u32 = 255u32;
 pub const DNS_CLASS_ANY: u32 = 255u32;
 pub const DNS_CLASS_CHAOS: u32 = 3u32;
@@ -204,8 +208,27 @@ pub const DNS_CLASS_NONE: u32 = 254u32;
 pub const DNS_CLASS_UNICAST_RESPONSE: u32 = 32768u32;
 pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164u32;
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1u32;
-#[repr(C)]
-pub struct DNS_CONFIG_TYPE(i32);
+#[repr(transparent)]
+pub struct DNS_CONFIG_TYPE(pub i32);
+pub const DnsConfigPrimaryDomainName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(0i32);
+pub const DnsConfigPrimaryDomainName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(1i32);
+pub const DnsConfigPrimaryDomainName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(2i32);
+pub const DnsConfigAdapterDomainName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(3i32);
+pub const DnsConfigAdapterDomainName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(4i32);
+pub const DnsConfigAdapterDomainName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(5i32);
+pub const DnsConfigDnsServerList: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(6i32);
+pub const DnsConfigSearchList: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(7i32);
+pub const DnsConfigAdapterInfo: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(8i32);
+pub const DnsConfigPrimaryHostNameRegistrationEnabled: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(9i32);
+pub const DnsConfigAdapterHostNameRegistrationEnabled: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(10i32);
+pub const DnsConfigAddressRegistrationMaxCount: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(11i32);
+pub const DnsConfigHostName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(12i32);
+pub const DnsConfigHostName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(13i32);
+pub const DnsConfigHostName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(14i32);
+pub const DnsConfigFullHostName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(15i32);
+pub const DnsConfigFullHostName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(16i32);
+pub const DnsConfigFullHostName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(17i32);
+pub const DnsConfigNameServer: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(18i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY(i32);
@@ -224,8 +247,11 @@ pub struct DNS_CONNECTION_POLICY_ENTRY(i32);
 #[repr(C)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST(i32);
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
-#[repr(C)]
-pub struct DNS_CONNECTION_POLICY_TAG(i32);
+#[repr(transparent)]
+pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
+pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
+pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(1i32);
+pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(2i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_CONNECTION_PROXY_ELEMENT(i32);
@@ -243,14 +269,22 @@ pub const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1u32;
 pub const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64u32;
 pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128u32;
 pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
-#[repr(C)]
-pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(i32);
+#[repr(transparent)]
+pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(0i32);
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(1i32);
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(2i32);
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_CONNECTION_PROXY_LIST(i32);
-#[repr(C)]
-pub struct DNS_CONNECTION_PROXY_TYPE(i32);
+#[repr(transparent)]
+pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
+pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(0i32);
+pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(1i32);
+pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(2i32);
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(4i32);
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(5i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_CUSTOM_SERVER(i32);
@@ -261,8 +295,11 @@ pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1u32;
 pub struct DNS_DHCID_DATA(i32);
 #[repr(C)]
 pub struct DNS_DS_DATA(i32);
-#[repr(C)]
-pub struct DNS_FREE_TYPE(i32);
+#[repr(transparent)]
+pub struct DNS_FREE_TYPE(pub i32);
+pub const DnsFreeFlat: DNS_FREE_TYPE = DNS_FREE_TYPE(0i32);
+pub const DnsFreeRecordList: DNS_FREE_TYPE = DNS_FREE_TYPE(1i32);
+pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = DNS_FREE_TYPE(2i32);
 #[repr(C)]
 pub struct DNS_HEADER(i32);
 #[repr(C)]
@@ -297,8 +334,15 @@ pub struct DNS_MX_DATAA(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_MX_DATAW(i32);
-#[repr(C)]
-pub struct DNS_NAME_FORMAT(i32);
+#[repr(transparent)]
+pub struct DNS_NAME_FORMAT(pub i32);
+pub const DnsNameDomain: DNS_NAME_FORMAT = DNS_NAME_FORMAT(0i32);
+pub const DnsNameDomainLabel: DNS_NAME_FORMAT = DNS_NAME_FORMAT(1i32);
+pub const DnsNameHostnameFull: DNS_NAME_FORMAT = DNS_NAME_FORMAT(2i32);
+pub const DnsNameHostnameLabel: DNS_NAME_FORMAT = DNS_NAME_FORMAT(3i32);
+pub const DnsNameWildcard: DNS_NAME_FORMAT = DNS_NAME_FORMAT(4i32);
+pub const DnsNameSrvRecord: DNS_NAME_FORMAT = DNS_NAME_FORMAT(5i32);
+pub const DnsNameValidateTld: DNS_NAME_FORMAT = DNS_NAME_FORMAT(6i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_NAPTR_DATAA(i32);
@@ -338,8 +382,12 @@ pub struct DNS_PROXY_COMPLETION_ROUTINE(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_PROXY_INFORMATION(i32);
-#[repr(C)]
-pub struct DNS_PROXY_INFORMATION_TYPE(i32);
+#[repr(transparent)]
+pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
+pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(0i32);
+pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(1i32);
+pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(2i32);
+pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(3i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_PTR_DATAA(i32);
@@ -489,8 +537,12 @@ pub const DNS_RTYPE_WINS: u32 = 511u32;
 pub const DNS_RTYPE_WINSR: u32 = 767u32;
 pub const DNS_RTYPE_WKS: u32 = 2816u32;
 pub const DNS_RTYPE_X25: u32 = 4864u32;
-#[repr(C)]
-pub struct DNS_SECTION(i32);
+#[repr(transparent)]
+pub struct DNS_SECTION(pub i32);
+pub const DnsSectionQuestion: DNS_SECTION = DNS_SECTION(0i32);
+pub const DnsSectionAnswer: DNS_SECTION = DNS_SECTION(1i32);
+pub const DnsSectionAuthority: DNS_SECTION = DNS_SECTION(2i32);
+pub const DnsSectionAddtional: DNS_SECTION = DNS_SECTION(3i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_SERVICE_BROWSE_REQUEST(i32);

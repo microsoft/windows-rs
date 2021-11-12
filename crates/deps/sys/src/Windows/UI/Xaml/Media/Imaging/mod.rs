@@ -1,14 +1,22 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct BitmapCreateOptions(i32);
+#[repr(transparent)]
+pub struct BitmapCreateOptions(pub u32);
+impl BitmapCreateOptions {
+    pub const None: BitmapCreateOptions = BitmapCreateOptions(0u32);
+    pub const IgnoreImageCache: BitmapCreateOptions = BitmapCreateOptions(8u32);
+}
 #[repr(transparent)]
 pub struct BitmapImage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapSource(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DecodePixelType(i32);
+#[repr(transparent)]
+pub struct DecodePixelType(pub i32);
+impl DecodePixelType {
+    pub const Physical: DecodePixelType = DecodePixelType(0i32);
+    pub const Logical: DecodePixelType = DecodePixelType(1i32);
+}
 #[repr(transparent)]
 pub struct DownloadProgressEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -79,8 +87,14 @@ pub struct SurfaceImageSource(pub *mut ::core::ffi::c_void);
 pub struct SvgImageSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SvgImageSourceFailedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SvgImageSourceLoadStatus(i32);
+#[repr(transparent)]
+pub struct SvgImageSourceLoadStatus(pub i32);
+impl SvgImageSourceLoadStatus {
+    pub const Success: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(0i32);
+    pub const NetworkError: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(1i32);
+    pub const InvalidFormat: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(2i32);
+    pub const Other: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(3i32);
+}
 #[repr(transparent)]
 pub struct SvgImageSourceOpenedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -1,10 +1,16 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct FindAllAccountsResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FindAllWebAccountsStatus(i32);
+#[repr(transparent)]
+pub struct FindAllWebAccountsStatus(pub i32);
+impl FindAllWebAccountsStatus {
+    pub const Success: FindAllWebAccountsStatus = FindAllWebAccountsStatus(0i32);
+    pub const NotAllowedByProvider: FindAllWebAccountsStatus = FindAllWebAccountsStatus(1i32);
+    pub const NotSupportedByProvider: FindAllWebAccountsStatus = FindAllWebAccountsStatus(2i32);
+    pub const ProviderError: FindAllWebAccountsStatus = FindAllWebAccountsStatus(3i32);
+}
 #[repr(transparent)]
 pub struct IFindAllAccountsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -47,11 +53,23 @@ pub struct WebAccountMonitor(pub *mut ::core::ffi::c_void);
 pub struct WebProviderError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebTokenRequest(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WebTokenRequestPromptType(i32);
+#[repr(transparent)]
+pub struct WebTokenRequestPromptType(pub i32);
+impl WebTokenRequestPromptType {
+    pub const Default: WebTokenRequestPromptType = WebTokenRequestPromptType(0i32);
+    pub const ForceAuthentication: WebTokenRequestPromptType = WebTokenRequestPromptType(1i32);
+}
 #[repr(transparent)]
 pub struct WebTokenRequestResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WebTokenRequestStatus(i32);
+#[repr(transparent)]
+pub struct WebTokenRequestStatus(pub i32);
+impl WebTokenRequestStatus {
+    pub const Success: WebTokenRequestStatus = WebTokenRequestStatus(0i32);
+    pub const UserCancel: WebTokenRequestStatus = WebTokenRequestStatus(1i32);
+    pub const AccountSwitch: WebTokenRequestStatus = WebTokenRequestStatus(2i32);
+    pub const UserInteractionRequired: WebTokenRequestStatus = WebTokenRequestStatus(3i32);
+    pub const AccountProviderNotAvailable: WebTokenRequestStatus = WebTokenRequestStatus(4i32);
+    pub const ProviderError: WebTokenRequestStatus = WebTokenRequestStatus(5i32);
+}
 #[repr(transparent)]
 pub struct WebTokenResponse(pub *mut ::core::ffi::c_void);

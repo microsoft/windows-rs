@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
@@ -36,5 +36,13 @@ pub const REC_S_IDIDTHEUPDATES: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const REC_S_NOTCOMPLETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266241i32 as _);
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266242i32 as _);
 pub const STATEBITS_FLAT: u32 = 1u32;
-#[repr(C)]
-pub struct _reconcilef(i32);
+#[repr(transparent)]
+pub struct _reconcilef(pub i32);
+pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = _reconcilef(1i32);
+pub const RECONCILEF_FEEDBACKWINDOWVALID: _reconcilef = _reconcilef(2i32);
+pub const RECONCILEF_NORESIDUESOK: _reconcilef = _reconcilef(4i32);
+pub const RECONCILEF_OMITSELFRESIDUE: _reconcilef = _reconcilef(8i32);
+pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = _reconcilef(16i32);
+pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = _reconcilef(32i32);
+pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = _reconcilef(64i32);
+pub const ALL_RECONCILE_FLAGS: _reconcilef = _reconcilef(127i32);

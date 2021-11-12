@@ -49,6 +49,7 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     };
 
     let underlying_type = gen_name(&underlying_type, gen);
+    // TODO: is this still needed or do all enums now have values?
     let mut last: Option<ConstantValue> = None;
 
     let fields: Vec<Field> = def.fields().collect();

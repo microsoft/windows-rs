@@ -1,8 +1,14 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct AnimationDirection(i32);
+#[repr(transparent)]
+pub struct AnimationDirection(pub i32);
+impl AnimationDirection {
+    pub const Left: AnimationDirection = AnimationDirection(0i32);
+    pub const Top: AnimationDirection = AnimationDirection(1i32);
+    pub const Right: AnimationDirection = AnimationDirection(2i32);
+    pub const Bottom: AnimationDirection = AnimationDirection(3i32);
+}
 #[repr(transparent)]
 pub struct AppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -29,8 +35,12 @@ pub struct CommandBarFlyoutCommandBar(pub *mut ::core::ffi::c_void);
 pub struct CommandBarFlyoutCommandBarTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CommandBarTemplateSettings(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ComponentResourceLocation(i32);
+#[repr(transparent)]
+pub struct ComponentResourceLocation(pub i32);
+impl ComponentResourceLocation {
+    pub const Application: ComponentResourceLocation = ComponentResourceLocation(0i32);
+    pub const Nested: ComponentResourceLocation = ComponentResourceLocation(1i32);
+}
 #[repr(transparent)]
 pub struct DragCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -43,20 +53,52 @@ pub struct DragDeltaEventHandler(pub *mut ::core::ffi::c_void);
 pub struct DragStartedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DragStartedEventHandler(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct EdgeTransitionLocation(i32);
+#[repr(transparent)]
+pub struct EdgeTransitionLocation(pub i32);
+impl EdgeTransitionLocation {
+    pub const Left: EdgeTransitionLocation = EdgeTransitionLocation(0i32);
+    pub const Top: EdgeTransitionLocation = EdgeTransitionLocation(1i32);
+    pub const Right: EdgeTransitionLocation = EdgeTransitionLocation(2i32);
+    pub const Bottom: EdgeTransitionLocation = EdgeTransitionLocation(3i32);
+}
 #[repr(transparent)]
 pub struct FlyoutBase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FlyoutBaseClosingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FlyoutPlacementMode(i32);
-#[repr(C)]
-pub struct FlyoutShowMode(i32);
+#[repr(transparent)]
+pub struct FlyoutPlacementMode(pub i32);
+impl FlyoutPlacementMode {
+    pub const Top: FlyoutPlacementMode = FlyoutPlacementMode(0i32);
+    pub const Bottom: FlyoutPlacementMode = FlyoutPlacementMode(1i32);
+    pub const Left: FlyoutPlacementMode = FlyoutPlacementMode(2i32);
+    pub const Right: FlyoutPlacementMode = FlyoutPlacementMode(3i32);
+    pub const Full: FlyoutPlacementMode = FlyoutPlacementMode(4i32);
+    pub const TopEdgeAlignedLeft: FlyoutPlacementMode = FlyoutPlacementMode(5i32);
+    pub const TopEdgeAlignedRight: FlyoutPlacementMode = FlyoutPlacementMode(6i32);
+    pub const BottomEdgeAlignedLeft: FlyoutPlacementMode = FlyoutPlacementMode(7i32);
+    pub const BottomEdgeAlignedRight: FlyoutPlacementMode = FlyoutPlacementMode(8i32);
+    pub const LeftEdgeAlignedTop: FlyoutPlacementMode = FlyoutPlacementMode(9i32);
+    pub const LeftEdgeAlignedBottom: FlyoutPlacementMode = FlyoutPlacementMode(10i32);
+    pub const RightEdgeAlignedTop: FlyoutPlacementMode = FlyoutPlacementMode(11i32);
+    pub const RightEdgeAlignedBottom: FlyoutPlacementMode = FlyoutPlacementMode(12i32);
+    pub const Auto: FlyoutPlacementMode = FlyoutPlacementMode(13i32);
+}
+#[repr(transparent)]
+pub struct FlyoutShowMode(pub i32);
+impl FlyoutShowMode {
+    pub const Auto: FlyoutShowMode = FlyoutShowMode(0i32);
+    pub const Standard: FlyoutShowMode = FlyoutShowMode(1i32);
+    pub const Transient: FlyoutShowMode = FlyoutShowMode(2i32);
+    pub const TransientWithDismissOnPointerMoveAway: FlyoutShowMode = FlyoutShowMode(3i32);
+}
 #[repr(transparent)]
 pub struct FlyoutShowOptions(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GeneratorDirection(i32);
+#[repr(transparent)]
+pub struct GeneratorDirection(pub i32);
+impl GeneratorDirection {
+    pub const Forward: GeneratorDirection = GeneratorDirection(0i32);
+    pub const Backward: GeneratorDirection = GeneratorDirection(1i32);
+}
 #[repr(C)]
 pub struct GeneratorPosition(i32);
 #[repr(transparent)]
@@ -65,8 +107,12 @@ pub struct GeneratorPositionHelper(pub *mut ::core::ffi::c_void);
 pub struct GridViewItemPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GridViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GroupHeaderPlacement(i32);
+#[repr(transparent)]
+pub struct GroupHeaderPlacement(pub i32);
+impl GroupHeaderPlacement {
+    pub const Top: GroupHeaderPlacement = GroupHeaderPlacement(0i32);
+    pub const Left: GroupHeaderPlacement = GroupHeaderPlacement(1i32);
+}
 #[repr(transparent)]
 pub struct IAppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -341,10 +387,18 @@ pub struct JumpListItemForegroundConverter(pub *mut ::core::ffi::c_void);
 pub struct LayoutInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ListViewItemPresenter(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ListViewItemPresenterCheckMode(i32);
-#[repr(C)]
-pub struct ListViewItemPresenterSelectionIndicatorMode(i32);
+#[repr(transparent)]
+pub struct ListViewItemPresenterCheckMode(pub i32);
+impl ListViewItemPresenterCheckMode {
+    pub const Inline: ListViewItemPresenterCheckMode = ListViewItemPresenterCheckMode(0i32);
+    pub const Overlay: ListViewItemPresenterCheckMode = ListViewItemPresenterCheckMode(1i32);
+}
+#[repr(transparent)]
+pub struct ListViewItemPresenterSelectionIndicatorMode(pub i32);
+impl ListViewItemPresenterSelectionIndicatorMode {
+    pub const Inline: ListViewItemPresenterSelectionIndicatorMode = ListViewItemPresenterSelectionIndicatorMode(0i32);
+    pub const Overlay: ListViewItemPresenterSelectionIndicatorMode = ListViewItemPresenterSelectionIndicatorMode(1i32);
+}
 #[repr(transparent)]
 pub struct ListViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -369,12 +423,34 @@ pub struct PivotHeaderItem(pub *mut ::core::ffi::c_void);
 pub struct PivotHeaderPanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PivotPanel(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PlacementMode(i32);
+#[repr(transparent)]
+pub struct PlacementMode(pub i32);
+impl PlacementMode {
+    pub const Bottom: PlacementMode = PlacementMode(2i32);
+    pub const Left: PlacementMode = PlacementMode(9i32);
+    pub const Mouse: PlacementMode = PlacementMode(7i32);
+    pub const Right: PlacementMode = PlacementMode(4i32);
+    pub const Top: PlacementMode = PlacementMode(10i32);
+}
 #[repr(transparent)]
 pub struct Popup(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PopupPlacementMode(i32);
+#[repr(transparent)]
+pub struct PopupPlacementMode(pub i32);
+impl PopupPlacementMode {
+    pub const Auto: PopupPlacementMode = PopupPlacementMode(0i32);
+    pub const Top: PopupPlacementMode = PopupPlacementMode(1i32);
+    pub const Bottom: PopupPlacementMode = PopupPlacementMode(2i32);
+    pub const Left: PopupPlacementMode = PopupPlacementMode(3i32);
+    pub const Right: PopupPlacementMode = PopupPlacementMode(4i32);
+    pub const TopEdgeAlignedLeft: PopupPlacementMode = PopupPlacementMode(5i32);
+    pub const TopEdgeAlignedRight: PopupPlacementMode = PopupPlacementMode(6i32);
+    pub const BottomEdgeAlignedLeft: PopupPlacementMode = PopupPlacementMode(7i32);
+    pub const BottomEdgeAlignedRight: PopupPlacementMode = PopupPlacementMode(8i32);
+    pub const LeftEdgeAlignedTop: PopupPlacementMode = PopupPlacementMode(9i32);
+    pub const LeftEdgeAlignedBottom: PopupPlacementMode = PopupPlacementMode(10i32);
+    pub const RightEdgeAlignedTop: PopupPlacementMode = PopupPlacementMode(11i32);
+    pub const RightEdgeAlignedBottom: PopupPlacementMode = PopupPlacementMode(12i32);
+}
 #[repr(transparent)]
 pub struct ProgressBarTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -393,28 +469,60 @@ pub struct ScrollBar(pub *mut ::core::ffi::c_void);
 pub struct ScrollEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ScrollEventHandler(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ScrollEventType(i32);
-#[repr(C)]
-pub struct ScrollingIndicatorMode(i32);
+#[repr(transparent)]
+pub struct ScrollEventType(pub i32);
+impl ScrollEventType {
+    pub const SmallDecrement: ScrollEventType = ScrollEventType(0i32);
+    pub const SmallIncrement: ScrollEventType = ScrollEventType(1i32);
+    pub const LargeDecrement: ScrollEventType = ScrollEventType(2i32);
+    pub const LargeIncrement: ScrollEventType = ScrollEventType(3i32);
+    pub const ThumbPosition: ScrollEventType = ScrollEventType(4i32);
+    pub const ThumbTrack: ScrollEventType = ScrollEventType(5i32);
+    pub const First: ScrollEventType = ScrollEventType(6i32);
+    pub const Last: ScrollEventType = ScrollEventType(7i32);
+    pub const EndScroll: ScrollEventType = ScrollEventType(8i32);
+}
+#[repr(transparent)]
+pub struct ScrollingIndicatorMode(pub i32);
+impl ScrollingIndicatorMode {
+    pub const None: ScrollingIndicatorMode = ScrollingIndicatorMode(0i32);
+    pub const TouchIndicator: ScrollingIndicatorMode = ScrollingIndicatorMode(1i32);
+    pub const MouseIndicator: ScrollingIndicatorMode = ScrollingIndicatorMode(2i32);
+}
 #[repr(transparent)]
 pub struct Selector(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SelectorItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SettingsFlyoutTemplateSettings(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SliderSnapsTo(i32);
-#[repr(C)]
-pub struct SnapPointsAlignment(i32);
+#[repr(transparent)]
+pub struct SliderSnapsTo(pub i32);
+impl SliderSnapsTo {
+    pub const StepValues: SliderSnapsTo = SliderSnapsTo(0i32);
+    pub const Ticks: SliderSnapsTo = SliderSnapsTo(1i32);
+}
+#[repr(transparent)]
+pub struct SnapPointsAlignment(pub i32);
+impl SnapPointsAlignment {
+    pub const Near: SnapPointsAlignment = SnapPointsAlignment(0i32);
+    pub const Center: SnapPointsAlignment = SnapPointsAlignment(1i32);
+    pub const Far: SnapPointsAlignment = SnapPointsAlignment(2i32);
+}
 #[repr(transparent)]
 pub struct SplitViewTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Thumb(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TickBar(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct TickPlacement(i32);
+#[repr(transparent)]
+pub struct TickPlacement(pub i32);
+impl TickPlacement {
+    pub const None: TickPlacement = TickPlacement(0i32);
+    pub const TopLeft: TickPlacement = TickPlacement(1i32);
+    pub const BottomRight: TickPlacement = TickPlacement(2i32);
+    pub const Outside: TickPlacement = TickPlacement(3i32);
+    pub const Inline: TickPlacement = TickPlacement(4i32);
+}
 #[repr(transparent)]
 pub struct ToggleButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

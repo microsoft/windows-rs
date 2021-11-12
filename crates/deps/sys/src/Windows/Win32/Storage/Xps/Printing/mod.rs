@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -40,15 +40,23 @@ pub struct IPrintDocumentPackageTargetFactory(pub *mut ::core::ffi::c_void);
 pub struct IXpsPrintJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXpsPrintJobStream(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintDocumentPackageCompletion(i32);
+#[repr(transparent)]
+pub struct PrintDocumentPackageCompletion(pub i32);
+pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
+pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
+pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
+pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
 #[repr(C)]
 pub struct PrintDocumentPackageStatus(i32);
 #[repr(C)]
 pub struct PrintDocumentPackageTarget(i32);
 #[repr(C)]
 pub struct PrintDocumentPackageTargetFactory(i32);
-#[repr(C)]
-pub struct XPS_JOB_COMPLETION(i32);
+#[repr(transparent)]
+pub struct XPS_JOB_COMPLETION(pub i32);
+pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
+pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
+pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
+pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
 #[repr(C)]
 pub struct XPS_JOB_STATUS(i32);

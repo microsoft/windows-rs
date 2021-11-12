@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Devices_Perception_Provider")]
 pub mod Provider;
 #[link(name = "windows")]
@@ -119,14 +119,28 @@ pub struct PerceptionDepthFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void
 pub struct PerceptionDepthFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceWatcher(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PerceptionFrameSourceAccessStatus(i32);
+#[repr(transparent)]
+pub struct PerceptionFrameSourceAccessStatus(pub i32);
+impl PerceptionFrameSourceAccessStatus {
+    pub const Unspecified: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(0i32);
+    pub const Allowed: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(1i32);
+    pub const DeniedByUser: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(2i32);
+    pub const DeniedBySystem: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(3i32);
+}
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertiesChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PerceptionFrameSourcePropertyChangeStatus(i32);
+#[repr(transparent)]
+pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
+impl PerceptionFrameSourcePropertyChangeStatus {
+    pub const Unknown: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(0i32);
+    pub const Accepted: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(1i32);
+    pub const LostControl: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(2i32);
+    pub const PropertyNotSupported: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(3i32);
+    pub const PropertyReadOnly: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(4i32);
+    pub const ValueOutOfRange: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(5i32);
+}
 #[repr(transparent)]
 pub struct PerceptionInfraredFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

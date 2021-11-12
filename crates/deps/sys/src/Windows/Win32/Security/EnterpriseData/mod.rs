@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -25,8 +25,12 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnprotectFile(fileorfolderpath: super::super::Foundation::PWSTR, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct ENTERPRISE_DATA_POLICIES(i32);
+#[repr(transparent)]
+pub struct ENTERPRISE_DATA_POLICIES(pub u32);
+pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0u32);
+pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(1u32);
+pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2u32);
+pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4u32);
 #[repr(C)]
 pub struct FILE_UNPROTECT_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -38,7 +42,11 @@ pub struct IProtectionPolicyManagerInterop(pub *mut ::core::ffi::c_void);
 pub struct IProtectionPolicyManagerInterop2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop3(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SRPHOSTING_TYPE(i32);
-#[repr(C)]
-pub struct SRPHOSTING_VERSION(i32);
+#[repr(transparent)]
+pub struct SRPHOSTING_TYPE(pub i32);
+pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
+pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = SRPHOSTING_TYPE(1i32);
+pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = SRPHOSTING_TYPE(2i32);
+#[repr(transparent)]
+pub struct SRPHOSTING_VERSION(pub i32);
+pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);

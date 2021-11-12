@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn SwDeviceClose(hswdevice: HSWDEVICE);
@@ -77,15 +77,23 @@ pub struct IUPnPServiceDocumentAccess(pub *mut ::core::ffi::c_void);
 pub struct IUPnPServiceEnumProperty(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUPnPServices(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SW_DEVICE_CAPABILITIES(i32);
+#[repr(transparent)]
+pub struct SW_DEVICE_CAPABILITIES(pub i32);
+pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
+pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
+pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
+pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
+pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
 #[repr(C)]
 pub struct SW_DEVICE_CREATE_CALLBACK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
 pub struct SW_DEVICE_CREATE_INFO(i32);
-#[repr(C)]
-pub struct SW_DEVICE_LIFETIME(i32);
+#[repr(transparent)]
+pub struct SW_DEVICE_LIFETIME(pub i32);
+pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
+pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
+pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
 pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2u32;

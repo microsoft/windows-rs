@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DMOEnum(guidcategory: *const ::windows_sys::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE, ppenum: *mut IEnumDMO) -> ::windows_sys::core::HRESULT;
@@ -51,8 +51,9 @@ pub const DMOCATEGORY_VIDEO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [190, 70, 61, 162, 245, 111, 16, 185],
 };
 pub const DMOCATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 869902176, data2: 37064, data3: 4560, data4: [189, 67, 0, 160, 201, 17, 206, 134] };
-#[repr(C)]
-pub struct DMO_ENUM_FLAGS(i32);
+#[repr(transparent)]
+pub struct DMO_ENUM_FLAGS(pub i32);
+pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = DMO_ENUM_FLAGS(1i32);
 pub const DMO_E_INVALIDSTREAMINDEX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const DMO_E_INVALIDTYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
 pub const DMO_E_NOTACCEPTING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220988i32 as _);
@@ -66,8 +67,9 @@ pub struct DMO_MEDIA_TYPE(i32);
 pub struct DMO_OUTPUT_DATA_BUFFER(i32);
 #[repr(C)]
 pub struct DMO_PARTIAL_MEDIATYPE(i32);
-#[repr(C)]
-pub struct DMO_REGISTER_FLAGS(i32);
+#[repr(transparent)]
+pub struct DMO_REGISTER_FLAGS(pub i32);
+pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = DMO_REGISTER_FLAGS(1i32);
 #[repr(transparent)]
 pub struct IDMOQualityControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -80,23 +82,49 @@ pub struct IMediaBuffer(pub *mut ::core::ffi::c_void);
 pub struct IMediaObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMediaObjectInPlace(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct _DMO_INPLACE_PROCESS_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_INPUT_STATUS_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_INPUT_STREAM_INFO_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_PROCESS_OUTPUT_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_QUALITY_STATUS_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_SET_TYPE_FLAGS(i32);
-#[repr(C)]
-pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(i32);
+#[repr(transparent)]
+pub struct _DMO_INPLACE_PROCESS_FLAGS(pub i32);
+pub const DMO_INPLACE_NORMAL: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(0i32);
+pub const DMO_INPLACE_ZERO: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(1i32);
+#[repr(transparent)]
+pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(pub i32);
+pub const DMO_INPUT_DATA_BUFFERF_SYNCPOINT: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(1i32);
+pub const DMO_INPUT_DATA_BUFFERF_TIME: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(2i32);
+pub const DMO_INPUT_DATA_BUFFERF_TIMELENGTH: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(4i32);
+pub const DMO_INPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(8i32);
+#[repr(transparent)]
+pub struct _DMO_INPUT_STATUS_FLAGS(pub i32);
+pub const DMO_INPUT_STATUSF_ACCEPT_DATA: _DMO_INPUT_STATUS_FLAGS = _DMO_INPUT_STATUS_FLAGS(1i32);
+#[repr(transparent)]
+pub struct _DMO_INPUT_STREAM_INFO_FLAGS(pub i32);
+pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(1i32);
+pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(2i32);
+pub const DMO_INPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(4i32);
+pub const DMO_INPUT_STREAMF_HOLDS_BUFFERS: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(8i32);
+#[repr(transparent)]
+pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
+pub const DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(1i32);
+pub const DMO_OUTPUT_DATA_BUFFERF_TIME: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(2i32);
+pub const DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(4i32);
+pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(8i32);
+pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(16777216i32);
+#[repr(transparent)]
+pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(pub i32);
+pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(1i32);
+pub const DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(2i32);
+pub const DMO_OUTPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(4i32);
+pub const DMO_OUTPUT_STREAMF_DISCARDABLE: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(8i32);
+pub const DMO_OUTPUT_STREAMF_OPTIONAL: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(16i32);
+#[repr(transparent)]
+pub struct _DMO_PROCESS_OUTPUT_FLAGS(pub i32);
+pub const DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _DMO_PROCESS_OUTPUT_FLAGS = _DMO_PROCESS_OUTPUT_FLAGS(1i32);
+#[repr(transparent)]
+pub struct _DMO_QUALITY_STATUS_FLAGS(pub i32);
+pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = _DMO_QUALITY_STATUS_FLAGS(1i32);
+#[repr(transparent)]
+pub struct _DMO_SET_TYPE_FLAGS(pub i32);
+pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(1i32);
+pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(2i32);
+#[repr(transparent)]
+pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(pub i32);
+pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = _DMO_VIDEO_OUTPUT_STREAM_FLAGS(1i32);

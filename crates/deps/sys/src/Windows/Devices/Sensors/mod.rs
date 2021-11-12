@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Devices_Sensors_Custom")]
 pub mod Custom;
 #[link(name = "windows")]
@@ -11,8 +11,13 @@ pub struct AccelerometerDataThreshold(pub *mut ::core::ffi::c_void);
 pub struct AccelerometerReading(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AccelerometerReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AccelerometerReadingType(i32);
+#[repr(transparent)]
+pub struct AccelerometerReadingType(pub i32);
+impl AccelerometerReadingType {
+    pub const Standard: AccelerometerReadingType = AccelerometerReadingType(0i32);
+    pub const Linear: AccelerometerReadingType = AccelerometerReadingType(1i32);
+    pub const Gravity: AccelerometerReadingType = AccelerometerReadingType(2i32);
+}
 #[repr(transparent)]
 pub struct AccelerometerShakenEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -23,12 +28,26 @@ pub struct ActivitySensorReading(pub *mut ::core::ffi::c_void);
 pub struct ActivitySensorReadingChangeReport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ActivitySensorReadingConfidence(i32);
+#[repr(transparent)]
+pub struct ActivitySensorReadingConfidence(pub i32);
+impl ActivitySensorReadingConfidence {
+    pub const High: ActivitySensorReadingConfidence = ActivitySensorReadingConfidence(0i32);
+    pub const Low: ActivitySensorReadingConfidence = ActivitySensorReadingConfidence(1i32);
+}
 #[repr(transparent)]
 pub struct ActivitySensorTriggerDetails(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ActivityType(i32);
+#[repr(transparent)]
+pub struct ActivityType(pub i32);
+impl ActivityType {
+    pub const Unknown: ActivityType = ActivityType(0i32);
+    pub const Idle: ActivityType = ActivityType(1i32);
+    pub const Stationary: ActivityType = ActivityType(2i32);
+    pub const Fidgeting: ActivityType = ActivityType(3i32);
+    pub const Walking: ActivityType = ActivityType(4i32);
+    pub const Running: ActivityType = ActivityType(5i32);
+    pub const InVehicle: ActivityType = ActivityType(6i32);
+    pub const Biking: ActivityType = ActivityType(7i32);
+}
 #[repr(transparent)]
 pub struct Altimeter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -347,8 +366,14 @@ pub struct LightSensorReading(pub *mut ::core::ffi::c_void);
 pub struct LightSensorReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Magnetometer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MagnetometerAccuracy(i32);
+#[repr(transparent)]
+pub struct MagnetometerAccuracy(pub i32);
+impl MagnetometerAccuracy {
+    pub const Unknown: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
+    pub const Unreliable: MagnetometerAccuracy = MagnetometerAccuracy(1i32);
+    pub const Approximate: MagnetometerAccuracy = MagnetometerAccuracy(2i32);
+    pub const High: MagnetometerAccuracy = MagnetometerAccuracy(3i32);
+}
 #[repr(transparent)]
 pub struct MagnetometerDataThreshold(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -369,8 +394,13 @@ pub struct PedometerDataThreshold(pub *mut ::core::ffi::c_void);
 pub struct PedometerReading(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PedometerReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PedometerStepKind(i32);
+#[repr(transparent)]
+pub struct PedometerStepKind(pub i32);
+impl PedometerStepKind {
+    pub const Unknown: PedometerStepKind = PedometerStepKind(0i32);
+    pub const Walking: PedometerStepKind = PedometerStepKind(1i32);
+    pub const Running: PedometerStepKind = PedometerStepKind(2i32);
+}
 #[repr(transparent)]
 pub struct ProximitySensor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -383,18 +413,50 @@ pub struct ProximitySensorReading(pub *mut ::core::ffi::c_void);
 pub struct ProximitySensorReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SensorDataThresholdTriggerDetails(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SensorOptimizationGoal(i32);
+#[repr(transparent)]
+pub struct SensorOptimizationGoal(pub i32);
+impl SensorOptimizationGoal {
+    pub const Precision: SensorOptimizationGoal = SensorOptimizationGoal(0i32);
+    pub const PowerEfficiency: SensorOptimizationGoal = SensorOptimizationGoal(1i32);
+}
 #[repr(transparent)]
 pub struct SensorQuaternion(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SensorReadingType(i32);
+#[repr(transparent)]
+pub struct SensorReadingType(pub i32);
+impl SensorReadingType {
+    pub const Absolute: SensorReadingType = SensorReadingType(0i32);
+    pub const Relative: SensorReadingType = SensorReadingType(1i32);
+}
 #[repr(transparent)]
 pub struct SensorRotationMatrix(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SensorType(i32);
-#[repr(C)]
-pub struct SimpleOrientation(i32);
+#[repr(transparent)]
+pub struct SensorType(pub i32);
+impl SensorType {
+    pub const Accelerometer: SensorType = SensorType(0i32);
+    pub const ActivitySensor: SensorType = SensorType(1i32);
+    pub const Barometer: SensorType = SensorType(2i32);
+    pub const Compass: SensorType = SensorType(3i32);
+    pub const CustomSensor: SensorType = SensorType(4i32);
+    pub const Gyroscope: SensorType = SensorType(5i32);
+    pub const ProximitySensor: SensorType = SensorType(6i32);
+    pub const Inclinometer: SensorType = SensorType(7i32);
+    pub const LightSensor: SensorType = SensorType(8i32);
+    pub const OrientationSensor: SensorType = SensorType(9i32);
+    pub const Pedometer: SensorType = SensorType(10i32);
+    pub const RelativeInclinometer: SensorType = SensorType(11i32);
+    pub const RelativeOrientationSensor: SensorType = SensorType(12i32);
+    pub const SimpleOrientationSensor: SensorType = SensorType(13i32);
+}
+#[repr(transparent)]
+pub struct SimpleOrientation(pub i32);
+impl SimpleOrientation {
+    pub const NotRotated: SimpleOrientation = SimpleOrientation(0i32);
+    pub const Rotated90DegreesCounterclockwise: SimpleOrientation = SimpleOrientation(1i32);
+    pub const Rotated180DegreesCounterclockwise: SimpleOrientation = SimpleOrientation(2i32);
+    pub const Rotated270DegreesCounterclockwise: SimpleOrientation = SimpleOrientation(3i32);
+    pub const Faceup: SimpleOrientation = SimpleOrientation(4i32);
+    pub const Facedown: SimpleOrientation = SimpleOrientation(5i32);
+}
 #[repr(transparent)]
 pub struct SimpleOrientationSensor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

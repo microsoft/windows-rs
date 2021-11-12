@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -69,8 +69,19 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct EFaultRepRetVal(i32);
+#[repr(transparent)]
+pub struct EFaultRepRetVal(pub i32);
+pub const frrvOk: EFaultRepRetVal = EFaultRepRetVal(0i32);
+pub const frrvOkManifest: EFaultRepRetVal = EFaultRepRetVal(1i32);
+pub const frrvOkQueued: EFaultRepRetVal = EFaultRepRetVal(2i32);
+pub const frrvErr: EFaultRepRetVal = EFaultRepRetVal(3i32);
+pub const frrvErrNoDW: EFaultRepRetVal = EFaultRepRetVal(4i32);
+pub const frrvErrTimeout: EFaultRepRetVal = EFaultRepRetVal(5i32);
+pub const frrvLaunchDebugger: EFaultRepRetVal = EFaultRepRetVal(6i32);
+pub const frrvOkHeadless: EFaultRepRetVal = EFaultRepRetVal(7i32);
+pub const frrvErrAnotherInstance: EFaultRepRetVal = EFaultRepRetVal(8i32);
+pub const frrvErrNoMemory: EFaultRepRetVal = EFaultRepRetVal(9i32);
+pub const frrvErrDoubleFault: EFaultRepRetVal = EFaultRepRetVal(10i32);
 #[repr(C)]
 pub struct HREPORT(i32);
 #[repr(C)]
@@ -81,10 +92,20 @@ pub struct PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(i32);
 pub struct PFN_WER_RUNTIME_EXCEPTION_EVENT(i32);
 #[repr(C)]
 pub struct PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(i32);
-#[repr(C)]
-pub struct REPORT_STORE_TYPES(i32);
-#[repr(C)]
-pub struct WER_CONSENT(i32);
+#[repr(transparent)]
+pub struct REPORT_STORE_TYPES(pub i32);
+pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(0i32);
+pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(1i32);
+pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(2i32);
+pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(3i32);
+pub const E_STORE_INVALID: REPORT_STORE_TYPES = REPORT_STORE_TYPES(4i32);
+#[repr(transparent)]
+pub struct WER_CONSENT(pub i32);
+pub const WerConsentNotAsked: WER_CONSENT = WER_CONSENT(1i32);
+pub const WerConsentApproved: WER_CONSENT = WER_CONSENT(2i32);
+pub const WerConsentDenied: WER_CONSENT = WER_CONSENT(3i32);
+pub const WerConsentAlwaysPrompt: WER_CONSENT = WER_CONSENT(4i32);
+pub const WerConsentMax: WER_CONSENT = WER_CONSENT(5i32);
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
@@ -97,24 +118,47 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2(i32);
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3(i32);
 pub const WER_DUMP_MASK_START: u32 = 1u32;
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
-#[repr(C)]
-pub struct WER_DUMP_TYPE(i32);
+#[repr(transparent)]
+pub struct WER_DUMP_TYPE(pub i32);
+pub const WerDumpTypeNone: WER_DUMP_TYPE = WER_DUMP_TYPE(0i32);
+pub const WerDumpTypeMicroDump: WER_DUMP_TYPE = WER_DUMP_TYPE(1i32);
+pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = WER_DUMP_TYPE(2i32);
+pub const WerDumpTypeHeapDump: WER_DUMP_TYPE = WER_DUMP_TYPE(3i32);
+pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = WER_DUMP_TYPE(4i32);
+pub const WerDumpTypeMax: WER_DUMP_TYPE = WER_DUMP_TYPE(5i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[repr(C)]
 pub struct WER_EXCEPTION_INFORMATION(i32);
-#[repr(C)]
-pub struct WER_FAULT_REPORTING(i32);
+#[repr(transparent)]
+pub struct WER_FAULT_REPORTING(pub u32);
+pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = WER_FAULT_REPORTING(4u32);
+pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = WER_FAULT_REPORTING(1u32);
+pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = WER_FAULT_REPORTING(2u32);
+pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = WER_FAULT_REPORTING(8u32);
+pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = WER_FAULT_REPORTING(16u32);
 pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
 pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
 pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
 pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
-#[repr(C)]
-pub struct WER_FILE(i32);
+#[repr(transparent)]
+pub struct WER_FILE(pub u32);
+pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = WER_FILE(2u32);
+pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = WER_FILE(1u32);
 pub const WER_FILE_COMPRESSED: u32 = 4u32;
-#[repr(C)]
-pub struct WER_FILE_TYPE(i32);
+#[repr(transparent)]
+pub struct WER_FILE_TYPE(pub i32);
+pub const WerFileTypeMicrodump: WER_FILE_TYPE = WER_FILE_TYPE(1i32);
+pub const WerFileTypeMinidump: WER_FILE_TYPE = WER_FILE_TYPE(2i32);
+pub const WerFileTypeHeapdump: WER_FILE_TYPE = WER_FILE_TYPE(3i32);
+pub const WerFileTypeUserDocument: WER_FILE_TYPE = WER_FILE_TYPE(4i32);
+pub const WerFileTypeOther: WER_FILE_TYPE = WER_FILE_TYPE(5i32);
+pub const WerFileTypeTriagedump: WER_FILE_TYPE = WER_FILE_TYPE(6i32);
+pub const WerFileTypeCustomDump: WER_FILE_TYPE = WER_FILE_TYPE(7i32);
+pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = WER_FILE_TYPE(8i32);
+pub const WerFileTypeEtlTrace: WER_FILE_TYPE = WER_FILE_TYPE(9i32);
+pub const WerFileTypeMax: WER_FILE_TYPE = WER_FILE_TYPE(10i32);
 pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
 pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
 pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
@@ -143,8 +187,11 @@ pub const WER_P6: u32 = 6u32;
 pub const WER_P7: u32 = 7u32;
 pub const WER_P8: u32 = 8u32;
 pub const WER_P9: u32 = 9u32;
-#[repr(C)]
-pub struct WER_REGISTER_FILE_TYPE(i32);
+#[repr(transparent)]
+pub struct WER_REGISTER_FILE_TYPE(pub i32);
+pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(1i32);
+pub const WerRegFileTypeOther: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(2i32);
+pub const WerRegFileTypeMax: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(3i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WER_REPORT_INFORMATION(i32);
@@ -170,19 +217,63 @@ pub struct WER_REPORT_METADATA_V3(i32);
 pub struct WER_REPORT_PARAMETER(i32);
 #[repr(C)]
 pub struct WER_REPORT_SIGNATURE(i32);
-#[repr(C)]
-pub struct WER_REPORT_TYPE(i32);
-#[repr(C)]
-pub struct WER_REPORT_UI(i32);
+#[repr(transparent)]
+pub struct WER_REPORT_TYPE(pub i32);
+pub const WerReportNonCritical: WER_REPORT_TYPE = WER_REPORT_TYPE(0i32);
+pub const WerReportCritical: WER_REPORT_TYPE = WER_REPORT_TYPE(1i32);
+pub const WerReportApplicationCrash: WER_REPORT_TYPE = WER_REPORT_TYPE(2i32);
+pub const WerReportApplicationHang: WER_REPORT_TYPE = WER_REPORT_TYPE(3i32);
+pub const WerReportKernel: WER_REPORT_TYPE = WER_REPORT_TYPE(4i32);
+pub const WerReportInvalid: WER_REPORT_TYPE = WER_REPORT_TYPE(5i32);
+#[repr(transparent)]
+pub struct WER_REPORT_UI(pub i32);
+pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = WER_REPORT_UI(1i32);
+pub const WerUIIconFilePath: WER_REPORT_UI = WER_REPORT_UI(2i32);
+pub const WerUIConsentDlgHeader: WER_REPORT_UI = WER_REPORT_UI(3i32);
+pub const WerUIConsentDlgBody: WER_REPORT_UI = WER_REPORT_UI(4i32);
+pub const WerUIOnlineSolutionCheckText: WER_REPORT_UI = WER_REPORT_UI(5i32);
+pub const WerUIOfflineSolutionCheckText: WER_REPORT_UI = WER_REPORT_UI(6i32);
+pub const WerUICloseText: WER_REPORT_UI = WER_REPORT_UI(7i32);
+pub const WerUICloseDlgHeader: WER_REPORT_UI = WER_REPORT_UI(8i32);
+pub const WerUICloseDlgBody: WER_REPORT_UI = WER_REPORT_UI(9i32);
+pub const WerUICloseDlgButtonText: WER_REPORT_UI = WER_REPORT_UI(10i32);
+pub const WerUIMax: WER_REPORT_UI = WER_REPORT_UI(11i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[repr(C)]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION(i32);
 pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
-#[repr(C)]
-pub struct WER_SUBMIT_FLAGS(i32);
-#[repr(C)]
-pub struct WER_SUBMIT_RESULT(i32);
+#[repr(transparent)]
+pub struct WER_SUBMIT_FLAGS(pub u32);
+pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(16u32);
+pub const WER_SUBMIT_HONOR_RECOVERY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(1u32);
+pub const WER_SUBMIT_HONOR_RESTART: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(2u32);
+pub const WER_SUBMIT_NO_ARCHIVE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(256u32);
+pub const WER_SUBMIT_NO_CLOSE_UI: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(64u32);
+pub const WER_SUBMIT_NO_QUEUE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(128u32);
+pub const WER_SUBMIT_OUTOFPROCESS: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(32u32);
+pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(1024u32);
+pub const WER_SUBMIT_QUEUE: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4u32);
+pub const WER_SUBMIT_SHOW_DEBUG: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(8u32);
+pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(512u32);
+pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(2048u32);
+pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4096u32);
+pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(8192u32);
+#[repr(transparent)]
+pub struct WER_SUBMIT_RESULT(pub i32);
+pub const WerReportQueued: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(1i32);
+pub const WerReportUploaded: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(2i32);
+pub const WerReportDebug: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(3i32);
+pub const WerReportFailed: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(4i32);
+pub const WerDisabled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(5i32);
+pub const WerReportCancelled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(6i32);
+pub const WerDisabledQueue: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(7i32);
+pub const WerReportAsync: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(8i32);
+pub const WerCustomAction: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(9i32);
+pub const WerThrottled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(10i32);
+pub const WerReportUploadedCab: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(11i32);
+pub const WerStorageLocationNotFound: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(12i32);
+pub const WerSubmitResultMax: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(13i32);
 #[repr(C)]
 pub struct pfn_ADDEREXCLUDEDAPPLICATIONA(i32);
 #[repr(C)]

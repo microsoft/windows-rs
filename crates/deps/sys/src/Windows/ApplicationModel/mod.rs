@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "ApplicationModel_Activation")]
 pub mod Activation;
 #[cfg(feature = "ApplicationModel_AppExtensions")]
@@ -55,26 +55,46 @@ pub mod VoiceCommands;
 pub mod Wallet;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct AddResourcePackageOptions(i32);
+#[repr(transparent)]
+pub struct AddResourcePackageOptions(pub u32);
+impl AddResourcePackageOptions {
+    pub const None: AddResourcePackageOptions = AddResourcePackageOptions(0u32);
+    pub const ForceTargetAppShutdown: AddResourcePackageOptions = AddResourcePackageOptions(1u32);
+    pub const ApplyUpdateIfAvailable: AddResourcePackageOptions = AddResourcePackageOptions(2u32);
+}
 #[repr(transparent)]
 pub struct AppDisplayInfo(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppExecutionContext(i32);
+#[repr(transparent)]
+pub struct AppExecutionContext(pub i32);
+impl AppExecutionContext {
+    pub const Unknown: AppExecutionContext = AppExecutionContext(0i32);
+    pub const Host: AppExecutionContext = AppExecutionContext(1i32);
+    pub const Guest: AppExecutionContext = AppExecutionContext(2i32);
+}
 #[repr(transparent)]
 pub struct AppInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppInstallerInfo(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppInstallerPolicySource(i32);
+#[repr(transparent)]
+pub struct AppInstallerPolicySource(pub i32);
+impl AppInstallerPolicySource {
+    pub const Default: AppInstallerPolicySource = AppInstallerPolicySource(0i32);
+    pub const System: AppInstallerPolicySource = AppInstallerPolicySource(1i32);
+}
 #[repr(transparent)]
 pub struct AppInstance(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EnteredBackgroundEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct FullTrustAppContract(i32);
-#[repr(C)]
-pub struct FullTrustLaunchResult(i32);
+#[repr(transparent)]
+pub struct FullTrustLaunchResult(pub i32);
+impl FullTrustLaunchResult {
+    pub const Success: FullTrustLaunchResult = FullTrustLaunchResult(0i32);
+    pub const AccessDenied: FullTrustLaunchResult = FullTrustLaunchResult(1i32);
+    pub const FileNotFound: FullTrustLaunchResult = FullTrustLaunchResult(2i32);
+    pub const Unknown: FullTrustLaunchResult = FullTrustLaunchResult(3i32);
+}
 #[repr(transparent)]
 pub struct FullTrustProcessLaunchResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -195,8 +215,14 @@ pub struct ISuspendingOperation(pub *mut ::core::ffi::c_void);
 pub struct LeavingBackgroundEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LimitedAccessFeatureRequestResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LimitedAccessFeatureStatus(i32);
+#[repr(transparent)]
+pub struct LimitedAccessFeatureStatus(pub i32);
+impl LimitedAccessFeatureStatus {
+    pub const Unavailable: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(0i32);
+    pub const Available: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(1i32);
+    pub const AvailableWithoutToken: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(2i32);
+    pub const Unknown: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(3i32);
+}
 #[repr(transparent)]
 pub struct Package(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -213,16 +239,29 @@ pub struct PackageCatalogRemoveResourcePackagesResult(pub *mut ::core::ffi::c_vo
 pub struct PackageContentGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageContentGroupStagingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PackageContentGroupState(i32);
+#[repr(transparent)]
+pub struct PackageContentGroupState(pub i32);
+impl PackageContentGroupState {
+    pub const NotStaged: PackageContentGroupState = PackageContentGroupState(0i32);
+    pub const Queued: PackageContentGroupState = PackageContentGroupState(1i32);
+    pub const Staging: PackageContentGroupState = PackageContentGroupState(2i32);
+    pub const Staged: PackageContentGroupState = PackageContentGroupState(3i32);
+}
 #[repr(transparent)]
 pub struct PackageId(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PackageInstallProgress(i32);
 #[repr(transparent)]
 pub struct PackageInstallingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PackageSignatureKind(i32);
+#[repr(transparent)]
+pub struct PackageSignatureKind(pub i32);
+impl PackageSignatureKind {
+    pub const None: PackageSignatureKind = PackageSignatureKind(0i32);
+    pub const Developer: PackageSignatureKind = PackageSignatureKind(1i32);
+    pub const Enterprise: PackageSignatureKind = PackageSignatureKind(2i32);
+    pub const Store: PackageSignatureKind = PackageSignatureKind(3i32);
+    pub const System: PackageSignatureKind = PackageSignatureKind(4i32);
+}
 #[repr(transparent)]
 pub struct PackageStagingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -231,8 +270,15 @@ pub struct PackageStatus(pub *mut ::core::ffi::c_void);
 pub struct PackageStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageUninstallingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PackageUpdateAvailability(i32);
+#[repr(transparent)]
+pub struct PackageUpdateAvailability(pub i32);
+impl PackageUpdateAvailability {
+    pub const Unknown: PackageUpdateAvailability = PackageUpdateAvailability(0i32);
+    pub const NoUpdates: PackageUpdateAvailability = PackageUpdateAvailability(1i32);
+    pub const Available: PackageUpdateAvailability = PackageUpdateAvailability(2i32);
+    pub const Required: PackageUpdateAvailability = PackageUpdateAvailability(3i32);
+    pub const Error: PackageUpdateAvailability = PackageUpdateAvailability(4i32);
+}
 #[repr(transparent)]
 pub struct PackageUpdateAvailabilityResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -243,8 +289,15 @@ pub struct PackageVersion(i32);
 pub struct StartupTask(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct StartupTaskContract(i32);
-#[repr(C)]
-pub struct StartupTaskState(i32);
+#[repr(transparent)]
+pub struct StartupTaskState(pub i32);
+impl StartupTaskState {
+    pub const Disabled: StartupTaskState = StartupTaskState(0i32);
+    pub const DisabledByUser: StartupTaskState = StartupTaskState(1i32);
+    pub const Enabled: StartupTaskState = StartupTaskState(2i32);
+    pub const DisabledByPolicy: StartupTaskState = StartupTaskState(3i32);
+    pub const EnabledByPolicy: StartupTaskState = StartupTaskState(4i32);
+}
 #[repr(transparent)]
 pub struct SuspendingDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

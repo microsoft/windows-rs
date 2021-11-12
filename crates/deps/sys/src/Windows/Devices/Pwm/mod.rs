@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Devices_Pwm_Provider")]
 pub mod Provider;
 #[link(name = "windows")]
@@ -17,5 +17,9 @@ pub struct IPwmPin(pub *mut ::core::ffi::c_void);
 pub struct PwmController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PwmPin(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PwmPulsePolarity(i32);
+#[repr(transparent)]
+pub struct PwmPulsePolarity(pub i32);
+impl PwmPulsePolarity {
+    pub const ActiveHigh: PwmPulsePolarity = PwmPulsePolarity(0i32);
+    pub const ActiveLow: PwmPulsePolarity = PwmPulsePolarity(1i32);
+}

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -43,12 +43,24 @@ pub struct IVolumeChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MuteChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayToConnection(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PlayToConnectionError(i32);
+#[repr(transparent)]
+pub struct PlayToConnectionError(pub i32);
+impl PlayToConnectionError {
+    pub const None: PlayToConnectionError = PlayToConnectionError(0i32);
+    pub const DeviceNotResponding: PlayToConnectionError = PlayToConnectionError(1i32);
+    pub const DeviceError: PlayToConnectionError = PlayToConnectionError(2i32);
+    pub const DeviceLocked: PlayToConnectionError = PlayToConnectionError(3i32);
+    pub const ProtectedPlaybackFailed: PlayToConnectionError = PlayToConnectionError(4i32);
+}
 #[repr(transparent)]
 pub struct PlayToConnectionErrorEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PlayToConnectionState(i32);
+#[repr(transparent)]
+pub struct PlayToConnectionState(pub i32);
+impl PlayToConnectionState {
+    pub const Disconnected: PlayToConnectionState = PlayToConnectionState(0i32);
+    pub const Connected: PlayToConnectionState = PlayToConnectionState(1i32);
+    pub const Rendering: PlayToConnectionState = PlayToConnectionState(2i32);
+}
 #[repr(transparent)]
 pub struct PlayToConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

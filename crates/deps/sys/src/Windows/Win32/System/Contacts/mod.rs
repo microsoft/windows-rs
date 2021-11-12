@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 pub const CGD_ARRAY_NODE: u32 = 8u32;
@@ -10,10 +10,15 @@ pub const CGD_UNKNOWN_PROPERTY: u32 = 0u32;
 pub const CLSID_ContactAggregationManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2529734037, data2: 49561, data3: 17630, data4: [179, 78, 172, 51, 196, 66, 223, 57] };
 #[repr(C)]
 pub struct CONTACT_AGGREGATION_BLOB(i32);
-#[repr(C)]
-pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(i32);
-#[repr(C)]
-pub struct CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(i32);
+#[repr(transparent)]
+pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);
+pub const CACO_DEFAULT: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(0i32);
+pub const CACO_INCLUDE_EXTERNAL: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(1i32);
+pub const CACO_EXTERNAL_ONLY: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(2i32);
+#[repr(transparent)]
+pub struct CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(pub i32);
+pub const CA_CREATE_LOCAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(0i32);
+pub const CA_CREATE_EXTERNAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(1i32);
 #[repr(C)]
 pub struct Contact(i32);
 #[repr(C)]

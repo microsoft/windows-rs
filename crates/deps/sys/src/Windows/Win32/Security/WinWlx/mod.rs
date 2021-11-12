@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
@@ -152,8 +152,11 @@ pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WLX_SC_NOTIFICATION_INFO(i32);
-#[repr(C)]
-pub struct WLX_SHUTDOWN_TYPE(i32);
+#[repr(transparent)]
+pub struct WLX_SHUTDOWN_TYPE(pub u32);
+pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);
+pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11u32);
+pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10u32);
 #[repr(C)]
 pub struct WLX_TERMINAL_SERVICES_DATA(i32);
 pub const WLX_VERSION_1_0: u32 = 65536u32;

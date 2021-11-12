@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -29,14 +29,33 @@ pub struct IVoiceCommandUserMessage(pub *mut ::core::ffi::c_void);
 pub struct VoiceCommand(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VoiceCommandCompletedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct VoiceCommandCompletionReason(i32);
+#[repr(transparent)]
+pub struct VoiceCommandCompletionReason(pub i32);
+impl VoiceCommandCompletionReason {
+    pub const Unknown: VoiceCommandCompletionReason = VoiceCommandCompletionReason(0i32);
+    pub const CommunicationFailed: VoiceCommandCompletionReason = VoiceCommandCompletionReason(1i32);
+    pub const ResourceLimitsExceeded: VoiceCommandCompletionReason = VoiceCommandCompletionReason(2i32);
+    pub const Canceled: VoiceCommandCompletionReason = VoiceCommandCompletionReason(3i32);
+    pub const TimeoutExceeded: VoiceCommandCompletionReason = VoiceCommandCompletionReason(4i32);
+    pub const AppLaunched: VoiceCommandCompletionReason = VoiceCommandCompletionReason(5i32);
+    pub const Completed: VoiceCommandCompletionReason = VoiceCommandCompletionReason(6i32);
+}
 #[repr(transparent)]
 pub struct VoiceCommandConfirmationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VoiceCommandContentTile(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct VoiceCommandContentTileType(i32);
+#[repr(transparent)]
+pub struct VoiceCommandContentTileType(pub i32);
+impl VoiceCommandContentTileType {
+    pub const TitleOnly: VoiceCommandContentTileType = VoiceCommandContentTileType(0i32);
+    pub const TitleWithText: VoiceCommandContentTileType = VoiceCommandContentTileType(1i32);
+    pub const TitleWith68x68Icon: VoiceCommandContentTileType = VoiceCommandContentTileType(2i32);
+    pub const TitleWith68x68IconAndText: VoiceCommandContentTileType = VoiceCommandContentTileType(3i32);
+    pub const TitleWith68x92Icon: VoiceCommandContentTileType = VoiceCommandContentTileType(4i32);
+    pub const TitleWith68x92IconAndText: VoiceCommandContentTileType = VoiceCommandContentTileType(5i32);
+    pub const TitleWith280x140Icon: VoiceCommandContentTileType = VoiceCommandContentTileType(6i32);
+    pub const TitleWith280x140IconAndText: VoiceCommandContentTileType = VoiceCommandContentTileType(7i32);
+}
 #[repr(transparent)]
 pub struct VoiceCommandDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

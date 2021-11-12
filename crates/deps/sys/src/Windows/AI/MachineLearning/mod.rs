@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "AI_MachineLearning_Preview")]
 pub mod Preview;
 #[link(name = "windows")]
@@ -141,14 +141,32 @@ pub struct LearningModel(pub *mut ::core::ffi::c_void);
 pub struct LearningModelBinding(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LearningModelDevice(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LearningModelDeviceKind(i32);
+#[repr(transparent)]
+pub struct LearningModelDeviceKind(pub i32);
+impl LearningModelDeviceKind {
+    pub const Default: LearningModelDeviceKind = LearningModelDeviceKind(0i32);
+    pub const Cpu: LearningModelDeviceKind = LearningModelDeviceKind(1i32);
+    pub const DirectX: LearningModelDeviceKind = LearningModelDeviceKind(2i32);
+    pub const DirectXHighPerformance: LearningModelDeviceKind = LearningModelDeviceKind(3i32);
+    pub const DirectXMinPower: LearningModelDeviceKind = LearningModelDeviceKind(4i32);
+}
 #[repr(transparent)]
 pub struct LearningModelEvaluationResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LearningModelFeatureKind(i32);
-#[repr(C)]
-pub struct LearningModelPixelRange(i32);
+#[repr(transparent)]
+pub struct LearningModelFeatureKind(pub i32);
+impl LearningModelFeatureKind {
+    pub const Tensor: LearningModelFeatureKind = LearningModelFeatureKind(0i32);
+    pub const Sequence: LearningModelFeatureKind = LearningModelFeatureKind(1i32);
+    pub const Map: LearningModelFeatureKind = LearningModelFeatureKind(2i32);
+    pub const Image: LearningModelFeatureKind = LearningModelFeatureKind(3i32);
+}
+#[repr(transparent)]
+pub struct LearningModelPixelRange(pub i32);
+impl LearningModelPixelRange {
+    pub const ZeroTo255: LearningModelPixelRange = LearningModelPixelRange(0i32);
+    pub const ZeroToOne: LearningModelPixelRange = LearningModelPixelRange(1i32);
+    pub const MinusOneToOne: LearningModelPixelRange = LearningModelPixelRange(2i32);
+}
 #[repr(transparent)]
 pub struct LearningModelSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -177,8 +195,26 @@ pub struct TensorInt32Bit(pub *mut ::core::ffi::c_void);
 pub struct TensorInt64Bit(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TensorInt8Bit(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct TensorKind(i32);
+#[repr(transparent)]
+pub struct TensorKind(pub i32);
+impl TensorKind {
+    pub const Undefined: TensorKind = TensorKind(0i32);
+    pub const Float: TensorKind = TensorKind(1i32);
+    pub const UInt8: TensorKind = TensorKind(2i32);
+    pub const Int8: TensorKind = TensorKind(3i32);
+    pub const UInt16: TensorKind = TensorKind(4i32);
+    pub const Int16: TensorKind = TensorKind(5i32);
+    pub const Int32: TensorKind = TensorKind(6i32);
+    pub const Int64: TensorKind = TensorKind(7i32);
+    pub const String: TensorKind = TensorKind(8i32);
+    pub const Boolean: TensorKind = TensorKind(9i32);
+    pub const Float16: TensorKind = TensorKind(10i32);
+    pub const Double: TensorKind = TensorKind(11i32);
+    pub const UInt32: TensorKind = TensorKind(12i32);
+    pub const UInt64: TensorKind = TensorKind(13i32);
+    pub const Complex64: TensorKind = TensorKind(14i32);
+    pub const Complex128: TensorKind = TensorKind(15i32);
+}
 #[repr(transparent)]
 pub struct TensorString(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

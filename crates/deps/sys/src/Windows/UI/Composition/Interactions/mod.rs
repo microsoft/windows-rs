@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -89,20 +89,44 @@ pub struct IVisualInteractionSourceObjectFactory(pub *mut ::core::ffi::c_void);
 pub struct IVisualInteractionSourceStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVisualInteractionSourceStatics2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InteractionBindingAxisModes(i32);
-#[repr(C)]
-pub struct InteractionChainingMode(i32);
+#[repr(transparent)]
+pub struct InteractionBindingAxisModes(pub u32);
+impl InteractionBindingAxisModes {
+    pub const None: InteractionBindingAxisModes = InteractionBindingAxisModes(0u32);
+    pub const PositionX: InteractionBindingAxisModes = InteractionBindingAxisModes(1u32);
+    pub const PositionY: InteractionBindingAxisModes = InteractionBindingAxisModes(2u32);
+    pub const Scale: InteractionBindingAxisModes = InteractionBindingAxisModes(4u32);
+}
+#[repr(transparent)]
+pub struct InteractionChainingMode(pub i32);
+impl InteractionChainingMode {
+    pub const Auto: InteractionChainingMode = InteractionChainingMode(0i32);
+    pub const Always: InteractionChainingMode = InteractionChainingMode(1i32);
+    pub const Never: InteractionChainingMode = InteractionChainingMode(2i32);
+}
 #[repr(transparent)]
 pub struct InteractionSourceConfiguration(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InteractionSourceMode(i32);
-#[repr(C)]
-pub struct InteractionSourceRedirectionMode(i32);
+#[repr(transparent)]
+pub struct InteractionSourceMode(pub i32);
+impl InteractionSourceMode {
+    pub const Disabled: InteractionSourceMode = InteractionSourceMode(0i32);
+    pub const EnabledWithInertia: InteractionSourceMode = InteractionSourceMode(1i32);
+    pub const EnabledWithoutInertia: InteractionSourceMode = InteractionSourceMode(2i32);
+}
+#[repr(transparent)]
+pub struct InteractionSourceRedirectionMode(pub i32);
+impl InteractionSourceRedirectionMode {
+    pub const Disabled: InteractionSourceRedirectionMode = InteractionSourceRedirectionMode(0i32);
+    pub const Enabled: InteractionSourceRedirectionMode = InteractionSourceRedirectionMode(1i32);
+}
 #[repr(transparent)]
 pub struct InteractionTracker(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InteractionTrackerClampingOption(i32);
+#[repr(transparent)]
+pub struct InteractionTrackerClampingOption(pub i32);
+impl InteractionTrackerClampingOption {
+    pub const Auto: InteractionTrackerClampingOption = InteractionTrackerClampingOption(0i32);
+    pub const Disabled: InteractionTrackerClampingOption = InteractionTrackerClampingOption(1i32);
+}
 #[repr(transparent)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -119,8 +143,12 @@ pub struct InteractionTrackerInertiaRestingValue(pub *mut ::core::ffi::c_void);
 pub struct InteractionTrackerInertiaStateEnteredArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InteractionTrackerPositionUpdateOption(i32);
+#[repr(transparent)]
+pub struct InteractionTrackerPositionUpdateOption(pub i32);
+impl InteractionTrackerPositionUpdateOption {
+    pub const Default: InteractionTrackerPositionUpdateOption = InteractionTrackerPositionUpdateOption(0i32);
+    pub const AllowActiveCustomScaleAnimation: InteractionTrackerPositionUpdateOption = InteractionTrackerPositionUpdateOption(1i32);
+}
 #[repr(transparent)]
 pub struct InteractionTrackerRequestIgnoredArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -131,5 +159,11 @@ pub struct InteractionTrackerVector2InertiaModifier(pub *mut ::core::ffi::c_void
 pub struct InteractionTrackerVector2InertiaNaturalMotion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VisualInteractionSource(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct VisualInteractionSourceRedirectionMode(i32);
+#[repr(transparent)]
+pub struct VisualInteractionSourceRedirectionMode(pub i32);
+impl VisualInteractionSourceRedirectionMode {
+    pub const Off: VisualInteractionSourceRedirectionMode = VisualInteractionSourceRedirectionMode(0i32);
+    pub const CapableTouchpadOnly: VisualInteractionSourceRedirectionMode = VisualInteractionSourceRedirectionMode(1i32);
+    pub const PointerWheelOnly: VisualInteractionSourceRedirectionMode = VisualInteractionSourceRedirectionMode(2i32);
+    pub const CapableTouchpadAndPointerWheel: VisualInteractionSourceRedirectionMode = VisualInteractionSourceRedirectionMode(3i32);
+}

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -7,8 +7,12 @@ pub struct DesignerAppExitedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct DesignerAppManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DesignerAppView(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DesignerAppViewState(i32);
+#[repr(transparent)]
+pub struct DesignerAppViewState(pub i32);
+impl DesignerAppViewState {
+    pub const Visible: DesignerAppViewState = DesignerAppViewState(0i32);
+    pub const Hidden: DesignerAppViewState = DesignerAppViewState(1i32);
+}
 #[repr(transparent)]
 pub struct DesktopWindowXamlSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -69,8 +73,18 @@ pub struct IXamlUIPresenterStatics(pub *mut ::core::ffi::c_void);
 pub struct IXamlUIPresenterStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WindowsXamlManager(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct XamlSourceFocusNavigationReason(i32);
+#[repr(transparent)]
+pub struct XamlSourceFocusNavigationReason(pub i32);
+impl XamlSourceFocusNavigationReason {
+    pub const Programmatic: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(0i32);
+    pub const Restore: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(1i32);
+    pub const First: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(3i32);
+    pub const Last: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(4i32);
+    pub const Left: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(7i32);
+    pub const Up: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(8i32);
+    pub const Right: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(9i32);
+    pub const Down: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(10i32);
+}
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

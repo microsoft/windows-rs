@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -529,8 +529,26 @@ pub struct JET_ENUMCOLUMN(i32);
 pub struct JET_ENUMCOLUMNID(i32);
 #[repr(C)]
 pub struct JET_ENUMCOLUMNVALUE(i32);
-#[repr(C)]
-pub struct JET_ERRCAT(i32);
+#[repr(transparent)]
+pub struct JET_ERRCAT(pub i32);
+pub const JET_errcatUnknown: JET_ERRCAT = JET_ERRCAT(0i32);
+pub const JET_errcatError: JET_ERRCAT = JET_ERRCAT(1i32);
+pub const JET_errcatOperation: JET_ERRCAT = JET_ERRCAT(2i32);
+pub const JET_errcatFatal: JET_ERRCAT = JET_ERRCAT(3i32);
+pub const JET_errcatIO: JET_ERRCAT = JET_ERRCAT(4i32);
+pub const JET_errcatResource: JET_ERRCAT = JET_ERRCAT(5i32);
+pub const JET_errcatMemory: JET_ERRCAT = JET_ERRCAT(6i32);
+pub const JET_errcatQuota: JET_ERRCAT = JET_ERRCAT(7i32);
+pub const JET_errcatDisk: JET_ERRCAT = JET_ERRCAT(8i32);
+pub const JET_errcatData: JET_ERRCAT = JET_ERRCAT(9i32);
+pub const JET_errcatCorruption: JET_ERRCAT = JET_ERRCAT(10i32);
+pub const JET_errcatInconsistent: JET_ERRCAT = JET_ERRCAT(11i32);
+pub const JET_errcatFragmentation: JET_ERRCAT = JET_ERRCAT(12i32);
+pub const JET_errcatApi: JET_ERRCAT = JET_ERRCAT(13i32);
+pub const JET_errcatUsage: JET_ERRCAT = JET_ERRCAT(14i32);
+pub const JET_errcatState: JET_ERRCAT = JET_ERRCAT(15i32);
+pub const JET_errcatObsolete: JET_ERRCAT = JET_ERRCAT(16i32);
+pub const JET_errcatMax: JET_ERRCAT = JET_ERRCAT(17i32);
 #[repr(C)]
 pub struct JET_ERRINFOBASIC_W(i32);
 pub const JET_EventLoggingDisable: u32 = 0u32;
@@ -542,8 +560,12 @@ pub const JET_EventLoggingLevelMin: u32 = 1u32;
 pub const JET_ExceptionFailFast: u32 = 4u32;
 pub const JET_ExceptionMsgBox: u32 = 1u32;
 pub const JET_ExceptionNone: u32 = 2u32;
-#[repr(C)]
-pub struct JET_INDEXCHECKING(i32);
+#[repr(transparent)]
+pub struct JET_INDEXCHECKING(pub i32);
+pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
+pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
+pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
+pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct JET_INDEXCREATE2_A(i32);
@@ -665,8 +687,17 @@ pub struct JET_RECSIZE2(i32);
 #[cfg(any(target_arch = "x86",))]
 #[repr(C)]
 pub struct JET_RECSIZE2(i32);
-#[repr(C)]
-pub struct JET_RELOP(i32);
+#[repr(transparent)]
+pub struct JET_RELOP(pub i32);
+pub const JET_relopEquals: JET_RELOP = JET_RELOP(0i32);
+pub const JET_relopPrefixEquals: JET_RELOP = JET_RELOP(1i32);
+pub const JET_relopNotEquals: JET_RELOP = JET_RELOP(2i32);
+pub const JET_relopLessThanOrEqual: JET_RELOP = JET_RELOP(3i32);
+pub const JET_relopLessThan: JET_RELOP = JET_RELOP(4i32);
+pub const JET_relopGreaterThanOrEqual: JET_RELOP = JET_RELOP(5i32);
+pub const JET_relopGreaterThan: JET_RELOP = JET_RELOP(6i32);
+pub const JET_relopBitmaskEqualsZero: JET_RELOP = JET_RELOP(7i32);
+pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = JET_RELOP(8i32);
 #[repr(C)]
 pub struct JET_RETINFO(i32);
 #[repr(C)]

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -7,8 +7,18 @@ pub struct HidBooleanControl(pub *mut ::core::ffi::c_void);
 pub struct HidBooleanControlDescription(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HidCollection(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HidCollectionType(i32);
+#[repr(transparent)]
+pub struct HidCollectionType(pub i32);
+impl HidCollectionType {
+    pub const Physical: HidCollectionType = HidCollectionType(0i32);
+    pub const Application: HidCollectionType = HidCollectionType(1i32);
+    pub const Logical: HidCollectionType = HidCollectionType(2i32);
+    pub const Report: HidCollectionType = HidCollectionType(3i32);
+    pub const NamedArray: HidCollectionType = HidCollectionType(4i32);
+    pub const UsageSwitch: HidCollectionType = HidCollectionType(5i32);
+    pub const UsageModifier: HidCollectionType = HidCollectionType(6i32);
+    pub const Other: HidCollectionType = HidCollectionType(7i32);
+}
 #[repr(transparent)]
 pub struct HidDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -23,8 +33,13 @@ pub struct HidNumericControl(pub *mut ::core::ffi::c_void);
 pub struct HidNumericControlDescription(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HidOutputReport(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HidReportType(i32);
+#[repr(transparent)]
+pub struct HidReportType(pub i32);
+impl HidReportType {
+    pub const Input: HidReportType = HidReportType(0i32);
+    pub const Output: HidReportType = HidReportType(1i32);
+    pub const Feature: HidReportType = HidReportType(2i32);
+}
 #[repr(transparent)]
 pub struct IHidBooleanControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

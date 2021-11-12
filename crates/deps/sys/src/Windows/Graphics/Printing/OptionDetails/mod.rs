@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -85,10 +85,22 @@ pub struct PrintHolePunchOptionDetails(pub *mut ::core::ffi::c_void);
 pub struct PrintMediaSizeOptionDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintMediaTypeOptionDetails(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintOptionStates(i32);
-#[repr(C)]
-pub struct PrintOptionType(i32);
+#[repr(transparent)]
+pub struct PrintOptionStates(pub u32);
+impl PrintOptionStates {
+    pub const None: PrintOptionStates = PrintOptionStates(0u32);
+    pub const Enabled: PrintOptionStates = PrintOptionStates(1u32);
+    pub const Constrained: PrintOptionStates = PrintOptionStates(2u32);
+}
+#[repr(transparent)]
+pub struct PrintOptionType(pub i32);
+impl PrintOptionType {
+    pub const Unknown: PrintOptionType = PrintOptionType(0i32);
+    pub const Number: PrintOptionType = PrintOptionType(1i32);
+    pub const Text: PrintOptionType = PrintOptionType(2i32);
+    pub const ItemList: PrintOptionType = PrintOptionType(3i32);
+    pub const Toggle: PrintOptionType = PrintOptionType(4i32);
+}
 #[repr(transparent)]
 pub struct PrintOrientationOptionDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

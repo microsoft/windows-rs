@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -275,8 +275,9 @@ pub const ID_IPV6_ADDR: u32 = 5u32;
 pub const ID_USER_FQDN: u32 = 3u32;
 #[repr(C)]
 pub struct IKE_AUTHENTICATION_INFORMATION(i32);
-#[repr(C)]
-pub struct IKE_AUTHENTICATION_METHOD(i32);
+#[repr(transparent)]
+pub struct IKE_AUTHENTICATION_METHOD(pub i32);
+pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = IKE_AUTHENTICATION_METHOD(1i32);
 #[repr(C)]
 pub struct IKE_AUTHENTICATION_PRESHARED_KEY(i32);
 pub const IOCTL_ATA_MINIPORT: u32 = 315444u32;
@@ -303,8 +304,11 @@ pub const IOCTL_SCSI_RESCAN_BUS: u32 = 266268u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct IO_SCSI_CAPABILITIES(i32);
-#[repr(C)]
-pub struct ISCSI_AUTH_TYPES(i32);
+#[repr(transparent)]
+pub struct ISCSI_AUTH_TYPES(pub i32);
+pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(0i32);
+pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(1i32);
+pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(2i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ISCSI_CONNECTION_INFOA(i32);
@@ -319,8 +323,10 @@ pub struct ISCSI_DEVICE_ON_SESSIONA(i32);
 #[cfg(feature = "Win32_System_Ioctl")]
 #[repr(C)]
 pub struct ISCSI_DEVICE_ON_SESSIONW(i32);
-#[repr(C)]
-pub struct ISCSI_DIGEST_TYPES(i32);
+#[repr(transparent)]
+pub struct ISCSI_DIGEST_TYPES(pub i32);
+pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(0i32);
+pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(1i32);
 pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
 pub const ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED: u32 = 2u32;
 pub const ISCSI_LOGIN_FLAG_REQUIRE_IPSEC: u32 = 1u32;
@@ -427,10 +433,16 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX(i32);
 pub struct MPIO_PASS_THROUGH_PATH_EX(i32);
 #[repr(C)]
 pub struct MP_DEVICE_DATA_SET_RANGE(i32);
-#[repr(C)]
-pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(i32);
-#[repr(C)]
-pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(i32);
+#[repr(transparent)]
+pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
+pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
+pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(1i32);
+#[repr(transparent)]
+pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
+pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
+pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
+pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
+pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
 pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
 pub const NRB_FUNCTION_FLUSH_NVCACHE: u32 = 20u32;
 pub const NRB_FUNCTION_NVCACHE_INFO: u32 = 236u32;
@@ -463,18 +475,30 @@ pub struct NVCACHE_HINT_PAYLOAD(i32);
 pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR(i32);
 #[repr(C)]
 pub struct NVCACHE_REQUEST_BLOCK(i32);
-#[repr(C)]
-pub struct NVCACHE_STATUS(i32);
-#[repr(C)]
-pub struct NVCACHE_TYPE(i32);
+#[repr(transparent)]
+pub struct NVCACHE_STATUS(pub i32);
+pub const NvCacheStatusUnknown: NVCACHE_STATUS = NVCACHE_STATUS(0i32);
+pub const NvCacheStatusDisabling: NVCACHE_STATUS = NVCACHE_STATUS(1i32);
+pub const NvCacheStatusDisabled: NVCACHE_STATUS = NVCACHE_STATUS(2i32);
+pub const NvCacheStatusEnabled: NVCACHE_STATUS = NVCACHE_STATUS(3i32);
+#[repr(transparent)]
+pub struct NVCACHE_TYPE(pub i32);
+pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
+pub const NvCacheTypeNone: NVCACHE_TYPE = NVCACHE_TYPE(1i32);
+pub const NvCacheTypeWriteBack: NVCACHE_TYPE = NVCACHE_TYPE(2i32);
+pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = NVCACHE_TYPE(3i32);
 #[repr(C)]
 pub struct NV_FEATURE_PARAMETER(i32);
 #[repr(C)]
 pub struct NV_SEP_CACHE_PARAMETER(i32);
 pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
-#[repr(C)]
-pub struct NV_SEP_WRITE_CACHE_TYPE(i32);
+#[repr(transparent)]
+pub struct NV_SEP_WRITE_CACHE_TYPE(pub i32);
+pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(0i32);
+pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(1i32);
+pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(2i32);
+pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(3i32);
 #[repr(C)]
 pub struct PDUMP_DEVICE_POWERON_ROUTINE(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -559,10 +583,19 @@ pub struct STORAGE_FIRMWARE_SLOT_INFO(i32);
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2(i32);
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
 pub const ScsiRawInterfaceGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1408590601, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
-#[repr(C)]
-pub struct TARGETPROTOCOLTYPE(i32);
-#[repr(C)]
-pub struct TARGET_INFORMATION_CLASS(i32);
+#[repr(transparent)]
+pub struct TARGETPROTOCOLTYPE(pub i32);
+pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = TARGETPROTOCOLTYPE(0i32);
+#[repr(transparent)]
+pub struct TARGET_INFORMATION_CLASS(pub i32);
+pub const ProtocolType: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(0i32);
+pub const TargetAlias: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(1i32);
+pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(2i32);
+pub const PortalGroups: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(3i32);
+pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(4i32);
+pub const InitiatorName: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(5i32);
+pub const TargetFlags: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(6i32);
+pub const LoginOptions: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(7i32);
 pub const WmiScsiAddressGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1408590607, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(i32);

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "UI_WebUI_Core")]
 pub mod Core;
 #[link(name = "windows")]
@@ -59,8 +59,14 @@ pub struct LeavingBackgroundEventHandler(pub *mut ::core::ffi::c_void);
 pub struct NavigatedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NewWebUIViewCreatedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintContent(i32);
+#[repr(transparent)]
+pub struct PrintContent(pub i32);
+impl PrintContent {
+    pub const AllPages: PrintContent = PrintContent(0i32);
+    pub const CurrentPage: PrintContent = PrintContent(1i32);
+    pub const CustomPageRange: PrintContent = PrintContent(2i32);
+    pub const CurrentSelection: PrintContent = PrintContent(3i32);
+}
 #[repr(transparent)]
 pub struct ResumingEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

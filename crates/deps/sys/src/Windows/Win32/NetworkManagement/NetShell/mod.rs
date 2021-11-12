@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -51,19 +51,40 @@ pub const NETSH_ERROR_END: u32 = 15019u32;
 pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
-#[repr(C)]
-pub struct NS_CMD_FLAGS(i32);
+#[repr(transparent)]
+pub struct NS_CMD_FLAGS(pub i32);
+pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
+pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
+pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = NS_CMD_FLAGS(8i32);
+pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = NS_CMD_FLAGS(16i32);
+pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
+pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = NS_CMD_FLAGS(65535i32);
+pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = NS_CMD_FLAGS(-2147483648i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct NS_CONTEXT_ATTRIBUTES(i32);
-#[repr(C)]
-pub struct NS_EVENTS(i32);
+#[repr(transparent)]
+pub struct NS_EVENTS(pub i32);
+pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
+pub const NS_EVENT_LAST_N: NS_EVENTS = NS_EVENTS(1i32);
+pub const NS_EVENT_LAST_SECS: NS_EVENTS = NS_EVENTS(2i32);
+pub const NS_EVENT_FROM_N: NS_EVENTS = NS_EVENTS(4i32);
+pub const NS_EVENT_FROM_START: NS_EVENTS = NS_EVENTS(8i32);
 #[repr(C)]
 pub struct NS_HELPER_ATTRIBUTES(i32);
-#[repr(C)]
-pub struct NS_MODE_CHANGE(i32);
-#[repr(C)]
-pub struct NS_REQS(i32);
+#[repr(transparent)]
+pub struct NS_MODE_CHANGE(pub i32);
+pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
+pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(1i32);
+pub const NETSH_FLUSH: NS_MODE_CHANGE = NS_MODE_CHANGE(2i32);
+pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = NS_MODE_CHANGE(3i32);
+pub const NETSH_SAVE: NS_MODE_CHANGE = NS_MODE_CHANGE(4i32);
+#[repr(transparent)]
+pub struct NS_REQS(pub i32);
+pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
+pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
+pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = NS_REQS(2i32);
+pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
 #[repr(C)]
 pub struct PFN_HANDLE_CMD(i32);
 #[repr(C)]

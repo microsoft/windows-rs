@@ -1,12 +1,19 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "ApplicationModel_Store_LicenseManagement")]
 pub mod LicenseManagement;
 #[cfg(feature = "ApplicationModel_Store_Preview")]
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct FulfillmentResult(i32);
+#[repr(transparent)]
+pub struct FulfillmentResult(pub i32);
+impl FulfillmentResult {
+    pub const Succeeded: FulfillmentResult = FulfillmentResult(0i32);
+    pub const NothingToFulfill: FulfillmentResult = FulfillmentResult(1i32);
+    pub const PurchasePending: FulfillmentResult = FulfillmentResult(2i32);
+    pub const PurchaseReverted: FulfillmentResult = FulfillmentResult(3i32);
+    pub const ServerError: FulfillmentResult = FulfillmentResult(4i32);
+}
 #[repr(transparent)]
 pub struct ICurrentApp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -63,10 +70,21 @@ pub struct ProductLicense(pub *mut ::core::ffi::c_void);
 pub struct ProductListing(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProductPurchaseDisplayProperties(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ProductPurchaseStatus(i32);
-#[repr(C)]
-pub struct ProductType(i32);
+#[repr(transparent)]
+pub struct ProductPurchaseStatus(pub i32);
+impl ProductPurchaseStatus {
+    pub const Succeeded: ProductPurchaseStatus = ProductPurchaseStatus(0i32);
+    pub const AlreadyPurchased: ProductPurchaseStatus = ProductPurchaseStatus(1i32);
+    pub const NotFulfilled: ProductPurchaseStatus = ProductPurchaseStatus(2i32);
+    pub const NotPurchased: ProductPurchaseStatus = ProductPurchaseStatus(3i32);
+}
+#[repr(transparent)]
+pub struct ProductType(pub i32);
+impl ProductType {
+    pub const Unknown: ProductType = ProductType(0i32);
+    pub const Durable: ProductType = ProductType(1i32);
+    pub const Consumable: ProductType = ProductType(2i32);
+}
 #[repr(transparent)]
 pub struct PurchaseResults(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

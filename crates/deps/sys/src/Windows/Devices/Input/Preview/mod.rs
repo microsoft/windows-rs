@@ -1,8 +1,15 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct GazeDeviceConfigurationStatePreview(i32);
+#[repr(transparent)]
+pub struct GazeDeviceConfigurationStatePreview(pub i32);
+impl GazeDeviceConfigurationStatePreview {
+    pub const Unknown: GazeDeviceConfigurationStatePreview = GazeDeviceConfigurationStatePreview(0i32);
+    pub const Ready: GazeDeviceConfigurationStatePreview = GazeDeviceConfigurationStatePreview(1i32);
+    pub const Configuring: GazeDeviceConfigurationStatePreview = GazeDeviceConfigurationStatePreview(2i32);
+    pub const ScreenSetupNeeded: GazeDeviceConfigurationStatePreview = GazeDeviceConfigurationStatePreview(3i32);
+    pub const UserCalibrationNeeded: GazeDeviceConfigurationStatePreview = GazeDeviceConfigurationStatePreview(4i32);
+}
 #[repr(transparent)]
 pub struct GazeDevicePreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

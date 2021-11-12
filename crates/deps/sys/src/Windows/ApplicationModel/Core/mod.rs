@@ -1,10 +1,16 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct AppListEntry(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppRestartFailureReason(i32);
+#[repr(transparent)]
+pub struct AppRestartFailureReason(pub i32);
+impl AppRestartFailureReason {
+    pub const RestartPending: AppRestartFailureReason = AppRestartFailureReason(0i32);
+    pub const NotInForeground: AppRestartFailureReason = AppRestartFailureReason(1i32);
+    pub const InvalidUser: AppRestartFailureReason = AppRestartFailureReason(2i32);
+    pub const Other: AppRestartFailureReason = AppRestartFailureReason(3i32);
+}
 #[repr(transparent)]
 pub struct CoreApplicationView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -10,10 +10,18 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct CHUNKSTATE(i32);
-#[repr(C)]
-pub struct CHUNK_BREAKTYPE(i32);
+#[repr(transparent)]
+pub struct CHUNKSTATE(pub i32);
+pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
+pub const CHUNK_VALUE: CHUNKSTATE = CHUNKSTATE(2i32);
+pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = CHUNKSTATE(4i32);
+#[repr(transparent)]
+pub struct CHUNK_BREAKTYPE(pub i32);
+pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
+pub const CHUNK_EOW: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(1i32);
+pub const CHUNK_EOS: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(2i32);
+pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);
+pub const CHUNK_EOC: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(4i32);
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 pub const CICAT_GET_STATE: u32 = 16u32;
 pub const CICAT_NO_QUERY: u32 = 8u32;
@@ -55,8 +63,15 @@ pub struct DBID(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DBID(i32);
-#[repr(C)]
-pub struct DBKINDENUM(i32);
+#[repr(transparent)]
+pub struct DBKINDENUM(pub i32);
+pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
+pub const DBKIND_GUID_PROPID: DBKINDENUM = DBKINDENUM(1i32);
+pub const DBKIND_NAME: DBKINDENUM = DBKINDENUM(2i32);
+pub const DBKIND_PGUID_NAME: DBKINDENUM = DBKINDENUM(3i32);
+pub const DBKIND_PGUID_PROPID: DBKINDENUM = DBKINDENUM(4i32);
+pub const DBKIND_PROPID: DBKINDENUM = DBKINDENUM(5i32);
+pub const DBKIND_GUID: DBKINDENUM = DBKINDENUM(6i32);
 pub const DBPROP_APPLICATION_NAME: u32 = 11u32;
 pub const DBPROP_CATALOGLISTID: u32 = 9u32;
 pub const DBPROP_CI_CATALOG_NAME: u32 = 2u32;
@@ -107,10 +122,24 @@ pub struct FULLPROPSPEC(i32);
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
-#[repr(C)]
-pub struct IFILTER_FLAGS(i32);
-#[repr(C)]
-pub struct IFILTER_INIT(i32);
+#[repr(transparent)]
+pub struct IFILTER_FLAGS(pub i32);
+pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = IFILTER_FLAGS(1i32);
+#[repr(transparent)]
+pub struct IFILTER_INIT(pub i32);
+pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = IFILTER_INIT(1i32);
+pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = IFILTER_INIT(2i32);
+pub const IFILTER_INIT_CANON_HYPHENS: IFILTER_INIT = IFILTER_INIT(4i32);
+pub const IFILTER_INIT_CANON_SPACES: IFILTER_INIT = IFILTER_INIT(8i32);
+pub const IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(16i32);
+pub const IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(32i32);
+pub const IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(256i32);
+pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = IFILTER_INIT(64i32);
+pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = IFILTER_INIT(128i32);
+pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = IFILTER_INIT(512i32);
+pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = IFILTER_INIT(1024i32);
+pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = IFILTER_INIT(2048i32);
+pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = IFILTER_INIT(4096i32);
 #[repr(transparent)]
 pub struct IFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -179,5 +208,9 @@ pub const VECTOR_RANK_INNER: u32 = 2u32;
 pub const VECTOR_RANK_JACCARD: u32 = 4u32;
 pub const VECTOR_RANK_MAX: u32 = 1u32;
 pub const VECTOR_RANK_MIN: u32 = 0u32;
-#[repr(C)]
-pub struct WORDREP_BREAK_TYPE(i32);
+#[repr(transparent)]
+pub struct WORDREP_BREAK_TYPE(pub i32);
+pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
+pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
+pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
+pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(3i32);

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -235,8 +235,11 @@ pub struct FLATENTRYLIST(i32);
 pub struct FLATMTSIDLIST(i32);
 #[repr(C)]
 pub struct FNIDLE(i32);
-#[repr(C)]
-pub struct Gender(i32);
+#[repr(transparent)]
+pub struct Gender(pub i32);
+pub const genderUnspecified: Gender = Gender(0i32);
+pub const genderFemale: Gender = Gender(1i32);
+pub const genderMale: Gender = Gender(2i32);
 #[repr(transparent)]
 pub struct IABContainer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

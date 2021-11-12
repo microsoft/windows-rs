@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Win32_Media_Audio")]
 pub mod Audio;
 #[cfg(feature = "Win32_Media_DeviceManager")]
@@ -139,8 +139,11 @@ pub struct TIMECAPS(i32);
 pub struct TIMECODE(i32);
 #[repr(C)]
 pub struct TIMECODE_SAMPLE(i32);
-#[repr(C)]
-pub struct TIMECODE_SAMPLE_FLAGS(i32);
+#[repr(transparent)]
+pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
+pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
+pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
+pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
 pub const TIMERR_BASE: u32 = 96u32;
 pub const TIMERR_NOCANDO: u32 = 97u32;
 pub const TIMERR_NOERROR: u32 = 0u32;

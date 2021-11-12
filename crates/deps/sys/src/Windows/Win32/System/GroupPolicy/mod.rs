@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -76,8 +76,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
-#[repr(C)]
-pub struct APPSTATE(i32);
+#[repr(transparent)]
+pub struct APPSTATE(pub i32);
+pub const ABSENT: APPSTATE = APPSTATE(0i32);
+pub const ASSIGNED: APPSTATE = APPSTATE(1i32);
+pub const PUBLISHED: APPSTATE = APPSTATE(2i32);
 pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771700, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3931121442, data2: 41533, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -112,20 +115,33 @@ pub struct GPMBackupCollection(i32);
 pub struct GPMBackupDir(i32);
 #[repr(C)]
 pub struct GPMBackupDirEx(i32);
-#[repr(C)]
-pub struct GPMBackupType(i32);
+#[repr(transparent)]
+pub struct GPMBackupType(pub i32);
+pub const typeGPO: GPMBackupType = GPMBackupType(0i32);
+pub const typeStarterGPO: GPMBackupType = GPMBackupType(1i32);
 #[repr(C)]
 pub struct GPMCSECollection(i32);
 #[repr(C)]
 pub struct GPMClientSideExtension(i32);
 #[repr(C)]
 pub struct GPMConstants(i32);
-#[repr(C)]
-pub struct GPMDestinationOption(i32);
+#[repr(transparent)]
+pub struct GPMDestinationOption(pub i32);
+pub const opDestinationSameAsSource: GPMDestinationOption = GPMDestinationOption(0i32);
+pub const opDestinationNone: GPMDestinationOption = GPMDestinationOption(1i32);
+pub const opDestinationByRelativeName: GPMDestinationOption = GPMDestinationOption(2i32);
+pub const opDestinationSet: GPMDestinationOption = GPMDestinationOption(3i32);
 #[repr(C)]
 pub struct GPMDomain(i32);
-#[repr(C)]
-pub struct GPMEntryType(i32);
+#[repr(transparent)]
+pub struct GPMEntryType(pub i32);
+pub const typeUser: GPMEntryType = GPMEntryType(0i32);
+pub const typeComputer: GPMEntryType = GPMEntryType(1i32);
+pub const typeLocalGroup: GPMEntryType = GPMEntryType(2i32);
+pub const typeGlobalGroup: GPMEntryType = GPMEntryType(3i32);
+pub const typeUniversalGroup: GPMEntryType = GPMEntryType(4i32);
+pub const typeUNCPath: GPMEntryType = GPMEntryType(5i32);
+pub const typeUnknown: GPMEntryType = GPMEntryType(6i32);
 #[repr(C)]
 pub struct GPMGPO(i32);
 #[repr(C)]
@@ -142,30 +158,82 @@ pub struct GPMMapEntryCollection(i32);
 pub struct GPMMigrationTable(i32);
 #[repr(C)]
 pub struct GPMPermission(i32);
-#[repr(C)]
-pub struct GPMPermissionType(i32);
+#[repr(transparent)]
+pub struct GPMPermissionType(pub i32);
+pub const permGPOApply: GPMPermissionType = GPMPermissionType(65536i32);
+pub const permGPORead: GPMPermissionType = GPMPermissionType(65792i32);
+pub const permGPOEdit: GPMPermissionType = GPMPermissionType(65793i32);
+pub const permGPOEditSecurityAndDelete: GPMPermissionType = GPMPermissionType(65794i32);
+pub const permGPOCustom: GPMPermissionType = GPMPermissionType(65795i32);
+pub const permWMIFilterEdit: GPMPermissionType = GPMPermissionType(131072i32);
+pub const permWMIFilterFullControl: GPMPermissionType = GPMPermissionType(131073i32);
+pub const permWMIFilterCustom: GPMPermissionType = GPMPermissionType(131074i32);
+pub const permSOMLink: GPMPermissionType = GPMPermissionType(1835008i32);
+pub const permSOMLogging: GPMPermissionType = GPMPermissionType(1573120i32);
+pub const permSOMPlanning: GPMPermissionType = GPMPermissionType(1573376i32);
+pub const permSOMWMICreate: GPMPermissionType = GPMPermissionType(1049344i32);
+pub const permSOMWMIFullControl: GPMPermissionType = GPMPermissionType(1049345i32);
+pub const permSOMGPOCreate: GPMPermissionType = GPMPermissionType(1049600i32);
+pub const permStarterGPORead: GPMPermissionType = GPMPermissionType(197888i32);
+pub const permStarterGPOEdit: GPMPermissionType = GPMPermissionType(197889i32);
+pub const permStarterGPOFullControl: GPMPermissionType = GPMPermissionType(197890i32);
+pub const permStarterGPOCustom: GPMPermissionType = GPMPermissionType(197891i32);
+pub const permSOMStarterGPOCreate: GPMPermissionType = GPMPermissionType(1049856i32);
 #[repr(C)]
 pub struct GPMRSOP(i32);
-#[repr(C)]
-pub struct GPMRSOPMode(i32);
-#[repr(C)]
-pub struct GPMReportType(i32);
-#[repr(C)]
-pub struct GPMReportingOptions(i32);
+#[repr(transparent)]
+pub struct GPMRSOPMode(pub i32);
+pub const rsopUnknown: GPMRSOPMode = GPMRSOPMode(0i32);
+pub const rsopPlanning: GPMRSOPMode = GPMRSOPMode(1i32);
+pub const rsopLogging: GPMRSOPMode = GPMRSOPMode(2i32);
+#[repr(transparent)]
+pub struct GPMReportType(pub i32);
+pub const repXML: GPMReportType = GPMReportType(0i32);
+pub const repHTML: GPMReportType = GPMReportType(1i32);
+pub const repInfraXML: GPMReportType = GPMReportType(2i32);
+pub const repInfraRefreshXML: GPMReportType = GPMReportType(3i32);
+pub const repClientHealthXML: GPMReportType = GPMReportType(4i32);
+pub const repClientHealthRefreshXML: GPMReportType = GPMReportType(5i32);
+#[repr(transparent)]
+pub struct GPMReportingOptions(pub i32);
+pub const opReportLegacy: GPMReportingOptions = GPMReportingOptions(0i32);
+pub const opReportComments: GPMReportingOptions = GPMReportingOptions(1i32);
 #[repr(C)]
 pub struct GPMResult(i32);
 #[repr(C)]
 pub struct GPMSOM(i32);
 #[repr(C)]
 pub struct GPMSOMCollection(i32);
-#[repr(C)]
-pub struct GPMSOMType(i32);
+#[repr(transparent)]
+pub struct GPMSOMType(pub i32);
+pub const somSite: GPMSOMType = GPMSOMType(0i32);
+pub const somDomain: GPMSOMType = GPMSOMType(1i32);
+pub const somOU: GPMSOMType = GPMSOMType(2i32);
 #[repr(C)]
 pub struct GPMSearchCriteria(i32);
-#[repr(C)]
-pub struct GPMSearchOperation(i32);
-#[repr(C)]
-pub struct GPMSearchProperty(i32);
+#[repr(transparent)]
+pub struct GPMSearchOperation(pub i32);
+pub const opEquals: GPMSearchOperation = GPMSearchOperation(0i32);
+pub const opContains: GPMSearchOperation = GPMSearchOperation(1i32);
+pub const opNotContains: GPMSearchOperation = GPMSearchOperation(2i32);
+pub const opNotEquals: GPMSearchOperation = GPMSearchOperation(3i32);
+#[repr(transparent)]
+pub struct GPMSearchProperty(pub i32);
+pub const gpoPermissions: GPMSearchProperty = GPMSearchProperty(0i32);
+pub const gpoEffectivePermissions: GPMSearchProperty = GPMSearchProperty(1i32);
+pub const gpoDisplayName: GPMSearchProperty = GPMSearchProperty(2i32);
+pub const gpoWMIFilter: GPMSearchProperty = GPMSearchProperty(3i32);
+pub const gpoID: GPMSearchProperty = GPMSearchProperty(4i32);
+pub const gpoComputerExtensions: GPMSearchProperty = GPMSearchProperty(5i32);
+pub const gpoUserExtensions: GPMSearchProperty = GPMSearchProperty(6i32);
+pub const somLinks: GPMSearchProperty = GPMSearchProperty(7i32);
+pub const gpoDomain: GPMSearchProperty = GPMSearchProperty(8i32);
+pub const backupMostRecent: GPMSearchProperty = GPMSearchProperty(9i32);
+pub const starterGPOPermissions: GPMSearchProperty = GPMSearchProperty(10i32);
+pub const starterGPOEffectivePermissions: GPMSearchProperty = GPMSearchProperty(11i32);
+pub const starterGPODisplayName: GPMSearchProperty = GPMSearchProperty(12i32);
+pub const starterGPOID: GPMSearchProperty = GPMSearchProperty(13i32);
+pub const starterGPODomain: GPMSearchProperty = GPMSearchProperty(14i32);
 #[repr(C)]
 pub struct GPMSecurityInfo(i32);
 #[repr(C)]
@@ -176,8 +244,10 @@ pub struct GPMStarterGPOBackup(i32);
 pub struct GPMStarterGPOBackupCollection(i32);
 #[repr(C)]
 pub struct GPMStarterGPOCollection(i32);
-#[repr(C)]
-pub struct GPMStarterGPOType(i32);
+#[repr(transparent)]
+pub struct GPMStarterGPOType(pub i32);
+pub const typeSystem: GPMStarterGPOType = GPMStarterGPOType(0i32);
+pub const typeCustom: GPMStarterGPOType = GPMStarterGPOType(1i32);
 #[repr(C)]
 pub struct GPMStatusMessage(i32);
 #[repr(C)]
@@ -218,8 +288,13 @@ pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
 pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
 pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
 pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
-#[repr(C)]
-pub struct GPO_LINK(i32);
+#[repr(transparent)]
+pub struct GPO_LINK(pub i32);
+pub const GPLinkUnknown: GPO_LINK = GPO_LINK(0i32);
+pub const GPLinkMachine: GPO_LINK = GPO_LINK(1i32);
+pub const GPLinkSite: GPO_LINK = GPO_LINK(2i32);
+pub const GPLinkDomain: GPO_LINK = GPO_LINK(3i32);
+pub const GPLinkOrganizationalUnit: GPO_LINK = GPO_LINK(4i32);
 pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
 pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
@@ -231,16 +306,26 @@ pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
 pub const GPO_SECTION_MACHINE: u32 = 2u32;
 pub const GPO_SECTION_ROOT: u32 = 0u32;
 pub const GPO_SECTION_USER: u32 = 1u32;
-#[repr(C)]
-pub struct GROUP_POLICY_HINT_TYPE(i32);
+#[repr(transparent)]
+pub struct GROUP_POLICY_HINT_TYPE(pub i32);
+pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(0i32);
+pub const GPHintMachine: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(1i32);
+pub const GPHintSite: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(2i32);
+pub const GPHintDomain: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(3i32);
+pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(4i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct GROUP_POLICY_OBJECTA(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct GROUP_POLICY_OBJECTW(i32);
-#[repr(C)]
-pub struct GROUP_POLICY_OBJECT_TYPE(i32);
+#[repr(transparent)]
+pub struct GROUP_POLICY_OBJECT_TYPE(pub i32);
+pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0i32);
+pub const GPOTypeRemote: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(1i32);
+pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(2i32);
+pub const GPOTypeLocalUser: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(3i32);
+pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(4i32);
 #[repr(transparent)]
 pub struct IGPEInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -333,8 +418,12 @@ pub struct INSTALLDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct INSTALLSPEC(i32);
-#[repr(C)]
-pub struct INSTALLSPECTYPE(i32);
+#[repr(transparent)]
+pub struct INSTALLSPECTYPE(pub i32);
+pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1i32);
+pub const FILEEXT: INSTALLSPECTYPE = INSTALLSPECTYPE(2i32);
+pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3i32);
+pub const COMCLASS: INSTALLSPECTYPE = INSTALLSPECTYPE(4i32);
 #[repr(transparent)]
 pub struct IRSOPInformation(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -412,5 +501,10 @@ pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
 pub struct RSOP_TARGET(i32);
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
-#[repr(C)]
-pub struct SETTINGSTATUS(i32);
+#[repr(transparent)]
+pub struct SETTINGSTATUS(pub i32);
+pub const RSOPUnspecified: SETTINGSTATUS = SETTINGSTATUS(0i32);
+pub const RSOPApplied: SETTINGSTATUS = SETTINGSTATUS(1i32);
+pub const RSOPIgnored: SETTINGSTATUS = SETTINGSTATUS(2i32);
+pub const RSOPFailed: SETTINGSTATUS = SETTINGSTATUS(3i32);
+pub const RSOPSubsettingFailed: SETTINGSTATUS = SETTINGSTATUS(4i32);

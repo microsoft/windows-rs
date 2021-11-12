@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "UI_Input_Core")]
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking")]
@@ -15,28 +15,78 @@ pub struct AttachableInputObject(pub *mut ::core::ffi::c_void);
 pub struct CrossSlideThresholds(i32);
 #[repr(transparent)]
 pub struct CrossSlidingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CrossSlidingState(i32);
+#[repr(transparent)]
+pub struct CrossSlidingState(pub i32);
+impl CrossSlidingState {
+    pub const Started: CrossSlidingState = CrossSlidingState(0i32);
+    pub const Dragging: CrossSlidingState = CrossSlidingState(1i32);
+    pub const Selecting: CrossSlidingState = CrossSlidingState(2i32);
+    pub const SelectSpeedBumping: CrossSlidingState = CrossSlidingState(3i32);
+    pub const SpeedBumping: CrossSlidingState = CrossSlidingState(4i32);
+    pub const Rearranging: CrossSlidingState = CrossSlidingState(5i32);
+    pub const Completed: CrossSlidingState = CrossSlidingState(6i32);
+}
 #[repr(transparent)]
 pub struct DraggingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DraggingState(i32);
+#[repr(transparent)]
+pub struct DraggingState(pub i32);
+impl DraggingState {
+    pub const Started: DraggingState = DraggingState(0i32);
+    pub const Continuing: DraggingState = DraggingState(1i32);
+    pub const Completed: DraggingState = DraggingState(2i32);
+}
 #[repr(transparent)]
 pub struct EdgeGesture(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EdgeGestureEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct EdgeGestureKind(i32);
-#[repr(C)]
-pub struct GazeInputAccessStatus(i32);
+#[repr(transparent)]
+pub struct EdgeGestureKind(pub i32);
+impl EdgeGestureKind {
+    pub const Touch: EdgeGestureKind = EdgeGestureKind(0i32);
+    pub const Keyboard: EdgeGestureKind = EdgeGestureKind(1i32);
+    pub const Mouse: EdgeGestureKind = EdgeGestureKind(2i32);
+}
+#[repr(transparent)]
+pub struct GazeInputAccessStatus(pub i32);
+impl GazeInputAccessStatus {
+    pub const Unspecified: GazeInputAccessStatus = GazeInputAccessStatus(0i32);
+    pub const Allowed: GazeInputAccessStatus = GazeInputAccessStatus(1i32);
+    pub const DeniedByUser: GazeInputAccessStatus = GazeInputAccessStatus(2i32);
+    pub const DeniedBySystem: GazeInputAccessStatus = GazeInputAccessStatus(3i32);
+}
 #[repr(transparent)]
 pub struct GestureRecognizer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GestureSettings(i32);
+#[repr(transparent)]
+pub struct GestureSettings(pub u32);
+impl GestureSettings {
+    pub const None: GestureSettings = GestureSettings(0u32);
+    pub const Tap: GestureSettings = GestureSettings(1u32);
+    pub const DoubleTap: GestureSettings = GestureSettings(2u32);
+    pub const Hold: GestureSettings = GestureSettings(4u32);
+    pub const HoldWithMouse: GestureSettings = GestureSettings(8u32);
+    pub const RightTap: GestureSettings = GestureSettings(16u32);
+    pub const Drag: GestureSettings = GestureSettings(32u32);
+    pub const ManipulationTranslateX: GestureSettings = GestureSettings(64u32);
+    pub const ManipulationTranslateY: GestureSettings = GestureSettings(128u32);
+    pub const ManipulationTranslateRailsX: GestureSettings = GestureSettings(256u32);
+    pub const ManipulationTranslateRailsY: GestureSettings = GestureSettings(512u32);
+    pub const ManipulationRotate: GestureSettings = GestureSettings(1024u32);
+    pub const ManipulationScale: GestureSettings = GestureSettings(2048u32);
+    pub const ManipulationTranslateInertia: GestureSettings = GestureSettings(4096u32);
+    pub const ManipulationRotateInertia: GestureSettings = GestureSettings(8192u32);
+    pub const ManipulationScaleInertia: GestureSettings = GestureSettings(16384u32);
+    pub const CrossSlide: GestureSettings = GestureSettings(32768u32);
+    pub const ManipulationMultipleFingerPanning: GestureSettings = GestureSettings(65536u32);
+}
 #[repr(transparent)]
 pub struct HoldingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HoldingState(i32);
+#[repr(transparent)]
+pub struct HoldingState(pub i32);
+impl HoldingState {
+    pub const Started: HoldingState = HoldingState(0i32);
+    pub const Completed: HoldingState = HoldingState(1i32);
+    pub const Canceled: HoldingState = HoldingState(2i32);
+}
 #[repr(transparent)]
 pub struct IAttachableInputObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -177,8 +227,14 @@ pub struct ITappedEventArgs2(pub *mut ::core::ffi::c_void);
 pub struct InputActivationListener(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InputActivationListenerActivationChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InputActivationState(i32);
+#[repr(transparent)]
+pub struct InputActivationState(pub i32);
+impl InputActivationState {
+    pub const None: InputActivationState = InputActivationState(0i32);
+    pub const Deactivated: InputActivationState = InputActivationState(1i32);
+    pub const ActivatedNotForeground: InputActivationState = InputActivationState(2i32);
+    pub const ActivatedInForeground: InputActivationState = InputActivationState(3i32);
+}
 #[repr(transparent)]
 pub struct KeyboardDeliveryInterceptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -201,8 +257,21 @@ pub struct MouseWheelParameters(pub *mut ::core::ffi::c_void);
 pub struct PointerPoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PointerPointProperties(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PointerUpdateKind(i32);
+#[repr(transparent)]
+pub struct PointerUpdateKind(pub i32);
+impl PointerUpdateKind {
+    pub const Other: PointerUpdateKind = PointerUpdateKind(0i32);
+    pub const LeftButtonPressed: PointerUpdateKind = PointerUpdateKind(1i32);
+    pub const LeftButtonReleased: PointerUpdateKind = PointerUpdateKind(2i32);
+    pub const RightButtonPressed: PointerUpdateKind = PointerUpdateKind(3i32);
+    pub const RightButtonReleased: PointerUpdateKind = PointerUpdateKind(4i32);
+    pub const MiddleButtonPressed: PointerUpdateKind = PointerUpdateKind(5i32);
+    pub const MiddleButtonReleased: PointerUpdateKind = PointerUpdateKind(6i32);
+    pub const XButton1Pressed: PointerUpdateKind = PointerUpdateKind(7i32);
+    pub const XButton1Released: PointerUpdateKind = PointerUpdateKind(8i32);
+    pub const XButton2Pressed: PointerUpdateKind = PointerUpdateKind(9i32);
+    pub const XButton2Released: PointerUpdateKind = PointerUpdateKind(10i32);
+}
 #[repr(transparent)]
 pub struct PointerVisualizationSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -223,8 +292,19 @@ pub struct RadialControllerControlAcquiredEventArgs(pub *mut ::core::ffi::c_void
 pub struct RadialControllerMenu(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RadialControllerMenuItem(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RadialControllerMenuKnownIcon(i32);
+#[repr(transparent)]
+pub struct RadialControllerMenuKnownIcon(pub i32);
+impl RadialControllerMenuKnownIcon {
+    pub const Scroll: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(0i32);
+    pub const Zoom: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(1i32);
+    pub const UndoRedo: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(2i32);
+    pub const Volume: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(3i32);
+    pub const NextPreviousTrack: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(4i32);
+    pub const Ruler: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(5i32);
+    pub const InkColor: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(6i32);
+    pub const InkThickness: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(7i32);
+    pub const PenType: RadialControllerMenuKnownIcon = RadialControllerMenuKnownIcon(8i32);
+}
 #[repr(transparent)]
 pub struct RadialControllerRotationChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -235,8 +315,15 @@ pub struct RadialControllerScreenContactContinuedEventArgs(pub *mut ::core::ffi:
 pub struct RadialControllerScreenContactEndedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RadialControllerScreenContactStartedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RadialControllerSystemMenuItemKind(i32);
+#[repr(transparent)]
+pub struct RadialControllerSystemMenuItemKind(pub i32);
+impl RadialControllerSystemMenuItemKind {
+    pub const Scroll: RadialControllerSystemMenuItemKind = RadialControllerSystemMenuItemKind(0i32);
+    pub const Zoom: RadialControllerSystemMenuItemKind = RadialControllerSystemMenuItemKind(1i32);
+    pub const UndoRedo: RadialControllerSystemMenuItemKind = RadialControllerSystemMenuItemKind(2i32);
+    pub const Volume: RadialControllerSystemMenuItemKind = RadialControllerSystemMenuItemKind(3i32);
+    pub const NextPreviousTrack: RadialControllerSystemMenuItemKind = RadialControllerSystemMenuItemKind(4i32);
+}
 #[repr(transparent)]
 pub struct RightTappedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

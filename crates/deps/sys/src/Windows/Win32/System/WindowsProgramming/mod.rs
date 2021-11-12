@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -606,18 +606,44 @@ pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG(i32);
 #[repr(C)]
 pub struct CameraUIControl(i32);
-#[repr(C)]
-pub struct CameraUIControlCaptureMode(i32);
-#[repr(C)]
-pub struct CameraUIControlLinearSelectionMode(i32);
-#[repr(C)]
-pub struct CameraUIControlMode(i32);
-#[repr(C)]
-pub struct CameraUIControlPhotoFormat(i32);
-#[repr(C)]
-pub struct CameraUIControlVideoFormat(i32);
-#[repr(C)]
-pub struct CameraUIControlViewType(i32);
+#[repr(transparent)]
+pub struct CameraUIControlCaptureMode(pub i32);
+impl CameraUIControlCaptureMode {
+    pub const PhotoOrVideo: CameraUIControlCaptureMode = CameraUIControlCaptureMode(0i32);
+    pub const Photo: CameraUIControlCaptureMode = CameraUIControlCaptureMode(1i32);
+    pub const Video: CameraUIControlCaptureMode = CameraUIControlCaptureMode(2i32);
+}
+#[repr(transparent)]
+pub struct CameraUIControlLinearSelectionMode(pub i32);
+impl CameraUIControlLinearSelectionMode {
+    pub const Single: CameraUIControlLinearSelectionMode = CameraUIControlLinearSelectionMode(0i32);
+    pub const Multiple: CameraUIControlLinearSelectionMode = CameraUIControlLinearSelectionMode(1i32);
+}
+#[repr(transparent)]
+pub struct CameraUIControlMode(pub i32);
+impl CameraUIControlMode {
+    pub const Browse: CameraUIControlMode = CameraUIControlMode(0i32);
+    pub const Linear: CameraUIControlMode = CameraUIControlMode(1i32);
+}
+#[repr(transparent)]
+pub struct CameraUIControlPhotoFormat(pub i32);
+impl CameraUIControlPhotoFormat {
+    pub const Jpeg: CameraUIControlPhotoFormat = CameraUIControlPhotoFormat(0i32);
+    pub const Png: CameraUIControlPhotoFormat = CameraUIControlPhotoFormat(1i32);
+    pub const JpegXR: CameraUIControlPhotoFormat = CameraUIControlPhotoFormat(2i32);
+}
+#[repr(transparent)]
+pub struct CameraUIControlVideoFormat(pub i32);
+impl CameraUIControlVideoFormat {
+    pub const Mp4: CameraUIControlVideoFormat = CameraUIControlVideoFormat(0i32);
+    pub const Wmv: CameraUIControlVideoFormat = CameraUIControlVideoFormat(1i32);
+}
+#[repr(transparent)]
+pub struct CameraUIControlViewType(pub i32);
+impl CameraUIControlViewType {
+    pub const SingleItem: CameraUIControlViewType = CameraUIControlViewType(0i32);
+    pub const ItemList: CameraUIControlViewType = CameraUIControlViewType(1i32);
+}
 #[repr(C)]
 pub struct DATETIME(i32);
 #[repr(C)]
@@ -684,8 +710,18 @@ pub const DCI_VERSION: u32 = 256u32;
 pub const DCI_VISIBLE: u32 = 16u32;
 pub const DCI_WRITEONLY: u32 = 512u32;
 pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
-#[repr(C)]
-pub struct DECISION_LOCATION(i32);
+#[repr(transparent)]
+pub struct DECISION_LOCATION(pub i32);
+pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = DECISION_LOCATION(0i32);
+pub const DECISION_LOCATION_PARAMETER_VALIDATION: DECISION_LOCATION = DECISION_LOCATION(1i32);
+pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = DECISION_LOCATION(2i32);
+pub const DECISION_LOCATION_FAILED_CONVERT_GUID: DECISION_LOCATION = DECISION_LOCATION(3i32);
+pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = DECISION_LOCATION(4i32);
+pub const DECISION_LOCATION_GLOBAL_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(5i32);
+pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(6i32);
+pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = DECISION_LOCATION(7i32);
+pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = DECISION_LOCATION(8i32);
+pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = DECISION_LOCATION(9i32);
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -736,10 +772,17 @@ pub struct EditionUpgradeBroker(i32);
 pub struct EditionUpgradeHelper(i32);
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
-#[repr(C)]
-pub struct FEATURE_CHANGE_TIME(i32);
-#[repr(C)]
-pub struct FEATURE_ENABLED_STATE(i32);
+#[repr(transparent)]
+pub struct FEATURE_CHANGE_TIME(pub i32);
+pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(0i32);
+pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(1i32);
+pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(2i32);
+pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(3i32);
+#[repr(transparent)]
+pub struct FEATURE_ENABLED_STATE(pub i32);
+pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(0i32);
+pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(1i32);
+pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(2i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FEATURE_ERROR(i32);
@@ -768,8 +811,9 @@ pub const FILE_DOES_NOT_EXIST: u32 = 5u32;
 pub const FILE_ENCRYPTABLE: u32 = 0u32;
 pub const FILE_EXISTS: u32 = 4u32;
 pub const FILE_FLAG_OPEN_REQUIRING_OPLOCK: u32 = 262144u32;
-#[repr(C)]
-pub struct FILE_INFORMATION_CLASS(i32);
+#[repr(transparent)]
+pub struct FILE_INFORMATION_CLASS(pub i32);
+pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
 pub const FILE_IS_ENCRYPTED: u32 = 1u32;
 pub const FILE_MAXIMUM_DISPOSITION: u32 = 5u32;
 pub const FILE_NON_DIRECTORY_FILE: u32 = 64u32;
@@ -976,8 +1020,15 @@ pub struct IWindowsLockModeHelper(pub *mut ::core::ffi::c_void);
 pub struct JAVA_TRUST(i32);
 #[repr(C)]
 pub struct JIT_DEBUG_INFO(i32);
-#[repr(C)]
-pub struct KEY_SET_INFORMATION_CLASS(i32);
+#[repr(transparent)]
+pub struct KEY_SET_INFORMATION_CLASS(pub i32);
+pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
+pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(1i32);
+pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(2i32);
+pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(3i32);
+pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(4i32);
+pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(5i32);
+pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(6i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct KEY_VALUE_ENTRY(i32);
@@ -1007,8 +1058,10 @@ pub const NOPARITY: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct OBJECT_ATTRIBUTES(i32);
-#[repr(C)]
-pub struct OBJECT_INFORMATION_CLASS(i32);
+#[repr(transparent)]
+pub struct OBJECT_INFORMATION_CLASS(pub i32);
+pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
+pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
 pub const ODDPARITY: u32 = 1u32;
 pub const OFS_MAXPATHNAME: u32 = 128u32;
 pub const ONE5STOPBITS: u32 = 1u32;
@@ -1043,8 +1096,28 @@ pub const PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE: u32 = 1u32;
 pub const PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE: u32 = 4u32;
 pub const PROC_THREAD_ATTRIBUTE_ADDITIVE: u32 = 262144u32;
 pub const PROC_THREAD_ATTRIBUTE_INPUT: u32 = 131072u32;
-#[repr(C)]
-pub struct PROC_THREAD_ATTRIBUTE_NUM(i32);
+#[repr(transparent)]
+pub struct PROC_THREAD_ATTRIBUTE_NUM(pub i32);
+pub const ProcThreadAttributeParentProcess: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(0i32);
+pub const ProcThreadAttributeHandleList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(2i32);
+pub const ProcThreadAttributeGroupAffinity: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(3i32);
+pub const ProcThreadAttributePreferredNode: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(4i32);
+pub const ProcThreadAttributeIdealProcessor: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(5i32);
+pub const ProcThreadAttributeUmsThread: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(6i32);
+pub const ProcThreadAttributeMitigationPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(7i32);
+pub const ProcThreadAttributeSecurityCapabilities: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(9i32);
+pub const ProcThreadAttributeProtectionLevel: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(11i32);
+pub const ProcThreadAttributeJobList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(13i32);
+pub const ProcThreadAttributeChildProcessPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(14i32);
+pub const ProcThreadAttributeAllApplicationPackagesPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(15i32);
+pub const ProcThreadAttributeWin32kFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(16i32);
+pub const ProcThreadAttributeSafeOpenPromptOriginClaim: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(17i32);
+pub const ProcThreadAttributeDesktopAppPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(18i32);
+pub const ProcThreadAttributePseudoConsole: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(22i32);
+pub const ProcThreadAttributeMitigationAuditPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(24i32);
+pub const ProcThreadAttributeMachineType: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(25i32);
+pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(26i32);
+pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(27i32);
 pub const PROC_THREAD_ATTRIBUTE_NUMBER: u32 = 65535u32;
 pub const PROC_THREAD_ATTRIBUTE_THREAD: u32 = 65536u32;
 pub const PROGRESS_CANCEL: u32 = 1u32;
@@ -1163,8 +1236,19 @@ pub struct SYSTEM_BASIC_INFORMATION(i32);
 pub struct SYSTEM_CODEINTEGRITY_INFORMATION(i32);
 #[repr(C)]
 pub struct SYSTEM_EXCEPTION_INFORMATION(i32);
-#[repr(C)]
-pub struct SYSTEM_INFORMATION_CLASS(i32);
+#[repr(transparent)]
+pub struct SYSTEM_INFORMATION_CLASS(pub i32);
+pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(0i32);
+pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(2i32);
+pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
+pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(5i32);
+pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(8i32);
+pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(23i32);
+pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(33i32);
+pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
+pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(45i32);
+pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(103i32);
+pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(134i32);
 #[repr(C)]
 pub struct SYSTEM_INTERRUPT_INFORMATION(i32);
 #[repr(C)]
@@ -1220,16 +1304,28 @@ pub const TC_GP_TRAP: u32 = 2u32;
 pub const TC_HARDERR: u32 = 1u32;
 pub const TC_NORMAL: u32 = 0u32;
 pub const TC_SIGNAL: u32 = 3u32;
-#[repr(C)]
-pub struct TDIENTITY_ENTITY_TYPE(i32);
+#[repr(transparent)]
+pub struct TDIENTITY_ENTITY_TYPE(pub u32);
+pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
+pub const AT_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(640u32);
+pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(769u32);
+pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(768u32);
+pub const CL_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1025u32);
+pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1024u32);
+pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(896u32);
+pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(512u32);
 #[repr(C)]
 pub struct TDIEntityID(i32);
 #[repr(C)]
 pub struct TDIObjectID(i32);
 #[repr(C)]
 pub struct TDI_TL_IO_CONTROL_ENDPOINT(i32);
-#[repr(C)]
-pub struct TDI_TL_IO_CONTROL_TYPE(i32);
+#[repr(transparent)]
+pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
+pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
+pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(1i32);
+pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(2i32);
+pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(3i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct THREAD_NAME_INFORMATION(i32);
@@ -1238,14 +1334,18 @@ pub const TWOSTOPBITS: u32 = 2u32;
 pub const UMS_VERSION: u32 = 256u32;
 #[repr(C)]
 pub struct UNDETERMINESTRUCT(i32);
-#[repr(C)]
-pub struct VALUENAME(i32);
+#[repr(transparent)]
+pub struct VALUENAME(pub i32);
+pub const VALUENAME_UNKNOWN: VALUENAME = VALUENAME(0i32);
+pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = VALUENAME(1i32);
+pub const VALUENAME_BUILT_IN_LIST: VALUENAME = VALUENAME(2i32);
 pub const VOLUME_NAME_DOS: u32 = 0u32;
 pub const VOLUME_NAME_GUID: u32 = 1u32;
 pub const VOLUME_NAME_NONE: u32 = 4u32;
 pub const VOLUME_NAME_NT: u32 = 2u32;
-#[repr(C)]
-pub struct WINSTATIONINFOCLASS(i32);
+#[repr(transparent)]
+pub struct WINSTATIONINFOCLASS(pub i32);
+pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
 #[repr(C)]
 pub struct WINSTATIONINFORMATIONW(i32);
 #[repr(C)]
@@ -1259,16 +1359,31 @@ pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
 #[repr(C)]
 pub struct WLDP_DEVICE_SECURITY_INFORMATION(i32);
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
-#[repr(C)]
-pub struct WLDP_HOST(i32);
-#[repr(C)]
-pub struct WLDP_HOST_ID(i32);
+#[repr(transparent)]
+pub struct WLDP_HOST(pub i32);
+pub const WLDP_HOST_RUNDLL32: WLDP_HOST = WLDP_HOST(0i32);
+pub const WLDP_HOST_SVCHOST: WLDP_HOST = WLDP_HOST(1i32);
+pub const WLDP_HOST_MAX: WLDP_HOST = WLDP_HOST(2i32);
+#[repr(transparent)]
+pub struct WLDP_HOST_ID(pub i32);
+pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
+pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = WLDP_HOST_ID(1i32);
+pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = WLDP_HOST_ID(2i32);
+pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = WLDP_HOST_ID(3i32);
+pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = WLDP_HOST_ID(4i32);
+pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = WLDP_HOST_ID(5i32);
+pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = WLDP_HOST_ID(6i32);
+pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = WLDP_HOST_ID(7i32);
+pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = WLDP_HOST_ID(8i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WLDP_HOST_INFORMATION(i32);
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
-#[repr(C)]
-pub struct WLDP_KEY(i32);
+#[repr(transparent)]
+pub struct WLDP_KEY(pub i32);
+pub const KEY_UNKNOWN: WLDP_KEY = WLDP_KEY(0i32);
+pub const KEY_OVERRIDE: WLDP_KEY = WLDP_KEY(1i32);
+pub const KEY_ALL_KEYS: WLDP_KEY = WLDP_KEY(2i32);
 pub const WLDP_LOCKDOWN_AUDIT_FLAG: u32 = 8u32;
 pub const WLDP_LOCKDOWN_CONFIG_CI_AUDIT_FLAG: u32 = 2u32;
 pub const WLDP_LOCKDOWN_CONFIG_CI_FLAG: u32 = 1u32;
@@ -1277,12 +1392,21 @@ pub const WLDP_LOCKDOWN_EXCLUSION_FLAG: u32 = 16u32;
 pub const WLDP_LOCKDOWN_OFF: u32 = 2147483648u32;
 pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
 pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
-#[repr(C)]
-pub struct WLDP_POLICY_SETTING(i32);
-#[repr(C)]
-pub struct WLDP_WINDOWS_LOCKDOWN_MODE(i32);
-#[repr(C)]
-pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(i32);
+#[repr(transparent)]
+pub struct WLDP_POLICY_SETTING(pub i32);
+pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = WLDP_POLICY_SETTING(1000i32);
+#[repr(transparent)]
+pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(0i32);
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(1i32);
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(2i32);
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(3i32);
+#[repr(transparent)]
+pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(0i32);
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(1i32);
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(2i32);
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(3i32);
 pub const WM_CONVERTREQUEST: u32 = 266u32;
 pub const WM_CONVERTRESULT: u32 = 267u32;
 pub const WM_IMEKEYDOWN: u32 = 656u32;

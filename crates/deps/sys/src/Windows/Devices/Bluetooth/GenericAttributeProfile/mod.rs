@@ -1,18 +1,42 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct GattCharacteristic(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattCharacteristicProperties(i32);
+#[repr(transparent)]
+pub struct GattCharacteristicProperties(pub u32);
+impl GattCharacteristicProperties {
+    pub const None: GattCharacteristicProperties = GattCharacteristicProperties(0u32);
+    pub const Broadcast: GattCharacteristicProperties = GattCharacteristicProperties(1u32);
+    pub const Read: GattCharacteristicProperties = GattCharacteristicProperties(2u32);
+    pub const WriteWithoutResponse: GattCharacteristicProperties = GattCharacteristicProperties(4u32);
+    pub const Write: GattCharacteristicProperties = GattCharacteristicProperties(8u32);
+    pub const Notify: GattCharacteristicProperties = GattCharacteristicProperties(16u32);
+    pub const Indicate: GattCharacteristicProperties = GattCharacteristicProperties(32u32);
+    pub const AuthenticatedSignedWrites: GattCharacteristicProperties = GattCharacteristicProperties(64u32);
+    pub const ExtendedProperties: GattCharacteristicProperties = GattCharacteristicProperties(128u32);
+    pub const ReliableWrites: GattCharacteristicProperties = GattCharacteristicProperties(256u32);
+    pub const WritableAuxiliaries: GattCharacteristicProperties = GattCharacteristicProperties(512u32);
+}
 #[repr(transparent)]
 pub struct GattCharacteristicsResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattClientCharacteristicConfigurationDescriptorValue(i32);
+#[repr(transparent)]
+pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
+impl GattClientCharacteristicConfigurationDescriptorValue {
+    pub const None: GattClientCharacteristicConfigurationDescriptorValue = GattClientCharacteristicConfigurationDescriptorValue(0i32);
+    pub const Notify: GattClientCharacteristicConfigurationDescriptorValue = GattClientCharacteristicConfigurationDescriptorValue(1i32);
+    pub const Indicate: GattClientCharacteristicConfigurationDescriptorValue = GattClientCharacteristicConfigurationDescriptorValue(2i32);
+}
 #[repr(transparent)]
 pub struct GattClientNotificationResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattCommunicationStatus(i32);
+#[repr(transparent)]
+pub struct GattCommunicationStatus(pub i32);
+impl GattCommunicationStatus {
+    pub const Success: GattCommunicationStatus = GattCommunicationStatus(0i32);
+    pub const Unreachable: GattCommunicationStatus = GattCommunicationStatus(1i32);
+    pub const ProtocolError: GattCommunicationStatus = GattCommunicationStatus(2i32);
+    pub const AccessDenied: GattCommunicationStatus = GattCommunicationStatus(3i32);
+}
 #[repr(transparent)]
 pub struct GattDescriptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -35,12 +59,26 @@ pub struct GattLocalDescriptorParameters(pub *mut ::core::ffi::c_void);
 pub struct GattLocalDescriptorResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattLocalService(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattOpenStatus(i32);
+#[repr(transparent)]
+pub struct GattOpenStatus(pub i32);
+impl GattOpenStatus {
+    pub const Unspecified: GattOpenStatus = GattOpenStatus(0i32);
+    pub const Success: GattOpenStatus = GattOpenStatus(1i32);
+    pub const AlreadyOpened: GattOpenStatus = GattOpenStatus(2i32);
+    pub const NotFound: GattOpenStatus = GattOpenStatus(3i32);
+    pub const SharingViolation: GattOpenStatus = GattOpenStatus(4i32);
+    pub const AccessDenied: GattOpenStatus = GattOpenStatus(5i32);
+}
 #[repr(transparent)]
 pub struct GattPresentationFormat(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattProtectionLevel(i32);
+#[repr(transparent)]
+pub struct GattProtectionLevel(pub i32);
+impl GattProtectionLevel {
+    pub const Plain: GattProtectionLevel = GattProtectionLevel(0i32);
+    pub const AuthenticationRequired: GattProtectionLevel = GattProtectionLevel(1i32);
+    pub const EncryptionRequired: GattProtectionLevel = GattProtectionLevel(2i32);
+    pub const EncryptionAndAuthenticationRequired: GattProtectionLevel = GattProtectionLevel(3i32);
+}
 #[repr(transparent)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -51,14 +89,26 @@ pub struct GattReadRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct GattReadResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattReliableWriteTransaction(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattRequestState(i32);
+#[repr(transparent)]
+pub struct GattRequestState(pub i32);
+impl GattRequestState {
+    pub const Pending: GattRequestState = GattRequestState(0i32);
+    pub const Completed: GattRequestState = GattRequestState(1i32);
+    pub const Canceled: GattRequestState = GattRequestState(2i32);
+}
 #[repr(transparent)]
 pub struct GattRequestStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattServiceProvider(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattServiceProviderAdvertisementStatus(i32);
+#[repr(transparent)]
+pub struct GattServiceProviderAdvertisementStatus(pub i32);
+impl GattServiceProviderAdvertisementStatus {
+    pub const Created: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(0i32);
+    pub const Stopped: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(1i32);
+    pub const Started: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(2i32);
+    pub const Aborted: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(3i32);
+    pub const StartedWithoutAllAdvertisementData: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(4i32);
+}
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -67,18 +117,32 @@ pub struct GattServiceProviderAdvertisingParameters(pub *mut ::core::ffi::c_void
 pub struct GattServiceProviderResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattSession(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattSessionStatus(i32);
+#[repr(transparent)]
+pub struct GattSessionStatus(pub i32);
+impl GattSessionStatus {
+    pub const Closed: GattSessionStatus = GattSessionStatus(0i32);
+    pub const Active: GattSessionStatus = GattSessionStatus(1i32);
+}
 #[repr(transparent)]
 pub struct GattSessionStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattSharingMode(i32);
+#[repr(transparent)]
+pub struct GattSharingMode(pub i32);
+impl GattSharingMode {
+    pub const Unspecified: GattSharingMode = GattSharingMode(0i32);
+    pub const Exclusive: GattSharingMode = GattSharingMode(1i32);
+    pub const SharedReadOnly: GattSharingMode = GattSharingMode(2i32);
+    pub const SharedReadAndWrite: GattSharingMode = GattSharingMode(3i32);
+}
 #[repr(transparent)]
 pub struct GattSubscribedClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattValueChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GattWriteOption(i32);
+#[repr(transparent)]
+pub struct GattWriteOption(pub i32);
+impl GattWriteOption {
+    pub const WriteWithResponse: GattWriteOption = GattWriteOption(0i32);
+    pub const WriteWithoutResponse: GattWriteOption = GattWriteOption(1i32);
+}
 #[repr(transparent)]
 pub struct GattWriteRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

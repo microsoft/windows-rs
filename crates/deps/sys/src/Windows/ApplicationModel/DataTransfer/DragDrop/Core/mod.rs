@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -7,8 +7,12 @@ pub struct CoreDragDropManager(pub *mut ::core::ffi::c_void);
 pub struct CoreDragInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreDragOperation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CoreDragUIContentMode(i32);
+#[repr(transparent)]
+pub struct CoreDragUIContentMode(pub u32);
+impl CoreDragUIContentMode {
+    pub const Auto: CoreDragUIContentMode = CoreDragUIContentMode(0u32);
+    pub const Deferred: CoreDragUIContentMode = CoreDragUIContentMode(1u32);
+}
 #[repr(transparent)]
 pub struct CoreDragUIOverride(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

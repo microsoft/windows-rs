@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -7,5 +7,10 @@ pub struct IUserNotificationListener(pub *mut ::core::ffi::c_void);
 pub struct IUserNotificationListenerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserNotificationListener(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct UserNotificationListenerAccessStatus(i32);
+#[repr(transparent)]
+pub struct UserNotificationListenerAccessStatus(pub i32);
+impl UserNotificationListenerAccessStatus {
+    pub const Unspecified: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(0i32);
+    pub const Allowed: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(1i32);
+    pub const Denied: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(2i32);
+}

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
@@ -11,8 +11,12 @@ pub struct HolographicCameraPose(pub *mut ::core::ffi::c_void);
 pub struct HolographicCameraRenderingParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HolographicCameraViewportParameters(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HolographicDepthReprojectionMethod(i32);
+#[repr(transparent)]
+pub struct HolographicDepthReprojectionMethod(pub i32);
+impl HolographicDepthReprojectionMethod {
+    pub const DepthReprojection: HolographicDepthReprojectionMethod = HolographicDepthReprojectionMethod(0i32);
+    pub const AutoPlanar: HolographicDepthReprojectionMethod = HolographicDepthReprojectionMethod(1i32);
+}
 #[repr(transparent)]
 pub struct HolographicDisplay(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -21,10 +25,18 @@ pub struct HolographicFrame(pub *mut ::core::ffi::c_void);
 pub struct HolographicFrameId(i32);
 #[repr(transparent)]
 pub struct HolographicFramePrediction(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HolographicFramePresentResult(i32);
-#[repr(C)]
-pub struct HolographicFramePresentWaitBehavior(i32);
+#[repr(transparent)]
+pub struct HolographicFramePresentResult(pub i32);
+impl HolographicFramePresentResult {
+    pub const Success: HolographicFramePresentResult = HolographicFramePresentResult(0i32);
+    pub const DeviceRemoved: HolographicFramePresentResult = HolographicFramePresentResult(1i32);
+}
+#[repr(transparent)]
+pub struct HolographicFramePresentWaitBehavior(pub i32);
+impl HolographicFramePresentWaitBehavior {
+    pub const WaitForFrameToFinish: HolographicFramePresentWaitBehavior = HolographicFramePresentWaitBehavior(0i32);
+    pub const DoNotWaitForFrameToFinish: HolographicFramePresentWaitBehavior = HolographicFramePresentWaitBehavior(1i32);
+}
 #[repr(transparent)]
 pub struct HolographicFramePresentationMonitor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -39,23 +51,37 @@ pub struct HolographicFrameScanoutReport(pub *mut ::core::ffi::c_void);
 pub struct HolographicQuadLayer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HolographicQuadLayerUpdateParameters(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HolographicReprojectionMode(i32);
+#[repr(transparent)]
+pub struct HolographicReprojectionMode(pub i32);
+impl HolographicReprojectionMode {
+    pub const PositionAndOrientation: HolographicReprojectionMode = HolographicReprojectionMode(0i32);
+    pub const OrientationOnly: HolographicReprojectionMode = HolographicReprojectionMode(1i32);
+    pub const Disabled: HolographicReprojectionMode = HolographicReprojectionMode(2i32);
+}
 #[repr(transparent)]
 pub struct HolographicSpace(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HolographicSpaceCameraAddedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HolographicSpaceCameraRemovedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HolographicSpaceUserPresence(i32);
+#[repr(transparent)]
+pub struct HolographicSpaceUserPresence(pub i32);
+impl HolographicSpaceUserPresence {
+    pub const Absent: HolographicSpaceUserPresence = HolographicSpaceUserPresence(0i32);
+    pub const PresentPassive: HolographicSpaceUserPresence = HolographicSpaceUserPresence(1i32);
+    pub const PresentActive: HolographicSpaceUserPresence = HolographicSpaceUserPresence(2i32);
+}
 #[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
 pub struct HolographicStereoTransform(i32);
 #[repr(transparent)]
 pub struct HolographicViewConfiguration(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HolographicViewConfigurationKind(i32);
+#[repr(transparent)]
+pub struct HolographicViewConfigurationKind(pub i32);
+impl HolographicViewConfigurationKind {
+    pub const Display: HolographicViewConfigurationKind = HolographicViewConfigurationKind(0i32);
+    pub const PhotoVideoCamera: HolographicViewConfigurationKind = HolographicViewConfigurationKind(1i32);
+}
 #[repr(transparent)]
 pub struct IHolographicCamera(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

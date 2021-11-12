@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
@@ -9,15 +9,23 @@ extern "system" {
     pub fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
     pub fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
 }
-#[repr(C)]
-pub struct COMPARTMENT_ID(i32);
+#[repr(transparent)]
+pub struct COMPARTMENT_ID(pub i32);
+pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
+pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct CSTRING(i32);
-#[repr(C)]
-pub struct EVENT_TYPE(i32);
-#[repr(C)]
-pub struct EXCEPTION_DISPOSITION(i32);
+#[repr(transparent)]
+pub struct EVENT_TYPE(pub i32);
+pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
+pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1i32);
+#[repr(transparent)]
+pub struct EXCEPTION_DISPOSITION(pub i32);
+pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
+pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
+pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
+pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[repr(C)]
 pub struct EXCEPTION_REGISTRATION_RECORD(i32);
@@ -38,8 +46,11 @@ pub struct LIST_ENTRY64(i32);
 pub const MAXUCHAR: u32 = 255u32;
 pub const MAXULONG: u32 = 4294967295u32;
 pub const MAXUSHORT: u32 = 65535u32;
-#[repr(C)]
-pub struct NT_PRODUCT_TYPE(i32);
+#[repr(transparent)]
+pub struct NT_PRODUCT_TYPE(pub i32);
+pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
+pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
+pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[repr(C)]
 pub struct NT_TIB(i32);
@@ -91,11 +102,37 @@ pub struct STRING(i32);
 pub struct STRING32(i32);
 #[repr(C)]
 pub struct STRING64(i32);
-#[repr(C)]
-pub struct SUITE_TYPE(i32);
-#[repr(C)]
-pub struct TIMER_TYPE(i32);
-#[repr(C)]
-pub struct WAIT_TYPE(i32);
+#[repr(transparent)]
+pub struct SUITE_TYPE(pub i32);
+pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
+pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1i32);
+pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2i32);
+pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
+pub const TerminalServer: SUITE_TYPE = SUITE_TYPE(4i32);
+pub const SmallBusinessRestricted: SUITE_TYPE = SUITE_TYPE(5i32);
+pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6i32);
+pub const DataCenter: SUITE_TYPE = SUITE_TYPE(7i32);
+pub const SingleUserTS: SUITE_TYPE = SUITE_TYPE(8i32);
+pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
+pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);
+pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11i32);
+pub const SecurityAppliance: SUITE_TYPE = SUITE_TYPE(12i32);
+pub const StorageServer: SUITE_TYPE = SUITE_TYPE(13i32);
+pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
+pub const WHServer: SUITE_TYPE = SUITE_TYPE(15i32);
+pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
+pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17i32);
+pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18i32);
+#[repr(transparent)]
+pub struct TIMER_TYPE(pub i32);
+pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
+pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1i32);
+#[repr(transparent)]
+pub struct WAIT_TYPE(pub i32);
+pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
+pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1i32);
+pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
+pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
+pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
 #[repr(C)]
 pub struct WNF_STATE_NAME(i32);

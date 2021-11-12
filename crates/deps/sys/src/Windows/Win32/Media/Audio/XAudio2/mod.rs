@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn CreateAudioReverb(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
@@ -80,14 +80,23 @@ pub struct HrtfDirectivity(i32);
 pub struct HrtfDirectivityCardioid(i32);
 #[repr(C)]
 pub struct HrtfDirectivityCone(i32);
-#[repr(C)]
-pub struct HrtfDirectivityType(i32);
+#[repr(transparent)]
+pub struct HrtfDirectivityType(pub i32);
+pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
+pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
+pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
 #[repr(C)]
 pub struct HrtfDistanceDecay(i32);
-#[repr(C)]
-pub struct HrtfDistanceDecayType(i32);
-#[repr(C)]
-pub struct HrtfEnvironment(i32);
+#[repr(transparent)]
+pub struct HrtfDistanceDecayType(pub i32);
+pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
+pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
+#[repr(transparent)]
+pub struct HrtfEnvironment(pub i32);
+pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
+pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
+pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
+pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
 #[repr(C)]
 pub struct HrtfOrientation(i32);
 #[repr(C)]
@@ -160,8 +169,10 @@ pub const X3DAUDIO_CALCULATE_ZEROCENTER: u32 = 65536u32;
 pub const X3DAUDIO_HANDLE_BYTESIZE: u32 = 20u32;
 pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
-#[repr(C)]
-pub struct XAPO_BUFFER_FLAGS(i32);
+#[repr(transparent)]
+pub struct XAPO_BUFFER_FLAGS(pub i32);
+pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
+pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
 pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003369983i32 as _);
 pub const XAPO_FLAG_BITSPERSAMPLE_MUST_MATCH: u32 = 4u32;
 pub const XAPO_FLAG_BUFFERCOUNT_MUST_MATCH: u32 = 8u32;
@@ -282,8 +293,14 @@ pub const XAUDIO2_E_XAPO_CREATION_FAILED: ::windows_sys::core::HRESULT = ::windo
 pub const XAUDIO2_E_XMA_DECODER_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003435518i32 as _);
 #[repr(C)]
 pub struct XAUDIO2_FILTER_PARAMETERS(i32);
-#[repr(C)]
-pub struct XAUDIO2_FILTER_TYPE(i32);
+#[repr(transparent)]
+pub struct XAUDIO2_FILTER_TYPE(pub i32);
+pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
+pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
+pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
+pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
+pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
+pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
 pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
 pub const XAUDIO2_LOG_DETAIL: u32 = 8u32;
 pub const XAUDIO2_LOG_ERRORS: u32 = 1u32;

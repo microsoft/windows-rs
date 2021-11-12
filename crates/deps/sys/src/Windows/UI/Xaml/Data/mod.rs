@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -9,8 +9,13 @@ pub struct BindingBase(pub *mut ::core::ffi::c_void);
 pub struct BindingExpression(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BindingExpressionBase(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct BindingMode(i32);
+#[repr(transparent)]
+pub struct BindingMode(pub i32);
+impl BindingMode {
+    pub const OneWay: BindingMode = BindingMode(1i32);
+    pub const OneTime: BindingMode = BindingMode(2i32);
+    pub const TwoWay: BindingMode = BindingMode(3i32);
+}
 #[repr(transparent)]
 pub struct BindingOperations(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -91,7 +96,18 @@ pub struct PropertyChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct PropertyChangedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RelativeSource(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RelativeSourceMode(i32);
-#[repr(C)]
-pub struct UpdateSourceTrigger(i32);
+#[repr(transparent)]
+pub struct RelativeSourceMode(pub i32);
+impl RelativeSourceMode {
+    pub const None: RelativeSourceMode = RelativeSourceMode(0i32);
+    pub const TemplatedParent: RelativeSourceMode = RelativeSourceMode(1i32);
+    pub const Self_: RelativeSourceMode = RelativeSourceMode(2i32);
+}
+#[repr(transparent)]
+pub struct UpdateSourceTrigger(pub i32);
+impl UpdateSourceTrigger {
+    pub const Default: UpdateSourceTrigger = UpdateSourceTrigger(0i32);
+    pub const PropertyChanged: UpdateSourceTrigger = UpdateSourceTrigger(1i32);
+    pub const Explicit: UpdateSourceTrigger = UpdateSourceTrigger(2i32);
+    pub const LostFocus: UpdateSourceTrigger = UpdateSourceTrigger(3i32);
+}

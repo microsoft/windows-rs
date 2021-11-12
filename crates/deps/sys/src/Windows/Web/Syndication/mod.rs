@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -57,12 +57,28 @@ pub struct SyndicationCategory(pub *mut ::core::ffi::c_void);
 pub struct SyndicationClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationContent(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SyndicationErrorStatus(i32);
+#[repr(transparent)]
+pub struct SyndicationErrorStatus(pub i32);
+impl SyndicationErrorStatus {
+    pub const Unknown: SyndicationErrorStatus = SyndicationErrorStatus(0i32);
+    pub const MissingRequiredElement: SyndicationErrorStatus = SyndicationErrorStatus(1i32);
+    pub const MissingRequiredAttribute: SyndicationErrorStatus = SyndicationErrorStatus(2i32);
+    pub const InvalidXml: SyndicationErrorStatus = SyndicationErrorStatus(3i32);
+    pub const UnexpectedContent: SyndicationErrorStatus = SyndicationErrorStatus(4i32);
+    pub const UnsupportedFormat: SyndicationErrorStatus = SyndicationErrorStatus(5i32);
+}
 #[repr(transparent)]
 pub struct SyndicationFeed(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SyndicationFormat(i32);
+#[repr(transparent)]
+pub struct SyndicationFormat(pub i32);
+impl SyndicationFormat {
+    pub const Atom10: SyndicationFormat = SyndicationFormat(0i32);
+    pub const Rss20: SyndicationFormat = SyndicationFormat(1i32);
+    pub const Rss10: SyndicationFormat = SyndicationFormat(2i32);
+    pub const Rss092: SyndicationFormat = SyndicationFormat(3i32);
+    pub const Rss091: SyndicationFormat = SyndicationFormat(4i32);
+    pub const Atom03: SyndicationFormat = SyndicationFormat(5i32);
+}
 #[repr(transparent)]
 pub struct SyndicationGenerator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -75,7 +91,12 @@ pub struct SyndicationNode(pub *mut ::core::ffi::c_void);
 pub struct SyndicationPerson(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationText(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SyndicationTextType(i32);
+#[repr(transparent)]
+pub struct SyndicationTextType(pub i32);
+impl SyndicationTextType {
+    pub const Text: SyndicationTextType = SyndicationTextType(0i32);
+    pub const Html: SyndicationTextType = SyndicationTextType(1i32);
+    pub const Xhtml: SyndicationTextType = SyndicationTextType(2i32);
+}
 #[repr(C)]
 pub struct TransferProgress(i32);

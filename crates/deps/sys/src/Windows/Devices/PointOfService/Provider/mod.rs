@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -41,8 +41,12 @@ pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(pub *mut ::core::f
 pub struct BarcodeScannerStopSoftwareTriggerRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct BarcodeScannerTriggerState(i32);
+#[repr(transparent)]
+pub struct BarcodeScannerTriggerState(pub i32);
+impl BarcodeScannerTriggerState {
+    pub const Released: BarcodeScannerTriggerState = BarcodeScannerTriggerState(0i32);
+    pub const Pressed: BarcodeScannerTriggerState = BarcodeScannerTriggerState(1i32);
+}
 #[repr(transparent)]
 pub struct BarcodeScannerVideoFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

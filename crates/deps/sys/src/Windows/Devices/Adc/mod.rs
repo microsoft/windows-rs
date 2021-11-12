@@ -1,12 +1,16 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Devices_Adc_Provider")]
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct AdcChannel(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AdcChannelMode(i32);
+#[repr(transparent)]
+pub struct AdcChannelMode(pub i32);
+impl AdcChannelMode {
+    pub const SingleEnded: AdcChannelMode = AdcChannelMode(0i32);
+    pub const Differential: AdcChannelMode = AdcChannelMode(1i32);
+}
 #[repr(transparent)]
 pub struct AdcController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void;
@@ -50,8 +50,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSDXMLGetValueFromAny(psznamespace: super::super::Foundation::PWSTR, pszname: super::super::Foundation::PWSTR, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct DeviceDiscoveryMechanism(i32);
+#[repr(transparent)]
+pub struct DeviceDiscoveryMechanism(pub i32);
+pub const MulticastDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(0i32);
+pub const DirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(1i32);
+pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(2i32);
 #[repr(transparent)]
 pub struct IWSDAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -155,10 +158,17 @@ pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
 pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
 pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
 pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
-#[repr(C)]
-pub struct WSDEventType(i32);
-#[repr(C)]
-pub struct WSDUdpMessageType(i32);
+#[repr(transparent)]
+pub struct WSDEventType(pub i32);
+pub const WSDET_NONE: WSDEventType = WSDEventType(0i32);
+pub const WSDET_INCOMING_MESSAGE: WSDEventType = WSDEventType(1i32);
+pub const WSDET_INCOMING_FAULT: WSDEventType = WSDEventType(2i32);
+pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = WSDEventType(3i32);
+pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = WSDEventType(4i32);
+#[repr(transparent)]
+pub struct WSDUdpMessageType(pub i32);
+pub const ONE_WAY: WSDUdpMessageType = WSDUdpMessageType(0i32);
+pub const TWO_WAY: WSDUdpMessageType = WSDUdpMessageType(1i32);
 #[repr(C)]
 pub struct WSDUdpRetransmitParams(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -179,8 +189,55 @@ pub struct WSDXML_NAMESPACE(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSDXML_NODE(i32);
-#[repr(C)]
-pub struct WSDXML_OP(i32);
+#[repr(transparent)]
+pub struct WSDXML_OP(pub i32);
+pub const OpNone: WSDXML_OP = WSDXML_OP(0i32);
+pub const OpEndOfTable: WSDXML_OP = WSDXML_OP(1i32);
+pub const OpBeginElement_: WSDXML_OP = WSDXML_OP(2i32);
+pub const OpBeginAnyElement: WSDXML_OP = WSDXML_OP(3i32);
+pub const OpEndElement: WSDXML_OP = WSDXML_OP(4i32);
+pub const OpElement_: WSDXML_OP = WSDXML_OP(5i32);
+pub const OpAnyElement: WSDXML_OP = WSDXML_OP(6i32);
+pub const OpAnyElements: WSDXML_OP = WSDXML_OP(7i32);
+pub const OpAnyText: WSDXML_OP = WSDXML_OP(8i32);
+pub const OpAttribute_: WSDXML_OP = WSDXML_OP(9i32);
+pub const OpBeginChoice: WSDXML_OP = WSDXML_OP(10i32);
+pub const OpEndChoice: WSDXML_OP = WSDXML_OP(11i32);
+pub const OpBeginSequence: WSDXML_OP = WSDXML_OP(12i32);
+pub const OpEndSequence: WSDXML_OP = WSDXML_OP(13i32);
+pub const OpBeginAll: WSDXML_OP = WSDXML_OP(14i32);
+pub const OpEndAll: WSDXML_OP = WSDXML_OP(15i32);
+pub const OpAnything: WSDXML_OP = WSDXML_OP(16i32);
+pub const OpAnyNumber: WSDXML_OP = WSDXML_OP(17i32);
+pub const OpOneOrMore: WSDXML_OP = WSDXML_OP(18i32);
+pub const OpOptional: WSDXML_OP = WSDXML_OP(19i32);
+pub const OpFormatBool_: WSDXML_OP = WSDXML_OP(20i32);
+pub const OpFormatInt8_: WSDXML_OP = WSDXML_OP(21i32);
+pub const OpFormatInt16_: WSDXML_OP = WSDXML_OP(22i32);
+pub const OpFormatInt32_: WSDXML_OP = WSDXML_OP(23i32);
+pub const OpFormatInt64_: WSDXML_OP = WSDXML_OP(24i32);
+pub const OpFormatUInt8_: WSDXML_OP = WSDXML_OP(25i32);
+pub const OpFormatUInt16_: WSDXML_OP = WSDXML_OP(26i32);
+pub const OpFormatUInt32_: WSDXML_OP = WSDXML_OP(27i32);
+pub const OpFormatUInt64_: WSDXML_OP = WSDXML_OP(28i32);
+pub const OpFormatUnicodeString_: WSDXML_OP = WSDXML_OP(29i32);
+pub const OpFormatDom_: WSDXML_OP = WSDXML_OP(30i32);
+pub const OpFormatStruct_: WSDXML_OP = WSDXML_OP(31i32);
+pub const OpFormatUri_: WSDXML_OP = WSDXML_OP(32i32);
+pub const OpFormatUuidUri_: WSDXML_OP = WSDXML_OP(33i32);
+pub const OpFormatName_: WSDXML_OP = WSDXML_OP(34i32);
+pub const OpFormatListInsertTail_: WSDXML_OP = WSDXML_OP(35i32);
+pub const OpFormatType_: WSDXML_OP = WSDXML_OP(36i32);
+pub const OpFormatDynamicType_: WSDXML_OP = WSDXML_OP(37i32);
+pub const OpFormatLookupType_: WSDXML_OP = WSDXML_OP(38i32);
+pub const OpFormatDuration_: WSDXML_OP = WSDXML_OP(39i32);
+pub const OpFormatDateTime_: WSDXML_OP = WSDXML_OP(40i32);
+pub const OpFormatFloat_: WSDXML_OP = WSDXML_OP(41i32);
+pub const OpFormatDouble_: WSDXML_OP = WSDXML_OP(42i32);
+pub const OpProcess_: WSDXML_OP = WSDXML_OP(43i32);
+pub const OpQualifiedAttribute_: WSDXML_OP = WSDXML_OP(44i32);
+pub const OpFormatXMLDeclaration_: WSDXML_OP = WSDXML_OP(45i32);
+pub const OpFormatMax: WSDXML_OP = WSDXML_OP(46i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSDXML_PREFIX_MAPPING(i32);
@@ -200,8 +257,21 @@ pub struct WSD_BYE(i32);
 pub struct WSD_CONFIG_ADDRESSES(i32);
 #[repr(C)]
 pub struct WSD_CONFIG_PARAM(i32);
-#[repr(C)]
-pub struct WSD_CONFIG_PARAM_TYPE(i32);
+#[repr(transparent)]
+pub struct WSD_CONFIG_PARAM_TYPE(pub i32);
+pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(1i32);
+pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(2i32);
+pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(3i32);
+pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(4i32);
+pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(5i32);
+pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(6i32);
+pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(7i32);
+pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(8i32);
+pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(9i32);
+pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(10i32);
+pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(11i32);
+pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(12i32);
+pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(13i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSD_DATETIME(i32);
@@ -277,8 +347,13 @@ pub struct WSD_PROBE_MATCHES(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSD_PROBE_MATCH_LIST(i32);
-#[repr(C)]
-pub struct WSD_PROTOCOL_TYPE(i32);
+#[repr(transparent)]
+pub struct WSD_PROTOCOL_TYPE(pub i32);
+pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(0i32);
+pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(1i32);
+pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(2i32);
+pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(4i32);
+pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(255i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSD_REFERENCE_PARAMETERS(i32);

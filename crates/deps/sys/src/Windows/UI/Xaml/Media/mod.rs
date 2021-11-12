@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "UI_Xaml_Media_Animation")]
 pub mod Animation;
 #[cfg(feature = "UI_Xaml_Media_Imaging")]
@@ -7,20 +7,53 @@ pub mod Imaging;
 pub mod Media3D;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct AcrylicBackgroundSource(i32);
+#[repr(transparent)]
+pub struct AcrylicBackgroundSource(pub i32);
+impl AcrylicBackgroundSource {
+    pub const HostBackdrop: AcrylicBackgroundSource = AcrylicBackgroundSource(0i32);
+    pub const Backdrop: AcrylicBackgroundSource = AcrylicBackgroundSource(1i32);
+}
 #[repr(transparent)]
 pub struct AcrylicBrush(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AlignmentX(i32);
-#[repr(C)]
-pub struct AlignmentY(i32);
+#[repr(transparent)]
+pub struct AlignmentX(pub i32);
+impl AlignmentX {
+    pub const Left: AlignmentX = AlignmentX(0i32);
+    pub const Center: AlignmentX = AlignmentX(1i32);
+    pub const Right: AlignmentX = AlignmentX(2i32);
+}
+#[repr(transparent)]
+pub struct AlignmentY(pub i32);
+impl AlignmentY {
+    pub const Top: AlignmentY = AlignmentY(0i32);
+    pub const Center: AlignmentY = AlignmentY(1i32);
+    pub const Bottom: AlignmentY = AlignmentY(2i32);
+}
 #[repr(transparent)]
 pub struct ArcSegment(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AudioCategory(i32);
-#[repr(C)]
-pub struct AudioDeviceType(i32);
+#[repr(transparent)]
+pub struct AudioCategory(pub i32);
+impl AudioCategory {
+    pub const Other: AudioCategory = AudioCategory(0i32);
+    pub const ForegroundOnlyMedia: AudioCategory = AudioCategory(1i32);
+    pub const BackgroundCapableMedia: AudioCategory = AudioCategory(2i32);
+    pub const Communications: AudioCategory = AudioCategory(3i32);
+    pub const Alerts: AudioCategory = AudioCategory(4i32);
+    pub const SoundEffects: AudioCategory = AudioCategory(5i32);
+    pub const GameEffects: AudioCategory = AudioCategory(6i32);
+    pub const GameMedia: AudioCategory = AudioCategory(7i32);
+    pub const GameChat: AudioCategory = AudioCategory(8i32);
+    pub const Speech: AudioCategory = AudioCategory(9i32);
+    pub const Movie: AudioCategory = AudioCategory(10i32);
+    pub const Media: AudioCategory = AudioCategory(11i32);
+}
+#[repr(transparent)]
+pub struct AudioDeviceType(pub i32);
+impl AudioDeviceType {
+    pub const Console: AudioDeviceType = AudioDeviceType(0i32);
+    pub const Multimedia: AudioDeviceType = AudioDeviceType(1i32);
+    pub const Communications: AudioDeviceType = AudioDeviceType(2i32);
+}
 #[repr(transparent)]
 pub struct BezierSegment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -29,26 +62,48 @@ pub struct BitmapCache(pub *mut ::core::ffi::c_void);
 pub struct Brush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BrushCollection(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct BrushMappingMode(i32);
+#[repr(transparent)]
+pub struct BrushMappingMode(pub i32);
+impl BrushMappingMode {
+    pub const Absolute: BrushMappingMode = BrushMappingMode(0i32);
+    pub const RelativeToBoundingBox: BrushMappingMode = BrushMappingMode(1i32);
+}
 #[repr(transparent)]
 pub struct CacheMode(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ColorInterpolationMode(i32);
+#[repr(transparent)]
+pub struct ColorInterpolationMode(pub i32);
+impl ColorInterpolationMode {
+    pub const ScRgbLinearInterpolation: ColorInterpolationMode = ColorInterpolationMode(0i32);
+    pub const SRgbLinearInterpolation: ColorInterpolationMode = ColorInterpolationMode(1i32);
+}
 #[repr(transparent)]
 pub struct CompositeTransform(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionTarget(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DoubleCollection(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ElementCompositeMode(i32);
+#[repr(transparent)]
+pub struct ElementCompositeMode(pub i32);
+impl ElementCompositeMode {
+    pub const Inherit: ElementCompositeMode = ElementCompositeMode(0i32);
+    pub const SourceOver: ElementCompositeMode = ElementCompositeMode(1i32);
+    pub const MinBlend: ElementCompositeMode = ElementCompositeMode(2i32);
+}
 #[repr(transparent)]
 pub struct EllipseGeometry(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FastPlayFallbackBehaviour(i32);
-#[repr(C)]
-pub struct FillRule(i32);
+#[repr(transparent)]
+pub struct FastPlayFallbackBehaviour(pub i32);
+impl FastPlayFallbackBehaviour {
+    pub const Skip: FastPlayFallbackBehaviour = FastPlayFallbackBehaviour(0i32);
+    pub const Hide: FastPlayFallbackBehaviour = FastPlayFallbackBehaviour(1i32);
+    pub const Disable: FastPlayFallbackBehaviour = FastPlayFallbackBehaviour(2i32);
+}
+#[repr(transparent)]
+pub struct FillRule(pub i32);
+impl FillRule {
+    pub const EvenOdd: FillRule = FillRule(0i32);
+    pub const Nonzero: FillRule = FillRule(1i32);
+}
 #[repr(transparent)]
 pub struct FontFamily(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -61,8 +116,13 @@ pub struct GeometryCollection(pub *mut ::core::ffi::c_void);
 pub struct GeometryGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GradientBrush(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GradientSpreadMethod(i32);
+#[repr(transparent)]
+pub struct GradientSpreadMethod(pub i32);
+impl GradientSpreadMethod {
+    pub const Pad: GradientSpreadMethod = GradientSpreadMethod(0i32);
+    pub const Reflect: GradientSpreadMethod = GradientSpreadMethod(1i32);
+    pub const Repeat: GradientSpreadMethod = GradientSpreadMethod(2i32);
+}
 #[repr(transparent)]
 pub struct GradientStop(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -341,8 +401,14 @@ pub struct LineSegment(pub *mut ::core::ffi::c_void);
 pub struct LinearGradientBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadCompletedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LoadedImageSourceLoadStatus(i32);
+#[repr(transparent)]
+pub struct LoadedImageSourceLoadStatus(pub i32);
+impl LoadedImageSourceLoadStatus {
+    pub const Success: LoadedImageSourceLoadStatus = LoadedImageSourceLoadStatus(0i32);
+    pub const NetworkError: LoadedImageSourceLoadStatus = LoadedImageSourceLoadStatus(1i32);
+    pub const InvalidFormat: LoadedImageSourceLoadStatus = LoadedImageSourceLoadStatus(2i32);
+    pub const Other: LoadedImageSourceLoadStatus = LoadedImageSourceLoadStatus(3i32);
+}
 #[repr(transparent)]
 pub struct LoadedImageSurface(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -353,10 +419,23 @@ pub struct Matrix3DProjection(pub *mut ::core::ffi::c_void);
 pub struct MatrixHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MatrixTransform(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MediaCanPlayResponse(i32);
-#[repr(C)]
-pub struct MediaElementState(i32);
+#[repr(transparent)]
+pub struct MediaCanPlayResponse(pub i32);
+impl MediaCanPlayResponse {
+    pub const NotSupported: MediaCanPlayResponse = MediaCanPlayResponse(0i32);
+    pub const Maybe: MediaCanPlayResponse = MediaCanPlayResponse(1i32);
+    pub const Probably: MediaCanPlayResponse = MediaCanPlayResponse(2i32);
+}
+#[repr(transparent)]
+pub struct MediaElementState(pub i32);
+impl MediaElementState {
+    pub const Closed: MediaElementState = MediaElementState(0i32);
+    pub const Opening: MediaElementState = MediaElementState(1i32);
+    pub const Buffering: MediaElementState = MediaElementState(2i32);
+    pub const Playing: MediaElementState = MediaElementState(3i32);
+    pub const Paused: MediaElementState = MediaElementState(4i32);
+    pub const Stopped: MediaElementState = MediaElementState(5i32);
+}
 #[repr(transparent)]
 pub struct MediaTransportControlsThumbnailRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -371,10 +450,21 @@ pub struct PathGeometry(pub *mut ::core::ffi::c_void);
 pub struct PathSegment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PathSegmentCollection(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PenLineCap(i32);
-#[repr(C)]
-pub struct PenLineJoin(i32);
+#[repr(transparent)]
+pub struct PenLineCap(pub i32);
+impl PenLineCap {
+    pub const Flat: PenLineCap = PenLineCap(0i32);
+    pub const Square: PenLineCap = PenLineCap(1i32);
+    pub const Round: PenLineCap = PenLineCap(2i32);
+    pub const Triangle: PenLineCap = PenLineCap(3i32);
+}
+#[repr(transparent)]
+pub struct PenLineJoin(pub i32);
+impl PenLineJoin {
+    pub const Miter: PenLineJoin = PenLineJoin(0i32);
+    pub const Bevel: PenLineJoin = PenLineJoin(1i32);
+    pub const Round: PenLineJoin = PenLineJoin(2i32);
+}
 #[repr(transparent)]
 pub struct PlaneProjection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -405,8 +495,13 @@ pub struct RevealBackgroundBrush(pub *mut ::core::ffi::c_void);
 pub struct RevealBorderBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RevealBrush(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct RevealBrushState(i32);
+#[repr(transparent)]
+pub struct RevealBrushState(pub i32);
+impl RevealBrushState {
+    pub const Normal: RevealBrushState = RevealBrushState(0i32);
+    pub const PointerOver: RevealBrushState = RevealBrushState(1i32);
+    pub const Pressed: RevealBrushState = RevealBrushState(2i32);
+}
 #[repr(transparent)]
 pub struct RotateTransform(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -417,16 +512,41 @@ pub struct Shadow(pub *mut ::core::ffi::c_void);
 pub struct SkewTransform(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SolidColorBrush(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct Stereo3DVideoPackingMode(i32);
-#[repr(C)]
-pub struct Stereo3DVideoRenderMode(i32);
-#[repr(C)]
-pub struct Stretch(i32);
-#[repr(C)]
-pub struct StyleSimulations(i32);
-#[repr(C)]
-pub struct SweepDirection(i32);
+#[repr(transparent)]
+pub struct Stereo3DVideoPackingMode(pub i32);
+impl Stereo3DVideoPackingMode {
+    pub const None: Stereo3DVideoPackingMode = Stereo3DVideoPackingMode(0i32);
+    pub const SideBySide: Stereo3DVideoPackingMode = Stereo3DVideoPackingMode(1i32);
+    pub const TopBottom: Stereo3DVideoPackingMode = Stereo3DVideoPackingMode(2i32);
+}
+#[repr(transparent)]
+pub struct Stereo3DVideoRenderMode(pub i32);
+impl Stereo3DVideoRenderMode {
+    pub const Mono: Stereo3DVideoRenderMode = Stereo3DVideoRenderMode(0i32);
+    pub const Stereo: Stereo3DVideoRenderMode = Stereo3DVideoRenderMode(1i32);
+}
+#[repr(transparent)]
+pub struct Stretch(pub i32);
+impl Stretch {
+    pub const None: Stretch = Stretch(0i32);
+    pub const Fill: Stretch = Stretch(1i32);
+    pub const Uniform: Stretch = Stretch(2i32);
+    pub const UniformToFill: Stretch = Stretch(3i32);
+}
+#[repr(transparent)]
+pub struct StyleSimulations(pub i32);
+impl StyleSimulations {
+    pub const None: StyleSimulations = StyleSimulations(0i32);
+    pub const BoldSimulation: StyleSimulations = StyleSimulations(1i32);
+    pub const ItalicSimulation: StyleSimulations = StyleSimulations(2i32);
+    pub const BoldItalicSimulation: StyleSimulations = StyleSimulations(3i32);
+}
+#[repr(transparent)]
+pub struct SweepDirection(pub i32);
+impl SweepDirection {
+    pub const Counterclockwise: SweepDirection = SweepDirection(0i32);
+    pub const Clockwise: SweepDirection = SweepDirection(1i32);
+}
 #[repr(transparent)]
 pub struct ThemeShadow(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

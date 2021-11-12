@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Storage_Xps")]
@@ -23,10 +23,15 @@ extern "system" {
     pub fn PTQuerySchemaVersionSupport(pszprintername: super::super::super::Foundation::PWSTR, pmaxversion: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct EDefaultDevmodeType(i32);
-#[repr(C)]
-pub struct EPrintTicketScope(i32);
+#[repr(transparent)]
+pub struct EDefaultDevmodeType(pub i32);
+pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
+pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
+#[repr(transparent)]
+pub struct EPrintTicketScope(pub i32);
+pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
+pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
+pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;

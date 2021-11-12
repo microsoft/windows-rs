@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -759,25 +759,112 @@ pub struct WSMAN_STREAM_ID_SET(i32);
 pub struct WSMAN_USERNAME_PASSWORD_CREDS(i32);
 #[repr(C)]
 pub struct WSMan(i32);
-#[repr(C)]
-pub struct WSManAuthenticationFlags(i32);
-#[repr(C)]
-pub struct WSManCallbackFlags(i32);
-#[repr(C)]
-pub struct WSManDataType(i32);
-#[repr(C)]
-pub struct WSManEnumFlags(i32);
+#[repr(transparent)]
+pub struct WSManAuthenticationFlags(pub i32);
+pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(0i32);
+pub const WSMAN_FLAG_NO_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(1i32);
+pub const WSMAN_FLAG_AUTH_DIGEST: WSManAuthenticationFlags = WSManAuthenticationFlags(2i32);
+pub const WSMAN_FLAG_AUTH_NEGOTIATE: WSManAuthenticationFlags = WSManAuthenticationFlags(4i32);
+pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = WSManAuthenticationFlags(8i32);
+pub const WSMAN_FLAG_AUTH_KERBEROS: WSManAuthenticationFlags = WSManAuthenticationFlags(16i32);
+pub const WSMAN_FLAG_AUTH_CREDSSP: WSManAuthenticationFlags = WSManAuthenticationFlags(128i32);
+pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = WSManAuthenticationFlags(32i32);
+#[repr(transparent)]
+pub struct WSManCallbackFlags(pub i32);
+pub const WSMAN_FLAG_CALLBACK_END_OF_OPERATION: WSManCallbackFlags = WSManCallbackFlags(1i32);
+pub const WSMAN_FLAG_CALLBACK_END_OF_STREAM: WSManCallbackFlags = WSManCallbackFlags(8i32);
+pub const WSMAN_FLAG_CALLBACK_SHELL_SUPPORTS_DISCONNECT: WSManCallbackFlags = WSManCallbackFlags(32i32);
+pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTED: WSManCallbackFlags = WSManCallbackFlags(64i32);
+pub const WSMAN_FLAG_CALLBACK_NETWORK_FAILURE_DETECTED: WSManCallbackFlags = WSManCallbackFlags(256i32);
+pub const WSMAN_FLAG_CALLBACK_RETRYING_AFTER_NETWORK_FAILURE: WSManCallbackFlags = WSManCallbackFlags(512i32);
+pub const WSMAN_FLAG_CALLBACK_RECONNECTED_AFTER_NETWORK_FAILURE: WSManCallbackFlags = WSManCallbackFlags(1024i32);
+pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTING: WSManCallbackFlags = WSManCallbackFlags(2048i32);
+pub const WSMAN_FLAG_CALLBACK_RETRY_ABORTED_DUE_TO_INTERNAL_ERROR: WSManCallbackFlags = WSManCallbackFlags(4096i32);
+pub const WSMAN_FLAG_CALLBACK_RECEIVE_DELAY_STREAM_REQUEST_PROCESSED: WSManCallbackFlags = WSManCallbackFlags(8192i32);
+#[repr(transparent)]
+pub struct WSManDataType(pub i32);
+pub const WSMAN_DATA_NONE: WSManDataType = WSManDataType(0i32);
+pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = WSManDataType(1i32);
+pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = WSManDataType(2i32);
+pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = WSManDataType(4i32);
+#[repr(transparent)]
+pub struct WSManEnumFlags(pub i32);
+pub const WSManFlagNonXmlText: WSManEnumFlags = WSManEnumFlags(1i32);
+pub const WSManFlagReturnObject: WSManEnumFlags = WSManEnumFlags(0i32);
+pub const WSManFlagReturnEPR: WSManEnumFlags = WSManEnumFlags(2i32);
+pub const WSManFlagReturnObjectAndEPR: WSManEnumFlags = WSManEnumFlags(4i32);
+pub const WSManFlagHierarchyDeep: WSManEnumFlags = WSManEnumFlags(0i32);
+pub const WSManFlagHierarchyShallow: WSManEnumFlags = WSManEnumFlags(32i32);
+pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = WSManEnumFlags(64i32);
+pub const WSManFlagAssociatedInstance: WSManEnumFlags = WSManEnumFlags(0i32);
+pub const WSManFlagAssociationInstance: WSManEnumFlags = WSManEnumFlags(128i32);
 #[repr(C)]
 pub struct WSManInternal(i32);
-#[repr(C)]
-pub struct WSManProxyAccessType(i32);
-#[repr(C)]
-pub struct WSManProxyAccessTypeFlags(i32);
-#[repr(C)]
-pub struct WSManProxyAuthenticationFlags(i32);
-#[repr(C)]
-pub struct WSManSessionFlags(i32);
-#[repr(C)]
-pub struct WSManSessionOption(i32);
-#[repr(C)]
-pub struct WSManShellFlag(i32);
+#[repr(transparent)]
+pub struct WSManProxyAccessType(pub i32);
+pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(1i32);
+pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(2i32);
+pub const WSMAN_OPTION_PROXY_AUTO_DETECT: WSManProxyAccessType = WSManProxyAccessType(4i32);
+pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = WSManProxyAccessType(8i32);
+#[repr(transparent)]
+pub struct WSManProxyAccessTypeFlags(pub i32);
+pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(1i32);
+pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(2i32);
+pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(4i32);
+pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(8i32);
+#[repr(transparent)]
+pub struct WSManProxyAuthenticationFlags(pub i32);
+pub const WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(1i32);
+pub const WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(2i32);
+pub const WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(4i32);
+#[repr(transparent)]
+pub struct WSManSessionFlags(pub i32);
+pub const WSManFlagUTF8: WSManSessionFlags = WSManSessionFlags(1i32);
+pub const WSManFlagCredUsernamePassword: WSManSessionFlags = WSManSessionFlags(4096i32);
+pub const WSManFlagSkipCACheck: WSManSessionFlags = WSManSessionFlags(8192i32);
+pub const WSManFlagSkipCNCheck: WSManSessionFlags = WSManSessionFlags(16384i32);
+pub const WSManFlagUseNoAuthentication: WSManSessionFlags = WSManSessionFlags(32768i32);
+pub const WSManFlagUseDigest: WSManSessionFlags = WSManSessionFlags(65536i32);
+pub const WSManFlagUseNegotiate: WSManSessionFlags = WSManSessionFlags(131072i32);
+pub const WSManFlagUseBasic: WSManSessionFlags = WSManSessionFlags(262144i32);
+pub const WSManFlagUseKerberos: WSManSessionFlags = WSManSessionFlags(524288i32);
+pub const WSManFlagNoEncryption: WSManSessionFlags = WSManSessionFlags(1048576i32);
+pub const WSManFlagUseClientCertificate: WSManSessionFlags = WSManSessionFlags(2097152i32);
+pub const WSManFlagEnableSPNServerPort: WSManSessionFlags = WSManSessionFlags(4194304i32);
+pub const WSManFlagUTF16: WSManSessionFlags = WSManSessionFlags(8388608i32);
+pub const WSManFlagUseCredSsp: WSManSessionFlags = WSManSessionFlags(16777216i32);
+pub const WSManFlagSkipRevocationCheck: WSManSessionFlags = WSManSessionFlags(33554432i32);
+pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = WSManSessionFlags(67108864i32);
+pub const WSManFlagUseSsl: WSManSessionFlags = WSManSessionFlags(134217728i32);
+#[repr(transparent)]
+pub struct WSManSessionOption(pub i32);
+pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = WSManSessionOption(1i32);
+pub const WSMAN_OPTION_MAX_RETRY_TIME: WSManSessionOption = WSManSessionOption(11i32);
+pub const WSMAN_OPTION_TIMEOUTMS_CREATE_SHELL: WSManSessionOption = WSManSessionOption(12i32);
+pub const WSMAN_OPTION_TIMEOUTMS_RUN_SHELL_COMMAND: WSManSessionOption = WSManSessionOption(13i32);
+pub const WSMAN_OPTION_TIMEOUTMS_RECEIVE_SHELL_OUTPUT: WSManSessionOption = WSManSessionOption(14i32);
+pub const WSMAN_OPTION_TIMEOUTMS_SEND_SHELL_INPUT: WSManSessionOption = WSManSessionOption(15i32);
+pub const WSMAN_OPTION_TIMEOUTMS_SIGNAL_SHELL: WSManSessionOption = WSManSessionOption(16i32);
+pub const WSMAN_OPTION_TIMEOUTMS_CLOSE_SHELL: WSManSessionOption = WSManSessionOption(17i32);
+pub const WSMAN_OPTION_SKIP_CA_CHECK: WSManSessionOption = WSManSessionOption(18i32);
+pub const WSMAN_OPTION_SKIP_CN_CHECK: WSManSessionOption = WSManSessionOption(19i32);
+pub const WSMAN_OPTION_UNENCRYPTED_MESSAGES: WSManSessionOption = WSManSessionOption(20i32);
+pub const WSMAN_OPTION_UTF16: WSManSessionOption = WSManSessionOption(21i32);
+pub const WSMAN_OPTION_ENABLE_SPN_SERVER_PORT: WSManSessionOption = WSManSessionOption(22i32);
+pub const WSMAN_OPTION_MACHINE_ID: WSManSessionOption = WSManSessionOption(23i32);
+pub const WSMAN_OPTION_LOCALE: WSManSessionOption = WSManSessionOption(25i32);
+pub const WSMAN_OPTION_UI_LANGUAGE: WSManSessionOption = WSManSessionOption(26i32);
+pub const WSMAN_OPTION_MAX_ENVELOPE_SIZE_KB: WSManSessionOption = WSManSessionOption(28i32);
+pub const WSMAN_OPTION_SHELL_MAX_DATA_SIZE_PER_MESSAGE_KB: WSManSessionOption = WSManSessionOption(29i32);
+pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = WSManSessionOption(30i32);
+pub const WSMAN_OPTION_SKIP_REVOCATION_CHECK: WSManSessionOption = WSManSessionOption(31i32);
+pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = WSManSessionOption(32i32);
+pub const WSMAN_OPTION_USE_SSL: WSManSessionOption = WSManSessionOption(33i32);
+pub const WSMAN_OPTION_USE_INTEARACTIVE_TOKEN: WSManSessionOption = WSManSessionOption(34i32);
+#[repr(transparent)]
+pub struct WSManShellFlag(pub i32);
+pub const WSMAN_FLAG_NO_COMPRESSION: WSManShellFlag = WSManShellFlag(1i32);
+pub const WSMAN_FLAG_DELETE_SERVER_SESSION: WSManShellFlag = WSManShellFlag(2i32);
+pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = WSManShellFlag(4i32);
+pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = WSManShellFlag(8i32);
+pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = WSManShellFlag(16i32);

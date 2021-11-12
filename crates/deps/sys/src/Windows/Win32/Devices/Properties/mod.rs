@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1545,8 +1545,10 @@ pub struct DEVPROPERTY(i32);
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
 #[repr(C)]
 pub struct DEVPROPKEY(i32);
-#[repr(C)]
-pub struct DEVPROPSTORE(i32);
+#[repr(transparent)]
+pub struct DEVPROPSTORE(pub i32);
+pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
+pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;

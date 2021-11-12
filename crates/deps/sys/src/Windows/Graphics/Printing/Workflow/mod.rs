@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -73,8 +73,12 @@ pub struct PrintWorkflowConfiguration(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowForegroundSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintWorkflowJobAbortReason(i32);
+#[repr(transparent)]
+pub struct PrintWorkflowJobAbortReason(pub i32);
+impl PrintWorkflowJobAbortReason {
+    pub const JobFailed: PrintWorkflowJobAbortReason = PrintWorkflowJobAbortReason(0i32);
+    pub const UserCanceled: PrintWorkflowJobAbortReason = PrintWorkflowJobAbortReason(1i32);
+}
 #[repr(transparent)]
 pub struct PrintWorkflowJobActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -91,8 +95,13 @@ pub struct PrintWorkflowJobUISession(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowObjectModelSourceFileContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelTargetPackage(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintWorkflowPdlConversionType(i32);
+#[repr(transparent)]
+pub struct PrintWorkflowPdlConversionType(pub i32);
+impl PrintWorkflowPdlConversionType {
+    pub const XpsToPdf: PrintWorkflowPdlConversionType = PrintWorkflowPdlConversionType(0i32);
+    pub const XpsToPwgr: PrintWorkflowPdlConversionType = PrintWorkflowPdlConversionType(1i32);
+    pub const XpsToPclm: PrintWorkflowPdlConversionType = PrintWorkflowPdlConversionType(2i32);
+}
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConverter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -105,10 +114,23 @@ pub struct PrintWorkflowPdlSourceContent(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowPdlTargetStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJob(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintWorkflowPrinterJobStatus(i32);
-#[repr(C)]
-pub struct PrintWorkflowSessionStatus(i32);
+#[repr(transparent)]
+pub struct PrintWorkflowPrinterJobStatus(pub i32);
+impl PrintWorkflowPrinterJobStatus {
+    pub const Error: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(0i32);
+    pub const Aborted: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(1i32);
+    pub const InProgress: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(2i32);
+    pub const Completed: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(3i32);
+}
+#[repr(transparent)]
+pub struct PrintWorkflowSessionStatus(pub i32);
+impl PrintWorkflowSessionStatus {
+    pub const Started: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(0i32);
+    pub const Completed: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(1i32);
+    pub const Aborted: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(2i32);
+    pub const Closed: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(3i32);
+    pub const PdlDataAvailableForModification: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(4i32);
+}
 #[repr(transparent)]
 pub struct PrintWorkflowSourceContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -119,16 +141,27 @@ pub struct PrintWorkflowStreamTarget(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowSubmittedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedOperation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintWorkflowSubmittedStatus(i32);
+#[repr(transparent)]
+pub struct PrintWorkflowSubmittedStatus(pub i32);
+impl PrintWorkflowSubmittedStatus {
+    pub const Succeeded: PrintWorkflowSubmittedStatus = PrintWorkflowSubmittedStatus(0i32);
+    pub const Canceled: PrintWorkflowSubmittedStatus = PrintWorkflowSubmittedStatus(1i32);
+    pub const Failed: PrintWorkflowSubmittedStatus = PrintWorkflowSubmittedStatus(2i32);
+}
 #[repr(transparent)]
 pub struct PrintWorkflowTarget(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowUIActivatedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintWorkflowUICompletionStatus(i32);
+#[repr(transparent)]
+pub struct PrintWorkflowUICompletionStatus(pub i32);
+impl PrintWorkflowUICompletionStatus {
+    pub const Completed: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(0i32);
+    pub const LaunchFailed: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(1i32);
+    pub const JobFailed: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(2i32);
+    pub const UserCanceled: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(3i32);
+}
 #[repr(transparent)]
 pub struct PrintWorkflowUILauncher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

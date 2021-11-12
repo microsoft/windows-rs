@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub mod Apo;
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
@@ -434,15 +434,19 @@ pub const ACM_STREAMOPENF_QUERY: u32 = 1u32;
 pub const ACM_STREAMSIZEF_DESTINATION: i32 = 1i32;
 pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
 pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
-#[repr(C)]
-pub struct AMBISONICS_CHANNEL_ORDERING(i32);
-#[repr(C)]
-pub struct AMBISONICS_NORMALIZATION(i32);
+#[repr(transparent)]
+pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
+pub const AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = AMBISONICS_CHANNEL_ORDERING(0i32);
+#[repr(transparent)]
+pub struct AMBISONICS_NORMALIZATION(pub i32);
+pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(0i32);
+pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(1i32);
 #[repr(C)]
 pub struct AMBISONICS_PARAMS(i32);
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
-#[repr(C)]
-pub struct AMBISONICS_TYPE(i32);
+#[repr(transparent)]
+pub struct AMBISONICS_TYPE(pub i32);
+pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = AMBISONICS_TYPE(0i32);
 pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287486i32 as _);
 pub const AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287469i32 as _);
 pub const AUDCLNT_E_BUFFER_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287464i32 as _);
@@ -484,8 +488,10 @@ pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: ::windows_sys::core::HRESULT = ::window
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE: u32 = 536870912u32;
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
-#[repr(C)]
-pub struct AUDCLNT_SHAREMODE(i32);
+#[repr(transparent)]
+pub struct AUDCLNT_SHAREMODE(pub i32);
+pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(0i32);
+pub const AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(1i32);
 pub const AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: u32 = 2147483648u32;
 pub const AUDCLNT_STREAMFLAGS_CROSSPROCESS: u32 = 65536u32;
 pub const AUDCLNT_STREAMFLAGS_EVENTCALLBACK: u32 = 262144u32;
@@ -493,27 +499,51 @@ pub const AUDCLNT_STREAMFLAGS_LOOPBACK: u32 = 131072u32;
 pub const AUDCLNT_STREAMFLAGS_NOPERSIST: u32 = 524288u32;
 pub const AUDCLNT_STREAMFLAGS_RATEADJUST: u32 = 1048576u32;
 pub const AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: u32 = 134217728u32;
-#[repr(C)]
-pub struct AUDCLNT_STREAMOPTIONS(i32);
+#[repr(transparent)]
+pub struct AUDCLNT_STREAMOPTIONS(pub u32);
+pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(0u32);
+pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(1u32);
+pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(2u32);
+pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(4u32);
 pub const AUDCLNT_S_BUFFER_EMPTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196161i32 as _);
 pub const AUDCLNT_S_POSITION_STALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196163i32 as _);
 pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196162i32 as _);
 #[repr(C)]
 pub struct AUDIOCLIENT_ACTIVATION_PARAMS(i32);
-#[repr(C)]
-pub struct AUDIOCLIENT_ACTIVATION_TYPE(i32);
+#[repr(transparent)]
+pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
+pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
+pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(1i32);
 #[repr(C)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS(i32);
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
-#[repr(C)]
-pub struct AUDIO_DUCKING_OPTIONS(i32);
+#[repr(transparent)]
+pub struct AUDIO_DUCKING_OPTIONS(pub u32);
+pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0u32);
+pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(1u32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct AUDIO_EFFECT(i32);
-#[repr(C)]
-pub struct AUDIO_EFFECT_STATE(i32);
-#[repr(C)]
-pub struct AUDIO_STREAM_CATEGORY(i32);
+#[repr(transparent)]
+pub struct AUDIO_EFFECT_STATE(pub i32);
+pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(0i32);
+pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(1i32);
+#[repr(transparent)]
+pub struct AUDIO_STREAM_CATEGORY(pub i32);
+pub const AudioCategory_Other: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(0i32);
+pub const AudioCategory_ForegroundOnlyMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(1i32);
+pub const AudioCategory_Communications: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(3i32);
+pub const AudioCategory_Alerts: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(4i32);
+pub const AudioCategory_SoundEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(5i32);
+pub const AudioCategory_GameEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(6i32);
+pub const AudioCategory_GameMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(7i32);
+pub const AudioCategory_GameChat: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(8i32);
+pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(9i32);
+pub const AudioCategory_Movie: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(10i32);
+pub const AudioCategory_Media: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(11i32);
+pub const AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(12i32);
+pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(13i32);
+pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(14i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA(i32);
@@ -539,16 +569,55 @@ pub struct AudioClientProperties(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct AudioExtensionParams(i32);
-#[repr(C)]
-pub struct AudioObjectType(i32);
-#[repr(C)]
-pub struct AudioSessionDisconnectReason(i32);
-#[repr(C)]
-pub struct AudioSessionState(i32);
-#[repr(C)]
-pub struct AudioStateMonitorSoundLevel(i32);
-#[repr(C)]
-pub struct ConnectorType(i32);
+#[repr(transparent)]
+pub struct AudioObjectType(pub u32);
+pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0u32);
+pub const AudioObjectType_Dynamic: AudioObjectType = AudioObjectType(1u32);
+pub const AudioObjectType_FrontLeft: AudioObjectType = AudioObjectType(2u32);
+pub const AudioObjectType_FrontRight: AudioObjectType = AudioObjectType(4u32);
+pub const AudioObjectType_FrontCenter: AudioObjectType = AudioObjectType(8u32);
+pub const AudioObjectType_LowFrequency: AudioObjectType = AudioObjectType(16u32);
+pub const AudioObjectType_SideLeft: AudioObjectType = AudioObjectType(32u32);
+pub const AudioObjectType_SideRight: AudioObjectType = AudioObjectType(64u32);
+pub const AudioObjectType_BackLeft: AudioObjectType = AudioObjectType(128u32);
+pub const AudioObjectType_BackRight: AudioObjectType = AudioObjectType(256u32);
+pub const AudioObjectType_TopFrontLeft: AudioObjectType = AudioObjectType(512u32);
+pub const AudioObjectType_TopFrontRight: AudioObjectType = AudioObjectType(1024u32);
+pub const AudioObjectType_TopBackLeft: AudioObjectType = AudioObjectType(2048u32);
+pub const AudioObjectType_TopBackRight: AudioObjectType = AudioObjectType(4096u32);
+pub const AudioObjectType_BottomFrontLeft: AudioObjectType = AudioObjectType(8192u32);
+pub const AudioObjectType_BottomFrontRight: AudioObjectType = AudioObjectType(16384u32);
+pub const AudioObjectType_BottomBackLeft: AudioObjectType = AudioObjectType(32768u32);
+pub const AudioObjectType_BottomBackRight: AudioObjectType = AudioObjectType(65536u32);
+pub const AudioObjectType_BackCenter: AudioObjectType = AudioObjectType(131072u32);
+#[repr(transparent)]
+pub struct AudioSessionDisconnectReason(pub i32);
+pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = AudioSessionDisconnectReason(0i32);
+pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = AudioSessionDisconnectReason(1i32);
+pub const DisconnectReasonFormatChanged: AudioSessionDisconnectReason = AudioSessionDisconnectReason(2i32);
+pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = AudioSessionDisconnectReason(3i32);
+pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = AudioSessionDisconnectReason(4i32);
+pub const DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = AudioSessionDisconnectReason(5i32);
+#[repr(transparent)]
+pub struct AudioSessionState(pub i32);
+pub const AudioSessionStateInactive: AudioSessionState = AudioSessionState(0i32);
+pub const AudioSessionStateActive: AudioSessionState = AudioSessionState(1i32);
+pub const AudioSessionStateExpired: AudioSessionState = AudioSessionState(2i32);
+#[repr(transparent)]
+pub struct AudioStateMonitorSoundLevel(pub i32);
+pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32);
+pub const Low: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(1i32);
+pub const Full: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(2i32);
+#[repr(transparent)]
+pub struct ConnectorType(pub i32);
+impl ConnectorType {
+    pub const Unknown_Connector: ConnectorType = ConnectorType(0i32);
+    pub const Physical_Internal: ConnectorType = ConnectorType(1i32);
+    pub const Physical_External: ConnectorType = ConnectorType(2i32);
+    pub const Software_IO: ConnectorType = ConnectorType(3i32);
+    pub const Software_Fixed: ConnectorType = ConnectorType(4i32);
+    pub const Network: ConnectorType = ConnectorType(5i32);
+}
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
 pub const DEVICE_STATE_ACTIVE: u32 = 1u32;
 pub const DEVICE_STATE_DISABLED: u32 = 2u32;
@@ -574,25 +643,47 @@ pub const DRVM_MAPPER: u32 = 8192u32;
 pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
 pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
 pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
-#[repr(C)]
-pub struct DataFlow(i32);
+#[repr(transparent)]
+pub struct DataFlow(pub i32);
+pub const In: DataFlow = DataFlow(0i32);
+pub const Out: DataFlow = DataFlow(1i32);
 #[repr(C)]
 pub struct DeviceTopology(i32);
 #[repr(C)]
 pub struct ECHOWAVEFILTER(i32);
-#[repr(C)]
-pub struct EDataFlow(i32);
+#[repr(transparent)]
+pub struct EDataFlow(pub i32);
+pub const eRender: EDataFlow = EDataFlow(0i32);
+pub const eCapture: EDataFlow = EDataFlow(1i32);
+pub const eAll: EDataFlow = EDataFlow(2i32);
+pub const EDataFlow_enum_count: EDataFlow = EDataFlow(3i32);
 pub const ENDPOINT_FORMAT_RESET_MIX_ONLY: u32 = 1u32;
 pub const ENDPOINT_HARDWARE_SUPPORT_METER: u32 = 4u32;
 pub const ENDPOINT_HARDWARE_SUPPORT_MUTE: u32 = 2u32;
 pub const ENDPOINT_HARDWARE_SUPPORT_VOLUME: u32 = 1u32;
 pub const ENDPOINT_SYSFX_DISABLED: u32 = 1u32;
 pub const ENDPOINT_SYSFX_ENABLED: u32 = 0u32;
-#[repr(C)]
-pub struct ERole(i32);
+#[repr(transparent)]
+pub struct ERole(pub i32);
+pub const eConsole: ERole = ERole(0i32);
+pub const eMultimedia: ERole = ERole(1i32);
+pub const eCommunications: ERole = ERole(2i32);
+pub const ERole_enum_count: ERole = ERole(3i32);
 pub const EVENTCONTEXT_VOLUMESLIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3804424670, data2: 2481, data3: 19204, data4: [132, 229, 7, 147, 18, 37, 238, 4] };
-#[repr(C)]
-pub struct EndpointFormFactor(i32);
+#[repr(transparent)]
+pub struct EndpointFormFactor(pub i32);
+pub const RemoteNetworkDevice: EndpointFormFactor = EndpointFormFactor(0i32);
+pub const Speakers: EndpointFormFactor = EndpointFormFactor(1i32);
+pub const LineLevel: EndpointFormFactor = EndpointFormFactor(2i32);
+pub const Headphones: EndpointFormFactor = EndpointFormFactor(3i32);
+pub const Microphone: EndpointFormFactor = EndpointFormFactor(4i32);
+pub const Headset: EndpointFormFactor = EndpointFormFactor(5i32);
+pub const Handset: EndpointFormFactor = EndpointFormFactor(6i32);
+pub const UnknownDigitalPassthrough: EndpointFormFactor = EndpointFormFactor(7i32);
+pub const SPDIF: EndpointFormFactor = EndpointFormFactor(8i32);
+pub const DigitalAudioDisplayDevice: EndpointFormFactor = EndpointFormFactor(9i32);
+pub const UnknownFormFactor: EndpointFormFactor = EndpointFormFactor(10i32);
+pub const EndpointFormFactor_enum_count: EndpointFormFactor = EndpointFormFactor(11i32);
 pub const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
 pub const FILTERCHOOSE_FILTERTAG_VERIFY: u32 = 0u32;
 pub const FILTERCHOOSE_FILTER_VERIFY: u32 = 1u32;
@@ -842,8 +933,22 @@ pub const MIDI_CACHE_ALL: u32 = 1u32;
 pub const MIDI_CACHE_BESTFIT: u32 = 2u32;
 pub const MIDI_CACHE_QUERY: u32 = 3u32;
 pub const MIDI_UNCACHE: u32 = 4u32;
-#[repr(C)]
-pub struct MIDI_WAVE_OPEN_TYPE(i32);
+#[repr(transparent)]
+pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
+pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
+pub const CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(0u32);
+pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(65536u32);
+pub const CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
+pub const CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(196608u32);
+pub const CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
+pub const CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(327680u32);
+pub const WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(1u32);
+pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(2u32);
+pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(4u32);
+pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
+pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
+pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
+pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MIXERCAPS2A(i32);
@@ -941,8 +1046,28 @@ pub struct MIXERLINECONTROLSA(i32);
 pub struct MIXERLINECONTROLSW(i32);
 #[repr(C)]
 pub struct MIXERLINEW(i32);
-#[repr(C)]
-pub struct MIXERLINE_COMPONENTTYPE(i32);
+#[repr(transparent)]
+pub struct MIXERLINE_COMPONENTTYPE(pub u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(5u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(2u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(3u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(6u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(0u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(8u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(7u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4106u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4105u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4101u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4097u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4098u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4099u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4103u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4100u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
 pub const MIXERLINE_COMPONENTTYPE_DST_FIRST: i32 = 0i32;
 pub const MIXERLINE_COMPONENTTYPE_DST_LAST: u32 = 8u32;
 pub const MIXERLINE_COMPONENTTYPE_SRC_FIRST: i32 = 4096i32;
@@ -1145,10 +1270,14 @@ pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem:
     fmtid: ::windows_sys::GUID { data1: 3834056230, data2: 15557, data3: 19666, data4: [186, 70, 202, 10, 154, 112, 237, 4] },
     pid: 3u32,
 };
-#[repr(C)]
-pub struct PROCESS_LOOPBACK_MODE(i32);
-#[repr(C)]
-pub struct PartType(i32);
+#[repr(transparent)]
+pub struct PROCESS_LOOPBACK_MODE(pub i32);
+pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(0i32);
+pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(1i32);
+#[repr(transparent)]
+pub struct PartType(pub i32);
+pub const Connector: PartType = PartType(0i32);
+pub const Subunit: PartType = PartType(1i32);
 pub const SND_ALIAS: i32 = 65536i32;
 pub const SND_ALIAS_ID: i32 = 1114112i32;
 pub const SND_ALIAS_START: u32 = 0u32;
@@ -1168,8 +1297,10 @@ pub const SND_SYNC: u32 = 0u32;
 pub const SND_SYSTEM: i32 = 2097152i32;
 pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
 pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200u32;
-#[repr(C)]
-pub struct SPATIAL_AUDIO_STREAM_OPTIONS(i32);
+#[repr(transparent)]
+pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub u32);
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(0u32);
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(1u32);
 pub const SPTLAUDCLNT_E_DESTROYED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287232i32 as _);
 pub const SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287227i32 as _);
 pub const SPTLAUDCLNT_E_INTERNAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287219i32 as _);
@@ -1223,22 +1354,39 @@ pub struct SpatialAudioHrtfDirectivity(i32);
 pub struct SpatialAudioHrtfDirectivityCardioid(i32);
 #[repr(C)]
 pub struct SpatialAudioHrtfDirectivityCone(i32);
-#[repr(C)]
-pub struct SpatialAudioHrtfDirectivityType(i32);
+#[repr(transparent)]
+pub struct SpatialAudioHrtfDirectivityType(pub i32);
+pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
+pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(1i32);
+pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(2i32);
 #[repr(C)]
 pub struct SpatialAudioHrtfDirectivityUnion(i32);
 #[repr(C)]
 pub struct SpatialAudioHrtfDistanceDecay(i32);
-#[repr(C)]
-pub struct SpatialAudioHrtfDistanceDecayType(i32);
-#[repr(C)]
-pub struct SpatialAudioHrtfEnvironmentType(i32);
-#[repr(C)]
-pub struct SpatialAudioMetadataCopyMode(i32);
+#[repr(transparent)]
+pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
+pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(0i32);
+pub const SpatialAudioHrtfDistanceDecay_CustomDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(1i32);
+#[repr(transparent)]
+pub struct SpatialAudioHrtfEnvironmentType(pub i32);
+pub const SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(0i32);
+pub const SpatialAudioHrtfEnvironment_Medium: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(1i32);
+pub const SpatialAudioHrtfEnvironment_Large: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(2i32);
+pub const SpatialAudioHrtfEnvironment_Outdoors: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(3i32);
+pub const SpatialAudioHrtfEnvironment_Average: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(4i32);
+#[repr(transparent)]
+pub struct SpatialAudioMetadataCopyMode(pub i32);
+pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(0i32);
+pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(1i32);
+pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(2i32);
+pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(3i32);
 #[repr(C)]
 pub struct SpatialAudioMetadataItemsInfo(i32);
-#[repr(C)]
-pub struct SpatialAudioMetadataWriterOverflowMode(i32);
+#[repr(transparent)]
+pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
+pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(0i32);
+pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(1i32);
+pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(2i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct SpatialAudioObjectRenderStreamActivationParams(i32);
@@ -1335,10 +1483,17 @@ pub const WHDR_INQUEUE: u32 = 16u32;
 pub const WHDR_PREPARED: u32 = 2u32;
 pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
 pub const WODM_MAPPER_STATUS: u32 = 8192u32;
-#[repr(C)]
-pub struct _AUDCLNT_BUFFERFLAGS(i32);
-#[repr(C)]
-pub struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(i32);
+#[repr(transparent)]
+pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
+pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(1i32);
+pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(2i32);
+pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(4i32);
+#[repr(transparent)]
+pub struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(pub i32);
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(0i32);
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(1i32);
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(2i32);
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(3i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct tACMDRVOPENDESCA(i32);

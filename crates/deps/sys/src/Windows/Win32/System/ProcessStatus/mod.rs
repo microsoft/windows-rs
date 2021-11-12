@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -58,8 +58,12 @@ extern "system" {
 }
 #[repr(C)]
 pub struct ENUM_PAGE_FILE_INFORMATION(i32);
-#[repr(C)]
-pub struct ENUM_PROCESS_MODULES_EX_FLAGS(i32);
+#[repr(transparent)]
+pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
+pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
+pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
+pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
+pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
 #[repr(C)]
 pub struct MODULEINFO(i32);
 #[repr(C)]

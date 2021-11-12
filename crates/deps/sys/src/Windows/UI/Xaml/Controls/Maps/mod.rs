@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -239,16 +239,31 @@ pub struct LocalMapTileDataSource(pub *mut ::core::ffi::c_void);
 pub struct MapActualCameraChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapActualCameraChangingEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapAnimationKind(i32);
+#[repr(transparent)]
+pub struct MapAnimationKind(pub i32);
+impl MapAnimationKind {
+    pub const Default: MapAnimationKind = MapAnimationKind(0i32);
+    pub const None: MapAnimationKind = MapAnimationKind(1i32);
+    pub const Linear: MapAnimationKind = MapAnimationKind(2i32);
+    pub const Bow: MapAnimationKind = MapAnimationKind(3i32);
+}
 #[repr(transparent)]
 pub struct MapBillboard(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapCamera(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapCameraChangeReason(i32);
-#[repr(C)]
-pub struct MapColorScheme(i32);
+#[repr(transparent)]
+pub struct MapCameraChangeReason(pub i32);
+impl MapCameraChangeReason {
+    pub const System: MapCameraChangeReason = MapCameraChangeReason(0i32);
+    pub const UserInteraction: MapCameraChangeReason = MapCameraChangeReason(1i32);
+    pub const Programmatic: MapCameraChangeReason = MapCameraChangeReason(2i32);
+}
+#[repr(transparent)]
+pub struct MapColorScheme(pub i32);
+impl MapColorScheme {
+    pub const Light: MapColorScheme = MapColorScheme(0i32);
+    pub const Dark: MapColorScheme = MapColorScheme(1i32);
+}
 #[repr(transparent)]
 pub struct MapContextRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -281,8 +296,12 @@ pub struct MapElement(pub *mut ::core::ffi::c_void);
 pub struct MapElement3D(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapElementClickEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapElementCollisionBehavior(i32);
+#[repr(transparent)]
+pub struct MapElementCollisionBehavior(pub i32);
+impl MapElementCollisionBehavior {
+    pub const Hide: MapElementCollisionBehavior = MapElementCollisionBehavior(0i32);
+    pub const RemainVisible: MapElementCollisionBehavior = MapElementCollisionBehavior(1i32);
+}
 #[repr(transparent)]
 pub struct MapElementPointerEnteredEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -301,40 +320,84 @@ pub struct MapElementsLayerPointerExitedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MapIcon(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapInputEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapInteractionMode(i32);
+#[repr(transparent)]
+pub struct MapInteractionMode(pub i32);
+impl MapInteractionMode {
+    pub const Auto: MapInteractionMode = MapInteractionMode(0i32);
+    pub const Disabled: MapInteractionMode = MapInteractionMode(1i32);
+    pub const GestureOnly: MapInteractionMode = MapInteractionMode(2i32);
+    pub const PointerAndKeyboard: MapInteractionMode = MapInteractionMode(2i32);
+    pub const ControlOnly: MapInteractionMode = MapInteractionMode(3i32);
+    pub const GestureAndControl: MapInteractionMode = MapInteractionMode(4i32);
+    pub const PointerKeyboardAndControl: MapInteractionMode = MapInteractionMode(4i32);
+    pub const PointerOnly: MapInteractionMode = MapInteractionMode(5i32);
+}
 #[repr(transparent)]
 pub struct MapItemsControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapLayer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapLoadingStatus(i32);
+#[repr(transparent)]
+pub struct MapLoadingStatus(pub i32);
+impl MapLoadingStatus {
+    pub const Loading: MapLoadingStatus = MapLoadingStatus(0i32);
+    pub const Loaded: MapLoadingStatus = MapLoadingStatus(1i32);
+    pub const DataUnavailable: MapLoadingStatus = MapLoadingStatus(2i32);
+    pub const DownloadedMapsManagerUnavailable: MapLoadingStatus = MapLoadingStatus(3i32);
+}
 #[repr(transparent)]
 pub struct MapModel3D(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapModel3DShadingOption(i32);
-#[repr(C)]
-pub struct MapPanInteractionMode(i32);
+#[repr(transparent)]
+pub struct MapModel3DShadingOption(pub i32);
+impl MapModel3DShadingOption {
+    pub const Default: MapModel3DShadingOption = MapModel3DShadingOption(0i32);
+    pub const Flat: MapModel3DShadingOption = MapModel3DShadingOption(1i32);
+    pub const Smooth: MapModel3DShadingOption = MapModel3DShadingOption(2i32);
+}
+#[repr(transparent)]
+pub struct MapPanInteractionMode(pub i32);
+impl MapPanInteractionMode {
+    pub const Auto: MapPanInteractionMode = MapPanInteractionMode(0i32);
+    pub const Disabled: MapPanInteractionMode = MapPanInteractionMode(1i32);
+}
 #[repr(transparent)]
 pub struct MapPolygon(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapPolyline(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapProjection(i32);
+#[repr(transparent)]
+pub struct MapProjection(pub i32);
+impl MapProjection {
+    pub const WebMercator: MapProjection = MapProjection(0i32);
+    pub const Globe: MapProjection = MapProjection(1i32);
+}
 #[repr(transparent)]
 pub struct MapRightTappedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapRouteView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapScene(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapStyle(i32);
+#[repr(transparent)]
+pub struct MapStyle(pub i32);
+impl MapStyle {
+    pub const None: MapStyle = MapStyle(0i32);
+    pub const Road: MapStyle = MapStyle(1i32);
+    pub const Aerial: MapStyle = MapStyle(2i32);
+    pub const AerialWithRoads: MapStyle = MapStyle(3i32);
+    pub const Terrain: MapStyle = MapStyle(4i32);
+    pub const Aerial3D: MapStyle = MapStyle(5i32);
+    pub const Aerial3DWithRoads: MapStyle = MapStyle(6i32);
+    pub const Custom: MapStyle = MapStyle(7i32);
+}
 #[repr(transparent)]
 pub struct MapStyleSheet(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapTargetCameraChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapTileAnimationState(i32);
+#[repr(transparent)]
+pub struct MapTileAnimationState(pub i32);
+impl MapTileAnimationState {
+    pub const Stopped: MapTileAnimationState = MapTileAnimationState(0i32);
+    pub const Paused: MapTileAnimationState = MapTileAnimationState(1i32);
+    pub const Playing: MapTileAnimationState = MapTileAnimationState(2i32);
+}
 #[repr(transparent)]
 pub struct MapTileBitmapRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -343,8 +406,15 @@ pub struct MapTileBitmapRequestDeferral(pub *mut ::core::ffi::c_void);
 pub struct MapTileBitmapRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapTileDataSource(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapTileLayer(i32);
+#[repr(transparent)]
+pub struct MapTileLayer(pub i32);
+impl MapTileLayer {
+    pub const LabelOverlay: MapTileLayer = MapTileLayer(0i32);
+    pub const RoadOverlay: MapTileLayer = MapTileLayer(1i32);
+    pub const AreaOverlay: MapTileLayer = MapTileLayer(2i32);
+    pub const BackgroundOverlay: MapTileLayer = MapTileLayer(3i32);
+    pub const BackgroundReplacement: MapTileLayer = MapTileLayer(4i32);
+}
 #[repr(transparent)]
 pub struct MapTileSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -353,10 +423,18 @@ pub struct MapTileUriRequest(pub *mut ::core::ffi::c_void);
 pub struct MapTileUriRequestDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapTileUriRequestedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MapVisibleRegionKind(i32);
-#[repr(C)]
-pub struct MapWatermarkMode(i32);
+#[repr(transparent)]
+pub struct MapVisibleRegionKind(pub i32);
+impl MapVisibleRegionKind {
+    pub const Near: MapVisibleRegionKind = MapVisibleRegionKind(0i32);
+    pub const Full: MapVisibleRegionKind = MapVisibleRegionKind(1i32);
+}
+#[repr(transparent)]
+pub struct MapWatermarkMode(pub i32);
+impl MapWatermarkMode {
+    pub const Automatic: MapWatermarkMode = MapWatermarkMode(0i32);
+    pub const On: MapWatermarkMode = MapWatermarkMode(1i32);
+}
 #[repr(C)]
 pub struct MapZoomLevelRange(i32);
 #[repr(transparent)]

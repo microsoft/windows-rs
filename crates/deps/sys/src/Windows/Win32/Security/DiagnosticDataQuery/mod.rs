@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DdqCancelDiagnosticRecordOperation(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows_sys::core::HRESULT;
@@ -83,5 +83,8 @@ pub struct DIAGNOSTIC_REPORT_DATA(i32);
 pub struct DIAGNOSTIC_REPORT_PARAMETER(i32);
 #[repr(C)]
 pub struct DIAGNOSTIC_REPORT_SIGNATURE(i32);
-#[repr(C)]
-pub struct DdqAccessLevel(i32);
+#[repr(transparent)]
+pub struct DdqAccessLevel(pub i32);
+pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
+pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
+pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);

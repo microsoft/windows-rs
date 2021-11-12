@@ -1,8 +1,13 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct AccountPictureKind(i32);
+#[repr(transparent)]
+pub struct AccountPictureKind(pub i32);
+impl AccountPictureKind {
+    pub const SmallImage: AccountPictureKind = AccountPictureKind(0i32);
+    pub const LargeImage: AccountPictureKind = AccountPictureKind(1i32);
+    pub const Video: AccountPictureKind = AccountPictureKind(2i32);
+}
 #[repr(transparent)]
 pub struct AdvertisingManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -49,10 +54,23 @@ pub struct IUserInformationStatics(pub *mut ::core::ffi::c_void);
 pub struct IUserProfilePersonalizationSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserProfilePersonalizationSettingsStatics(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SetAccountPictureResult(i32);
-#[repr(C)]
-pub struct SetImageFeedResult(i32);
+#[repr(transparent)]
+pub struct SetAccountPictureResult(pub i32);
+impl SetAccountPictureResult {
+    pub const Success: SetAccountPictureResult = SetAccountPictureResult(0i32);
+    pub const ChangeDisabled: SetAccountPictureResult = SetAccountPictureResult(1i32);
+    pub const LargeOrDynamicError: SetAccountPictureResult = SetAccountPictureResult(2i32);
+    pub const VideoFrameSizeError: SetAccountPictureResult = SetAccountPictureResult(3i32);
+    pub const FileSizeError: SetAccountPictureResult = SetAccountPictureResult(4i32);
+    pub const Failure: SetAccountPictureResult = SetAccountPictureResult(5i32);
+}
+#[repr(transparent)]
+pub struct SetImageFeedResult(pub i32);
+impl SetImageFeedResult {
+    pub const Success: SetImageFeedResult = SetImageFeedResult(0i32);
+    pub const ChangeDisabled: SetImageFeedResult = SetImageFeedResult(1i32);
+    pub const UserCanceled: SetImageFeedResult = SetImageFeedResult(2i32);
+}
 #[repr(C)]
 pub struct UserProfileContract(i32);
 #[repr(C)]

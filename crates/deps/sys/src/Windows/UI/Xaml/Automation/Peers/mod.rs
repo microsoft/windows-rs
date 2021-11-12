@@ -1,8 +1,13 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct AccessibilityView(i32);
+#[repr(transparent)]
+pub struct AccessibilityView(pub i32);
+impl AccessibilityView {
+    pub const Raw: AccessibilityView = AccessibilityView(0i32);
+    pub const Control: AccessibilityView = AccessibilityView(1i32);
+    pub const Content: AccessibilityView = AccessibilityView(2i32);
+}
 #[repr(transparent)]
 pub struct AppBarAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -11,30 +16,164 @@ pub struct AppBarButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 pub struct AppBarToggleButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutoSuggestBoxAutomationPeer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AutomationControlType(i32);
-#[repr(C)]
-pub struct AutomationEvents(i32);
-#[repr(C)]
-pub struct AutomationHeadingLevel(i32);
-#[repr(C)]
-pub struct AutomationLandmarkType(i32);
-#[repr(C)]
-pub struct AutomationLiveSetting(i32);
-#[repr(C)]
-pub struct AutomationNavigationDirection(i32);
-#[repr(C)]
-pub struct AutomationNotificationKind(i32);
-#[repr(C)]
-pub struct AutomationNotificationProcessing(i32);
-#[repr(C)]
-pub struct AutomationOrientation(i32);
+#[repr(transparent)]
+pub struct AutomationControlType(pub i32);
+impl AutomationControlType {
+    pub const Button: AutomationControlType = AutomationControlType(0i32);
+    pub const Calendar: AutomationControlType = AutomationControlType(1i32);
+    pub const CheckBox: AutomationControlType = AutomationControlType(2i32);
+    pub const ComboBox: AutomationControlType = AutomationControlType(3i32);
+    pub const Edit: AutomationControlType = AutomationControlType(4i32);
+    pub const Hyperlink: AutomationControlType = AutomationControlType(5i32);
+    pub const Image: AutomationControlType = AutomationControlType(6i32);
+    pub const ListItem: AutomationControlType = AutomationControlType(7i32);
+    pub const List: AutomationControlType = AutomationControlType(8i32);
+    pub const Menu: AutomationControlType = AutomationControlType(9i32);
+    pub const MenuBar: AutomationControlType = AutomationControlType(10i32);
+    pub const MenuItem: AutomationControlType = AutomationControlType(11i32);
+    pub const ProgressBar: AutomationControlType = AutomationControlType(12i32);
+    pub const RadioButton: AutomationControlType = AutomationControlType(13i32);
+    pub const ScrollBar: AutomationControlType = AutomationControlType(14i32);
+    pub const Slider: AutomationControlType = AutomationControlType(15i32);
+    pub const Spinner: AutomationControlType = AutomationControlType(16i32);
+    pub const StatusBar: AutomationControlType = AutomationControlType(17i32);
+    pub const Tab: AutomationControlType = AutomationControlType(18i32);
+    pub const TabItem: AutomationControlType = AutomationControlType(19i32);
+    pub const Text: AutomationControlType = AutomationControlType(20i32);
+    pub const ToolBar: AutomationControlType = AutomationControlType(21i32);
+    pub const ToolTip: AutomationControlType = AutomationControlType(22i32);
+    pub const Tree: AutomationControlType = AutomationControlType(23i32);
+    pub const TreeItem: AutomationControlType = AutomationControlType(24i32);
+    pub const Custom: AutomationControlType = AutomationControlType(25i32);
+    pub const Group: AutomationControlType = AutomationControlType(26i32);
+    pub const Thumb: AutomationControlType = AutomationControlType(27i32);
+    pub const DataGrid: AutomationControlType = AutomationControlType(28i32);
+    pub const DataItem: AutomationControlType = AutomationControlType(29i32);
+    pub const Document: AutomationControlType = AutomationControlType(30i32);
+    pub const SplitButton: AutomationControlType = AutomationControlType(31i32);
+    pub const Window: AutomationControlType = AutomationControlType(32i32);
+    pub const Pane: AutomationControlType = AutomationControlType(33i32);
+    pub const Header: AutomationControlType = AutomationControlType(34i32);
+    pub const HeaderItem: AutomationControlType = AutomationControlType(35i32);
+    pub const Table: AutomationControlType = AutomationControlType(36i32);
+    pub const TitleBar: AutomationControlType = AutomationControlType(37i32);
+    pub const Separator: AutomationControlType = AutomationControlType(38i32);
+    pub const SemanticZoom: AutomationControlType = AutomationControlType(39i32);
+    pub const AppBar: AutomationControlType = AutomationControlType(40i32);
+}
+#[repr(transparent)]
+pub struct AutomationEvents(pub i32);
+impl AutomationEvents {
+    pub const ToolTipOpened: AutomationEvents = AutomationEvents(0i32);
+    pub const ToolTipClosed: AutomationEvents = AutomationEvents(1i32);
+    pub const MenuOpened: AutomationEvents = AutomationEvents(2i32);
+    pub const MenuClosed: AutomationEvents = AutomationEvents(3i32);
+    pub const AutomationFocusChanged: AutomationEvents = AutomationEvents(4i32);
+    pub const InvokePatternOnInvoked: AutomationEvents = AutomationEvents(5i32);
+    pub const SelectionItemPatternOnElementAddedToSelection: AutomationEvents = AutomationEvents(6i32);
+    pub const SelectionItemPatternOnElementRemovedFromSelection: AutomationEvents = AutomationEvents(7i32);
+    pub const SelectionItemPatternOnElementSelected: AutomationEvents = AutomationEvents(8i32);
+    pub const SelectionPatternOnInvalidated: AutomationEvents = AutomationEvents(9i32);
+    pub const TextPatternOnTextSelectionChanged: AutomationEvents = AutomationEvents(10i32);
+    pub const TextPatternOnTextChanged: AutomationEvents = AutomationEvents(11i32);
+    pub const AsyncContentLoaded: AutomationEvents = AutomationEvents(12i32);
+    pub const PropertyChanged: AutomationEvents = AutomationEvents(13i32);
+    pub const StructureChanged: AutomationEvents = AutomationEvents(14i32);
+    pub const DragStart: AutomationEvents = AutomationEvents(15i32);
+    pub const DragCancel: AutomationEvents = AutomationEvents(16i32);
+    pub const DragComplete: AutomationEvents = AutomationEvents(17i32);
+    pub const DragEnter: AutomationEvents = AutomationEvents(18i32);
+    pub const DragLeave: AutomationEvents = AutomationEvents(19i32);
+    pub const Dropped: AutomationEvents = AutomationEvents(20i32);
+    pub const LiveRegionChanged: AutomationEvents = AutomationEvents(21i32);
+    pub const InputReachedTarget: AutomationEvents = AutomationEvents(22i32);
+    pub const InputReachedOtherElement: AutomationEvents = AutomationEvents(23i32);
+    pub const InputDiscarded: AutomationEvents = AutomationEvents(24i32);
+    pub const WindowClosed: AutomationEvents = AutomationEvents(25i32);
+    pub const WindowOpened: AutomationEvents = AutomationEvents(26i32);
+    pub const ConversionTargetChanged: AutomationEvents = AutomationEvents(27i32);
+    pub const TextEditTextChanged: AutomationEvents = AutomationEvents(28i32);
+    pub const LayoutInvalidated: AutomationEvents = AutomationEvents(29i32);
+}
+#[repr(transparent)]
+pub struct AutomationHeadingLevel(pub i32);
+impl AutomationHeadingLevel {
+    pub const None: AutomationHeadingLevel = AutomationHeadingLevel(0i32);
+    pub const Level1: AutomationHeadingLevel = AutomationHeadingLevel(1i32);
+    pub const Level2: AutomationHeadingLevel = AutomationHeadingLevel(2i32);
+    pub const Level3: AutomationHeadingLevel = AutomationHeadingLevel(3i32);
+    pub const Level4: AutomationHeadingLevel = AutomationHeadingLevel(4i32);
+    pub const Level5: AutomationHeadingLevel = AutomationHeadingLevel(5i32);
+    pub const Level6: AutomationHeadingLevel = AutomationHeadingLevel(6i32);
+    pub const Level7: AutomationHeadingLevel = AutomationHeadingLevel(7i32);
+    pub const Level8: AutomationHeadingLevel = AutomationHeadingLevel(8i32);
+    pub const Level9: AutomationHeadingLevel = AutomationHeadingLevel(9i32);
+}
+#[repr(transparent)]
+pub struct AutomationLandmarkType(pub i32);
+impl AutomationLandmarkType {
+    pub const None: AutomationLandmarkType = AutomationLandmarkType(0i32);
+    pub const Custom: AutomationLandmarkType = AutomationLandmarkType(1i32);
+    pub const Form: AutomationLandmarkType = AutomationLandmarkType(2i32);
+    pub const Main: AutomationLandmarkType = AutomationLandmarkType(3i32);
+    pub const Navigation: AutomationLandmarkType = AutomationLandmarkType(4i32);
+    pub const Search: AutomationLandmarkType = AutomationLandmarkType(5i32);
+}
+#[repr(transparent)]
+pub struct AutomationLiveSetting(pub i32);
+impl AutomationLiveSetting {
+    pub const Off: AutomationLiveSetting = AutomationLiveSetting(0i32);
+    pub const Polite: AutomationLiveSetting = AutomationLiveSetting(1i32);
+    pub const Assertive: AutomationLiveSetting = AutomationLiveSetting(2i32);
+}
+#[repr(transparent)]
+pub struct AutomationNavigationDirection(pub i32);
+impl AutomationNavigationDirection {
+    pub const Parent: AutomationNavigationDirection = AutomationNavigationDirection(0i32);
+    pub const NextSibling: AutomationNavigationDirection = AutomationNavigationDirection(1i32);
+    pub const PreviousSibling: AutomationNavigationDirection = AutomationNavigationDirection(2i32);
+    pub const FirstChild: AutomationNavigationDirection = AutomationNavigationDirection(3i32);
+    pub const LastChild: AutomationNavigationDirection = AutomationNavigationDirection(4i32);
+}
+#[repr(transparent)]
+pub struct AutomationNotificationKind(pub i32);
+impl AutomationNotificationKind {
+    pub const ItemAdded: AutomationNotificationKind = AutomationNotificationKind(0i32);
+    pub const ItemRemoved: AutomationNotificationKind = AutomationNotificationKind(1i32);
+    pub const ActionCompleted: AutomationNotificationKind = AutomationNotificationKind(2i32);
+    pub const ActionAborted: AutomationNotificationKind = AutomationNotificationKind(3i32);
+    pub const Other: AutomationNotificationKind = AutomationNotificationKind(4i32);
+}
+#[repr(transparent)]
+pub struct AutomationNotificationProcessing(pub i32);
+impl AutomationNotificationProcessing {
+    pub const ImportantAll: AutomationNotificationProcessing = AutomationNotificationProcessing(0i32);
+    pub const ImportantMostRecent: AutomationNotificationProcessing = AutomationNotificationProcessing(1i32);
+    pub const All: AutomationNotificationProcessing = AutomationNotificationProcessing(2i32);
+    pub const MostRecent: AutomationNotificationProcessing = AutomationNotificationProcessing(3i32);
+    pub const CurrentThenMostRecent: AutomationNotificationProcessing = AutomationNotificationProcessing(4i32);
+}
+#[repr(transparent)]
+pub struct AutomationOrientation(pub i32);
+impl AutomationOrientation {
+    pub const None: AutomationOrientation = AutomationOrientation(0i32);
+    pub const Horizontal: AutomationOrientation = AutomationOrientation(1i32);
+    pub const Vertical: AutomationOrientation = AutomationOrientation(2i32);
+}
 #[repr(transparent)]
 pub struct AutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutomationPeerAnnotation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AutomationStructureChangeType(i32);
+#[repr(transparent)]
+pub struct AutomationStructureChangeType(pub i32);
+impl AutomationStructureChangeType {
+    pub const ChildAdded: AutomationStructureChangeType = AutomationStructureChangeType(0i32);
+    pub const ChildRemoved: AutomationStructureChangeType = AutomationStructureChangeType(1i32);
+    pub const ChildrenInvalidated: AutomationStructureChangeType = AutomationStructureChangeType(2i32);
+    pub const ChildrenBulkAdded: AutomationStructureChangeType = AutomationStructureChangeType(3i32);
+    pub const ChildrenBulkRemoved: AutomationStructureChangeType = AutomationStructureChangeType(4i32);
+    pub const ChildrenReordered: AutomationStructureChangeType = AutomationStructureChangeType(5i32);
+}
 #[repr(transparent)]
 pub struct ButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -527,8 +666,44 @@ pub struct MenuFlyoutPresenterAutomationPeer(pub *mut ::core::ffi::c_void);
 pub struct NavigationViewItemAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PasswordBoxAutomationPeer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PatternInterface(i32);
+#[repr(transparent)]
+pub struct PatternInterface(pub i32);
+impl PatternInterface {
+    pub const Invoke: PatternInterface = PatternInterface(0i32);
+    pub const Selection: PatternInterface = PatternInterface(1i32);
+    pub const Value: PatternInterface = PatternInterface(2i32);
+    pub const RangeValue: PatternInterface = PatternInterface(3i32);
+    pub const Scroll: PatternInterface = PatternInterface(4i32);
+    pub const ScrollItem: PatternInterface = PatternInterface(5i32);
+    pub const ExpandCollapse: PatternInterface = PatternInterface(6i32);
+    pub const Grid: PatternInterface = PatternInterface(7i32);
+    pub const GridItem: PatternInterface = PatternInterface(8i32);
+    pub const MultipleView: PatternInterface = PatternInterface(9i32);
+    pub const Window: PatternInterface = PatternInterface(10i32);
+    pub const SelectionItem: PatternInterface = PatternInterface(11i32);
+    pub const Dock: PatternInterface = PatternInterface(12i32);
+    pub const Table: PatternInterface = PatternInterface(13i32);
+    pub const TableItem: PatternInterface = PatternInterface(14i32);
+    pub const Toggle: PatternInterface = PatternInterface(15i32);
+    pub const Transform: PatternInterface = PatternInterface(16i32);
+    pub const Text: PatternInterface = PatternInterface(17i32);
+    pub const ItemContainer: PatternInterface = PatternInterface(18i32);
+    pub const VirtualizedItem: PatternInterface = PatternInterface(19i32);
+    pub const Text2: PatternInterface = PatternInterface(20i32);
+    pub const TextChild: PatternInterface = PatternInterface(21i32);
+    pub const TextRange: PatternInterface = PatternInterface(22i32);
+    pub const Annotation: PatternInterface = PatternInterface(23i32);
+    pub const Drag: PatternInterface = PatternInterface(24i32);
+    pub const DropTarget: PatternInterface = PatternInterface(25i32);
+    pub const ObjectModel: PatternInterface = PatternInterface(26i32);
+    pub const Spreadsheet: PatternInterface = PatternInterface(27i32);
+    pub const SpreadsheetItem: PatternInterface = PatternInterface(28i32);
+    pub const Styles: PatternInterface = PatternInterface(29i32);
+    pub const Transform2: PatternInterface = PatternInterface(30i32);
+    pub const SynchronizedInput: PatternInterface = PatternInterface(31i32);
+    pub const TextEdit: PatternInterface = PatternInterface(32i32);
+    pub const CustomNavigation: PatternInterface = PatternInterface(33i32);
+}
 #[repr(transparent)]
 pub struct PersonPictureAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

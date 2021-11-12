@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -33,7 +33,14 @@ pub struct PushNotificationChannelManagerForUser(pub *mut ::core::ffi::c_void);
 pub struct PushNotificationChannelsRevokedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PushNotificationReceivedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PushNotificationType(i32);
+#[repr(transparent)]
+pub struct PushNotificationType(pub i32);
+impl PushNotificationType {
+    pub const Toast: PushNotificationType = PushNotificationType(0i32);
+    pub const Tile: PushNotificationType = PushNotificationType(1i32);
+    pub const Badge: PushNotificationType = PushNotificationType(2i32);
+    pub const Raw: PushNotificationType = PushNotificationType(3i32);
+    pub const TileFlyout: PushNotificationType = PushNotificationType(4i32);
+}
 #[repr(transparent)]
 pub struct RawNotification(pub *mut ::core::ffi::c_void);

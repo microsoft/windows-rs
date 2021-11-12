@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "System_Diagnostics_DevicePortal")]
 pub mod DevicePortal;
 #[cfg(feature = "System_Diagnostics_Telemetry")]
@@ -9,8 +9,17 @@ pub mod TraceReporting;
 extern "system" {}
 #[repr(transparent)]
 pub struct DiagnosticActionResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DiagnosticActionState(i32);
+#[repr(transparent)]
+pub struct DiagnosticActionState(pub i32);
+impl DiagnosticActionState {
+    pub const Initializing: DiagnosticActionState = DiagnosticActionState(0i32);
+    pub const Downloading: DiagnosticActionState = DiagnosticActionState(1i32);
+    pub const VerifyingTrust: DiagnosticActionState = DiagnosticActionState(2i32);
+    pub const Detecting: DiagnosticActionState = DiagnosticActionState(3i32);
+    pub const Resolving: DiagnosticActionState = DiagnosticActionState(4i32);
+    pub const VerifyingResolution: DiagnosticActionState = DiagnosticActionState(5i32);
+    pub const Executing: DiagnosticActionState = DiagnosticActionState(6i32);
+}
 #[repr(transparent)]
 pub struct DiagnosticInvoker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

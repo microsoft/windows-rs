@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1619151692, data2: 61137, data3: 19612, data4: [180, 156, 27, 150, 20, 97, 168, 25] };
@@ -41,5 +41,7 @@ pub struct PWM_PIN_IS_STARTED_OUTPUT(i32);
 pub struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT(i32);
 #[repr(C)]
 pub struct PWM_PIN_SET_POLARITY_INPUT(i32);
-#[repr(C)]
-pub struct PWM_POLARITY(i32);
+#[repr(transparent)]
+pub struct PWM_POLARITY(pub i32);
+pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);
+pub const PWM_ACTIVE_LOW: PWM_POLARITY = PWM_POLARITY(1i32);

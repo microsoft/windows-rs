@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -12,7 +12,9 @@ extern "system" {
 }
 #[repr(C)]
 pub struct HARDWARE_COUNTER_DATA(i32);
-#[repr(C)]
-pub struct HARDWARE_COUNTER_TYPE(i32);
+#[repr(transparent)]
+pub struct HARDWARE_COUNTER_TYPE(pub i32);
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
 #[repr(C)]
 pub struct PERFORMANCE_DATA(i32);

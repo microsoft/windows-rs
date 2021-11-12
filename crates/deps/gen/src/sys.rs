@@ -72,7 +72,44 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
-    quote! { #[repr(C)] pub struct #name(i32); }
+    let underlying_type = def.underlying_type();
+    let underlying_type = gen_name(&underlying_type, gen);
+
+    let fields = def.fields().filter_map(|field| {
+        if field.is_literal() {
+            let field_name = to_ident(field.name());
+
+            if let Some(constant) = field.constant() {
+                let value = gen_constant_value(&constant.value());
+
+                Some(quote! {
+                    pub const #field_name: #name = #name(#value);
+                })
+            } else {
+                panic!("no constant");
+            }
+        } else {
+            None
+        }
+    });
+
+    let fields = if def.is_scoped() {
+        quote! {
+            impl #name {
+                #(#fields)*
+            }
+        }
+    } else {
+        quote! {
+            #(#fields)*
+        }
+    };
+
+    quote! {
+        #[repr(transparent)]
+        pub struct #name(pub #underlying_type);
+        #fields
+    }
 }
 
 fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {

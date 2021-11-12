@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "Devices_Input_Preview")]
 pub mod Preview;
 #[link(name = "windows")]
@@ -73,8 +73,13 @@ pub struct PenTailButtonLongPressedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct PenUndockedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PointerDevice(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PointerDeviceType(i32);
+#[repr(transparent)]
+pub struct PointerDeviceType(pub i32);
+impl PointerDeviceType {
+    pub const Touch: PointerDeviceType = PointerDeviceType(0i32);
+    pub const Pen: PointerDeviceType = PointerDeviceType(1i32);
+    pub const Mouse: PointerDeviceType = PointerDeviceType(2i32);
+}
 #[repr(C)]
 pub struct PointerDeviceUsage(i32);
 #[repr(transparent)]

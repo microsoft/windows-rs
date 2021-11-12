@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -71,8 +71,30 @@ pub struct MidiControlChangeMessage(pub *mut ::core::ffi::c_void);
 pub struct MidiInPort(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MidiMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MidiMessageType(i32);
+#[repr(transparent)]
+pub struct MidiMessageType(pub i32);
+impl MidiMessageType {
+    pub const None: MidiMessageType = MidiMessageType(0i32);
+    pub const NoteOff: MidiMessageType = MidiMessageType(128i32);
+    pub const NoteOn: MidiMessageType = MidiMessageType(144i32);
+    pub const PolyphonicKeyPressure: MidiMessageType = MidiMessageType(160i32);
+    pub const ControlChange: MidiMessageType = MidiMessageType(176i32);
+    pub const ProgramChange: MidiMessageType = MidiMessageType(192i32);
+    pub const ChannelPressure: MidiMessageType = MidiMessageType(208i32);
+    pub const PitchBendChange: MidiMessageType = MidiMessageType(224i32);
+    pub const SystemExclusive: MidiMessageType = MidiMessageType(240i32);
+    pub const MidiTimeCode: MidiMessageType = MidiMessageType(241i32);
+    pub const SongPositionPointer: MidiMessageType = MidiMessageType(242i32);
+    pub const SongSelect: MidiMessageType = MidiMessageType(243i32);
+    pub const TuneRequest: MidiMessageType = MidiMessageType(246i32);
+    pub const EndSystemExclusive: MidiMessageType = MidiMessageType(247i32);
+    pub const TimingClock: MidiMessageType = MidiMessageType(248i32);
+    pub const Start: MidiMessageType = MidiMessageType(250i32);
+    pub const Continue: MidiMessageType = MidiMessageType(251i32);
+    pub const Stop: MidiMessageType = MidiMessageType(252i32);
+    pub const ActiveSensing: MidiMessageType = MidiMessageType(254i32);
+    pub const SystemReset: MidiMessageType = MidiMessageType(255i32);
+}
 #[repr(transparent)]
 pub struct MidiNoteOffMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

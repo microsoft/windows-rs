@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -6,8 +6,10 @@ extern "system" {
     pub fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows_sys::core::HRESULT;
     pub fn UninitLocalMsCtfMonitor() -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct ANCHOR_CHANGE_HISTORY_FLAGS(i32);
+#[repr(transparent)]
+pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
+pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
+pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
 #[repr(C)]
 pub struct AccClientDocMgr(i32);
 #[repr(C)]
@@ -60,8 +62,10 @@ pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 #[repr(C)]
 pub struct DocWrap(i32);
-#[repr(C)]
-pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(i32);
+#[repr(transparent)]
+pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
+pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
+pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
 pub const GUID_APP_FUNCTIONPROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1286533150, data2: 4783, data3: 19214, data4: [157, 177, 166, 236, 91, 136, 18, 8] };
 pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1419244822, data2: 61073, data3: 17262, data4: [185, 70, 170, 44, 5, 241, 172, 91] };
 pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -316,8 +320,11 @@ pub struct IEnumTfUIElements(pub *mut ::core::ffi::c_void);
 pub struct IInternalDocWrap(pub *mut ::core::ffi::c_void);
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
-#[repr(C)]
-pub struct INSERT_TEXT_AT_SELECTION_FLAGS(i32);
+#[repr(transparent)]
+pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
+pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
+pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
+pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
 #[repr(transparent)]
 pub struct ISpeechCommandProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -578,10 +585,86 @@ pub struct ITfUIElementSink(pub *mut ::core::ffi::c_void);
 pub struct IUIManagerEventSink(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVersionInfo(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InputScope(i32);
-#[repr(C)]
-pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(i32);
+#[repr(transparent)]
+pub struct InputScope(pub i32);
+pub const IS_DEFAULT: InputScope = InputScope(0i32);
+pub const IS_URL: InputScope = InputScope(1i32);
+pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
+pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
+pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
+pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
+pub const IS_LOGINNAME: InputScope = InputScope(6i32);
+pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
+pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
+pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
+pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
+pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
+pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
+pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
+pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
+pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
+pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
+pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
+pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
+pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
+pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
+pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
+pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
+pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
+pub const IS_DATE_DAY: InputScope = InputScope(24i32);
+pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
+pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
+pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
+pub const IS_DIGITS: InputScope = InputScope(28i32);
+pub const IS_NUMBER: InputScope = InputScope(29i32);
+pub const IS_ONECHAR: InputScope = InputScope(30i32);
+pub const IS_PASSWORD: InputScope = InputScope(31i32);
+pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
+pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
+pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
+pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
+pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
+pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
+pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
+pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
+pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
+pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
+pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
+pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
+pub const IS_HIRAGANA: InputScope = InputScope(44i32);
+pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
+pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
+pub const IS_HANJA: InputScope = InputScope(47i32);
+pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
+pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
+pub const IS_SEARCH: InputScope = InputScope(50i32);
+pub const IS_FORMULA: InputScope = InputScope(51i32);
+pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
+pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
+pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
+pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
+pub const IS_YOMI: InputScope = InputScope(56i32);
+pub const IS_TEXT: InputScope = InputScope(57i32);
+pub const IS_CHAT: InputScope = InputScope(58i32);
+pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
+pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
+pub const IS_PRIVATE: InputScope = InputScope(61i32);
+pub const IS_MAPS: InputScope = InputScope(62i32);
+pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
+pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
+pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
+pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
+pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
+pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
+pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
+pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
+pub const IS_SRGS: InputScope = InputScope(-3i32);
+pub const IS_XML: InputScope = InputScope(-4i32);
+pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
+#[repr(transparent)]
+pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
+pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
+pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
 pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 353250682,
     data2: 56001,
@@ -590,12 +673,18 @@ pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 #[repr(C)]
 pub struct MSAAControl(i32);
-#[repr(C)]
-pub struct TEXT_STORE_CHANGE_FLAGS(i32);
-#[repr(C)]
-pub struct TEXT_STORE_LOCK_FLAGS(i32);
-#[repr(C)]
-pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(i32);
+#[repr(transparent)]
+pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
+pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
+pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
+#[repr(transparent)]
+pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
+pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
+pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(6u32);
+#[repr(transparent)]
+pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
+pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
+pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(1u32);
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
 pub const TF_CLUIE_COUNT: u32 = 2u32;
 pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
@@ -605,8 +694,13 @@ pub const TF_CLUIE_SELECTION: u32 = 4u32;
 pub const TF_CLUIE_STRING: u32 = 8u32;
 pub const TF_COMMANDING_ENABLED: u32 = 4u32;
 pub const TF_COMMANDING_ON: u32 = 8u32;
-#[repr(C)]
-pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(i32);
+#[repr(transparent)]
+pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
+pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
+pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
+pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
+pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
+pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
 pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
 pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
@@ -618,14 +712,29 @@ pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
 pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
 pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
-#[repr(C)]
-pub struct TF_DA_ATTR_INFO(i32);
+#[repr(transparent)]
+pub struct TF_DA_ATTR_INFO(pub i32);
+pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
+pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
+pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
+pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
+pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
+pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
+pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
 #[repr(C)]
 pub struct TF_DA_COLOR(i32);
-#[repr(C)]
-pub struct TF_DA_COLORTYPE(i32);
-#[repr(C)]
-pub struct TF_DA_LINESTYLE(i32);
+#[repr(transparent)]
+pub struct TF_DA_COLORTYPE(pub i32);
+pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
+pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
+pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
+#[repr(transparent)]
+pub struct TF_DA_LINESTYLE(pub i32);
+pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
+pub const TF_LS_SOLID: TF_DA_LINESTYLE = TF_DA_LINESTYLE(1i32);
+pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
+pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
+pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(4i32);
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
 pub const TF_DICTATION_ON: u32 = 1u32;
 pub const TF_DISABLE_BALLOON: u32 = 2u32;
@@ -878,8 +987,11 @@ pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
 pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
 pub const TKBL_UNDEFINED: u32 = 0u32;
-#[repr(C)]
-pub struct TKBLayoutType(i32);
+#[repr(transparent)]
+pub struct TKBLayoutType(pub i32);
+pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
+pub const TKBLT_CLASSIC: TKBLayoutType = TKBLayoutType(1i32);
+pub const TKBLT_OPTIMIZED: TKBLayoutType = TKBLayoutType(2i32);
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
@@ -1283,33 +1395,74 @@ pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESUL
 #[repr(C)]
 pub struct TS_TEXTCHANGE(i32);
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
-#[repr(C)]
-pub struct TfActiveSelEnd(i32);
-#[repr(C)]
-pub struct TfAnchor(i32);
-#[repr(C)]
-pub struct TfCandidateResult(i32);
-#[repr(C)]
-pub struct TfGravity(i32);
-#[repr(C)]
-pub struct TfIntegratableCandidateListSelectionStyle(i32);
-#[repr(C)]
-pub struct TfLBBalloonStyle(i32);
-#[repr(C)]
-pub struct TfLBIClick(i32);
-#[repr(C)]
-pub struct TfLayoutCode(i32);
-#[repr(C)]
-pub struct TfSapiObject(i32);
-#[repr(C)]
-pub struct TfShiftDir(i32);
-#[repr(C)]
-pub struct TsActiveSelEnd(i32);
-#[repr(C)]
-pub struct TsGravity(i32);
-#[repr(C)]
-pub struct TsLayoutCode(i32);
-#[repr(C)]
-pub struct TsRunType(i32);
-#[repr(C)]
-pub struct TsShiftDir(i32);
+#[repr(transparent)]
+pub struct TfActiveSelEnd(pub i32);
+pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
+pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
+pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
+#[repr(transparent)]
+pub struct TfAnchor(pub i32);
+pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
+pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
+#[repr(transparent)]
+pub struct TfCandidateResult(pub i32);
+pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
+pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
+pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
+#[repr(transparent)]
+pub struct TfGravity(pub i32);
+pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
+pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
+#[repr(transparent)]
+pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
+pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
+pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
+#[repr(transparent)]
+pub struct TfLBBalloonStyle(pub i32);
+pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
+pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
+pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = TfLBBalloonStyle(2i32);
+#[repr(transparent)]
+pub struct TfLBIClick(pub i32);
+pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
+pub const TF_LBI_CLK_LEFT: TfLBIClick = TfLBIClick(2i32);
+#[repr(transparent)]
+pub struct TfLayoutCode(pub i32);
+pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
+pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
+pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
+#[repr(transparent)]
+pub struct TfSapiObject(pub i32);
+pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
+pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
+pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
+pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
+pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
+pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
+#[repr(transparent)]
+pub struct TfShiftDir(pub i32);
+pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
+pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
+#[repr(transparent)]
+pub struct TsActiveSelEnd(pub i32);
+pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
+pub const TS_AE_START: TsActiveSelEnd = TsActiveSelEnd(1i32);
+pub const TS_AE_END: TsActiveSelEnd = TsActiveSelEnd(2i32);
+#[repr(transparent)]
+pub struct TsGravity(pub i32);
+pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
+pub const TS_GR_FORWARD: TsGravity = TsGravity(1i32);
+#[repr(transparent)]
+pub struct TsLayoutCode(pub i32);
+pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
+pub const TS_LC_CHANGE: TsLayoutCode = TsLayoutCode(1i32);
+pub const TS_LC_DESTROY: TsLayoutCode = TsLayoutCode(2i32);
+#[repr(transparent)]
+pub struct TsRunType(pub i32);
+pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
+pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
+pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
+#[repr(transparent)]
+pub struct TsShiftDir(pub i32);
+pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
+pub const TS_SD_FORWARD: TsShiftDir = TsShiftDir(1i32);

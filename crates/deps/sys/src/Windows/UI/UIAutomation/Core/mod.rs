@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
@@ -7,8 +7,15 @@ pub struct AutomationAnnotationTypeRegistration(i32);
 pub struct AutomationRemoteOperationOperandId(i32);
 #[repr(transparent)]
 pub struct AutomationRemoteOperationResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AutomationRemoteOperationStatus(i32);
+#[repr(transparent)]
+pub struct AutomationRemoteOperationStatus(pub i32);
+impl AutomationRemoteOperationStatus {
+    pub const Success: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(0i32);
+    pub const MalformedBytecode: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(1i32);
+    pub const InstructionLimitExceeded: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(2i32);
+    pub const UnhandledException: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(3i32);
+    pub const ExecutionFailure: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(4i32);
+}
 #[repr(transparent)]
 pub struct CoreAutomationRemoteOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

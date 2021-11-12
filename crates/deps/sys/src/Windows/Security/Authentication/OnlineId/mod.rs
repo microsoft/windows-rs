@@ -1,8 +1,13 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct CredentialPromptType(i32);
+#[repr(transparent)]
+pub struct CredentialPromptType(pub i32);
+impl CredentialPromptType {
+    pub const PromptIfNeeded: CredentialPromptType = CredentialPromptType(0i32);
+    pub const RetypeCredentials: CredentialPromptType = CredentialPromptType(1i32);
+    pub const DoNotPrompt: CredentialPromptType = CredentialPromptType(2i32);
+}
 #[repr(transparent)]
 pub struct IOnlineIdAuthenticator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -33,8 +38,13 @@ pub struct OnlineIdSystemAuthenticatorForUser(pub *mut ::core::ffi::c_void);
 pub struct OnlineIdSystemIdentity(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct OnlineIdSystemTicketStatus(i32);
+#[repr(transparent)]
+pub struct OnlineIdSystemTicketStatus(pub i32);
+impl OnlineIdSystemTicketStatus {
+    pub const Success: OnlineIdSystemTicketStatus = OnlineIdSystemTicketStatus(0i32);
+    pub const Error: OnlineIdSystemTicketStatus = OnlineIdSystemTicketStatus(1i32);
+    pub const ServiceConnectionError: OnlineIdSystemTicketStatus = OnlineIdSystemTicketStatus(2i32);
+}
 #[repr(transparent)]
 pub struct SignOutUserOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

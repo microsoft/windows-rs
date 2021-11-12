@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -9,22 +9,61 @@ pub struct AppInstallManager(pub *mut ::core::ffi::c_void);
 pub struct AppInstallManagerItemEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppInstallOptions(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppInstallState(i32);
+#[repr(transparent)]
+pub struct AppInstallState(pub i32);
+impl AppInstallState {
+    pub const Pending: AppInstallState = AppInstallState(0i32);
+    pub const Starting: AppInstallState = AppInstallState(1i32);
+    pub const AcquiringLicense: AppInstallState = AppInstallState(2i32);
+    pub const Downloading: AppInstallState = AppInstallState(3i32);
+    pub const RestoringData: AppInstallState = AppInstallState(4i32);
+    pub const Installing: AppInstallState = AppInstallState(5i32);
+    pub const Completed: AppInstallState = AppInstallState(6i32);
+    pub const Canceled: AppInstallState = AppInstallState(7i32);
+    pub const Paused: AppInstallState = AppInstallState(8i32);
+    pub const Error: AppInstallState = AppInstallState(9i32);
+    pub const PausedLowBattery: AppInstallState = AppInstallState(10i32);
+    pub const PausedWiFiRecommended: AppInstallState = AppInstallState(11i32);
+    pub const PausedWiFiRequired: AppInstallState = AppInstallState(12i32);
+    pub const ReadyToDownload: AppInstallState = AppInstallState(13i32);
+}
 #[repr(transparent)]
 pub struct AppInstallStatus(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppInstallType(i32);
-#[repr(C)]
-pub struct AppInstallationToastNotificationMode(i32);
+#[repr(transparent)]
+pub struct AppInstallType(pub i32);
+impl AppInstallType {
+    pub const Install: AppInstallType = AppInstallType(0i32);
+    pub const Update: AppInstallType = AppInstallType(1i32);
+    pub const Repair: AppInstallType = AppInstallType(2i32);
+}
+#[repr(transparent)]
+pub struct AppInstallationToastNotificationMode(pub i32);
+impl AppInstallationToastNotificationMode {
+    pub const Default: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(0i32);
+    pub const Toast: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(1i32);
+    pub const ToastWithoutPopup: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(2i32);
+    pub const NoToast: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(3i32);
+}
 #[repr(transparent)]
 pub struct AppUpdateOptions(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AutoUpdateSetting(i32);
+#[repr(transparent)]
+pub struct AutoUpdateSetting(pub i32);
+impl AutoUpdateSetting {
+    pub const Disabled: AutoUpdateSetting = AutoUpdateSetting(0i32);
+    pub const Enabled: AutoUpdateSetting = AutoUpdateSetting(1i32);
+    pub const DisabledByPolicy: AutoUpdateSetting = AutoUpdateSetting(2i32);
+    pub const EnabledByPolicy: AutoUpdateSetting = AutoUpdateSetting(3i32);
+}
 #[repr(transparent)]
 pub struct GetEntitlementResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GetEntitlementStatus(i32);
+#[repr(transparent)]
+pub struct GetEntitlementStatus(pub i32);
+impl GetEntitlementStatus {
+    pub const Succeeded: GetEntitlementStatus = GetEntitlementStatus(0i32);
+    pub const NoStoreAccount: GetEntitlementStatus = GetEntitlementStatus(1i32);
+    pub const NetworkError: GetEntitlementStatus = GetEntitlementStatus(2i32);
+    pub const ServerError: GetEntitlementStatus = GetEntitlementStatus(3i32);
+}
 #[repr(transparent)]
 pub struct IAppInstallItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

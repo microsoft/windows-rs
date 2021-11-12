@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "ApplicationModel_Payments_Provider")]
 pub mod Provider;
 #[link(name = "windows")]
@@ -69,8 +69,17 @@ pub struct IPaymentTokenFactory(pub *mut ::core::ffi::c_void);
 pub struct PaymentAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PaymentCanMakePaymentResultStatus(i32);
+#[repr(transparent)]
+pub struct PaymentCanMakePaymentResultStatus(pub i32);
+impl PaymentCanMakePaymentResultStatus {
+    pub const Unknown: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(0i32);
+    pub const Yes: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(1i32);
+    pub const No: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(2i32);
+    pub const NotAllowed: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(3i32);
+    pub const UserNotSignedIn: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(4i32);
+    pub const SpecifiedPaymentMethodIdsNotSupported: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(5i32);
+    pub const NoQualifyingCardOnFile: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(6i32);
+}
 #[repr(transparent)]
 pub struct PaymentCurrencyAmount(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -85,31 +94,55 @@ pub struct PaymentMediator(pub *mut ::core::ffi::c_void);
 pub struct PaymentMerchantInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentMethodData(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PaymentOptionPresence(i32);
+#[repr(transparent)]
+pub struct PaymentOptionPresence(pub i32);
+impl PaymentOptionPresence {
+    pub const None: PaymentOptionPresence = PaymentOptionPresence(0i32);
+    pub const Optional: PaymentOptionPresence = PaymentOptionPresence(1i32);
+    pub const Required: PaymentOptionPresence = PaymentOptionPresence(2i32);
+}
 #[repr(transparent)]
 pub struct PaymentOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentRequest(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PaymentRequestChangeKind(i32);
+#[repr(transparent)]
+pub struct PaymentRequestChangeKind(pub i32);
+impl PaymentRequestChangeKind {
+    pub const ShippingOption: PaymentRequestChangeKind = PaymentRequestChangeKind(0i32);
+    pub const ShippingAddress: PaymentRequestChangeKind = PaymentRequestChangeKind(1i32);
+}
 #[repr(transparent)]
 pub struct PaymentRequestChangedArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentRequestChangedHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentRequestChangedResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PaymentRequestCompletionStatus(i32);
-#[repr(C)]
-pub struct PaymentRequestStatus(i32);
+#[repr(transparent)]
+pub struct PaymentRequestCompletionStatus(pub i32);
+impl PaymentRequestCompletionStatus {
+    pub const Succeeded: PaymentRequestCompletionStatus = PaymentRequestCompletionStatus(0i32);
+    pub const Failed: PaymentRequestCompletionStatus = PaymentRequestCompletionStatus(1i32);
+    pub const Unknown: PaymentRequestCompletionStatus = PaymentRequestCompletionStatus(2i32);
+}
+#[repr(transparent)]
+pub struct PaymentRequestStatus(pub i32);
+impl PaymentRequestStatus {
+    pub const Succeeded: PaymentRequestStatus = PaymentRequestStatus(0i32);
+    pub const Failed: PaymentRequestStatus = PaymentRequestStatus(1i32);
+    pub const Canceled: PaymentRequestStatus = PaymentRequestStatus(2i32);
+}
 #[repr(transparent)]
 pub struct PaymentRequestSubmitResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentResponse(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentShippingOption(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PaymentShippingType(i32);
+#[repr(transparent)]
+pub struct PaymentShippingType(pub i32);
+impl PaymentShippingType {
+    pub const Shipping: PaymentShippingType = PaymentShippingType(0i32);
+    pub const Delivery: PaymentShippingType = PaymentShippingType(1i32);
+    pub const Pickup: PaymentShippingType = PaymentShippingType(2i32);
+}
 #[repr(transparent)]
 pub struct PaymentToken(pub *mut ::core::ffi::c_void);

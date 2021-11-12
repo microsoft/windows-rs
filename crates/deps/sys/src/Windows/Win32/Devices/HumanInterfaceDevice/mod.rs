@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -1876,8 +1876,26 @@ pub const DI_SETTINGSNOTSAVED: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const DI_TRUNCATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(8i32 as _);
 pub const DI_TRUNCATEDANDRESTARTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(12i32 as _);
 pub const DI_WRITEPROTECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(19i32 as _);
-#[repr(C)]
-pub struct GPIOBUTTONS_BUTTON_TYPE(i32);
+#[repr(transparent)]
+pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
+pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
+pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(1i32);
+pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(2i32);
+pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(3i32);
+pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(4i32);
+pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
+pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(6i32);
+pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(7i32);
+pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(8i32);
+pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(9i32);
+pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(10i32);
+pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(11i32);
+pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(12i32);
+pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(13i32);
+pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(14i32);
+pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
+pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
+pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
 pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830384, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279328, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
 pub const GUID_CustomForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279339, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
@@ -1939,14 +1957,19 @@ pub struct HIDP_CAPS(i32);
 pub struct HIDP_DATA(i32);
 #[repr(C)]
 pub struct HIDP_EXTENDED_ATTRIBUTES(i32);
-#[repr(C)]
-pub struct HIDP_KEYBOARD_DIRECTION(i32);
+#[repr(transparent)]
+pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
+pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
+pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
 #[repr(C)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE(i32);
 #[repr(C)]
 pub struct HIDP_LINK_COLLECTION_NODE(i32);
-#[repr(C)]
-pub struct HIDP_REPORT_TYPE(i32);
+#[repr(transparent)]
+pub struct HIDP_REPORT_TYPE(pub i32);
+pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
+pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
+pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
 #[repr(C)]
 pub struct HIDP_UNKNOWN_TOKEN(i32);
 #[cfg(feature = "Win32_Foundation")]

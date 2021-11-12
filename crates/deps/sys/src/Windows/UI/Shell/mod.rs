@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -19,18 +19,36 @@ pub struct ITaskbarManager(pub *mut ::core::ffi::c_void);
 pub struct ITaskbarManager2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITaskbarManagerStatics(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SecurityAppKind(i32);
+#[repr(transparent)]
+pub struct SecurityAppKind(pub i32);
+impl SecurityAppKind {
+    pub const WebProtection: SecurityAppKind = SecurityAppKind(0i32);
+}
 #[repr(transparent)]
 pub struct SecurityAppManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SecurityAppManagerContract(i32);
-#[repr(C)]
-pub struct SecurityAppState(i32);
-#[repr(C)]
-pub struct SecurityAppSubstatus(i32);
-#[repr(C)]
-pub struct ShareWindowCommand(i32);
+#[repr(transparent)]
+pub struct SecurityAppState(pub i32);
+impl SecurityAppState {
+    pub const Disabled: SecurityAppState = SecurityAppState(0i32);
+    pub const Enabled: SecurityAppState = SecurityAppState(1i32);
+}
+#[repr(transparent)]
+pub struct SecurityAppSubstatus(pub i32);
+impl SecurityAppSubstatus {
+    pub const Undetermined: SecurityAppSubstatus = SecurityAppSubstatus(0i32);
+    pub const NoActionNeeded: SecurityAppSubstatus = SecurityAppSubstatus(1i32);
+    pub const ActionRecommended: SecurityAppSubstatus = SecurityAppSubstatus(2i32);
+    pub const ActionNeeded: SecurityAppSubstatus = SecurityAppSubstatus(3i32);
+}
+#[repr(transparent)]
+pub struct ShareWindowCommand(pub i32);
+impl ShareWindowCommand {
+    pub const None: ShareWindowCommand = ShareWindowCommand(0i32);
+    pub const StartSharing: ShareWindowCommand = ShareWindowCommand(1i32);
+    pub const StopSharing: ShareWindowCommand = ShareWindowCommand(2i32);
+}
 #[repr(transparent)]
 pub struct ShareWindowCommandEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

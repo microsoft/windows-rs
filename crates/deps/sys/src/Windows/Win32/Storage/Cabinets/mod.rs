@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -33,25 +33,59 @@ pub struct CCAB(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ERF(i32);
-#[repr(C)]
-pub struct FCIERROR(i32);
+#[repr(transparent)]
+pub struct FCIERROR(pub i32);
+pub const FCIERR_NONE: FCIERROR = FCIERROR(0i32);
+pub const FCIERR_OPEN_SRC: FCIERROR = FCIERROR(1i32);
+pub const FCIERR_READ_SRC: FCIERROR = FCIERROR(2i32);
+pub const FCIERR_ALLOC_FAIL: FCIERROR = FCIERROR(3i32);
+pub const FCIERR_TEMP_FILE: FCIERROR = FCIERROR(4i32);
+pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = FCIERROR(5i32);
+pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6i32);
+pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
+pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8i32);
+pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FDICABINETINFO(i32);
-#[repr(C)]
-pub struct FDICREATE_CPU_TYPE(i32);
+#[repr(transparent)]
+pub struct FDICREATE_CPU_TYPE(pub u32);
+pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0u32);
+pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1u32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FDIDECRYPT(i32);
-#[repr(C)]
-pub struct FDIDECRYPTTYPE(i32);
-#[repr(C)]
-pub struct FDIERROR(i32);
+#[repr(transparent)]
+pub struct FDIDECRYPTTYPE(pub i32);
+pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
+pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = FDIDECRYPTTYPE(1i32);
+pub const fdidtDECRYPT: FDIDECRYPTTYPE = FDIDECRYPTTYPE(2i32);
+#[repr(transparent)]
+pub struct FDIERROR(pub i32);
+pub const FDIERROR_NONE: FDIERROR = FDIERROR(0i32);
+pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = FDIERROR(1i32);
+pub const FDIERROR_NOT_A_CABINET: FDIERROR = FDIERROR(2i32);
+pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = FDIERROR(3i32);
+pub const FDIERROR_CORRUPT_CABINET: FDIERROR = FDIERROR(4i32);
+pub const FDIERROR_ALLOC_FAIL: FDIERROR = FDIERROR(5i32);
+pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = FDIERROR(6i32);
+pub const FDIERROR_MDI_FAIL: FDIERROR = FDIERROR(7i32);
+pub const FDIERROR_TARGET_FILE: FDIERROR = FDIERROR(8i32);
+pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9i32);
+pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10i32);
+pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11i32);
+pub const FDIERROR_EOF: FDIERROR = FDIERROR(12i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FDINOTIFICATION(i32);
-#[repr(C)]
-pub struct FDINOTIFICATIONTYPE(i32);
+#[repr(transparent)]
+pub struct FDINOTIFICATIONTYPE(pub i32);
+pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0i32);
+pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(1i32);
+pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2i32);
+pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3i32);
+pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4i32);
+pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]

@@ -1,10 +1,14 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct Buffer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ByteOrder(i32);
+#[repr(transparent)]
+pub struct ByteOrder(pub i32);
+impl ByteOrder {
+    pub const LittleEndian: ByteOrder = ByteOrder(0i32);
+    pub const BigEndian: ByteOrder = ByteOrder(1i32);
+}
 #[repr(transparent)]
 pub struct DataReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -15,8 +19,15 @@ pub struct DataWriter(pub *mut ::core::ffi::c_void);
 pub struct DataWriterStoreOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FileInputStream(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FileOpenDisposition(i32);
+#[repr(transparent)]
+pub struct FileOpenDisposition(pub i32);
+impl FileOpenDisposition {
+    pub const OpenExisting: FileOpenDisposition = FileOpenDisposition(0i32);
+    pub const OpenAlways: FileOpenDisposition = FileOpenDisposition(1i32);
+    pub const CreateNew: FileOpenDisposition = FileOpenDisposition(2i32);
+    pub const CreateAlways: FileOpenDisposition = FileOpenDisposition(3i32);
+    pub const TruncateExisting: FileOpenDisposition = FileOpenDisposition(4i32);
+}
 #[repr(transparent)]
 pub struct FileOutputStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -61,8 +72,13 @@ pub struct IRandomAccessStreamStatics(pub *mut ::core::ffi::c_void);
 pub struct IRandomAccessStreamWithContentType(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InMemoryRandomAccessStream(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct InputStreamOptions(i32);
+#[repr(transparent)]
+pub struct InputStreamOptions(pub u32);
+impl InputStreamOptions {
+    pub const None: InputStreamOptions = InputStreamOptions(0u32);
+    pub const Partial: InputStreamOptions = InputStreamOptions(1u32);
+    pub const ReadAhead: InputStreamOptions = InputStreamOptions(2u32);
+}
 #[repr(transparent)]
 pub struct InputStreamOverStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -71,5 +87,10 @@ pub struct OutputStreamOverStream(pub *mut ::core::ffi::c_void);
 pub struct RandomAccessStreamOverStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RandomAccessStreamReference(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct UnicodeEncoding(i32);
+#[repr(transparent)]
+pub struct UnicodeEncoding(pub i32);
+impl UnicodeEncoding {
+    pub const Utf8: UnicodeEncoding = UnicodeEncoding(0i32);
+    pub const Utf16LE: UnicodeEncoding = UnicodeEncoding(1i32);
+    pub const Utf16BE: UnicodeEncoding = UnicodeEncoding(2i32);
+}

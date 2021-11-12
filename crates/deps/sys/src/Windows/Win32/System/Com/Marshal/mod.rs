@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -209,5 +209,7 @@ pub struct IMarshal(pub *mut ::core::ffi::c_void);
 pub struct IMarshal2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMarshalingStream(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct STDMSHLFLAGS(i32);
+#[repr(transparent)]
+pub struct STDMSHLFLAGS(pub i32);
+pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
+pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);

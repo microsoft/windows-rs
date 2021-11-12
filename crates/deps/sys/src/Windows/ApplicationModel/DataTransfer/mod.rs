@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[cfg(feature = "ApplicationModel_DataTransfer_DragDrop")]
 pub mod DragDrop;
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
@@ -13,12 +13,23 @@ pub struct ClipboardHistoryChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ClipboardHistoryItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ClipboardHistoryItemsResultStatus(i32);
+#[repr(transparent)]
+pub struct ClipboardHistoryItemsResultStatus(pub i32);
+impl ClipboardHistoryItemsResultStatus {
+    pub const Success: ClipboardHistoryItemsResultStatus = ClipboardHistoryItemsResultStatus(0i32);
+    pub const AccessDenied: ClipboardHistoryItemsResultStatus = ClipboardHistoryItemsResultStatus(1i32);
+    pub const ClipboardHistoryDisabled: ClipboardHistoryItemsResultStatus = ClipboardHistoryItemsResultStatus(2i32);
+}
 #[repr(transparent)]
 pub struct DataPackage(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DataPackageOperation(i32);
+#[repr(transparent)]
+pub struct DataPackageOperation(pub u32);
+impl DataPackageOperation {
+    pub const None: DataPackageOperation = DataPackageOperation(0u32);
+    pub const Copy: DataPackageOperation = DataPackageOperation(1u32);
+    pub const Move: DataPackageOperation = DataPackageOperation(2u32);
+    pub const Link: DataPackageOperation = DataPackageOperation(4u32);
+}
 #[repr(transparent)]
 pub struct DataPackagePropertySet(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -137,8 +148,13 @@ pub struct IStandardDataFormatsStatics3(pub *mut ::core::ffi::c_void);
 pub struct ITargetApplicationChosenEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OperationCompletedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SetHistoryItemAsContentStatus(i32);
+#[repr(transparent)]
+pub struct SetHistoryItemAsContentStatus(pub i32);
+impl SetHistoryItemAsContentStatus {
+    pub const Success: SetHistoryItemAsContentStatus = SetHistoryItemAsContentStatus(0i32);
+    pub const AccessDenied: SetHistoryItemAsContentStatus = SetHistoryItemAsContentStatus(1i32);
+    pub const ItemDeleted: SetHistoryItemAsContentStatus = SetHistoryItemAsContentStatus(2i32);
+}
 #[repr(transparent)]
 pub struct ShareCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -153,7 +169,12 @@ pub struct ShareProvidersRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ShareTargetInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ShareUIOptions(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ShareUITheme(i32);
+#[repr(transparent)]
+pub struct ShareUITheme(pub i32);
+impl ShareUITheme {
+    pub const Default: ShareUITheme = ShareUITheme(0i32);
+    pub const Light: ShareUITheme = ShareUITheme(1i32);
+    pub const Dark: ShareUITheme = ShareUITheme(2i32);
+}
 #[repr(transparent)]
 pub struct TargetApplicationChosenEventArgs(pub *mut ::core::ffi::c_void);
