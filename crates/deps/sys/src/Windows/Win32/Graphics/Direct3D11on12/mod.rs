@@ -6,7 +6,10 @@ extern "system" {
     pub fn D3D11On12CreateDevice(pdevice: ::windows_sys::core::IUnknown, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const ::windows_sys::core::IUnknown, numqueues: u32, nodemask: u32, ppdevice: *mut super::Direct3D11::ID3D11Device, ppimmediatecontext: *mut super::Direct3D11::ID3D11DeviceContext, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows_sys::core::HRESULT;
 }
 pub struct D3D11_RESOURCE_FLAGS(i32);
+#[repr(transparent)]
 pub struct ID3D11On12Device(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11On12Device1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11On12Device2(pub *mut ::core::ffi::c_void);
 pub struct PFN_D3D11ON12_CREATE_DEVICE(i32);

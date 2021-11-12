@@ -28,14 +28,25 @@ pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::She
     pid: 3u32,
 };
 pub struct EndpointConnectorType(i32);
+#[repr(transparent)]
 pub struct IAudioEndpointFormatControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointLastBufferControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointOffloadStreamMeter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointOffloadStreamMute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointOffloadStreamVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointVolumeCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointVolumeEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioLfxControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioMeterInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHardwareAudioEngineBase(pub *mut ::core::ffi::c_void);

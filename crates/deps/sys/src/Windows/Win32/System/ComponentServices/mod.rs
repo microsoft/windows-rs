@@ -99,7 +99,9 @@ pub struct ComponentHangMonitorInfo(i32);
 pub struct ComponentStatistics(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ComponentSummary(i32);
+#[repr(transparent)]
 pub struct ContextInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ContextInfo2(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead(i32);
@@ -116,123 +118,241 @@ pub struct GetAppTrackerDataFlags(i32);
 pub struct GetSecurityCallContextAppObject(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO(i32);
+#[repr(transparent)]
 pub struct IAppDomainHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAssemblyLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAsyncErrorNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICOMAdminCatalog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICOMAdminCatalog2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICOMLBArguments(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICatalogCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICatalogObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICheckSxsConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComActivityEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComApp2Events(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComAppEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComCRMEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComExceptionEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComIdentityEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComInstance2Events(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComInstanceEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComLTxEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComMethod2Events(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComMethodEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComMtaThreadPoolKnobs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComObjectConstruction2Events(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComObjectConstructionEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComObjectEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComObjectPool2Events(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComObjectPoolEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComObjectPoolEvents2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComQCEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComResourceEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComSecurityEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComStaThreadPoolKnobs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComStaThreadPoolKnobs2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComThreadEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComTrackingInfoCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComTrackingInfoEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComTrackingInfoObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComTrackingInfoProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComTransaction2Events(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComTransactionEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComUserEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextSecurityPerimeter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateWithLocalTransaction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateWithTipTransactionEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateWithTransactionEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICrmCompensator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICrmCompensatorVariants(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICrmFormatLogRecords(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICrmLogControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICrmMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICrmMonitorClerks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICrmMonitorLogRecords(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispenserDriver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispenserManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumNames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEventServerTrace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetAppTrackerData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetContextProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetSecurityCallContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILBEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMTSActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMTSCall(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMTSLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IManagedActivationEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IManagedObjectInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IManagedPoolAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IManagedPooledObj(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMessageMover(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMtsEventInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMtsEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMtsGrp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjPool(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectConstruct(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectConstructString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectContextActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectContextInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectContextInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectContextTip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlaybackControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPoolManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessInitializer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISecurityCallContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISecurityCallersColl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISecurityIdentityColl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISecurityProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISelectCOMLBServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISendMethodEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceCall(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceComTIIntrinsicsConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceIISIntrinsicsConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceInheritanceConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServicePartitionConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServicePool(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServicePoolConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceSxsConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceSynchronizationConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceSysTxnConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceThreadPoolConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceTrackerConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceTransactionConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceTransactionConfigBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISharedProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISharedPropertyGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISharedPropertyGroupManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemAppEventData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThreadPoolKnobs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionContextEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionProxy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionResourcePool(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITxProxyHolder(pub *mut ::core::ffi::c_void);
 pub struct LBEvents(i32);
 pub struct LockModes(i32);
@@ -240,7 +360,9 @@ pub struct LockModes(i32);
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
 pub struct MessageMover(i32);
 pub struct MtsGrp(i32);
+#[repr(transparent)]
 pub struct ObjectContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ObjectControl(pub *mut ::core::ffi::c_void);
 pub struct PoolMgr(i32);
 pub struct RECYCLE_INFO(i32);
@@ -248,6 +370,7 @@ pub struct ReleaseModes(i32);
 pub struct SecurityCallContext(i32);
 pub struct SecurityCallers(i32);
 pub struct SecurityIdentity(i32);
+#[repr(transparent)]
 pub struct SecurityProperty(pub *mut ::core::ffi::c_void);
 pub struct ServicePool(i32);
 pub struct ServicePoolConfig(i32);

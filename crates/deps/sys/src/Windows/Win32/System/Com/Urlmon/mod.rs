@@ -261,39 +261,72 @@ pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIT_LOGGING_INFO(i32);
+#[repr(transparent)]
 pub struct IBindCallbackRedirect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindHttpSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindProtocol(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICatalogFileInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICodeInstall(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataFilter(pub *mut ::core::ffi::c_void);
 pub struct IEObjectType(i32);
+#[repr(transparent)]
 pub struct IEncodingFilterFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetBindHandle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpNegotiate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpNegotiate2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpNegotiate3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetBindInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetBindInfoEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetHostSecurityManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetPriority(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetProtocol(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetProtocolEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetProtocolInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetProtocolRoot(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetProtocolSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetProtocolSinkStackable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetSecurityManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetSecurityManagerEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetSecurityManagerEx2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetSecurityMgrSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetThreadSwitch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetZoneManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetZoneManagerEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetZoneManagerEx2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMonikerProp(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const INET_E_AUTHENTICATION_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146697207i32 as _);
@@ -397,19 +430,33 @@ pub const INET_E_USE_EXTEND_BINDING: ::windows_sys::core::HRESULT = ::windows_sy
 pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146697187i32 as _);
 pub struct INET_ZONE_MANAGER_CONSTANTS(i32);
 pub struct INTERNETFEATURELIST(i32);
+#[repr(transparent)]
 pub struct IPersistMoniker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISoftDistExt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUriBuilderFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUriContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinInetCacheHints(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinInetCacheHints2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinInetFileStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinInetHttpInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinInetHttpTimeouts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinInetInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowForBindingUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWrappedProtocol(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IZoneIdentifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IZoneIdentifier2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;

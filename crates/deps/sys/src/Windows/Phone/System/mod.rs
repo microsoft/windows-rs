@@ -7,6 +7,9 @@ pub mod Profile;
 pub mod UserProfile;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct ISystemProtectionStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemProtectionUnlockStatics(pub *mut ::core::ffi::c_void);
-pub struct SystemProtection(i32);
+#[repr(transparent)]
+pub struct SystemProtection(pub *mut ::core::ffi::c_void);

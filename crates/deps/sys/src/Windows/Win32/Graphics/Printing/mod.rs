@@ -1728,8 +1728,11 @@ pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_sys::core::GUID = ::windows_
     data4: [188, 231, 98, 222, 108, 242, 208, 152],
 };
 pub const GUID_DEVINTERFACE_USBPRINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 685215661, data2: 23058, data3: 4561, data4: [174, 91, 0, 0, 248, 3, 168, 194] };
+#[repr(transparent)]
 pub struct IAsyncGetSendNotificationCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAsyncGetSrvReferralCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBidiAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
 pub struct IBidiRequest(i32);
 pub struct IBidiRequestContainer(i32);
@@ -2423,28 +2426,49 @@ pub struct IPartResourceDictionary(i32);
 pub struct IPartResourceDictionaryVtbl(i32);
 pub struct IPartThumbnail(i32);
 pub struct IPartThumbnailVtbl(i32);
+#[repr(transparent)]
 pub struct IPrintAsyncCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintAsyncNewChannelCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintAsyncNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintAsyncNotifyCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintAsyncNotifyDataObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintAsyncNotifyServerReferral(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintBidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
 pub struct IPrintClassObjectFactory(i32);
 pub struct IPrintClassObjectFactoryVtbl(i32);
+#[repr(transparent)]
 pub struct IPrintCoreHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintCoreHelperPS(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintCoreHelperUni(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintCoreHelperUni2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintCoreUI2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintJobCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintOemCommon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintOemDriverUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintOemUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintOemUI2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintOemUIMXDC(pub *mut ::core::ffi::c_void);
 pub struct IPrintPipelineFilter(i32);
 pub struct IPrintPipelineFilterVtbl(i32);
@@ -2454,52 +2478,91 @@ pub struct IPrintPipelineProgressReport(i32);
 pub struct IPrintPipelineProgressReportVtbl(i32);
 pub struct IPrintPipelinePropertyBag(i32);
 pub struct IPrintPipelinePropertyBagVtbl(i32);
+#[repr(transparent)]
 pub struct IPrintPreviewDxgiPackageTarget(pub *mut ::core::ffi::c_void);
 pub struct IPrintReadStream(i32);
 pub struct IPrintReadStreamFactory(i32);
 pub struct IPrintReadStreamFactoryVtbl(i32);
 pub struct IPrintReadStreamVtbl(i32);
+#[repr(transparent)]
 pub struct IPrintSchemaAsyncOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaAsyncOperationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaCapabilities2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaDisplayableElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaFeature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaNUpOption(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaOption(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaOptionCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaPageImageableSize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaPageMediaSizeOption(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaParameterDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaParameterInitializer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaTicket(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintSchemaTicket2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintTicketProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintTicketProvider2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintUnidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
 pub struct IPrintWriteStream(i32);
 pub struct IPrintWriteStreamFlush(i32);
 pub struct IPrintWriteStreamFlushVtbl(i32);
 pub struct IPrintWriteStreamVtbl(i32);
+#[repr(transparent)]
 pub struct IPrinterBidiSetRequestCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterExtensionAsyncOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterExtensionContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterExtensionContextCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterExtensionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterExtensionEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterExtensionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterExtensionRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterPropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterQueue2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterQueueEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterQueueView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterQueueViewEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterScriptContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterScriptablePropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterScriptablePropertyBag2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterScriptableSequentialStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrinterScriptableStream(pub *mut ::core::ffi::c_void);
 pub struct IXpsDocument(i32);
 pub struct IXpsDocumentConsumer(i32);
@@ -2509,10 +2572,15 @@ pub struct IXpsDocumentProviderVtbl(i32);
 pub struct IXpsDocumentVtbl(i32);
 pub struct IXpsPartIterator(i32);
 pub struct IXpsPartIteratorVtbl(i32);
+#[repr(transparent)]
 pub struct IXpsRasterizationFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsRasterizationFactory1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsRasterizationFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsRasterizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsRasterizerNotificationCallback(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;

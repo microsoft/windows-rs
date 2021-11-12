@@ -1,8 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct ClassicAppManager(i32);
+#[repr(transparent)]
+pub struct ClassicAppManager(pub *mut ::core::ffi::c_void);
 pub struct DeploymentPreviewContract(i32);
+#[repr(transparent)]
 pub struct IClassicAppManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstalledClassicAppInfo(pub *mut ::core::ffi::c_void);
-pub struct InstalledClassicAppInfo(i32);
+#[repr(transparent)]
+pub struct InstalledClassicAppInfo(pub *mut ::core::ffi::c_void);

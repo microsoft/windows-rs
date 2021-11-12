@@ -2,125 +2,233 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct AutoLoadedDisplayPropertyKind(i32);
-pub struct BackgroundMediaPlayer(i32);
-pub struct CurrentMediaPlaybackItemChangedEventArgs(i32);
+#[repr(transparent)]
+pub struct BackgroundMediaPlayer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CurrentMediaPlaybackItemChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct FailedMediaStreamKind(i32);
+#[repr(transparent)]
 pub struct IBackgroundMediaPlayerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreak(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreakEndedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreakFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreakManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreakSchedule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreakSeekedOverEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreakSkippedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBreakStartedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaEnginePlaybackSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaItemDisplayProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerCommandBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItem3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItemError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItemFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItemFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItemFailedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItemOpenedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackItemStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackList3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackSession2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackSession3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackSessionBufferingStartedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackSessionOutputDegradationPolicyState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackSphericalVideoProjection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlaybackTimedMetadataTrackList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayer3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayer4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayer5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayer6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayer7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerEffects(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerEffects2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerFailedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerRateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPlayerSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlaybackMediaMarker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlaybackMediaMarkerFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlaybackMediaMarkerReachedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlaybackMediaMarkerSequence(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimedMetadataPresentationModeChangedEventArgs(pub *mut ::core::ffi::c_void);
-pub struct MediaBreak(i32);
-pub struct MediaBreakEndedEventArgs(i32);
+#[repr(transparent)]
+pub struct MediaBreak(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaBreakEndedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MediaBreakInsertionMethod(i32);
-pub struct MediaBreakManager(i32);
-pub struct MediaBreakSchedule(i32);
-pub struct MediaBreakSeekedOverEventArgs(i32);
-pub struct MediaBreakSkippedEventArgs(i32);
-pub struct MediaBreakStartedEventArgs(i32);
+#[repr(transparent)]
+pub struct MediaBreakManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaBreakSchedule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaBreakSeekedOverEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaBreakSkippedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaBreakStartedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MediaCommandEnablingRule(i32);
-pub struct MediaItemDisplayProperties(i32);
-pub struct MediaPlaybackAudioTrackList(i32);
-pub struct MediaPlaybackCommandManager(i32);
-pub struct MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerCommandBehavior(i32);
-pub struct MediaPlaybackCommandManagerFastForwardReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerNextReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerPauseReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerPlayReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerPositionReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerPreviousReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerRateReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerRewindReceivedEventArgs(i32);
-pub struct MediaPlaybackCommandManagerShuffleReceivedEventArgs(i32);
-pub struct MediaPlaybackItem(i32);
+#[repr(transparent)]
+pub struct MediaItemDisplayProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackAudioTrackList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerCommandBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerFastForwardReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerNextReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerPauseReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerPlayReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerPositionReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerPreviousReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerRateReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerRewindReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackCommandManagerShuffleReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackItem(pub *mut ::core::ffi::c_void);
 pub struct MediaPlaybackItemChangedReason(i32);
-pub struct MediaPlaybackItemError(i32);
+#[repr(transparent)]
+pub struct MediaPlaybackItemError(pub *mut ::core::ffi::c_void);
 pub struct MediaPlaybackItemErrorCode(i32);
-pub struct MediaPlaybackItemFailedEventArgs(i32);
-pub struct MediaPlaybackItemOpenedEventArgs(i32);
-pub struct MediaPlaybackList(i32);
-pub struct MediaPlaybackSession(i32);
-pub struct MediaPlaybackSessionBufferingStartedEventArgs(i32);
-pub struct MediaPlaybackSessionOutputDegradationPolicyState(i32);
+#[repr(transparent)]
+pub struct MediaPlaybackItemFailedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackItemOpenedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackSessionBufferingStartedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackSessionOutputDegradationPolicyState(pub *mut ::core::ffi::c_void);
 pub struct MediaPlaybackSessionVideoConstrictionReason(i32);
-pub struct MediaPlaybackSphericalVideoProjection(i32);
+#[repr(transparent)]
+pub struct MediaPlaybackSphericalVideoProjection(pub *mut ::core::ffi::c_void);
 pub struct MediaPlaybackState(i32);
-pub struct MediaPlaybackTimedMetadataTrackList(i32);
-pub struct MediaPlaybackVideoTrackList(i32);
-pub struct MediaPlayer(i32);
+#[repr(transparent)]
+pub struct MediaPlaybackTimedMetadataTrackList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlaybackVideoTrackList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlayer(pub *mut ::core::ffi::c_void);
 pub struct MediaPlayerAudioCategory(i32);
 pub struct MediaPlayerAudioDeviceType(i32);
-pub struct MediaPlayerDataReceivedEventArgs(i32);
+#[repr(transparent)]
+pub struct MediaPlayerDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MediaPlayerError(i32);
-pub struct MediaPlayerFailedEventArgs(i32);
-pub struct MediaPlayerRateChangedEventArgs(i32);
+#[repr(transparent)]
+pub struct MediaPlayerFailedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaPlayerRateChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MediaPlayerState(i32);
-pub struct MediaPlayerSurface(i32);
-pub struct PlaybackMediaMarker(i32);
-pub struct PlaybackMediaMarkerReachedEventArgs(i32);
-pub struct PlaybackMediaMarkerSequence(i32);
+#[repr(transparent)]
+pub struct MediaPlayerSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PlaybackMediaMarker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PlaybackMediaMarkerReachedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PlaybackMediaMarkerSequence(pub *mut ::core::ffi::c_void);
 pub struct SphericalVideoProjectionMode(i32);
 pub struct StereoscopicVideoRenderMode(i32);
-pub struct TimedMetadataPresentationModeChangedEventArgs(i32);
+#[repr(transparent)]
+pub struct TimedMetadataPresentationModeChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct TimedMetadataTrackPresentationMode(i32);

@@ -676,31 +676,57 @@ extern "system" {
 }
 pub struct DRAWPROGRESSFLAGS(i32);
 pub struct GETPROPERTYSTOREFLAGS(i32);
+#[repr(transparent)]
 pub struct ICreateObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDelayedPropertyStoreFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeWithFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeWithStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INamedPropertyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithPropertyKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistSerializedPropStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistSerializedPropStorage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyChangeArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyDescription2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyDescriptionAliasInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyDescriptionList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyDescriptionRelatedPropertyInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyDescriptionSearchInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyEnumType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyEnumType2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyEnumTypeList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyStoreCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyStoreCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyStoreFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertySystem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertySystemChangeNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyUI(pub *mut ::core::ffi::c_void);
 pub struct InMemoryPropertyStore(i32);
 pub struct InMemoryPropertyStoreMarshalByValue(i32);

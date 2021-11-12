@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct AsyncIBackgroundCopyCallback(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_AUTH_CREDENTIALS(i32);
@@ -412,41 +413,77 @@ pub struct BackgroundCopyQMgr(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILESETINFO(i32);
 pub struct GROUPPROP(i32);
+#[repr(transparent)]
 pub struct IBITSExtensionSetup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBITSExtensionSetupFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyCallback1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyCallback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyCallback3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyFile2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyFile3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyFile4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyFile5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyFile6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJob1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJob2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJob3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJob4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJob5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyQMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundCopyServerCertificateValidationCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBitsPeer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBitsPeerCacheAdministration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBitsPeerCacheRecord(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBitsTokenOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumBackgroundCopyFiles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumBackgroundCopyGroups(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumBackgroundCopyJobs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumBackgroundCopyJobs1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumBitsPeerCacheRecords(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumBitsPeers(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const QM_E_DOWNLOADER_UNAVAILABLE: u32 = 2164264963u32;

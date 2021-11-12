@@ -5,8 +5,13 @@ pub mod Core;
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct EnterpriseKeyCredentialRegistrationInfo(i32);
-pub struct EnterpriseKeyCredentialRegistrationManager(i32);
+#[repr(transparent)]
+pub struct EnterpriseKeyCredentialRegistrationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EnterpriseKeyCredentialRegistrationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(pub *mut ::core::ffi::c_void);

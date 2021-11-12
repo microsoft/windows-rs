@@ -254,32 +254,59 @@ pub const DISPID_RDPSRAPI_PROP_WINDOWSHARED: u32 = 212u32;
 pub const DISPID_RDPSRAPI_PROP_WINDOW_LIST: u32 = 216u32;
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_WNDFLAGS: u32 = 224u32;
+#[repr(transparent)]
 pub struct IRDPSRAPIApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIApplicationFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIApplicationList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIAttendee(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIAttendeeDisconnectInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIAttendeeManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIAudioStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIClipboardUseEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIFrameBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIInvitation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIInvitationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIPerfCounterLogger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIPerfCounterLoggingManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPISessionProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPISharingSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPISharingSession2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPITcpConnectionInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPITransportStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPITransportStreamBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPITransportStreamEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIViewer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIVirtualChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIVirtualChannelManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIWindow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPSRAPIWindowList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRDPViewerInputSink(pub *mut ::core::ffi::c_void);
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(i32);
 pub struct RDPSRAPIApplication(i32);
@@ -304,6 +331,7 @@ pub struct RDPSession(i32);
 pub struct RDPTransportStreamBuffer(i32);
 pub struct RDPTransportStreamEvents(i32);
 pub struct RDPViewer(i32);
+#[repr(transparent)]
 pub struct _IRDPSessionEvents(pub *mut ::core::ffi::c_void);
 pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(i32);
 pub struct __ReferenceRemainingTypes__(i32);

@@ -312,30 +312,55 @@ pub const FACILITY_WDSMCCLIENT: u32 = 290u32;
 pub const FACILITY_WDSMCSERVER: u32 = 289u32;
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
+#[repr(transparent)]
 pub struct IWdsTransportCacheable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportConfigurationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportConfigurationManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportContentProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportDiagnosticsPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportMulticastSessionPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportNamespace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportNamespaceAutoCast(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportNamespaceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCast(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStart(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastManualStart(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportServer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportServicePolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportServicePolicy2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportSetupManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportSetupManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportTftpClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWdsTransportTftpManager(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;

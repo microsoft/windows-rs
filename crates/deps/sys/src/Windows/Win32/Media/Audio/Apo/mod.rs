@@ -79,21 +79,37 @@ pub struct AUDIO_SYSTEMEFFECT_STATE(i32);
 pub struct AudioFXExtensionParams(i32);
 pub struct EAudioConstriction(i32);
 pub struct FNAPONOTIFICATIONCALLBACK(i32);
+#[repr(transparent)]
 pub struct IApoAcousticEchoCancellation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApoAuxiliaryInputConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApoAuxiliaryInputRT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioDeviceModulesClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioMediaType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioProcessingObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioProcessingObjectConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioProcessingObjectLoggingService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioProcessingObjectNotifications(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioProcessingObjectRT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioProcessingObjectRTQueueService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioProcessingObjectVBR(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSystemEffects(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSystemEffects2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSystemEffects3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSystemEffectsCustomFormats(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_Audio_Apo`, `Win32_UI_Shell_PropertiesSystem`*"]

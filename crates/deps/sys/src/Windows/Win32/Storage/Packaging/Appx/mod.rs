@@ -217,86 +217,167 @@ pub struct AppxPackageEditor(i32);
 pub struct AppxPackagingDiagnosticEventSinkManager(i32);
 pub struct CreatePackageDependencyOptions(i32);
 pub struct DX_FEATURE_LEVEL(i32);
+#[repr(transparent)]
 pub struct IAppxBlockMapBlock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBlockMapBlocksEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBlockMapFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBlockMapFilesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBlockMapReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestOptionalBundleInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleManifestReader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleWriter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleWriter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxBundleWriter4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxContentGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxContentGroupFilesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxContentGroupMapReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxContentGroupMapWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxContentGroupsEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptedPackageWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptedPackageWriter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptionFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptionFactory3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxEncryptionFactory4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxFilesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestApplicationsEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestCapabilitiesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestDeviceCapabilitiesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestDriverConstraint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestDriverConstraintsEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestDriverDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestDriverDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestHostRuntimeDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestHostRuntimeDependency2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestMainPackageDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestMainPackageDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestOSPackageDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestOSPackageDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestOptionalPackageInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestPackageDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestPackageDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestPackageDependency2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestPackageDependency3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestPackageId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestPackageId2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestQualifiedResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestQualifiedResourcesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestReader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestReader3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestReader4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestReader5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestReader6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestReader7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestResourcesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxManifestTargetDeviceFamily(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxPackageEditor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxPackageReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxPackageWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxPackageWriter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxPackageWriter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxPackagingDiagnosticEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxPackagingDiagnosticEventSinkManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppxSourceContentGroupMapReader(pub *mut ::core::ffi::c_void);
 pub struct PACKAGEDEPENDENCY_CONTEXT__(i32);
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]

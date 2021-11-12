@@ -1505,7 +1505,9 @@ pub const IDB_VIEW_SMALL_COLOR: u32 = 4u32;
 pub const IDC_MANAGE_LINK: u32 = 1592u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
+#[repr(transparent)]
 pub struct IImageList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IImageList2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const ILDI_PURGE: u32 = 1u32;

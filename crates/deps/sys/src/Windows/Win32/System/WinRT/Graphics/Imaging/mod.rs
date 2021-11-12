@@ -7,5 +7,7 @@ pub const CLSID_SoftwareBitmapNativeFactory: ::windows_sys::core::GUID = ::windo
     data3: 19076,
     data4: [190, 70, 112, 139, 233, 205, 75, 116],
 };
+#[repr(transparent)]
 pub struct ISoftwareBitmapNative(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISoftwareBitmapNativeFactory(pub *mut ::core::ffi::c_void);

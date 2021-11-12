@@ -13,9 +13,13 @@ extern "system" {
 }
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const CONNECTION_AOL: u32 = 4u32;
+#[repr(transparent)]
 pub struct ISensLogon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensLogon2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensNetwork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensOnNow(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;

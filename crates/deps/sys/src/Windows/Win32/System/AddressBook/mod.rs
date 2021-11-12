@@ -353,17 +353,29 @@ pub struct FLATENTRYLIST(i32);
 pub struct FLATMTSIDLIST(i32);
 pub struct FNIDLE(i32);
 pub struct Gender(i32);
+#[repr(transparent)]
 pub struct IABContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAddrBook(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAttach(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDistList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPIAdviseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPIContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPIControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPIFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPIProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPIProp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPIStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMAPITable(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555294i32 as _);
@@ -489,14 +501,23 @@ pub const IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT 
 pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555327i32 as _);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11186527i32 as _);
+#[repr(transparent)]
 pub struct IMailUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsgStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProfSect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProviderAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITableData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWABExtInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWABOBJECT_(pub *mut ::core::ffi::c_void);
 pub struct IWABOBJECT_AddRef_METHOD(i32);
 pub struct IWABOBJECT_AllocateBuffer_METHOD(i32);
@@ -514,6 +535,7 @@ pub struct IWABOBJECT_SetMe_METHOD(i32);
 pub struct IWABOBJECT_VCardCreate_METHOD(i32);
 pub struct IWABOBJECT_VCardDisplay_METHOD(i32);
 pub struct IWABOBJECT_VCardRetrieve_METHOD(i32);
+#[repr(transparent)]
 pub struct IWABObject(pub *mut ::core::ffi::c_void);
 pub struct LPALLOCATEBUFFER(i32);
 pub struct LPALLOCATEMORE(i32);

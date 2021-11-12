@@ -234,15 +234,27 @@ pub struct DML_TOP_K1_OPERATOR_DESC(i32);
 pub struct DML_TOP_K_OPERATOR_DESC(i32);
 pub struct DML_UPSAMPLE_2D_OPERATOR_DESC(i32);
 pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC(i32);
+#[repr(transparent)]
 pub struct IDMLBindingTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLCommandRecorder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLCompiledOperator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLDebugDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLDevice1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLDeviceChild(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLDispatchable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLOperator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLOperatorInitializer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMLPageable(pub *mut ::core::ffi::c_void);

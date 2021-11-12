@@ -478,18 +478,31 @@ pub const GUID_DMUS_PROP_WriteLatency: ::windows_sys::core::GUID = ::windows_sys
 pub const GUID_DMUS_PROP_WritePeriod: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 646582177, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Capable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687595937, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Hardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+#[repr(transparent)]
 pub struct IDirectMusic(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusic8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicDownload(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicDownloadedInstrument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicInstrument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicPort(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicPortDownload(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicSynth(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicSynth8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicSynthSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectMusicThru(pub *mut ::core::ffi::c_void);
 pub struct INSTHEADER(i32);
 pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1(i32);

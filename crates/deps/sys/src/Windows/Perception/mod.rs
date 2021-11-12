@@ -7,9 +7,15 @@ pub mod People;
 pub mod Spatial;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IPerceptionTimestamp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionTimestamp2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionTimestampHelperStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionTimestampHelperStatics2(pub *mut ::core::ffi::c_void);
-pub struct PerceptionTimestamp(i32);
-pub struct PerceptionTimestampHelper(i32);
+#[repr(transparent)]
+pub struct PerceptionTimestamp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionTimestampHelper(pub *mut ::core::ffi::c_void);

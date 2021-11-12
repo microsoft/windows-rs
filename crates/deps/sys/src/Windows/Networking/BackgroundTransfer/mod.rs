@@ -2,60 +2,111 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct BackgroundDownloadProgress(i32);
-pub struct BackgroundDownloader(i32);
+#[repr(transparent)]
+pub struct BackgroundDownloader(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTransferBehavior(i32);
-pub struct BackgroundTransferCompletionGroup(i32);
-pub struct BackgroundTransferCompletionGroupTriggerDetails(i32);
-pub struct BackgroundTransferContentPart(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct BackgroundTransferCompletionGroupTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct BackgroundTransferContentPart(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTransferCostPolicy(i32);
-pub struct BackgroundTransferError(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferError(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTransferFileRange(i32);
-pub struct BackgroundTransferGroup(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferGroup(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTransferPriority(i32);
-pub struct BackgroundTransferRangesDownloadedEventArgs(i32);
+#[repr(transparent)]
+pub struct BackgroundTransferRangesDownloadedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTransferStatus(i32);
 pub struct BackgroundUploadProgress(i32);
-pub struct BackgroundUploader(i32);
-pub struct ContentPrefetcher(i32);
-pub struct DownloadOperation(i32);
+#[repr(transparent)]
+pub struct BackgroundUploader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContentPrefetcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DownloadOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundDownloader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundDownloader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundDownloader3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundDownloaderFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundDownloaderStaticMethods(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundDownloaderStaticMethods2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundDownloaderUserConsent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferCompletionGroupTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferContentPart(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferContentPartFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferErrorStaticMethods(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferGroupStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferOperationPriority(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundTransferRangesDownloadedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundUploader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundUploader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundUploader3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundUploaderFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundUploaderStaticMethods(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundUploaderStaticMethods2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBackgroundUploaderUserConsent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContentPrefetcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContentPrefetcherTime(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadOperation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadOperation3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadOperation4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadOperation5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResponseInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUnconstrainedTransferRequestResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUploadOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUploadOperation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUploadOperation3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUploadOperation4(pub *mut ::core::ffi::c_void);
-pub struct ResponseInformation(i32);
-pub struct UnconstrainedTransferRequestResult(i32);
-pub struct UploadOperation(i32);
+#[repr(transparent)]
+pub struct ResponseInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UnconstrainedTransferRequestResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UploadOperation(pub *mut ::core::ffi::c_void);

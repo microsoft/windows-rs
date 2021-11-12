@@ -20,12 +20,19 @@ pub mod XboxLive;
 #[link(name = "windows")]
 extern "system" {}
 pub struct DomainNameType(i32);
-pub struct EndpointPair(i32);
-pub struct HostName(i32);
+#[repr(transparent)]
+pub struct EndpointPair(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HostName(pub *mut ::core::ffi::c_void);
 pub struct HostNameSortOptions(i32);
 pub struct HostNameType(i32);
+#[repr(transparent)]
 pub struct IEndpointPair(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEndpointPairFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHostName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHostNameFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHostNameStatics(pub *mut ::core::ffi::c_void);

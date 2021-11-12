@@ -1752,8 +1752,11 @@ pub const IDSI_FLAG_PROXY: u32 = 4u32;
 pub const IDSI_FLAG_SECURE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const IDSI_FLAG_TUNNEL: u32 = 8u32;
+#[repr(transparent)]
 pub struct IDialBranding(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDialEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDialEventSink(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
@@ -2634,7 +2637,9 @@ pub const INTERNET_SUPPRESS_COOKIE_POLICY_RESET: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_SUPPRESS_RESET_ALL: u32 = 0u32;
 pub struct INTERNET_VERSION_INFO(i32);
+#[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const IRF_ASYNC: u32 = 1u32;

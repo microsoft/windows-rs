@@ -66,22 +66,39 @@ pub const FMTID_WSD: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 pub struct FunctionDiscovery(i32);
 pub struct FunctionInstanceCollection(i32);
+#[repr(transparent)]
 pub struct IFunctionDiscovery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionDiscoveryNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionDiscoveryProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionDiscoveryProviderFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionDiscoveryProviderQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionDiscoveryServiceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionInstance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionInstanceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionInstanceCollectionQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFunctionInstanceQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPNPXAssociation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPNPXDeviceAssociation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyStoreCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProviderProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProviderPropertyConstraintCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProviderPublishing(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProviderQueryConstraintCollection(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;

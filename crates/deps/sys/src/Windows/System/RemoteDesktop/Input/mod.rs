@@ -1,7 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IRemoteTextConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteTextConnectionFactory(pub *mut ::core::ffi::c_void);
-pub struct RemoteTextConnection(i32);
+#[repr(transparent)]
+pub struct RemoteTextConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct RemoteTextConnectionDataHandler(pub *mut ::core::ffi::c_void);

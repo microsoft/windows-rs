@@ -5,10 +5,15 @@ pub struct Catalog(i32);
 pub struct CatalogCollection(i32);
 pub struct CatalogObject(i32);
 pub struct ComponentUtil(i32);
+#[repr(transparent)]
 pub struct ICatalog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponentUtil(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPackageUtil(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteComponentUtil(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRoleAssociationUtil(pub *mut ::core::ffi::c_void);
 pub struct PackageUtil(i32);
 pub struct RemoteComponentUtil(i32);

@@ -1,32 +1,61 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IKnownPerceptionFrameKindStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionControlGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionControlGroupFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionCorrelation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionCorrelationFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionCorrelationGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionCorrelationGroupFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFaceAuthenticationGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFaceAuthenticationGroupFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFrameProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFrameProviderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFrameProviderManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFrameProviderManagerServiceStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionPropertyChangeRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionVideoFrameAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionVideoFrameAllocatorFactory(pub *mut ::core::ffi::c_void);
-pub struct KnownPerceptionFrameKind(i32);
-pub struct PerceptionControlGroup(i32);
-pub struct PerceptionCorrelation(i32);
-pub struct PerceptionCorrelationGroup(i32);
-pub struct PerceptionFaceAuthenticationGroup(i32);
-pub struct PerceptionFrame(i32);
-pub struct PerceptionFrameProviderInfo(i32);
-pub struct PerceptionFrameProviderManagerService(i32);
-pub struct PerceptionPropertyChangeRequest(i32);
+#[repr(transparent)]
+pub struct KnownPerceptionFrameKind(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionControlGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionCorrelation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionCorrelationGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionFaceAuthenticationGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionFrameProviderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionFrameProviderManagerService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionPropertyChangeRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct PerceptionStartFaceAuthenticationHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct PerceptionStopFaceAuthenticationHandler(pub *mut ::core::ffi::c_void);
-pub struct PerceptionVideoFrameAllocator(i32);
+#[repr(transparent)]
+pub struct PerceptionVideoFrameAllocator(pub *mut ::core::ffi::c_void);

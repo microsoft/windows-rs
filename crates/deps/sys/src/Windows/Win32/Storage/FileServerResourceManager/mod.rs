@@ -6,6 +6,7 @@ pub struct AdrClientDisplayFlags(i32);
 pub struct AdrClientErrorType(i32);
 pub struct AdrClientFlags(i32);
 pub struct AdrEmailFlags(i32);
+#[repr(transparent)]
 pub struct DIFsrmClassificationEvents(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
@@ -358,65 +359,125 @@ pub struct FsrmSetting(i32);
 pub struct FsrmStorageModuleCaps(i32);
 pub struct FsrmStorageModuleType(i32);
 pub struct FsrmTemplateApplyOptions(i32);
+#[repr(transparent)]
 pub struct IFsrmAccessDeniedRemediationClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmActionCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmActionEmail(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmActionEmail2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmActionEventLog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmActionReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmAutoApplyQuota(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmClassificationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmClassificationManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmClassificationRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmClassifierModuleDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmClassifierModuleImplementation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmCommittableCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmDerivedObjectsResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmExportImport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileConditionProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileGroupImported(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileGroupManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileManagementJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileManagementJobManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileScreen(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileScreenBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileScreenException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileScreenManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileScreenTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileScreenTemplateImported(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmFileScreenTemplateManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmMutableCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPathMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPipelineModuleConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPipelineModuleDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPipelineModuleImplementation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPropertyBag2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPropertyCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPropertyDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPropertyDefinition2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmPropertyDefinitionValue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuota(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuotaBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuotaManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuotaManagerEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuotaObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuotaTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuotaTemplateImported(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmQuotaTemplateManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmReportJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmReportManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmReportScheduler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmSetting(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmStorageModuleDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsrmStorageModuleImplementation(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const MessageSizeLimit: u32 = 4096u32;

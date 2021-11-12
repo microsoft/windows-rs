@@ -3,43 +3,74 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
-pub struct AdvancedColorInfo(i32);
+#[repr(transparent)]
+pub struct AdvancedColorInfo(pub *mut ::core::ffi::c_void);
 pub struct AdvancedColorKind(i32);
-pub struct BrightnessOverride(i32);
-pub struct BrightnessOverrideSettings(i32);
-pub struct ColorOverrideSettings(i32);
+#[repr(transparent)]
+pub struct BrightnessOverride(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct BrightnessOverrideSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ColorOverrideSettings(pub *mut ::core::ffi::c_void);
 pub struct DisplayBrightnessOverrideOptions(i32);
 pub struct DisplayBrightnessOverrideScenario(i32);
 pub struct DisplayBrightnessScenario(i32);
 pub struct DisplayColorOverrideScenario(i32);
-pub struct DisplayEnhancementOverride(i32);
-pub struct DisplayEnhancementOverrideCapabilities(i32);
-pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(i32);
-pub struct DisplayInformation(i32);
+#[repr(transparent)]
+pub struct DisplayEnhancementOverride(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DisplayEnhancementOverrideCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DisplayInformation(pub *mut ::core::ffi::c_void);
 pub struct DisplayOrientations(i32);
-pub struct DisplayProperties(i32);
+#[repr(transparent)]
+pub struct DisplayProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DisplayPropertiesEventHandler(pub *mut ::core::ffi::c_void);
-pub struct DisplayServices(i32);
+#[repr(transparent)]
+pub struct DisplayServices(pub *mut ::core::ffi::c_void);
 pub struct HdrMetadataFormat(i32);
+#[repr(transparent)]
 pub struct IAdvancedColorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrightnessOverride(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrightnessOverrideSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrightnessOverrideSettingsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrightnessOverrideStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColorOverrideSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColorOverrideSettingsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayEnhancementOverride(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayEnhancementOverrideCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayEnhancementOverrideStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayInformation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayInformation3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayInformation4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayInformation5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayInformationStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayPropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayServicesStatics(pub *mut ::core::ffi::c_void);
 pub struct NitRange(i32);
 pub struct ResolutionScale(i32);

@@ -34,13 +34,21 @@ pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
 pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const ASP_MD_UT_APP: u32 = 101u32;
+#[repr(transparent)]
 pub struct AsyncIFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIFtpLogProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIFtpRoleProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX(i32);
@@ -331,14 +339,23 @@ pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
 pub struct HTTP_TRACE_TYPE(i32);
+#[repr(transparent)]
 pub struct IADMEXT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpLogProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpProviderConstruct(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFtpRoleProvider(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
@@ -422,10 +439,15 @@ pub const IMGLOAD_STOPPED: u32 = 4194304u32;
 pub const IMGTRANS_MASK: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
+#[repr(transparent)]
 pub struct IMSAdminBase2W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSAdminBase3W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSAdminBaseW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSImpExpHelpW(pub *mut ::core::ffi::c_void);
 pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
 pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };

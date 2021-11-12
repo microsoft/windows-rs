@@ -38,7 +38,7 @@ fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
         TypeKind::Struct => gen_struct(def, gen),
         TypeKind::Delegate => {
             if def.is_winrt() {
-                gen_interface(def, gen),
+                gen_interface(def, gen)
             } else {
                 gen_callback(def, gen)
             }

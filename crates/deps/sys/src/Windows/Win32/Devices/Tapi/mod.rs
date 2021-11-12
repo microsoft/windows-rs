@@ -708,128 +708,247 @@ pub const IDISPPHONE: u32 = 65536u32;
 pub const IDISPTAPI: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const IDISPTAPICALLCENTER: u32 = 131072u32;
+#[repr(transparent)]
 pub struct IEnumACDGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumAddress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumAgent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumAgentHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumAgentSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumBstr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCall(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCallHub(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCallingCard(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDialableAddrs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDirectory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDirectoryObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumLocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumMcastScope(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPhone(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPluggableSuperclassInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPluggableTerminalClassInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSubStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTerminal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTerminalClass(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMcastAddressAllocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMcastLeaseInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMcastScope(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const INITIALIZE_NEGOTIATION: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const INTERFACEMASK: u32 = 16711680u32;
+#[repr(transparent)]
 pub struct ITACDGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITACDGroupEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAMMediaFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITASRTerminalEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAddress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAddress2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAddressCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAddressDeviceSpecificEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAddressEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAddressTranslation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAddressTranslationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAgent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAgentEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAgentHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAgentHandlerEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAgentSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAgentSessionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAllocatorProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITAutomatedPhoneControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITBasicAudioTerminal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITBasicCallControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITBasicCallControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallHub(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallHubEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallInfoChangeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallMediaEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallNotificationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallStateEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCallingCard(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITCustomTone(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDetectTone(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDigitDetectionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDigitGenerationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDigitsGatheredEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDirectory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDirectoryObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDirectoryObjectConference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDirectoryObjectUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITDispatchMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITFileTerminalEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITFileTrack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITForwardInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITForwardInformation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITILSConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITLegacyAddressMediaControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITLegacyAddressMediaControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITLegacyCallMediaControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITLegacyCallMediaControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITLegacyWaveSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITLocationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITMSPAddress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITMediaControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITMediaPlayback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITMediaRecord(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITMediaSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITMultiTrackTerminal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPhone(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPhoneDeviceSpecificEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPhoneEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPluggableTerminalClassInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPluggableTerminalEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPluggableTerminalEventSinkRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPluggableTerminalSuperclassInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITPrivateEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITQOSEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITQueueEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITRendezvous(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITRequestEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITScriptableAudioFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITStaticAudioTerminal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITStreamControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSubStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSubStreamControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTAPI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTAPI2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTAPICallCenter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTAPIDispatchEventNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTAPIEventNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTAPIObjectEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTAPIObjectEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTTSTerminalEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTerminal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTerminalSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITTerminalSupport2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITToneDetectionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITToneTerminalEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITnef(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LAST_LINEMEDIAMODE: u32 = 32768u32;

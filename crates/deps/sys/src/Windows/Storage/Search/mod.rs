@@ -3,36 +3,64 @@
 extern "system" {}
 pub struct CommonFileQuery(i32);
 pub struct CommonFolderQuery(i32);
-pub struct ContentIndexer(i32);
-pub struct ContentIndexerQuery(i32);
+#[repr(transparent)]
+pub struct ContentIndexer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContentIndexerQuery(pub *mut ::core::ffi::c_void);
 pub struct DateStackOption(i32);
 pub struct FolderDepth(i32);
+#[repr(transparent)]
 pub struct IContentIndexer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContentIndexerQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContentIndexerQueryOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContentIndexerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIndexableContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryOptionsFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryOptionsWithProviderFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageFileQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageFileQueryResult2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageFolderQueryOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageFolderQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageItemQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageLibraryChangeTrackerTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageLibraryContentChangedTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageQueryResultBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IValueAndLanguage(pub *mut ::core::ffi::c_void);
-pub struct IndexableContent(i32);
+#[repr(transparent)]
+pub struct IndexableContent(pub *mut ::core::ffi::c_void);
 pub struct IndexedState(i32);
 pub struct IndexerOption(i32);
-pub struct QueryOptions(i32);
+#[repr(transparent)]
+pub struct QueryOptions(pub *mut ::core::ffi::c_void);
 pub struct SortEntry(i32);
-pub struct SortEntryVector(i32);
-pub struct StorageFileQueryResult(i32);
-pub struct StorageFolderQueryResult(i32);
-pub struct StorageItemQueryResult(i32);
-pub struct StorageLibraryChangeTrackerTriggerDetails(i32);
-pub struct StorageLibraryContentChangedTriggerDetails(i32);
-pub struct ValueAndLanguage(i32);
+#[repr(transparent)]
+pub struct SortEntryVector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct StorageFileQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct StorageFolderQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct StorageItemQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct StorageLibraryChangeTrackerTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct StorageLibraryContentChangedTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ValueAndLanguage(pub *mut ::core::ffi::c_void);

@@ -1,17 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IEnumNetworkConnections(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumNetworks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetwork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkConnectionCost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkConnectionCostEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkConnectionEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkCostManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkCostManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkListManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkListManagerEvents(pub *mut ::core::ffi::c_void);
 pub struct NLM_CONNECTION_COST(i32);
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(i32);

@@ -12026,248 +12026,491 @@ pub struct DOMTextEvent(i32);
 pub struct DOMUIEvent(i32);
 pub struct DOMWheelEvent(i32);
 pub struct DOM_EVENT_PHASE(i32);
+#[repr(transparent)]
 pub struct DWebBridgeEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispApplicationCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCEventObj(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCPlugins(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCPrintManagerTemplatePrinter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCanvasGradient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCanvasImageData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCanvasPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCanvasRenderingContext2D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispCanvasTextMetrics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMBeforeUnloadEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMChildrenCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMCloseEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMCompositionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMCustomEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMDocumentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMDragEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMFocusEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMKeyboardEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMMSAnimationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMMSManipulationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMMSTransitionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMMessageEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMMouseEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMMouseWheelEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMMutationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMProcessingInstruction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMProgressEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMSiteModeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMStorageEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMTextEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMUIEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispDOMWheelEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispEventException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTCAttachBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTCDefaultDispatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTCDescBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTCEventBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTCMethodBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTCPropertyBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLAnchorElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLAppBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLAreaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLAreasCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLAttributeCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLAudioElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLBGsound(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLBRElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLBaseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLBaseFontElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLBlockElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLBody(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLButtonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCSSImportRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCSSMediaList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCSSMediaRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCSSNamespaceRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCSSRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCSSStyleDeclaration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCanvasElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCommentElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLCurrentStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDDElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDOMAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDOMImplementation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDOMRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDOMTextNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDTElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDefaults(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDivElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDivPosition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDocumentCompatibleInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLDocumentCompatibleInfoCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLElementCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLEmbed(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLFieldSetElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLFontElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLFormElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLFrameBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLFrameElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLFrameSetSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLGenericElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLHRElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLHeadElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLHeaderElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLHistory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLHtmlElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLIFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLImg(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLInputElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLIsIndexElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLLIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLLabelElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLLegendElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLLinkElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLLocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLMSCSSKeyframeRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLMSCSSKeyframesRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLMapElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLMarqueeElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLMediaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLMediaError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLMetaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLNamespace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLNamespaceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLNavigator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLNextIdElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLNoShowElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLOListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLObjectElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLOptionElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLParaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLParamElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLPerformance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLPerformanceNavigation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLPerformanceTiming(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLPhraseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLPopup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLProgressElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLRenderStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLRichtextElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLRuleStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLScreen(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLScriptElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLSelectElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLSemanticElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLSourceElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLSpanElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLSpanFlow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleFontFace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleMedia(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleSheet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleSheetPage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleSheetPagesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleSheetRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleSheetRulesAppliedCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleSheetRulesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLStyleSheetsCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTableCaption(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTableCell(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTableCol(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTableRow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTableSection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTextAreaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTextElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTimeRanges(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLTitleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLUListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLUnknownElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLUrnCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLVideoElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLW3CComputedStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLWindow2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLWindowProxy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLWndOptionElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLWndSelectElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispHTMLXMLHttpRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispIHTMLInputButtonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispIHTMLInputFileElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispIHTMLInputImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispIHTMLInputTextElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispIHTMLOptionButtonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispNodeIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispRangeException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispRulesApplied(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispRulesAppliedCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGAElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGCircleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGClipPathElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGDefsElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGDescElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGElementInstance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGElementInstanceList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGEllipseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGGElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGGradientElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGImageElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGLineElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGLinearGradientElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGMarkerElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGMaskElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGMetadataElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegArcAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegArcRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegClosePath(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoCubicAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoCubicRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoCubicSmoothAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoCubicSmoothRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoQuadraticAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoQuadraticRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoQuadraticSmoothAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegCurvetoQuadraticSmoothRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegLinetoAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegLinetoHorizontalAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegLinetoHorizontalRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegLinetoRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegLinetoVerticalAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegLinetoVerticalRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegMovetoAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPathSegMovetoRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPatternElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPolygonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGPolylineElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGRadialGradientElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGRectElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGSVGElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGScriptElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGStopElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGStyleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGSwitchElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGSymbolElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGTSpanElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGTextContentElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGTextElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGTextPathElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGTextPositioningElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGTitleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGUseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGViewElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispSVGZoomEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispStaticNodeList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispTreeWalker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispWebGeocoordinates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispWebGeolocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispWebGeoposition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispWebGeopositionError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispXDomainRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispXMLSerializer(pub *mut ::core::ffi::c_void);
 pub struct DomConstructor(i32);
 pub struct ELEMENTDESCRIPTOR_FLAGS(i32);
@@ -12300,12 +12543,16 @@ pub struct HTCEventBehavior(i32);
 pub struct HTCMethodBehavior(i32);
 pub struct HTCPropertyBehavior(i32);
 pub struct HTMLAnchorElement(i32);
+#[repr(transparent)]
 pub struct HTMLAnchorEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLAnchorEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLAppBehavior(i32);
 pub struct HTMLAppFlag(i32);
 pub struct HTMLAreaElement(i32);
+#[repr(transparent)]
 pub struct HTMLAreaEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLAreaEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLAreasCollection(i32);
 pub struct HTMLAttributeCollection(i32);
@@ -12320,7 +12567,9 @@ pub struct HTMLBody(i32);
 pub struct HTMLBorder(i32);
 pub struct HTMLBorderStyle(i32);
 pub struct HTMLButtonElement(i32);
+#[repr(transparent)]
 pub struct HTMLButtonElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLButtonElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLCSSImportRule(i32);
 pub struct HTMLCSSMediaList(i32);
@@ -12331,7 +12580,9 @@ pub struct HTMLCSSStyleDeclaration(i32);
 pub struct HTMLCanvasElement(i32);
 pub struct HTMLCaptionFlag(i32);
 pub struct HTMLCommentElement(i32);
+#[repr(transparent)]
 pub struct HTMLControlElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLControlElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLCurrentStyle(i32);
 pub struct HTMLDDElement(i32);
@@ -12365,25 +12616,37 @@ pub struct HTMLDlgFlag(i32);
 pub struct HTMLDocument(i32);
 pub struct HTMLDocumentCompatibleInfo(i32);
 pub struct HTMLDocumentCompatibleInfoCollection(i32);
+#[repr(transparent)]
 pub struct HTMLDocumentEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLDocumentEvents2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLDocumentEvents3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLDocumentEvents4(pub *mut ::core::ffi::c_void);
 pub struct HTMLElementCollection(i32);
+#[repr(transparent)]
 pub struct HTMLElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLElementEvents3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLElementEvents4(pub *mut ::core::ffi::c_void);
 pub struct HTMLEmbed(i32);
 pub struct HTMLFieldSetElement(i32);
 pub struct HTMLFontElement(i32);
 pub struct HTMLFormElement(i32);
+#[repr(transparent)]
 pub struct HTMLFormElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLFormElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLFrameBase(i32);
 pub struct HTMLFrameElement(i32);
 pub struct HTMLFrameSetSite(i32);
+#[repr(transparent)]
 pub struct HTMLFrameSiteEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLFrameSiteEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLGenericElement(i32);
 pub struct HTMLHRElement(i32);
@@ -12394,37 +12657,53 @@ pub struct HTMLHtmlElement(i32);
 pub struct HTMLIFrame(i32);
 pub struct HTMLImageElementFactory(i32);
 pub struct HTMLImg(i32);
+#[repr(transparent)]
 pub struct HTMLImgEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLImgEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLInputButtonElement(i32);
 pub struct HTMLInputElement(i32);
 pub struct HTMLInputFileElement(i32);
+#[repr(transparent)]
 pub struct HTMLInputFileElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLInputFileElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLInputImage(i32);
+#[repr(transparent)]
 pub struct HTMLInputImageEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLInputImageEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLInputTextElement(i32);
+#[repr(transparent)]
 pub struct HTMLInputTextElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLInputTextElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLIsIndexElement(i32);
 pub struct HTMLLIElement(i32);
 pub struct HTMLLabelElement(i32);
+#[repr(transparent)]
 pub struct HTMLLabelEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLLabelEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLLegendElement(i32);
 pub struct HTMLLinkElement(i32);
+#[repr(transparent)]
 pub struct HTMLLinkElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLLinkElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLListElement(i32);
 pub struct HTMLLocation(i32);
 pub struct HTMLMSCSSKeyframeRule(i32);
 pub struct HTMLMSCSSKeyframesRule(i32);
 pub struct HTMLMapElement(i32);
+#[repr(transparent)]
 pub struct HTMLMapEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLMapEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLMarqueeElement(i32);
+#[repr(transparent)]
 pub struct HTMLMarqueeElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLMarqueeElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLMaximizeFlag(i32);
 pub struct HTMLMediaElement(i32);
@@ -12433,16 +12712,21 @@ pub struct HTMLMetaElement(i32);
 pub struct HTMLMinimizeFlag(i32);
 pub struct HTMLNamespace(i32);
 pub struct HTMLNamespaceCollection(i32);
+#[repr(transparent)]
 pub struct HTMLNamespaceEvents(pub *mut ::core::ffi::c_void);
 pub struct HTMLNavigator(i32);
 pub struct HTMLNextIdElement(i32);
 pub struct HTMLNoShowElement(i32);
 pub struct HTMLOListElement(i32);
 pub struct HTMLObjectElement(i32);
+#[repr(transparent)]
 pub struct HTMLObjectElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLObjectElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLOptionButtonElement(i32);
+#[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLOptionElement(i32);
 pub struct HTMLOptionElementFactory(i32);
@@ -12460,10 +12744,14 @@ pub struct HTMLRichtextElement(i32);
 pub struct HTMLRuleStyle(i32);
 pub struct HTMLScreen(i32);
 pub struct HTMLScriptElement(i32);
+#[repr(transparent)]
 pub struct HTMLScriptEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLScriptEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLSelectElement(i32);
+#[repr(transparent)]
 pub struct HTMLSelectElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLSelectElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLSemanticElement(i32);
 pub struct HTMLSourceElement(i32);
@@ -12472,7 +12760,9 @@ pub struct HTMLSpanFlow(i32);
 pub struct HTMLStorage(i32);
 pub struct HTMLStyle(i32);
 pub struct HTMLStyleElement(i32);
+#[repr(transparent)]
 pub struct HTMLStyleElementEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLStyleElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLStyleFontFace(i32);
 pub struct HTMLStyleMedia(i32);
@@ -12488,12 +12778,16 @@ pub struct HTMLTable(i32);
 pub struct HTMLTableCaption(i32);
 pub struct HTMLTableCell(i32);
 pub struct HTMLTableCol(i32);
+#[repr(transparent)]
 pub struct HTMLTableEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLTableEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLTableRow(i32);
 pub struct HTMLTableSection(i32);
 pub struct HTMLTextAreaElement(i32);
+#[repr(transparent)]
 pub struct HTMLTextContainerEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLTextContainerEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLTextElement(i32);
 pub struct HTMLTimeRanges(i32);
@@ -12504,14 +12798,18 @@ pub struct HTMLUrnCollection(i32);
 pub struct HTMLVideoElement(i32);
 pub struct HTMLW3CComputedStyle(i32);
 pub struct HTMLWindow2(i32);
+#[repr(transparent)]
 pub struct HTMLWindowEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLWindowEvents2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct HTMLWindowEvents3(pub *mut ::core::ffi::c_void);
 pub struct HTMLWindowProxy(i32);
 pub struct HTMLWindowState(i32);
 pub struct HTMLWndOptionElement(i32);
 pub struct HTMLWndSelectElement(i32);
 pub struct HTMLXMLHttpRequest(i32);
+#[repr(transparent)]
 pub struct HTMLXMLHttpRequestEvents(pub *mut ::core::ffi::c_void);
 pub struct HTMLXMLHttpRequestFactory(i32);
 pub struct HTML_PAINTER(i32);
@@ -12530,25 +12828,45 @@ pub struct HomePage(i32);
 pub struct HomePageSetting(i32);
 pub struct HostDialogHelper(i32);
 pub struct HtmlDlgSafeHelper(i32);
+#[repr(transparent)]
 pub struct IActiveXUIHandlerSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveXUIHandlerSite2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveXUIHandlerSite3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnchorClick(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBFCacheable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBlockFormats(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICSSFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICSSFilterSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanvasGradient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanvasImageData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanvasPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanvasPixelArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanvasPixelArrayData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanvasRenderingContext2D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanvasTextMetrics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICaretPositionProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClassFactoryEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClientCaps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICustomDoc(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const IDM_1D: u32 = 2170u32;
@@ -13524,55 +13842,105 @@ pub const IDM_ZOOMPERCENT: u32 = 50u32;
 pub const IDM_ZOOMPOPUP: u32 = 2140u32;
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const IDM_ZOOMRATIO: u32 = 2344u32;
+#[repr(transparent)]
 pub struct IDOMBeforeUnloadEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMCloseEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMCompositionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMCustomEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMDocumentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMDragEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMEventRegistrationCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMFocusEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMKeyboardEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMMSAnimationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMMSManipulationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMMSTransitionEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMMessageEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMMouseEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMMouseWheelEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMMutationEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMNodeIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMParserFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMProcessingInstruction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMProgressEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMSiteModeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMStorageEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMTextEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMTreeWalker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMUIEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMWheelEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMXmlSerializer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDOMXmlSerializerFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugCallbackNotificationHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeveloperConsoleMessageReceiver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeviceRect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiagnosticsScriptEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiagnosticsScriptEngineProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiagnosticsScriptEngineSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayPointer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDithererImpl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocHostShowUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocHostUIHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocHostUIHandler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocObjectService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocumentEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocumentRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocumentSelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocumentTraversal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadManager(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const IECMDID_ARG_CLEAR_FORMS_ALL: u32 = 0u32;
@@ -13605,413 +13973,821 @@ pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
+#[repr(transparent)]
 pub struct IElementBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorCategory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorFocus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorLayout(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorLayout2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorRender(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSiteCategory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSiteLayout(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSiteLayout2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSiteOM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSiteOM2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSiteRender(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementBehaviorSubmit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementNamespace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementNamespaceFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementNamespaceFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementNamespaceFactoryCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementNamespaceTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementSelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IElementTraversal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumManagerFrames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumOpenServiceActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumOpenServiceActivityCategory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPrivacyRecords(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSTATURL(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEventException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEventTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEventTarget2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtensionValidation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFontNames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetSVGDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTCAttachBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTCAttachBehavior2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTCDefaultDispatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTCDescBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTCEventBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTCMethodBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTCPropertyBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAnchorElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAnchorElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAnchorElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAppBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAppBehavior2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAppBehavior3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLApplicationCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAreaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAreaElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAreasCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAreasCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAreasCollection3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAreasCollection4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAttributeCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAttributeCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAttributeCollection3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAttributeCollection4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAudioElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLAudioElementFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBGsound(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBRElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBaseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBaseElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBaseFontElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBlockElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBlockElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBlockElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBodyElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBodyElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBodyElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBodyElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBodyElement5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLBookmarkCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLButtonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLButtonElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSImportRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSMediaList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSMediaRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSNamespaceRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSStyleDeclaration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSStyleDeclaration2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSStyleDeclaration3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCSSStyleDeclaration4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCanvasElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCaret(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLChangeLog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLChangePlayback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLChangeSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCommentElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCommentElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCommentElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLComputedStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLControlElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLControlRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLControlRange2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCurrentStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCurrentStyle2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCurrentStyle3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCurrentStyle4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLCurrentStyle5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDDElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMAttribute2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMAttribute3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMAttribute4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMChildrenCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMChildrenCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMConstructor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMConstructorCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMImplementation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMImplementation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMNode2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMNode3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMTextNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMTextNode2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDOMTextNode3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDTElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDataTransfer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDatabinding(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDialog2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDialog3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDivElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDivPosition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocument8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocumentCompatibleInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLDocumentCompatibleInfoCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEditDesigner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEditHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEditHost2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEditServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEditServices2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElement5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElement6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElement7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElementAppliedStyles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElementCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElementCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElementCollection3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElementCollection4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElementDefaults(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLElementRender(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEmbedElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEmbedElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEventObj(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEventObj2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEventObj3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEventObj4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEventObj5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLEventObj6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFieldSetElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFieldSetElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFiltersCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFontElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFontNamesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFontSizesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFormElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFormElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFormElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFormElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameBase2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameBase3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameSetElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameSetElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFrameSetElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLFramesCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLGenericElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLHRElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLHeadElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLHeadElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLHeaderElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLHtmlElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLIFrameElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLIFrameElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLIFrameElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLIPrintCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLImageElementFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLImgElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLImgElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLImgElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLImgElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputButtonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputFileElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputHiddenElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputRangeElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputTextElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLInputTextElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLIsIndexElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLIsIndexElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLabelElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLabelElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLegendElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLegendElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLinkElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLinkElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLinkElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLinkElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLinkElement5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLListElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLLocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMSCSSKeyframeRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMSCSSKeyframesRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMSImgElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMSMediaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMapElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMarqueeElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMediaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMediaElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMediaError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMetaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMetaElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMetaElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLMimeTypesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLModelessInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLNamespace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLNamespaceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLNextIdElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLNoShowElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOMWindowServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLObjectElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLObjectElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLObjectElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLObjectElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLObjectElement5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOpsProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOptionButtonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOptionElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOptionElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOptionElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOptionElementFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLOptionsHolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPaintSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPainter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPainterEventInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPainterOverlay(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLParaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLParamElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLParamElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPerformance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPerformanceNavigation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPerformanceTiming(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPersistData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPersistDataOM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPhraseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPhraseElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPhraseElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPluginsCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLPopup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLProgressElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRect2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRectCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRenderStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRuleStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRuleStyle2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRuleStyle3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRuleStyle4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRuleStyle5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLRuleStyle6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScreen(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScreen2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScreen3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScreen4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScriptElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScriptElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScriptElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLScriptElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectElement5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectElement6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectElementEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectionObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSelectionObject2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSourceElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSpanElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSpanFlow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStorage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyle2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyle3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyle4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyle5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyle6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleEnabled(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleFontFace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleFontFace2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleMedia(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheet2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheet3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheet4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetPage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetPage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetPagesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetRule2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetRuleApplied(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetRulesAppliedCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetRulesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetRulesCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetsCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLStyleSheetsCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLSubmitData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTable2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTable3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTable4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableCaption(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableCell(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableCell2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableCell3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableCol(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableCol2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableCol3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableRow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableRow2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableRow3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableRow4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableRowMetrics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableSection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableSection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableSection3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTableSection4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTextAreaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTextAreaElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTextContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTextElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTextRangeMetrics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTextRangeMetrics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTimeRanges(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTimeRanges2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTitleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTxtRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLTxtRangeCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLUListElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLUniqueName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLUnknownElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLUrnCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLUserDataOM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLVideoElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLWindow2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLWindow3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLWindow4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLWindow5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLWindow6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLWindow7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLWindow8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLXDomainRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLXDomainRequestFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLXMLHttpRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLXMLHttpRequest2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHTMLXMLHttpRequestFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHeaderFooter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHeaderFooter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHighlightRenderingServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHighlightSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHomePage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHomePageSetting(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHostBehaviorInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHostDialogHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHtmlDlgSafeHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IICCSVGColor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIE70DispatchEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIE80DispatchEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIEWebDriverManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIEWebDriverSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIMEServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IImageDecodeEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IImageDecodeEventSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IImageDecodeFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIntelliForms(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetExplorerManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternetExplorerManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILayoutRect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILineInfo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const IMGDECODE_EVENT_BEGINBITS: u32 = 4u32;
@@ -14029,193 +14805,378 @@ pub const IMGDECODE_HINT_BOTTOMUP: u32 = 2u32;
 pub const IMGDECODE_HINT_FULLWIDTH: u32 = 4u32;
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const IMGDECODE_HINT_TOPDOWN: u32 = 1u32;
+#[repr(transparent)]
 pub struct IMapMIMEToCLSID(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMarkupContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMarkupContainer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMarkupPointer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMarkupPointer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMarkupServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMarkupServices2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMarkupTextFrags(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaActivityNotifySite(pub *mut ::core::ffi::c_void);
 pub struct INTERNETEXPLORERCONFIGURATION(i32);
+#[repr(transparent)]
 pub struct INavigatorDoNotTrack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INavigatorGeolocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOmHistory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOmNavigator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenServiceActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenServiceActivityCategory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenServiceActivityInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenServiceActivityManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenServiceActivityOutputContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenServiceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPeerFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistHistory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintManagerTemplatePrinter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintManagerTemplatePrinter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintTaskRequestFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintTaskRequestHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRangeException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRulesApplied(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRulesAppliedCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAngle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedAngle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedBoolean(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedEnumeration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedInteger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedLength(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedLengthList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedNumber(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedNumberList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedPathData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedPoints(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedPreserveAspectRatio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedRect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGAnimatedTransformList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGCircleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGClipPathElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGDefsElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGDescElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGElementInstance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGElementInstanceList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGEllipseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGExternalResourcesRequired(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGFitToViewBox(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGGElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGGradientElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGImageElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGLangSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGLength(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGLengthList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGLineElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGLinearGradientElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGLocatable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGMarkerElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGMaskElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGMatrix(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGMetadataElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGNumber(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGNumberList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPaint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSeg(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegArcAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegArcRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegClosePath(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoCubicAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoCubicRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoCubicSmoothAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoCubicSmoothRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoQuadraticAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoQuadraticRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoQuadraticSmoothAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegCurvetoQuadraticSmoothRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegLinetoAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegLinetoHorizontalAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegLinetoHorizontalRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegLinetoRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegLinetoVerticalAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegLinetoVerticalRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegMovetoAbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPathSegMovetoRel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPatternElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPointList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPolygonElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPolylineElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGPreserveAspectRatio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGRadialGradientElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGRect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGRectElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGSVGElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGScriptElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGStopElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGStringList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGStylable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGStyleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGSwitchElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGSymbolElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTSpanElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTests(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTextContentElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTextElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTextPathElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTextPositioningElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTitleElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTransformList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGTransformable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGURIReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGUseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGViewElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGViewSpec(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGZoomAndPan(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISVGZoomEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScriptEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScriptEventHandlerSourceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScrollableContextMenu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScrollableContextMenu2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISecureUrlHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISegmentList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISegmentListIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISelectionServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISelectionServicesListener(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISequenceNumber(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISniffStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISurfacePresenter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISurfacePresenterFlip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISurfacePresenterFlip2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISurfacePresenterFlipBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetEmbedding(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetFrame2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetFramePriv(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetFramePriv2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetNotify2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITemplatePrinter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITemplatePrinter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITemplatePrinter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimerEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimerService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimerSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITrackingProtection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITridentTouchInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITridentTouchInputSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlHistoryNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlHistoryStg(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlHistoryStg2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPresentFlip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPresentFlip2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPresentFlipSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPresentFlipSite2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPresentNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPresentNotifySite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPresentSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectPrint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWBScriptControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWPCBlockedUrls(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebBridge(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebBrowserEventsService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebBrowserEventsUrlService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebGeocoordinates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebGeolocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebGeoposition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebGeopositionError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLGenericParse(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
 pub struct IntelliForms(i32);
 pub struct InternetExplorerManager(i32);
+#[repr(transparent)]
 pub struct Iwfolders(pub *mut ::core::ffi::c_void);
 pub struct LINE_DIRECTION(i32);
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]

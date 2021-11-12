@@ -1,49 +1,79 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct ActivationSignalDetectionConfiguration(i32);
-pub struct ActivationSignalDetectionConfigurationCreationResult(i32);
+#[repr(transparent)]
+pub struct ActivationSignalDetectionConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ActivationSignalDetectionConfigurationCreationResult(pub *mut ::core::ffi::c_void);
 pub struct ActivationSignalDetectionConfigurationCreationStatus(i32);
 pub struct ActivationSignalDetectionConfigurationRemovalResult(i32);
 pub struct ActivationSignalDetectionConfigurationSetModelDataResult(i32);
 pub struct ActivationSignalDetectionConfigurationStateChangeResult(i32);
 pub struct ActivationSignalDetectionTrainingDataFormat(i32);
-pub struct ActivationSignalDetector(i32);
+#[repr(transparent)]
+pub struct ActivationSignalDetector(pub *mut ::core::ffi::c_void);
 pub struct ActivationSignalDetectorKind(i32);
 pub struct ActivationSignalDetectorPowerState(i32);
 pub struct ConversationalAgentActivationKind(i32);
 pub struct ConversationalAgentActivationResult(i32);
-pub struct ConversationalAgentDetectorManager(i32);
-pub struct ConversationalAgentSession(i32);
-pub struct ConversationalAgentSessionInterruptedEventArgs(i32);
+#[repr(transparent)]
+pub struct ConversationalAgentDetectorManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ConversationalAgentSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ConversationalAgentSessionInterruptedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ConversationalAgentSessionUpdateResponse(i32);
-pub struct ConversationalAgentSignal(i32);
-pub struct ConversationalAgentSignalDetectedEventArgs(i32);
+#[repr(transparent)]
+pub struct ConversationalAgentSignal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ConversationalAgentSignalDetectedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ConversationalAgentState(i32);
 pub struct ConversationalAgentSystemStateChangeType(i32);
-pub struct ConversationalAgentSystemStateChangedEventArgs(i32);
+#[repr(transparent)]
+pub struct ConversationalAgentSystemStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(i32);
 pub struct DetectionConfigurationAvailabilityChangeKind(i32);
-pub struct DetectionConfigurationAvailabilityChangedEventArgs(i32);
-pub struct DetectionConfigurationAvailabilityInfo(i32);
+#[repr(transparent)]
+pub struct DetectionConfigurationAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DetectionConfigurationAvailabilityInfo(pub *mut ::core::ffi::c_void);
 pub struct DetectionConfigurationTrainingStatus(i32);
+#[repr(transparent)]
 pub struct IActivationSignalDetectionConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActivationSignalDetectionConfiguration2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActivationSignalDetectionConfigurationCreationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActivationSignalDetector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActivationSignalDetector2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentDetectorManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentDetectorManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentDetectorManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSession2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSessionInterruptedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSessionStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSignal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSignal2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSignalDetectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConversationalAgentSystemStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDetectionConfigurationAvailabilityInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDetectionConfigurationAvailabilityInfo2(pub *mut ::core::ffi::c_void);
 pub struct SignalDetectorResourceKind(i32);

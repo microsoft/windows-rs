@@ -2,12 +2,21 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct AppBroadcastingContract(i32);
-pub struct AppBroadcastingMonitor(i32);
-pub struct AppBroadcastingStatus(i32);
-pub struct AppBroadcastingStatusDetails(i32);
-pub struct AppBroadcastingUI(i32);
+#[repr(transparent)]
+pub struct AppBroadcastingMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppBroadcastingStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppBroadcastingStatusDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppBroadcastingUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppBroadcastingMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppBroadcastingStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppBroadcastingStatusDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppBroadcastingUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppBroadcastingUIStatics(pub *mut ::core::ffi::c_void);

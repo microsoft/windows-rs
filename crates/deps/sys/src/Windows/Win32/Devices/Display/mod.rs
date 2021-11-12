@@ -1252,6 +1252,7 @@ pub const HT_USERPAT_CX_MIN: u32 = 4u32;
 pub const HT_USERPAT_CY_MAX: u32 = 256u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HT_USERPAT_CY_MIN: u32 = 4u32;
+#[repr(transparent)]
 pub struct ICloneViewHelper(pub *mut ::core::ffi::c_void);
 pub struct IFIEXTRA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -1614,6 +1615,7 @@ pub const IOCTL_VIDEO_UNSHARE_VIDEO_MEMORY: u32 = 2294904u32;
 pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
+#[repr(transparent)]
 pub struct IViewHelper(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const JOIN_BEVEL: i32 = 1i32;

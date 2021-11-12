@@ -2003,8 +2003,11 @@ pub const DS_E_UNKNOWNREQUEST: i32 = -2147220476i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
 pub struct DataLinks(i32);
+#[repr(transparent)]
 pub struct DataSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DataSourceListener(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DataSourceObject(pub *mut ::core::ffi::c_void);
 pub struct EBindInfoOptions(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2944,44 +2947,83 @@ pub const GTHR_S_TRANSACTION_IGNORED: i32 = 265577i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const GTHR_S_USE_MIME_FILTER: i32 = 265639i32;
 pub struct HITRANGE(i32);
+#[repr(transparent)]
 pub struct IAccessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAlterIndex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAlterTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IChapteredRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColumnMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColumnMapperCreator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColumnsInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColumnsInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColumnsRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandCost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandPersist(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandPrepare(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandValidate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommandWithParameters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICondition2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConditionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConditionFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConditionGenerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConvertType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateRow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBAsynchNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBAsynchStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBBinderProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBCreateCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBCreateSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBDataSourceAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBInitialize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBPromptInitialize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBSchemaCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDBSchemaRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCInfo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
@@ -3099,28 +3141,51 @@ pub const IDX_S_NO_BUILD_IN_PROGRESS: i32 = 266516i32;
 pub const IDX_S_SEARCH_SERVER_ALREADY_EXISTS: i32 = 266517i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
+#[repr(transparent)]
 pub struct IDataConvert(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataInitialize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataSourceLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEntity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumItemProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSearchRoots(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSearchScopeRules(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSubscription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IErrorLookup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IErrorRecords(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetDataSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetRow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetSourceRow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIndexDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInterval(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILoadFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILoadFilterWithPrivateComActivation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDDataset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDFind(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDRangeRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMetaData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultipleResults(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct INCREMENTAL_ACCESS_INFO(i32);
@@ -3145,118 +3210,226 @@ pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows_sys::core::HRESULT = ::wi
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const INET_S_AGENT_PART_FAIL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(790401i32 as _);
 pub struct INTERVAL_LIMIT_KIND(i32);
+#[repr(transparent)]
 pub struct INamedEntity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INamedEntityCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectAccessControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpLockStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IParentRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProtocolHandlerSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProvideMoniker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryParserManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQuerySolution(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IReadData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegisterProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRelationship(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRichChunk(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowPosition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowPositionChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowSchemaChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetAsynch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetBookmark(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetChangeExtInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetChapterMember(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetCopyRows(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetCurrentIndex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetEvents(pub *mut ::core::ffi::c_void);
 pub struct IRowsetExactScroll(i32);
+#[repr(transparent)]
 pub struct IRowsetFastLoad(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetFind(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetIdentity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetIndex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetKeys(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetLocate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetNewRowAfter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetNextRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetPrioritization(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetQueryStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetRefresh(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetResynch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetScroll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetUpdate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetWatchAll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetWatchNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetWatchRegion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRowsetWithParameters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISQLErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISQLGetDiagField(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISQLRequestDiagFields(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISQLServerErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaLocalizerSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaLock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScopedOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchCatalogManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchCatalogManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchCrawlScopeManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchCrawlScopeManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchItemsChangedSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchLanguageSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchNotifyInlineSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchPersistentItemsChangedSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchProtocol(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchProtocol2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchProtocolThreadContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchQueryHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchQueryHits(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchRoot(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchScopeRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchViewChangedSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISecurityInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISessionProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimpleCommandCreator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISourcesRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStemmer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISubscriptionItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISubscriptionMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISubscriptionMgr2(pub *mut ::core::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct ITEMPROP(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ITEM_INFO(i32);
+#[repr(transparent)]
 pub struct ITableCreation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITableDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITableDefinitionWithConstraints(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITableRename(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITokenCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionJoin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionLocal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITrusteeAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITrusteeGroupAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUMS(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUMSInitialize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlAccessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlAccessor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlAccessor3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlAccessor4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewChapter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewRowset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewSort(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWordBreaker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWordFormSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWordSink(pub *mut ::core::ffi::c_void);
 pub struct Interval(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
@@ -3890,7 +4063,9 @@ pub const ODBC_VS_FLAG_STOP: i32 = 8i32;
 pub const ODBC_VS_FLAG_UNICODE_ARG: i32 = 1i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2i32;
+#[repr(transparent)]
 pub struct OLEDBSimpleProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct OLEDBSimpleProviderListener(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const OLEDBVER: u32 = 624u32;

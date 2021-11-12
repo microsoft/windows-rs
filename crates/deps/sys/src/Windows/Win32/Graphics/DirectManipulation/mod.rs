@@ -57,21 +57,39 @@ pub struct DirectManipulationPrimaryContent(i32);
 pub struct DirectManipulationSharedManager(i32);
 pub struct DirectManipulationUpdateManager(i32);
 pub struct DirectManipulationViewport(i32);
+#[repr(transparent)]
 pub struct IDirectManipulationAutoScrollBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationCompositor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationCompositor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationDeferContactService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationDragDropBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationDragDropEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationFrameInfoProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationInteractionEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationManager3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationPrimaryContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationUpdateHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationUpdateManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationViewport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationViewport2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectManipulationViewportEventHandler(pub *mut ::core::ffi::c_void);

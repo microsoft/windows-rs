@@ -551,70 +551,132 @@ pub const GUID_STIUserDefined3: ::windows_sys::core::GUID = ::windows_sys::GUID 
 pub const GUID_ScanFaxImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3222189971, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
 pub const GUID_ScanImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2797971221, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
 pub const GUID_ScanPrintImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3024221221, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
+#[repr(transparent)]
 pub struct IFaxAccount(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccountFolders(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccountIncomingArchive(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccountIncomingQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccountNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccountOutgoingArchive(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccountOutgoingQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccountSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxAccounts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxActivityLogging(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxDeviceIds(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxDeviceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxDeviceProviders(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxDevices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxDocument2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxEventLogging(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxFolders(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxInboundRouting(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxInboundRoutingExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxInboundRoutingExtensions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxInboundRoutingMethod(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxInboundRoutingMethods(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxIncomingArchive(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxIncomingJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxIncomingJobs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxIncomingMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxIncomingMessage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxIncomingMessageIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxIncomingQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxJobStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxLoggingOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutboundRouting(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutboundRoutingGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutboundRoutingGroups(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutboundRoutingRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutboundRoutingRules(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingArchive(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingJob2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingJobs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingMessage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingMessageIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxOutgoingQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxReceiptOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxRecipient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxRecipients(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxSecurity2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxSender(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxServer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxServerNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFaxServerNotify2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
+#[repr(transparent)]
 pub struct IStiDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStiDeviceControl(pub *mut ::core::ffi::c_void);
 pub struct IStiDeviceW(i32);
+#[repr(transparent)]
 pub struct IStiUSD(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStillImageW(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const JS_DELETING: u32 = 2u32;
@@ -909,7 +971,9 @@ pub struct SendToMode(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const WIA_INCOMPAT_XP: u32 = 1u32;
 pub struct _ERROR_INFOW(i32);
+#[repr(transparent)]
 pub struct _IFaxAccountNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IFaxServerNotify2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const lDEFAULT_PREFETCH_SIZE: i32 = 100i32;

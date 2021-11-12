@@ -20,12 +20,19 @@ pub struct IASOSTYPE(i32);
 pub struct IASPROPERTIES(i32);
 pub struct IDENTITY_TYPE(i32);
 pub struct IPFILTERPROPERTIES(i32);
+#[repr(transparent)]
 pub struct ISdo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISdoCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISdoDictionaryOld(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISdoMachine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISdoMachine2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISdoServiceControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITemplateSdo(pub *mut ::core::ffi::c_void);
 pub struct NAMESPROPERTIES(i32);
 pub struct NAPPROPERTIES(i32);

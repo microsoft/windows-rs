@@ -3,34 +3,60 @@
 pub mod UI;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct ICredentialFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKeyCredential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKeyCredentialAttestationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKeyCredentialManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKeyCredentialRetrievalResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPasswordCredential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPasswordVault(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccount(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccount2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccountFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccountProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccountProvider2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccountProvider3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccountProvider4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAccountProviderFactory(pub *mut ::core::ffi::c_void);
-pub struct KeyCredential(i32);
-pub struct KeyCredentialAttestationResult(i32);
+#[repr(transparent)]
+pub struct KeyCredential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KeyCredentialAttestationResult(pub *mut ::core::ffi::c_void);
 pub struct KeyCredentialAttestationStatus(i32);
 pub struct KeyCredentialCreationOption(i32);
-pub struct KeyCredentialManager(i32);
-pub struct KeyCredentialOperationResult(i32);
-pub struct KeyCredentialRetrievalResult(i32);
+#[repr(transparent)]
+pub struct KeyCredentialManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KeyCredentialRetrievalResult(pub *mut ::core::ffi::c_void);
 pub struct KeyCredentialStatus(i32);
-pub struct PasswordCredential(i32);
-pub struct PasswordCredentialPropertyStore(i32);
-pub struct PasswordVault(i32);
-pub struct WebAccount(i32);
+#[repr(transparent)]
+pub struct PasswordCredential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PasswordCredentialPropertyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PasswordVault(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebAccount(pub *mut ::core::ffi::c_void);
 pub struct WebAccountPictureSize(i32);
-pub struct WebAccountProvider(i32);
+#[repr(transparent)]
+pub struct WebAccountProvider(pub *mut ::core::ffi::c_void);
 pub struct WebAccountState(i32);

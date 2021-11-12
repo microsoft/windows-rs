@@ -1622,15 +1622,25 @@ pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows_sys::core::GUID = ::win
     data3: 16475,
     data4: [153, 240, 166, 42, 240, 198, 141, 67],
 };
+#[repr(transparent)]
 pub struct IDot11AdHocInterface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDot11AdHocInterfaceNotificationSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDot11AdHocManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDot11AdHocManagerNotificationSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDot11AdHocNetwork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDot11AdHocNetworkNotificationSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDot11AdHocSecuritySettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDot11AdHocInterfaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDot11AdHocNetworks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDot11AdHocSecuritySettings(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;

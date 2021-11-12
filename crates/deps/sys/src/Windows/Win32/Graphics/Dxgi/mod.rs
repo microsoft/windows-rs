@@ -232,50 +232,97 @@ pub const DXGI_USAGE_SHADER_INPUT: u32 = 16u32;
 pub const DXGI_USAGE_SHARED: u32 = 128u32;
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024u32;
+#[repr(transparent)]
 pub struct IDXGIAdapter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIAdapter1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIAdapter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIAdapter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIAdapter4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDebug1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDecodeSwapChain(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDevice1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDevice3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDevice4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDeviceSubObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIDisplayControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactory7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIFactoryMedia(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIInfoQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIKeyedMutex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutput1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutput2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutput3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutput4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutput5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutput6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIOutputDuplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGIResource1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISurface1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISurface2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISwapChain(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISwapChain1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISwapChain2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISwapChain3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISwapChain4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGISwapChainMedia(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXGraphicsAnalysis(pub *mut ::core::ffi::c_void);

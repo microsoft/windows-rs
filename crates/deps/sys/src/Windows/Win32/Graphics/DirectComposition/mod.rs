@@ -55,48 +55,93 @@ pub struct DCOMPOSITION_FRAME_STATISTICS(i32);
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 pub struct DCOMPOSITION_OPACITY_MODE(i32);
 pub struct DCompositionInkTrailPoint(i32);
+#[repr(transparent)]
 pub struct IDCompositionAffineTransform2DEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionAnimation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionArithmeticCompositeEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionBlendEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionBrightnessEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionClip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionColorMatrixEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionCompositeEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionDelegatedInkTrail(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionDesktopDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionDevice3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionDeviceDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionEffectGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionFilterEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionGaussianBlurEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionHueRotationEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionInkTrailDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionLinearTransferEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionMatrixTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionMatrixTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionRectangleClip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionRotateTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionRotateTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionSaturationEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionScaleTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionScaleTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionShadowEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionSkewTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionSurfaceFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionTableTransferEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionTranslateTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionTranslateTransform3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionTurbulenceEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionVirtualSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionVisual(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionVisual2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionVisual3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDCompositionVisualDebug(pub *mut ::core::ffi::c_void);

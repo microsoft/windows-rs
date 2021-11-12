@@ -15,7 +15,9 @@ pub struct HistogramDataHeader(i32);
 pub struct HistogramGrid(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HistogramHeader(i32);
+#[repr(transparent)]
 pub struct IMFDeviceTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFDeviceTransformCallback(pub *mut ::core::ffi::c_void);
 pub struct MF_MEDIASOURCE_STATUS_INFO(i32);
 pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(i32);

@@ -8,7 +8,11 @@ pub const CLSID_VideoFrameNativeFactory: ::windows_sys::core::GUID = ::windows_s
     data3: 18452,
     data4: [129, 0, 178, 176, 174, 109, 120, 199],
 };
+#[repr(transparent)]
 pub struct IAudioFrameNative(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioFrameNativeFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoFrameNative(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoFrameNativeFactory(pub *mut ::core::ffi::c_void);

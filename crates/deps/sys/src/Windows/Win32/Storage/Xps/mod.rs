@@ -49,73 +49,141 @@ pub struct DOCINFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAWPATRECT(i32);
 pub struct HPTPROVIDER(i32);
+#[repr(transparent)]
 pub struct IXpsDocumentPackageTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsDocumentPackageTarget3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMCanvas(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMColorProfileResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMColorProfileResourceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMCoreProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMDashCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMDictionary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMDocumentCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMDocumentSequence(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMDocumentStructureResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMFontResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMFontResourceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGeometry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGeometryFigure(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGeometryFigureCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGlyphs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGlyphsEditor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGradientStop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMGradientStopCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMImageBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMImageResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMImageResourceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMLinearGradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMMatrixTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMNameCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMObjectFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMObjectFactory1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPackage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPackage1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPackageTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPackageWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPackageWriter3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPage1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPageReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPageReferenceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPart(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPartResources(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPartUriCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPath(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMPrintTicketResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMRadialGradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResourceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMShareable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMSignatureBlockResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMSignatureBlockResourceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMSolidColorBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMStoryFragmentsResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMThumbnailGenerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMTileBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMVisual(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMVisualBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsOMVisualCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSignature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSignatureBlock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSignatureBlockCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSignatureCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSignatureManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSignatureRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSignatureRequestCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsSigningOptions(pub *mut ::core::ffi::c_void);
 pub struct PRINT_WINDOW_FLAGS(i32);
 pub struct PSFEATURE_CUSTPAPER(i32);

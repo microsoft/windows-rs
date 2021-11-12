@@ -1038,6 +1038,7 @@ pub struct APPLICATION_NODE_EVENT_FILTER(i32);
 pub struct ARM64_NT_CONTEXT(i32);
 pub struct ARM64_NT_NEON128(i32);
 pub struct ArrayDimension(i32);
+#[repr(transparent)]
 pub struct AsyncIDebugApplicationNodeEvents(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const BIND_ALL_IMAGES: u32 = 4u32;
@@ -2756,7 +2757,9 @@ pub struct DUMP_HEADER64(i32);
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
+#[repr(transparent)]
 pub struct DebugBaseEventCallbacks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DebugBaseEventCallbacksWide(pub *mut ::core::ffi::c_void);
 pub struct DebugHelper(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -2886,209 +2889,413 @@ pub struct GET_PEB_ADDRESS(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_SET_SYMPATH(i32);
 pub struct GET_TEB_ADDRESS(i32);
+#[repr(transparent)]
 pub struct IActiveScript(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptAuthor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptAuthorProcedure(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptDebug32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptDebug64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptEncode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptError64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptErrorDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptErrorDebug110(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptGarbageCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptHostEncode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParse32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParse64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParseProcedure2_32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParseProcedure2_64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParseProcedure32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParseProcedure64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParseProcedureOld32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptParseProcedureOld64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerCallback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerCallback3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerControl3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerControl4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerControl5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProfilerHeapEnum(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSIPInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSiteDebug32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSiteDebug64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSiteDebugEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSiteInterruptPoll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSiteTraceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSiteUIControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptSiteWindow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptStats(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptStringCompare(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptTraceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActiveScriptWinRTErrorDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationDebugger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationDebuggerUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICodeAddressConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComparableConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelNameBinder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScript(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebug2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebugBreakpoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebugBreakpointEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebugClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebugStack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebugStackFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptDebugVariableSetEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptHostContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptProviderEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataModelScriptTemplateEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugAdvanced(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugAdvanced2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugAdvanced3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugAdvanced4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplication11032(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplication11064(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplication32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplication64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationNode100(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationNodeEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationThread(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationThread11032(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationThread11064(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationThread64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugApplicationThreadEvents110(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugAsyncOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugAsyncOperationCallBack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugBreakpoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugBreakpoint2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugBreakpoint3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugClient8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugCodeContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugControl3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugControl4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugControl5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugControl6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugControl7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDataSpaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDataSpaces2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDataSpaces3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDataSpaces4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentHelper32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentHelper64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentTextAuthor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentTextEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugDocumentTextExternalAuthor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugEventCallbacks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugEventCallbacksWide(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugEventContextCallbacks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugExpression(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugExpressionCallBack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugExpressionContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugExtendedProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugFormatter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostBaseClass(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostConstant(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostErrorSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostEvaluator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostEvaluator2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostExtensibility(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostField(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostMemory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostMemory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostModule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostModule2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostModuleSignature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostPublic(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostScriptHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostSymbol(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostSymbol2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostSymbolEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostSymbols(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostType2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugHostTypeSignature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugInputCallbacks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugOutputCallbacks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugOutputCallbacks2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugOutputCallbacksWide(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugOutputStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPlmClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPlmClient2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPlmClient3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPropertyEnumType_All(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPropertyEnumType_Arguments(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPropertyEnumType_Locals(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPropertyEnumType_LocalsPlusArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugPropertyEnumType_Registers(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugRegisters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugRegisters2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSessionProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugStackFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugStackFrame110(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugStackFrameSniffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugStackFrameSnifferEx32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugStackFrameSnifferEx64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSymbolGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSymbolGroup2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSymbols(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSymbols2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSymbols3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSymbols4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSymbols5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSyncOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSystemObjects(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSystemObjects2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSystemObjects3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugSystemObjects4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugThreadCall32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDebugThreadCall64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDynamicConceptProviderConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDynamicKeyProviderConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDebugApplicationNodes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDebugCodeContexts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDebugExpressionContexts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDebugExtendedPropertyInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDebugPropertyInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDebugStackFrames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDebugStackFrames64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumJsStackFrames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumRemoteDebugApplicationThreads(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumRemoteDebugApplications(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEquatableConcept(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IG_DISASSEMBLE_BUFFER: u32 = 44u32;
@@ -3190,18 +3397,31 @@ pub const IG_WRITE_MSR: u32 = 13u32;
 pub const IG_WRITE_PHYSICAL: u32 = 7u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IG_WRITE_PHYSICAL_WITH_FLAGS: u32 = 34u32;
+#[repr(transparent)]
 pub struct IHostDataModelAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIndexableConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIterableConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsDebug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsDebugBreakPoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsDebugDataTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsDebugFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsDebugProcess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsDebugProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsDebugStackWalker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJsEnumDebugProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKeyEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKeyStore(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_CBA_EVENT(i32);
@@ -3348,14 +3568,23 @@ pub struct IMAGE_RUNTIME_FUNCTION_ENTRY(i32);
 pub struct IMAGE_SECTION_CHARACTERISTICS(i32);
 pub struct IMAGE_SECTION_HEADER(i32);
 pub struct IMAGE_SUBSYSTEM(i32);
+#[repr(transparent)]
 pub struct IMachineDebugManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMachineDebugManagerCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMachineDebugManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IModelIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IModelKeyReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IModelKeyReference2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IModelMethod(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IModelObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IModelPropertyAccessor(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const INCORRECT_VERSION_INFO: u32 = 7u32;
@@ -3382,6 +3611,7 @@ pub struct IOSPACE64(i32);
 pub struct IOSPACE_EX(i32);
 pub struct IOSPACE_EX32(i32);
 pub struct IOSPACE_EX64(i32);
+#[repr(transparent)]
 pub struct IObjectSafety(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IPMI_IOCTL_INDEX: u32 = 1024u32;
@@ -3393,26 +3623,47 @@ pub struct IPMI_OS_SEL_RECORD_TYPE(i32);
 pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1u32;
+#[repr(transparent)]
 pub struct IPerPropertyBrowsing2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPreferredRuntimeTypeConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDebugManager32(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDebugManager64(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProvideExpressionContexts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDebugApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDebugApplication110(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDebugApplicationEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDebugApplicationThread(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDebugCriticalErrorEvent110(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDebugInfoEvent110(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScriptEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScriptInvocationContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScriptNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScriptScriptlet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimpleConnectionPoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStringDisplayableConcept(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITridentEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAppDiagnosticsObjectInitialization(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAppDiagnosticsSetup(pub *mut ::core::ffi::c_void);
 pub struct IntrinsicKind(i32);
 pub struct JS_PROPERTY_ATTRIBUTES(i32);

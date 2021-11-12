@@ -4,26 +4,41 @@ pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
 pub struct CaretType(i32);
-pub struct ContentLinkInfo(i32);
+#[repr(transparent)]
+pub struct ContentLinkInfo(pub *mut ::core::ffi::c_void);
 pub struct FindOptions(i32);
 pub struct FontStretch(i32);
 pub struct FontStyle(i32);
 pub struct FontWeight(i32);
-pub struct FontWeights(i32);
+#[repr(transparent)]
+pub struct FontWeights(pub *mut ::core::ffi::c_void);
 pub struct FormatEffect(i32);
 pub struct HorizontalCharacterAlignment(i32);
+#[repr(transparent)]
 pub struct IContentLinkInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFontWeights(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFontWeightsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRichEditTextRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextCharacterFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextConstantsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDocument2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDocument3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDocument4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextParagraphFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextSelection(pub *mut ::core::ffi::c_void);
 pub struct LetterCase(i32);
 pub struct LineSpacingRule(i32);
@@ -36,13 +51,16 @@ pub struct ParagraphStyle(i32);
 pub struct PointOptions(i32);
 pub struct RangeGravity(i32);
 pub struct RichEditMathMode(i32);
-pub struct RichEditTextDocument(i32);
-pub struct RichEditTextRange(i32);
+#[repr(transparent)]
+pub struct RichEditTextDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct RichEditTextRange(pub *mut ::core::ffi::c_void);
 pub struct SelectionOptions(i32);
 pub struct SelectionType(i32);
 pub struct TabAlignment(i32);
 pub struct TabLeader(i32);
-pub struct TextConstants(i32);
+#[repr(transparent)]
+pub struct TextConstants(pub *mut ::core::ffi::c_void);
 pub struct TextDecorations(i32);
 pub struct TextGetOptions(i32);
 pub struct TextRangeUnit(i32);

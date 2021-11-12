@@ -5,25 +5,39 @@ pub mod Provider;
 extern "system" {}
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeCount(i32);
-pub struct GpioChangeCounter(i32);
+#[repr(transparent)]
+pub struct GpioChangeCounter(pub *mut ::core::ffi::c_void);
 pub struct GpioChangePolarity(i32);
-pub struct GpioChangeReader(i32);
+#[repr(transparent)]
+pub struct GpioChangeReader(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeRecord(i32);
-pub struct GpioController(i32);
+#[repr(transparent)]
+pub struct GpioController(pub *mut ::core::ffi::c_void);
 pub struct GpioOpenStatus(i32);
-pub struct GpioPin(i32);
+#[repr(transparent)]
+pub struct GpioPin(pub *mut ::core::ffi::c_void);
 pub struct GpioPinDriveMode(i32);
 pub struct GpioPinEdge(i32);
 pub struct GpioPinValue(i32);
-pub struct GpioPinValueChangedEventArgs(i32);
+#[repr(transparent)]
+pub struct GpioPinValueChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct GpioSharingMode(i32);
+#[repr(transparent)]
 pub struct IGpioChangeCounter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioChangeCounterFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioChangeReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioChangeReaderFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioControllerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioControllerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioPin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioPinValueChangedEventArgs(pub *mut ::core::ffi::c_void);

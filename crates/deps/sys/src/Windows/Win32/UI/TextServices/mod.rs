@@ -262,166 +262,322 @@ pub const GXFPF_NEAREST: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 pub struct HKL(i32);
+#[repr(transparent)]
 pub struct IAccClientDocMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccDictionary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccServerDocMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnchor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClonableWrapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoCreateLocally(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoCreatedLocally(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocWrap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumITfCompositionView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSpeechCommands(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfCandidates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfContextViews(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfContexts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfDisplayAttributeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfDocumentMgrs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfFunctionProviders(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfInputProcessorProfiles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfLangBarItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfLanguageProfiles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfLatticeElements(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfPropertyValue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfRanges(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTfUIElements(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternalDocWrap(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
 pub struct INSERT_TEXT_AT_SELECTION_FLAGS(i32);
+#[repr(transparent)]
 pub struct ISpeechCommandProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreACP(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreACP2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreACPEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreACPServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreACPSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreACPSinkEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreAnchor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreAnchorEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreAnchorSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoreSinkAnchorEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfActiveLanguageProfileNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCandidateList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCandidateListUIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCandidateListUIElementBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCandidateString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCategoryMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCleanupContextDurationSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCleanupContextSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfClientId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCompartment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCompartmentEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCompartmentMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfComposition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCompositionSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCompositionView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfConfigureSystemKeystrokeFeed(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContextComposition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContextKeyEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContextOwner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContextOwnerCompositionServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContextOwnerCompositionSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContextOwnerServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfContextView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfCreatePropertyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfDisplayAttributeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfDisplayAttributeMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfDisplayAttributeNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfDisplayAttributeProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfDocumentMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfEditRecord(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfEditSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfEditTransactionSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnAdviseText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnBalloon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnConfigure(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnConfigureRegisterEudc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnConfigureRegisterWord(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnCustomSpeechCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnGetLinguisticAlternates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnGetPreferredTouchKeyboardLayout(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnGetSAPIObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnLMInternal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnLMProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnLangProfileUtil(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnPlayBack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnPropertyUIStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnReconversion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnSearchCandidateProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFnShowHelp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFunction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfFunctionProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInputProcessorProfileActivationSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInputProcessorProfileMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInputProcessorProfileSubstituteLayout(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInputProcessorProfiles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInputProcessorProfilesEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInputScope(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInputScope2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfInsertAtSelection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfIntegratableCandidateListUIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfKeyEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfKeyTraceEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfKeystrokeMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLMLattice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarItemBalloon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarItemBitmap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarItemBitmapButton(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarItemButton(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarItemMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarItemSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLangBarMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfLanguageProfileNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfMSAAControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfMenu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfMessagePump(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfMouseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfMouseTracker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfMouseTrackerACP(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfPersistentPropertyLoaderACP(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfPreservedKeyNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfPropertyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfQueryEmbedded(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfRangeACP(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfRangeBackup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfReadOnlyProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfReadingInformationUIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfReverseConversion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfReverseConversionList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfReverseConversionMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfSourceSingle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfSpeechUIServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfStatusSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfSystemDeviceTypeLangBarItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfSystemLangBarItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfSystemLangBarItemSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfSystemLangBarItemText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfTextEditSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfTextInputProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfTextInputProcessorEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfTextLayoutSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfThreadFocusSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfThreadMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfThreadMgr2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfThreadMgrEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfThreadMgrEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfToolTipUIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfTransitoryExtensionSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfTransitoryExtensionUIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfUIElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfUIElementMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITfUIElementSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIManagerEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVersionInfo(pub *mut ::core::ffi::c_void);
 pub struct InputScope(i32);
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(i32);

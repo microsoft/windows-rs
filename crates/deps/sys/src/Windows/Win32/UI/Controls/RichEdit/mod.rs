@@ -606,29 +606,53 @@ pub const IMF_TKBPREDICTION: u32 = 4096u32;
 pub const IMF_UIFONTS: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const IMF_VERTICAL: u32 = 32u32;
+#[repr(transparent)]
 pub struct IRichEditOle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRichEditOleCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRicheditUiaOverrides(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDisplays(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDocument2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextDocument2Old(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextFont(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextFont2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextHost2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextPara(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextPara2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextRange2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextRow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextSelection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextSelection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextServices2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoryRanges(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStoryRanges2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextStrings(pub *mut ::core::ffi::c_void);
 pub struct KHYPH(i32);
 pub struct MANCODE(i32);

@@ -313,12 +313,19 @@ pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
 pub struct AUTHENTICATEINFO(i32);
 pub struct ApplicationType(i32);
+#[repr(transparent)]
 pub struct AsyncIAdviseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIAdviseSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIMultiQI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIPipeByte(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIPipeDouble(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIPipeLong(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct AsyncIUnknown(pub *mut ::core::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct BINDINFO(i32);
@@ -419,115 +426,220 @@ pub struct GLOBALOPT_RO_FLAGS(i32);
 pub struct GLOBALOPT_RPCTP_VALUES(i32);
 pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(i32);
 pub struct HYPER_SIZEDARR(i32);
+#[repr(transparent)]
 pub struct IActivationFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAddrExclusionControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAddrTrackingControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdviseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdviseSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAgileObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAsyncManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAsyncRpcChannelBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAuthenticate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAuthenticateEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindCtx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindStatusCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBindStatusCallbackEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBinding(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBlockingLock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICallFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICancelMethodCalls(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICatInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICatRegister(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IChannelHook(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClassActivator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClientSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComThreadingInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConnectionPoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConnectionPointContainer(pub *mut ::core::ffi::c_void);
 pub struct IContext(i32);
+#[repr(transparent)]
 pub struct IContextCallback(pub *mut ::core::ffi::c_void);
 pub struct IDLDESC(i32);
+#[repr(transparent)]
 pub struct IDataAdviseHolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCATEGORYINFO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumConnectionPoints(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumConnections(pub *mut ::core::ffi::c_void);
 pub struct IEnumContextProps(i32);
+#[repr(transparent)]
 pub struct IEnumFORMATETC(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumGUID(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumMoniker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSTATDATA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumUnknown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IErrorLog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExternalConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFastRundown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IForegroundTransfer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGlobalInterfaceTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGlobalOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeSpy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInternalUnknown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMachineGlobalObjectTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMalloc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMallocSpy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMoniker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiQI(pub *mut ::core::ffi::c_void);
 pub struct INTERFACEINFO(i32);
 pub struct INVOKEKIND(i32);
+#[repr(transparent)]
 pub struct INoMarshal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOplockStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPSFactoryBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersist(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistMemory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistStreamInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPipeByte(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPipeDouble(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPipeLong(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessInitControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessLock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProgressNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IROTData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IReleaseMarshalBuffers(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcChannelBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcChannelBuffer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcChannelBuffer3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcProxyBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcStubBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRpcSyntaxNegotiate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRunnableObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRunningObjectTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISequentialStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServerSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStdMarshalInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISupportErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISurrogate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISurrogateService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISynchronize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISynchronizeContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISynchronizeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISynchronizeHandle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISynchronizeMutex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimeAndNoticeControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeComp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeLib(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeLib2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeLibRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeLibRegistrationReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUri(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUriBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUrlMon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWaitMultiple(pub *mut ::core::ffi::c_void);
 pub struct LONG_SIZEDARR(i32);
 pub struct LPEXCEPFINO_DEFERRED_FILLIN(i32);

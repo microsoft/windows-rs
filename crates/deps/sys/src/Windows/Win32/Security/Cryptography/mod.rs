@@ -4191,10 +4191,15 @@ pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTPSPolicyCallbackData(i32);
 pub struct HandleType(i32);
+#[repr(transparent)]
 pub struct ICertSrvSetup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertSrvSetupKeyInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertSrvSetupKeyInformationCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificateEnrollmentPolicyServerSetup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificateEnrollmentServerSetup(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: u32 = 1u32;
@@ -4202,6 +4207,7 @@ pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: u32 = 1u32;
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: u32 = 0u32;
+#[repr(transparent)]
 pub struct IMSCEPSetup(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS(i32);

@@ -42,115 +42,225 @@ pub struct DRM_OUTPUT_PROTECTION(i32);
 pub struct DRM_PLAY_OPL(i32);
 pub struct DRM_VAL16(i32);
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS(i32);
+#[repr(transparent)]
 pub struct IAMWMBufferPass(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMWMBufferPassCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INSNetSourceCreator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INSSBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INSSBuffer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INSSBuffer3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INSSBuffer4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMAddressAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMAddressAccess2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMAuthorizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMBackupRestoreProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMBandwidthSharing(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMClientConnections(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMClientConnections2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecAMVideoAccelerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecInfo3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecVideoAccelerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCredentialCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMEditor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMMessageParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMReader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMReader3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMTranscryptionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMTranscryptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMTranscryptor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMWriter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDRMWriter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDeviceRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMGetSecureChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMHeaderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMHeaderInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMHeaderInfo3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMIStreamProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMImageInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMIndexer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMIndexer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMInputMediaProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMLanguageList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMLicenseBackup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMLicenseRestore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMLicenseRevocationAgent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMMediaProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMMetadataEditor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMMetadataEditor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMMutualExclusion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMMutualExclusion2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMOutputMediaProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPacketSize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPacketSize2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPlayerHook(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPlayerTimestampHook(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMProfile2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMProfile3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMProfileManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMProfileManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMProfileManagerLanguage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPropertyVault(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMProximityDetection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAccelerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAdvanced(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAdvanced2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAdvanced3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAdvanced4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAdvanced5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAdvanced6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderAllocatorEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderCallbackAdvanced(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderNetworkConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderNetworkConfig2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderPlaylistBurn(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderStreamClock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderTimecode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMReaderTypeNegotiation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMRegisterCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMRegisteredDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSBufferAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSInternalAdminNetSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSInternalAdminNetSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSInternalAdminNetSource3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSecureChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMStatusCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMStreamConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMStreamConfig2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMStreamConfig3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMStreamList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMStreamPrioritization(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSyncReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSyncReader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMVideoMediaProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWatermarkInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterAdvanced(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterAdvanced2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterAdvanced3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterFileSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterFileSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterFileSink3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterNetworkSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterPostView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterPostViewCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterPreprocess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterPushSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMWriterSink(pub *mut ::core::ffi::c_void);
 pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(i32);
 pub struct WEBSTREAM_SAMPLE_TYPE(i32);

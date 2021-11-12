@@ -40,31 +40,57 @@ pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
 pub struct HSWDEVICE(i32);
+#[repr(transparent)]
 pub struct IUPnPAddressFamilyControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPAsyncResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDescriptionDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDescriptionDocumentCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceControlHttpHeaders(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceDocumentAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceDocumentAccessEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceFinder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceFinderAddCallbackWithInterface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceFinderCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDeviceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPDevices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPEventSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPHttpHeaderControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPRegistrar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPRemoteEndpointInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPReregistrar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPServiceAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPServiceCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPServiceDocumentAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPServiceEnumProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPServices(pub *mut ::core::ffi::c_void);
 pub struct SW_DEVICE_CAPABILITIES(i32);
 pub struct SW_DEVICE_CREATE_CALLBACK(i32);

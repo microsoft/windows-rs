@@ -152,19 +152,33 @@ pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 pub struct CLIPDATA(i32);
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const CWCSTORAGENAME: u32 = 32u32;
+#[repr(transparent)]
 pub struct IDirectWriterLock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSTATPROPSETSTG(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSTATPROPSTG(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSTATSTG(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFillLockBytes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILayoutStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILockBytes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyBag2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertySetStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRootStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorage(pub *mut ::core::ffi::c_void);
 pub struct LOCKTYPE(i32);
 pub struct OLESTREAM(i32);

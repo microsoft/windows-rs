@@ -12,81 +12,157 @@ pub struct AutomaticUpdatesUserType(i32);
 pub struct DeploymentAction(i32);
 pub struct DownloadPhase(i32);
 pub struct DownloadPriority(i32);
+#[repr(transparent)]
 pub struct IAutomaticUpdates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutomaticUpdates2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutomaticUpdatesResults(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutomaticUpdatesSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutomaticUpdatesSettings2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutomaticUpdatesSettings3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICategory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICategoryCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadCompletedCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadCompletedCallbackArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadProgressChangedCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadProgressChangedCallbackArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDownloadResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IImageInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationAgent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationBehavior(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationCompletedCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationCompletedCallbackArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationProgressChangedCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationProgressChangedCallbackArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInstallationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInvalidProductLicenseException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchCompletedCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchCompletedCallbackArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStringCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdate2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdate3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdate4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdate5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateDownloadContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateDownloadContent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateDownloadContentCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateDownloadResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateDownloader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateExceptionCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateHistoryEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateHistoryEntry2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateHistoryEntryCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateIdentity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateInstallationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateInstaller(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateInstaller2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateInstaller3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateInstaller4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateLockdown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateSearcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateSearcher2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateSearcher3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateService2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateServiceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateServiceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateServiceManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateServiceRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateSession2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateSession3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebProxy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsDriverUpdate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsDriverUpdate2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsDriverUpdate3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsDriverUpdate4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsDriverUpdate5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsDriverUpdateEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsDriverUpdateEntryCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowsUpdateAgentInfo(pub *mut ::core::ffi::c_void);
 pub struct InstallationAgent(i32);
 pub struct InstallationImpact(i32);

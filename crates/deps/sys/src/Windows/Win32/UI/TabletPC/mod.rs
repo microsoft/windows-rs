@@ -569,6 +569,7 @@ pub struct HRECOGNIZER(i32);
 pub struct HRECOLATTICE(i32);
 pub struct HRECOWORDLIST(i32);
 pub struct HandwrittenTextInsertion(i32);
+#[repr(transparent)]
 pub struct IDynamicRenderer(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IECN_GESTURE: u32 = 2050u32;
@@ -586,49 +587,93 @@ pub struct IEC_RECOGNITIONRESULTINFO(i32);
 pub struct IEC_STROKEINFO(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IEC__BASE: u32 = 1536u32;
+#[repr(transparent)]
 pub struct IGestureRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHandwrittenTextInsertion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInk(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkCursor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkCursorButton(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkCursorButtons(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkCursors(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkCustomStrokes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDisp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDivider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDivisionResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDivisionUnit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDivisionUnits(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDrawingAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkEdit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkExtendedProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkExtendedProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkGesture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkLineInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkOverlay(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPicture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognitionAlternate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognitionAlternates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognitionResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizerContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizerContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizerGuide(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizers(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRectangle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRenderer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeDisp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkTablet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkTablet2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkTablet3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkTablets(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkWordList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkWordList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPanelWindowHandle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMathInputControl(pub *mut ::core::ffi::c_void);
 pub struct INKMETRIC(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -637,20 +682,35 @@ pub const IP_CURSOR_DOWN: u32 = 1u32;
 pub const IP_INVERTED: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IP_MARGIN: u32 = 4u32;
+#[repr(transparent)]
 pub struct IPenInputPanel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRealTimeStylus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRealTimeStylus2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRealTimeStylus3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRealTimeStylusSynchronization(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISketchInk(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStrokeBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStylusAsyncPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStylusPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStylusSyncPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextInputPanel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextInputPanelEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextInputPanelRunInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITipAutoCompleteClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITipAutoCompleteProvider(pub *mut ::core::ffi::c_void);
 pub struct InPlaceDirection(i32);
 pub struct InPlaceState(i32);
@@ -875,14 +935,23 @@ pub const WM_TABLET_FLICK: u32 = 715u32;
 pub const WM_TABLET_MAXOFFSET: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716u32;
+#[repr(transparent)]
 pub struct _IInkCollectorEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IInkEditEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IInkEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IInkOverlayEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IInkPictureEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IInkRecognitionEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IInkStrokesEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IMathInputControlEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _IPenInputPanelEvents(pub *mut ::core::ffi::c_void);
 pub struct enumGetCandidateFlags(i32);
 pub struct enumINKMETRIC_FLAGS(i32);

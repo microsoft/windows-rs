@@ -19,6 +19,7 @@ pub mod Printing3D;
 extern "system" {}
 pub struct DisplayAdapterId(i32);
 pub struct DisplayId(i32);
+#[repr(transparent)]
 pub struct IGeometrySource2D(pub *mut ::core::ffi::c_void);
 pub struct PointInt32(i32);
 pub struct RectInt32(i32);

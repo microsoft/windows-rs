@@ -76,12 +76,19 @@ pub struct GAMING_DEVICE_VENDOR_ID(i32);
 pub struct GameExplorer(i32);
 pub struct GameStatistics(i32);
 pub struct GameUICompletionRoutine(i32);
+#[repr(transparent)]
 pub struct IGameExplorer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGameExplorer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGameStatistics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGameStatisticsMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXblIdpAuthManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXblIdpAuthTokenResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXblIdpAuthTokenResult2(pub *mut ::core::ffi::c_void);
 pub struct KnownGamingPrivileges(i32);
 pub struct PlayerPickerUICompletionRoutine(i32);

@@ -732,27 +732,49 @@ pub const GUID_DSFX_STANDARD_GARGLE: ::windows_sys::core::GUID = ::windows_sys::
 pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4019740273, data2: 54727, data3: 17108, data4: [186, 77, 45, 7, 62, 46, 150, 244] };
 pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 302837129, data2: 15348, data3: 16755, data4: [161, 50, 60, 180, 6, 207, 50, 49] };
 pub const GUID_DSFX_WAVES_REVERB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2281439848, data2: 39509, data3: 17248, data4: [149, 170, 0, 74, 29, 157, 226, 108] };
+#[repr(transparent)]
 pub struct IDirectSound(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSound3DBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSound3DListener(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSound8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundBuffer8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundCapture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundCaptureBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundCaptureBuffer8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundCaptureFXAec(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundCaptureFXNoiseSuppress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXChorus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXCompressor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXDistortion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXEcho(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXFlanger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXGargle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXI3DL2Reverb(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXParamEq(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFXWavesReverb(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundFullDuplex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectSoundNotify(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;

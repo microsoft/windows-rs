@@ -889,6 +889,7 @@ pub const E_RM_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core
 pub const FACILITY_SL_ITF: u32 = 4u32;
 pub struct FREE_CONTEXT_BUFFER_FN(i32);
 pub struct FREE_CREDENTIALS_HANDLE_FN(i32);
+#[repr(transparent)]
 pub struct ICcgDomainAuthCredentials(pub *mut ::core::ffi::c_void);
 pub struct IMPERSONATE_SECURITY_CONTEXT_FN(i32);
 pub struct IMPORT_SECURITY_CONTEXT_FN_A(i32);

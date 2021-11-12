@@ -3,6 +3,7 @@
 extern "system" {}
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const AUTO_WIDTH: i32 = -1i32;
+#[repr(transparent)]
 pub struct AppEvents(pub *mut ::core::ffi::c_void);
 pub struct AppEventsDHTMLConnector(i32);
 pub struct Application(i32);
@@ -14,70 +15,125 @@ pub struct CCM_SPECIAL(i32);
 pub struct CONTEXTMENUITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONTEXTMENUITEM2(i32);
+#[repr(transparent)]
 pub struct Column(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Columns(pub *mut ::core::ffi::c_void);
 pub struct ConsolePower(i32);
+#[repr(transparent)]
 pub struct ContextMenu(pub *mut ::core::ffi::c_void);
 pub struct DATA_OBJECT_TYPES(i32);
+#[repr(transparent)]
 pub struct Document(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Extension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Extensions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Frame(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const HDI_HIDDEN: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const HIDE_COLUMN: i32 = -4i32;
+#[repr(transparent)]
 pub struct IColumnData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponentData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponentData2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsole(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsole2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsole3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsoleNameSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsoleNameSpace2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsolePower(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsolePowerSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConsoleVerb(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenuCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenuCallback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenuProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IControlbar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayHelp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTASK(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendContextMenu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendControlbar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendPropertySheet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendPropertySheet2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendTaskPad(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHeaderCtrl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHeaderCtrl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IImageList(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const ILSIF_LEAVE_LARGE_ICON: u32 = 1073741824u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const ILSIF_LEAVE_SMALL_ICON: u32 = 536870912u32;
+#[repr(transparent)]
 pub struct IMMCVersionInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMenuButton(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMessageView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INodeProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertySheetCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertySheetProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRequiredExtensions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResultData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResultData2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResultDataCompare(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResultDataCompareEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResultOwnerData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISnapinAbout(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISnapinHelp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISnapinHelp2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISnapinProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISnapinPropertiesCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStringTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IToolbar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewExtensionCallback(pub *mut ::core::ffi::c_void);
 pub struct IconIdentifier(i32);
 pub struct MENUBUTTONDATA(i32);
@@ -210,10 +266,15 @@ pub struct MMC_VIEW_TYPE(i32);
 pub struct MMC_VISIBLE_COLUMNS(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
+#[repr(transparent)]
 pub struct MenuItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Node(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Nodes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Properties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Property(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RDCI_ScopeItem: u32 = 2147483648u32;
@@ -311,15 +372,23 @@ pub const SPECIAL_COOKIE_MIN: i32 = -10i32;
 pub const SPECIAL_DOBJ_MAX: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const SPECIAL_DOBJ_MIN: i32 = -10i32;
+#[repr(transparent)]
 pub struct ScopeNamespace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct SnapIn(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct SnapIns(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct View(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Views(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _AppEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _Application(pub *mut ::core::ffi::c_void);
 pub struct _ColumnSortOrder(i32);
 pub struct _DocumentMode(i32);
+#[repr(transparent)]
 pub struct _EventConnector(pub *mut ::core::ffi::c_void);
 pub struct _ExportListOptions(i32);
 pub struct _ListViewMode(i32);

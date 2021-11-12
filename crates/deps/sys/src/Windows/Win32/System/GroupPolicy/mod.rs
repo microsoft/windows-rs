@@ -268,54 +268,98 @@ pub struct GROUP_POLICY_OBJECTA(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTW(i32);
 pub struct GROUP_POLICY_OBJECT_TYPE(i32);
+#[repr(transparent)]
 pub struct IGPEInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPM2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMAsyncCancel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMAsyncProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMBackup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMBackupCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMBackupDir(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMBackupDirEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMCSECollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMClientSideExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMConstants(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMConstants2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMDomain(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMDomain2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMDomain3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMGPO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMGPO2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMGPO3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMGPOCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMGPOLink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMGPOLinksCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMMapEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMMapEntryCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMMigrationTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMPermission(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMRSOP(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMSOM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMSOMCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMSearchCriteria(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMSecurityInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMSitesContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMStarterGPO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMStarterGPOBackup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMStarterGPOBackupCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMStarterGPOCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMStatusMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMStatusMsgCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMTrustee(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMWMIFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGPMWMIFilterCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGroupPolicyObject(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLSPEC(i32);
 pub struct INSTALLSPECTYPE(i32);
+#[repr(transparent)]
 pub struct IRSOPInformation(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOCALMANAGEDAPPLICATION(i32);

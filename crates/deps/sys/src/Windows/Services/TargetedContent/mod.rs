@@ -1,38 +1,67 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct ITargetedContentAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentContainerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentItemState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentSubscription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentSubscriptionOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentSubscriptionStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetedContentValue(pub *mut ::core::ffi::c_void);
-pub struct TargetedContentAction(i32);
+#[repr(transparent)]
+pub struct TargetedContentAction(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentAppInstallationState(i32);
 pub struct TargetedContentAvailability(i32);
-pub struct TargetedContentAvailabilityChangedEventArgs(i32);
-pub struct TargetedContentChangedEventArgs(i32);
-pub struct TargetedContentCollection(i32);
-pub struct TargetedContentContainer(i32);
+#[repr(transparent)]
+pub struct TargetedContentAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentContainer(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentContract(i32);
-pub struct TargetedContentFile(i32);
-pub struct TargetedContentImage(i32);
+#[repr(transparent)]
+pub struct TargetedContentFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentImage(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentInteraction(i32);
-pub struct TargetedContentItem(i32);
-pub struct TargetedContentItemState(i32);
-pub struct TargetedContentObject(i32);
+#[repr(transparent)]
+pub struct TargetedContentItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentItemState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentObject(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentObjectKind(i32);
-pub struct TargetedContentStateChangedEventArgs(i32);
-pub struct TargetedContentSubscription(i32);
-pub struct TargetedContentSubscriptionOptions(i32);
-pub struct TargetedContentValue(i32);
+#[repr(transparent)]
+pub struct TargetedContentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentSubscription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentSubscriptionOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct TargetedContentValue(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentValueKind(i32);

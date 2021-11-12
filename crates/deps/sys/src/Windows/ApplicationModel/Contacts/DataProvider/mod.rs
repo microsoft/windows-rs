@@ -1,24 +1,45 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct ContactDataProviderConnection(i32);
-pub struct ContactDataProviderTriggerDetails(i32);
-pub struct ContactListCreateOrUpdateContactRequest(i32);
-pub struct ContactListCreateOrUpdateContactRequestEventArgs(i32);
-pub struct ContactListDeleteContactRequest(i32);
-pub struct ContactListDeleteContactRequestEventArgs(i32);
-pub struct ContactListServerSearchReadBatchRequest(i32);
-pub struct ContactListServerSearchReadBatchRequestEventArgs(i32);
-pub struct ContactListSyncManagerSyncRequest(i32);
-pub struct ContactListSyncManagerSyncRequestEventArgs(i32);
+#[repr(transparent)]
+pub struct ContactDataProviderConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactDataProviderTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListCreateOrUpdateContactRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListCreateOrUpdateContactRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListDeleteContactRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListDeleteContactRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListServerSearchReadBatchRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListServerSearchReadBatchRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListSyncManagerSyncRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ContactListSyncManagerSyncRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactDataProviderConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactDataProviderConnection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactDataProviderTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListCreateOrUpdateContactRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListCreateOrUpdateContactRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListDeleteContactRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListDeleteContactRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListServerSearchReadBatchRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListServerSearchReadBatchRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListSyncManagerSyncRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactListSyncManagerSyncRequestEventArgs(pub *mut ::core::ffi::c_void);

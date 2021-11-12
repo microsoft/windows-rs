@@ -1,57 +1,105 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct AudioMediaFrame(i32);
-pub struct BufferMediaFrame(i32);
-pub struct DepthMediaFrame(i32);
-pub struct DepthMediaFrameFormat(i32);
+#[repr(transparent)]
+pub struct AudioMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct BufferMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DepthMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DepthMediaFrameFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBufferMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDepthMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDepthMediaFrame2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDepthMediaFrameFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInfraredMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameFormat2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameReader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameReference2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceController2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceController3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceGetPropertyResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceGroupStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFrameSourceInfo3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiSourceMediaFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiSourceMediaFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiSourceMediaFrameReader2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiSourceMediaFrameReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoMediaFrameFormat(pub *mut ::core::ffi::c_void);
-pub struct InfraredMediaFrame(i32);
-pub struct MediaFrameArrivedEventArgs(i32);
-pub struct MediaFrameFormat(i32);
-pub struct MediaFrameReader(i32);
+#[repr(transparent)]
+pub struct InfraredMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaFrameFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaFrameReader(pub *mut ::core::ffi::c_void);
 pub struct MediaFrameReaderAcquisitionMode(i32);
 pub struct MediaFrameReaderStartStatus(i32);
-pub struct MediaFrameReference(i32);
-pub struct MediaFrameSource(i32);
-pub struct MediaFrameSourceController(i32);
-pub struct MediaFrameSourceGetPropertyResult(i32);
+#[repr(transparent)]
+pub struct MediaFrameReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaFrameSourceController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaFrameSourceGetPropertyResult(pub *mut ::core::ffi::c_void);
 pub struct MediaFrameSourceGetPropertyStatus(i32);
-pub struct MediaFrameSourceGroup(i32);
-pub struct MediaFrameSourceInfo(i32);
+#[repr(transparent)]
+pub struct MediaFrameSourceGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MediaFrameSourceInfo(pub *mut ::core::ffi::c_void);
 pub struct MediaFrameSourceKind(i32);
 pub struct MediaFrameSourceSetPropertyStatus(i32);
-pub struct MultiSourceMediaFrameArrivedEventArgs(i32);
-pub struct MultiSourceMediaFrameReader(i32);
+#[repr(transparent)]
+pub struct MultiSourceMediaFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MultiSourceMediaFrameReader(pub *mut ::core::ffi::c_void);
 pub struct MultiSourceMediaFrameReaderStartStatus(i32);
-pub struct MultiSourceMediaFrameReference(i32);
-pub struct VideoMediaFrame(i32);
-pub struct VideoMediaFrameFormat(i32);
+#[repr(transparent)]
+pub struct MultiSourceMediaFrameReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct VideoMediaFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct VideoMediaFrameFormat(pub *mut ::core::ffi::c_void);

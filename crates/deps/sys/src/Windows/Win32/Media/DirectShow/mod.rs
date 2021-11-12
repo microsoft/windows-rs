@@ -1815,493 +1815,980 @@ pub struct HEAACWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct HEAACWAVEINFO(i32);
 pub struct HierarchyAlpha(i32);
+#[repr(transparent)]
 pub struct IAMAnalogVideoDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMAnalogVideoEncoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMAsyncReaderTimestampScaling(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMAudioInputMixer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMAudioRendererStats(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMBufferNegotiation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMCameraControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMCertifiedOutputProtection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMChannelInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMClockAdjust(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMClockSlave(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMCopyCaptureFileProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMCrossbar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMDecoderCaps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMDevMemoryAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMDevMemoryControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMDeviceRemoval(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMDirectSound(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMDroppedFrames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMExtDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMExtTransport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMExtendedErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMExtendedSeeking(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMFilterGraphCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMFilterMiscFlags(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMGraphBuilderCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMGraphStreams(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMLatency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMLine21Decoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMMediaContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMMediaContent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMMediaStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMMediaTypeSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMMediaTypeStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMMultiMediaStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMNetShowConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMNetShowExProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMNetShowPreroll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMNetworkStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMOpenProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMOverlayFX(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMParse(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMPhysicalPinInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMPlayList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMPlayListItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMPluginControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMPushSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMRebuild(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMResourceControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMStats(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMStreamConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMStreamControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMStreamSelect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTVAudio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTVAudioNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTVTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTimecodeDisplay(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTimecodeGenerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTimecodeReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMTunerNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVfwCaptureDialogs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVfwCompressDialogs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVideoAccelerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVideoAcceleratorNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVideoCompression(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVideoControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVideoDecimationProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMVideoProcAmp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMWstDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAMovieSetup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSCChannelTuneRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSCComponentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSCLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSCLocator2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSCTuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSC_EIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSC_ETT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSC_MGT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSC_STT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IATSC_VCT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnalogAudioComponentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnalogLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnalogRadioTuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnalogRadioTuningSpace2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnalogTVTuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAsyncReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAtscContentAdvisoryDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAtscPsipParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAttributeGet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAttributeSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioMediaStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioStreamSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAuxInTuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAuxInTuningSpace2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDAComparable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDACreateTuneRequestEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_AUX(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_AutoDemodulate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_AutoDemodulateEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_ConditionalAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_ConditionalAccessEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DRIDRMService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DRIWMDRMSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DRM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DRMService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DeviceControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DiagnosticProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DigitalDemodulator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DigitalDemodulator2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DigitalDemodulator3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_DiseqCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_EasMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_Encoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_EthernetFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_EventingService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_FDC(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_FrequencyFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_GuideDataDeliveryService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_IPSinkControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_IPSinkInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_IPV4Filter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_IPV6Filter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_ISDBConditionalAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_LNBInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_MUX(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_NameValueService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_NetworkProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_NullTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_PinControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_SignalProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_SignalStatistics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_TIF_REGISTRATION(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_Topology(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_TransportStreamInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_TransportStreamSelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_UserActivityService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_VoidTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_WMDRMSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBDA_WMDRMTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBPCSatelliteTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBaseFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBaseVideoMixer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBasicAudio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBasicVideo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBasicVideo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBroadcastEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBroadcastEventEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBufferingTime(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICAT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICCSubStreamFiltering(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICameraControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICaptionServiceDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICaptureGraphBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICaptureGraphBuilder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IChannelIDTuneRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IChannelTuneRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponentTypes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComponentsOld(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConfigAsfWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConfigAsfWriter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConfigAviMux(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConfigInterleaving(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateDevEnum(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreatePropBagOnRegKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDDrawExclModeVideo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDDrawExclModeVideoCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMOWrapperFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDShowPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDTFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDTFilter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDTFilter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDTFilterConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDTFilterEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDTFilterLicenseRenewal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBCLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBSLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBSLocator2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBSTuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBTLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBTLocator2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBTuneRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBTuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVBTuningSpace2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_BAT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_DIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_EIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_EIT2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_NIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_RST(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_SDT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_SIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_ST(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_TDT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVB_TOT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVEnc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVRGB219(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDVSplitter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDecimateVideoImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeferredCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDigitalCableLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDigitalCableTuneRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDigitalCableTuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDigitalLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDrawMediaSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDrawMediaSampleAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDrawMediaStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDrawStreamSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDrawVideo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDistributorNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDrawVideoImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbCableDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbComponentDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbContentDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbContentIdentifierDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbDataBroadcastDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbDataBroadcastIDDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbDefaultAuthorityDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbExtendedEventDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbFrequencyListDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbHDSimulcastLogicalChannelDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbLinkageDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbLogicalChannel2Descriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbLogicalChannelDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbLogicalChannelDescriptor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbMultilingualServiceNameDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbNetworkNameDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbParentalRatingDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbPrivateDataSpecifierDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbSatelliteDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbServiceAttributeDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbServiceDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbServiceDescriptor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbServiceListDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbShortEventDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbSiParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbSiParser2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbSubtitlingDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbTeletextDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbTerrestrial2DeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvbTerrestrialDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvdCmd(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvdControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvdControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvdGraphBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvdInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvdInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDvdState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESCloseMmiEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESEventFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESEventService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESEventServiceConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESFileExpiryDateEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESIsdbCasResponseEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESLicenseRenewalResultEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESOpenMmiEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESRequestTunerEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IESValueUpdatedEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IETFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IETFilterConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IETFilterEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEncoderAPI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumComponentTypes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumComponents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumFilters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumGuideDataProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumMSVidGraphSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumMediaTypes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPIDMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPins(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumRegFilters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumStreamBufferRecordingAttrib(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumStreamIdMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTuneRequests(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTuningSpaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEvalRat(pub *mut ::core::ffi::c_void);
 pub struct IFILTERMAPPER_MERIT(i32);
+#[repr(transparent)]
 pub struct IFileSinkFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSinkFilter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSourceFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterChain(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterGraph(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterGraph2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterGraph3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterMapper2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFilterMapper3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrequencyMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFullScreenVideo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFullScreenVideoEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGenericDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGenericDescriptor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetCapabilitiesKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpnvsCommonBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGraphBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGraphConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGraphConfigCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGraphVersion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGuideData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGuideDataEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGuideDataLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGuideDataProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIPDVDec(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDBSLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDB_BIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDB_CDT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDB_EMM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDB_LDT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDB_NBIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDB_SDT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IISDB_SDTT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbAudioComponentDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbCAContractInformationDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbCADescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbCAServiceDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbComponentGroupDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbDataContentDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbDigitalCopyControlDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbDownloadContentDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbEmergencyInformationDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbEventGroupDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbHierarchicalTransmissionDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbLogoTransmissionDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbSIParameterDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbSeriesDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbSiParser2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbTSInformationDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsdbTerrestrialDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsNodeControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsTopologyInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILanguageComponentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2Component(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2ComponentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2PIDMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2StreamIdMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2TuneRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2TuneRequestFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2TuneRequestSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMPEG2_TIF_CONTROL(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSEventBinder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidAnalogTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidAnalogTuner2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidAnalogTunerEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidAudioRenderer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidAudioRendererDevices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidAudioRendererEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidAudioRendererEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidClosedCaptioning(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidClosedCaptioning2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidClosedCaptioning3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidCompositionSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidCtl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidDataServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidDataServicesEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidDeviceEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidEVR(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidEVREvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidEncoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidFeature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidFeatureEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidFeatures(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidFilePlayback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidFilePlayback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidFilePlaybackEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidGenericSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidGenericSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidGraphSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidGraphSegmentContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidGraphSegmentUserInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidInputDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidInputDeviceEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidInputDevices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidOutputDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidOutputDeviceEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidOutputDevices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidPlayback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidPlaybackEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidRect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferRecordingControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSink3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidStreamBufferV2SourceEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidTunerEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVMR9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVRGraphSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVideoInputDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVideoRenderer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVideoRenderer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVideoRendererDevices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVideoRendererEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidVideoRendererEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidWebDVD(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidWebDVD2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidWebDVDAdm(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidWebDVDEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidXDS(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSVidXDSEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMceBurnerControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaEventEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaParamInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaParams(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPosition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaPropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaSample2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaSample2Config(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaSeeking(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaStreamFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaTypeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemAllocatorCallbackTemp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemAllocatorNotifyCallbackTemp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemInputPin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemoryData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMixerOCX(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMixerOCXNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMixerPinConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMixerPinConfig2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMpeg2Data(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMpeg2Demultiplexer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMpeg2Stream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMpeg2TableFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMpegAudioDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiMediaStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOverlay(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOverlayNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOverlayNotify2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPAT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPBDAAttributesDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPBDAEntitlementDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPBDASiParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPBDA_EIT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPBDA_Services(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPSITables(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPTFilterLicenseRenewal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistMediaPropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistTuneXml(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistTuneXmlUtility(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistTuneXmlUtility2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPinConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPinFlowControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPinInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQualProp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQualityControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueueCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegFilterInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegisterServiceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegisterTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceConsumer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2Crossbar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2EnumStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2FileScan(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2GlobalEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2GlobalEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2MediaTypeProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2SpanningEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISBE2StreamMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCTE_EAS(pub *mut ::core::ffi::c_void);
 pub struct ISDBCAS_REQUEST_ID(i32);
 pub struct ISDBSLocator(i32);
@@ -2338,86 +2825,167 @@ pub const ISDB_ST_TID: u32 = 114u32;
 pub struct ISDB_S_NETWORK_TYPE(i32);
 pub struct ISDB_TERRESTRIAL_TV_NETWORK_TYPE(i32);
 pub struct ISDB_T_NETWORK_TYPE(i32);
+#[repr(transparent)]
 pub struct ISIInbandEPG(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISIInbandEPGEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScanningTuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScanningTunerEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISectionList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISeekingPassThru(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServiceLocationDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpecifyParticularPages(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferConfigure(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferConfigure2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferConfigure3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferDataCounters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferInitialize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferMediaSeeking(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferMediaSeeking2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferRecComp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferRecordControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferRecordingAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferSink3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBufferSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSDT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITuneRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITuneRequestInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITuneRequestInfoEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITuner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITunerCap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITunerCapEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITuningSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITuningSpaceContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITuningSpaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRAspectRatioControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRAspectRatioControl9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRDeinterlaceControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRDeinterlaceControl9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRFilterConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRFilterConfig9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRImageCompositor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRImageCompositor9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRImagePresenter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRImagePresenter9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRImagePresenterConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRImagePresenterConfig9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRImagePresenterExclModeConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRMixerBitmap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRMixerBitmap9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRMixerControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRMixerControl9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRMonitorConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRMonitorConfig9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRSurface9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRSurfaceAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRSurfaceAllocator9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRSurfaceAllocatorEx9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRSurfaceAllocatorNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRSurfaceAllocatorNotify9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRVideoStreamControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRVideoStreamControl9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRWindowlessControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVMRWindowlessControl9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPBaseConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPBaseNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPNotify2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPVBIConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVPVBINotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoEncoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoFrameStep(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoProcAmp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoWindow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXDSCodec(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXDSCodecConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXDSCodecEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXDSToRat(pub *mut ::core::ffi::c_void);
 pub struct InterleavingMode(i32);
 pub struct KSCATEGORY_BDA_IP_SINK(i32);
@@ -3549,6 +4117,7 @@ pub struct _DVENCODERFORMAT(i32);
 pub struct _DVENCODERRESOLUTION(i32);
 pub struct _DVENCODERVIDEOFORMAT(i32);
 pub struct _DVRESOLUTION(i32);
+#[repr(transparent)]
 pub struct _IMSVidCtlEvents(pub *mut ::core::ffi::c_void);
 pub struct _REM_FILTER_FLAGS(i32);
 pub struct _avitcdlindex(i32);

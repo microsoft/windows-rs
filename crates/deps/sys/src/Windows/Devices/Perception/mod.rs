@@ -3,80 +3,155 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IKnownCameraIntrinsicsPropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownPerceptionColorFrameSourcePropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownPerceptionFrameSourcePropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownPerceptionFrameSourcePropertiesStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownPerceptionVideoProfilePropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameSourceStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionColorFrameSourceWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionControlSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthCorrelatedCameraIntrinsics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthCorrelatedCoordinateMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameSourceStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionDepthFrameSourceWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFrameSourcePropertiesChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionFrameSourcePropertyChangeResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameSourceStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionInfraredFrameSourceWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerceptionVideoProfile(pub *mut ::core::ffi::c_void);
-pub struct KnownCameraIntrinsicsProperties(i32);
-pub struct KnownPerceptionColorFrameSourceProperties(i32);
-pub struct KnownPerceptionDepthFrameSourceProperties(i32);
-pub struct KnownPerceptionFrameSourceProperties(i32);
-pub struct KnownPerceptionInfraredFrameSourceProperties(i32);
-pub struct KnownPerceptionVideoFrameSourceProperties(i32);
-pub struct KnownPerceptionVideoProfileProperties(i32);
-pub struct PerceptionColorFrame(i32);
-pub struct PerceptionColorFrameArrivedEventArgs(i32);
-pub struct PerceptionColorFrameReader(i32);
-pub struct PerceptionColorFrameSource(i32);
-pub struct PerceptionColorFrameSourceAddedEventArgs(i32);
-pub struct PerceptionColorFrameSourceRemovedEventArgs(i32);
-pub struct PerceptionColorFrameSourceWatcher(i32);
-pub struct PerceptionControlSession(i32);
-pub struct PerceptionDepthCorrelatedCameraIntrinsics(i32);
-pub struct PerceptionDepthCorrelatedCoordinateMapper(i32);
-pub struct PerceptionDepthFrame(i32);
-pub struct PerceptionDepthFrameArrivedEventArgs(i32);
-pub struct PerceptionDepthFrameReader(i32);
-pub struct PerceptionDepthFrameSource(i32);
-pub struct PerceptionDepthFrameSourceAddedEventArgs(i32);
-pub struct PerceptionDepthFrameSourceRemovedEventArgs(i32);
-pub struct PerceptionDepthFrameSourceWatcher(i32);
+#[repr(transparent)]
+pub struct KnownCameraIntrinsicsProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KnownPerceptionColorFrameSourceProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KnownPerceptionDepthFrameSourceProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KnownPerceptionFrameSourceProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KnownPerceptionInfraredFrameSourceProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KnownPerceptionVideoFrameSourceProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct KnownPerceptionVideoProfileProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionColorFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionColorFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionColorFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionColorFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionColorFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionColorFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionColorFrameSourceWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionControlSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthCorrelatedCameraIntrinsics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthCorrelatedCoordinateMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionDepthFrameSourceWatcher(pub *mut ::core::ffi::c_void);
 pub struct PerceptionFrameSourceAccessStatus(i32);
-pub struct PerceptionFrameSourcePropertiesChangedEventArgs(i32);
-pub struct PerceptionFrameSourcePropertyChangeResult(i32);
+#[repr(transparent)]
+pub struct PerceptionFrameSourcePropertiesChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionFrameSourcePropertyChangeResult(pub *mut ::core::ffi::c_void);
 pub struct PerceptionFrameSourcePropertyChangeStatus(i32);
-pub struct PerceptionInfraredFrame(i32);
-pub struct PerceptionInfraredFrameArrivedEventArgs(i32);
-pub struct PerceptionInfraredFrameReader(i32);
-pub struct PerceptionInfraredFrameSource(i32);
-pub struct PerceptionInfraredFrameSourceAddedEventArgs(i32);
-pub struct PerceptionInfraredFrameSourceRemovedEventArgs(i32);
-pub struct PerceptionInfraredFrameSourceWatcher(i32);
-pub struct PerceptionVideoProfile(i32);
+#[repr(transparent)]
+pub struct PerceptionInfraredFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionInfraredFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionInfraredFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionInfraredFrameSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionInfraredFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionInfraredFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionInfraredFrameSourceWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PerceptionVideoProfile(pub *mut ::core::ffi::c_void);

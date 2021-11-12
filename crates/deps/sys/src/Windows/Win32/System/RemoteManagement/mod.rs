@@ -1117,17 +1117,29 @@ pub const ERROR_WSMAN_WMI_PROVIDER_NOT_CAPABLE: u32 = 2150859010u32;
 pub const ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: u32 = 2150859012u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
+#[repr(transparent)]
 pub struct IWSMan(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManConnectionOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManConnectionOptionsEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManConnectionOptionsEx2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManEx2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManEx3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManInternal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManResourceLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManResourceLocatorInternal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWSManSession(pub *mut ::core::ffi::c_void);
 pub struct WSMAN_API(i32);
 #[cfg(feature = "Win32_Foundation")]

@@ -5,75 +5,145 @@ extern "system" {
     pub fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result;
 }
 pub struct CIMTYPE_ENUMERATION(i32);
+#[repr(transparent)]
 pub struct IEnumWbemClassObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMofCompiler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemDateTime(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemEventSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemLastError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemMethod(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemMethodSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemNamedValue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemNamedValueSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemObjectEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemObjectPath(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemObjectSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemPrivilege(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemPrivilegeSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemQualifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemQualifierSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemRefreshableItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemRefresher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemServicesEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISWbemSinkEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUnsecuredApartment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMIExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemAddressResolution(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemBackupRestore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemBackupRestoreEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemCallResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemClassObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemClientConnectionTransport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemClientTransport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemConfigureRefresher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemConnectorLogin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemConstructClassObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemDecoupledBasicEventProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemDecoupledRegistrar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemEventConsumerProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemEventProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemEventProviderQuerySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemEventProviderSecurity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemHiPerfEnum(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemHiPerfProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemLevel1Login(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemObjectAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemObjectSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemObjectSinkEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemObjectTextSrc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemPath(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemPathKeyList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemPropertyProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemProviderIdentity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemProviderInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemProviderInitSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemQualifierSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemRefresher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemShutdown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemStatusCodeText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemTransport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemUnboundObjectSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWbemUnsecuredApartment(pub *mut ::core::ffi::c_void);
 pub struct MI_Application(i32);
 pub struct MI_ApplicationFT(i32);

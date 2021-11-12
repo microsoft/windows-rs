@@ -1470,83 +1470,161 @@ pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 pub struct FaxNumber(i32);
 pub struct GetDcContextHandle(i32);
 pub struct Hold(i32);
+#[repr(transparent)]
 pub struct IADs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsADSystemInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsAccessControlEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsAccessControlList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsAcl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsAggregatee(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsAggregator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsBackLink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsCaseIgnoreList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsClass(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsComputer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsComputerOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsDNWithBinary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsDNWithString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsDeleteOps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsDomain(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsEmail(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsFaxNumber(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsFileService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsFileServiceOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsFileShare(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsHold(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsLargeInteger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsLocality(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsMembers(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsNameTranslate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsNamespaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsNetAddress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsOU(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsObjectOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsOctetList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsOpenDSObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPath(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPathname(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPostalAddress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPrintJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPrintJobOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPrintQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPrintQueueOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPropertyEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPropertyList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPropertyValue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsPropertyValue2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsReplicaPointer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsSecurityDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsSecurityUtility(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsServiceOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsSyntax(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsTimestamp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsTypedName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IADsWinNTSystemInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommonQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectoryObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectorySchemaMgmt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectorySearch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsAdminCreateObj(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsAdminNewObj(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsAdminNewObjExt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsAdminNewObjPrimarySite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsAdminNotifyHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsBrowseDomainTree(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsDisplaySpecifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsObjectPicker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDsObjectPickerCredentials(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrivateDispatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrivateUnknown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryForm(pub *mut ::core::ffi::c_void);
 pub struct LPCQADDFORMSPROC(i32);
 pub struct LPCQADDPAGESPROC(i32);

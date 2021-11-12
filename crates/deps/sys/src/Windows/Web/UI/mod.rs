@@ -3,36 +3,67 @@
 pub mod Interop;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IWebViewControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlContentLoadingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlDOMContentLoadedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlDeferredPermissionRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlLongRunningScriptDetectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlNavigationCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlNavigationStartingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlNewWindowRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlNewWindowRequestedEventArgs2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlPermissionRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlPermissionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlScriptNotifyEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlUnviewableContentIdentifiedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebViewControlWebResourceRequestedEventArgs(pub *mut ::core::ffi::c_void);
-pub struct WebViewControlContentLoadingEventArgs(i32);
-pub struct WebViewControlDOMContentLoadedEventArgs(i32);
-pub struct WebViewControlDeferredPermissionRequest(i32);
-pub struct WebViewControlLongRunningScriptDetectedEventArgs(i32);
-pub struct WebViewControlNavigationCompletedEventArgs(i32);
-pub struct WebViewControlNavigationStartingEventArgs(i32);
-pub struct WebViewControlNewWindowRequestedEventArgs(i32);
-pub struct WebViewControlPermissionRequest(i32);
-pub struct WebViewControlPermissionRequestedEventArgs(i32);
+#[repr(transparent)]
+pub struct WebViewControlContentLoadingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlDOMContentLoadedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlDeferredPermissionRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlLongRunningScriptDetectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlNavigationCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlNavigationStartingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlNewWindowRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlPermissionRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlPermissionRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct WebViewControlPermissionState(i32);
 pub struct WebViewControlPermissionType(i32);
-pub struct WebViewControlScriptNotifyEventArgs(i32);
-pub struct WebViewControlSettings(i32);
-pub struct WebViewControlUnsupportedUriSchemeIdentifiedEventArgs(i32);
-pub struct WebViewControlUnviewableContentIdentifiedEventArgs(i32);
-pub struct WebViewControlWebResourceRequestedEventArgs(i32);
+#[repr(transparent)]
+pub struct WebViewControlScriptNotifyEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlUnsupportedUriSchemeIdentifiedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlUnviewableContentIdentifiedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct WebViewControlWebResourceRequestedEventArgs(pub *mut ::core::ffi::c_void);

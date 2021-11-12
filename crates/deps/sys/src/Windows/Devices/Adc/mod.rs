@@ -3,10 +3,16 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct AdcChannel(i32);
+#[repr(transparent)]
+pub struct AdcChannel(pub *mut ::core::ffi::c_void);
 pub struct AdcChannelMode(i32);
-pub struct AdcController(i32);
+#[repr(transparent)]
+pub struct AdcController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdcChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdcController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdcControllerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdcControllerStatics2(pub *mut ::core::ffi::c_void);

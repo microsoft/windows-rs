@@ -2,12 +2,20 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct ContentAccessRestrictionLevel(i32);
-pub struct ContentRestrictionsBrowsePolicy(i32);
+#[repr(transparent)]
+pub struct ContentRestrictionsBrowsePolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContentRestrictionsBrowsePolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRatedContentDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRatedContentDescriptionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRatedContentRestrictions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRatedContentRestrictionsFactory(pub *mut ::core::ffi::c_void);
 pub struct RatedContentCategory(i32);
-pub struct RatedContentDescription(i32);
-pub struct RatedContentRestrictions(i32);
+#[repr(transparent)]
+pub struct RatedContentDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct RatedContentRestrictions(pub *mut ::core::ffi::c_void);

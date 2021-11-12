@@ -164,17 +164,29 @@ pub struct GNSS_SUPL_VERSION_2(i32);
 pub struct GNSS_V2UPL_CONFIG(i32);
 pub struct GNSS_V2UPL_NI_INFO(i32);
 pub const GUID_DEVINTERFACE_GNSS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859235812, data2: 394, data3: 18025, data4: [132, 197, 189, 5, 243, 189, 54, 139] };
+#[repr(transparent)]
 pub struct ICivicAddressReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICivicAddressReportFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDefaultLocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispCivicAddressReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispLatLongReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILatLongReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILatLongReportFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILocationEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILocationPower(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILocationReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILocationReportFactory(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const IOCTL_GNSS_CONFIG_SUPL_CERT: u32 = 2228488u32;
@@ -244,5 +256,7 @@ pub const MAX_SERVER_URL_NAME: u32 = 260u32;
 pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
+#[repr(transparent)]
 pub struct _ICivicAddressReportFactoryEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _ILatLongReportFactoryEvents(pub *mut ::core::ffi::c_void);

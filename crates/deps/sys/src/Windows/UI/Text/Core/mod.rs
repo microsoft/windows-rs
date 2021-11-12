@@ -1,45 +1,80 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct CoreTextCompositionCompletedEventArgs(i32);
-pub struct CoreTextCompositionSegment(i32);
-pub struct CoreTextCompositionStartedEventArgs(i32);
-pub struct CoreTextEditContext(i32);
-pub struct CoreTextFormatUpdatingEventArgs(i32);
+#[repr(transparent)]
+pub struct CoreTextCompositionCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextCompositionSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextCompositionStartedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextEditContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextFormatUpdatingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CoreTextFormatUpdatingReason(i32);
 pub struct CoreTextFormatUpdatingResult(i32);
 pub struct CoreTextInputPaneDisplayPolicy(i32);
 pub struct CoreTextInputScope(i32);
-pub struct CoreTextLayoutBounds(i32);
-pub struct CoreTextLayoutRequest(i32);
-pub struct CoreTextLayoutRequestedEventArgs(i32);
+#[repr(transparent)]
+pub struct CoreTextLayoutBounds(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextLayoutRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextLayoutRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CoreTextRange(i32);
-pub struct CoreTextSelectionRequest(i32);
-pub struct CoreTextSelectionRequestedEventArgs(i32);
-pub struct CoreTextSelectionUpdatingEventArgs(i32);
+#[repr(transparent)]
+pub struct CoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextSelectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextSelectionUpdatingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CoreTextSelectionUpdatingResult(i32);
-pub struct CoreTextServicesConstants(i32);
-pub struct CoreTextServicesManager(i32);
-pub struct CoreTextTextRequest(i32);
-pub struct CoreTextTextRequestedEventArgs(i32);
-pub struct CoreTextTextUpdatingEventArgs(i32);
+#[repr(transparent)]
+pub struct CoreTextServicesConstants(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextServicesManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextTextRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextTextRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CoreTextTextUpdatingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CoreTextTextUpdatingResult(i32);
+#[repr(transparent)]
 pub struct ICoreTextCompositionCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextCompositionSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextCompositionStartedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextEditContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextEditContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextFormatUpdatingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextLayoutBounds(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextLayoutRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextLayoutRequest2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextLayoutRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextSelectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextSelectionUpdatingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextServicesManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextServicesManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextServicesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextTextRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextTextRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICoreTextTextUpdatingEventArgs(pub *mut ::core::ffi::c_void);

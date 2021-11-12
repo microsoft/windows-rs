@@ -205,41 +205,77 @@ pub struct EventRegistrationToken(i32);
 pub struct HSTRING_BUFFER(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSTRING_HEADER(i32);
+#[repr(transparent)]
 pub struct IAccountsSettingsPaneInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActivationFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAgileReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApartmentShutdown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppServiceConnectionExtendedExecution(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBufferByteAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICastingController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICastingEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICastingSourceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICorrelationVectorInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICorrelationVectorSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDragDropManagerInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHolographicSpaceInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPaneInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILanguageExceptionStackBackTrace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILanguageExceptionTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemoryBufferByteAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMessageDispatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlayToManagerInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRestrictedErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRoMetaDataLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRoSimpleMetaDataBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShareWindowCommandEventArgsInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShareWindowCommandSourceInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialInteractionManagerInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemMediaTransportControlsInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIViewSettingsInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityRequestManagerInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivitySourceHostInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserConsentVerifierInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWeakReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWeakReferenceSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerInterop(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;

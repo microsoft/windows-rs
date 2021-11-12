@@ -1339,11 +1339,17 @@ pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct HW_PROFILE_INFOA(i32);
 pub struct HW_PROFILE_INFOW(i32);
+#[repr(transparent)]
 pub struct ICameraUIControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICameraUIControlEventCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClipServiceNotificationHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContainerActivationHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDefaultBrowserSyncSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeleteBrowsingHistory(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IE4_BACKNEW: u32 = 2u32;
@@ -1387,7 +1393,9 @@ pub const IE_MEMORY: i32 = -4i32;
 pub const IE_NOPEN: i32 = -3i32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IE_OPEN: i32 = -2i32;
+#[repr(transparent)]
 pub struct IEditionUpgradeBroker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEditionUpgradeHelper(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IF_GENERIC: u32 = 512u32;
@@ -1534,6 +1542,7 @@ pub const IR_STRINGEX: u32 = 384u32;
 pub const IR_STRINGSTART: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IR_UNDETERMINE: u32 = 368u32;
+#[repr(transparent)]
 pub struct IWindowsLockModeHelper(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct JAVA_TRUST(i32);

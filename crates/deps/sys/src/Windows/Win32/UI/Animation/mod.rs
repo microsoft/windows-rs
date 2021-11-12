@@ -1,36 +1,67 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IUIAnimationInterpolator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationInterpolator2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationLoopIterationChangeHandler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationManagerEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationManagerEventHandler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationPrimitiveInterpolation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationPriorityComparison(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationPriorityComparison2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationStoryboard(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationStoryboard2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationStoryboardEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationStoryboardEventHandler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTimer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTimerClientEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTimerEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTimerUpdateHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTransition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTransition2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTransitionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTransitionFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTransitionLibrary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationTransitionLibrary2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationVariable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationVariable2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationVariableChangeHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationVariableChangeHandler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationVariableCurveChangeHandler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationVariableIntegerChangeHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAnimationVariableIntegerChangeHandler2(pub *mut ::core::ffi::c_void);
 pub struct UIAnimationManager(i32);
 pub struct UIAnimationManager2(i32);

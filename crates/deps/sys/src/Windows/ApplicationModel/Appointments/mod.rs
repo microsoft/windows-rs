@@ -5,72 +5,124 @@ pub mod AppointmentsProvider;
 pub mod DataProvider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct Appointment(i32);
+#[repr(transparent)]
+pub struct Appointment(pub *mut ::core::ffi::c_void);
 pub struct AppointmentBusyStatus(i32);
-pub struct AppointmentCalendar(i32);
+#[repr(transparent)]
+pub struct AppointmentCalendar(pub *mut ::core::ffi::c_void);
 pub struct AppointmentCalendarOtherAppReadAccess(i32);
 pub struct AppointmentCalendarOtherAppWriteAccess(i32);
-pub struct AppointmentCalendarSyncManager(i32);
+#[repr(transparent)]
+pub struct AppointmentCalendarSyncManager(pub *mut ::core::ffi::c_void);
 pub struct AppointmentCalendarSyncStatus(i32);
-pub struct AppointmentConflictResult(i32);
+#[repr(transparent)]
+pub struct AppointmentConflictResult(pub *mut ::core::ffi::c_void);
 pub struct AppointmentConflictType(i32);
 pub struct AppointmentDaysOfWeek(i32);
 pub struct AppointmentDetailsKind(i32);
-pub struct AppointmentException(i32);
-pub struct AppointmentInvitee(i32);
-pub struct AppointmentManager(i32);
-pub struct AppointmentManagerForUser(i32);
-pub struct AppointmentOrganizer(i32);
+#[repr(transparent)]
+pub struct AppointmentException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentInvitee(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentManagerForUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentOrganizer(pub *mut ::core::ffi::c_void);
 pub struct AppointmentParticipantResponse(i32);
 pub struct AppointmentParticipantRole(i32);
-pub struct AppointmentProperties(i32);
-pub struct AppointmentRecurrence(i32);
+#[repr(transparent)]
+pub struct AppointmentProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentRecurrence(pub *mut ::core::ffi::c_void);
 pub struct AppointmentRecurrenceUnit(i32);
 pub struct AppointmentSensitivity(i32);
-pub struct AppointmentStore(i32);
+#[repr(transparent)]
+pub struct AppointmentStore(pub *mut ::core::ffi::c_void);
 pub struct AppointmentStoreAccessType(i32);
-pub struct AppointmentStoreChange(i32);
-pub struct AppointmentStoreChangeReader(i32);
-pub struct AppointmentStoreChangeTracker(i32);
+#[repr(transparent)]
+pub struct AppointmentStoreChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentStoreChangeReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentStoreChangeTracker(pub *mut ::core::ffi::c_void);
 pub struct AppointmentStoreChangeType(i32);
-pub struct AppointmentStoreChangedDeferral(i32);
-pub struct AppointmentStoreChangedEventArgs(i32);
-pub struct AppointmentStoreNotificationTriggerDetails(i32);
+#[repr(transparent)]
+pub struct AppointmentStoreChangedDeferral(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentStoreChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppointmentStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
 pub struct AppointmentSummaryCardView(i32);
 pub struct AppointmentWeekOfMonth(i32);
 pub struct FindAppointmentCalendarsOptions(i32);
-pub struct FindAppointmentsOptions(i32);
+#[repr(transparent)]
+pub struct FindAppointmentsOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointment2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointment3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentCalendar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentCalendar2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentCalendar3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentCalendarSyncManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentCalendarSyncManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentConflictResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentInvitee(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentManagerForUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentManagerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentManagerStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentParticipant(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentPropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentPropertiesStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentRecurrence(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentRecurrence2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentRecurrence3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStore2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStore3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreChange2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreChangeReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreChangeTracker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreChangeTracker2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreChangedDeferral(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppointmentStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFindAppointmentsOptions(pub *mut ::core::ffi::c_void);
 pub struct RecurrenceType(i32);

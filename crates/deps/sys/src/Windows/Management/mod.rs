@@ -11,12 +11,18 @@ pub mod Update;
 pub mod Workplace;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IMdmAlert(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMdmSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMdmSessionManagerStatics(pub *mut ::core::ffi::c_void);
-pub struct MdmAlert(i32);
+#[repr(transparent)]
+pub struct MdmAlert(pub *mut ::core::ffi::c_void);
 pub struct MdmAlertDataType(i32);
 pub struct MdmAlertMark(i32);
-pub struct MdmSession(i32);
-pub struct MdmSessionManager(i32);
+#[repr(transparent)]
+pub struct MdmSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MdmSessionManager(pub *mut ::core::ffi::c_void);
 pub struct MdmSessionState(i32);

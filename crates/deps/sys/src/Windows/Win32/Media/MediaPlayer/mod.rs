@@ -986,115 +986,221 @@ pub struct FEEDS_XML_SORT_PROPERTY(i32);
 pub struct FeedFolderWatcher(i32);
 pub struct FeedWatcher(i32);
 pub struct FeedsManager(i32);
+#[repr(transparent)]
 pub struct IFeed(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeed2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedEnclosure(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedFolderEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedsEnum(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFeedsManager(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const IOCTL_WMP_DEVICE_CAN_SYNC: u32 = 844123479u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const IOCTL_WMP_METADATA_ROUND_TRIP: u32 = 827346263u32;
+#[repr(transparent)]
 pub struct IWMPAudioRenderConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPCdrom(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPCdromBurn(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPCdromCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPCdromRip(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPClosedCaption(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPClosedCaption2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPContentContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPContentContainerList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPContentPartner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPContentPartnerCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPControls(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPControls2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPControls3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPConvert(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPCore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPCore2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPCore3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPDVD(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPDownloadCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPDownloadItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPDownloadItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPDownloadManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPEffects(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPEffects2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPErrorItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPErrorItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPEvents2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPEvents3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPEvents4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPFolderMonitorServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPGraphCreation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPLibrary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPLibrary2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPLibraryServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPLibrarySharingServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMedia(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMedia2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMedia3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMediaCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMediaCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMediaPluginRegistrar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMetadataPicture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPMetadataText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPNetwork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPNodeRealEstate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPNodeRealEstateHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPNodeWindowed(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPNodeWindowedHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPNodeWindowless(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPNodeWindowlessHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlayer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlayer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlayer3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlayer4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlayerApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlayerServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlayerServices2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlaylist(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlaylistArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlaylistCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPluginEnable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPPluginUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPRemoteMediaServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPRenderConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSettings2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSkinManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPStringCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPStringCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSubscriptionService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSubscriptionService2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSubscriptionServiceCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSyncDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSyncDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSyncDevice3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPSyncServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPTranscodePolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPUserEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPVideoRenderConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMPWindowMessageSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeed(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeed2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedEnclosure(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedFolderEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedsEnum(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXFeedsManager(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const PLUGIN_FLAGS_ACCEPTSMEDIA: u32 = 268435456u32;
@@ -1461,6 +1567,7 @@ pub const WMProfile_V80_HIGHVBRVideo: ::windows_sys::core::GUID = ::windows_sys:
     data4: [163, 211, 136, 212, 172, 133, 74, 204],
 };
 pub struct WindowsMediaPlayer(i32);
+#[repr(transparent)]
 pub struct _WMPOCXEvents(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const g_szAllAuthors: &'static str = "AllAuthors";

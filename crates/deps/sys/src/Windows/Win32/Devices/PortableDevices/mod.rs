@@ -163,43 +163,77 @@ pub const GUID_DEVINTERFACE_WPD_SERVICE: ::windows_sys::core::GUID = ::windows_s
     data3: 16966,
     data4: [166, 170, 32, 111, 50, 141, 30, 220],
 };
+#[repr(transparent)]
 pub struct IConnectionRequestCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPortableDeviceConnectors(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPortableDeviceObjectIDs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaRadioManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaRadioManagerNotifySink(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const IOCTL_WPD_MESSAGE_READWRITE_ACCESS: u32 = 4243720u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const IOCTL_WPD_MESSAGE_READ_ACCESS: u32 = 4210952u32;
+#[repr(transparent)]
 pub struct IPortableDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceContent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceDataStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceDispatchFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceEventCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceKeyCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDevicePropVariantCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDevicePropertiesBulk(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDevicePropertiesBulkCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceResources(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceServiceActivation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceServiceCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceServiceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceServiceMethodCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceServiceMethods(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceServiceOpenCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceUnitsStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceValues(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceValuesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPortableDeviceWebControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRadioInstance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRadioInstanceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWpdSerializer(pub *mut ::core::ffi::c_void);
 pub struct PortableDevice(i32);
 pub struct PortableDeviceDispatchFactory(i32);

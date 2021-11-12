@@ -1,38 +1,72 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct CameraIntrinsics(i32);
-pub struct DepthCorrelatedCoordinateMapper(i32);
-pub struct FrameControlCapabilities(i32);
-pub struct FrameController(i32);
-pub struct FrameExposureCapabilities(i32);
-pub struct FrameExposureCompensationCapabilities(i32);
-pub struct FrameExposureCompensationControl(i32);
-pub struct FrameExposureControl(i32);
-pub struct FrameFlashCapabilities(i32);
-pub struct FrameFlashControl(i32);
+#[repr(transparent)]
+pub struct CameraIntrinsics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DepthCorrelatedCoordinateMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameControlCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameExposureCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameExposureCompensationCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameExposureCompensationControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameExposureControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameFlashCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameFlashControl(pub *mut ::core::ffi::c_void);
 pub struct FrameFlashMode(i32);
-pub struct FrameFocusCapabilities(i32);
-pub struct FrameFocusControl(i32);
-pub struct FrameIsoSpeedCapabilities(i32);
-pub struct FrameIsoSpeedControl(i32);
+#[repr(transparent)]
+pub struct FrameFocusCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameFocusControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameIsoSpeedCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FrameIsoSpeedControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICameraIntrinsics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICameraIntrinsics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICameraIntrinsicsFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDepthCorrelatedCoordinateMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameControlCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameControlCapabilities2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameController2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameExposureCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameExposureCompensationCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameExposureCompensationControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameExposureControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameFlashCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameFlashControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameFocusCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameFocusControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameIsoSpeedCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameIsoSpeedControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVariablePhotoSequenceController(pub *mut ::core::ffi::c_void);
-pub struct VariablePhotoSequenceController(i32);
+#[repr(transparent)]
+pub struct VariablePhotoSequenceController(pub *mut ::core::ffi::c_void);

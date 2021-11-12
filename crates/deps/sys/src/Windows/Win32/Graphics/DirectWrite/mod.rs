@@ -136,92 +136,181 @@ pub struct DWRITE_VERTICAL_GLYPH_ORIENTATION(i32);
 pub struct DWRITE_WORD_WRAPPING(i32);
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const FACILITY_DWRITE: u32 = 2200u32;
+#[repr(transparent)]
 pub struct IDWriteAsyncResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteBitmapRenderTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteBitmapRenderTarget1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteColorGlyphRunEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteColorGlyphRunEnumerator1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFactory7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFont(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFont1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFont2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFont3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontCollection1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontCollection3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontCollectionLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontDownloadListener(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontDownloadQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFace1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFace2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFace3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFace4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFace5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFace6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFaceReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFaceReference1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFallback1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFallbackBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFamily(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFamily1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFamily2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFileEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFileLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontFileStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontList1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontSet1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontSet2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontSet3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontSetBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontSetBuilder1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteFontSetBuilder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteGdiInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteGdiInterop1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteGlyphRunAnalysis(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteInMemoryFontFileLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteInlineObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteLocalFontFileLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteLocalizedStrings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteNumberSubstitution(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWritePixelSnapping(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteRemoteFontFileLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteRemoteFontFileStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteRenderingParams(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteRenderingParams1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteRenderingParams2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteRenderingParams3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteStringList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextAnalysisSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextAnalysisSink1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextAnalysisSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextAnalysisSource1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextAnalyzer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextAnalyzer1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextAnalyzer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextFormat1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextFormat2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextFormat3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextLayout(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextLayout1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextLayout2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextLayout3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextLayout4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextRenderer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTextRenderer1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDWriteTypography(pub *mut ::core::ffi::c_void);

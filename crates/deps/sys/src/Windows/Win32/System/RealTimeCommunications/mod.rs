@@ -7,71 +7,137 @@ pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
 pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
+#[repr(transparent)]
 pub struct INetworkTransportSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INotificationTransportSync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCBuddy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCBuddy2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCBuddyEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCBuddyEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCBuddyGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCBuddyGroupEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClient2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClientEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClientPortManagement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClientPresence(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClientPresence2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClientProvisioning(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCClientProvisioning2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCDispatchEventNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEnumBuddies(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEnumGroups(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEnumParticipants(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEnumPresenceDevices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEnumProfiles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEnumUserSearchResults(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEnumWatchers(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCEventNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCInfoEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCIntensityEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCMediaEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCMediaRequestEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCMessagingEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCParticipant(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCParticipantStateChangeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCPortManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCPresenceContact(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCPresenceDataEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCPresenceDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCPresencePropertyEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCPresenceStatusEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCProfile2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCProfileEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCProfileEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCReInviteEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCRegistrationStateChangeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCRoamingEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSession2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionCallControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionDescriptionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionOperationCompleteEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionOperationCompleteEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionPortManagement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionReferStatusEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionReferredEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionStateChangeEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCSessionStateChangeEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCUserSearch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCUserSearchQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCUserSearchResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCUserSearchResultsEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCWatcher2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCWatcherEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRTCWatcherEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransportSettingsInternal(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCAU_BASIC: u32 = 1u32;

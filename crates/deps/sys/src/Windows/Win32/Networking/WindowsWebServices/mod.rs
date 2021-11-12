@@ -510,6 +510,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 }
+#[repr(transparent)]
 pub struct IContentPrefetcherTaskTrigger(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;

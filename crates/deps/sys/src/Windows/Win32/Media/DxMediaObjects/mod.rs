@@ -80,11 +80,17 @@ pub struct DMO_MEDIA_TYPE(i32);
 pub struct DMO_OUTPUT_DATA_BUFFER(i32);
 pub struct DMO_PARTIAL_MEDIATYPE(i32);
 pub struct DMO_REGISTER_FLAGS(i32);
+#[repr(transparent)]
 pub struct IDMOQualityControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDMOVideoOutputOptimizations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDMO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMediaObjectInPlace(pub *mut ::core::ffi::c_void);
 pub struct _DMO_INPLACE_PROCESS_FLAGS(i32);
 pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(i32);

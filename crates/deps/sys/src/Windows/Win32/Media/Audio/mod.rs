@@ -913,79 +913,153 @@ pub struct HMIXEROBJ(i32);
 pub struct HWAVE(i32);
 pub struct HWAVEIN(i32);
 pub struct HWAVEOUT(i32);
+#[repr(transparent)]
 pub struct IActivateAudioInterfaceAsyncOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActivateAudioInterfaceCompletionHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioAmbisonicsControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioAutoGainControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioBass(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioCaptureClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioChannelConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioClient2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioClient3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioClientDuckingControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioClock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioClock2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioClockAdjustment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEffectsChangedNotificationClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEffectsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioFormatEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioInputSelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioLoudness(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioMidrange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioMute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioOutputSelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioPeakMeter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioRenderClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSessionNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioStateMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioStreamVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSystemEffectsPropertyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioTreble(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioVolumeDuckNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioVolumeLevel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IChannelAudioVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IControlChangeNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IControlInterface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeviceSpecificProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeviceTopology(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMMDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMMDeviceActivator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMMDeviceCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMMDeviceEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMMEndpoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMMNotificationClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMessageFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPart(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPartsList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerChannelDbLevel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimpleAudioVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioClient2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioMetadataClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioMetadataCopier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioMetadataItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioMetadataItemsBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioMetadataReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioMetadataWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectForHrtf(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectForMetadataCommands(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectForMetadataItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamBase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamForHrtf(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamForMetadata(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISubunit(pub *mut ::core::ffi::c_void);
 pub struct LPACMDRIVERPROC(i32);
 pub struct LPMIDICALLBACK(i32);

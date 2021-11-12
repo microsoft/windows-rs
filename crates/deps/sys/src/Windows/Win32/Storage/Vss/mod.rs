@@ -4,32 +4,58 @@ extern "system" {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub fn CreateVssExpressWriterInternal(ppwriter: *mut IVssExpressWriter) -> ::windows_sys::core::HRESULT;
 }
+#[repr(transparent)]
 pub struct IVssAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssAdminEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssComponentEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssComponentEx2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssCreateExpressWriterMetadata(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssCreateWriterMetadata(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssEnumMgmtObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssEnumObject(pub *mut ::core::ffi::c_void);
 pub struct IVssExamineWriterMetadata(i32);
+#[repr(transparent)]
 pub struct IVssExpressWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssFileShareSnapshotProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssHardwareSnapshotProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssHardwareSnapshotProviderEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssProviderCreateSnapshotSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssProviderNotifications(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssSnapshotMgmt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssSnapshotMgmt2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssSoftwareSnapshotProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssWMDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssWMFiledesc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssWriterComponents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVssWriterImpl(pub *mut ::core::ffi::c_void);
 pub struct VSSCoordinator(i32);
 pub struct VSS_ALTERNATE_WRITER_STATE(i32);

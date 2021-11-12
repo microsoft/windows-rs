@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IWCNConnectNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWCNDevice(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]

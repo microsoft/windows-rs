@@ -1664,15 +1664,25 @@ pub const GUID_YPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data
 pub const GUID_YSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536073, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub const GUID_YSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536069, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub struct HITRESULT(i32);
+#[repr(transparent)]
 pub struct IAdviseSinkEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICanHandleException(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClassFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContinue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContinueCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateTypeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateTypeInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateTypeLib(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateTypeLib2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_BZ_ICON: u32 = 601u32;
@@ -1952,21 +1962,36 @@ pub const ID_BROWSE_CHANGESOURCE: u32 = 4u32;
 pub const ID_BROWSE_INSERTFILE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ID_DEFAULTINST: i32 = -2i32;
+#[repr(transparent)]
 pub struct IDispError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatchEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDropSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDropSourceNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDropTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnterpriseDropTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumOLEVERB(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumOleDocumentViews(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumOleUndoUnits(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumVARIANT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFont(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFontDisp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFontEventsDisp(pub *mut ::core::ffi::c_void);
 pub struct IGNOREMIME(i32);
+#[repr(transparent)]
 pub struct IGetOleObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetVBAObject(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IMPLTYPEFLAG_FDEFAULT: u32 = 1u32;
@@ -2012,73 +2037,141 @@ pub const IOF_SHOWHELP: i32 = 1i32;
 pub const IOF_SHOWINSERTCONTROL: i32 = 4096i32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_VERIFYSERVERSEXIST: i32 = 512i32;
+#[repr(transparent)]
 pub struct IObjectIdentity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleAdviseHolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleCache2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleCacheControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleClientSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleCommandTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleControlSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleDocumentSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleDocumentView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceActiveObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceObjectWindowless(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceSiteEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceSiteWindowless(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleInPlaceUIWindow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleItemContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleLink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleParentUndoUnit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUILinkContainerA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUILinkContainerW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUILinkInfoA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUILinkInfoW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUIObjInfoA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUIObjInfoW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUndoManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleUndoUnit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOleWindow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IParseDisplayName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerPropertyBrowsing(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistPropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistPropertyBag2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPicture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPicture2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPictureDisp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPointerInactive(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyPage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyPage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyPageSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProtectFocus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProtectedModeMenuServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProvideClassInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProvideClassInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProvideMultipleClassInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProvideRuntimeContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQuickActivate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRecordInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimpleFrameSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpecifyPropertyPages(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeChangeEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITypeMarshal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBGetControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVariantChangeType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObject2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewObjectEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IZoomEvents(pub *mut ::core::ffi::c_void);
 pub struct LIBFLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]

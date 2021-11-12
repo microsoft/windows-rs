@@ -3,36 +3,68 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IUserActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivity2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivity3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityAttribution(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityAttributionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityChannel2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityChannelStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityChannelStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityChannelStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityContentInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityContentInfoStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityRequestManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityRequestManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivitySession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivitySessionHistoryItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityVisualElements(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserActivityVisualElements2(pub *mut ::core::ffi::c_void);
-pub struct UserActivity(i32);
-pub struct UserActivityAttribution(i32);
-pub struct UserActivityChannel(i32);
-pub struct UserActivityContentInfo(i32);
-pub struct UserActivityRequest(i32);
-pub struct UserActivityRequestManager(i32);
-pub struct UserActivityRequestedEventArgs(i32);
-pub struct UserActivitySession(i32);
-pub struct UserActivitySessionHistoryItem(i32);
+#[repr(transparent)]
+pub struct UserActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivityAttribution(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivityChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivityContentInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivityRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivityRequestManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivityRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivitySession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserActivitySessionHistoryItem(pub *mut ::core::ffi::c_void);
 pub struct UserActivityState(i32);
-pub struct UserActivityVisualElements(i32);
+#[repr(transparent)]
+pub struct UserActivityVisualElements(pub *mut ::core::ffi::c_void);

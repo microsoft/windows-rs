@@ -19,19 +19,35 @@ pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(i32);
 pub struct CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(i32);
 pub struct Contact(i32);
 pub struct ContactManager(i32);
+#[repr(transparent)]
 pub struct IContact(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationAggregate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationAggregateCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationContact(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationContactCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationGroupCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationLink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationLinkCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationServerPerson(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactAggregationServerPersonCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactPropertyCollection(pub *mut ::core::ffi::c_void);

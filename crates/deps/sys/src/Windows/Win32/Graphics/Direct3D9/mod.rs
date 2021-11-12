@@ -870,25 +870,45 @@ pub struct D3D_OMAC(i32);
 pub const D3D_OMAC_SIZE: u32 = 16u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D_SDK_VERSION: u32 = 32u32;
+#[repr(transparent)]
 pub struct IDirect3D9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3D9Ex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DBaseTexture9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DCubeTexture9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DDevice9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DDevice9Ex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DIndexBuffer9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DPixelShader9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DQuery9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DResource9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DStateBlock9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DSurface9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DSwapChain9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DSwapChain9Ex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DTexture9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DVertexBuffer9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DVertexDeclaration9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DVertexShader9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DVolume9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DVolumeTexture9(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const MAXD3DDECLLENGTH: u32 = 64u32;

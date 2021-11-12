@@ -11,65 +11,123 @@ pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys
     data3: 20184,
     data4: [148, 223, 234, 248, 194, 106, 182, 27],
 };
+#[repr(transparent)]
 pub struct IComponentAuthenticate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPDevice3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPDeviceControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPDirectTransfer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPEnumDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPEnumStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPObject2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPObjectInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPRevoked(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPStorage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPStorage3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPStorage4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDSPStorageGlobals(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDServiceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDServiceProvider2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMDServiceProvider3(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
+#[repr(transparent)]
 pub struct ISCPSecureAuthenticate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSecureAuthenticate2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSecureExchange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSecureExchange2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSecureExchange3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSecureQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSecureQuery2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSecureQuery3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCPSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMDevice3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMDeviceControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMDeviceSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMEnumDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMEnumStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMLogger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMMetaData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMObjectInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMOperation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMOperation3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMProgress2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMProgress3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMRevoked(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorage3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorage4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorageControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorageControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorageControl3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDMStorageGlobals(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDeviceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDeviceManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMDeviceManager3(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const MDSP_READ: u32 = 1u32;

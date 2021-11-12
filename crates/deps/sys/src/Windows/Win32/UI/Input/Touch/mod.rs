@@ -40,7 +40,9 @@ pub struct GESTUREINFO(i32);
 pub struct GESTURENOTIFYSTRUCT(i32);
 pub struct HGESTUREINFO(i32);
 pub struct HTOUCHINPUT(i32);
+#[repr(transparent)]
 pub struct IInertiaProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IManipulationProcessor(pub *mut ::core::ffi::c_void);
 pub struct InertiaProcessor(i32);
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(i32);
@@ -50,4 +52,5 @@ pub struct TOUCHEVENTF_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOUCHINPUT(i32);
 pub struct TOUCHINPUTMASKF_MASK(i32);
+#[repr(transparent)]
 pub struct _IManipulationEvents(pub *mut ::core::ffi::c_void);

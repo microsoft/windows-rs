@@ -1,13 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IOemSupportInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISmbiosInformationStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemSupportDeviceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemSupportInfoStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemSupportInfoStatics2(pub *mut ::core::ffi::c_void);
-pub struct OemSupportInfo(i32);
-pub struct SmbiosInformation(i32);
+#[repr(transparent)]
+pub struct OemSupportInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SmbiosInformation(pub *mut ::core::ffi::c_void);
 pub struct SystemManufacturersContract(i32);
-pub struct SystemSupportDeviceInfo(i32);
-pub struct SystemSupportInfo(i32);
+#[repr(transparent)]
+pub struct SystemSupportDeviceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SystemSupportInfo(pub *mut ::core::ffi::c_void);

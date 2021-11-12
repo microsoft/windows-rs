@@ -1474,97 +1474,189 @@ pub const DXGI_DEBUG_D3D11: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 19110,
     data4: [187, 11, 186, 160, 71, 132, 121, 143],
 };
+#[repr(transparent)]
 pub struct ID3D11Asynchronous(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11AuthenticatedChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11BlendState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11BlendState1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Buffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ClassInstance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ClassLinkage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11CommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ComputeShader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Counter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11CryptoSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Debug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DepthStencilState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DepthStencilView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Device(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Device1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Device2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Device3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Device4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Device5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DeviceChild(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DeviceContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DeviceContext1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DeviceContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DeviceContext3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DeviceContext4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11DomainShader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Fence(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11FunctionLinkingGraph(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11FunctionParameterReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11FunctionReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11GeometryShader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11HullShader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11InfoQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11InputLayout(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11LibraryReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Linker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11LinkingNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Module(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ModuleInstance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Multithread(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11PixelShader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Predicate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Query(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Query1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11RasterizerState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11RasterizerState1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11RasterizerState2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11RefDefaultTrackingOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11RefTrackingOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11RenderTargetView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11RenderTargetView1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Resource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11SamplerState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderReflectionConstantBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderReflectionType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderReflectionVariable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderResourceView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderResourceView1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderTrace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11ShaderTraceFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11SwitchToRef(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Texture1D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Texture2D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Texture2D1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Texture3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11Texture3D1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11TracingDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11UnorderedAccessView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11UnorderedAccessView1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VertexShader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoContext1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoContext3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoDecoderOutputView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoDevice1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoProcessorEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoProcessorEnumerator1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoProcessorInputView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11VideoProcessorOutputView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D11View(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3DDeviceContextState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3DUserDefinedAnnotation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3DX11FFT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3DX11Scan(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3DX11SegmentedScan(pub *mut ::core::ffi::c_void);
 pub struct PFN_D3D11_CREATE_DEVICE(i32);
 pub struct PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(i32);

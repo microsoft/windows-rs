@@ -520,7 +520,9 @@ pub struct HiFiCOLOR(i32);
 pub struct ICMENUMPROCA(i32);
 pub struct ICMENUMPROCW(i32);
 pub struct ICM_COMMAND(i32);
+#[repr(transparent)]
 pub struct IDeviceModelPlugIn(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGamutMapModelPlugIn(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const INDEX_DONT_CARE: u32 = 0u32;

@@ -3,11 +3,15 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
-pub struct DisplayMonitor(i32);
+#[repr(transparent)]
+pub struct DisplayMonitor(pub *mut ::core::ffi::c_void);
 pub struct DisplayMonitorConnectionKind(i32);
 pub struct DisplayMonitorDescriptorKind(i32);
 pub struct DisplayMonitorPhysicalConnectorKind(i32);
 pub struct DisplayMonitorUsageKind(i32);
+#[repr(transparent)]
 pub struct IDisplayMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayMonitor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayMonitorStatics(pub *mut ::core::ffi::c_void);

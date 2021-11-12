@@ -1091,56 +1091,107 @@ pub const GUID_WICPixelFormatDontCare: ::windows_sys::core::GUID = ::windows_sys
     data3: 19454,
     data4: [177, 133, 61, 119, 118, 141, 201, 0],
 };
+#[repr(transparent)]
 pub struct IWICBitmap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapClipper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapCodecInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapCodecProgressNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapDecoderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapEncoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapEncoderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapFlipRotator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapFrameDecode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapFrameEncode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapLock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapScaler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICBitmapSourceTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICColorContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICColorTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICComponentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICComponentInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICDdsDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICDdsEncoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICDdsFrameDecode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICDevelopRaw(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICDevelopRawNotificationCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICEnumMetadataItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICFastMetadataEncoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICFormatConverter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICFormatConverterInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICImagingFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICJpegFrameDecode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICJpegFrameEncode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataBlockReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataBlockWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataHandlerInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataQueryReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataQueryWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataReaderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICMetadataWriterInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICPalette(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICPersistStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICPixelFormatInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICPixelFormatInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICPlanarBitmapFrameEncode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICPlanarBitmapSourceTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICPlanarFormatConverter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICProgressCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICProgressiveLevelControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWICStreamProvider(pub *mut ::core::ffi::c_void);
 pub struct PFNProgressNotification(i32);
 pub struct WIC8BIMIptcDigestProperties(i32);

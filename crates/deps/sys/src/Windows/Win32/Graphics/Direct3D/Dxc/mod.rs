@@ -96,29 +96,55 @@ pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
 pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Dxc`*"]
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
+#[repr(transparent)]
 pub struct IDxcAssembler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcBlob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcBlobEncoding(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcBlobUtf16(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcBlobUtf8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcCompiler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcCompiler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcCompiler3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcCompilerArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcContainerBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcContainerReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcExtraOutputs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcIncludeHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcLibrary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcLinker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcOperationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcOptimizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcOptimizerPass(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcPdbUtils(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcUtils(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcValidator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcValidator2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcVersionInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcVersionInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDxcVersionInfo3(pub *mut ::core::ffi::c_void);

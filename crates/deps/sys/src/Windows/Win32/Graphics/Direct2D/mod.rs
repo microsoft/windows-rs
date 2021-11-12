@@ -527,116 +527,227 @@ pub struct D2D1_YCBCR_INTERPOLATION_MODE(i32);
 pub struct D2D1_YCBCR_PROP(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const FACILITY_D2D: u32 = 2201u32;
+#[repr(transparent)]
 pub struct ID2D1AnalysisTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Bitmap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Bitmap1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1BitmapBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1BitmapBrush1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1BitmapRenderTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1BlendTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1BorderTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1BoundsAdjustmentTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Brush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ColorContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ColorContext1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1CommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1CommandSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1CommandSink1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1CommandSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1CommandSink3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1CommandSink4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1CommandSink5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ComputeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ComputeTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ConcreteTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DCRenderTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Device(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Device1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Device2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Device3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Device4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Device5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Device6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DeviceContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DeviceContext1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DeviceContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DeviceContext3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DeviceContext4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DeviceContext5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DeviceContext6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DrawInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DrawTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DrawingStateBlock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1DrawingStateBlock1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Effect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1EffectContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1EffectContext1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1EffectContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1EffectImpl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1EllipseGeometry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Factory7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GdiInteropRenderTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GdiMetafile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GdiMetafile1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GdiMetafileSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GdiMetafileSink1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Geometry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GeometryGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GeometryRealization(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GeometrySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GradientMesh(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GradientStopCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1GradientStopCollection1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1HwndRenderTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Image(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ImageBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ImageSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ImageSourceFromWic(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Ink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1InkStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Layer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1LinearGradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1LookupTable3D(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Mesh(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Multithread(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1OffsetTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1PathGeometry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1PathGeometry1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1PrintControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Properties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1RadialGradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1RectangleGeometry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1RenderInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1RenderTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Resource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1ResourceTexture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1RoundedRectangleGeometry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SolidColorBrush(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SourceTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SpriteBatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1StrokeStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1StrokeStyle1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgGlyphStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgPaint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgPathData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgPointCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1SvgStrokeDashArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1TessellationSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1Transform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1TransformGraph(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1TransformNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1TransformedGeometry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1TransformedImageSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID2D1VertexBuffer(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix4x3F(i32);

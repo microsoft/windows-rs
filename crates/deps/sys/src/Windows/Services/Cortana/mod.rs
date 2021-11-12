@@ -1,16 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct CortanaActionableInsights(i32);
-pub struct CortanaActionableInsightsOptions(i32);
+#[repr(transparent)]
+pub struct CortanaActionableInsights(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CortanaActionableInsightsOptions(pub *mut ::core::ffi::c_void);
 pub struct CortanaPermission(i32);
 pub struct CortanaPermissionsChangeResult(i32);
-pub struct CortanaPermissionsManager(i32);
-pub struct CortanaSettings(i32);
+#[repr(transparent)]
+pub struct CortanaPermissionsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CortanaSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICortanaActionableInsights(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICortanaActionableInsightsOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICortanaActionableInsightsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICortanaPermissionsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICortanaPermissionsManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICortanaSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICortanaSettingsStatics(pub *mut ::core::ffi::c_void);

@@ -4,54 +4,103 @@ extern "system" {}
 pub const CLSID_CTask: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 344708384, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
 pub const CLSID_CTaskScheduler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 344708394, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
 pub struct DAILY(i32);
+#[repr(transparent)]
 pub struct IAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActionCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBootTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComHandlerAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDailyTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumWorkItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEventTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExecAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExecAction2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIdleSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIdleTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILogonTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMaintenanceSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMonthlyDOWTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMonthlyTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrincipal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrincipal2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProvideTaskPage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegisteredTask(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegisteredTaskCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegistrationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRegistrationTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRepetitionPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRunningTask(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRunningTaskCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScheduledWorkItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISessionStateChangeTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShowMessageAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITask(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskFolderCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskHandlerStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskNamedValueCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskNamedValuePair(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskScheduler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskSettings2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskSettings3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskVariables(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimeTrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITrigger(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITriggerCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWeeklyTrigger(pub *mut ::core::ffi::c_void);
 pub struct MONTHLYDATE(i32);
 pub struct MONTHLYDOW(i32);

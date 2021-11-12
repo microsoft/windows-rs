@@ -397,6 +397,7 @@ pub struct CounterItem2(i32);
 pub struct CounterPathCallBack(i32);
 pub struct CounterPropPage(i32);
 pub struct Counters(i32);
+#[repr(transparent)]
 pub struct DICounterItem(pub *mut ::core::ffi::c_void);
 pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -408,9 +409,13 @@ pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const DIID_DISystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332873089, data2: 49966, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
 pub const DIID_DISystemMonitorEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2224527664, data2: 19123, data3: 4559, data4: [148, 58, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DISystemMonitorInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 424587842, data2: 49964, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
+#[repr(transparent)]
 pub struct DILogFileItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DISystemMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DISystemMonitorEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DISystemMonitorInternal(pub *mut ::core::ffi::c_void);
 pub struct DataCollectorSet(i32);
 pub struct DataCollectorSetCollection(i32);
@@ -425,31 +430,57 @@ pub struct GeneralPropPage(i32);
 pub struct GraphPropPage(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
+#[repr(transparent)]
 pub struct IAlertDataCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApiTracingDataCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConfigurationDataCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICounterItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICounterItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICounters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataCollectorCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataCollectorSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataCollectorSetCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderActionCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILogFileItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILogFiles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPerformanceCounterDataCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchedule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScheduleCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemMonitor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemMonitorEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITraceDataCollector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITraceDataProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITraceDataProviderCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IValueMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IValueMapItem(pub *mut ::core::ffi::c_void);
 pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 pub struct LegacyDataCollectorSet(i32);
@@ -921,5 +952,7 @@ pub const WINPERF_LOG_USER: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
 pub struct WeekDays(i32);
+#[repr(transparent)]
 pub struct _ICounterItemUnion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _ISystemMonitorUnion(pub *mut ::core::ffi::c_void);

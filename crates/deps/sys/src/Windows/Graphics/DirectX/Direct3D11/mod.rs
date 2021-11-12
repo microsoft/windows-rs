@@ -5,5 +5,7 @@ pub struct Direct3DBindings(i32);
 pub struct Direct3DMultisampleDescription(i32);
 pub struct Direct3DSurfaceDescription(i32);
 pub struct Direct3DUsage(i32);
+#[repr(transparent)]
 pub struct IDirect3DDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DSurface(pub *mut ::core::ffi::c_void);

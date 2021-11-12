@@ -7,39 +7,74 @@ pub mod Telemetry;
 pub mod TraceReporting;
 #[link(name = "windows")]
 extern "system" {}
-pub struct DiagnosticActionResult(i32);
+#[repr(transparent)]
+pub struct DiagnosticActionResult(pub *mut ::core::ffi::c_void);
 pub struct DiagnosticActionState(i32);
-pub struct DiagnosticInvoker(i32);
+#[repr(transparent)]
+pub struct DiagnosticInvoker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiagnosticActionResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiagnosticInvoker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiagnosticInvoker2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiagnosticInvokerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessCpuUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessCpuUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDiagnosticInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDiagnosticInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDiagnosticInfoStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDiagnosticInfoStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDiskUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessDiskUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessMemoryUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessMemoryUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemCpuUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemCpuUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemDiagnosticInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemDiagnosticInfoStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemDiagnosticInfoStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemMemoryUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISystemMemoryUsageReport(pub *mut ::core::ffi::c_void);
-pub struct ProcessCpuUsage(i32);
-pub struct ProcessCpuUsageReport(i32);
-pub struct ProcessDiagnosticInfo(i32);
-pub struct ProcessDiskUsage(i32);
-pub struct ProcessDiskUsageReport(i32);
-pub struct ProcessMemoryUsage(i32);
-pub struct ProcessMemoryUsageReport(i32);
-pub struct SystemCpuUsage(i32);
-pub struct SystemCpuUsageReport(i32);
-pub struct SystemDiagnosticInfo(i32);
-pub struct SystemMemoryUsage(i32);
-pub struct SystemMemoryUsageReport(i32);
+#[repr(transparent)]
+pub struct ProcessCpuUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessCpuUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessDiagnosticInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessDiskUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessDiskUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessMemoryUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessMemoryUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SystemCpuUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SystemCpuUsageReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SystemDiagnosticInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SystemMemoryUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SystemMemoryUsageReport(pub *mut ::core::ffi::c_void);

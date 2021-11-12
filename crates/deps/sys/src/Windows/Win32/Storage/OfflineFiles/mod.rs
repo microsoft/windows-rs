@@ -13,40 +13,75 @@ extern "system" {
     #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
     pub fn OfflineFilesStart() -> u32;
 }
+#[repr(transparent)]
 pub struct IEnumOfflineFilesItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumOfflineFilesSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesCache2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesChangeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesConnectionInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesDirectoryItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesDirtyInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesEvents2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesEvents3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesEvents4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesEventsFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesFileItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesFileSysInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesGhostInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesItemContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesItemFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesPinInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesPinInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesServerItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSetting(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesShareInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesShareItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSimpleProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSuspend(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSuspendInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSyncConflictHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSyncErrorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSyncErrorItemInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesSyncProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOfflineFilesTransparentCacheInfo(pub *mut ::core::ffi::c_void);
 pub struct OFFLINEFILES_CACHING_MODE(i32);
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]

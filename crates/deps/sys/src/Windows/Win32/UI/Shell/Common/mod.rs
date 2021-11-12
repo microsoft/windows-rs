@@ -4,7 +4,9 @@ extern "system" {}
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMDLG_FILTERSPEC(i32);
 pub struct DEVICE_SCALE_FACTOR(i32);
+#[repr(transparent)]
 pub struct IObjectArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectCollection(pub *mut ::core::ffi::c_void);
 pub struct ITEMIDLIST(i32);
 pub struct PERCEIVED(i32);

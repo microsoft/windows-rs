@@ -1,53 +1,99 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct ISceneBoundingBox(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneComponentCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneComponentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMaterial(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMaterialFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMaterialInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMaterialInputFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMesh(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMeshMaterialAttributeMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMeshRendererComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMeshRendererComponentStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMeshStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMetallicRoughnessMaterial(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneMetallicRoughnessMaterialStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneModelTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneNodeCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneNodeStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneObjectFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScenePbrMaterial(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScenePbrMaterialFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneRendererComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneRendererComponentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneSurfaceMaterialInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneSurfaceMaterialInputStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneVisual(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceneVisualStatics(pub *mut ::core::ffi::c_void);
 pub struct SceneAlphaMode(i32);
 pub struct SceneAttributeSemantic(i32);
-pub struct SceneBoundingBox(i32);
-pub struct SceneComponent(i32);
-pub struct SceneComponentCollection(i32);
+#[repr(transparent)]
+pub struct SceneBoundingBox(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneComponentCollection(pub *mut ::core::ffi::c_void);
 pub struct SceneComponentType(i32);
-pub struct SceneMaterial(i32);
-pub struct SceneMaterialInput(i32);
-pub struct SceneMesh(i32);
-pub struct SceneMeshMaterialAttributeMap(i32);
-pub struct SceneMeshRendererComponent(i32);
-pub struct SceneMetallicRoughnessMaterial(i32);
-pub struct SceneModelTransform(i32);
-pub struct SceneNode(i32);
-pub struct SceneNodeCollection(i32);
-pub struct SceneObject(i32);
-pub struct ScenePbrMaterial(i32);
-pub struct SceneRendererComponent(i32);
-pub struct SceneSurfaceMaterialInput(i32);
-pub struct SceneVisual(i32);
+#[repr(transparent)]
+pub struct SceneMaterial(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneMaterialInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneMesh(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneMeshMaterialAttributeMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneMeshRendererComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneMetallicRoughnessMaterial(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneModelTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneNodeCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ScenePbrMaterial(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneRendererComponent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneSurfaceMaterialInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SceneVisual(pub *mut ::core::ffi::c_void);
 pub struct SceneWrappingMode(i32);

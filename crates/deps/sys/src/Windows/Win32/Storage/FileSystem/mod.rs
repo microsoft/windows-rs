@@ -1524,10 +1524,15 @@ pub struct GET_FILEEX_INFO_LEVELS(i32);
 pub struct GET_FILE_VERSION_INFO_FLAGS(i32);
 pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(i32);
 pub struct HIORING__(i32);
+#[repr(transparent)]
 pub struct IDiskQuotaControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiskQuotaEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiskQuotaUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiskQuotaUserBatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDiskQuotaUsers(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;

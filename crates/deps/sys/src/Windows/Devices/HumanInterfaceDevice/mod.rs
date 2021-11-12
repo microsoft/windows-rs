@@ -1,27 +1,49 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct HidBooleanControl(i32);
-pub struct HidBooleanControlDescription(i32);
-pub struct HidCollection(i32);
+#[repr(transparent)]
+pub struct HidBooleanControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidBooleanControlDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidCollection(pub *mut ::core::ffi::c_void);
 pub struct HidCollectionType(i32);
-pub struct HidDevice(i32);
-pub struct HidFeatureReport(i32);
-pub struct HidInputReport(i32);
-pub struct HidInputReportReceivedEventArgs(i32);
-pub struct HidNumericControl(i32);
-pub struct HidNumericControlDescription(i32);
-pub struct HidOutputReport(i32);
+#[repr(transparent)]
+pub struct HidDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidFeatureReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidInputReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidInputReportReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidNumericControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidNumericControlDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HidOutputReport(pub *mut ::core::ffi::c_void);
 pub struct HidReportType(i32);
+#[repr(transparent)]
 pub struct IHidBooleanControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidBooleanControlDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidBooleanControlDescription2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidDeviceStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidFeatureReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidInputReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidInputReportReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidNumericControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidNumericControlDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHidOutputReport(pub *mut ::core::ffi::c_void);

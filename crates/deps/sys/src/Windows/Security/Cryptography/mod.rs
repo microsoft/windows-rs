@@ -8,5 +8,7 @@ pub mod DataProtection;
 #[link(name = "windows")]
 extern "system" {}
 pub struct BinaryStringEncoding(i32);
-pub struct CryptographicBuffer(i32);
+#[repr(transparent)]
+pub struct CryptographicBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICryptographicBufferStatics(pub *mut ::core::ffi::c_void);

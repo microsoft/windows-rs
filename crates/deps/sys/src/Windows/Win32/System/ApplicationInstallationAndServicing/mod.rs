@@ -1387,18 +1387,31 @@ pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: u32 = 1u32;
 pub struct IASSEMBLYCACHE_UNINSTALL_DISPOSITION(i32);
+#[repr(transparent)]
 pub struct IAssemblyCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAssemblyCacheItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAssemblyName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumMsmDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumMsmError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumMsmString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsmDependencies(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsmDependency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsmError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsmErrors(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsmGetFiles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsmMerge(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMsmStrings(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_BASE: u32 = 3222229249u32;
@@ -1451,31 +1464,57 @@ pub struct INSTALLTYPE(i32);
 pub struct INSTALLUILEVEL(i32);
 pub struct INSTALLUI_HANDLERA(i32);
 pub struct INSTALLUI_HANDLERW(i32);
+#[repr(transparent)]
 pub struct IPMApplicationInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMApplicationInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMBackgroundServiceAgentInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMBackgroundServiceAgentInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMBackgroundWorkerInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMBackgroundWorkerInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMDeploymentManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMEnumerationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionCachedFileUpdaterInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionContractInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionFileExtensionInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionFileOpenPickerInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionFileSavePickerInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionProtocolInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMExtensionShareTargetInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMLiveTileJobInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMLiveTileJobInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMTaskInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMTaskInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMTileInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMTileInfoEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMTilePropertyEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPMTilePropertyInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IValidate(pub *mut ::core::ffi::c_void);
 pub const LIBID_MsmMergeTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298671, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]

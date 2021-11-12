@@ -1,13 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IItemEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISettingsContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISettingsEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISettingsIdentity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISettingsItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISettingsNamespace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISettingsResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITargetInfo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;

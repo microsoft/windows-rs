@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct ISceSvcAttachmentData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISceSvcAttachmentPersistInfo(pub *mut ::core::ffi::c_void);
 pub struct PFSCE_FREE_INFO(i32);
 pub struct PFSCE_LOG_INFO(i32);

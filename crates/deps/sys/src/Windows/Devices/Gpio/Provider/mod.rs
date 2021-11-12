@@ -1,11 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct GpioPinProviderValueChangedEventArgs(i32);
+#[repr(transparent)]
+pub struct GpioPinProviderValueChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioControllerProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioPinProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioPinProviderValueChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGpioProvider(pub *mut ::core::ffi::c_void);
 pub struct ProviderGpioPinDriveMode(i32);
 pub struct ProviderGpioPinEdge(i32);

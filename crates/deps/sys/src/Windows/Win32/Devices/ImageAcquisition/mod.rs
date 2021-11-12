@@ -234,10 +234,15 @@ pub const FRONT_FIRST: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FRONT_ONLY: u32 = 32u32;
 pub const GUID_DEVINTERFACE_IMAGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+#[repr(transparent)]
 pub struct IEnumWIA_DEV_CAPS(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumWIA_DEV_INFO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumWIA_FORMAT_INFO(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumWiaItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumWiaItem2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IMPRINTER: u32 = 65536u32;
@@ -265,31 +270,57 @@ pub const IT_STATUS_PROCESSING_DATA: u32 = 2u32;
 pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
+#[repr(transparent)]
 pub struct IWiaAppErrorHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaDataCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaDataTransfer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaDevMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaDevMgr2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaDrvItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaErrorHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaEventCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaImageFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaItemExtras(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaLog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaLogEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaMiniDrv(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaMiniDrvCallBack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaMiniDrvTransferCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaNotifyDevMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaPreview(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaPropertyStorage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaSegmentationFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaTransfer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaTransferCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaUIExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaUIExtension2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWiaVideo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LAMP_ERR: u32 = 2048u32;

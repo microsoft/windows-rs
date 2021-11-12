@@ -398,105 +398,205 @@ pub const FORCE_REJOIN: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 pub struct HwtsVirtualChannelHandle(i32);
+#[repr(transparent)]
 pub struct IADsTSUserEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioDeviceEndpoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEndpointRT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioInputEndpointRT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioOutputEndpointRT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDesktopClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDesktopClientActions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDesktopClientSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteDesktopClientTouchPointer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteSystemAdditionalInfoProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSGAccountingEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSGAuthenticateUserSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSGAuthenticationEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSGAuthorizeConnectionSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSGAuthorizeResourceSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITSGPolicyEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbBaseNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbClientConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbClientConnectionPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbEnvironment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbEnvironmentPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbFilterPluginStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbGenericNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbGlobalStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbLoadBalanceResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbLoadBalancing(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbLoadBalancingNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbOrchestration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbOrchestrationNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbPlacement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbPlacementNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbPluginNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbPluginPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbProvisioning(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbProvisioningPluginNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbResourceNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbResourceNotificationEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbResourcePlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbResourcePluginStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbServiceNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbTargetPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbTaskInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbTaskPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITsSbTaskPluginNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsEnhancedFastReconnectArbitrator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsGraphicsChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsGraphicsChannelEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsGraphicsChannelManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolConnectionCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolConnectionSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolLicenseConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolListener(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolListenerCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolLogonErrorRedirector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolShadowCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsProtocolShadowConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWRdsWddmIddProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSBitmapRenderService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSBitmapRenderer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSBitmapRendererCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSListener(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSListenerCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSPluginServiceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolConnectionCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolLicenseConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolListener(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolListenerCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolLogonErrorRedirector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolShadowCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSProtocolShadowConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSSBPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSVirtualChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSVirtualChannelCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWTSVirtualChannelManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspace2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspace3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceClientExt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceRegistration2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceReportMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceResTypeRegistry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceScriptable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceScriptable2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWorkspaceScriptable3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ItsPubPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ItsPubPlugin2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
@@ -1010,6 +1110,7 @@ pub const WTS_WSD_REBOOT: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
 pub struct Workspace(i32);
+#[repr(transparent)]
 pub struct _ITSWkspEvents(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct _WTS_PRODUCT_INFOA(i32);

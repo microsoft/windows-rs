@@ -32,15 +32,26 @@ pub mod Xaml;
 #[link(name = "windows")]
 extern "system" {}
 pub struct Color(i32);
-pub struct ColorHelper(i32);
-pub struct Colors(i32);
+#[repr(transparent)]
+pub struct ColorHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct Colors(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColorHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColorHelperStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColorHelperStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColors(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColorsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIContentRoot(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIContext(pub *mut ::core::ffi::c_void);
-pub struct UIContentRoot(i32);
-pub struct UIContext(i32);
+#[repr(transparent)]
+pub struct UIContentRoot(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UIContext(pub *mut ::core::ffi::c_void);
 pub struct WindowId(i32);

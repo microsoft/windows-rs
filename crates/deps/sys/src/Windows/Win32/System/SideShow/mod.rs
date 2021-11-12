@@ -10,16 +10,27 @@ pub struct CONTENT_MISSING_EVENT_DATA(i32);
 pub struct DEVICE_USER_CHANGE_EVENT_DATA(i32);
 pub struct EVENT_DATA_HEADER(i32);
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355358737, data2: 65209, data3: 19200, data4: [144, 244, 211, 41, 71, 174, 22, 129] };
+#[repr(transparent)]
 pub struct ISideShowBulkCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowCapabilitiesCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowContentManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowKeyCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowNotificationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowPropVariantCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISideShowSession(pub *mut ::core::ffi::c_void);
 pub struct NEW_EVENT_DATA_AVAILABLE(i32);
 pub struct SCF_BUTTON_IDS(i32);

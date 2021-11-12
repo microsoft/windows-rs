@@ -1844,359 +1844,713 @@ pub const GUID_NativeDeviceService: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [184, 106, 173, 108, 178, 22, 166, 30],
 };
 pub const GUID_PlayToService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4138270621, data2: 40468, data3: 16841, data4: [191, 15, 18, 10, 43, 60, 225, 32] };
+#[repr(transparent)]
 pub struct IAdvancedMediaCapture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdvancedMediaCaptureInitializationSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAdvancedMediaCaptureSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioSourceProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IClusterDetector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICodecAPI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDecoder1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDevice1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoDevice3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoEncoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoEncoderHeap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoExtensionCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoMotionEstimator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoMotionVectorHeap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VideoProcessor1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXVAHD_Device(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXVAHD_VideoProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3D9ExOverlayExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DAuthenticatedChannel9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DCryptoSession9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DDevice9Video(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirect3DDeviceManager9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectXVideoAccelerationService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectXVideoDecoder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectXVideoDecoderService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectXVideoMemoryConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectXVideoProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectXVideoProcessorService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEVRFilterConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEVRFilterConfigEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEVRTrustedVideoPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEVRVideoStreamControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileIo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMF2DBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMF2DBuffer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFContentInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFIndexer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFMultiplexer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFMutualExclusion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFSplitter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFStreamConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFStreamPrioritization(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFASFStreamSelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFActivate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFAsyncCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFAsyncCallbackLogging(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFAsyncResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFAudioMediaType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFAudioPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFAudioStreamVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFBufferListNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFByteStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFByteStreamBuffering(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFByteStreamCacheControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFByteStreamCacheControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFByteStreamHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFByteStreamProxyClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFByteStreamTimeSeek(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCameraOcclusionStateMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCameraOcclusionStateReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCameraOcclusionStateReportCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCameraSyncObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureEngineClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureEngineOnEventCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureEngineOnSampleCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureEngineOnSampleCallback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCapturePhotoConfirmation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCapturePhotoSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCapturePreviewSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureRecordSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureSink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCaptureSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCdmSuspendNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFClock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFClockConsumer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFClockStateSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentDecryptionModule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentDecryptionModuleAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentDecryptionModuleFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentDecryptionModuleSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentDecryptionModuleSessionCallbacks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentDecryptorContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentEnabler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentProtectionDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFContentProtectionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFD3D12SynchronizationObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFD3D12SynchronizationObjectCommands(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFDLNASinkInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFDRMNetHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFDXGIBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFDXGIDeviceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFDXGIDeviceManagerSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFDesiredSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFExtendedCameraControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFExtendedCameraController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicModel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFExtendedDRMTypeSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFFieldOfUseMFTUnlock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFFinalizableMediaSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFGetService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFHDCPStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFHttpDownloadRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFHttpDownloadSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFHttpDownloadSessionProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFImageSharingEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFImageSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFInputTrustAuthority(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFLocalMFTRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineAudioEndpointId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineClassFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineClassFactory3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineClassFactory4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineClassFactoryEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineEME(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineEMENotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineNeedKeyNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineOPMInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineProtectedContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineSrcElements(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineSrcElementsEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineSupportsSourceTransfer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineTransferSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEngineWebSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEventGenerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaEventQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaKeySession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaKeySession2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaKeySessionNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaKeySessionNotify2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaKeySystemAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaKeys(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaKeys2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSharingEngine(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSinkPreroll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSourceEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSourceExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSourceExtensionLiveSeekableRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSourceExtensionNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSourcePresentationProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaSourceTopologyProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaStream2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaStreamSourceSampleRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaTimeRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMediaTypeHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMetadata(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMetadataProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMuxStreamAttributesManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMuxStreamMediaTypeManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFMuxStreamSampleManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetCredential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetCredentialCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetCredentialManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetCrossOriginSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetProxyLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetProxyLocatorFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetResourceFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFNetSchemeHandlerConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFObjectReferenceStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFOutputPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFOutputSchema(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFOutputTrustAuthority(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMPClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMPClientApp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMPHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMPHostApp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMPServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMediaItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMediaPlayer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPMediaPlayerCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPluginControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPluginControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPresentationClock(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPresentationDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFPresentationTimeSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFProtectedEnvironmentAccess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFQualityAdvise(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFQualityAdvise2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFQualityAdviseLimits(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFQualityManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRateControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRateSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFReadWriteClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRealTimeClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRealTimeClientEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRelativePanelReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRelativePanelWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRemoteAsyncCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRemoteDesktopPlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFRemoteProxy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSAMIStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSSLCertificateManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSampleAllocatorControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSampleGrabberSinkCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSampleGrabberSinkCallback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSampleOutputStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSampleProtection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSaveJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSchemeHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSecureBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSecureChannel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSeekInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorActivitiesReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorActivitiesReportCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorActivityMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorActivityReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorProcessActivity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorProfileCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSensorTransformFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSequencerSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFShutdown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSignedLibrary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSimpleAudioVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSinkWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSinkWriterCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSinkWriterCallback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSinkWriterEncoderConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSinkWriterEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceBufferAppendMode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceBufferList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceBufferNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceOpenMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceReaderCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceReaderCallback2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceReaderEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSourceResolver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSpatialAudioObjectBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSpatialAudioSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFStreamDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFStreamSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFStreamingSinkConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFSystemId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimecodeTranslate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextBinary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextBouten(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextCue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextCueList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextFormattedText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextRegion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextRuby(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextStyle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextStyle2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextTrack(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimedTextTrackList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTimer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTopoLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTopology(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTopologyNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTopologyNodeAttributeEditor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTopologyServiceLookup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTopologyServiceLookupClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTrackedSample(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTranscodeProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTranscodeSinkInfoProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTransform(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTrustedInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFTrustedOutput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoCaptureSampleAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoDeviceID(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoDisplayControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoMediaType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoMixerBitmap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoMixerControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoMixerControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoPositionMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoPresenter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoProcessorControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoProcessorControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoProcessorControl3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoRenderer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoRendererEffectControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoSampleAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoSampleAllocatorCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoSampleAllocatorEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoSampleAllocatorNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVideoSampleAllocatorNotifyEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFVirtualCamera(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFWorkQueueServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMFWorkQueueServicesEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOPMVideoOutput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlayToControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlayToControlWithCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPlayToSourceClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IToc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITocCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITocEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITocEntryList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITocParser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IValidateBinding(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecLeakyBucket(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecOutputTimestamp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecPrivateData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMCodecStrings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMColorConvProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMColorLegalizerProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMFrameInterpProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMInterlaceProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMResamplerProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMResizerProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMSampleExtensionSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMValidate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMVideoDecoderHurryup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMVideoDecoderReconBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWMVideoForceKeyFrame(pub *mut ::core::ffi::c_void);
 pub struct KSMETHOD_OPMVIDEOOUTPUT(i32);
 pub struct KSPROPSETID_OPMVideoOutput(i32);
@@ -2370,6 +2724,7 @@ pub const MFASF_PAYLOADEXTENSION_MAX_SIZE: u32 = 255u32;
 pub const MFASF_PAYLOADEXTENSION_VARIABLE_SIZE: u32 = 65535u32;
 pub struct MFASF_SPLITTERFLAGS(i32);
 pub struct MFASF_STREAMSELECTOR_FLAGS(i32);
+#[repr(transparent)]
 pub struct MFASYNCRESULT(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFASYNC_BLOCKING_CALLBACK: u32 = 4u32;

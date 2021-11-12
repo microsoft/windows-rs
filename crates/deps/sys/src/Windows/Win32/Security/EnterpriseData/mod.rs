@@ -42,8 +42,11 @@ pub struct ENTERPRISE_DATA_POLICIES(i32);
 pub struct FILE_UNPROTECT_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTHREAD_NETWORK_CONTEXT(i32);
+#[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop3(pub *mut ::core::ffi::c_void);
 pub struct SRPHOSTING_TYPE(i32);
 pub struct SRPHOSTING_VERSION(i32);

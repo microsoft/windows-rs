@@ -7,25 +7,45 @@ pub const CLSID_MILBitmapEffectDropShadow: ::windows_sys::core::GUID = ::windows
 pub const CLSID_MILBitmapEffectEmboss: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3442055238, data2: 33359, data3: 18412, data4: [160, 7, 18, 170, 118, 127, 40, 22] };
 pub const CLSID_MILBitmapEffectGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2895911578, data2: 32280, data3: 20324, data4: [172, 126, 71, 207, 127, 5, 30, 149] };
 pub const CLSID_MILBitmapEffectOuterGlow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3793099741, data2: 32438, data3: 18213, data4: [156, 11, 138, 42, 27, 79, 6, 103] };
+#[repr(transparent)]
 pub struct IMILBitmapEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectConnections(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectConnectionsInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectConnectorInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectGroupImpl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectImpl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectInputConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectInteriorInputConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectInteriorOutputConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectOutputConnector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectOutputConnectorImpl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectPrimitive(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectPrimitiveImpl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectRenderContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffectRenderContextImpl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMILBitmapEffects(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Wpf`*"]
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;

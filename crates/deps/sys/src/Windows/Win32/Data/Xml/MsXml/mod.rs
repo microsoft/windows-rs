@@ -1107,91 +1107,177 @@ pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
 pub struct FreeThreadedDOMDocument60(i32);
 pub struct FreeThreadedXMLHTTP60(i32);
+#[repr(transparent)]
 pub struct IMXAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMXNamespaceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMXNamespacePrefixes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMXReaderControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMXSchemaDeclHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMXWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMXXMLFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXContentHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXDTDHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXDeclHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXEntityResolver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXErrorHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXLexicalHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXXMLFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISAXXMLReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchema(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaAny(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaAttributeGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaComplexType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaIdentityConstraint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaItemCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaModelGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaNotation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaParticle(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaStringCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISchemaType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServerXMLHTTPRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IServerXMLHTTPRequest2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBMXNamespaceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXContentHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXDTDHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXDeclHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXEntityResolver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXErrorHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXLexicalHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXXMLFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVBSAXXMLReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMCDATASection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMCharacterData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMComment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMDocument2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMDocument3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMDocumentFragment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMDocumentType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMEntity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMEntityReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMImplementation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMNamedNodeMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMNodeList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMNotation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMParseError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMParseError2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMParseErrorCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMProcessingInstruction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMSchemaCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMSchemaCollection2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMSelection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDOMText(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDSOControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDocument(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLDocument2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLElementCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLHTTPRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLHTTPRequest2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLHTTPRequest2Callback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLHTTPRequest3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLHTTPRequest3Callback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXMLHttpRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXSLProcessor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXSLTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXTLRuntime(pub *mut ::core::ffi::c_void);
 pub struct MXHTMLWriter60(i32);
 pub struct MXNamespaceManager60(i32);
@@ -1223,6 +1309,7 @@ pub struct XHR_PROPERTY(i32);
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
+#[repr(transparent)]
 pub struct XMLDOMDocumentEvents(pub *mut ::core::ffi::c_void);
 pub struct XMLDSOControl(i32);
 pub struct XMLDocument(i32);

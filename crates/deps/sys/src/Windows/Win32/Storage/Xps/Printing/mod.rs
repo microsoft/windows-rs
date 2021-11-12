@@ -32,10 +32,15 @@ pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows_sys::core::GUID = 
     data3: 17783,
     data4: [176, 116, 123, 177, 27, 89, 109, 40],
 };
+#[repr(transparent)]
 pub struct IPrintDocumentPackageStatusEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintDocumentPackageTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintDocumentPackageTargetFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsPrintJob(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXpsPrintJobStream(pub *mut ::core::ffi::c_void);
 pub struct PrintDocumentPackageCompletion(i32);
 pub struct PrintDocumentPackageStatus(i32);

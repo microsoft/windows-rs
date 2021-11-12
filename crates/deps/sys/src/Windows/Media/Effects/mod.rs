@@ -1,40 +1,74 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct AudioCaptureEffectsManager(i32);
-pub struct AudioEffect(i32);
-pub struct AudioEffectDefinition(i32);
+#[repr(transparent)]
+pub struct AudioCaptureEffectsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AudioEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AudioEffectDefinition(pub *mut ::core::ffi::c_void);
 pub struct AudioEffectType(i32);
-pub struct AudioEffectsManager(i32);
-pub struct AudioRenderEffectsManager(i32);
-pub struct CompositeVideoFrameContext(i32);
+#[repr(transparent)]
+pub struct AudioEffectsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AudioRenderEffectsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct CompositeVideoFrameContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioCaptureEffectsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEffectDefinitionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioEffectsManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioRenderEffectsManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAudioRenderEffectsManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBasicAudioEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBasicVideoEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICompositeVideoFrameContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessAudioFrameContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessVideoFrameContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISlowMotionEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoCompositor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoCompositorDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoCompositorDefinitionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoEffectDefinitionFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoTransformEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoTransformEffectDefinition2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVideoTransformSphericalProjection(pub *mut ::core::ffi::c_void);
 pub struct MediaEffectClosedReason(i32);
 pub struct MediaMemoryTypes(i32);
-pub struct ProcessAudioFrameContext(i32);
-pub struct ProcessVideoFrameContext(i32);
-pub struct SlowMotionEffectDefinition(i32);
-pub struct VideoCompositorDefinition(i32);
-pub struct VideoEffectDefinition(i32);
-pub struct VideoTransformEffectDefinition(i32);
-pub struct VideoTransformSphericalProjection(i32);
+#[repr(transparent)]
+pub struct ProcessAudioFrameContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessVideoFrameContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SlowMotionEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct VideoCompositorDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct VideoEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct VideoTransformEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct VideoTransformSphericalProjection(pub *mut ::core::ffi::c_void);

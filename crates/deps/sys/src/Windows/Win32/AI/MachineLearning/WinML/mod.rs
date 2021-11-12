@@ -6,21 +6,37 @@ extern "system" {
     #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub fn WinMLCreateRuntime(runtime: *mut IWinMLRuntime) -> ::windows_sys::core::HRESULT;
 }
+#[repr(transparent)]
 pub struct IMLOperatorAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorKernel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorKernelContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorKernelCreationContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorKernelFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorRegistry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorShapeInferenceContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorShapeInferrer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorTensor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorTensorShapeDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorTypeInferenceContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLOperatorTypeInferrer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinMLEvaluationContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinMLModel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinMLRuntime(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWinMLRuntimeFactory(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct MLOperatorAttribute(i32);

@@ -7,55 +7,100 @@ pub mod Filters;
 pub mod Headers;
 #[link(name = "windows")]
 extern "system" {}
-pub struct HttpBufferContent(i32);
-pub struct HttpClient(i32);
+#[repr(transparent)]
+pub struct HttpBufferContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpClient(pub *mut ::core::ffi::c_void);
 pub struct HttpCompletionOption(i32);
-pub struct HttpCookie(i32);
-pub struct HttpCookieCollection(i32);
-pub struct HttpCookieManager(i32);
-pub struct HttpFormUrlEncodedContent(i32);
-pub struct HttpGetBufferResult(i32);
-pub struct HttpGetInputStreamResult(i32);
-pub struct HttpGetStringResult(i32);
-pub struct HttpMethod(i32);
-pub struct HttpMultipartContent(i32);
-pub struct HttpMultipartFormDataContent(i32);
+#[repr(transparent)]
+pub struct HttpCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpCookieCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpCookieManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpFormUrlEncodedContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpGetBufferResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpGetInputStreamResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpGetStringResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpMethod(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpMultipartContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpMultipartFormDataContent(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
 pub struct HttpProgress(i32);
 pub struct HttpProgressStage(i32);
-pub struct HttpRequestMessage(i32);
-pub struct HttpRequestResult(i32);
-pub struct HttpResponseMessage(i32);
+#[repr(transparent)]
+pub struct HttpRequestMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpRequestResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpResponseMessage(pub *mut ::core::ffi::c_void);
 pub struct HttpResponseMessageSource(i32);
 pub struct HttpStatusCode(i32);
-pub struct HttpStreamContent(i32);
-pub struct HttpStringContent(i32);
-pub struct HttpTransportInformation(i32);
+#[repr(transparent)]
+pub struct HttpStreamContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpStringContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HttpTransportInformation(pub *mut ::core::ffi::c_void);
 pub struct HttpVersion(i32);
+#[repr(transparent)]
 pub struct IHttpBufferContentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpClient2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpClientFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpCookie(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpCookieFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpCookieManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpFormUrlEncodedContentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpGetBufferResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpGetInputStreamResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpGetStringResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpMethod(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpMethodFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpMethodStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpMultipartContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpMultipartContentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpMultipartFormDataContent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpMultipartFormDataContentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpRequestMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpRequestMessageFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpRequestResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpResponseMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpResponseMessageFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpStreamContentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpStringContentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHttpTransportInformation(pub *mut ::core::ffi::c_void);

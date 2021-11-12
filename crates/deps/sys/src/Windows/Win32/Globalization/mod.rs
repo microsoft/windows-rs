@@ -3432,6 +3432,7 @@ pub const HIGH_SURROGATE_START: u32 = 55296u32;
 pub struct HIMC(i32);
 pub struct HIMCC(i32);
 pub struct HSAVEDUILANGUAGES(i32);
+#[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
@@ -3441,9 +3442,13 @@ pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
 pub const IDN_RAW_PUNYCODE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
+#[repr(transparent)]
 pub struct IEnumCodePage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumRfc1766(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumScript(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSpellingError(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
@@ -3469,29 +3474,51 @@ pub const IME_CMODE_NATIVE: u32 = 1u32;
 pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const IME_CMODE_ROMAN: u32 = 16u32;
+#[repr(transparent)]
 pub struct IMLangCodePages(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangConvertCharset(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangFontLink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangFontLink2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangLineBreakConsole(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangStringAStr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangStringBufA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangStringBufW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMLangStringWStr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiLanguage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiLanguage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultiLanguage3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOptionDescription(pub *mut ::core::ffi::c_void);
 pub struct IS_TEXT_UNICODE_RESULT(i32);
 pub struct IS_VALID_LOCALE_FLAGS(i32);
+#[repr(transparent)]
 pub struct ISpellCheckProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpellCheckProviderFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpellChecker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpellChecker2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpellCheckerChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpellCheckerFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpellingError(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserDictionariesRegistrar(pub *mut ::core::ffi::c_void);
 pub struct LANGGROUPLOCALE_ENUMPROCA(i32);
 pub struct LANGGROUPLOCALE_ENUMPROCW(i32);

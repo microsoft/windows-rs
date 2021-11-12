@@ -5,8 +5,12 @@ pub mod Foreground;
 extern "system" {}
 pub struct ExtendedExecutionReason(i32);
 pub struct ExtendedExecutionResult(i32);
-pub struct ExtendedExecutionRevokedEventArgs(i32);
+#[repr(transparent)]
+pub struct ExtendedExecutionRevokedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ExtendedExecutionRevokedReason(i32);
-pub struct ExtendedExecutionSession(i32);
+#[repr(transparent)]
+pub struct ExtendedExecutionSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendedExecutionRevokedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtendedExecutionSession(pub *mut ::core::ffi::c_void);

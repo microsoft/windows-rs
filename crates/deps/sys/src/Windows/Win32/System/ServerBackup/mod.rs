@@ -1,8 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IWsbApplicationAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWsbApplicationBackupSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWsbApplicationRestoreSupport(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_ServerBackup`*"]
 pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(7995396i32 as _);

@@ -32,6 +32,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
+#[repr(transparent)]
 pub struct IIsolatedAppLauncher(pub *mut ::core::ffi::c_void);
 pub struct IsolatedAppLauncher(i32);
 #[cfg(feature = "Win32_Foundation")]

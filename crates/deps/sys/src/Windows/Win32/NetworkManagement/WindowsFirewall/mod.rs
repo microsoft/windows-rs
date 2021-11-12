@@ -27,15 +27,25 @@ extern "system" {
     pub fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
 }
 pub struct ICS_TARGETTYPE(i32);
+#[repr(transparent)]
 pub struct IDynamicPortMapping(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDynamicPortMappingCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumNetConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumNetSharingEveryConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumNetSharingPortMapping(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumNetSharingPrivateConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumNetSharingPublicConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INATEventManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INATExternalIPAddressCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INATNumberOfEntriesCallback(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct INET_FIREWALL_AC_BINARIES(i32);
@@ -47,39 +57,73 @@ pub struct INET_FIREWALL_AC_CHANGE_TYPE(i32);
 pub struct INET_FIREWALL_AC_CREATION_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_APP_CONTAINER(i32);
+#[repr(transparent)]
 pub struct INetConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetConnectionConnectUi(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetConnectionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetConnectionProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwAuthorizedApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwAuthorizedApplications(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwIcmpSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwOpenPort(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwOpenPorts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwPolicy2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwProduct(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwProducts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwRemoteAdminSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwRule2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwRule3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwRules(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwServiceRestriction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetFwServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingEveryConnectionCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingPortMapping(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingPortMappingCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingPortMappingProps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingPrivateConnectionCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetSharingPublicConnectionCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStaticPortMapping(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStaticPortMappingCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUPnPNAT(pub *mut ::core::ffi::c_void);
 pub struct NETCONMGR_ENUM_FLAGS(i32);
 pub struct NETCONUI_CONNECT_FLAGS(i32);

@@ -2508,6 +2508,7 @@ pub const CGID_ShellDocView: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const CGID_ShellServiceObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136402, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
 pub const CGID_ShortCut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2477164368, data2: 38170, data3: 4561, data4: [148, 111, 0, 0, 0, 0, 0, 0] };
 pub struct CIDA(i32);
+#[repr(transparent)]
 pub struct CIE4ConnectionPoint(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const CLOSEPROPS_DISCARD: u32 = 1u32;
@@ -3176,6 +3177,7 @@ pub struct DESKTOP_SLIDESHOW_STATE(i32);
 pub struct DESKTOP_WALLPAPER_POSITION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct DETAILSINFO(i32);
+#[repr(transparent)]
 pub struct DFConstraint(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFMICS(i32);
@@ -3294,8 +3296,11 @@ pub struct DROPDESCRIPTION(i32);
 pub struct DROPFILES(i32);
 pub struct DROPIMAGETYPE(i32);
 pub struct DSH_FLAGS(i32);
+#[repr(transparent)]
 pub struct DShellFolderViewEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DShellNameSpaceEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DShellWindowsEvents(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const DVASPECT_COPY: u32 = 3u32;
@@ -3315,7 +3320,9 @@ pub const DWFAF_HIDDEN: u32 = 1u32;
 pub const DWFRF_DELETECONFIGDATA: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const DWFRF_NORMAL: u32 = 0u32;
+#[repr(transparent)]
 pub struct DWebBrowserEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DWebBrowserEvents2(pub *mut ::core::ffi::c_void);
 pub struct DefFolderMenu(i32);
 pub struct DesktopGadget(i32);
@@ -4301,15 +4308,25 @@ pub struct FileOpenDialog(i32);
 pub struct FileOperation(i32);
 pub struct FileSaveDialog(i32);
 pub struct FileSearchBand(i32);
+#[repr(transparent)]
 pub struct Folder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Folder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct Folder3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct FolderItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct FolderItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct FolderItemVerb(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct FolderItemVerbs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct FolderItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct FolderItems2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct FolderItems3(pub *mut ::core::ffi::c_void);
 pub struct FolderViewHost(i32);
 pub struct FrameworkInputPane(i32);
@@ -4431,73 +4448,141 @@ pub struct HOMEGROUPSHARINGCHOICES(i32);
 pub struct HPSXA(i32);
 pub struct HideInputPaneAnimationCoordinator(i32);
 pub struct HomeGroup(i32);
+#[repr(transparent)]
 pub struct IACList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IACList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessibilityDockingService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessibilityDockingServiceCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessibleObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActionProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActionProgressDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppActivationUIInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppPublisher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppVisibility(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppVisibilityEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationActivationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationAssociationRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationAssociationRegistrationUI(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationDesignModeSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationDesignModeSettings2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationDestinations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationDocumentLists(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAssocHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAssocHandlerInvoker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAttachmentExecute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutoComplete(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutoComplete2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAutoCompleteDropDown(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBandHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBandSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBannerNotificationHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBanneredBar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrowserFrameOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrowserService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrowserService2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrowserService3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBrowserService4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICDBurn(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICDBurnExt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICategorizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICategoryProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColumnManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IColumnProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommDlgBrowser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommDlgBrowser2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICommDlgBrowser3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IComputerInfoChangeNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IConnectableCredentialProviderCredential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContactManagerInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenu2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenu3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenuCB(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IContextMenuSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICopyHookA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICopyHookW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreateProcessInputs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICreatingProcess(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderCredential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderCredential2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderCredentialEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderCredentialEvents2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderCredentialWithFieldOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderSetUserArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICredentialProviderUserArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICurrentItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICurrentWorkingDirectory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICustomDestinationList(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const IDC_OFFLINE_HAND: u32 = 103u32;
@@ -4521,29 +4606,53 @@ pub const IDO_SHGIOI_SLOWFILE: u64 = 4294967293u64;
 pub const IDS_DESCRIPTION: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const ID_APP: u32 = 100u32;
+#[repr(transparent)]
 pub struct IDataObjectAsyncCapability(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataObjectProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDataTransferManagerInterop(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDefaultExtractIconInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDefaultFolderMenuInitialize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDelegateFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDelegateItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeskBand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeskBand2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeskBandInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeskBar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeskBarClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDesktopGadget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDesktopWallpaper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDestinationStreamFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDisplayItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDocViewSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDockingWindow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDockingWindowFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDockingWindowSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDragSourceHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDragSourceHelper2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDropTargetHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDynamicHWHandler(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const IEIFLAG_ASPECT: u32 = 4u32;
@@ -4576,104 +4685,201 @@ pub const IEI_PRIORITY_MIN: u32 = 0u32;
 pub struct IENamespaceTreeControl(i32);
 pub struct IEPDNFLAGS(i32);
 pub struct IESHORTCUTFLAGS(i32);
+#[repr(transparent)]
 pub struct IEnumACString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumAssocHandlers(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumExplorerCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumExtraSearch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumFullIDList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumHLITEM(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumIDList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumObjects(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumPublishedApps(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumReadyCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumResources(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumShellItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSyncMgrConflict(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSyncMgrEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumSyncMgrSyncItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumTravelLogEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumerableView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExecuteCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExecuteCommandApplicationHostEnvironment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExecuteCommandHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExpDispSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExpDispSupportXP(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExplorerBrowser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExplorerBrowserEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExplorerCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExplorerCommandProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExplorerCommandState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExplorerPaneVisibility(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtensionServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtractIconA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtractIconW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtractImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExtractImage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileDialog2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileDialogControlEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileDialogCustomize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileDialogEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileIsInUse(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileOpenDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileOperation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileOperationProgressSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSaveDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSearchBand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSyncMergeHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSystemBindData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSystemBindData2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderBandPriv(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderFilterSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderView2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderViewHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderViewOC(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderViewOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderViewSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameworkInputPane(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFrameworkInputPaneHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetServiceIds(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHWEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHWEventHandler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHandlerActivationHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHandlerInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHandlerInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHlink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHlinkBrowseContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHlinkFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHlinkSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHlinkTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHomeGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIOCancelInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIdentityName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IImageRecompress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeNetworkFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeWithBindCtx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeWithItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeWithPropertyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInitializeWithWindow(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputObject2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputObjectSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPaneAnimationCoordinator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPanelConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPanelInvocationConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInsertItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IItemNameLimits(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownFolderManager(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const ILMM_IE4: u32 = 0u32;
+#[repr(transparent)]
 pub struct ILaunchSourceAppUserModelId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILaunchSourceViewSizePreference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILaunchTargetMonitor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILaunchTargetViewSizePreference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILaunchUIContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILaunchUIContextProvider(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927183i32 as _);
@@ -4681,67 +4887,125 @@ pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows_sys::core::HRESULT = ::windo
 pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927184i32 as _);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927181i32 as _);
+#[repr(transparent)]
 pub struct IMenuBand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMenuPopup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IModalWindow(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const INTERNET_MAX_PATH_LENGTH: u32 = 2048u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const INTERNET_MAX_SCHEME_LENGTH: u32 = 32u32;
+#[repr(transparent)]
 pub struct INameSpaceTreeAccessible(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INameSpaceTreeControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INameSpaceTreeControl2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INameSpaceTreeControlCustomDraw(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INameSpaceTreeControlDropHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INameSpaceTreeControlEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INameSpaceTreeControlFolderCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INamedPropertyBag(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INamespaceWalk(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INamespaceWalkCB(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INamespaceWalkCB2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetworkFolderInternal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INewMenuClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INewShortcutHookA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INewShortcutHookW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INewWDEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INewWindowManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INotifyReplica(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithAppUserModelID(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithBackReferences(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithCancelEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithFolderEnumMode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithProgID(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectWithSelection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenControlPanel(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpenSearchSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOperationsProgressDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPackageDebugSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPackageDebugSettings2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPackageExecutionStateChangeNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IParentAndItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IParseAndCreateItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistFolder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistFolder3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPersistIDList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPreviewHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPreviewHandlerFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPreviewHandlerVisuals(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPreviewItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPreviousVersionsInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProfferService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProgressDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPropertyKeyStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPublishedApp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPublishedApp2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPublishingWizard(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryAssociations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryCancelAutoPlay(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryCodePage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryContinue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryContinueWithStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IQueryInfo(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const IRTIR_TASK_FINISHED: u32 = 4u32;
@@ -4753,11 +5017,17 @@ pub const IRTIR_TASK_PENDING: u32 = 3u32;
 pub const IRTIR_TASK_RUNNING: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const IRTIR_TASK_SUSPENDED: u32 = 2u32;
+#[repr(transparent)]
 pub struct IRegTreeItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRelatedItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteComputer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResolveShellLink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResultsFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRunnableTask(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const ISFBVIEWMODE_LARGEICONS: u32 = 2u32;
@@ -4815,107 +5085,209 @@ pub const IS_FULLSCREEN: u32 = 2u32;
 pub const IS_NORMAL: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const IS_SPLIT: u32 = 4u32;
+#[repr(transparent)]
 pub struct IScriptErrorList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchBoxInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISearchFolderItemFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISharedBitmap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISharingConfigurationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellApp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellBrowser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellChangeNotify(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellDispatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellDispatch2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellDispatch3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellDispatch4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellDispatch5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellDispatch6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellExtInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFavoritesNameSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolderBand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolderView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolderViewCB(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolderViewDual(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolderViewDual2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellFolderViewDual3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellIcon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellIconOverlay(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellIconOverlayIdentifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellIconOverlayManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellImageData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellImageDataAbort(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellImageDataFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellItemArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellItemFilter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellItemImageFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellItemResources(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellLibrary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellLinkA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellLinkDataList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellLinkDual(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellLinkDual2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellLinkW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellMenu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellMenuCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellNameSpace(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellPropSheetExt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellRunDll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellTaskScheduler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellUIHelper9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellView2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellView3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShellWindows(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISortColumnArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStartMenuPinnedList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageProviderBanners(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageProviderCopyHook(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageProviderHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStorageProviderPropertyHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamUnbufferedInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISuspensionDependencyManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrConflict(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrConflictFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrConflictItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrConflictPresenter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrConflictResolutionItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrConflictResolveInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrConflictStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrEnumItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrEventLinkUIOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrEventStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrHandlerCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrHandlerInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrRegister(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrResolutionHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrScheduleWizardUIOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSessionCreator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSyncCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSyncItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSyncItemContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSyncItemInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSyncResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSynchronize(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSynchronizeCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrSynchronizeInvoke(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISyncMgrUIOperation(pub *mut ::core::ffi::c_void);
 pub struct ITEMSPACING(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -4930,49 +5302,93 @@ pub const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0u32;
 pub const ITSSFLAG_FLAGS_MASK: u32 = 3u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const ITSSFLAG_KILL_ON_DESTROY: u32 = 1u32;
+#[repr(transparent)]
 pub struct ITaskbarList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskbarList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskbarList3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITaskbarList4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThumbnailCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThumbnailCachePrimer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThumbnailCapture(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThumbnailHandlerFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThumbnailProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThumbnailSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IThumbnailStreamCache(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITrackShellMenu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITranscodeImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransferAdviseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransferDestination(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransferMediumItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransferSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITravelEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITravelLog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITravelLogClient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITravelLogEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITravelLogStg(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITrayDeskBand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IURLSearchHook(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IURLSearchHook2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUniformResourceLocatorA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUniformResourceLocatorW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUpdateIDList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUseToBrowseItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserAccountChangeCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserNotification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserNotification2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserNotificationCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewStateIdentityItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVirtualDesktopManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVisualProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebBrowser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebBrowser2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebBrowserApp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebWizardExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebWizardHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWebWizardHost2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWizardExtension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWizardSite(pub *mut ::core::ffi::c_void);
 pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2711114395, data2: 29455, data3: 16521, data4: [182, 70, 161, 37, 87, 245, 102, 94] };
 pub struct ImageProperties(i32);

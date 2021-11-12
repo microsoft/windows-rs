@@ -16,10 +16,17 @@ pub struct CALLFRAME_FREE(i32);
 pub struct CALLFRAME_MARSHALCONTEXT(i32);
 pub struct CALLFRAME_NULL(i32);
 pub struct CALLFRAME_WALK(i32);
+#[repr(transparent)]
 pub struct ICallFrame(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICallFrameEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICallFrameWalker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICallIndirect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICallInterceptor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICallUnmarshal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInterfaceRelated(pub *mut ::core::ffi::c_void);

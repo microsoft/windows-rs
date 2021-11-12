@@ -63,10 +63,15 @@ pub struct HYPOTHESIS(i32);
 pub struct HelperAttributeInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct HypothesisResult(i32);
+#[repr(transparent)]
 pub struct INetDiagExtensibleHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetDiagHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetDiagHelperEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetDiagHelperInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct INetDiagHelperUtilFactory(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub struct LIFE_TIME(i32);

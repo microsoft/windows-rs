@@ -2,47 +2,89 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct FOREIGN_STATUS(i32);
+#[repr(transparent)]
 pub struct IMSMQApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQApplication2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQApplication3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQCoordinatedTransactionDispenser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQCoordinatedTransactionDispenser2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQCoordinatedTransactionDispenser3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQDestination(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQEvent2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQEvent3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQManagement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQMessage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQMessage3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQMessage4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQOutgoingQueueManagement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQPrivateDestination(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQPrivateEvent(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQuery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQuery2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQuery3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQuery4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueue2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueue3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueue4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfo3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfo4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfos(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfos2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfos3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueInfos4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQQueueManagement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQTransaction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQTransaction2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQTransaction3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQTransactionDispenser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQTransactionDispenser2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMSMQTransactionDispenser3(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const LONG_LIVED: u32 = 4294967294u32;
@@ -459,4 +501,5 @@ pub struct QUEUE_STATE(i32);
 pub struct QUEUE_TYPE(i32);
 pub struct RELOPS(i32);
 pub struct XACT_STATUS(i32);
+#[repr(transparent)]
 pub struct _DMSMQEventEvents(pub *mut ::core::ffi::c_void);

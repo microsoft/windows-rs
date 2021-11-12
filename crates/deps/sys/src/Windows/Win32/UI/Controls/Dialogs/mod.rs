@@ -214,7 +214,9 @@ pub const FR_RAW: u32 = 131072u32;
 pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const FR_WRAPAROUND: u32 = 1048576u32;
+#[repr(transparent)]
 pub struct IPrintDialogCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrintDialogServices(pub *mut ::core::ffi::c_void);
 pub struct LPCCHOOKPROC(i32);
 pub struct LPCFHOOKPROC(i32);

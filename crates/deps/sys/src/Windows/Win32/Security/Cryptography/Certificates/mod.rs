@@ -819,83 +819,157 @@ pub struct FNIMPORTPFXTOPROVIDERFREEDATA(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
 pub struct FULL_RESPONSE_PROPERTY_ID(i32);
+#[repr(transparent)]
 pub struct IAlternativeName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAlternativeNames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBinaryConverter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBinaryConverter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICEnroll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICEnroll2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICEnroll3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICEnroll4(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ICF_ALLOWFOREIGN: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ICF_EXISTINGROW: u32 = 131072u32;
+#[repr(transparent)]
 pub struct ICertAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertAdmin2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertConfig2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeAltName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeAltName2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeBitString(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeBitString2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeCRLDistInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeCRLDistInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeDateArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeDateArray2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeLongArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeLongArray2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeStringArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertEncodeStringArray2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertExit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertExit2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertGetConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertManageModule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPolicy2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyArchived(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyArchivedKeyHash(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyAutoEnroll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyBackedUp(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyEnrollment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyEnrollmentPolicyServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyFriendlyName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyKeyProvInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyRenewal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertyRequestOriginator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertPropertySHA1Hash(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertRequest2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertRequest3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertRequestD(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertRequestD2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertServerExit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertServerPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertView2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificateAttestationChallenge(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificateAttestationChallenge2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificatePolicies(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificatePolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificationAuthorities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICertificationAuthority(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICryptAttribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICryptAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICspAlgorithm(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICspAlgorithms(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICspInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICspInformations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICspStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICspStatuses(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnroll(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnroll2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnroll4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCERTVIEWATTRIBUTE(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCERTVIEWCOLUMN(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCERTVIEWEXTENSION(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumCERTVIEWROW(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const IF_ENABLEADMINASAUDITOR: u32 = 4096u32;
@@ -925,15 +999,25 @@ pub const IF_NORPCICERTREQUEST: u32 = 8u32;
 pub const IF_NOSNAPSHOTBACKUP: u32 = 256u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const IKF_OVERWRITE: u32 = 65536u32;
+#[repr(transparent)]
 pub struct INDESPolicy(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOCSPAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOCSPCAConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOCSPCAConfigurationCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOCSPProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOCSPPropertyCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectIds(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPolicyQualifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPolicyQualifiers(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ISSCERT_DEFAULT_DS: u32 = 256u32;
@@ -951,68 +1035,131 @@ pub const ISSCERT_HTTPURL_OLD: u32 = 2u32;
 pub const ISSCERT_LDAPURL_OLD: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const ISSCERT_URLMASK_OLD: u32 = 255u32;
+#[repr(transparent)]
 pub struct ISignerCertificate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISignerCertificates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISmimeCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISmimeCapability(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX500DistinguishedName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509Attribute(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509AttributeArchiveKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509AttributeArchiveKeyHash(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509AttributeClientId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509AttributeCspProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509AttributeExtensions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509AttributeOSVersion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509AttributeRenewalCertificate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509Attributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestCertificate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestCertificate2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestCmc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestCmc2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10V2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10V3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10V4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestPkcs7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRequestPkcs7V2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRevocationList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRevocationListEntries(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateRevocationListEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateTemplateWritable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509CertificateTemplates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509EndorsementKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509Enrollment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509Enrollment2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509EnrollmentHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509EnrollmentPolicyServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509EnrollmentStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509EnrollmentWebClassFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509Extension(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionAlternativeNames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionAuthorityKeyIdentifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionBasicConstraints(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionCertificatePolicies(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionEnhancedKeyUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionKeyUsage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionMSApplicationPolicies(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionSmimeCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionSubjectKeyIdentifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509ExtensionTemplateName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509Extensions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509MachineEnrollmentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509NameValuePair(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509NameValuePairs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509PolicyServerListManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509PolicyServerUrl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509PrivateKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509PrivateKey2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509PublicKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509SCEPEnrollment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509SCEPEnrollment2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509SCEPEnrollmentHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IX509SignatureInformation(pub *mut ::core::ffi::c_void);
 pub struct ImportPFXFlags(i32);
 pub struct InnerRequestLevel(i32);

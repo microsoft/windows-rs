@@ -2,7 +2,11 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct DeviceLockdownContract(i32);
-pub struct DeviceLockdownProfile(i32);
-pub struct DeviceLockdownProfileInformation(i32);
+#[repr(transparent)]
+pub struct DeviceLockdownProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DeviceLockdownProfileInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeviceLockdownProfileInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDeviceLockdownProfileStatics(pub *mut ::core::ffi::c_void);

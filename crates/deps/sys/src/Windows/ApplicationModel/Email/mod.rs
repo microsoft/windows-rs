@@ -3,122 +3,211 @@
 pub mod DataProvider;
 #[link(name = "windows")]
 extern "system" {}
-pub struct EmailAttachment(i32);
+#[repr(transparent)]
+pub struct EmailAttachment(pub *mut ::core::ffi::c_void);
 pub struct EmailAttachmentDownloadState(i32);
 pub struct EmailBatchStatus(i32);
 pub struct EmailCertificateValidationStatus(i32);
-pub struct EmailConversation(i32);
-pub struct EmailConversationBatch(i32);
-pub struct EmailConversationReader(i32);
+#[repr(transparent)]
+pub struct EmailConversation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailConversationBatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailConversationReader(pub *mut ::core::ffi::c_void);
 pub struct EmailFlagState(i32);
-pub struct EmailFolder(i32);
+#[repr(transparent)]
+pub struct EmailFolder(pub *mut ::core::ffi::c_void);
 pub struct EmailImportance(i32);
-pub struct EmailIrmInfo(i32);
-pub struct EmailIrmTemplate(i32);
-pub struct EmailItemCounts(i32);
-pub struct EmailMailbox(i32);
-pub struct EmailMailboxAction(i32);
+#[repr(transparent)]
+pub struct EmailIrmInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailIrmTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailItemCounts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailbox(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailboxAction(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxActionKind(i32);
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(i32);
-pub struct EmailMailboxAutoReply(i32);
+#[repr(transparent)]
+pub struct EmailMailboxAutoReply(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxAutoReplyMessageResponseKind(i32);
-pub struct EmailMailboxAutoReplySettings(i32);
-pub struct EmailMailboxCapabilities(i32);
-pub struct EmailMailboxChange(i32);
-pub struct EmailMailboxChangeReader(i32);
-pub struct EmailMailboxChangeTracker(i32);
+#[repr(transparent)]
+pub struct EmailMailboxAutoReplySettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailboxCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailboxChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailboxChangeReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailboxChangeTracker(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxChangeType(i32);
-pub struct EmailMailboxChangedDeferral(i32);
-pub struct EmailMailboxChangedEventArgs(i32);
-pub struct EmailMailboxCreateFolderResult(i32);
+#[repr(transparent)]
+pub struct EmailMailboxChangedDeferral(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailboxChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMailboxCreateFolderResult(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxCreateFolderStatus(i32);
 pub struct EmailMailboxDeleteFolderStatus(i32);
 pub struct EmailMailboxEmptyFolderStatus(i32);
 pub struct EmailMailboxOtherAppReadAccess(i32);
 pub struct EmailMailboxOtherAppWriteAccess(i32);
-pub struct EmailMailboxPolicies(i32);
+#[repr(transparent)]
+pub struct EmailMailboxPolicies(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxSmimeEncryptionAlgorithm(i32);
 pub struct EmailMailboxSmimeSigningAlgorithm(i32);
-pub struct EmailMailboxSyncManager(i32);
+#[repr(transparent)]
+pub struct EmailMailboxSyncManager(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxSyncStatus(i32);
-pub struct EmailManager(i32);
-pub struct EmailManagerForUser(i32);
-pub struct EmailMeetingInfo(i32);
+#[repr(transparent)]
+pub struct EmailManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailManagerForUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMeetingInfo(pub *mut ::core::ffi::c_void);
 pub struct EmailMeetingResponseType(i32);
-pub struct EmailMessage(i32);
-pub struct EmailMessageBatch(i32);
+#[repr(transparent)]
+pub struct EmailMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailMessageBatch(pub *mut ::core::ffi::c_void);
 pub struct EmailMessageBodyKind(i32);
 pub struct EmailMessageDownloadState(i32);
-pub struct EmailMessageReader(i32);
+#[repr(transparent)]
+pub struct EmailMessageReader(pub *mut ::core::ffi::c_void);
 pub struct EmailMessageResponseKind(i32);
 pub struct EmailMessageSmimeKind(i32);
 pub struct EmailQueryKind(i32);
-pub struct EmailQueryOptions(i32);
+#[repr(transparent)]
+pub struct EmailQueryOptions(pub *mut ::core::ffi::c_void);
 pub struct EmailQuerySearchFields(i32);
 pub struct EmailQuerySearchScope(i32);
 pub struct EmailQuerySortDirection(i32);
 pub struct EmailQuerySortProperty(i32);
-pub struct EmailQueryTextSearch(i32);
-pub struct EmailRecipient(i32);
-pub struct EmailRecipientResolutionResult(i32);
+#[repr(transparent)]
+pub struct EmailQueryTextSearch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailRecipient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct EmailRecipientResolutionResult(pub *mut ::core::ffi::c_void);
 pub struct EmailRecipientResolutionStatus(i32);
 pub struct EmailSpecialFolderKind(i32);
-pub struct EmailStore(i32);
+#[repr(transparent)]
+pub struct EmailStore(pub *mut ::core::ffi::c_void);
 pub struct EmailStoreAccessType(i32);
-pub struct EmailStoreNotificationTriggerDetails(i32);
+#[repr(transparent)]
+pub struct EmailStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailAttachment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailAttachment2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailAttachmentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailAttachmentFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailConversation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailConversationBatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailConversationReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailFolder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailIrmInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailIrmInfoFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailIrmTemplate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailIrmTemplateFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailItemCounts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailbox(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailbox2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailbox3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailbox4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailbox5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxAction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxAutoReply(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxAutoReplySettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxCapabilities2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxCapabilities3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxChange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxChangeReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxChangeTracker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxChangedDeferral(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxCreateFolderResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxPolicies(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxPolicies2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxPolicies3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxSyncManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMailboxSyncManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailManagerForUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailManagerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailManagerStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMeetingInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMeetingInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMessage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMessage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMessage3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMessage4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMessageBatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailMessageReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailQueryOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailQueryOptionsFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailQueryTextSearch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailRecipient(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailRecipientFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailRecipientResolutionResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailRecipientResolutionResult2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEmailStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);

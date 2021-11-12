@@ -3,84 +3,152 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
-pub struct AccessibilitySettings(i32);
-pub struct ActivationViewSwitcher(i32);
-pub struct ApplicationView(i32);
+#[repr(transparent)]
+pub struct AccessibilitySettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ActivationViewSwitcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ApplicationView(pub *mut ::core::ffi::c_void);
 pub struct ApplicationViewBoundsMode(i32);
-pub struct ApplicationViewConsolidatedEventArgs(i32);
+#[repr(transparent)]
+pub struct ApplicationViewConsolidatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ApplicationViewMode(i32);
 pub struct ApplicationViewOrientation(i32);
-pub struct ApplicationViewScaling(i32);
+#[repr(transparent)]
+pub struct ApplicationViewScaling(pub *mut ::core::ffi::c_void);
 pub struct ApplicationViewState(i32);
-pub struct ApplicationViewSwitcher(i32);
+#[repr(transparent)]
+pub struct ApplicationViewSwitcher(pub *mut ::core::ffi::c_void);
 pub struct ApplicationViewSwitchingOptions(i32);
-pub struct ApplicationViewTitleBar(i32);
-pub struct ApplicationViewTransferContext(i32);
+#[repr(transparent)]
+pub struct ApplicationViewTitleBar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ApplicationViewTransferContext(pub *mut ::core::ffi::c_void);
 pub struct ApplicationViewWindowingMode(i32);
 pub struct FullScreenSystemOverlayMode(i32);
 pub struct HandPreference(i32);
+#[repr(transparent)]
 pub struct IAccessibilitySettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IActivationViewSwitcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationView2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationView3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationView4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationView7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationView9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewConsolidatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewConsolidatedEventArgs2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewFullscreenStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewInteropStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewScaling(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewScalingStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewStatics4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewSwitcherStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewSwitcherStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewSwitcherStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewTitleBar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewTransferContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewTransferContextStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IApplicationViewWithContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPane(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPane2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPaneControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPaneStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPaneStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInputPaneVisibilityEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProjectionManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProjectionManagerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStatusBar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStatusBarProgressIndicator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStatusBarStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettings2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettings3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettings4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettings5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettings6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettingsAnimationsEnabledChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettingsAutoHideScrollBarsChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUISettingsMessageDurationChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIViewSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIViewSettingsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewModePreferences(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IViewModePreferencesStatics(pub *mut ::core::ffi::c_void);
-pub struct InputPane(i32);
-pub struct InputPaneVisibilityEventArgs(i32);
-pub struct ProjectionManager(i32);
-pub struct StatusBar(i32);
-pub struct StatusBarProgressIndicator(i32);
+#[repr(transparent)]
+pub struct InputPane(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InputPaneVisibilityEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProjectionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct StatusBar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct StatusBarProgressIndicator(pub *mut ::core::ffi::c_void);
 pub struct UIColorType(i32);
 pub struct UIElementType(i32);
-pub struct UISettings(i32);
-pub struct UISettingsAnimationsEnabledChangedEventArgs(i32);
-pub struct UISettingsAutoHideScrollBarsChangedEventArgs(i32);
-pub struct UISettingsMessageDurationChangedEventArgs(i32);
-pub struct UIViewSettings(i32);
+#[repr(transparent)]
+pub struct UISettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UISettingsAnimationsEnabledChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UISettingsAutoHideScrollBarsChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UISettingsMessageDurationChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UIViewSettings(pub *mut ::core::ffi::c_void);
 pub struct UserInteractionMode(i32);
 pub struct ViewManagementViewScalingContract(i32);
-pub struct ViewModePreferences(i32);
+#[repr(transparent)]
+pub struct ViewModePreferences(pub *mut ::core::ffi::c_void);
 pub struct ViewSizePreference(i32);

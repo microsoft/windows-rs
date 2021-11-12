@@ -1,34 +1,62 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct INamedResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceCandidate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceCandidate2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceCandidate3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceContextStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceContextStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceContextStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceContextStatics4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceQualifier(pub *mut ::core::ffi::c_void);
-pub struct NamedResource(i32);
-pub struct ResourceCandidate(i32);
+#[repr(transparent)]
+pub struct NamedResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceCandidate(pub *mut ::core::ffi::c_void);
 pub struct ResourceCandidateKind(i32);
-pub struct ResourceCandidateVectorView(i32);
-pub struct ResourceContext(i32);
-pub struct ResourceContextLanguagesVectorView(i32);
+#[repr(transparent)]
+pub struct ResourceCandidateVectorView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceContextLanguagesVectorView(pub *mut ::core::ffi::c_void);
 pub struct ResourceLayoutInfo(i32);
-pub struct ResourceManager(i32);
-pub struct ResourceMap(i32);
-pub struct ResourceMapIterator(i32);
-pub struct ResourceMapMapView(i32);
-pub struct ResourceMapMapViewIterator(i32);
-pub struct ResourceQualifier(i32);
-pub struct ResourceQualifierMapView(i32);
-pub struct ResourceQualifierObservableMap(i32);
+#[repr(transparent)]
+pub struct ResourceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceMap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceMapIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceMapMapView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceMapMapViewIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceQualifier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceQualifierMapView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ResourceQualifierObservableMap(pub *mut ::core::ffi::c_void);
 pub struct ResourceQualifierPersistence(i32);
-pub struct ResourceQualifierVectorView(i32);
+#[repr(transparent)]
+pub struct ResourceQualifierVectorView(pub *mut ::core::ffi::c_void);

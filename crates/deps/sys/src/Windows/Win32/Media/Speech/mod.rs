@@ -53,101 +53,197 @@ pub struct DISPID_SpeechVoiceEvent(i32);
 pub struct DISPID_SpeechVoiceStatus(i32);
 pub struct DISPID_SpeechWaveFormatEx(i32);
 pub struct DISPID_SpeechXMLRecoResult(i32);
+#[repr(transparent)]
 pub struct IEnumSpObjectTokens(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpAudio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpContainerLexicon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpDataKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpDisplayAlternates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpEnginePronunciation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpEventSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpEventSource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpGrammarBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpGrammarBuilder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpLexicon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpMMSysAudio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpNotifyCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpNotifySink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpNotifySource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpNotifyTranslator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpObjectToken(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpObjectTokenCategory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpObjectTokenInit(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpObjectWithToken(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpPhoneConverter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpPhoneticAlphabetConverter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpPhoneticAlphabetSelection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpPhrase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpPhrase2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpPhraseAlt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecoContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecoContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecoGrammar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecoGrammar2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecoResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecoResult2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRecognizer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpRegDataKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpResourceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpSerializeState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpShortcut(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpStreamFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpStreamFormatConverter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpTranscript(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpVoice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpXMLRecoResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechAudio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechAudioBufferInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechAudioFormat(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechAudioStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechBaseStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechCustomStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechDataKey(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechFileStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechGrammarRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechGrammarRuleState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransitions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechGrammarRules(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechLexicon(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechLexiconPronunciation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechLexiconPronunciations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechLexiconWord(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechLexiconWords(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechMMSysAudio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechMemoryStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechObjectToken(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechObjectTokenCategory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechObjectTokens(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhoneConverter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseAlternate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseAlternates(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseElements(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseInfoBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseReplacement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseReplacements(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseRule(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechPhraseRules(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecoContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecoGrammar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecoResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecoResult2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecoResultDispatch(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecoResultTimes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechRecognizerStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechResourceLoader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechTextSelectionInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechVoice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechVoiceStatus(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechWaveFormatEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpeechXMLRecoResult(pub *mut ::core::ffi::c_void);
 pub struct PHONETICALPHABET(i32);
 #[doc = "*Required features: `Win32_Media_Speech`*"]
@@ -347,5 +443,7 @@ pub const Speech_Max_Word_Length: i32 = 128i32;
 pub const Speech_StreamPos_Asap: i32 = 0i32;
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const Speech_StreamPos_RealTime: i32 = -1i32;
+#[repr(transparent)]
 pub struct _ISpeechRecoContextEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct _ISpeechVoiceEvents(pub *mut ::core::ffi::c_void);

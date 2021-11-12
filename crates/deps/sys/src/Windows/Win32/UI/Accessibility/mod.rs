@@ -869,143 +869,279 @@ pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID =
     data4: [141, 207, 234, 232, 119, 176, 66, 107],
 };
 pub const Hyperlink_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2320892460, data2: 45069, data3: 19733, data4: [143, 240, 91, 107, 38, 110, 94, 2] };
+#[repr(transparent)]
 pub struct IAccIdentity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccPropServer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccPropServices(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessible(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessibleEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessibleHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessibleHostingElementProviders(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAccessibleWindowlessSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAnnotationProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ICustomNavigationProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDockProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDragProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDropTargetProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IExpandCollapseProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGridItemProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGridProvider(pub *mut ::core::ffi::c_void);
 pub const IIS_ControlAccessible: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 952533670, data2: 38705, data3: 17394, data4: [159, 174, 233, 1, 230, 65, 177, 1] };
 pub const IIS_IsOleaccProxy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2418448378, data2: 32996, data3: 17760, data4: [128, 42, 161, 63, 34, 166, 71, 9] };
+#[repr(transparent)]
 pub struct IInvokeProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IItemContainerProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILegacyIAccessibleProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultipleViewProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IObjectModelProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProxyProviderWinEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProxyProviderWinEventSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRangeValueProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderAdviseEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderFragment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderFragmentRoot(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderHostingAccessibles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderHwndOverride(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderSimple(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderSimple2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderSimple3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawElementProviderWindowlessSite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRichEditUiaInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRicheditWindowlessAccessibility(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScrollItemProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IScrollProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISelectionItemProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISelectionProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISelectionProvider2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpreadsheetItemProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpreadsheetProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStylesProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISynchronizedInputProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITableItemProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITableProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextChildProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextEditProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextProvider2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextRangeProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITextRangeProvider2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IToggleProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransformProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransformProvider2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomation3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomation4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomation5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomation6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationAndCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationAnnotationPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationBoolCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationCacheRequest(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationChangesEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationCustomNavigationPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationDockPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationDragPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationDropTargetPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElement9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationElementArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationEventHandlerGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationExpandCollapsePattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationFocusChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationGridItemPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationGridPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationInvokePattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationItemContainerPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationLegacyIAccessiblePattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationMultipleViewPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationNotCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationNotificationEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationObjectModelPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationOrCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationPatternHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationPatternInstance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationPropertyChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationPropertyCondition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationProxyFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationProxyFactoryEntry(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationProxyFactoryMapping(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationRangeValuePattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationRegistrar(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationScrollItemPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationScrollPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationSelectionItemPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationSelectionPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationSelectionPattern2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationSpreadsheetItemPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationSpreadsheetPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationStructureChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationStylesPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationSynchronizedInputPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTableItemPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTablePattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextChildPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextEditPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextEditTextChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextPattern2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextRange2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextRange3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTextRangeArray(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTogglePattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTransformPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTransformPattern2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationTreeWalker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationValuePattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationVirtualizedItemPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUIAutomationWindowPattern(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IValueProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVirtualizedItemProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWindowProvider(pub *mut ::core::ffi::c_void);
 pub const Image_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 758593252, data2: 27414, data3: 19543, data4: [169, 98, 249, 50, 96, 167, 82, 67] };
 pub const InputDiscarded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {

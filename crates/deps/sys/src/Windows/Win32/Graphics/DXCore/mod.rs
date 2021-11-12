@@ -26,8 +26,11 @@ pub struct DXCoreHardwareID(i32);
 pub struct DXCoreHardwareIDParts(i32);
 pub struct DXCoreNotificationType(i32);
 pub struct DXCoreSegmentGroup(i32);
+#[repr(transparent)]
 pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXCoreAdapterFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDXCoreAdapterList(pub *mut ::core::ffi::c_void);
 pub struct PFN_DXCORE_NOTIFICATION_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Graphics_DXCore`*"]

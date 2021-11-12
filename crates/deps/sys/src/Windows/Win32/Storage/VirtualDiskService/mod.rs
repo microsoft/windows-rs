@@ -15,41 +15,77 @@ pub const CLSID_VdsService: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
+#[repr(transparent)]
 pub struct IEnumVdsObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsAdmin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsAdviseSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsControllerControllerPort(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsControllerPort(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsDrive(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsDrive2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsHwProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsHwProviderPrivate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsHwProviderPrivateMpio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsHwProviderStoragePools(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsHwProviderType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsHwProviderType2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsIscsiPortal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsIscsiPortalGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsIscsiTarget(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLun(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLun2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLunControllerPorts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLunIscsi(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLunMpio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLunNaming(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLunNumber(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsLunPlex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsMaintenance(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsProvider(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsProviderPrivate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsProviderSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsStoragePool(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsSubSystem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsSubSystem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsSubSystemInterconnect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsSubSystemIscsi(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IVdsSubSystemNaming(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32u32;

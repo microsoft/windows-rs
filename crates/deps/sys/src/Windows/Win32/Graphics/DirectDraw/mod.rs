@@ -2200,38 +2200,56 @@ pub const HEAPALIASINFO_MAPPEDDUMMY: i32 = 2i32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const HEAPALIASINFO_MAPPEDREAL: i32 = 1i32;
 pub struct HEAPALIGNMENT(i32);
+#[repr(transparent)]
 pub struct IDDVideoPortContainer(pub *mut ::core::ffi::c_void);
 pub struct IDDVideoPortContainerVtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDraw(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDraw2(pub *mut ::core::ffi::c_void);
 pub struct IDirectDraw2Vtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDraw4(pub *mut ::core::ffi::c_void);
 pub struct IDirectDraw4Vtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDraw7(pub *mut ::core::ffi::c_void);
 pub struct IDirectDraw7Vtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawClipper(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawClipperVtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawColorControl(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawColorControlVtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawGammaControl(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawGammaControlVtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawKernel(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawKernelVtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawPalette(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawPaletteVtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawSurface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDrawSurface2(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface2Vtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawSurface3(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface3Vtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawSurface4(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface4Vtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawSurface7(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurface7Vtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawSurfaceKernel(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawSurfaceKernelVtbl(i32);
 pub struct IDirectDrawSurfaceVtbl(i32);
+#[repr(transparent)]
 pub struct IDirectDrawVideoPort(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectDrawVideoPortNotify(pub *mut ::core::ffi::c_void);
 pub struct IDirectDrawVideoPortNotifyVtbl(i32);
 pub struct IDirectDrawVideoPortVtbl(i32);

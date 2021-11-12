@@ -1,8 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-pub struct HolographicApplicationPreview(i32);
-pub struct HolographicKeyboardPlacementOverridePreview(i32);
+#[repr(transparent)]
+pub struct HolographicApplicationPreview(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct HolographicKeyboardPlacementOverridePreview(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHolographicApplicationPreviewStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHolographicKeyboardPlacementOverridePreview(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IHolographicKeyboardPlacementOverridePreviewStatics(pub *mut ::core::ffi::c_void);

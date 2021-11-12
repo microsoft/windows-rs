@@ -594,39 +594,73 @@ pub struct EXPLICIT_ACCESS_A(i32);
 pub struct EXPLICIT_ACCESS_W(i32);
 pub struct FN_OBJECT_MGR_FUNCTIONS(i32);
 pub struct FN_PROGRESS(i32);
+#[repr(transparent)]
 pub struct IAzApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzApplication2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzApplication3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzApplicationGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzApplicationGroup2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzApplicationGroups(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzApplications(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzAuthorizationStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzAuthorizationStore2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzAuthorizationStore3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzBizRuleContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzBizRuleInterfaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzBizRuleParameters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzClientContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzClientContext2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzClientContext3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzNameResolver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzObjectPicker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzOperation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzOperations(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzPrincipalLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzRole(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzRoleAssignment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzRoleAssignments(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzRoleDefinition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzRoleDefinitions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzRoles(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzScope(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzScope2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzScopes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzTask(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzTask2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAzTasks(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;

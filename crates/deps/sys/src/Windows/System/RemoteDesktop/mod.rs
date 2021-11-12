@@ -3,5 +3,7 @@
 pub mod Input;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IInteractiveSessionStatics(pub *mut ::core::ffi::c_void);
-pub struct InteractiveSession(i32);
+#[repr(transparent)]
+pub struct InteractiveSession(pub *mut ::core::ffi::c_void);

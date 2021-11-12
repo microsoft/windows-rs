@@ -68,12 +68,19 @@ pub const CATID_SMTP_TRANSPORT_PRECATEGORIZE: ::windows_sys::core::GUID = ::wind
 pub const CATID_SMTP_TRANSPORT_ROUTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 674509001, data2: 6224, data3: 4562, data4: [158, 3, 0, 192, 79, 163, 34, 186] };
 pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4282165795, data2: 185, data3: 4562, data4: [157, 251, 0, 192, 79, 163, 34, 186] };
 pub const CLSID_SmtpCat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2990290359, data2: 37401, data3: 4562, data4: [158, 23, 0, 192, 79, 163, 34, 186] };
+#[repr(transparent)]
 pub struct DDiscFormat2DataEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DDiscFormat2EraseEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DDiscFormat2RawCDEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DDiscFormat2TrackAtOnceEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DDiscMaster2Events(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DFileSystemImageEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DFileSystemImageImportEvents(pub *mut ::core::ffi::c_void);
 pub struct DISC_RECORDER_STATE_FLAGS(i32);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -420,6 +427,7 @@ pub const DISPID_IWRITEENGINE2_USESTREAMINGWRITE12: u32 = 257u32;
 pub const DISPID_IWRITEENGINE2_WRITEINPROGRESS: u32 = 261u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const DISPID_IWRITEENGINE2_WRITESECTION: u32 = 512u32;
+#[repr(transparent)]
 pub struct DWriteEngine2Events(pub *mut ::core::ffi::c_void);
 pub struct EmulationType(i32);
 pub struct EnumFsiItems(i32);
@@ -433,40 +441,75 @@ pub struct FsiNamedStreams(i32);
 pub struct FsiStream(i32);
 pub const GUID_SMTPSVC_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456918630, data2: 58480, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4217750748, data2: 58472, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
+#[repr(transparent)]
 pub struct IBlockRange(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBlockRangeList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBootOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IBurnVerification(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2Data(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2DataEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2Erase(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2RawCD(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2RawCDEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2TrackAtOnce(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscFormat2TrackAtOnceEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscMaster(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscMaster2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscMasterProgressEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscRecorder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscRecorder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDiscRecorder2Ex(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDiscMasterFormats(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumDiscRecorders(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumFsiItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IEnumProgressItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSystemImage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSystemImage2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSystemImage3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSystemImageResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFileSystemImageResult2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsiDirectoryItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsiDirectoryItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsiFileItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsiFileItem2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsiItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFsiNamedStreams(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IIsoImageManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IJolietDiscMaster(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
@@ -588,20 +631,35 @@ pub struct IMMPID_NMP_ENUM(i32);
 pub struct IMMPID_RPV_ENUM(i32);
 pub struct IMMPID_RP_ENUM(i32);
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE(i32);
+#[repr(transparent)]
 pub struct IMultisession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultisessionRandomWrite(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultisessionSequential(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMultisessionSequential2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProgressItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProgressItems(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawCDImageCreator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRawCDImageTrackInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRedbookDiscMaster(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamConcatenate(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamInterleave(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IStreamPseudoRandomBased(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWriteEngine2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWriteEngine2EventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWriteSpeedDescriptor(pub *mut ::core::ffi::c_void);
 pub struct MEDIA_FLAGS(i32);
 pub struct MEDIA_TYPES(i32);

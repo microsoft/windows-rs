@@ -1,47 +1,89 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IDummyMBNUCMExt(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionContextEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionProfile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionProfileEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionProfileManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnConnectionProfileManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnDeviceService(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnDeviceServiceStateEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnDeviceServicesContext(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnDeviceServicesEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnDeviceServicesManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnInterface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnInterfaceEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnInterfaceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnInterfaceManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnMultiCarrier(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnMultiCarrierEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnPin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnPinEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnPinManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnPinManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnRadio(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnRadioEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnRegistrationEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnServiceActivation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnServiceActivationEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSignal(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSignalEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSms(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSmsConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSmsEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSmsReadMsgPdu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSmsReadMsgTextCdma(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnSubscriberInformation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnVendorSpecificEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMbnVendorSpecificOperation(pub *mut ::core::ffi::c_void);
 pub struct MBN_ACTIVATION_STATE(i32);
 pub struct MBN_AUTH_PROTOCOL(i32);

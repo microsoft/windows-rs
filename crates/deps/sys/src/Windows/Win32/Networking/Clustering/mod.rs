@@ -1525,62 +1525,119 @@ pub struct GRP_PLACEMENT_OPTIONS(i32);
 pub const GUID_PRESENT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const HCI_UPGRADE_BIT: u32 = 32768u32;
+#[repr(transparent)]
 pub struct IGetClusterDataInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetClusterGroupInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetClusterNetInterfaceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetClusterNetworkInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetClusterNodeInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetClusterObjectInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetClusterResourceInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetClusterUIInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusApplication(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusCryptoKeys(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusDisk(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusDisks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNetInterface(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNetInterfaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNetwork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNetworkNetInterfaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNetworks(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNode(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNodeNetInterfaces(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusNodes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusPartition(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusPartitionEx(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusPartitions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusProperty(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusPropertyValue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusPropertyValueData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusPropertyValues(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusRefObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusRegistryKeys(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResDependencies(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResDependents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResGroup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResGroupPreferredOwnerNodes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResGroupResources(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResGroups(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResPossibleOwnerNodes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResTypePossibleOwnerNodes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResTypeResources(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResTypes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusResources(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusScsiAddress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusVersion(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISCluster(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISClusterNames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISDomainNames(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWCContextMenuCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWCPropertySheetCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWCWizard97Callback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWCWizardCallback(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWEExtendContextMenu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWEExtendPropertySheet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWEExtendWizard(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWEExtendWizard97(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IWEInvokeCommand(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1u32;

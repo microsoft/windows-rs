@@ -1,36 +1,67 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct IOpcCertificateEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcCertificateSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcDigitalSignature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcDigitalSignatureEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcDigitalSignatureManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcPackage(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcPart(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcPartEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcPartSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcPartUri(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcRelationship(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcRelationshipEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcRelationshipSelector(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcRelationshipSelectorEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcRelationshipSelectorSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcRelationshipSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureCustomObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureCustomObjectEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureCustomObjectSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignaturePartReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignaturePartReferenceEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignaturePartReferenceSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureReferenceEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureReferenceSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureRelationshipReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceSet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcSigningOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IOpcUri(pub *mut ::core::ffi::c_void);
 pub struct OPC_CANONICALIZATION_METHOD(i32);
 pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(i32);

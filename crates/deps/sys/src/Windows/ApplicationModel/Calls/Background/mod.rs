@@ -2,20 +2,32 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CallsBackgroundContract(i32);
+#[repr(transparent)]
 pub struct IPhoneCallBlockedTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhoneCallOriginDataRequestTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhoneIncomingCallDismissedTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhoneIncomingCallNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhoneLineChangedTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhoneNewVoicemailMessageTriggerDetails(pub *mut ::core::ffi::c_void);
 pub struct PhoneCallBlockedReason(i32);
-pub struct PhoneCallBlockedTriggerDetails(i32);
-pub struct PhoneCallOriginDataRequestTriggerDetails(i32);
+#[repr(transparent)]
+pub struct PhoneCallBlockedTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PhoneCallOriginDataRequestTriggerDetails(pub *mut ::core::ffi::c_void);
 pub struct PhoneIncomingCallDismissedReason(i32);
-pub struct PhoneIncomingCallDismissedTriggerDetails(i32);
-pub struct PhoneIncomingCallNotificationTriggerDetails(i32);
+#[repr(transparent)]
+pub struct PhoneIncomingCallDismissedTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PhoneIncomingCallNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
 pub struct PhoneLineChangeKind(i32);
-pub struct PhoneLineChangedTriggerDetails(i32);
+#[repr(transparent)]
+pub struct PhoneLineChangedTriggerDetails(pub *mut ::core::ffi::c_void);
 pub struct PhoneLineProperties(i32);
-pub struct PhoneNewVoicemailMessageTriggerDetails(i32);
+#[repr(transparent)]
+pub struct PhoneNewVoicemailMessageTriggerDetails(pub *mut ::core::ffi::c_void);
 pub struct PhoneTriggerType(i32);

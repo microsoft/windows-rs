@@ -2,4 +2,5 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CreateProcessMethod(i32);
+#[repr(transparent)]
 pub struct IDDEInitializer(pub *mut ::core::ffi::c_void);

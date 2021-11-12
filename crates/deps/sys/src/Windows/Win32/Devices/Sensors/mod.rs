@@ -230,12 +230,19 @@ pub const GUID_SensorType_SimpleDeviceOrientation: ::windows_sys::core::GUID = :
 pub const GUID_SensorType_Temperature: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 83693252, data2: 54746, data3: 17914, data4: [149, 169, 93, 179, 142, 225, 147, 6] };
 pub struct HUMAN_PRESENCE_DETECTION_TYPE(i32);
 pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(i32);
+#[repr(transparent)]
 pub struct ILocationPermissions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensorCollection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensorDataReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensorEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensorManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISensorManagerEvents(pub *mut ::core::ffi::c_void);
 pub struct LOCATION_DESIRED_ACCURACY(i32);
 pub struct LOCATION_POSITION_SOURCE(i32);

@@ -25,155 +25,282 @@ pub mod Update;
 pub mod UserProfile;
 #[link(name = "windows")]
 extern "system" {}
-pub struct AppActivationResult(i32);
-pub struct AppDiagnosticInfo(i32);
-pub struct AppDiagnosticInfoWatcher(i32);
-pub struct AppDiagnosticInfoWatcherEventArgs(i32);
+#[repr(transparent)]
+pub struct AppActivationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppDiagnosticInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppDiagnosticInfoWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppDiagnosticInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AppDiagnosticInfoWatcherStatus(i32);
-pub struct AppExecutionStateChangeResult(i32);
-pub struct AppMemoryReport(i32);
+#[repr(transparent)]
+pub struct AppExecutionStateChangeResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppMemoryReport(pub *mut ::core::ffi::c_void);
 pub struct AppMemoryUsageLevel(i32);
-pub struct AppMemoryUsageLimitChangingEventArgs(i32);
-pub struct AppResourceGroupBackgroundTaskReport(i32);
+#[repr(transparent)]
+pub struct AppMemoryUsageLimitChangingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppResourceGroupBackgroundTaskReport(pub *mut ::core::ffi::c_void);
 pub struct AppResourceGroupEnergyQuotaState(i32);
 pub struct AppResourceGroupExecutionState(i32);
-pub struct AppResourceGroupInfo(i32);
-pub struct AppResourceGroupInfoWatcher(i32);
-pub struct AppResourceGroupInfoWatcherEventArgs(i32);
-pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(i32);
+#[repr(transparent)]
+pub struct AppResourceGroupInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppResourceGroupInfoWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppResourceGroupInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AppResourceGroupInfoWatcherStatus(i32);
-pub struct AppResourceGroupMemoryReport(i32);
-pub struct AppResourceGroupStateReport(i32);
-pub struct AppUriHandlerHost(i32);
-pub struct AppUriHandlerRegistration(i32);
-pub struct AppUriHandlerRegistrationManager(i32);
+#[repr(transparent)]
+pub struct AppResourceGroupMemoryReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppResourceGroupStateReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppUriHandlerHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppUriHandlerRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct AppUriHandlerRegistrationManager(pub *mut ::core::ffi::c_void);
 pub struct AutoUpdateTimeZoneStatus(i32);
-pub struct DateTimeSettings(i32);
+#[repr(transparent)]
+pub struct DateTimeSettings(pub *mut ::core::ffi::c_void);
 pub struct DiagnosticAccessStatus(i32);
-pub struct DispatcherQueue(i32);
-pub struct DispatcherQueueController(i32);
+#[repr(transparent)]
+pub struct DispatcherQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DispatcherQueueController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct DispatcherQueueHandler(pub *mut ::core::ffi::c_void);
 pub struct DispatcherQueuePriority(i32);
-pub struct DispatcherQueueShutdownStartingEventArgs(i32);
-pub struct DispatcherQueueTimer(i32);
-pub struct FolderLauncherOptions(i32);
+#[repr(transparent)]
+pub struct DispatcherQueueShutdownStartingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct DispatcherQueueTimer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct FolderLauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppActivationResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppDiagnosticInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppDiagnosticInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppDiagnosticInfo3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppDiagnosticInfoStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppDiagnosticInfoStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppDiagnosticInfoWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppDiagnosticInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppExecutionStateChangeResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppMemoryReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppMemoryReport2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppMemoryUsageLimitChangingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupBackgroundTaskReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupMemoryReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppResourceGroupStateReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerHost(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerHost2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerHostFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerRegistration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerRegistration2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManagerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDateTimeSettingsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatcherQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatcherQueue2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatcherQueueController(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatcherQueueControllerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatcherQueueShutdownStartingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatcherQueueStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDispatcherQueueTimer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFolderLauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownUserPropertiesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKnownUserPropertiesStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILaunchUriResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherOptions2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherOptions3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherOptions4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherStatics4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherStatics5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherUIOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILauncherViewOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemoryManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemoryManagerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemoryManagerStatics3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IMemoryManagerStatics4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessLauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessLauncherResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessLauncherStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProcessMemoryReport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IProtocolForResultsOperation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteLauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRemoteLauncherStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShutdownManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IShutdownManagerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimeZoneSettingsStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITimeZoneSettingsStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUser2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserAuthenticationStatusChangeDeferral(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserAuthenticationStatusChangingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserChangedEventArgs2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserDeviceAssociationChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserDeviceAssociationStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserPicker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserPickerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserStatics2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserWatcher(pub *mut ::core::ffi::c_void);
-pub struct KnownUserProperties(i32);
+#[repr(transparent)]
+pub struct KnownUserProperties(pub *mut ::core::ffi::c_void);
 pub struct LaunchFileStatus(i32);
 pub struct LaunchQuerySupportStatus(i32);
 pub struct LaunchQuerySupportType(i32);
-pub struct LaunchUriResult(i32);
+#[repr(transparent)]
+pub struct LaunchUriResult(pub *mut ::core::ffi::c_void);
 pub struct LaunchUriStatus(i32);
-pub struct Launcher(i32);
-pub struct LauncherOptions(i32);
-pub struct LauncherUIOptions(i32);
-pub struct MemoryManager(i32);
+#[repr(transparent)]
+pub struct Launcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct LauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct LauncherUIOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct MemoryManager(pub *mut ::core::ffi::c_void);
 pub struct PowerState(i32);
-pub struct ProcessLauncher(i32);
-pub struct ProcessLauncherOptions(i32);
-pub struct ProcessLauncherResult(i32);
-pub struct ProcessMemoryReport(i32);
+#[repr(transparent)]
+pub struct ProcessLauncher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessLauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessLauncherResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct ProcessMemoryReport(pub *mut ::core::ffi::c_void);
 pub struct ProcessorArchitecture(i32);
-pub struct ProtocolForResultsOperation(i32);
+#[repr(transparent)]
+pub struct ProtocolForResultsOperation(pub *mut ::core::ffi::c_void);
 pub struct RemoteLaunchUriStatus(i32);
-pub struct RemoteLauncher(i32);
-pub struct RemoteLauncherOptions(i32);
+#[repr(transparent)]
+pub struct RemoteLauncher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct RemoteLauncherOptions(pub *mut ::core::ffi::c_void);
 pub struct ShutdownKind(i32);
-pub struct ShutdownManager(i32);
+#[repr(transparent)]
+pub struct ShutdownManager(pub *mut ::core::ffi::c_void);
 pub struct SystemManagementContract(i32);
-pub struct TimeZoneSettings(i32);
-pub struct User(i32);
+#[repr(transparent)]
+pub struct TimeZoneSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct User(pub *mut ::core::ffi::c_void);
 pub struct UserAgeConsentGroup(i32);
 pub struct UserAgeConsentResult(i32);
 pub struct UserAuthenticationStatus(i32);
-pub struct UserAuthenticationStatusChangeDeferral(i32);
-pub struct UserAuthenticationStatusChangingEventArgs(i32);
-pub struct UserChangedEventArgs(i32);
-pub struct UserDeviceAssociation(i32);
-pub struct UserDeviceAssociationChangedEventArgs(i32);
-pub struct UserPicker(i32);
+#[repr(transparent)]
+pub struct UserAuthenticationStatusChangeDeferral(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserAuthenticationStatusChangingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserDeviceAssociation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserDeviceAssociationChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct UserPicker(pub *mut ::core::ffi::c_void);
 pub struct UserPictureSize(i32);
 pub struct UserType(i32);
-pub struct UserWatcher(i32);
+#[repr(transparent)]
+pub struct UserWatcher(pub *mut ::core::ffi::c_void);
 pub struct UserWatcherStatus(i32);
 pub struct UserWatcherUpdateKind(i32);
 pub struct VirtualKey(i32);

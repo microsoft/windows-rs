@@ -24,16 +24,27 @@ pub const DSF_WIA_SCANNERS: u32 = 4u32;
 pub const DSF_WPD_DEVICES: u32 = 1u32;
 pub struct ERROR_ADVISE_MESSAGE_TYPE(i32);
 pub struct ERROR_ADVISE_RESULT(i32);
+#[repr(transparent)]
 pub struct IPhotoAcquire(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoAcquireDeviceSelectionDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoAcquireItem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoAcquireOptionsDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoAcquirePlugin(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoAcquireProgressCB(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoAcquireSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoAcquireSource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoProgressActionCB(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPhotoProgressDialog(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IUserInputString(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const PAPS_CLEANUP: u32 = 2u32;

@@ -146,17 +146,26 @@ pub struct EVENTSETID_VIDEODECODER(i32);
 pub struct FRAMING_CACHE_OPS(i32);
 pub struct FRAMING_PROP(i32);
 pub struct GUID_NULL(i32);
+#[repr(transparent)]
 pub struct IKsAggregateControl(pub *mut ::core::ffi::c_void);
 pub struct IKsAllocator(i32);
 pub struct IKsAllocatorEx(i32);
+#[repr(transparent)]
 pub struct IKsControl(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsFormatSupport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsJackContainerId(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsJackDescription(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsJackDescription2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsJackSinkInformation(pub *mut ::core::ffi::c_void);
 pub struct IKsPin(i32);
+#[repr(transparent)]
 pub struct IKsPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKsTopology(pub *mut ::core::ffi::c_void);
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]

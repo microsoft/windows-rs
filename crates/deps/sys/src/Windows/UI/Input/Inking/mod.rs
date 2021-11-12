@@ -8,85 +8,156 @@ pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
 pub struct HandwritingLineHeight(i32);
+#[repr(transparent)]
 pub struct IInkDrawingAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDrawingAttributes2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDrawingAttributes3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDrawingAttributes4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDrawingAttributes5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDrawingAttributesPencilProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkDrawingAttributesStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkInputConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkInputConfiguration2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkInputProcessingConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkModelerAttributes(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkModelerAttributes2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPoint2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPointFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPointFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenter2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenter3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenterProtractor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenterProtractorFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenterRuler(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenterRuler2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenterRulerFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkPresenterStencil(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognitionResult(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkRecognizerContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStroke(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStroke2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStroke3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStroke4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeBuilder2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeBuilder3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeContainer2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeContainer3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokeRenderingSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokesCollectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkStrokesErasedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkSynchronizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IInkUnprocessedInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPenAndInkSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPenAndInkSettings2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPenAndInkSettingsStatics(pub *mut ::core::ffi::c_void);
-pub struct InkDrawingAttributes(i32);
+#[repr(transparent)]
+pub struct InkDrawingAttributes(pub *mut ::core::ffi::c_void);
 pub struct InkDrawingAttributesKind(i32);
-pub struct InkDrawingAttributesPencilProperties(i32);
+#[repr(transparent)]
+pub struct InkDrawingAttributesPencilProperties(pub *mut ::core::ffi::c_void);
 pub struct InkHighContrastAdjustment(i32);
-pub struct InkInputConfiguration(i32);
-pub struct InkInputProcessingConfiguration(i32);
+#[repr(transparent)]
+pub struct InkInputConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkInputProcessingConfiguration(pub *mut ::core::ffi::c_void);
 pub struct InkInputProcessingMode(i32);
 pub struct InkInputRightDragAction(i32);
-pub struct InkManager(i32);
+#[repr(transparent)]
+pub struct InkManager(pub *mut ::core::ffi::c_void);
 pub struct InkManipulationMode(i32);
-pub struct InkModelerAttributes(i32);
+#[repr(transparent)]
+pub struct InkModelerAttributes(pub *mut ::core::ffi::c_void);
 pub struct InkPersistenceFormat(i32);
-pub struct InkPoint(i32);
-pub struct InkPresenter(i32);
+#[repr(transparent)]
+pub struct InkPoint(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkPresenter(pub *mut ::core::ffi::c_void);
 pub struct InkPresenterPredefinedConfiguration(i32);
-pub struct InkPresenterProtractor(i32);
-pub struct InkPresenterRuler(i32);
+#[repr(transparent)]
+pub struct InkPresenterProtractor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkPresenterRuler(pub *mut ::core::ffi::c_void);
 pub struct InkPresenterStencilKind(i32);
-pub struct InkRecognitionResult(i32);
+#[repr(transparent)]
+pub struct InkRecognitionResult(pub *mut ::core::ffi::c_void);
 pub struct InkRecognitionTarget(i32);
-pub struct InkRecognizer(i32);
-pub struct InkRecognizerContainer(i32);
-pub struct InkStroke(i32);
-pub struct InkStrokeBuilder(i32);
-pub struct InkStrokeContainer(i32);
-pub struct InkStrokeInput(i32);
-pub struct InkStrokeRenderingSegment(i32);
-pub struct InkStrokesCollectedEventArgs(i32);
-pub struct InkStrokesErasedEventArgs(i32);
-pub struct InkSynchronizer(i32);
-pub struct InkUnprocessedInput(i32);
-pub struct PenAndInkSettings(i32);
+#[repr(transparent)]
+pub struct InkRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkRecognizerContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkStroke(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkStrokeBuilder(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkStrokeContainer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkStrokeInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkStrokeRenderingSegment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkStrokesCollectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkStrokesErasedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkSynchronizer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct InkUnprocessedInput(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct PenAndInkSettings(pub *mut ::core::ffi::c_void);
 pub struct PenHandedness(i32);
 pub struct PenTipShape(i32);

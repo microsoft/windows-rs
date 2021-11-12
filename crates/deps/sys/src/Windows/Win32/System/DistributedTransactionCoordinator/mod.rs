@@ -32,73 +32,139 @@ pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
 pub struct DTC_STATUS_(i32);
+#[repr(transparent)]
 pub struct IDtcLuConfigure(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRecovery(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRecoveryFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByLu(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByLuWork(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRmEnlistment(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRmEnlistmentFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuRmEnlistmentSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuSubordinateDtc(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuSubordinateDtcFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcLuSubordinateDtcSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcNetworkAccessConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcNetworkAccessConfig2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcNetworkAccessConfig3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcToXaHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcToXaHelperFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcToXaHelperSinglePipe(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDtcToXaMapper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IGetDispenser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IKernelTransaction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ILastResourceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrepareInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IPrepareInfo2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRMHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManager2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManagerFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManagerFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManagerRejoinable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IResourceManagerSink(pub *mut ::core::ffi::c_void);
 pub struct ISOFLAG(i32);
 pub struct ISOLATIONLEVEL(i32);
+#[repr(transparent)]
 pub struct ITipHelper(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITipPullSink(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITipTransaction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITmNodeName(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransaction(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransaction2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionCloner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionDispenser(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionEnlistmentAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionExport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionExportFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionImport(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionImportWhereabouts(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionLastEnlistmentAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionLastResourceAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionOptions(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionOutcomeEvents(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionPhase0EnlistmentAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionPhase0Factory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionPhase0NotifyAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionReceiver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionReceiverFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionResource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionResourceAsync(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionTransmitter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionTransmitterFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionVoterBallotAsync2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionVoterFactory2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ITransactionVoterNotifyAsync2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXAConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXAObtainRMInfo(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXATransLookup(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IXATransLookup2(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const MAXBQUALSIZE: u32 = 64u32;

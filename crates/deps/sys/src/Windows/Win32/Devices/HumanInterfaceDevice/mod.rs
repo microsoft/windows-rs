@@ -4750,25 +4750,45 @@ pub const HID_USAGE_VR_VEST: u16 = 9u16;
 pub struct HID_XFER_PACKET(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
+#[repr(transparent)]
 pub struct IDirectInput2A(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInput2W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInput7A(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInput7W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInput8A(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInput8W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDevice2A(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDevice2W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDevice7A(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDevice7W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDevice8A(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDevice8W(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDeviceA(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputDeviceW(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputEffect(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputEffectDriver(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputJoyConfig(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputJoyConfig8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IDirectInputW(pub *mut ::core::ffi::c_void);
 pub struct INDICATOR_LIST(i32);
 #[cfg(feature = "Win32_Foundation")]

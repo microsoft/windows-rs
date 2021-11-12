@@ -117,7 +117,11 @@ pub struct FH_TARGET_PROPERTY_TYPE(i32);
 pub struct FhBackupStopReason(i32);
 pub struct FhConfigMgr(i32);
 pub struct FhReassociation(i32);
+#[repr(transparent)]
 pub struct IFhConfigMgr(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFhReassociation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFhScopeIterator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IFhTarget(pub *mut ::core::ffi::c_void);

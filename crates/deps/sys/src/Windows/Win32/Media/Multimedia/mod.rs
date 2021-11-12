@@ -905,10 +905,15 @@ pub struct HDRVR(i32);
 pub struct HIC(i32);
 pub struct HMMIO(i32);
 pub struct HVIDEO(i32);
+#[repr(transparent)]
 pub struct IAVIEditStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAVIFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAVIPersistFile(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAVIStream(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IAVIStreaming(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICCOMPRESS(i32);
@@ -1326,6 +1331,7 @@ pub const IDS_CAP_WAVE_PREPARE_ERROR: u32 = 421u32;
 pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
+#[repr(transparent)]
 pub struct IGetFrame(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct IMAADPCMWAVEFORMAT(i32);

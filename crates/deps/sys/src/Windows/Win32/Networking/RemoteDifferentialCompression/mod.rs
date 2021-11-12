@@ -4,22 +4,39 @@ extern "system" {}
 pub struct FindSimilarFileIndexResults(i32);
 pub struct FindSimilarResults(i32);
 pub struct GeneratorParametersType(i32);
+#[repr(transparent)]
 pub struct IFindSimilarResults(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcComparator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcFileReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcFileWriter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcGenerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcGeneratorFilterMaxParameters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcGeneratorParameters(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcLibrary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcSignatureReader(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct IRdcSimilarityGenerator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimilarity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimilarityFileIdTable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimilarityReportProgress(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimilarityTableDumpState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimilarityTraitsMappedView(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimilarityTraitsMapping(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISimilarityTraitsTable(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 pub const MSRDC_DEFAULT_COMPAREBUFFER: u32 = 3200000u32;

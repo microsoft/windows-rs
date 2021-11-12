@@ -5,44 +5,81 @@ pub mod Preview;
 pub mod Surfaces;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(transparent)]
 pub struct ISpatialAnchor(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchor2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorExportSufficiency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorExporter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorExporterStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialAnchorTransferManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialBoundingVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialBoundingVolumeStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialCoordinateSystem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntityAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntityFactory(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntityRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntityStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntityStoreStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntityUpdatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialEntityWatcher(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialLocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialLocation2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialLocatorAttachedFrameOfReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialLocatorStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialStageFrameOfReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialStageFrameOfReferenceStatics(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ISpatialStationaryFrameOfReference(pub *mut ::core::ffi::c_void);
-pub struct SpatialAnchor(i32);
+#[repr(transparent)]
+pub struct SpatialAnchor(pub *mut ::core::ffi::c_void);
 pub struct SpatialAnchorExportPurpose(i32);
-pub struct SpatialAnchorExportSufficiency(i32);
-pub struct SpatialAnchorExporter(i32);
-pub struct SpatialAnchorManager(i32);
-pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(i32);
-pub struct SpatialAnchorStore(i32);
-pub struct SpatialAnchorTransferManager(i32);
+#[repr(transparent)]
+pub struct SpatialAnchorExportSufficiency(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialAnchorExporter(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialAnchorManager(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialAnchorStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialAnchorTransferManager(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingBox(i32);
 #[cfg(feature = "Foundation_Numerics")]
@@ -51,24 +88,38 @@ pub struct SpatialBoundingFrustum(i32);
 pub struct SpatialBoundingOrientedBox(i32);
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingSphere(i32);
-pub struct SpatialBoundingVolume(i32);
-pub struct SpatialCoordinateSystem(i32);
-pub struct SpatialEntity(i32);
-pub struct SpatialEntityAddedEventArgs(i32);
-pub struct SpatialEntityRemovedEventArgs(i32);
-pub struct SpatialEntityStore(i32);
-pub struct SpatialEntityUpdatedEventArgs(i32);
-pub struct SpatialEntityWatcher(i32);
+#[repr(transparent)]
+pub struct SpatialBoundingVolume(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialCoordinateSystem(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialEntity(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialEntityAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialEntityRemovedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialEntityStore(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialEntityUpdatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialEntityWatcher(pub *mut ::core::ffi::c_void);
 pub struct SpatialEntityWatcherStatus(i32);
 pub struct SpatialLocatability(i32);
-pub struct SpatialLocation(i32);
-pub struct SpatialLocator(i32);
-pub struct SpatialLocatorAttachedFrameOfReference(i32);
-pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(i32);
+#[repr(transparent)]
+pub struct SpatialLocation(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialLocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialLocatorAttachedFrameOfReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct SpatialLookDirectionRange(i32);
 pub struct SpatialMovementRange(i32);
 pub struct SpatialPerceptionAccessStatus(i32);
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialRay(i32);
-pub struct SpatialStageFrameOfReference(i32);
-pub struct SpatialStationaryFrameOfReference(i32);
+#[repr(transparent)]
+pub struct SpatialStageFrameOfReference(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
+pub struct SpatialStationaryFrameOfReference(pub *mut ::core::ffi::c_void);

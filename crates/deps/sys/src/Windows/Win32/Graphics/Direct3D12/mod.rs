@@ -1431,84 +1431,163 @@ pub const DXGI_DEBUG_D3D12: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17190,
     data4: [145, 239, 155, 186, 161, 123, 253, 149],
 };
+#[repr(transparent)]
 pub struct ID3D12CommandAllocator(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12CommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12CommandQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12CommandSignature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Debug(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Debug1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Debug2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Debug3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Debug4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Debug5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DebugCommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DebugCommandList1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DebugCommandList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DebugCommandQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DebugDevice(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DebugDevice1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DebugDevice2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DescriptorHeap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device7(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device8(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Device9(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DeviceChild(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DeviceRemovedExtendedData(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DeviceRemovedExtendedData1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DeviceRemovedExtendedData2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Fence(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Fence1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12FunctionParameterReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12FunctionReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12GraphicsCommandList(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12GraphicsCommandList1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12GraphicsCommandList2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12GraphicsCommandList3(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12GraphicsCommandList4(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12GraphicsCommandList5(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12GraphicsCommandList6(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Heap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Heap1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12InfoQueue(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12InfoQueue1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12LibraryReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12LifetimeOwner(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12LifetimeTracker(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12MetaCommand(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Object(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Pageable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12PipelineLibrary(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12PipelineLibrary1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12PipelineState(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ProtectedResourceSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ProtectedResourceSession1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ProtectedSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12QueryHeap(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Resource(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Resource1(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Resource2(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12RootSignature(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12RootSignatureDeserializer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12SDKConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ShaderCacheSession(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ShaderReflection(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ShaderReflectionConstantBuffer(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ShaderReflectionType(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12ShaderReflectionVariable(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12SharingContract(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12StateObject(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12StateObjectProperties(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12SwapChainAssistant(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12Tools(pub *mut ::core::ffi::c_void);
+#[repr(transparent)]
 pub struct ID3D12VersionedRootSignatureDeserializer(pub *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const LUID_DEFINED: u32 = 1u32;
