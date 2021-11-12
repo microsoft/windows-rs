@@ -96,9 +96,7 @@ pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [173, 176, 154, 7, 226, 174, 31, 162],
 };
 #[repr(C)]
-pub struct CriticalPolicySectionHandle {
-    pub Value: isize,
-}
+pub struct CriticalPolicySectionHandle(pub isize);
 impl ::core::marker::Copy for CriticalPolicySectionHandle {}
 impl ::core::clone::Clone for CriticalPolicySectionHandle {
     fn clone(&self) -> Self {

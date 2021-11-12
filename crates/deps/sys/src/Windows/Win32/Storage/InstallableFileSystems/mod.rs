@@ -291,9 +291,7 @@ impl ::core::clone::Clone for FLT_FILESYSTEM_TYPE {
 }
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 #[repr(C)]
-pub struct FilterFindHandle {
-    pub Value: isize,
-}
+pub struct FilterFindHandle(pub isize);
 impl ::core::marker::Copy for FilterFindHandle {}
 impl ::core::clone::Clone for FilterFindHandle {
     fn clone(&self) -> Self {
@@ -301,9 +299,7 @@ impl ::core::clone::Clone for FilterFindHandle {
     }
 }
 #[repr(C)]
-pub struct FilterInstanceFindHandle {
-    pub Value: isize,
-}
+pub struct FilterInstanceFindHandle(pub isize);
 impl ::core::marker::Copy for FilterInstanceFindHandle {}
 impl ::core::clone::Clone for FilterInstanceFindHandle {
     fn clone(&self) -> Self {
@@ -311,9 +307,7 @@ impl ::core::clone::Clone for FilterInstanceFindHandle {
     }
 }
 #[repr(C)]
-pub struct FilterVolumeFindHandle {
-    pub Value: isize,
-}
+pub struct FilterVolumeFindHandle(pub isize);
 impl ::core::marker::Copy for FilterVolumeFindHandle {}
 impl ::core::clone::Clone for FilterVolumeFindHandle {
     fn clone(&self) -> Self {
@@ -321,9 +315,7 @@ impl ::core::clone::Clone for FilterVolumeFindHandle {
     }
 }
 #[repr(C)]
-pub struct FilterVolumeInstanceFindHandle {
-    pub Value: isize,
-}
+pub struct FilterVolumeInstanceFindHandle(pub isize);
 impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
 impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
     fn clone(&self) -> Self {
@@ -331,9 +323,7 @@ impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
     }
 }
 #[repr(C)]
-pub struct HFILTER {
-    pub Value: isize,
-}
+pub struct HFILTER(pub isize);
 impl ::core::marker::Copy for HFILTER {}
 impl ::core::clone::Clone for HFILTER {
     fn clone(&self) -> Self {
@@ -341,9 +331,7 @@ impl ::core::clone::Clone for HFILTER {
     }
 }
 #[repr(C)]
-pub struct HFILTER_INSTANCE {
-    pub Value: isize,
-}
+pub struct HFILTER_INSTANCE(pub isize);
 impl ::core::marker::Copy for HFILTER_INSTANCE {}
 impl ::core::clone::Clone for HFILTER_INSTANCE {
     fn clone(&self) -> Self {

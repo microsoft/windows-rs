@@ -87,9 +87,7 @@ impl ::core::clone::Clone for DPI_AWARENESS {
     }
 }
 #[repr(C)]
-pub struct DPI_AWARENESS_CONTEXT {
-    pub Value: isize,
-}
+pub struct DPI_AWARENESS_CONTEXT(pub isize);
 impl ::core::marker::Copy for DPI_AWARENESS_CONTEXT {}
 impl ::core::clone::Clone for DPI_AWARENESS_CONTEXT {
     fn clone(&self) -> Self {

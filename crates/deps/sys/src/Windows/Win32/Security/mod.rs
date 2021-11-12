@@ -808,9 +808,7 @@ impl ::core::clone::Clone for GENERIC_MAPPING {
     }
 }
 #[repr(C)]
-pub struct HDIAGNOSTIC_DATA_QUERY_SESSION {
-    pub Value: isize,
-}
+pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
 impl ::core::marker::Copy for HDIAGNOSTIC_DATA_QUERY_SESSION {}
 impl ::core::clone::Clone for HDIAGNOSTIC_DATA_QUERY_SESSION {
     fn clone(&self) -> Self {
@@ -818,9 +816,7 @@ impl ::core::clone::Clone for HDIAGNOSTIC_DATA_QUERY_SESSION {
     }
 }
 #[repr(C)]
-pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
-    pub Value: isize,
-}
+pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
 impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {}
 impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     fn clone(&self) -> Self {
@@ -828,9 +824,7 @@ impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     }
 }
 #[repr(C)]
-pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
-    pub Value: isize,
-}
+pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
 impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {}
 impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     fn clone(&self) -> Self {
@@ -838,9 +832,7 @@ impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     }
 }
 #[repr(C)]
-pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
-    pub Value: isize,
-}
+pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
 impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {}
 impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     fn clone(&self) -> Self {
@@ -848,9 +840,7 @@ impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     }
 }
 #[repr(C)]
-pub struct HDIAGNOSTIC_RECORD {
-    pub Value: isize,
-}
+pub struct HDIAGNOSTIC_RECORD(pub isize);
 impl ::core::marker::Copy for HDIAGNOSTIC_RECORD {}
 impl ::core::clone::Clone for HDIAGNOSTIC_RECORD {
     fn clone(&self) -> Self {
@@ -858,9 +848,7 @@ impl ::core::clone::Clone for HDIAGNOSTIC_RECORD {
     }
 }
 #[repr(C)]
-pub struct HDIAGNOSTIC_REPORT {
-    pub Value: isize,
-}
+pub struct HDIAGNOSTIC_REPORT(pub isize);
 impl ::core::marker::Copy for HDIAGNOSTIC_REPORT {}
 impl ::core::clone::Clone for HDIAGNOSTIC_REPORT {
     fn clone(&self) -> Self {
@@ -950,9 +938,7 @@ impl ::core::clone::Clone for MANDATORY_LEVEL {
     }
 }
 #[repr(C)]
-pub struct NCRYPT_DESCRIPTOR_HANDLE {
-    pub Value: isize,
-}
+pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
 impl ::core::marker::Copy for NCRYPT_DESCRIPTOR_HANDLE {}
 impl ::core::clone::Clone for NCRYPT_DESCRIPTOR_HANDLE {
     fn clone(&self) -> Self {
@@ -960,9 +946,7 @@ impl ::core::clone::Clone for NCRYPT_DESCRIPTOR_HANDLE {
     }
 }
 #[repr(C)]
-pub struct NCRYPT_STREAM_HANDLE {
-    pub Value: isize,
-}
+pub struct NCRYPT_STREAM_HANDLE(pub isize);
 impl ::core::marker::Copy for NCRYPT_STREAM_HANDLE {}
 impl ::core::clone::Clone for NCRYPT_STREAM_HANDLE {
     fn clone(&self) -> Self {
@@ -1034,9 +1018,7 @@ impl ::core::clone::Clone for QUOTA_LIMITS {
     }
 }
 #[repr(C)]
-pub struct SAFER_LEVEL_HANDLE {
-    pub Value: isize,
-}
+pub struct SAFER_LEVEL_HANDLE(pub isize);
 impl ::core::marker::Copy for SAFER_LEVEL_HANDLE {}
 impl ::core::clone::Clone for SAFER_LEVEL_HANDLE {
     fn clone(&self) -> Self {
@@ -1044,9 +1026,7 @@ impl ::core::clone::Clone for SAFER_LEVEL_HANDLE {
     }
 }
 #[repr(C)]
-pub struct SC_HANDLE {
-    pub Value: isize,
-}
+pub struct SC_HANDLE(pub isize);
 impl ::core::marker::Copy for SC_HANDLE {}
 impl ::core::clone::Clone for SC_HANDLE {
     fn clone(&self) -> Self {

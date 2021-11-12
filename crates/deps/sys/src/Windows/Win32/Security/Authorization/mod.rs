@@ -649,9 +649,7 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
     }
 }
 #[repr(C)]
-pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    pub Value: isize,
-}
+pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     fn clone(&self) -> Self {
@@ -690,9 +688,7 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
 }
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[repr(C)]
-pub struct AUTHZ_AUDIT_EVENT_HANDLE {
-    pub Value: isize,
-}
+pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_HANDLE {
     fn clone(&self) -> Self {
@@ -713,9 +709,7 @@ impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
     }
 }
 #[repr(C)]
-pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    pub Value: isize,
-}
+pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     fn clone(&self) -> Self {
@@ -774,9 +768,7 @@ impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
     }
 }
 #[repr(C)]
-pub struct AUTHZ_CLIENT_CONTEXT_HANDLE {
-    pub Value: isize,
-}
+pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_CLIENT_CONTEXT_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_CLIENT_CONTEXT_HANDLE {
     fn clone(&self) -> Self {
@@ -878,9 +870,7 @@ impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
     }
 }
 #[repr(C)]
-pub struct AUTHZ_RESOURCE_MANAGER_HANDLE {
-    pub Value: isize,
-}
+pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_HANDLE {
     fn clone(&self) -> Self {
@@ -1030,9 +1020,7 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     }
 }
 #[repr(C)]
-pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    pub Value: isize,
-}
+pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     fn clone(&self) -> Self {

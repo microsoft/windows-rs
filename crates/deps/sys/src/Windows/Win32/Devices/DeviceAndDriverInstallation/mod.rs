@@ -2910,9 +2910,7 @@ pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows_sys::core::GUID = ::windows_s
     data4: [162, 210, 215, 12, 21, 248, 183, 91],
 };
 #[repr(C)]
-pub struct HCMNOTIFICATION {
-    pub Value: isize,
-}
+pub struct HCMNOTIFICATION(pub isize);
 impl ::core::marker::Copy for HCMNOTIFICATION {}
 impl ::core::clone::Clone for HCMNOTIFICATION {
     fn clone(&self) -> Self {

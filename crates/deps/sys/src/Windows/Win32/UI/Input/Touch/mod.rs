@@ -89,9 +89,7 @@ impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
     }
 }
 #[repr(C)]
-pub struct HGESTUREINFO {
-    pub Value: isize,
-}
+pub struct HGESTUREINFO(pub isize);
 impl ::core::marker::Copy for HGESTUREINFO {}
 impl ::core::clone::Clone for HGESTUREINFO {
     fn clone(&self) -> Self {
@@ -99,9 +97,7 @@ impl ::core::clone::Clone for HGESTUREINFO {
     }
 }
 #[repr(C)]
-pub struct HTOUCHINPUT {
-    pub Value: isize,
-}
+pub struct HTOUCHINPUT(pub isize);
 impl ::core::marker::Copy for HTOUCHINPUT {}
 impl ::core::clone::Clone for HTOUCHINPUT {
     fn clone(&self) -> Self {

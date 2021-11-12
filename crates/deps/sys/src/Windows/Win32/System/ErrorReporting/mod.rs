@@ -89,9 +89,7 @@ impl ::core::clone::Clone for EFaultRepRetVal {
     }
 }
 #[repr(C)]
-pub struct HREPORT {
-    pub Value: isize,
-}
+pub struct HREPORT(pub isize);
 impl ::core::marker::Copy for HREPORT {}
 impl ::core::clone::Clone for HREPORT {
     fn clone(&self) -> Self {
@@ -99,9 +97,7 @@ impl ::core::clone::Clone for HREPORT {
     }
 }
 #[repr(C)]
-pub struct HREPORTSTORE {
-    pub Value: isize,
-}
+pub struct HREPORTSTORE(pub isize);
 impl ::core::marker::Copy for HREPORTSTORE {}
 impl ::core::clone::Clone for HREPORTSTORE {
     fn clone(&self) -> Self {

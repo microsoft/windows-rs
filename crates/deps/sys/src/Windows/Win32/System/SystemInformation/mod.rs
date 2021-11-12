@@ -277,9 +277,7 @@ impl ::core::clone::Clone for DEVICEFAMILYINFOENUM {
     }
 }
 #[repr(C)]
-pub struct FIRMWARE_TABLE_ID {
-    pub Value: u32,
-}
+pub struct FIRMWARE_TABLE_ID(pub u32);
 impl ::core::marker::Copy for FIRMWARE_TABLE_ID {}
 impl ::core::clone::Clone for FIRMWARE_TABLE_ID {
     fn clone(&self) -> Self {

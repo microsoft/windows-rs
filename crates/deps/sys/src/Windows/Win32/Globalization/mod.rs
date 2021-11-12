@@ -2213,9 +2213,7 @@ pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
 pub const HIGH_SURROGATE_END: u32 = 56319u32;
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
 #[repr(C)]
-pub struct HIMC {
-    pub Value: isize,
-}
+pub struct HIMC(pub isize);
 impl ::core::marker::Copy for HIMC {}
 impl ::core::clone::Clone for HIMC {
     fn clone(&self) -> Self {
@@ -2223,9 +2221,7 @@ impl ::core::clone::Clone for HIMC {
     }
 }
 #[repr(C)]
-pub struct HIMCC {
-    pub Value: isize,
-}
+pub struct HIMCC(pub isize);
 impl ::core::marker::Copy for HIMCC {}
 impl ::core::clone::Clone for HIMCC {
     fn clone(&self) -> Self {
@@ -2233,9 +2229,7 @@ impl ::core::clone::Clone for HIMCC {
     }
 }
 #[repr(C)]
-pub struct HSAVEDUILANGUAGES {
-    pub Value: isize,
-}
+pub struct HSAVEDUILANGUAGES(pub isize);
 impl ::core::marker::Copy for HSAVEDUILANGUAGES {}
 impl ::core::clone::Clone for HSAVEDUILANGUAGES {
     fn clone(&self) -> Self {

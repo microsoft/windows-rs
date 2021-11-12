@@ -1739,9 +1739,7 @@ pub const GUI_16BITTASK: u32 = 0u32;
 pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
 pub const GW_MAX: u32 = 5u32;
 #[repr(C)]
-pub struct HACCEL {
-    pub Value: isize,
-}
+pub struct HACCEL(pub isize);
 impl ::core::marker::Copy for HACCEL {}
 impl ::core::clone::Clone for HACCEL {
     fn clone(&self) -> Self {
@@ -1809,9 +1807,7 @@ pub const HCBT_SYSCOMMAND: u32 = 8u32;
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
 #[repr(C)]
-pub struct HCURSOR {
-    pub Value: isize,
-}
+pub struct HCURSOR(pub isize);
 impl ::core::marker::Copy for HCURSOR {}
 impl ::core::clone::Clone for HCURSOR {
     fn clone(&self) -> Self {
@@ -1849,9 +1845,7 @@ pub const HELP_TCARD_DATA: u32 = 16u32;
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
 pub const HELP_WM_HELP: u32 = 12u32;
 #[repr(C)]
-pub struct HHOOK {
-    pub Value: isize,
-}
+pub struct HHOOK(pub isize);
 impl ::core::marker::Copy for HHOOK {}
 impl ::core::clone::Clone for HHOOK {
     fn clone(&self) -> Self {
@@ -1859,9 +1853,7 @@ impl ::core::clone::Clone for HHOOK {
     }
 }
 #[repr(C)]
-pub struct HICON {
-    pub Value: isize,
-}
+pub struct HICON(pub isize);
 impl ::core::marker::Copy for HICON {}
 impl ::core::clone::Clone for HICON {
     fn clone(&self) -> Self {
@@ -1872,9 +1864,7 @@ pub const HIDE_WINDOW: u32 = 0u32;
 pub const HKL_NEXT: u32 = 1u32;
 pub const HKL_PREV: u32 = 0u32;
 #[repr(C)]
-pub struct HMENU {
-    pub Value: isize,
-}
+pub struct HMENU(pub isize);
 impl ::core::marker::Copy for HMENU {}
 impl ::core::clone::Clone for HMENU {
     fn clone(&self) -> Self {

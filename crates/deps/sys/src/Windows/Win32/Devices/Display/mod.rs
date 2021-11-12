@@ -854,9 +854,7 @@ pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PR
     pid: 1u32,
 };
 #[repr(C)]
-pub struct DHPDEV {
-    pub Value: isize,
-}
+pub struct DHPDEV(pub isize);
 impl ::core::marker::Copy for DHPDEV {}
 impl ::core::clone::Clone for DHPDEV {
     fn clone(&self) -> Self {
@@ -864,9 +862,7 @@ impl ::core::clone::Clone for DHPDEV {
     }
 }
 #[repr(C)]
-pub struct DHSURF {
-    pub Value: isize,
-}
+pub struct DHSURF(pub isize);
 impl ::core::marker::Copy for DHSURF {}
 impl ::core::clone::Clone for DHSURF {
     fn clone(&self) -> Self {
@@ -2604,9 +2600,7 @@ pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
 pub const GX_SCALE: i32 = 2i32;
 #[repr(C)]
-pub struct HBM {
-    pub Value: isize,
-}
+pub struct HBM(pub isize);
 impl ::core::marker::Copy for HBM {}
 impl ::core::clone::Clone for HBM {
     fn clone(&self) -> Self {
@@ -2614,9 +2608,7 @@ impl ::core::clone::Clone for HBM {
     }
 }
 #[repr(C)]
-pub struct HDEV {
-    pub Value: isize,
-}
+pub struct HDEV(pub isize);
 impl ::core::marker::Copy for HDEV {}
 impl ::core::clone::Clone for HDEV {
     fn clone(&self) -> Self {
@@ -2624,9 +2616,7 @@ impl ::core::clone::Clone for HDEV {
     }
 }
 #[repr(C)]
-pub struct HDRVOBJ {
-    pub Value: isize,
-}
+pub struct HDRVOBJ(pub isize);
 impl ::core::marker::Copy for HDRVOBJ {}
 impl ::core::clone::Clone for HDRVOBJ {
     fn clone(&self) -> Self {
@@ -2634,9 +2624,7 @@ impl ::core::clone::Clone for HDRVOBJ {
     }
 }
 #[repr(C)]
-pub struct HFASTMUTEX {
-    pub Value: isize,
-}
+pub struct HFASTMUTEX(pub isize);
 impl ::core::marker::Copy for HFASTMUTEX {}
 impl ::core::clone::Clone for HFASTMUTEX {
     fn clone(&self) -> Self {
@@ -2672,9 +2660,7 @@ pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 #[repr(C)]
-pub struct HSEMAPHORE {
-    pub Value: isize,
-}
+pub struct HSEMAPHORE(pub isize);
 impl ::core::marker::Copy for HSEMAPHORE {}
 impl ::core::clone::Clone for HSEMAPHORE {
     fn clone(&self) -> Self {
@@ -2682,9 +2668,7 @@ impl ::core::clone::Clone for HSEMAPHORE {
     }
 }
 #[repr(C)]
-pub struct HSURF {
-    pub Value: isize,
-}
+pub struct HSURF(pub isize);
 impl ::core::marker::Copy for HSURF {}
 impl ::core::clone::Clone for HSURF {
     fn clone(&self) -> Self {

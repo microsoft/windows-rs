@@ -593,9 +593,7 @@ impl ::core::clone::Clone for GLOBAL_FILTER {
     }
 }
 #[repr(C)]
-pub struct HIFTIMESTAMPCHANGE {
-    pub Value: isize,
-}
+pub struct HIFTIMESTAMPCHANGE(pub isize);
 impl ::core::marker::Copy for HIFTIMESTAMPCHANGE {}
 impl ::core::clone::Clone for HIFTIMESTAMPCHANGE {
     fn clone(&self) -> Self {
@@ -1803,9 +1801,7 @@ impl ::core::clone::Clone for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
 pub const IP_UNLOAD: u32 = 11022u32;
 pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
 #[repr(C)]
-pub struct IcmpHandle {
-    pub Value: isize,
-}
+pub struct IcmpHandle(pub isize);
 impl ::core::marker::Copy for IcmpHandle {}
 impl ::core::clone::Clone for IcmpHandle {
     fn clone(&self) -> Self {

@@ -2060,9 +2060,7 @@ impl ::core::clone::Clone for TDH_CONTEXT_TYPE {
     }
 }
 #[repr(C)]
-pub struct TDH_HANDLE {
-    pub Value: isize,
-}
+pub struct TDH_HANDLE(pub isize);
 impl ::core::marker::Copy for TDH_HANDLE {}
 impl ::core::clone::Clone for TDH_HANDLE {
     fn clone(&self) -> Self {

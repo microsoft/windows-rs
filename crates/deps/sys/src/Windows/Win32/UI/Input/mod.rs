@@ -36,9 +36,7 @@ extern "system" {
     pub fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct HRAWINPUT {
-    pub Value: isize,
-}
+pub struct HRAWINPUT(pub isize);
 impl ::core::marker::Copy for HRAWINPUT {}
 impl ::core::clone::Clone for HRAWINPUT {
     fn clone(&self) -> Self {

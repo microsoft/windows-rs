@@ -1746,9 +1746,7 @@ impl ::core::clone::Clone for JET_LOGTIME_1_0 {
     }
 }
 #[repr(C)]
-pub struct JET_LS {
-    pub Value: usize,
-}
+pub struct JET_LS(pub usize);
 impl ::core::marker::Copy for JET_LS {}
 impl ::core::clone::Clone for JET_LS {
     fn clone(&self) -> Self {
@@ -1880,9 +1878,7 @@ impl ::core::clone::Clone for JET_OPERATIONCONTEXT {
     }
 }
 #[repr(C)]
-pub struct JET_OSSNAPID {
-    pub Value: usize,
-}
+pub struct JET_OSSNAPID(pub usize);
 impl ::core::marker::Copy for JET_OSSNAPID {}
 impl ::core::clone::Clone for JET_OSSNAPID {
     fn clone(&self) -> Self {

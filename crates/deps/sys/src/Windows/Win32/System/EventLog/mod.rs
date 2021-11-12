@@ -615,9 +615,7 @@ pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
 #[repr(C)]
-pub struct EventLogHandle {
-    pub Value: isize,
-}
+pub struct EventLogHandle(pub isize);
 impl ::core::marker::Copy for EventLogHandle {}
 impl ::core::clone::Clone for EventLogHandle {
     fn clone(&self) -> Self {
@@ -625,9 +623,7 @@ impl ::core::clone::Clone for EventLogHandle {
     }
 }
 #[repr(C)]
-pub struct EventSourceHandle {
-    pub Value: isize,
-}
+pub struct EventSourceHandle(pub isize);
 impl ::core::marker::Copy for EventSourceHandle {}
 impl ::core::clone::Clone for EventSourceHandle {
     fn clone(&self) -> Self {

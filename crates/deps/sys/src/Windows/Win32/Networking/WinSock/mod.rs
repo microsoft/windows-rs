@@ -959,9 +959,7 @@ impl ::core::clone::Clone for GROUP_SOURCE_REQ {
     }
 }
 #[repr(C)]
-pub struct HWSAEVENT {
-    pub Value: isize,
-}
+pub struct HWSAEVENT(pub isize);
 impl ::core::marker::Copy for HWSAEVENT {}
 impl ::core::clone::Clone for HWSAEVENT {
     fn clone(&self) -> Self {
@@ -3493,9 +3491,7 @@ impl ::core::clone::Clone for SOCKADDR_STORAGE_XP {
     }
 }
 #[repr(C)]
-pub struct SOCKET {
-    pub Value: usize,
-}
+pub struct SOCKET(pub usize);
 impl ::core::marker::Copy for SOCKET {}
 impl ::core::clone::Clone for SOCKET {
     fn clone(&self) -> Self {

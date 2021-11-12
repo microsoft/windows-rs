@@ -1172,9 +1172,7 @@ impl ::core::clone::Clone for GSM610WAVEFORMAT {
     }
 }
 #[repr(C)]
-pub struct HDRVR {
-    pub Value: isize,
-}
+pub struct HDRVR(pub isize);
 impl ::core::marker::Copy for HDRVR {}
 impl ::core::clone::Clone for HDRVR {
     fn clone(&self) -> Self {
@@ -1182,9 +1180,7 @@ impl ::core::clone::Clone for HDRVR {
     }
 }
 #[repr(C)]
-pub struct HIC {
-    pub Value: isize,
-}
+pub struct HIC(pub isize);
 impl ::core::marker::Copy for HIC {}
 impl ::core::clone::Clone for HIC {
     fn clone(&self) -> Self {
@@ -1192,9 +1188,7 @@ impl ::core::clone::Clone for HIC {
     }
 }
 #[repr(C)]
-pub struct HMMIO {
-    pub Value: isize,
-}
+pub struct HMMIO(pub isize);
 impl ::core::marker::Copy for HMMIO {}
 impl ::core::clone::Clone for HMMIO {
     fn clone(&self) -> Self {
@@ -1202,9 +1196,7 @@ impl ::core::clone::Clone for HMMIO {
     }
 }
 #[repr(C)]
-pub struct HVIDEO {
-    pub Value: isize,
-}
+pub struct HVIDEO(pub isize);
 impl ::core::marker::Copy for HVIDEO {}
 impl ::core::clone::Clone for HVIDEO {
     fn clone(&self) -> Self {

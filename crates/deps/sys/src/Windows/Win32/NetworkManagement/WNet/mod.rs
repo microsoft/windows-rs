@@ -437,9 +437,7 @@ impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
     }
 }
 #[repr(C)]
-pub struct NetEnumHandle {
-    pub Value: isize,
-}
+pub struct NetEnumHandle(pub isize);
 impl ::core::marker::Copy for NetEnumHandle {}
 impl ::core::clone::Clone for NetEnumHandle {
     fn clone(&self) -> Self {

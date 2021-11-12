@@ -596,9 +596,7 @@ impl ::core::clone::Clone for COWAIT_FLAGS {
     }
 }
 #[repr(C)]
-pub struct CO_DEVICE_CATALOG_COOKIE {
-    pub Value: isize,
-}
+pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
 impl ::core::marker::Copy for CO_DEVICE_CATALOG_COOKIE {}
 impl ::core::clone::Clone for CO_DEVICE_CATALOG_COOKIE {
     fn clone(&self) -> Self {
@@ -633,9 +631,7 @@ impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
     }
 }
 #[repr(C)]
-pub struct CO_MTA_USAGE_COOKIE {
-    pub Value: isize,
-}
+pub struct CO_MTA_USAGE_COOKIE(pub isize);
 impl ::core::marker::Copy for CO_MTA_USAGE_COOKIE {}
 impl ::core::clone::Clone for CO_MTA_USAGE_COOKIE {
     fn clone(&self) -> Self {

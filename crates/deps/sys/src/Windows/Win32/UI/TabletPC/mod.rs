@@ -1260,9 +1260,7 @@ pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [172, 0, 149, 249, 161, 150, 120, 44],
 };
 #[repr(C)]
-pub struct HRECOALT {
-    pub Value: isize,
-}
+pub struct HRECOALT(pub isize);
 impl ::core::marker::Copy for HRECOALT {}
 impl ::core::clone::Clone for HRECOALT {
     fn clone(&self) -> Self {
@@ -1270,9 +1268,7 @@ impl ::core::clone::Clone for HRECOALT {
     }
 }
 #[repr(C)]
-pub struct HRECOCONTEXT {
-    pub Value: isize,
-}
+pub struct HRECOCONTEXT(pub isize);
 impl ::core::marker::Copy for HRECOCONTEXT {}
 impl ::core::clone::Clone for HRECOCONTEXT {
     fn clone(&self) -> Self {
@@ -1280,9 +1276,7 @@ impl ::core::clone::Clone for HRECOCONTEXT {
     }
 }
 #[repr(C)]
-pub struct HRECOGNIZER {
-    pub Value: isize,
-}
+pub struct HRECOGNIZER(pub isize);
 impl ::core::marker::Copy for HRECOGNIZER {}
 impl ::core::clone::Clone for HRECOGNIZER {
     fn clone(&self) -> Self {
@@ -1290,9 +1284,7 @@ impl ::core::clone::Clone for HRECOGNIZER {
     }
 }
 #[repr(C)]
-pub struct HRECOLATTICE {
-    pub Value: isize,
-}
+pub struct HRECOLATTICE(pub isize);
 impl ::core::marker::Copy for HRECOLATTICE {}
 impl ::core::clone::Clone for HRECOLATTICE {
     fn clone(&self) -> Self {
@@ -1300,9 +1292,7 @@ impl ::core::clone::Clone for HRECOLATTICE {
     }
 }
 #[repr(C)]
-pub struct HRECOWORDLIST {
-    pub Value: isize,
-}
+pub struct HRECOWORDLIST(pub isize);
 impl ::core::marker::Copy for HRECOWORDLIST {}
 impl ::core::clone::Clone for HRECOWORDLIST {
     fn clone(&self) -> Self {

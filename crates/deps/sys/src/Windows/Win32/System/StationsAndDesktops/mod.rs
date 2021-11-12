@@ -113,9 +113,7 @@ pub type DESKTOPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foun
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[repr(C)]
-pub struct HDESK {
-    pub Value: isize,
-}
+pub struct HDESK(pub isize);
 impl ::core::marker::Copy for HDESK {}
 impl ::core::clone::Clone for HDESK {
     fn clone(&self) -> Self {
@@ -123,9 +121,7 @@ impl ::core::clone::Clone for HDESK {
     }
 }
 #[repr(C)]
-pub struct HWINSTA {
-    pub Value: isize,
-}
+pub struct HWINSTA(pub isize);
 impl ::core::marker::Copy for HWINSTA {}
 impl ::core::clone::Clone for HWINSTA {
     fn clone(&self) -> Self {

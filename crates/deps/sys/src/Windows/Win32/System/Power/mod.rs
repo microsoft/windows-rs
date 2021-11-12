@@ -721,9 +721,7 @@ pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windo
 };
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457780371, data2: 27044, data3: 19392, data4: [189, 2, 113, 22, 100, 113, 68, 99] };
 #[repr(C)]
-pub struct HPOWERNOTIFY {
-    pub Value: isize,
-}
+pub struct HPOWERNOTIFY(pub isize);
 impl ::core::marker::Copy for HPOWERNOTIFY {}
 impl ::core::clone::Clone for HPOWERNOTIFY {
     fn clone(&self) -> Self {

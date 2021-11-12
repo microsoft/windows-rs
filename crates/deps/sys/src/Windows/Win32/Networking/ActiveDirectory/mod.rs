@@ -3243,9 +3243,7 @@ pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 pub const FaxNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768642581, data2: 18049, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
-pub struct GetDcContextHandle {
-    pub Value: isize,
-}
+pub struct GetDcContextHandle(pub isize);
 impl ::core::marker::Copy for GetDcContextHandle {}
 impl ::core::clone::Clone for GetDcContextHandle {
     fn clone(&self) -> Self {

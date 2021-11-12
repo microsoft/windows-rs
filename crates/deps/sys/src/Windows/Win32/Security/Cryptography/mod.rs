@@ -929,9 +929,7 @@ impl ::core::clone::Clone for BCRYPT_ALGORITHM_IDENTIFIER {
     }
 }
 #[repr(C)]
-pub struct BCRYPT_ALG_HANDLE {
-    pub Value: isize,
-}
+pub struct BCRYPT_ALG_HANDLE(pub isize);
 impl ::core::marker::Copy for BCRYPT_ALG_HANDLE {}
 impl ::core::clone::Clone for BCRYPT_ALG_HANDLE {
     fn clone(&self) -> Self {
@@ -1231,9 +1229,7 @@ pub const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1u32;
 pub const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
 pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 #[repr(C)]
-pub struct BCRYPT_KEY_HANDLE {
-    pub Value: isize,
-}
+pub struct BCRYPT_KEY_HANDLE(pub isize);
 impl ::core::marker::Copy for BCRYPT_KEY_HANDLE {}
 impl ::core::clone::Clone for BCRYPT_KEY_HANDLE {
     fn clone(&self) -> Self {
@@ -8306,9 +8302,7 @@ impl ::core::clone::Clone for HASHALGORITHM_ENUM {
     }
 }
 #[repr(C)]
-pub struct HCERTCHAINENGINE {
-    pub Value: isize,
-}
+pub struct HCERTCHAINENGINE(pub isize);
 impl ::core::marker::Copy for HCERTCHAINENGINE {}
 impl ::core::clone::Clone for HCERTCHAINENGINE {
     fn clone(&self) -> Self {
@@ -8316,9 +8310,7 @@ impl ::core::clone::Clone for HCERTCHAINENGINE {
     }
 }
 #[repr(C)]
-pub struct HCRYPTASYNC {
-    pub Value: isize,
-}
+pub struct HCRYPTASYNC(pub isize);
 impl ::core::marker::Copy for HCRYPTASYNC {}
 impl ::core::clone::Clone for HCRYPTASYNC {
     fn clone(&self) -> Self {

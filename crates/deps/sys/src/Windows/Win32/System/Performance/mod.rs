@@ -1727,9 +1727,7 @@ impl ::core::clone::Clone for PerfCounterDataType {
     }
 }
 #[repr(C)]
-pub struct PerfProviderHandle {
-    pub Value: isize,
-}
+pub struct PerfProviderHandle(pub isize);
 impl ::core::marker::Copy for PerfProviderHandle {}
 impl ::core::clone::Clone for PerfProviderHandle {
     fn clone(&self) -> Self {
@@ -1737,9 +1735,7 @@ impl ::core::clone::Clone for PerfProviderHandle {
     }
 }
 #[repr(C)]
-pub struct PerfQueryHandle {
-    pub Value: isize,
-}
+pub struct PerfQueryHandle(pub isize);
 impl ::core::marker::Copy for PerfQueryHandle {}
 impl ::core::clone::Clone for PerfQueryHandle {
     fn clone(&self) -> Self {

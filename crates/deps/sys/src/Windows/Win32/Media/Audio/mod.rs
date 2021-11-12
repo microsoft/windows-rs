@@ -1361,9 +1361,7 @@ pub const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0u32;
 pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
 pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
 #[repr(C)]
-pub struct HACMDRIVER {
-    pub Value: isize,
-}
+pub struct HACMDRIVER(pub isize);
 impl ::core::marker::Copy for HACMDRIVER {}
 impl ::core::clone::Clone for HACMDRIVER {
     fn clone(&self) -> Self {
@@ -1371,9 +1369,7 @@ impl ::core::clone::Clone for HACMDRIVER {
     }
 }
 #[repr(C)]
-pub struct HACMDRIVERID {
-    pub Value: isize,
-}
+pub struct HACMDRIVERID(pub isize);
 impl ::core::marker::Copy for HACMDRIVERID {}
 impl ::core::clone::Clone for HACMDRIVERID {
     fn clone(&self) -> Self {
@@ -1381,9 +1377,7 @@ impl ::core::clone::Clone for HACMDRIVERID {
     }
 }
 #[repr(C)]
-pub struct HACMOBJ {
-    pub Value: isize,
-}
+pub struct HACMOBJ(pub isize);
 impl ::core::marker::Copy for HACMOBJ {}
 impl ::core::clone::Clone for HACMOBJ {
     fn clone(&self) -> Self {
@@ -1391,9 +1385,7 @@ impl ::core::clone::Clone for HACMOBJ {
     }
 }
 #[repr(C)]
-pub struct HACMSTREAM {
-    pub Value: isize,
-}
+pub struct HACMSTREAM(pub isize);
 impl ::core::marker::Copy for HACMSTREAM {}
 impl ::core::clone::Clone for HACMSTREAM {
     fn clone(&self) -> Self {
@@ -1401,9 +1393,7 @@ impl ::core::clone::Clone for HACMSTREAM {
     }
 }
 #[repr(C)]
-pub struct HMIDI {
-    pub Value: isize,
-}
+pub struct HMIDI(pub isize);
 impl ::core::marker::Copy for HMIDI {}
 impl ::core::clone::Clone for HMIDI {
     fn clone(&self) -> Self {
@@ -1411,9 +1401,7 @@ impl ::core::clone::Clone for HMIDI {
     }
 }
 #[repr(C)]
-pub struct HMIDIIN {
-    pub Value: isize,
-}
+pub struct HMIDIIN(pub isize);
 impl ::core::marker::Copy for HMIDIIN {}
 impl ::core::clone::Clone for HMIDIIN {
     fn clone(&self) -> Self {
@@ -1421,9 +1409,7 @@ impl ::core::clone::Clone for HMIDIIN {
     }
 }
 #[repr(C)]
-pub struct HMIDIOUT {
-    pub Value: isize,
-}
+pub struct HMIDIOUT(pub isize);
 impl ::core::marker::Copy for HMIDIOUT {}
 impl ::core::clone::Clone for HMIDIOUT {
     fn clone(&self) -> Self {
@@ -1431,9 +1417,7 @@ impl ::core::clone::Clone for HMIDIOUT {
     }
 }
 #[repr(C)]
-pub struct HMIDISTRM {
-    pub Value: isize,
-}
+pub struct HMIDISTRM(pub isize);
 impl ::core::marker::Copy for HMIDISTRM {}
 impl ::core::clone::Clone for HMIDISTRM {
     fn clone(&self) -> Self {
@@ -1441,9 +1425,7 @@ impl ::core::clone::Clone for HMIDISTRM {
     }
 }
 #[repr(C)]
-pub struct HMIXER {
-    pub Value: isize,
-}
+pub struct HMIXER(pub isize);
 impl ::core::marker::Copy for HMIXER {}
 impl ::core::clone::Clone for HMIXER {
     fn clone(&self) -> Self {
@@ -1451,9 +1433,7 @@ impl ::core::clone::Clone for HMIXER {
     }
 }
 #[repr(C)]
-pub struct HMIXEROBJ {
-    pub Value: isize,
-}
+pub struct HMIXEROBJ(pub isize);
 impl ::core::marker::Copy for HMIXEROBJ {}
 impl ::core::clone::Clone for HMIXEROBJ {
     fn clone(&self) -> Self {
@@ -1461,9 +1441,7 @@ impl ::core::clone::Clone for HMIXEROBJ {
     }
 }
 #[repr(C)]
-pub struct HWAVE {
-    pub Value: isize,
-}
+pub struct HWAVE(pub isize);
 impl ::core::marker::Copy for HWAVE {}
 impl ::core::clone::Clone for HWAVE {
     fn clone(&self) -> Self {
@@ -1471,9 +1449,7 @@ impl ::core::clone::Clone for HWAVE {
     }
 }
 #[repr(C)]
-pub struct HWAVEIN {
-    pub Value: isize,
-}
+pub struct HWAVEIN(pub isize);
 impl ::core::marker::Copy for HWAVEIN {}
 impl ::core::clone::Clone for HWAVEIN {
     fn clone(&self) -> Self {
@@ -1481,9 +1457,7 @@ impl ::core::clone::Clone for HWAVEIN {
     }
 }
 #[repr(C)]
-pub struct HWAVEOUT {
-    pub Value: isize,
-}
+pub struct HWAVEOUT(pub isize);
 impl ::core::marker::Copy for HWAVEOUT {}
 impl ::core::clone::Clone for HWAVEOUT {
     fn clone(&self) -> Self {

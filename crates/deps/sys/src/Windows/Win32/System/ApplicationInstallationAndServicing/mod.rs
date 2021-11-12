@@ -1673,9 +1673,7 @@ impl ::core::clone::Clone for MSIFILEHASHINFO {
     }
 }
 #[repr(C)]
-pub struct MSIHANDLE {
-    pub Value: u32,
-}
+pub struct MSIHANDLE(pub u32);
 impl ::core::marker::Copy for MSIHANDLE {}
 impl ::core::clone::Clone for MSIHANDLE {
     fn clone(&self) -> Self {

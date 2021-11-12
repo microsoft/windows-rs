@@ -586,9 +586,7 @@ impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
     }
 }
 #[repr(C)]
-pub struct BoundaryDescriptorHandle {
-    pub Value: isize,
-}
+pub struct BoundaryDescriptorHandle(pub isize);
 impl ::core::marker::Copy for BoundaryDescriptorHandle {}
 impl ::core::clone::Clone for BoundaryDescriptorHandle {
     fn clone(&self) -> Self {
@@ -652,9 +650,7 @@ impl ::core::clone::Clone for IO_COUNTERS {
 }
 pub type LPFIBER_START_ROUTINE = unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct LPPROC_THREAD_ATTRIBUTE_LIST {
-    pub Value: *mut ::core::ffi::c_void,
-}
+pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for LPPROC_THREAD_ATTRIBUTE_LIST {}
 impl ::core::clone::Clone for LPPROC_THREAD_ATTRIBUTE_LIST {
     fn clone(&self) -> Self {
@@ -698,9 +694,7 @@ impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
 }
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 #[repr(C)]
-pub struct NamespaceHandle {
-    pub Value: isize,
-}
+pub struct NamespaceHandle(pub isize);
 impl ::core::marker::Copy for NamespaceHandle {}
 impl ::core::clone::Clone for NamespaceHandle {
     fn clone(&self) -> Self {
@@ -1143,9 +1137,7 @@ pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: supe
 pub type PTIMERAPCROUTINE = unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32);
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PTP_POOL {
-    pub Value: isize,
-}
+pub struct PTP_POOL(pub isize);
 impl ::core::marker::Copy for PTP_POOL {}
 impl ::core::clone::Clone for PTP_POOL {
     fn clone(&self) -> Self {
@@ -1611,9 +1603,7 @@ pub struct TP_WAIT(pub u8);
 #[repr(C)]
 pub struct TP_WORK(pub u8);
 #[repr(C)]
-pub struct TimerQueueHandle {
-    pub Value: isize,
-}
+pub struct TimerQueueHandle(pub isize);
 impl ::core::marker::Copy for TimerQueueHandle {}
 impl ::core::clone::Clone for TimerQueueHandle {
     fn clone(&self) -> Self {

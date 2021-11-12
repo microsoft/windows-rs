@@ -1633,9 +1633,7 @@ pub const HDM_SETITEMW: u32 = 4620u32;
 pub const HDM_SETORDERARRAY: u32 = 4626u32;
 pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
 #[repr(C)]
-pub struct HDPA {
-    pub Value: isize,
-}
+pub struct HDPA(pub isize);
 impl ::core::marker::Copy for HDPA {}
 impl ::core::clone::Clone for HDPA {
     fn clone(&self) -> Self {
@@ -1643,9 +1641,7 @@ impl ::core::clone::Clone for HDPA {
     }
 }
 #[repr(C)]
-pub struct HDSA {
-    pub Value: isize,
-}
+pub struct HDSA(pub isize);
 impl ::core::marker::Copy for HDSA {}
 impl ::core::clone::Clone for HDSA {
     fn clone(&self) -> Self {
@@ -1718,9 +1714,7 @@ pub const HHT_ONOVERFLOW: u32 = 16384u32;
 pub const HHT_TOLEFT: u32 = 2048u32;
 pub const HHT_TORIGHT: u32 = 1024u32;
 #[repr(C)]
-pub struct HIMAGELIST {
-    pub Value: isize,
-}
+pub struct HIMAGELIST(pub isize);
 impl ::core::marker::Copy for HIMAGELIST {}
 impl ::core::clone::Clone for HIMAGELIST {
     fn clone(&self) -> Self {
@@ -1749,9 +1743,7 @@ pub const HOTKEYF_EXT: u32 = 128u32;
 pub const HOTKEYF_SHIFT: u32 = 1u32;
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[repr(C)]
-pub struct HPROPSHEETPAGE {
-    pub Value: isize,
-}
+pub struct HPROPSHEETPAGE(pub isize);
 impl ::core::marker::Copy for HPROPSHEETPAGE {}
 impl ::core::clone::Clone for HPROPSHEETPAGE {
     fn clone(&self) -> Self {
@@ -1759,9 +1751,7 @@ impl ::core::clone::Clone for HPROPSHEETPAGE {
     }
 }
 #[repr(C)]
-pub struct HSYNTHETICPOINTERDEVICE {
-    pub Value: isize,
-}
+pub struct HSYNTHETICPOINTERDEVICE(pub isize);
 impl ::core::marker::Copy for HSYNTHETICPOINTERDEVICE {}
 impl ::core::clone::Clone for HSYNTHETICPOINTERDEVICE {
     fn clone(&self) -> Self {
@@ -1769,9 +1759,7 @@ impl ::core::clone::Clone for HSYNTHETICPOINTERDEVICE {
     }
 }
 #[repr(C)]
-pub struct HTREEITEM {
-    pub Value: isize,
-}
+pub struct HTREEITEM(pub isize);
 impl ::core::marker::Copy for HTREEITEM {}
 impl ::core::clone::Clone for HTREEITEM {
     fn clone(&self) -> Self {

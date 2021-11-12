@@ -278,9 +278,7 @@ impl ::core::clone::Clone for HEAP_SUMMARY {
     }
 }
 #[repr(C)]
-pub struct HeapHandle {
-    pub Value: isize,
-}
+pub struct HeapHandle(pub isize);
 impl ::core::marker::Copy for HeapHandle {}
 impl ::core::clone::Clone for HeapHandle {
     fn clone(&self) -> Self {

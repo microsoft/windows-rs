@@ -179,14 +179,25 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     };
 
     let is_union = def.is_explicit();
+    let is_handle = def.is_handle();
 
     let fields = fields.iter().map(|(_, signature, name)| {
         let kind = gen_sys_sig(signature, gen);
 
-        quote! {
-            pub #name: #kind
+        if is_handle {
+            quote! { pub #kind }
+        } else {
+            quote! {
+                pub #name: #kind
+            }
         }
     });
+
+    let body = if is_handle {
+        quote! { (#(#fields),*); }
+    } else {
+        quote! { {#(#fields),*} }
+    };
 
     let struct_or_union = if is_union {
         quote! { union }
@@ -201,9 +212,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         #repr
         #cfg
         #doc
-        pub #struct_or_union #name {
-            #(#fields),*
-        }
+        pub #struct_or_union #name #body
         #constants
         #cfg
         impl ::core::marker::Copy for #name {}

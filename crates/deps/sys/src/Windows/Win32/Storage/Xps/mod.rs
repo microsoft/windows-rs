@@ -119,9 +119,7 @@ impl ::core::clone::Clone for DRAWPATRECT {
     }
 }
 #[repr(C)]
-pub struct HPTPROVIDER {
-    pub Value: isize,
-}
+pub struct HPTPROVIDER(pub isize);
 impl ::core::marker::Copy for HPTPROVIDER {}
 impl ::core::clone::Clone for HPTPROVIDER {
     fn clone(&self) -> Self {

@@ -421,9 +421,7 @@ pub const DOMAIN_LENGTH: u32 = 17u32;
 pub const FORCE_REJOIN: u32 = 2u32;
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 #[repr(C)]
-pub struct HwtsVirtualChannelHandle {
-    pub Value: isize,
-}
+pub struct HwtsVirtualChannelHandle(pub isize);
 impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
 impl ::core::clone::Clone for HwtsVirtualChannelHandle {
     fn clone(&self) -> Self {

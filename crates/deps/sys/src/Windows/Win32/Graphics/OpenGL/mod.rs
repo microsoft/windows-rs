@@ -1190,9 +1190,7 @@ pub const GL_ZERO: u32 = 0u32;
 pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
 #[repr(C)]
-pub struct HGLRC {
-    pub Value: isize,
-}
+pub struct HGLRC(pub isize);
 impl ::core::marker::Copy for HGLRC {}
 impl ::core::clone::Clone for HGLRC {
     fn clone(&self) -> Self {

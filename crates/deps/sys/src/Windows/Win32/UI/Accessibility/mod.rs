@@ -970,9 +970,7 @@ impl ::core::clone::Clone for HIGHCONTRASTW_FLAGS {
     }
 }
 #[repr(C)]
-pub struct HUIAEVENT {
-    pub Value: isize,
-}
+pub struct HUIAEVENT(pub isize);
 impl ::core::marker::Copy for HUIAEVENT {}
 impl ::core::clone::Clone for HUIAEVENT {
     fn clone(&self) -> Self {
@@ -980,9 +978,7 @@ impl ::core::clone::Clone for HUIAEVENT {
     }
 }
 #[repr(C)]
-pub struct HUIANODE {
-    pub Value: isize,
-}
+pub struct HUIANODE(pub isize);
 impl ::core::marker::Copy for HUIANODE {}
 impl ::core::clone::Clone for HUIANODE {
     fn clone(&self) -> Self {
@@ -990,9 +986,7 @@ impl ::core::clone::Clone for HUIANODE {
     }
 }
 #[repr(C)]
-pub struct HUIAPATTERNOBJECT {
-    pub Value: isize,
-}
+pub struct HUIAPATTERNOBJECT(pub isize);
 impl ::core::marker::Copy for HUIAPATTERNOBJECT {}
 impl ::core::clone::Clone for HUIAPATTERNOBJECT {
     fn clone(&self) -> Self {
@@ -1000,9 +994,7 @@ impl ::core::clone::Clone for HUIAPATTERNOBJECT {
     }
 }
 #[repr(C)]
-pub struct HUIATEXTRANGE {
-    pub Value: isize,
-}
+pub struct HUIATEXTRANGE(pub isize);
 impl ::core::marker::Copy for HUIATEXTRANGE {}
 impl ::core::clone::Clone for HUIATEXTRANGE {
     fn clone(&self) -> Self {
@@ -1010,9 +1002,7 @@ impl ::core::clone::Clone for HUIATEXTRANGE {
     }
 }
 #[repr(C)]
-pub struct HWINEVENTHOOK {
-    pub Value: isize,
-}
+pub struct HWINEVENTHOOK(pub isize);
 impl ::core::marker::Copy for HWINEVENTHOOK {}
 impl ::core::clone::Clone for HWINEVENTHOOK {
     fn clone(&self) -> Self {

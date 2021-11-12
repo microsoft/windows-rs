@@ -507,9 +507,7 @@ impl ::core::clone::Clone for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     }
 }
 #[repr(C)]
-pub struct CF_CONNECTION_KEY {
-    pub Value: isize,
-}
+pub struct CF_CONNECTION_KEY(pub isize);
 impl ::core::marker::Copy for CF_CONNECTION_KEY {}
 impl ::core::clone::Clone for CF_CONNECTION_KEY {
     fn clone(&self) -> Self {

@@ -112,9 +112,7 @@ impl ::core::clone::Clone for WEB_SOCKET_CLOSE_STATUS {
     }
 }
 #[repr(C)]
-pub struct WEB_SOCKET_HANDLE {
-    pub Value: isize,
-}
+pub struct WEB_SOCKET_HANDLE(pub isize);
 impl ::core::marker::Copy for WEB_SOCKET_HANDLE {}
 impl ::core::clone::Clone for WEB_SOCKET_HANDLE {
     fn clone(&self) -> Self {

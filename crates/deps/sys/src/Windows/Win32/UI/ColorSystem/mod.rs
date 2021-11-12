@@ -707,9 +707,7 @@ impl ::core::clone::Clone for GamutShellTriangle {
     }
 }
 #[repr(C)]
-pub struct HCOLORSPACE {
-    pub Value: isize,
-}
+pub struct HCOLORSPACE(pub isize);
 impl ::core::marker::Copy for HCOLORSPACE {}
 impl ::core::clone::Clone for HCOLORSPACE {
     fn clone(&self) -> Self {

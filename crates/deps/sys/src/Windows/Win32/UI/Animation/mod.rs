@@ -104,9 +104,7 @@ impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
     }
 }
 #[repr(C)]
-pub struct UI_ANIMATION_KEYFRAME {
-    pub Value: isize,
-}
+pub struct UI_ANIMATION_KEYFRAME(pub isize);
 impl ::core::marker::Copy for UI_ANIMATION_KEYFRAME {}
 impl ::core::clone::Clone for UI_ANIMATION_KEYFRAME {
     fn clone(&self) -> Self {

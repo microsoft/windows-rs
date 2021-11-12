@@ -1148,9 +1148,7 @@ impl ::core::clone::Clone for CREATE_POLYGON_RGN_MODE {
     }
 }
 #[repr(C)]
-pub struct CreatedHDC {
-    pub Value: isize,
-}
+pub struct CreatedHDC(pub isize);
 impl ::core::marker::Copy for CreatedHDC {}
 impl ::core::clone::Clone for CreatedHDC {
     fn clone(&self) -> Self {
@@ -3999,9 +3997,7 @@ impl ::core::clone::Clone for HATCH_BRUSH_STYLE {
     }
 }
 #[repr(C)]
-pub struct HBITMAP {
-    pub Value: isize,
-}
+pub struct HBITMAP(pub isize);
 impl ::core::marker::Copy for HBITMAP {}
 impl ::core::clone::Clone for HBITMAP {
     fn clone(&self) -> Self {
@@ -4009,9 +4005,7 @@ impl ::core::clone::Clone for HBITMAP {
     }
 }
 #[repr(C)]
-pub struct HBRUSH {
-    pub Value: isize,
-}
+pub struct HBRUSH(pub isize);
 impl ::core::marker::Copy for HBRUSH {}
 impl ::core::clone::Clone for HBRUSH {
     fn clone(&self) -> Self {
@@ -4019,9 +4013,7 @@ impl ::core::clone::Clone for HBRUSH {
     }
 }
 #[repr(C)]
-pub struct HDC {
-    pub Value: isize,
-}
+pub struct HDC(pub isize);
 impl ::core::marker::Copy for HDC {}
 impl ::core::clone::Clone for HDC {
     fn clone(&self) -> Self {
@@ -4046,9 +4038,7 @@ impl ::core::clone::Clone for HDC_MAP_MODE {
 }
 pub const HEBREW_CHARSET: u32 = 177u32;
 #[repr(C)]
-pub struct HENHMETAFILE {
-    pub Value: isize,
-}
+pub struct HENHMETAFILE(pub isize);
 impl ::core::marker::Copy for HENHMETAFILE {}
 impl ::core::clone::Clone for HENHMETAFILE {
     fn clone(&self) -> Self {
@@ -4056,9 +4046,7 @@ impl ::core::clone::Clone for HENHMETAFILE {
     }
 }
 #[repr(C)]
-pub struct HFONT {
-    pub Value: isize,
-}
+pub struct HFONT(pub isize);
 impl ::core::marker::Copy for HFONT {}
 impl ::core::clone::Clone for HFONT {
     fn clone(&self) -> Self {
@@ -4066,9 +4054,7 @@ impl ::core::clone::Clone for HFONT {
     }
 }
 #[repr(C)]
-pub struct HGDIOBJ {
-    pub Value: isize,
-}
+pub struct HGDIOBJ(pub isize);
 impl ::core::marker::Copy for HGDIOBJ {}
 impl ::core::clone::Clone for HGDIOBJ {
     fn clone(&self) -> Self {
@@ -4076,9 +4062,7 @@ impl ::core::clone::Clone for HGDIOBJ {
     }
 }
 #[repr(C)]
-pub struct HMETAFILE {
-    pub Value: isize,
-}
+pub struct HMETAFILE(pub isize);
 impl ::core::marker::Copy for HMETAFILE {}
 impl ::core::clone::Clone for HMETAFILE {
     fn clone(&self) -> Self {
@@ -4086,9 +4070,7 @@ impl ::core::clone::Clone for HMETAFILE {
     }
 }
 #[repr(C)]
-pub struct HMONITOR {
-    pub Value: isize,
-}
+pub struct HMONITOR(pub isize);
 impl ::core::marker::Copy for HMONITOR {}
 impl ::core::clone::Clone for HMONITOR {
     fn clone(&self) -> Self {
@@ -4096,9 +4078,7 @@ impl ::core::clone::Clone for HMONITOR {
     }
 }
 #[repr(C)]
-pub struct HPALETTE {
-    pub Value: isize,
-}
+pub struct HPALETTE(pub isize);
 impl ::core::marker::Copy for HPALETTE {}
 impl ::core::clone::Clone for HPALETTE {
     fn clone(&self) -> Self {
@@ -4106,9 +4086,7 @@ impl ::core::clone::Clone for HPALETTE {
     }
 }
 #[repr(C)]
-pub struct HPEN {
-    pub Value: isize,
-}
+pub struct HPEN(pub isize);
 impl ::core::marker::Copy for HPEN {}
 impl ::core::clone::Clone for HPEN {
     fn clone(&self) -> Self {
@@ -4116,9 +4094,7 @@ impl ::core::clone::Clone for HPEN {
     }
 }
 #[repr(C)]
-pub struct HRGN {
-    pub Value: isize,
-}
+pub struct HRGN(pub isize);
 impl ::core::marker::Copy for HRGN {}
 impl ::core::clone::Clone for HRGN {
     fn clone(&self) -> Self {
@@ -4127,9 +4103,7 @@ impl ::core::clone::Clone for HRGN {
 }
 pub const HS_API_MAX: u32 = 12u32;
 #[repr(C)]
-pub struct HdcMetdataEnhFileHandle {
-    pub Value: isize,
-}
+pub struct HdcMetdataEnhFileHandle(pub isize);
 impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
 impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
     fn clone(&self) -> Self {
@@ -4137,9 +4111,7 @@ impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
     }
 }
 #[repr(C)]
-pub struct HdcMetdataFileHandle {
-    pub Value: isize,
-}
+pub struct HdcMetdataFileHandle(pub isize);
 impl ::core::marker::Copy for HdcMetdataFileHandle {}
 impl ::core::clone::Clone for HdcMetdataFileHandle {
     fn clone(&self) -> Self {

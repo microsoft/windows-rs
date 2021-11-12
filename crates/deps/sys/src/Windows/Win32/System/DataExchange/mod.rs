@@ -434,9 +434,7 @@ pub const DMLERR_SYS_ERROR: u32 = 16399u32;
 pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 #[repr(C)]
-pub struct HCONV {
-    pub Value: isize,
-}
+pub struct HCONV(pub isize);
 impl ::core::marker::Copy for HCONV {}
 impl ::core::clone::Clone for HCONV {
     fn clone(&self) -> Self {
@@ -444,9 +442,7 @@ impl ::core::clone::Clone for HCONV {
     }
 }
 #[repr(C)]
-pub struct HCONVLIST {
-    pub Value: isize,
-}
+pub struct HCONVLIST(pub isize);
 impl ::core::marker::Copy for HCONVLIST {}
 impl ::core::clone::Clone for HCONVLIST {
     fn clone(&self) -> Self {
@@ -455,9 +451,7 @@ impl ::core::clone::Clone for HCONVLIST {
 }
 pub const HDATA_APPOWNED: u32 = 1u32;
 #[repr(C)]
-pub struct HDDEDATA {
-    pub Value: isize,
-}
+pub struct HDDEDATA(pub isize);
 impl ::core::marker::Copy for HDDEDATA {}
 impl ::core::clone::Clone for HDDEDATA {
     fn clone(&self) -> Self {
@@ -465,9 +459,7 @@ impl ::core::clone::Clone for HDDEDATA {
     }
 }
 #[repr(C)]
-pub struct HSZ {
-    pub Value: isize,
-}
+pub struct HSZ(pub isize);
 impl ::core::marker::Copy for HSZ {}
 impl ::core::clone::Clone for HSZ {
     fn clone(&self) -> Self {

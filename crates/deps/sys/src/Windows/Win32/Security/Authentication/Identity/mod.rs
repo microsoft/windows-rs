@@ -2726,9 +2726,7 @@ impl ::core::clone::Clone for LSA_TRUST_INFORMATION {
     }
 }
 #[repr(C)]
-pub struct LsaHandle {
-    pub Value: isize,
-}
+pub struct LsaHandle(pub isize);
 impl ::core::marker::Copy for LsaHandle {}
 impl ::core::clone::Clone for LsaHandle {
     fn clone(&self) -> Self {
