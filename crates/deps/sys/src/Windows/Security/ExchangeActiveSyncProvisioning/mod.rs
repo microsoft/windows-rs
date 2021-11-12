@@ -7,8 +7,6 @@ pub struct EasClientDeviceInformation(pub *mut ::core::ffi::c_void);
 pub struct EasClientSecurityPolicy(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EasComplianceResults(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct EasContract(i32);
 #[repr(transparent)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {

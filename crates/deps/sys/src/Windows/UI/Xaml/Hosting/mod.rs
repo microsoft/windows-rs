@@ -21,8 +21,6 @@ pub struct DesktopWindowXamlSourceGotFocusEventArgs(pub *mut ::core::ffi::c_void
 pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ElementCompositionPreview(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HostingContract(i32);
 #[repr(transparent)]
 pub struct IDesignerAppExitedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -10,14 +10,30 @@ extern "system" {
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
 pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
 pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
-#[repr(C)]
-pub struct AccClientDocMgr(i32);
-#[repr(C)]
-pub struct AccDictionary(i32);
-#[repr(C)]
-pub struct AccServerDocMgr(i32);
-#[repr(C)]
-pub struct AccStore(i32);
+pub const AccClientDocMgr: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4232629296,
+    data2: 20286,
+    data3: 20385,
+    data4: [128, 59, 173, 14, 25, 106, 131, 177],
+};
+pub const AccDictionary: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1702030870,
+    data2: 24549,
+    data3: 17201,
+    data4: [187, 109, 118, 164, 156, 86, 228, 35],
+};
+pub const AccServerDocMgr: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1619633022,
+    data2: 60298,
+    data3: 18477,
+    data4: [189, 111, 249, 244, 105, 4, 209, 109],
+};
+pub const AccStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1413514111,
+    data2: 19455,
+    data3: 19173,
+    data4: [161, 177, 119, 34, 236, 198, 51, 42],
+};
 pub const CLSID_TF_CategoryMgr: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2763343009,
     data2: 17293,
@@ -60,8 +76,12 @@ pub const CLSID_TsfServices: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
-#[repr(C)]
-pub struct DocWrap(i32);
+pub const DocWrap: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3208802174,
+    data2: 31326,
+    data3: 17622,
+    data4: [131, 12, 163, 144, 234, 148, 98, 163],
+};
 #[repr(transparent)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
 pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
@@ -671,8 +691,7 @@ pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17794,
     data4: [148, 125, 42, 143, 215, 139, 130, 205],
 };
-#[repr(C)]
-pub struct MSAAControl(i32);
+pub const MSAAControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 147691071, data2: 31294, data3: 20316, data4: [155, 216, 214, 146, 187, 4, 60, 91] };
 #[repr(transparent)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);

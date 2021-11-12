@@ -1686,12 +1686,12 @@ pub struct RIORESULT(i32);
 #[repr(C)]
 pub struct RIO_BUF(i32);
 #[repr(C)]
-pub struct RIO_BUFFERID_t(i32);
+pub struct RIO_BUFFERID_t(pub u8);
 #[repr(C)]
 pub struct RIO_CMSG_BUFFER(i32);
 pub const RIO_CORRUPT_CQ: u32 = 4294967295u32;
 #[repr(C)]
-pub struct RIO_CQ_t(i32);
+pub struct RIO_CQ_t(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RIO_EXTENSION_FUNCTION_TABLE(i32);
@@ -1708,7 +1708,7 @@ pub struct RIO_NOTIFICATION_COMPLETION_TYPE(pub i32);
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(1i32);
 pub const RIO_IOCP_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(2i32);
 #[repr(C)]
-pub struct RIO_RQ_t(i32);
+pub struct RIO_RQ_t(pub u8);
 pub const RM_ADD_RECEIVE_IF: u32 = 1008u32;
 pub const RM_DEL_RECEIVE_IF: u32 = 1009u32;
 #[cfg(feature = "Win32_Foundation")]

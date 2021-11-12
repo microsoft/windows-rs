@@ -14,5 +14,3 @@ impl PlaylistFormat {
     pub const Zune: Self = Self(1i32);
     pub const M3u: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct PlaylistsContract(i32);

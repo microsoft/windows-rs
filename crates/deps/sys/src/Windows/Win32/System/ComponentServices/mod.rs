@@ -12,8 +12,12 @@ extern "system" {
     pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
 }
-#[repr(C)]
-pub struct AppDomainHelper(i32);
+pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4012177033,
+    data2: 5368,
+    data3: 19858,
+    data4: [180, 175, 215, 177, 240, 231, 15, 212],
+};
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ApplicationProcessRecycleInfo(i32);
@@ -53,8 +57,7 @@ pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Er
 pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
 pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
 pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
-#[repr(C)]
-pub struct ByotServerEx(i32);
+pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674858, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 pub struct CAppData(i32);
 #[repr(C)]
@@ -99,12 +102,9 @@ pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAd
 pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
 pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
 pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
-#[repr(C)]
-pub struct COMAdminCatalog(i32);
-#[repr(C)]
-pub struct COMAdminCatalogCollection(i32);
-#[repr(C)]
-pub struct COMAdminCatalogObject(i32);
+pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818452, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818454, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818453, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
 #[repr(transparent)]
 pub struct COMAdminComponentFlags(pub i32);
 pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
@@ -328,8 +328,7 @@ pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptio
 pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
 pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
 pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
-#[repr(C)]
-pub struct COMEvents(i32);
+pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674859, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct COMPLUS_APPTYPE(pub i32);
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
@@ -339,8 +338,7 @@ pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct COMSVCSEVENTINFO(i32);
-#[repr(C)]
-pub struct CRMClerk(i32);
+pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674877, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct CRMFLAGS(pub i32);
 pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
@@ -357,8 +355,7 @@ pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
 pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
 pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
 pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
-#[repr(C)]
-pub struct CRMRecoveryClerk(i32);
+pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674878, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
 pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
@@ -413,16 +410,11 @@ pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32)
 pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
 pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
 pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
-#[repr(C)]
-pub struct CServiceConfig(i32);
-#[repr(C)]
-pub struct ClrAssemblyLocator(i32);
-#[repr(C)]
-pub struct CoMTSLocator(i32);
-#[repr(C)]
-pub struct ComServiceEvents(i32);
-#[repr(C)]
-pub struct ComSystemAppEventData(i32);
+pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674888, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1166713781, data2: 9818, data3: 19317, data4: [188, 5, 155, 234, 70, 48, 207, 24] };
+pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674860, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComServiceEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674883, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComSystemAppEventData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674886, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ComponentHangMonitorInfo(i32);
@@ -450,12 +442,9 @@ pub struct DUMPTYPE(pub i32);
 pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
 pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
 pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
-#[repr(C)]
-pub struct DispenserManager(i32);
-#[repr(C)]
-pub struct Dummy30040732(i32);
-#[repr(C)]
-pub struct EventServer(i32);
+pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674880, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674857, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674620, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const GUID_STRING_SIZE: u32 = 40u32;
 #[repr(transparent)]
 pub struct GetAppTrackerDataFlags(pub i32);
@@ -464,8 +453,7 @@ pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataF
 pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
 pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
 pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
-#[repr(C)]
-pub struct GetSecurityCallContextAppObject(i32);
+pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674856, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct HANG_INFO(i32);
@@ -705,58 +693,43 @@ pub struct ITransactionResourcePool(pub *mut ::core::ffi::c_void);
 pub struct ITransactionStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITxProxyHolder(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LBEvents(i32);
+pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674881, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct LockModes(pub i32);
 pub const LockSetGet: LockModes = LockModes(0i32);
 pub const LockMethod: LockModes = LockModes(1i32);
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
-#[repr(C)]
-pub struct MessageMover(i32);
-#[repr(C)]
-pub struct MtsGrp(i32);
+pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674879, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1261344141, data2: 915, data3: 4561, data4: [177, 171, 0, 170, 0, 186, 50, 88] };
 #[repr(transparent)]
 pub struct ObjectContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ObjectControl(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PoolMgr(i32);
+pub const PoolMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674613, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 pub struct RECYCLE_INFO(i32);
 #[repr(transparent)]
 pub struct ReleaseModes(pub i32);
 pub const Standard: ReleaseModes = ReleaseModes(0i32);
 pub const Process: ReleaseModes = ReleaseModes(1i32);
-#[repr(C)]
-pub struct SecurityCallContext(i32);
-#[repr(C)]
-pub struct SecurityCallers(i32);
-#[repr(C)]
-pub struct SecurityIdentity(i32);
+pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674855, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674854, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674853, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct SecurityProperty(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ServicePool(i32);
-#[repr(C)]
-pub struct ServicePoolConfig(i32);
-#[repr(C)]
-pub struct SharedProperty(i32);
-#[repr(C)]
-pub struct SharedPropertyGroup(i32);
-#[repr(C)]
-pub struct SharedPropertyGroupManager(i32);
+pub const ServicePool: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674889, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674890, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666629, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 #[repr(transparent)]
 pub struct TRACKING_COLL_TYPE(pub i32);
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
 pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(1i32);
 pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(2i32);
-#[repr(C)]
-pub struct TrackerServer(i32);
-#[repr(C)]
-pub struct TransactionContext(i32);
-#[repr(C)]
-pub struct TransactionContextEx(i32);
+pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674617, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2040134693, data2: 54214, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
+pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1555457648, data2: 54228, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
 #[repr(transparent)]
 pub struct TransactionVote(pub i32);
 pub const TxCommit: TransactionVote = TransactionVote(0i32);

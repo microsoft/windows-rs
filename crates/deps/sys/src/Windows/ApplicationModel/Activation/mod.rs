@@ -1,10 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct ActivatedEventsContract(i32);
-#[repr(C)]
-pub struct ActivationCameraSettingsContract(i32);
 #[repr(transparent)]
 pub struct ActivationKind(pub i32);
 impl ActivationKind {
@@ -84,8 +80,6 @@ pub struct CameraSettingsActivatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CommandLineActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CommandLineActivationOperation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ContactActivatedEventsContract(i32);
 #[repr(transparent)]
 pub struct ContactCallActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -290,5 +284,3 @@ pub struct WalletActionActivatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct WebAccountProviderActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WebUISearchActivatedEventsContract(i32);

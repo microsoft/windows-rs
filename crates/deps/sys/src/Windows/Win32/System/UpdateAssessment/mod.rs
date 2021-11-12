@@ -28,5 +28,4 @@ pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
 pub const UpdateImpactLevel_Low: UpdateImpactLevel = UpdateImpactLevel(1i32);
 pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
 pub const UpdateImpactLevel_High: UpdateImpactLevel = UpdateImpactLevel(3i32);
-#[repr(C)]
-pub struct WaaSAssessor(i32);
+pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };

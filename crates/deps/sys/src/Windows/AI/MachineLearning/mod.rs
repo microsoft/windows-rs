@@ -171,8 +171,6 @@ impl LearningModelPixelRange {
 pub struct LearningModelSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LearningModelSessionOptions(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MachineLearningContract(i32);
 #[repr(transparent)]
 pub struct MapFeatureDescriptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

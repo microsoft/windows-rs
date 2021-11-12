@@ -327,8 +327,7 @@ extern "system" {
     pub fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows_sys::core::HRESULT;
     pub fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct AACMFTEncoder(i32);
+pub const AACMFTEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2477722705, data2: 8821, data3: 17874, data4: [163, 91, 242, 186, 33, 202, 237, 0] };
 #[repr(transparent)]
 pub struct AEC_INPUT_STREAM(pub i32);
 pub const AEC_CAPTURE_STREAM: AEC_INPUT_STREAM = AEC_INPUT_STREAM(0i32);
@@ -349,8 +348,7 @@ pub const AEC_VAD_DISABLED: AEC_VAD_MODE = AEC_VAD_MODE(0i32);
 pub const AEC_VAD_NORMAL: AEC_VAD_MODE = AEC_VAD_MODE(1i32);
 pub const AEC_VAD_FOR_AGC: AEC_VAD_MODE = AEC_VAD_MODE(2i32);
 pub const AEC_VAD_FOR_SILENCE_SUPPRESSION: AEC_VAD_MODE = AEC_VAD_MODE(3i32);
-#[repr(C)]
-pub struct ALawCodecWrapper(i32);
+pub const ALawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 919301644, data2: 30913, data3: 17074, data4: [153, 67, 132, 98, 98, 243, 23, 134] };
 pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3806603986, data2: 4908, data3: 18718, data4: [162, 104, 60, 124, 45, 202, 24, 31] };
 #[repr(C)]
 pub struct ASF_FLAT_PICTURE(i32);
@@ -376,32 +374,54 @@ pub const AVENC_H264V_LEVELCOUNT: u32 = 16u32;
 pub const AVENC_H264V_MAX_MBBITS: u32 = 3200u32;
 #[repr(C)]
 pub struct AecQualityMetrics_Struct(i32);
-#[repr(C)]
-pub struct CAC3DecMediaObject(i32);
-#[repr(C)]
-pub struct CClusterDetectorDmo(i32);
-#[repr(C)]
-pub struct CColorControlDmo(i32);
-#[repr(C)]
-pub struct CColorConvertDMO(i32);
-#[repr(C)]
-pub struct CColorLegalizerDmo(i32);
-#[repr(C)]
-pub struct CDTVAudDecoderDS(i32);
-#[repr(C)]
-pub struct CDTVVidDecoderDS(i32);
-#[repr(C)]
-pub struct CDVDecoderMediaObject(i32);
-#[repr(C)]
-pub struct CDVEncoderMediaObject(i32);
-#[repr(C)]
-pub struct CDeColorConvMediaObject(i32);
-#[repr(C)]
-pub struct CFrameInterpDMO(i32);
-#[repr(C)]
-pub struct CFrameRateConvertDmo(i32);
-#[repr(C)]
-pub struct CInterlaceMediaObject(i32);
+pub const CAC3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 64473090, data2: 60666, data3: 18393, data4: [178, 104, 95, 179, 227, 16, 222, 228] };
+pub const CClusterDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 921182404, data2: 5722, data3: 17697, data4: [134, 60, 97, 158, 17, 96, 212, 212] };
+pub const CColorControlDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2038454768,
+    data2: 35274,
+    data3: 16736,
+    data4: [179, 37, 174, 180, 142, 254, 79, 154],
+};
+pub const CColorConvertDMO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552431985, data2: 135, data3: 16900, data4: [176, 32, 50, 130, 83, 142, 87, 211] };
+pub const CColorLegalizerDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4261062483,
+    data2: 58510,
+    data3: 20019,
+    data4: [156, 116, 152, 162, 127, 198, 114, 106],
+};
+pub const CDTVAudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2384891954, data2: 65027, data3: 18259, data4: [155, 23, 24, 37, 60, 33, 114, 46] };
+pub const CDTVVidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1685552584,
+    data2: 20004,
+    data3: 19435,
+    data4: [157, 25, 96, 163, 91, 225, 218, 175],
+};
+pub const CDVDecoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3846638021, data2: 7703, data3: 19597, data4: [148, 231, 71, 137, 64, 67, 53, 132] };
+pub const CDVEncoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3358254889,
+    data2: 49959,
+    data3: 19662,
+    data4: [145, 77, 129, 113, 254, 254, 190, 251],
+};
+pub const CDeColorConvMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1224952837,
+    data2: 62524,
+    data3: 16399,
+    data4: [132, 193, 144, 166, 131, 25, 90, 58],
+};
+pub const CFrameInterpDMO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 175963675,
+    data2: 27317,
+    data3: 17204,
+    data4: [158, 216, 63, 151, 203, 55, 218, 161],
+};
+pub const CFrameRateConvertDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 32730338, data2: 2311, data3: 19851, data4: [151, 157, 241, 81, 190, 145, 200, 131] };
+pub const CInterlaceMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3047726208,
+    data2: 18689,
+    data3: 16507,
+    data4: [154, 188, 144, 217, 166, 68, 187, 70],
+};
 pub const CLSID_AudioResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4098340510,
     data2: 6276,
@@ -555,708 +575,1212 @@ pub const CLSID_WMVDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17282,
     data4: [139, 194, 63, 97, 146, 183, 110, 52],
 };
-#[repr(C)]
-pub struct CMP3DecMediaObject(i32);
-#[repr(C)]
-pub struct CMPEG2AudDecoderDS(i32);
-#[repr(C)]
-pub struct CMPEG2AudioEncoderMFT(i32);
-#[repr(C)]
-pub struct CMPEG2EncoderAudioDS(i32);
-#[repr(C)]
-pub struct CMPEG2EncoderDS(i32);
-#[repr(C)]
-pub struct CMPEG2EncoderVideoDS(i32);
-#[repr(C)]
-pub struct CMPEG2VidDecoderDS(i32);
-#[repr(C)]
-pub struct CMPEG2VideoEncoderMFT(i32);
-#[repr(C)]
-pub struct CMPEGAACDecMediaObject(i32);
-#[repr(C)]
-pub struct CMSAACDecMFT(i32);
-#[repr(C)]
-pub struct CMSAC3Enc(i32);
-#[repr(C)]
-pub struct CMSALACDecMFT(i32);
-#[repr(C)]
-pub struct CMSALACEncMFT(i32);
-#[repr(C)]
-pub struct CMSDDPlusDecMFT(i32);
-#[repr(C)]
-pub struct CMSDolbyDigitalEncMFT(i32);
-#[repr(C)]
-pub struct CMSFLACDecMFT(i32);
-#[repr(C)]
-pub struct CMSFLACEncMFT(i32);
-#[repr(C)]
-pub struct CMSH263EncoderMFT(i32);
-#[repr(C)]
-pub struct CMSH264DecoderMFT(i32);
-#[repr(C)]
-pub struct CMSH264EncoderMFT(i32);
-#[repr(C)]
-pub struct CMSH264RemuxMFT(i32);
-#[repr(C)]
-pub struct CMSH265EncoderMFT(i32);
-#[repr(C)]
-pub struct CMSMPEGAudDecMFT(i32);
-#[repr(C)]
-pub struct CMSMPEGDecoderMFT(i32);
-#[repr(C)]
-pub struct CMSOpusDecMFT(i32);
-#[repr(C)]
-pub struct CMSSCDecMediaObject(i32);
-#[repr(C)]
-pub struct CMSSCEncMediaObject(i32);
-#[repr(C)]
-pub struct CMSSCEncMediaObject2(i32);
-#[repr(C)]
-pub struct CMSVPXEncoderMFT(i32);
-#[repr(C)]
-pub struct CMSVideoDSPMFT(i32);
-#[repr(C)]
-pub struct CMpeg2DecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg43DecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4DecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4EncMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4sDecMFT(i32);
-#[repr(C)]
-pub struct CMpeg4sDecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4sEncMediaObject(i32);
-#[repr(C)]
-pub struct CNokiaAACCCDecMediaObject(i32);
-#[repr(C)]
-pub struct CNokiaAACDecMediaObject(i32);
-#[repr(C)]
-pub struct CODECAPI_AVAudioChannelConfig(i32);
-#[repr(C)]
-pub struct CODECAPI_AVAudioChannelCount(i32);
-#[repr(C)]
-pub struct CODECAPI_AVAudioSampleRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDDSurroundMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDSPLoudnessEqualization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDSPSpeakerFill(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecAACDownmixMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecAudioDualMono(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecAudioDualMonoReproMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonInputFormat(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonMeanBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonMeanBitRateInterval(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonOutputFormat(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDDynamicRangeScaleHigh(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDDynamicRangeScaleLow(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDMatrixDecodingMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDOperationalMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDStereoDownMixMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDisableVideoPostProcessing(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecHEAACDynamicRangeControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecNumWorkerThreads(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecSoftwareDynamicFormatChange(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoAcceleration_H264(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoAcceleration_MPEG2(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoAcceleration_VC1(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoCodecType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoDXVABusEncryption(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoDXVAMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoDropPicWithMissingRef(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoFastDecodeMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoH264ErrorConcealment(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoImageSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoInputScanType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoMPEG2ErrorConcealment(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoMaxCodedHeight(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoMaxCodedWidth(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoPixelAspectRatio(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoProcDeinterlaceCSC(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoSWPowerLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoSoftwareDeinterlaceMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoThumbnailGenerationMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEnableInLoopDeblockFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAdaptiveMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioDualMono(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioInputContent(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioIntervalToEncode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioIntervalToSkip(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel0(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel1(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel11(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel12(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel13(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel14(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel15(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel2(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel3(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel4(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel5(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel6(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel7(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel8(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel9(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMeanBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncChromaEncodeMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncChromaUpdateTime(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCodecType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonAllowFrameDrops(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonBufferInLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonBufferOutLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonBufferSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonFormatConstraint(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonLowLatency(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMaxBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMeanBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMeanBitRateInterval(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMinBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMultipassMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonPassEnd(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonPassStart(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonQuality(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonQualityVsSpeed(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonRateControlMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonRealTime(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonStreamEndHandling(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonTranscodeEncodingProfile(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDAtoDConverterType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDCentreDownMixLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDChannelBWLowPassFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDCopyright(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDCHighPassFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDialogNormalization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDigitalDeemphasis(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDynamicRangeCompressionControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDHeadphoneMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLFELowPassFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLoRoCenterMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLoRoSurroundMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLtRtCenterMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLtRtSurroundMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDOriginalBitstream(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDPreferredStereoDownMixMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDProductionInfoExists(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDProductionMixLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDProductionRoomType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDRFPreEmphasisFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDService(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurround3dBAttenuation(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurround90DegreeePhaseShift(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurroundDownMixLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurroundExMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncEnableVideoProcessing(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncH264CABACEnable(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncH264PPSID(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncH264SPSID(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncInputVideoSystem(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncLowPowerEncoder(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxDVDNavPacks(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxEarliestPTS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxInitialSCR(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxLargestPacketSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxMuxRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxNumStreams(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxPackSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxPacketOverhead(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysAudioLock(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysCSPS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysFixed(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysRateBound(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysSTDBufferBound(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysVideoLock(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxTargetPacketizer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzCopyright(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzInitialPTS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzOriginal(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzPacketSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzSTDBuffer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzStreamID(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPACodingMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPACopyright(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAEmphasisType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAEnableRedundancyProtection(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPALayer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAOriginalBitstream(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAPrivateUserBit(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVAddSeqEndCode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVDefaultBPictureCount(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVFrameFieldMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPOpen(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSInSeq(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSizeMax(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSizeMin(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderPicDispExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderPicExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqDispExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVIntraDCPrecision(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVIntraVLCTable(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVProfile(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQScaleType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixChromaIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixChromaNonIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixNonIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVScanPattern(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVSceneDetection(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVUseConcealmentMotionVectors(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMaxFrameRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMuxOutputStreamType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncNoInputCopy(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncNumWorkerThreads(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncProgressiveUpdateTime(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncSliceControlMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncSliceControlSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncSliceGenerationMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAudioAverageBPS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAudioAveragePCMValue(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAudioPeakPCMValue(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAverageBPS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatCommonCompletedPasses(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatHardwareBandwidthUtilitization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatHardwareProcessorUtilitization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatMPVSkippedEmptyFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatVideoCodedFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatVideoOutputFrameRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatVideoTotalFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatWMVCBAvg(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatWMVCBMax(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatWMVDecoderComplexityProfile(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoCBRMotionTradeoff(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoCTBSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoCodedVideoAccessUnitSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoContentType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoDefaultUpperFieldDominant(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoDirtyRectEnabled(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoDisplayDimension(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeDimension(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeFrameTypeQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeOffsetOrigin(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoFieldSwap(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoForceKeyFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoForceSourceScanType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoGradualIntraRefresh(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderDropFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderHours(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderMinutes(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderSeconds(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputChromaResolution(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputChromaSubsampling(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorLighting(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorNominalRange(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorPrimaries(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorTransferFunction(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorTransferMatrix(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInstantTemporalUpSwitching(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoIntraLayerPrediction(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInverseTelecineEnable(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInverseTelecineThreshold(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoLTRBufferControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMarkLTRFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxCTBSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxKeyframeDistance(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxNumRefFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxTemporalLayers(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMeanAbsoluteDifference(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMinQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoNoOfFieldsToEncode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoNoOfFieldsToSkip(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoNumGOPsPerIDR(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputChromaResolution(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputChromaSubsampling(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorLighting(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorNominalRange(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorPrimaries(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorTransferFunction(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorTransferMatrix(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputFrameRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputFrameRateConversion(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputScanType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoPixelAspectRatio(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoROIEnabled(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoRateControlParams(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSelectLayer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSourceFilmContent(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSourceIsBW(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSupportedControls(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoTemporalLayerCount(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoUsage(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoUseLTRFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVDecoderComplexity(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVInterlacedEncoding(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVKeyFrameBufferLevelMarker(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVKeyFrameDistance(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVProduceDummyFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVLowLatencyMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVPriorityControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVRealtimeControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVScenarioInfo(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputAAC(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputDTS(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputDolby(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputHEAAC(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputMPEG(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputPCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputWMA(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputWMAPro(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatATSC(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVB(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_DashVR(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_V(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatHighMAT(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatHighMPV(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatMP3(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatSVCD(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatUnSpecified(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatVCD(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDTS(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDTSHD(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDV(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalConsumer(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalPlus(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalPro(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncH264Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMLP(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG1Audio(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG1Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG2Audio(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG2Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncPCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncSDDS(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMALossless(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMAPro(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMAVoice(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMV(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEndMPEG4Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GetOPMContext(i32);
-#[repr(C)]
-pub struct CODECAPI_SetHDCPManagerContext(i32);
-#[repr(C)]
-pub struct CODECAPI_VideoEncoderDisplayContentType(i32);
+pub const CMP3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3152980033,
+    data2: 2659,
+    data3: 20306,
+    data4: [167, 171, 169, 179, 168, 78, 211, 138],
+};
+pub const CMPEG2AudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3790708920,
+    data2: 48878,
+    data3: 18701,
+    data4: [186, 124, 6, 108, 64, 181, 226, 185],
+};
+pub const CMPEG2AudioEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1185209692,
+    data2: 29688,
+    data3: 17156,
+    data4: [148, 223, 48, 143, 118, 9, 116, 244],
+};
+pub const CMPEG2EncoderAudioDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2899596220,
+    data2: 50570,
+    data3: 17617,
+    data4: [187, 245, 191, 179, 37, 190, 45, 120],
+};
+pub const CMPEG2EncoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1599799114,
+    data2: 12159,
+    data3: 17017,
+    data4: [136, 194, 205, 136, 235, 57, 209, 68],
+};
+pub const CMPEG2EncoderVideoDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1108675801, data2: 51866, data3: 20133, data4: [153, 57, 48, 238, 3, 127, 110, 116] };
+pub const CMPEG2VidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 556175611,
+    data2: 33765,
+    data3: 17702,
+    data4: [143, 215, 116, 71, 139, 121, 57, 205],
+};
+pub const CMPEG2VideoEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3862126338,
+    data2: 32951,
+    data3: 19908,
+    data4: [173, 250, 223, 231, 33, 13, 32, 213],
+};
+pub const CMPEGAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2380142450,
+    data2: 60845,
+    data3: 16835,
+    data4: [180, 190, 31, 48, 251, 78, 224, 214],
+};
+pub const CMSAACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 852592295, data2: 8591, data3: 19573, data4: [136, 118, 221, 119, 39, 58, 137, 153] };
+pub const CMSAC3Enc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3333685474,
+    data2: 8359,
+    data3: 20056,
+    data4: [162, 254, 36, 97, 150, 130, 206, 108],
+};
+pub const CMSALACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3234692370, data2: 12796, data3: 19388, data4: [179, 99, 115, 34, 238, 62, 24, 121] };
+pub const CMSALACEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2595660428,
+    data2: 29838,
+    data3: 19306,
+    data4: [191, 255, 204, 68, 59, 142, 143, 180],
+};
+pub const CMSDDPlusDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 394005246, data2: 36875, data3: 18644, data4: [158, 76, 87, 173, 210, 80, 179, 212] };
+pub const CMSDolbyDigitalEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2889029065,
+    data2: 62593,
+    data3: 17879,
+    data4: [130, 108, 11, 64, 108, 31, 100, 184],
+};
+pub const CMSFLACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1795898987,
+    data2: 41669,
+    data3: 17684,
+    data4: [128, 85, 175, 232, 169, 82, 66, 217],
+};
+pub const CMSFLACEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 310708713,
+    data2: 50254,
+    data3: 17884,
+    data4: [149, 233, 194, 85, 184, 244, 102, 166],
+};
+pub const CMSH263EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3158834430, data2: 39072, data3: 20263, data4: [187, 7, 105, 138, 242, 79, 43, 56] };
+pub const CMSH264DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1657699954, data2: 19569, data3: 19744, data4: [177, 93, 69, 40, 49, 168, 125, 157] };
+pub const CMSH264EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1822753604, data2: 1306, data3: 19949, data4: [151, 121, 164, 51, 5, 22, 94, 53] };
+pub const CMSH264RemuxMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 94666427, data2: 35824, data3: 19647, data4: [173, 47, 59, 113, 215, 88, 102, 245] };
+pub const CMSH265EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4076355700,
+    data2: 35786,
+    data3: 16573,
+    data4: [145, 89, 232, 128, 246, 115, 221, 59],
+};
+pub const CMSMPEGAudDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1886419769,
+    data2: 45770,
+    data3: 16405,
+    data4: [171, 234, 248, 68, 125, 34, 216, 139],
+};
+pub const CMSMPEGDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 762355282,
+    data2: 4671,
+    data3: 18869,
+    data4: [156, 188, 154, 245, 205, 226, 143, 185],
+};
+pub const CMSOpusDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1675721744,
+    data2: 11587,
+    data3: 19522,
+    data4: [143, 227, 141, 139, 99, 228, 106, 106],
+};
+pub const CMSSCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2075112369, data2: 55540, data3: 17017, data4: [146, 83, 39, 218, 66, 49, 8, 222] };
+pub const CMSSCEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2360986630,
+    data2: 53561,
+    data3: 19174,
+    data4: [139, 180, 65, 230, 18, 225, 65, 213],
+};
+pub const CMSSCEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4160741536,
+    data2: 42229,
+    data3: 17589,
+    data4: [148, 158, 21, 237, 43, 198, 111, 157],
+};
+pub const CMSVPXEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2931214165,
+    data2: 9542,
+    data3: 18561,
+    data4: [130, 204, 225, 90, 229, 235, 255, 61],
+};
+pub const CMSVideoDSPMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1364662084, data2: 32740, data3: 20466, data4: [164, 152, 45, 195, 79, 247, 79, 27] };
+pub const CMpeg2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2252170957,
+    data2: 52686,
+    data3: 17943,
+    data4: [180, 127, 200, 146, 156, 252, 40, 166],
+};
+pub const CMpeg43DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3416909707,
+    data2: 18851,
+    data3: 18922,
+    data4: [147, 212, 107, 203, 168, 196, 222, 7],
+};
+pub const CMpeg4DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4084298378, data2: 24658, data3: 19783, data4: [130, 124, 208, 57, 51, 93, 254, 10] };
+pub const CMpeg4EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 619862232,
+    data2: 50769,
+    data3: 16450,
+    data4: [147, 228, 202, 101, 74, 187, 104, 44],
+};
+pub const CMpeg4sDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1451663577,
+    data2: 65081,
+    data3: 16543,
+    data4: [157, 255, 63, 219, 200, 73, 249, 245],
+};
+pub const CMpeg4sDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 705805026,
+    data2: 65134,
+    data3: 16969,
+    data4: [134, 75, 158, 158, 214, 232, 219, 194],
+};
+pub const CMpeg4sEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1858447294,
+    data2: 55326,
+    data3: 20382,
+    data4: [173, 163, 205, 27, 242, 98, 182, 216],
+};
+pub const CNokiaAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3938417263,
+    data2: 52410,
+    data3: 19808,
+    data4: [134, 32, 177, 82, 204, 151, 114, 99],
+};
+pub const CNokiaAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018346980, data2: 20009, data3: 19524, data4: [167, 62, 45, 124, 44, 70, 214, 236] };
+pub const CODECAPI_AVAudioChannelConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 402169011, data2: 50061, data3: 17256, data4: [158, 222, 99, 185, 77, 23, 127, 159] };
+pub const CODECAPI_AVAudioChannelCount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 490046404, data2: 5507, data3: 18254, data4: [183, 26, 94, 228, 99, 193, 152, 228] };
+pub const CODECAPI_AVAudioSampleRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2535270179, data2: 6859, data3: 17127, data4: [133, 92, 82, 10, 75, 112, 165, 242] };
+pub const CODECAPI_AVDDSurroundMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2582836102,
+    data2: 39121,
+    data3: 17490,
+    data4: [161, 99, 171, 199, 138, 110, 183, 112],
+};
+pub const CODECAPI_AVDSPLoudnessEqualization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2331843093, data2: 6162, data3: 19647, data4: [147, 25, 67, 58, 91, 42, 59, 39] };
+pub const CODECAPI_AVDSPSpeakerFill: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1444068513,
+    data2: 22234,
+    data3: 17794,
+    data4: [141, 161, 202, 128, 144, 249, 39, 104],
+};
+pub const CODECAPI_AVDecAACDownmixMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19350645, data2: 63163, data3: 16407, data4: [176, 132, 129, 167, 99, 201, 66, 212] };
+pub const CODECAPI_AVDecAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1246940584, data2: 12536, data3: 16918, data4: [190, 15, 186, 11, 32, 37, 146, 29] };
+pub const CODECAPI_AVDecAudioDualMonoReproMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2769314182,
+    data2: 52372,
+    data3: 19401,
+    data4: [140, 217, 170, 47, 97, 246, 128, 126],
+};
+pub const CODECAPI_AVDecCommonInputFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3842003513,
+    data2: 48521,
+    data3: 19427,
+    data4: [156, 15, 93, 222, 49, 121, 136, 204],
+};
+pub const CODECAPI_AVDecCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1497924119, data2: 122, data3: 20346, data4: [142, 65, 92, 72, 177, 234, 197, 198] };
+pub const CODECAPI_AVDecCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 249837510, data2: 14503, data3: 19548, data4: [148, 76, 104, 171, 66, 17, 107, 133] };
+pub const CODECAPI_AVDecCommonOutputFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1014562856,
+    data2: 49358,
+    data3: 16982,
+    data4: [177, 162, 27, 15, 200, 177, 220, 220],
+};
+pub const CODECAPI_AVDecDDDynamicRangeScaleHigh: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1343843361,
+    data2: 7987,
+    data3: 19189,
+    data4: [178, 150, 17, 66, 109, 108, 135, 137],
+};
+pub const CODECAPI_AVDecDDDynamicRangeScaleLow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 72245988, data2: 4517, data3: 17109, data4: [163, 178, 59, 178, 199, 194, 215, 207] };
+pub const CODECAPI_AVDecDDMatrixDecodingMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3720876453, data2: 1261, data3: 19443, data4: [160, 202, 208, 4, 73, 249, 53, 95] };
+pub const CODECAPI_AVDecDDOperationalMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3604399825,
+    data2: 1614,
+    data3: 20445,
+    data4: [164, 14, 62, 203, 252, 183, 235, 208],
+};
+pub const CODECAPI_AVDecDDStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1826886188,
+    data2: 16105,
+    data3: 16770,
+    data4: [180, 174, 193, 15, 192, 136, 100, 157],
+};
+pub const CODECAPI_AVDecDisableVideoPostProcessing: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4168389011,
+    data2: 26234,
+    data3: 20268,
+    data4: [169, 232, 93, 74, 249, 36, 240, 143],
+};
+pub const CODECAPI_AVDecHEAACDynamicRangeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 679250622,
+    data2: 27044,
+    data3: 19769,
+    data4: [128, 128, 211, 217, 113, 33, 120, 160],
+};
+pub const CODECAPI_AVDecNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2506212328,
+    data2: 60062,
+    data3: 17461,
+    data4: [155, 30, 169, 62, 105, 24, 148, 216],
+};
+pub const CODECAPI_AVDecSoftwareDynamicFormatChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2251173642, data2: 20603, data3: 18431, data4: [175, 71, 1, 226, 98, 66, 152, 183] };
+pub const CODECAPI_AVDecVideoAcceleration_H264: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360111,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoAcceleration_MPEG2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360110,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoAcceleration_VC1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360112,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoCodecType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1128605925,
+    data2: 8688,
+    data3: 18102,
+    data4: [182, 44, 155, 27, 107, 101, 140, 209],
+};
+pub const CODECAPI_AVDecVideoDXVABusEncryption: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1108688011,
+    data2: 64779,
+    data3: 18277,
+    data4: [164, 98, 221, 217, 232, 188, 195, 136],
+};
+pub const CODECAPI_AVDecVideoDXVAMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4149801118,
+    data2: 29495,
+    data3: 19175,
+    data4: [131, 135, 115, 220, 45, 84, 230, 125],
+};
+pub const CODECAPI_AVDecVideoDropPicWithMissingRef: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4163003267, data2: 5314, data3: 17767, data4: [151, 52, 80, 4, 233, 111, 248, 135] };
+pub const CODECAPI_AVDecVideoFastDecodeMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1800576893,
+    data2: 54193,
+    data3: 18886,
+    data4: [169, 153, 158, 198, 145, 27, 237, 191],
+};
+pub const CODECAPI_AVDecVideoH264ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3974933736,
+    data2: 13366,
+    data3: 17964,
+    data4: [146, 148, 205, 123, 172, 215, 88, 169],
+};
+pub const CODECAPI_AVDecVideoImageSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1592095868,
+    data2: 26625,
+    data3: 19627,
+    data4: [170, 241, 98, 72, 250, 132, 27, 164],
+};
+pub const CODECAPI_AVDecVideoInputScanType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 944209439, data2: 3751, data3: 17101, data4: [140, 209, 19, 12, 237, 87, 197, 128] };
+pub const CODECAPI_AVDecVideoMPEG2ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2636906008,
+    data2: 29325,
+    data3: 18642,
+    data4: [179, 88, 188, 126, 67, 108, 102, 116],
+};
+pub const CODECAPI_AVDecVideoMaxCodedHeight: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1919066474,
+    data2: 53980,
+    data3: 20085,
+    data4: [155, 168, 101, 192, 198, 211, 43, 19],
+};
+pub const CODECAPI_AVDecVideoMaxCodedWidth: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1524979640,
+    data2: 30639,
+    data3: 16885,
+    data4: [159, 166, 77, 178, 254, 29, 75, 202],
+};
+pub const CODECAPI_AVDecVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2966389317, data2: 62253, data3: 16863, data4: [176, 44, 135, 189, 48, 77, 18, 171] };
+pub const CODECAPI_AVDecVideoProcDeinterlaceCSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360113,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoSWPowerLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4217185095,
+    data2: 19928,
+    data3: 17673,
+    data4: [174, 208, 219, 95, 169, 170, 147, 244],
+};
+pub const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201904590, data2: 40173, data3: 17728, data4: [186, 227, 206, 179, 128, 20, 17, 9] };
+pub const CODECAPI_AVDecVideoThumbnailGenerationMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 788369134,
+    data2: 4432,
+    data3: 17192,
+    data4: [156, 245, 102, 220, 233, 51, 252, 244],
+};
+pub const CODECAPI_AVEnableInLoopDeblockFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3538477977, data2: 1571, data3: 19443, data4: [146, 168, 77, 24, 24, 82, 157, 237] };
+pub const CODECAPI_AVEncAdaptiveMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1142534533, data2: 55839, data3: 20307, data4: [188, 118, 9, 125, 12, 30, 251, 30] };
+pub const CODECAPI_AVEncAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 910692971, data2: 41960, data3: 17193, data4: [155, 58, 92, 229, 102, 164, 59, 211] };
+pub const CODECAPI_AVEncAudioInputContent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1042443307,
+    data2: 24761,
+    data3: 19001,
+    data4: [176, 11, 167, 180, 15, 112, 213, 102],
+};
+pub const CODECAPI_AVEncAudioIntervalToEncode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2255375181, data2: 29274, data3: 18044, data4: [187, 1, 180, 150, 178, 59, 37, 249] };
+pub const CODECAPI_AVEncAudioIntervalToSkip: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2294374292,
+    data2: 50060,
+    data3: 18326,
+    data4: [169, 232, 150, 233, 103, 152, 63, 38],
+};
+pub const CODECAPI_AVEncAudioMapDestChannel0: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214368, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214369, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214378, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel11: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214379, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel12: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214380, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel13: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214381, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel14: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214382, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel15: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214383, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214370, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214371, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214372, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel5: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214373, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214374, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214375, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214376, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214377, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2450691515,
+    data2: 20426,
+    data3: 18041,
+    data4: [170, 184, 158, 42, 29, 117, 51, 132],
+};
+pub const CODECAPI_AVEncChromaEncodeMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2319952730, data2: 18328, data3: 19603, data4: [181, 165, 85, 79, 154, 59, 159, 80] };
+pub const CODECAPI_AVEncChromaUpdateTime: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1263524248, data2: 17012, data3: 16571, data4: [142, 228, 7, 85, 62, 126, 45, 58] };
+pub const CODECAPI_AVEncCodecType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 145705665,
+    data2: 62450,
+    data3: 19572,
+    data4: [157, 207, 55, 242, 236, 121, 248, 38],
+};
+pub const CODECAPI_AVEncCommonAllowFrameDrops: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3628563915, data2: 38296, data3: 18659, data4: [141, 12, 117, 43, 242, 6, 9, 62] };
+pub const CODECAPI_AVEncCommonBufferInLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3653617883,
+    data2: 64628,
+    data3: 16484,
+    data4: [148, 233, 205, 25, 249, 71, 237, 69],
+};
+pub const CODECAPI_AVEncCommonBufferOutLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3433987913, data2: 53436, data3: 20029, data4: [165, 126, 251, 87, 64, 20, 0, 105] };
+pub const CODECAPI_AVEncCommonBufferSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 230253940, data2: 46756, data3: 19595, data4: [129, 6, 55, 115, 222, 3, 16, 205] };
+pub const CODECAPI_AVEncCommonFormatConstraint: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1472969144, data2: 4463, data3: 18769, data4: [180, 12, 194, 160, 53, 237, 143, 23] };
+pub const CODECAPI_AVEncCommonLowLatency: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2638138709,
+    data2: 35304,
+    data3: 18698,
+    data4: [151, 10, 12, 149, 72, 213, 165, 110],
+};
+pub const CODECAPI_AVEncCommonMaxBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2521950948,
+    data2: 14777,
+    data3: 20159,
+    data4: [133, 239, 215, 244, 68, 236, 116, 101],
+};
+pub const CODECAPI_AVEncCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4146209652, data2: 8516, data3: 18453, data4: [181, 80, 163, 127, 142, 18, 238, 82] };
+pub const CODECAPI_AVEncCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3215601420, data2: 52098, data3: 19392, data4: [132, 116, 240, 106, 138, 13, 2, 88] };
+pub const CODECAPI_AVEncCommonMinBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 269747634, data2: 8323, data3: 16436, data4: [168, 6, 239, 190, 221, 215, 201, 255] };
+pub const CODECAPI_AVEncCommonMultipassMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 575880524,
+    data2: 18401,
+    data3: 16821,
+    data4: [147, 82, 162, 183, 120, 14, 122, 196],
+};
+pub const CODECAPI_AVEncCommonPassEnd: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 238879164, data2: 51292, data3: 18045, data4: [139, 96, 196, 16, 18, 238, 59, 246] };
+pub const CODECAPI_AVEncCommonPassStart: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1785164703,
+    data2: 20149,
+    data3: 17285,
+    data4: [153, 40, 242, 118, 169, 57, 239, 149],
+};
+pub const CODECAPI_AVEncCommonQuality: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4240398243,
+    data2: 32421,
+    data3: 19212,
+    data4: [150, 68, 105, 180, 12, 57, 195, 145],
+};
+pub const CODECAPI_AVEncCommonQualityVsSpeed: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
+pub const CODECAPI_AVEncCommonRateControlMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 470157545, data2: 14092, data3: 18192, data4: [138, 88, 203, 97, 129, 196, 36, 35] };
+pub const CODECAPI_AVEncCommonRealTime: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 339349494,
+    data2: 41265,
+    data3: 17370,
+    data4: [184, 30, 152, 251, 184, 236, 55, 142],
+};
+pub const CODECAPI_AVEncCommonStreamEndHandling: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1789735087,
+    data2: 27560,
+    data3: 19660,
+    data4: [143, 202, 24, 209, 155, 234, 235, 28],
+};
+pub const CODECAPI_AVEncCommonTranscodeEncodingProfile: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1766291580,
+    data2: 62728,
+    data3: 20137,
+    data4: [177, 233, 161, 254, 58, 73, 251, 201],
+};
+pub const CODECAPI_AVEncDDAtoDConverterType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1906284050, data2: 33185, data3: 18400, data4: [154, 5, 217, 74, 213, 252, 169, 72] };
+pub const CODECAPI_AVEncDDCentreDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3800368940,
+    data2: 51544,
+    data3: 19073,
+    data4: [175, 210, 229, 224, 218, 241, 177, 72],
+};
+pub const CODECAPI_AVEncDDChannelBWLowPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3784802845, data2: 53991, data3: 17378, data4: [173, 44, 0, 88, 47, 81, 133, 69] };
+pub const CODECAPI_AVEncDDCopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2257907830,
+    data2: 52597,
+    data3: 18461,
+    data4: [165, 198, 169, 4, 220, 200, 40, 240],
+};
+pub const CODECAPI_AVEncDDDCHighPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2506433439,
+    data2: 34332,
+    data3: 19144,
+    data4: [191, 218, 224, 12, 180, 219, 133, 72],
+};
+pub const CODECAPI_AVEncDDDialogNormalization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3607452367, data2: 61733, data3: 17277, data4: [167, 4, 121, 199, 159, 4, 4, 168] };
+pub const CODECAPI_AVEncDDDigitalDeemphasis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3760497346, data2: 38012, data3: 17836, data4: [135, 216, 241, 3, 12, 92, 0, 130] };
+pub const CODECAPI_AVEncDDDynamicRangeCompressionControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3485663085,
+    data2: 31160,
+    data3: 19341,
+    data4: [168, 170, 160, 201, 189, 28, 41, 64],
+};
+pub const CODECAPI_AVEncDDHeadphoneMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1079172076, data2: 21237, data3: 17141, data4: [155, 0, 209, 52, 177, 52, 27, 157] };
+pub const CODECAPI_AVEncDDLFELowPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3552055151, data2: 40213, data3: 17893, data4: [145, 190, 1, 156, 63, 171, 31, 1] };
+pub const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 486253090, data2: 9651, data3: 19444, data4: [155, 253, 231, 17, 18, 103, 133, 140] };
+pub const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3878014966, data2: 60246, data3: 16583, data4: [132, 80, 43, 147, 103, 233, 21, 85] };
+pub const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3701549218,
+    data2: 18719,
+    data3: 17920,
+    data4: [178, 218, 118, 227, 52, 75, 65, 151],
+};
+pub const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 555894471, data2: 15660, data3: 19962, data4: [188, 33, 101, 42, 144, 152, 105, 13] };
+pub const CODECAPI_AVEncDDOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2523588608, data2: 23507, data3: 20473, data4: [149, 185, 211, 5, 102, 39, 56, 86] };
+pub const CODECAPI_AVEncDDPreferredStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2135845681,
+    data2: 37253,
+    data3: 16445,
+    data4: [176, 162, 118, 55, 67, 230, 240, 99],
+};
+pub const CODECAPI_AVEncDDProductionInfoExists: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2964848223,
+    data2: 46763,
+    data3: 20288,
+    data4: [150, 77, 141, 145, 241, 124, 25, 232],
+};
+pub const CODECAPI_AVEncDDProductionMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 807211066, data2: 52217, data3: 18294, data4: [136, 153, 124, 21, 180, 97, 171, 38] };
+pub const CODECAPI_AVEncDDProductionRoomType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3671567712,
+    data2: 9176,
+    data3: 19127,
+    data4: [162, 132, 85, 105, 134, 216, 166, 254],
+};
+pub const CODECAPI_AVEncDDRFPreEmphasisFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 565134528, data2: 9294, data3: 20285, data4: [162, 204, 61, 48, 104, 178, 231, 63] };
+pub const CODECAPI_AVEncDDService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3538009799,
+    data2: 20850,
+    data3: 19754,
+    data4: [165, 14, 47, 59, 130, 177, 221, 248],
+};
+pub const CODECAPI_AVEncDDSurround3dBAttenuation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1296284061, data2: 12770, data3: 18617, data4: [191, 46, 92, 191, 26, 87, 39, 132] };
+pub const CODECAPI_AVEncDDSurround90DegreeePhaseShift: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 636284061, data2: 13651, data3: 17088, data4: [187, 86, 210, 87, 146, 16, 79, 128] };
+pub const CODECAPI_AVEncDDSurroundDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2065749733, data2: 3023, data3: 17011, data4: [164, 135, 80, 107, 4, 121, 151, 233] };
+pub const CODECAPI_AVEncDDSurroundExMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2439019758,
+    data2: 56285,
+    data3: 20150,
+    data4: [188, 162, 170, 223, 175, 163, 221, 104],
+};
+pub const CODECAPI_AVEncEnableVideoProcessing: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 7293942, data2: 3747, data3: 19778, data4: [135, 2, 181, 216, 190, 15, 122, 146] };
+pub const CODECAPI_AVEncH264CABACEnable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4000099682,
+    data2: 54021,
+    data3: 16968,
+    data4: [165, 14, 225, 178, 85, 247, 202, 248],
+};
+pub const CODECAPI_AVEncH264PPSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3219300034, data2: 1388, data3: 19816, data4: [163, 141, 174, 89, 68, 200, 88, 46] };
+pub const CODECAPI_AVEncH264SPSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1358139217, data2: 11129, data3: 16611, data4: [179, 156, 126, 159, 160, 119, 5, 1] };
+pub const CODECAPI_AVEncInputVideoSystem: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3202225261,
+    data2: 46614,
+    data3: 19911,
+    data4: [146, 178, 245, 217, 250, 146, 152, 247],
+};
+pub const CODECAPI_AVEncLowPowerEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3060323714, data2: 35757, data3: 20330, data4: [145, 65, 55, 90, 149, 53, 139, 109] };
+pub const CODECAPI_AVEncMP12MuxDVDNavPacks: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3344989421,
+    data2: 36081,
+    data3: 19097,
+    data4: [131, 161, 238, 84, 97, 190, 53, 116],
+};
+pub const CODECAPI_AVEncMP12MuxEarliestPTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 359805622, data2: 63497, data3: 18254, data4: [148, 100, 167, 249, 48, 20, 168, 23] };
+pub const CODECAPI_AVEncMP12MuxInitialSCR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875801889, data2: 7057, data3: 18955, data4: [177, 144, 43, 119, 6, 59, 99, 164] };
+pub const CODECAPI_AVEncMP12MuxLargestPacketSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 902739729, data2: 62561, data3: 19346, data4: [164, 239, 23, 182, 132, 30, 210, 84] };
+pub const CODECAPI_AVEncMP12MuxMuxRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3993271410,
+    data2: 19419,
+    data3: 19101,
+    data4: [142, 33, 65, 146, 108, 130, 61, 167],
+};
+pub const CODECAPI_AVEncMP12MuxNumStreams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4145433153,
+    data2: 56557,
+    data3: 18009,
+    data4: [168, 242, 251, 105, 63, 42, 76, 208],
+};
+pub const CODECAPI_AVEncMP12MuxPackSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4178969914, data2: 7400, data3: 20399, data4: [170, 11, 186, 49, 200, 0, 52, 184] };
+pub const CODECAPI_AVEncMP12MuxPacketOverhead: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3825981216,
+    data2: 14677,
+    data3: 17491,
+    data4: [172, 249, 183, 145, 50, 163, 143, 160],
+};
+pub const CODECAPI_AVEncMP12MuxSysAudioLock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 263935826, data2: 7491, data3: 18367, data4: [189, 121, 242, 41, 61, 140, 227, 55] };
+pub const CODECAPI_AVEncMP12MuxSysCSPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2035482437,
+    data2: 39949,
+    data3: 18466,
+    data4: [188, 130, 138, 215, 114, 224, 41, 147],
+};
+pub const CODECAPI_AVEncMP12MuxSysFixed: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3472595070,
+    data2: 35151,
+    data3: 17710,
+    data4: [143, 137, 164, 239, 140, 236, 6, 58],
+};
+pub const CODECAPI_AVEncMP12MuxSysRateBound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 99631754, data2: 60976, data3: 18589, data4: [174, 40, 32, 92, 114, 68, 103, 16] };
+pub const CODECAPI_AVEncMP12MuxSysSTDBufferBound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 896821507, data2: 46405, data3: 17383, data4: [187, 53, 197, 224, 167, 213, 9, 60] };
+pub const CODECAPI_AVEncMP12MuxSysVideoLock: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3089720328,
+    data2: 9264,
+    data3: 19767,
+    data4: [162, 161, 149, 179, 228, 53, 169, 29],
+};
+pub const CODECAPI_AVEncMP12MuxTargetPacketizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3630309674, data2: 8213, data3: 17885, data4: [154, 50, 27, 58, 168, 130, 5, 160] };
+pub const CODECAPI_AVEncMP12PktzCopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3371479233,
+    data2: 2380,
+    data3: 17351,
+    data4: [142, 104, 165, 149, 64, 90, 110, 248],
+};
+pub const CODECAPI_AVEncMP12PktzInitialPTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 709828709, data2: 39523, data3: 19744, data4: [174, 34, 10, 27, 200, 150, 163, 21] };
+pub const CODECAPI_AVEncMP12PktzOriginal: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1796703254,
+    data2: 12729,
+    data3: 18788,
+    data4: [148, 203, 107, 255, 134, 108, 223, 131],
+};
+pub const CODECAPI_AVEncMP12PktzPacketSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2876322938,
+    data2: 4914,
+    data3: 19934,
+    data4: [160, 229, 204, 247, 218, 138, 15, 34],
+};
+pub const CODECAPI_AVEncMP12PktzSTDBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 192224208, data2: 33182, data3: 18316, data4: [148, 53, 117, 32, 137, 38, 179, 119] };
+pub const CODECAPI_AVEncMP12PktzStreamID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3358904376,
+    data2: 62952,
+    data3: 17416,
+    data4: [155, 96, 136, 243, 100, 147, 254, 223],
+};
+pub const CODECAPI_AVEncMPACodingMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2976570883, data2: 19347, data3: 17367, data4: [165, 80, 144, 180, 254, 34, 69, 55] };
+pub const CODECAPI_AVEncMPACopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2796451370,
+    data2: 53417,
+    data3: 17492,
+    data4: [184, 239, 242, 219, 238, 253, 211, 189],
+};
+pub const CODECAPI_AVEncMPAEmphasisType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 760872154, data2: 48974, data3: 20182, data4: [181, 223, 91, 3, 179, 107, 10, 31] };
+pub const CODECAPI_AVEncMPAEnableRedundancyProtection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1582608542,
+    data2: 45799,
+    data3: 18803,
+    data4: [168, 155, 11, 54, 80, 163, 190, 218],
+};
+pub const CODECAPI_AVEncMPALayer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2637656624, data2: 63771, data3: 17725, data4: [156, 224, 120, 68, 84, 20, 194, 45] };
+pub const CODECAPI_AVEncMPAOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1023113301,
+    data2: 40137,
+    data3: 18431,
+    data4: [184, 41, 179, 103, 134, 201, 35, 70],
+};
+pub const CODECAPI_AVEncMPAPrivateUserBit: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2946827726, data2: 49635, data3: 20029, data4: [133, 27, 97, 183, 0, 229, 230, 204] };
+pub const CODECAPI_AVEncMPVAddSeqEndCode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2820872079,
+    data2: 22495,
+    data3: 19578,
+    data4: [184, 253, 229, 236, 136, 135, 112, 141],
+};
+pub const CODECAPI_AVEncMPVDefaultBPictureCount: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2369325740,
+    data2: 56412,
+    data3: 16896,
+    data4: [181, 127, 129, 77, 4, 186, 186, 178],
+};
+pub const CODECAPI_AVEncMPVFrameFieldMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2897600150, data2: 31635, data3: 19503, data4: [136, 37, 176, 41, 95, 169, 59, 244] };
+pub const CODECAPI_AVEncMPVGOPOpen: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2983580838, data2: 13056, data3: 18865, data4: [174, 97, 160, 153, 55, 171, 14, 73] };
+pub const CODECAPI_AVEncMPVGOPSInSeq: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2570326228, data2: 9873, data3: 16786, data4: [153, 120, 152, 220, 38, 3, 102, 159] };
+pub const CODECAPI_AVEncMPVGOPSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2515737382,
+    data2: 38308,
+    data3: 16810,
+    data4: [147, 3, 36, 106, 127, 198, 238, 241],
+};
+pub const CODECAPI_AVEncMPVGOPSizeMax: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4269663428, data2: 6454, data3: 20450, data4: [189, 247, 31, 24, 202, 29, 0, 31] };
+pub const CODECAPI_AVEncMPVGOPSizeMin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1901448992,
+    data2: 54336,
+    data3: 18514,
+    data4: [173, 15, 156, 74, 191, 227, 122, 106],
+};
+pub const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3326160772,
+    data2: 49215,
+    data3: 20288,
+    data4: [160, 12, 66, 147, 223, 131, 149, 187],
+};
+pub const CODECAPI_AVEncMPVGenerateHeaderPicExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461661355, data2: 37967, data3: 17904, data4: [183, 78, 58, 88, 218, 209, 31, 55] };
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1681369711,
+    data2: 23100,
+    data3: 19945,
+    data4: [138, 22, 83, 217, 196, 173, 50, 111],
+};
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3588720145, data2: 2093, data3: 20075, data4: [152, 175, 15, 81, 171, 19, 146, 34] };
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 119723567, data2: 56665, data3: 19078, data4: [156, 213, 100, 79, 142, 38, 83, 216] };
+pub const CODECAPI_AVEncMPVIntraDCPrecision: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2685493585,
+    data2: 52168,
+    data3: 19187,
+    data4: [151, 220, 208, 12, 206, 184, 45, 121],
+};
+pub const CODECAPI_AVEncMPVIntraVLCTable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2729983989,
+    data2: 6809,
+    data3: 16474,
+    data4: [175, 149, 197, 153, 125, 85, 141, 58],
+};
+pub const CODECAPI_AVEncMPVLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1860439104, data2: 42508, data3: 16879, data4: [143, 80, 55, 194, 36, 158, 44, 179] };
+pub const CODECAPI_AVEncMPVProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3669709642, data2: 7577, data3: 17028, data4: [151, 90, 217, 14, 34, 57, 186, 161] };
+pub const CODECAPI_AVEncMPVQScaleType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 729410487,
+    data2: 62596,
+    data3: 19191,
+    data4: [187, 88, 162, 161, 136, 197, 203, 190],
+};
+pub const CODECAPI_AVEncMPVQuantMatrixChromaIntra: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2662984916, data2: 397, data3: 20477, data4: [143, 45, 57, 228, 159, 7, 177, 122] };
+pub const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 336967345, data2: 13866, data3: 17208, data4: [186, 154, 30, 245, 135, 3, 192, 91] };
+pub const CODECAPI_AVEncMPVQuantMatrixIntra: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2615805171,
+    data2: 26145,
+    data3: 17452,
+    data4: [139, 161, 58, 195, 120, 151, 150, 152],
+};
+pub const CODECAPI_AVEncMPVQuantMatrixNonIntra: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2280931800,
+    data2: 2455,
+    data3: 19435,
+    data4: [160, 142, 133, 115, 212, 9, 207, 117],
+};
+pub const CODECAPI_AVEncMPVScanPattern: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2139768718,
+    data2: 31675,
+    data3: 19170,
+    data4: [178, 252, 150, 209, 127, 196, 162, 214],
+};
+pub const CODECAPI_AVEncMPVSceneDetection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1428658673, data2: 56140, data3: 16475, data4: [138, 58, 201, 63, 45, 6, 116, 220] };
+pub const CODECAPI_AVEncMPVUseConcealmentMotionVectors: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3967225075,
+    data2: 26888,
+    data3: 19275,
+    data4: [170, 48, 127, 185, 134, 33, 79, 234],
+};
+pub const CODECAPI_AVEncMaxFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3113098033,
+    data2: 6650,
+    data3: 19791,
+    data4: [153, 49, 214, 165, 184, 170, 185, 60],
+};
+pub const CODECAPI_AVEncMuxOutputStreamType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3470630543, data2: 13523, data3: 17627, data4: [161, 216, 248, 21, 32, 37, 79, 62] };
+pub const CODECAPI_AVEncNoInputCopy: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3535039018,
+    data2: 59630,
+    data3: 20165,
+    data4: [134, 158, 68, 155, 108, 98, 200, 26],
+};
+pub const CODECAPI_AVEncNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2965946208, data2: 5879, data3: 18769, data4: [163, 11, 29, 177, 96, 146, 147, 214] };
+pub const CODECAPI_AVEncProgressiveUpdateTime: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1688186726,
+    data2: 44998,
+    data3: 18472,
+    data4: [143, 220, 7, 113, 205, 154, 177, 125],
+};
+pub const CODECAPI_AVEncSliceControlMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3924263663,
+    data2: 24344,
+    data3: 17609,
+    data4: [169, 11, 233, 195, 194, 193, 123, 11],
+};
+pub const CODECAPI_AVEncSliceControlSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2465537523,
+    data2: 1957,
+    data3: 16754,
+    data4: [174, 254, 198, 156, 163, 182, 14, 53],
+};
+pub const CODECAPI_AVEncSliceGenerationMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2322318975,
+    data2: 38039,
+    data3: 17030,
+    data4: [180, 107, 2, 219, 141, 96, 237, 188],
+};
+pub const CODECAPI_AVEncStatAudioAverageBPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3395757275,
+    data2: 28761,
+    data3: 17233,
+    data4: [139, 67, 248, 33, 152, 130, 106, 20],
+};
+pub const CODECAPI_AVEncStatAudioAveragePCMValue: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2542957304,
+    data2: 53631,
+    data3: 20018,
+    data4: [187, 115, 78, 115, 28, 104, 186, 45],
+};
+pub const CODECAPI_AVEncStatAudioPeakPCMValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3706191156, data2: 56320, data3: 19478, data4: [130, 27, 53, 217, 235, 0, 251, 26] };
+pub const CODECAPI_AVEncStatAverageBPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3395757275,
+    data2: 28761,
+    data3: 17233,
+    data4: [139, 67, 248, 33, 152, 130, 106, 20],
+};
+pub const CODECAPI_AVEncStatCommonCompletedPasses: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1046340915,
+    data2: 40439,
+    data3: 17292,
+    data4: [133, 79, 159, 125, 211, 104, 61, 52],
+};
+pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19184283, data2: 56385, data3: 18470, data4: [180, 95, 24, 172, 1, 179, 213, 168] };
+pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2573058087,
+    data2: 52117,
+    data3: 18918,
+    data4: [185, 27, 89, 103, 117, 60, 220, 184],
+};
+pub const CODECAPI_AVEncStatMPVSkippedEmptyFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 840523731, data2: 22797, data3: 18450, data4: [167, 237, 109, 99, 154, 31, 151, 17] };
+pub const CODECAPI_AVEncStatVideoCodedFrames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3565129057,
+    data2: 28506,
+    data3: 18982,
+    data4: [187, 159, 205, 149, 24, 70, 43, 205],
+};
+pub const CODECAPI_AVEncStatVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3195304009,
+    data2: 39604,
+    data3: 19043,
+    data4: [152, 254, 241, 67, 240, 79, 142, 233],
+};
+pub const CODECAPI_AVEncStatVideoTotalFrames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4255815958,
+    data2: 4506,
+    data3: 16930,
+    data4: [154, 214, 63, 124, 171, 153, 204, 139],
+};
+pub const CODECAPI_AVEncStatWMVCBAvg: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1789272735,
+    data2: 54786,
+    data3: 19357,
+    data4: [182, 140, 193, 173, 120, 136, 75, 239],
+};
+pub const CODECAPI_AVEncStatWMVCBMax: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3916873464, data2: 254, data3: 17588, data4: [182, 37, 143, 35, 139, 192, 52, 153] };
+pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2313592771, data2: 3995, data3: 17260, data4: [151, 74, 223, 130, 18, 39, 201, 13] };
+pub const CODECAPI_AVEncVideoCBRMotionTradeoff: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 222905630, data2: 6357, data3: 17255, data4: [164, 239, 50, 64, 223, 22, 147, 196] };
+pub const CODECAPI_AVEncVideoCTBSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3565009074,
+    data2: 59195,
+    data3: 19641,
+    data4: [140, 62, 189, 135, 125, 6, 215, 123],
+};
+pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3031501845,
+    data2: 5287,
+    data3: 19688,
+    data4: [177, 115, 220, 144, 160, 180, 252, 219],
+};
+pub const CODECAPI_AVEncVideoContentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1712421578,
+    data2: 60279,
+    data3: 17821,
+    data4: [147, 12, 164, 141, 157, 6, 131, 252],
+};
+pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2164352964, data2: 3009, data3: 18378, data4: [143, 194, 87, 5, 90, 20, 116, 165] };
+pub const CODECAPI_AVEncVideoDirtyRectEnabled: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2328596445, data2: 24076, data3: 19558, data4: [135, 41, 184, 246, 41, 171, 4, 251] };
+pub const CODECAPI_AVEncVideoDisplayDimension: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3724883560,
+    data2: 62700,
+    data3: 18345,
+    data4: [134, 208, 131, 103, 112, 240, 193, 213],
+};
+pub const CODECAPI_AVEncVideoEncodeDimension: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 276094760,
+    data2: 32271,
+    data3: 18340,
+    data4: [164, 83, 205, 215, 56, 112, 245, 206],
+};
+pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2859513360, data2: 57407, data3: 17676, data4: [173, 7, 7, 49, 78, 99, 156, 231] };
+pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1807784190, data2: 42778, data3: 17492, data4: [133, 46, 77, 45, 222, 178, 205, 36] };
+pub const CODECAPI_AVEncVideoEncodeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 750086507, data2: 9211, data3: 19681, data4: [160, 249, 239, 91, 144, 253, 85, 202] };
+pub const CODECAPI_AVEncVideoFieldSwap: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4278023529, data2: 19978, data3: 18930, data4: [159, 43, 54, 14, 164, 140, 25, 162] };
+pub const CODECAPI_AVEncVideoForceKeyFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 965483416, data2: 33619, data3: 18266, data4: [158, 242, 143, 38, 93, 38, 3, 69] };
+pub const CODECAPI_AVEncVideoForceSourceScanType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 519177823, data2: 1418, data3: 18277, data4: [164, 252, 138, 134, 76, 16, 48, 18] };
+pub const CODECAPI_AVEncVideoGradualIntraRefresh: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2402581998, data2: 51981, data3: 18874, data4: [180, 98, 219, 105, 39, 238, 33, 1] };
+pub const CODECAPI_AVEncVideoHeaderDropFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1859772708, data2: 31013, data3: 17406, data4: [151, 27, 224, 25, 246, 34, 34, 180] };
+pub const CODECAPI_AVEncVideoHeaderFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2950034791, data2: 23579, data3: 19164, data4: [189, 175, 115, 86, 16, 56, 20, 54] };
+pub const CODECAPI_AVEncVideoHeaderHours: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 718042882, data2: 58074, data3: 16728, data4: [191, 155, 136, 136, 1, 41, 215, 64] };
+pub const CODECAPI_AVEncVideoHeaderMinutes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3692730830, data2: 775, data3: 16523, data4: [136, 11, 184, 52, 142, 232, 202, 127] };
+pub const CODECAPI_AVEncVideoHeaderSeconds: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1244535301,
+    data2: 42880,
+    data3: 20312,
+    data4: [129, 32, 154, 68, 157, 105, 101, 107],
+};
+pub const CODECAPI_AVEncVideoInputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3138186291, data2: 5873, data3: 18352, data4: [138, 136, 55, 129, 91, 238, 23, 57] };
+pub const CODECAPI_AVEncVideoInputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2833726009, data2: 17461, data3: 20163, data4: [166, 234, 152, 48, 15, 75, 54, 247] };
+pub const CODECAPI_AVEncVideoInputColorLighting: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1185518921, data2: 21, data3: 19013, data4: [156, 48, 29, 92, 250, 37, 131, 22] };
+pub const CODECAPI_AVEncVideoInputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 382674374, data2: 41638, data3: 18665, data4: [174, 128, 33, 174, 196, 29, 66, 126] };
+pub const CODECAPI_AVEncVideoInputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3259856959,
+    data2: 31974,
+    data3: 17016,
+    data4: [144, 171, 40, 164, 241, 229, 248, 108],
+};
+pub const CODECAPI_AVEncVideoInputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2349162769,
+    data2: 43459,
+    data3: 19208,
+    data4: [160, 160, 206, 19, 248, 162, 124, 117],
+};
+pub const CODECAPI_AVEncVideoInputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1391290553, data2: 29397, data3: 16521, data4: [149, 141, 245, 64, 93, 85, 8, 28] };
+pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2737865479, data2: 3478, data3: 19364, data4: [177, 240, 185, 26, 94, 73, 223, 16] };
+pub const CODECAPI_AVEncVideoIntraLayerPrediction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3551479480,
+    data2: 48967,
+    data3: 17595,
+    data4: [162, 131, 105, 240, 176, 34, 143, 249],
+};
+pub const CODECAPI_AVEncVideoInverseTelecineEnable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 782829963,
+    data2: 59245,
+    data3: 19661,
+    data4: [160, 48, 211, 184, 137, 193, 182, 76],
+};
+pub const CODECAPI_AVEncVideoInverseTelecineThreshold: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1076133252, data2: 59541, data3: 18815, data4: [180, 76, 183, 69, 96, 172, 254, 39] };
+pub const CODECAPI_AVEncVideoLTRBufferControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2762008893,
+    data2: 19644,
+    data3: 17484,
+    data4: [137, 244, 130, 109, 49, 14, 146, 167],
+};
+pub const CODECAPI_AVEncVideoMarkLTRFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3828303688, data2: 41069, data3: 20217, data4: [140, 234, 61, 5, 253, 227, 189, 59] };
+pub const CODECAPI_AVEncVideoMaxCTBSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2183357439,
+    data2: 52936,
+    data3: 17381,
+    data4: [146, 253, 224, 151, 72, 132, 133, 233],
+};
+pub const CODECAPI_AVEncVideoMaxKeyframeDistance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696717882, data2: 47763, data3: 18180, data4: [180, 137, 236, 30, 95, 37, 41, 44] };
+pub const CODECAPI_AVEncVideoMaxNumRefFrame: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2521311725,
+    data2: 38137,
+    data3: 17332,
+    data4: [183, 77, 239, 64, 148, 75, 105, 160],
+};
+pub const CODECAPI_AVEncVideoMaxQP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1034907494,
+    data2: 42663,
+    data3: 17888,
+    data4: [168, 229, 242, 116, 63, 70, 163, 162],
+};
+pub const CODECAPI_AVEncVideoMaxTemporalLayers: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2623966462,
+    data2: 2273,
+    data3: 16970,
+    data4: [147, 78, 183, 100, 176, 100, 128, 42],
+};
+pub const CODECAPI_AVEncVideoMeanAbsoluteDifference: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3854614799, data2: 33188, data3: 16941, data4: [140, 63, 180, 116, 164, 88, 19, 54] };
+pub const CODECAPI_AVEncVideoMinQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 249703530, data2: 41852, data3: 17768, data4: [181, 241, 157, 76, 43, 58, 184, 134] };
+pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1642380258,
+    data2: 20192,
+    data3: 16615,
+    data4: [128, 171, 81, 221, 238, 190, 98, 145],
+};
+pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2843611712,
+    data2: 5159,
+    data3: 19478,
+    data4: [167, 247, 61, 207, 216, 186, 76, 197],
+};
+pub const CODECAPI_AVEncVideoNumGOPsPerIDR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2210159579, data2: 23433, data3: 17697, data4: [143, 102, 51, 21, 28, 55, 49, 118] };
+pub const CODECAPI_AVEncVideoOutputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1620554953,
+    data2: 31773,
+    data3: 20068,
+    data4: [191, 204, 158, 151, 101, 49, 138, 231],
+};
+pub const CODECAPI_AVEncVideoOutputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4199947372, data2: 32023, data3: 17648, data4: [131, 201, 50, 237, 18, 233, 99, 67] };
+pub const CODECAPI_AVEncVideoOutputColorLighting: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 240822982,
+    data2: 44262,
+    data3: 19548,
+    data4: [153, 142, 26, 140, 156, 108, 15, 137],
+};
+pub const CODECAPI_AVEncVideoOutputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2535994861, data2: 34741, data3: 20117, data4: [149, 0, 199, 57, 88, 86, 110, 84] };
+pub const CODECAPI_AVEncVideoOutputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3197472892,
+    data2: 40196,
+    data3: 18721,
+    data4: [137, 133, 166, 214, 216, 125, 26, 108],
+};
+pub const CODECAPI_AVEncVideoOutputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1249871946, data2: 59921, data3: 17933, data4: [191, 87, 184, 139, 199, 89, 0, 222] };
+pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2847474756,
+    data2: 44864,
+    data3: 17168,
+    data4: [143, 190, 237, 109, 147, 63, 137, 43],
+};
+pub const CODECAPI_AVEncVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3934644163,
+    data2: 38247,
+    data3: 19865,
+    data4: [135, 196, 2, 193, 194, 120, 202, 124],
+};
+pub const CODECAPI_AVEncVideoOutputFrameRateConversion: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2349239284,
+    data2: 13978,
+    data3: 19363,
+    data4: [130, 253, 178, 81, 143, 179, 57, 110],
+};
+pub const CODECAPI_AVEncVideoOutputScanType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1175147894,
+    data2: 33838,
+    data3: 18859,
+    data4: [166, 45, 179, 111, 115, 18, 201, 219],
+};
+pub const CODECAPI_AVEncVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1021079951, data2: 46057, data3: 20150, data4: [165, 127, 207, 31, 27, 50, 27, 135] };
+pub const CODECAPI_AVEncVideoROIEnabled: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3612311320,
+    data2: 17629,
+    data3: 19333,
+    data4: [171, 163, 5, 217, 244, 42, 130, 128],
+};
+pub const CODECAPI_AVEncVideoRateControlParams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2278831975,
+    data2: 30277,
+    data3: 17644,
+    data4: [180, 56, 211, 50, 47, 188, 162, 159],
+};
+pub const CODECAPI_AVEncVideoSelectLayer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3943728373, data2: 27306, data3: 18708, data4: [187, 47, 97, 71, 34, 127, 18, 231] };
+pub const CODECAPI_AVEncVideoSourceFilmContent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395429451, data2: 52476, data3: 18471, data4: [160, 237, 37, 87, 121, 59, 43, 28] };
+pub const CODECAPI_AVEncVideoSourceIsBW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1124058267, data2: 6162, data3: 20444, data4: [141, 36, 112, 84, 197, 33, 230, 235] };
+pub const CODECAPI_AVEncVideoSupportedControls: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3555987421, data2: 30649, data3: 18237, data4: [129, 150, 6, 18, 89, 230, 156, 255] };
+pub const CODECAPI_AVEncVideoTemporalLayerCount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 432729087, data2: 46925, data3: 19709, data4: [140, 39, 194, 249, 217, 125, 95, 82] };
+pub const CODECAPI_AVEncVideoUsage: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 526608457,
+    data2: 24001,
+    data3: 18929,
+    data4: [177, 216, 206, 60, 246, 46, 163, 133],
+};
+pub const CODECAPI_AVEncVideoUseLTRFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 7679416, data2: 22007, data3: 20352, data4: [137, 91, 39, 99, 145, 149, 242, 173] };
+pub const CODECAPI_AVEncWMVDecoderComplexity: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4079750571,
+    data2: 62411,
+    data3: 16919,
+    data4: [183, 159, 135, 98, 118, 139, 95, 103],
+};
+pub const CODECAPI_AVEncWMVInterlacedEncoding: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3822063498,
+    data2: 50933,
+    data3: 19988,
+    data4: [165, 136, 14, 200, 122, 114, 111, 155],
+};
+pub const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1375670549, data2: 13228, data3: 17004, data4: [161, 177, 9, 50, 27, 223, 150, 180] };
+pub const CODECAPI_AVEncWMVKeyFrameDistance: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1432946014,
+    data2: 57960,
+    data3: 18289,
+    data4: [184, 62, 149, 85, 234, 40, 174, 211],
+};
+pub const CODECAPI_AVEncWMVProduceDummyFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3597258753, data2: 6204, data3: 17123, data4: [163, 202, 47, 69, 134, 210, 57, 108] };
+pub const CODECAPI_AVLowLatencyMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2619836698,
+    data2: 60794,
+    data3: 16609,
+    data4: [136, 232, 178, 39, 39, 160, 36, 238],
+};
+pub const CODECAPI_AVPriorityControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1421491656, data2: 48606, data3: 17193, data4: [177, 135, 32, 24, 188, 92, 43, 161] };
+pub const CODECAPI_AVRealtimeControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1866729010, data2: 50349, data3: 19447, data4: [158, 82, 69, 105, 66, 180, 84, 176] };
+pub const CODECAPI_AVScenarioInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2995416676, data2: 16377, data3: 17514, data4: [138, 75, 13, 122, 83, 65, 50, 54] };
+pub const CODECAPI_GUID_AVDecAudioInputAAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2548004904, data2: 47434, data3: 18402, data4: [164, 188, 81, 25, 77, 178, 42, 77] };
+pub const CODECAPI_GUID_AVDecAudioInputDTS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1611382986,
+    data2: 27167,
+    data3: 20113,
+    data4: [178, 65, 27, 190, 177, 203, 25, 224],
+};
+pub const CODECAPI_GUID_AVDecAudioInputDolby: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2386700448,
+    data2: 61440,
+    data3: 19979,
+    data4: [143, 84, 171, 141, 36, 173, 97, 162],
+};
+pub const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 134472069, data2: 36701, data3: 18421, data4: [153, 8, 25, 165, 187, 201, 254, 52] };
+pub const CODECAPI_GUID_AVDecAudioInputHEAAC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 384808106,
+    data2: 13070,
+    data3: 20316,
+    data4: [152, 168, 207, 106, 197, 92, 190, 96],
+};
+pub const CODECAPI_GUID_AVDecAudioInputMPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2433773366, data2: 709, data3: 20341, data4: [151, 25, 59, 122, 191, 117, 225, 246] };
+pub const CODECAPI_GUID_AVDecAudioInputPCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4064419237, data2: 48052, data3: 19669, data4: [169, 150, 147, 60, 107, 93, 19, 71] };
+pub const CODECAPI_GUID_AVDecAudioInputWMA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3378417103, data2: 16472, data3: 16900, data4: [140, 66, 203, 36, 217, 30, 75, 155] };
+pub const CODECAPI_GUID_AVDecAudioInputWMAPro: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19445703, data2: 55922, data3: 20451, data4: [190, 248, 92, 82, 227, 85, 119, 4] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824113, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824116, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824117, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824112, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824115, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824114, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVEncCommonFormatATSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2373683580,
+    data2: 40985,
+    data3: 18032,
+    data4: [170, 118, 46, 220, 172, 122, 194, 150],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatDVB: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1904414095,
+    data2: 27699,
+    data3: 17165,
+    data4: [132, 75, 194, 112, 91, 170, 230, 219],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3847330262, data2: 1100, data3: 19886, data4: [164, 136, 83, 30, 211, 6, 35, 91] };
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3880546094,
+    data2: 60471,
+    data3: 18317,
+    data4: [154, 244, 165, 225, 53, 182, 39, 28],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_V: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3432356036,
+    data2: 59390,
+    data3: 17693,
+    data4: [177, 202, 118, 27, 200, 64, 183, 243],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatHighMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 514582368,
+    data2: 64299,
+    data3: 18728,
+    data4: [144, 209, 120, 219, 136, 238, 232, 137],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatHighMPV: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2731695544,
+    data2: 47353,
+    data3: 17090,
+    data4: [139, 199, 11, 147, 207, 96, 71, 136],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatMP3: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 882324429,
+    data2: 60168,
+    data3: 19906,
+    data4: [129, 151, 228, 152, 53, 239, 130, 139],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatSVCD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1373132824,
+    data2: 33312,
+    data3: 17548,
+    data4: [128, 102, 214, 155, 237, 22, 201, 173],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatUnSpecified: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2940642138,
+    data2: 24612,
+    data3: 17701,
+    data4: [164, 138, 9, 75, 151, 245, 179, 194],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatVCD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2500025335,
+    data2: 40336,
+    data3: 16639,
+    data4: [173, 92, 92, 248, 207, 113, 202, 29],
+};
+pub const CODECAPI_GUID_AVEncDTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1174129314, data2: 24174, data3: 19120, data4: [136, 147, 89, 3, 190, 233, 58, 207] };
+pub const CODECAPI_GUID_AVEncDTSHD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 542303792,
+    data2: 18077,
+    data3: 19451,
+    data4: [128, 202, 29, 101, 110, 126, 145, 143],
+};
+pub const CODECAPI_GUID_AVEncDV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 163015111, data2: 13097, data3: 17659, data4: [137, 84, 250, 48, 147, 125, 61, 90] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalConsumer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3248996204, data2: 89, data3: 19450, data4: [148, 239, 239, 116, 122, 118, 141, 82] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1770855296, data2: 63453, data3: 16732, data4: [151, 28, 66, 73, 42, 32, 86, 198] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalPro: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4122900172, data2: 4088, data3: 16619, data4: [156, 177, 187, 169, 64, 4, 212, 79] };
+pub const CODECAPI_GUID_AVEncH264Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2500087467, data2: 12723, data3: 18398, data4: [142, 117, 56, 164, 43, 176, 62, 40] };
+pub const CODECAPI_GUID_AVEncMLP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 100089385, data2: 61649, data3: 17182, data4: [164, 28, 164, 116, 50, 236, 90, 102] };
+pub const CODECAPI_GUID_AVEncMPEG1Audio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3571258210, data2: 52554, data3: 19670, data4: [129, 56, 185, 77, 180, 84, 43, 4] };
+pub const CODECAPI_GUID_AVEncMPEG1Video: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3369795326,
+    data2: 55838,
+    data3: 18292,
+    data4: [178, 125, 17, 131, 12, 22, 177, 254],
+};
+pub const CODECAPI_GUID_AVEncMPEG2Audio: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3998006047,
+    data2: 39999,
+    data3: 18288,
+    data4: [146, 181, 252, 183, 194, 168, 211, 129],
+};
+pub const CODECAPI_GUID_AVEncMPEG2Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 74301850, data2: 26231, data3: 19114, data4: [163, 29, 193, 171, 113, 111, 69, 96] };
+pub const CODECAPI_GUID_AVEncPCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2219567092, data2: 9935, data3: 18297, data4: [179, 134, 204, 5, 209, 135, 153, 12] };
+pub const CODECAPI_GUID_AVEncSDDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 499234863, data2: 4552, data3: 19569, data4: [183, 182, 238, 62, 185, 188, 43, 148] };
+pub const CODECAPI_GUID_AVEncWMALossless: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1439330917, data2: 9176, data3: 18273, data4: [144, 49, 183, 79, 190, 18, 244, 193] };
+pub const CODECAPI_GUID_AVEncWMAPro: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 425064716,
+    data2: 13303,
+    data3: 19048,
+    data4: [171, 129, 83, 245, 101, 113, 37, 196],
+};
+pub const CODECAPI_GUID_AVEncWMAVoice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 334305483,
+    data2: 20712,
+    data3: 17014,
+    data4: [162, 136, 166, 170, 34, 131, 130, 217],
+};
+pub const CODECAPI_GUID_AVEncWMV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1309667227, data2: 7491, data3: 16829, data4: [184, 189, 77, 123, 247, 69, 122, 42] };
+pub const CODECAPI_GUID_AVEndMPEG4Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3711414570, data2: 38147, data3: 20363, data4: [184, 208, 50, 74, 0, 192, 161, 207] };
+pub const CODECAPI_GetOPMContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 788753413, data2: 19476, data3: 18057, data4: [136, 57, 41, 76, 109, 115, 224, 83] };
+pub const CODECAPI_SetHDCPManagerContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1831673800,
+    data2: 15817,
+    data3: 18411,
+    data4: [161, 162, 71, 28, 128, 205, 96, 208],
+};
+pub const CODECAPI_VideoEncoderDisplayContentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2042170151,
+    data2: 62641,
+    data3: 17116,
+    data4: [157, 215, 205, 175, 129, 53, 196, 0],
+};
 pub const COPP_ProtectionType_ACP: i32 = 2i32;
 pub const COPP_ProtectionType_CGMSA: i32 = 4i32;
 pub const COPP_ProtectionType_HDCP: i32 = 1i32;
@@ -1264,72 +1788,114 @@ pub const COPP_ProtectionType_Mask: i32 = -2147483641i32;
 pub const COPP_ProtectionType_None: i32 = 0i32;
 pub const COPP_ProtectionType_Reserved: i32 = 2147483640i32;
 pub const COPP_ProtectionType_Unknown: i32 = -2147483648i32;
-#[repr(C)]
-pub struct CPK_DS_AC3Decoder(i32);
-#[repr(C)]
-pub struct CPK_DS_MPEG2Decoder(i32);
-#[repr(C)]
-pub struct CResamplerMediaObject(i32);
-#[repr(C)]
-pub struct CResizerDMO(i32);
-#[repr(C)]
-pub struct CResizerMediaObject(i32);
-#[repr(C)]
-pub struct CShotDetectorDmo(i32);
-#[repr(C)]
-pub struct CSmpteTransformsDmo(i32);
-#[repr(C)]
-pub struct CThumbnailGeneratorDmo(i32);
-#[repr(C)]
-pub struct CTocGeneratorDmo(i32);
-#[repr(C)]
-pub struct CVodafoneAACCCDecMediaObject(i32);
-#[repr(C)]
-pub struct CVodafoneAACDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMADecMediaObject(i32);
-#[repr(C)]
-pub struct CWMAEncMediaObject(i32);
-#[repr(C)]
-pub struct CWMATransMediaObject(i32);
-#[repr(C)]
-pub struct CWMAudioAEC(i32);
-#[repr(C)]
-pub struct CWMAudioCAPXGFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioCAPXLFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioGFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioLFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioSpdTxDMO(i32);
-#[repr(C)]
-pub struct CWMSPDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMSPEncMediaObject(i32);
-#[repr(C)]
-pub struct CWMSPEncMediaObject2(i32);
-#[repr(C)]
-pub struct CWMTDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMTEncMediaObject(i32);
-#[repr(C)]
-pub struct CWMV9EncMediaObject(i32);
-#[repr(C)]
-pub struct CWMVDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMVEncMediaObject2(i32);
-#[repr(C)]
-pub struct CWMVXEncMediaObject(i32);
-#[repr(C)]
-pub struct CWVC1DecMediaObject(i32);
-#[repr(C)]
-pub struct CWVC1EncMediaObject(i32);
-#[repr(C)]
-pub struct CZuneAACCCDecMediaObject(i32);
-#[repr(C)]
-pub struct CZuneM4S2DecMediaObject(i32);
+pub const CPK_DS_AC3Decoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1822190038,
+    data2: 4092,
+    data3: 17537,
+    data4: [175, 219, 205, 241, 199, 156, 111, 62],
+};
+pub const CPK_DS_MPEG2Decoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2568013261,
+    data2: 38345,
+    data3: 19974,
+    data4: [134, 90, 239, 161, 200, 1, 107, 244],
+};
+pub const CResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4098340510,
+    data2: 6276,
+    data3: 19070,
+    data4: [128, 85, 52, 111, 116, 214, 237, 179],
+};
+pub const CResizerDMO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 513927700, data2: 18676, data3: 16468, data4: [173, 26, 232, 174, 225, 10, 200, 5] };
+pub const CResizerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3555494795,
+    data2: 30504,
+    data3: 20440,
+    data4: [159, 224, 123, 103, 209, 159, 115, 163],
+};
+pub const CShotDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1454308045,
+    data2: 4364,
+    data3: 17303,
+    data4: [146, 146, 176, 160, 198, 27, 103, 80],
+};
+pub const CSmpteTransformsDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3185981579, data2: 55845, data3: 18525, data4: [186, 127, 250, 188, 40, 178, 3, 24] };
+pub const CThumbnailGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1436314541,
+    data2: 7848,
+    data3: 18787,
+    data4: [160, 135, 138, 104, 16, 249, 33, 139],
+};
+pub const CTocGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1306138945, data2: 30624, data3: 20401, data4: [165, 24, 226, 24, 80, 65, 215, 12] };
+pub const CVodafoneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2121711487,
+    data2: 51603,
+    data3: 20006,
+    data4: [143, 171, 71, 10, 112, 192, 213, 156],
+};
+pub const CVodafoneAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2134309186, data2: 56563, data3: 19842, data4: [146, 137, 91, 24, 32, 39, 143, 124] };
+pub const CWMADecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 787172063, data2: 17784, data3: 19728, data4: [188, 167, 187, 149, 95, 86, 50, 10] };
+pub const CWMAEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1895143657,
+    data2: 62635,
+    data3: 18778,
+    data4: [153, 226, 167, 196, 211, 216, 154, 191],
+};
+pub const CWMATransMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3989494219, data2: 12583, data3: 16607, data4: [181, 39, 1, 82, 204, 179, 246, 245] };
+pub const CWMAudioAEC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1951422407, data2: 62291, data3: 20269, data4: [167, 238, 88, 67, 68, 119, 115, 14] };
+pub const CWMAudioCAPXGFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 329989821, data2: 4990, data3: 18691, data4: [157, 137, 96, 190, 130, 119, 253, 23] };
+pub const CWMAudioCAPXLFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3376758387,
+    data2: 35932,
+    data3: 17507,
+    data4: [153, 132, 175, 139, 171, 47, 84, 71],
+};
+pub const CWMAudioGFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1669089549, data2: 61155, data3: 19466, data4: [151, 63, 55, 25, 88, 128, 45, 162] };
+pub const CWMAudioLFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1658591891, data2: 44580, data3: 17996, data4: [164, 62, 69, 47, 130, 76, 66, 80] };
+pub const CWMAudioSpdTxDMO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1376844004,
+    data2: 45243,
+    data3: 18371,
+    data4: [168, 217, 123, 34, 130, 204, 121, 237],
+};
+pub const CWMSPDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2269196747, data2: 20172, data3: 17467, data4: [137, 72, 116, 107, 137, 89, 93, 32] };
+pub const CWMSPEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1736710915,
+    data2: 50825,
+    data3: 16776,
+    data4: [173, 63, 76, 158, 190, 236, 113, 11],
+};
+pub const CWMSPEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 522145306, data2: 8786, data3: 16483, data4: [132, 187, 238, 231, 95, 136, 86, 213] };
+pub const CWMTDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4191929934, data2: 11728, data3: 17885, data4: [155, 82, 102, 100, 46, 249, 68, 49] };
+pub const CWMTEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1622570578, data2: 58475, data3: 20036, data4: [134, 9, 247, 75, 255, 220, 8, 60] };
+pub const CWMV9EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3527119056, data2: 5199, data3: 18109, data4: [132, 29, 89, 228, 235, 25, 220, 89] };
+pub const CWMVDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2194887647,
+    data2: 37053,
+    data3: 17282,
+    data4: [139, 194, 63, 97, 146, 183, 110, 52],
+};
+pub const CWMVEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2528476381, data2: 35174, data3: 16652, data4: [187, 31, 201, 126, 234, 118, 92, 4] };
+pub const CWMVXEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2117206162, data2: 22890, data3: 16818, data4: [187, 235, 23, 93, 16, 80, 78, 182] };
+pub const CWVC1DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3384786127,
+    data2: 58894,
+    data3: 17800,
+    data4: [163, 223, 90, 3, 177, 253, 149, 133],
+};
+pub const CWVC1EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1147485453,
+    data2: 36042,
+    data3: 16871,
+    data4: [186, 202, 136, 67, 55, 183, 71, 172],
+};
+pub const CZuneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2806946034,
+    data2: 21206,
+    data3: 19278,
+    data4: [136, 91, 224, 166, 202, 79, 24, 122],
+};
+pub const CZuneM4S2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312435804, data2: 4038, data3: 16458, data4: [149, 3, 177, 11, 245, 26, 138, 185] };
 #[repr(C)]
 pub struct CodecAPIEventData(i32);
 #[repr(transparent)]
@@ -3733,8 +4299,12 @@ pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
 pub const KSMETHOD_OPMVIDEOOUTPUT_STARTINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(0i32);
 pub const KSMETHOD_OPMVIDEOOUTPUT_FINISHINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(1i32);
 pub const KSMETHOD_OPMVIDEOOUTPUT_GETINFORMATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(2i32);
-#[repr(C)]
-pub struct KSPROPSETID_OPMVideoOutput(i32);
+pub const KSPROPSETID_OPMVideoOutput: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 116659387,
+    data2: 62522,
+    data3: 20450,
+    data4: [165, 102, 119, 75, 76, 129, 240, 219],
+};
 pub const LOCAL_D3DFMT_DEFINES: u32 = 1u32;
 #[repr(C)]
 pub struct MACROBLOCK_DATA(i32);
@@ -3835,10 +4405,13 @@ pub const MF2DBuffer_LockFlags_ForceDWORD: MF2DBuffer_LockFlags = MF2DBuffer_Loc
 pub struct MF3DVideoOutputType(pub i32);
 pub const MF3DVideoOutputType_BaseView: MF3DVideoOutputType = MF3DVideoOutputType(0i32);
 pub const MF3DVideoOutputType_Stereo: MF3DVideoOutputType = MF3DVideoOutputType(1i32);
-#[repr(C)]
-pub struct MFAMRNBByteStreamHandler(i32);
-#[repr(C)]
-pub struct MFAMRNBSinkClassFactory(i32);
+pub const MFAMRNBByteStreamHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4024836234, data2: 2604, data3: 18938, data4: [138, 1, 55, 104, 181, 89, 182, 218] };
+pub const MFAMRNBSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2955350360,
+    data2: 28882,
+    data3: 19547,
+    data4: [159, 148, 118, 245, 73, 217, 15, 223],
+};
 #[repr(C)]
 pub struct MFARGB(i32);
 pub const MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN: u64 = 18446744073709551615u64;
@@ -4165,10 +4738,13 @@ pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows_sys::core::GUID = :
 pub const MFEVRDLL: u32 = 0u32;
 #[repr(C)]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel(i32);
-#[repr(C)]
-pub struct MFFLACBytestreamHandler(i32);
-#[repr(C)]
-pub struct MFFLACSinkClassFactory(i32);
+pub const MFFLACBytestreamHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 239194040, data2: 1286, data3: 16628, data4: [165, 22, 119, 204, 35, 100, 45, 145] };
+pub const MFFLACSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2100938095,
+    data2: 24693,
+    data3: 18377,
+    data4: [155, 174, 140, 249, 229, 49, 181, 245],
+};
 #[repr(C)]
 pub struct MFFOLDDOWN_MATRIX(i32);
 #[repr(transparent)]
@@ -9014,8 +9590,7 @@ pub struct MOVEREGION_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MOVE_RECT(i32);
-#[repr(C)]
-pub struct MP3ACMCodecWrapper(i32);
+pub const MP3ACMCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 286274593, data2: 13644, data3: 19658, data4: [167, 163, 26, 255, 154, 91, 103, 1] };
 pub const MR_AUDIO_POLICY_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2434783031,
     data2: 26485,
@@ -9039,17 +9614,19 @@ pub const MR_VIDEO_ACCELERATION_SERVICE: ::windows_sys::core::GUID = ::windows_s
 };
 pub const MR_VIDEO_MIXER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 121426684, data2: 27892, data3: 16567, data4: [136, 89, 232, 149, 82, 200, 65, 248] };
 pub const MR_VIDEO_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 278046828, data2: 43802, data3: 17818, data4: [163, 54, 131, 31, 188, 77, 17, 255] };
-#[repr(C)]
-pub struct MSAMRNBDecoder(i32);
-#[repr(C)]
-pub struct MSAMRNBEncoder(i32);
+pub const MSAMRNBDecoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 642781614,
+    data2: 21633,
+    data3: 20343,
+    data4: [162, 149, 171, 182, 255, 232, 214, 62],
+};
+pub const MSAMRNBEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 799967998, data2: 1187, data3: 16954, data4: [168, 20, 133, 219, 69, 71, 18, 176] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MT_ARBITRARY_HEADER(i32);
 #[repr(C)]
 pub struct MT_CUSTOM_VIDEO_PRIMARIES(i32);
-#[repr(C)]
-pub struct MULawCodecWrapper(i32);
+pub const MULawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2461425792, data2: 24109, data3: 17566, data4: [144, 196, 196, 31, 38, 142, 85, 20] };
 #[repr(C)]
 pub struct OPM_ACP_AND_CGMSA_SIGNALING(i32);
 #[repr(transparent)]
@@ -9375,8 +9952,7 @@ pub const VIDEO_ZOOM_RECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 19603,
     data4: [189, 137, 91, 156, 159, 182, 252, 240],
 };
-#[repr(C)]
-pub struct VorbisDecoderMFT(i32);
+pub const VorbisDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 437882610, data2: 24805, data3: 20136, data4: [144, 216, 218, 31, 40, 50, 194, 136] };
 pub const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514u32;
 #[repr(transparent)]
 pub struct WMT_PROP_DATATYPE(pub i32);

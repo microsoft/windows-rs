@@ -228,8 +228,6 @@ impl TriStates {
 pub struct WlanConnectionProfileDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WwanConnectionProfileDetails(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WwanContract(i32);
 #[repr(transparent)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {

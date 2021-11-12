@@ -5,8 +5,6 @@ extern "system" {}
 pub struct BandwidthStatistics(i32);
 #[repr(transparent)]
 pub struct ControlChannelTrigger(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ControlChannelTriggerContract(i32);
 #[repr(transparent)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {

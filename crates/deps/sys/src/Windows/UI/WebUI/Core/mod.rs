@@ -44,8 +44,6 @@ impl WebUICommandBarClosedDisplayMode {
 }
 #[repr(transparent)]
 pub struct WebUICommandBarConfirmationButton(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WebUICommandBarContract(i32);
 #[repr(transparent)]
 pub struct WebUICommandBarIconButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

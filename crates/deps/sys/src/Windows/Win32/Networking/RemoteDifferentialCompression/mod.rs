@@ -3,8 +3,7 @@
 extern "system" {}
 #[repr(C)]
 pub struct FindSimilarFileIndexResults(i32);
-#[repr(C)]
-pub struct FindSimilarResults(i32);
+pub const FindSimilarResults: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903443, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(transparent)]
 pub struct GeneratorParametersType(pub i32);
 pub const RDCGENTYPE_Unused: GeneratorParametersType = GeneratorParametersType(0i32);
@@ -80,23 +79,17 @@ pub const RDC_Aborted: RDC_ErrorCode = RDC_ErrorCode(9i32);
 pub const RDC_Win32Error: RDC_ErrorCode = RDC_ErrorCode(10i32);
 #[repr(C)]
 pub struct RdcBufferPointer(i32);
-#[repr(C)]
-pub struct RdcComparator(i32);
+pub const RdcComparator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903435, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(transparent)]
 pub struct RdcCreatedTables(pub i32);
 pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = RdcCreatedTables(0i32);
 pub const RDCTABLE_Existing: RdcCreatedTables = RdcCreatedTables(1i32);
 pub const RDCTABLE_New: RdcCreatedTables = RdcCreatedTables(2i32);
-#[repr(C)]
-pub struct RdcFileReader(i32);
-#[repr(C)]
-pub struct RdcGenerator(i32);
-#[repr(C)]
-pub struct RdcGeneratorFilterMaxParameters(i32);
-#[repr(C)]
-pub struct RdcGeneratorParameters(i32);
-#[repr(C)]
-pub struct RdcLibrary(i32);
+pub const RdcFileReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903433, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcGenerator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903432, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcGeneratorFilterMaxParameters: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903431, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcGeneratorParameters: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903430, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903429, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(transparent)]
 pub struct RdcMappingAccessMode(pub i32);
 pub const RDCMAPPING_Undefined: RdcMappingAccessMode = RdcMappingAccessMode(0i32);
@@ -116,12 +109,9 @@ pub const RDCNEED_SEED_MAX: RdcNeedType = RdcNeedType(255i32);
 pub struct RdcSignature(i32);
 #[repr(C)]
 pub struct RdcSignaturePointer(i32);
-#[repr(C)]
-pub struct RdcSignatureReader(i32);
-#[repr(C)]
-pub struct RdcSimilarityGenerator(i32);
-#[repr(C)]
-pub struct Similarity(i32);
+pub const RdcSignatureReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903434, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcSimilarityGenerator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903442, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const Similarity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903441, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(C)]
 pub struct SimilarityData(i32);
 #[repr(C)]
@@ -130,17 +120,11 @@ pub struct SimilarityDumpData(i32);
 pub struct SimilarityFileId(i32);
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
 pub const SimilarityFileIdMinSize: u32 = 4u32;
-#[repr(C)]
-pub struct SimilarityFileIdTable(i32);
+pub const SimilarityFileIdTable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903440, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(C)]
 pub struct SimilarityMappedViewInfo(i32);
-#[repr(C)]
-pub struct SimilarityReportProgress(i32);
-#[repr(C)]
-pub struct SimilarityTableDumpState(i32);
-#[repr(C)]
-pub struct SimilarityTraitsMappedView(i32);
-#[repr(C)]
-pub struct SimilarityTraitsMapping(i32);
-#[repr(C)]
-pub struct SimilarityTraitsTable(i32);
+pub const SimilarityReportProgress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903437, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTableDumpState: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903438, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTraitsMappedView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903445, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTraitsMapping: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903444, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTraitsTable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903439, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };

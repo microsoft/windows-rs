@@ -4,10 +4,13 @@ extern "system" {}
 pub const AUTO_WIDTH: i32 = -1i32;
 #[repr(transparent)]
 pub struct AppEvents(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppEventsDHTMLConnector(i32);
-#[repr(C)]
-pub struct Application(i32);
+pub const AppEventsDHTMLConnector: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2917549131, data2: 51487, data3: 20023, data4: [146, 164, 91, 180, 48, 163, 51, 64] };
+pub const Application: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1236433178,
+    data2: 45486,
+    data3: 19600,
+    data4: [155, 142, 232, 96, 186, 7, 248, 137],
+};
 #[repr(transparent)]
 pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
 pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = CCM_COMMANDID_MASK_CONSTANTS(4294901760u32);
@@ -51,8 +54,7 @@ pub struct CONTEXTMENUITEM2(i32);
 pub struct Column(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Columns(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ConsolePower(i32);
+pub const ConsolePower: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4029174644, data2: 57329, data3: 4563, data4: [180, 51, 0, 192, 79, 142, 205, 120] };
 #[repr(transparent)]
 pub struct ContextMenu(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -194,8 +196,12 @@ pub const MMCLV_VIEWSTYLE_ICON: u32 = 0u32;
 pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
 pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
-#[repr(C)]
-pub struct MMCVersionInfo(i32);
+pub const MMCVersionInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3607026461,
+    data2: 53025,
+    data3: 19417,
+    data4: [175, 59, 197, 70, 142, 156, 102, 132],
+};
 #[repr(transparent)]
 pub struct MMC_ACTION_TYPE(pub i32);
 pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);

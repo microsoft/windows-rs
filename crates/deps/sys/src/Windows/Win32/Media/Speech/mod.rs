@@ -1187,62 +1187,104 @@ pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
 pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
 pub const SP_STREAMPOS_ASAP: u32 = 0u32;
 pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
-#[repr(C)]
-pub struct SpAudioFormat(i32);
-#[repr(C)]
-pub struct SpCompressedLexicon(i32);
-#[repr(C)]
-pub struct SpCustomStream(i32);
-#[repr(C)]
-pub struct SpFileStream(i32);
-#[repr(C)]
-pub struct SpInProcRecoContext(i32);
-#[repr(C)]
-pub struct SpInprocRecognizer(i32);
-#[repr(C)]
-pub struct SpLexicon(i32);
-#[repr(C)]
-pub struct SpMMAudioEnum(i32);
-#[repr(C)]
-pub struct SpMMAudioIn(i32);
-#[repr(C)]
-pub struct SpMMAudioOut(i32);
-#[repr(C)]
-pub struct SpMemoryStream(i32);
-#[repr(C)]
-pub struct SpNotifyTranslator(i32);
-#[repr(C)]
-pub struct SpNullPhoneConverter(i32);
-#[repr(C)]
-pub struct SpObjectToken(i32);
-#[repr(C)]
-pub struct SpObjectTokenCategory(i32);
-#[repr(C)]
-pub struct SpPhoneConverter(i32);
-#[repr(C)]
-pub struct SpPhoneticAlphabetConverter(i32);
-#[repr(C)]
-pub struct SpPhraseInfoBuilder(i32);
-#[repr(C)]
-pub struct SpResourceManager(i32);
-#[repr(C)]
-pub struct SpSharedRecoContext(i32);
-#[repr(C)]
-pub struct SpSharedRecognizer(i32);
-#[repr(C)]
-pub struct SpShortcut(i32);
-#[repr(C)]
-pub struct SpStream(i32);
-#[repr(C)]
-pub struct SpStreamFormatConverter(i32);
-#[repr(C)]
-pub struct SpTextSelectionInformation(i32);
-#[repr(C)]
-pub struct SpUnCompressedLexicon(i32);
-#[repr(C)]
-pub struct SpVoice(i32);
-#[repr(C)]
-pub struct SpWaveFormatEx(i32);
+pub const SpAudioFormat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2667145328, data2: 57696, data3: 18322, data4: [130, 13, 72, 207, 6, 73, 228, 236] };
+pub const SpCompressedLexicon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2425370390, data2: 12098, data3: 4563, data4: [156, 38, 0, 192, 79, 142, 248, 124] };
+pub const SpCustomStream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2378101055,
+    data2: 6472,
+    data3: 19112,
+    data4: [140, 240, 4, 142, 235, 237, 149, 216],
+};
+pub const SpFileStream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2490897075,
+    data2: 10977,
+    data3: 17988,
+    data4: [186, 134, 158, 144, 222, 215, 236, 145],
+};
+pub const SpInProcRecoContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1940744258,
+    data2: 44256,
+    data3: 17896,
+    data4: [164, 221, 135, 149, 136, 26, 44, 42],
+};
+pub const SpInprocRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1102617451, data2: 37785, data3: 4562, data4: [150, 35, 0, 192, 79, 142, 230, 40] };
+pub const SpLexicon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 106292118, data2: 9680, data3: 4563, data4: [156, 38, 0, 192, 79, 142, 248, 124] };
+pub const SpMMAudioEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2870513824, data2: 59679, data3: 4562, data4: [187, 145, 0, 192, 79, 142, 230, 192] };
+pub const SpMMAudioIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3476893264, data2: 21490, data3: 4562, data4: [150, 12, 0, 192, 79, 142, 230, 40] };
+pub const SpMMAudioOut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2831581419, data2: 15666, data3: 4562, data4: [158, 231, 0, 192, 79, 121, 115, 150] };
+pub const SpMemoryStream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1605889917,
+    data2: 57332,
+    data3: 18058,
+    data4: [182, 183, 47, 203, 209, 136, 249, 148],
+};
+pub const SpNotifyTranslator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3803075442, data2: 23872, data3: 4562, data4: [150, 14, 0, 192, 79, 142, 230, 40] };
+pub const SpNullPhoneConverter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1163863273,
+    data2: 29590,
+    data3: 18966,
+    data4: [151, 21, 124, 15, 219, 227, 239, 227],
+};
+pub const SpObjectToken: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4014020434,
+    data2: 14134,
+    data3: 19636,
+    data4: [156, 140, 142, 244, 204, 181, 142, 254],
+};
+pub const SpObjectTokenCategory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2836404351,
+    data2: 3194,
+    data3: 17836,
+    data4: [146, 204, 89, 237, 175, 183, 123, 83],
+};
+pub const SpPhoneConverter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2441475907,
+    data2: 4419,
+    data3: 19496,
+    data4: [134, 181, 191, 241, 79, 32, 229, 200],
+};
+pub const SpPhoneticAlphabetConverter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1329676582,
+    data2: 57315,
+    data3: 17961,
+    data4: [153, 238, 121, 121, 120, 49, 126, 173],
+};
+pub const SpPhraseInfoBuilder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3258958477,
+    data2: 50527,
+    data3: 18208,
+    data4: [139, 50, 145, 247, 60, 43, 213, 209],
+};
+pub const SpResourceManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2524222323, data2: 13201, data3: 4562, data4: [158, 227, 0, 192, 79, 121, 115, 150] };
+pub const SpSharedRecoContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1193304580, data2: 24266, data3: 4562, data4: [150, 15, 0, 192, 79, 142, 230, 40] };
+pub const SpSharedRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1005471888, data2: 20457, data3: 18999, data4: [140, 30, 94, 126, 18, 121, 28, 31] };
+pub const SpShortcut: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 225586970,
+    data2: 40911,
+    data3: 20066,
+    data4: [150, 216, 109, 248, 240, 26, 38, 170],
+};
+pub const SpStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1901960281, data2: 17474, data3: 4562, data4: [150, 5, 0, 192, 79, 142, 230, 40] };
+pub const SpStreamFormatConverter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1880331322, data2: 58092, data3: 4562, data4: [160, 134, 0, 192, 79, 142, 249, 181] };
+pub const SpTextSelectionInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 261227274,
+    data2: 52221,
+    data3: 19128,
+    data4: [161, 100, 255, 89, 133, 84, 127, 246],
+};
+pub const SpUnCompressedLexicon: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3387128853,
+    data2: 57234,
+    data3: 18215,
+    data4: [133, 214, 114, 229, 238, 182, 153, 90],
+};
+pub const SpVoice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2524222327, data2: 13201, data3: 4562, data4: [158, 227, 0, 192, 79, 121, 115, 150] };
+pub const SpWaveFormatEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3348780876,
+    data2: 25534,
+    data3: 17593,
+    data4: [128, 31, 40, 63, 135, 248, 152, 190],
+};
 pub const SpeechAllElements: i32 = -1i32;
 #[repr(transparent)]
 pub struct SpeechAudioFormatType(pub i32);

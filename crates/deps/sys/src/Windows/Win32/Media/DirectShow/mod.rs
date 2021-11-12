@@ -520,23 +520,31 @@ pub const AM_WST_STYLE_Invers: AM_WST_STYLE = AM_WST_STYLE(1i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ANALOGVIDEOINFO(i32);
-#[repr(C)]
-pub struct ANALOG_AUXIN_NETWORK_TYPE(i32);
-#[repr(C)]
-pub struct ANALOG_FM_NETWORK_TYPE(i32);
-#[repr(C)]
-pub struct ANALOG_TV_NETWORK_TYPE(i32);
-#[repr(C)]
-pub struct ATSCChannelTuneRequest(i32);
-#[repr(C)]
-pub struct ATSCComponentType(i32);
+pub const ANALOG_AUXIN_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1949235303, data2: 2529, data3: 16547, data4: [130, 211, 150, 105, 186, 53, 50, 95] };
+pub const ANALOG_FM_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1999112315,
+    data2: 11193,
+    data3: 20016,
+    data4: [128, 120, 68, 148, 118, 229, 157, 187],
+};
+pub const ANALOG_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3089160318, data2: 57571, data3: 18319, data4: [138, 56, 78, 19, 247, 179, 223, 66] };
+pub const ATSCChannelTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 57259238, data2: 17846, data3: 4563, data4: [182, 80, 0, 192, 79, 121, 73, 142] };
+pub const ATSCComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2833052629,
+    data2: 1920,
+    data3: 20212,
+    data4: [138, 131, 44, 255, 170, 203, 138, 206],
+};
 #[repr(transparent)]
 pub struct ATSCComponentTypeFlags(pub i32);
 pub const ATSCCT_AC3: ATSCComponentTypeFlags = ATSCComponentTypeFlags(1i32);
-#[repr(C)]
-pub struct ATSCLocator(i32);
-#[repr(C)]
-pub struct ATSCTuningSpace(i32);
+pub const ATSCLocator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2289237787,
+    data2: 39162,
+    data3: 19834,
+    data4: [141, 147, 201, 241, 5, 95, 133, 187],
+};
+pub const ATSCTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732787536, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
 pub const ATSC_EIT_TID: u32 = 203u32;
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_EVENT: u32 = 2u32;
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_PSIP: u32 = 1u32;
@@ -553,8 +561,7 @@ pub const ATSC_RRT_PID: u32 = 8187u32;
 pub const ATSC_RRT_TID: u32 = 202u32;
 pub const ATSC_STT_PID: u32 = 8187u32;
 pub const ATSC_STT_TID: u32 = 205u32;
-#[repr(C)]
-pub struct ATSC_TERRESTRIAL_TV_NETWORK_TYPE(i32);
+pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 229453789, data2: 24535, data3: 4563, data4: [143, 80, 0, 192, 79, 121, 113, 226] };
 pub const ATSC_VCT_CABL_TID: u32 = 201u32;
 pub const ATSC_VCT_PID: u32 = 8187u32;
 pub const ATSC_VCT_TERR_TID: u32 = 200u32;
@@ -617,14 +624,15 @@ pub const AVI_INDEX_OF_SUB_2FIELD: u32 = 3u32;
 pub const AVI_INDEX_OF_TIMED_CHUNKS: u32 = 2u32;
 pub const AVI_INDEX_SUB_2FIELD: u32 = 1u32;
 pub const AVI_INDEX_SUB_DEFAULT: u32 = 0u32;
-#[repr(C)]
-pub struct AnalogAudioComponentType(i32);
-#[repr(C)]
-pub struct AnalogLocator(i32);
-#[repr(C)]
-pub struct AnalogRadioTuningSpace(i32);
-#[repr(C)]
-pub struct AnalogTVTuningSpace(i32);
+pub const AnalogAudioComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 682295301, data2: 59461, data3: 20474, data4: [170, 155, 244, 102, 82, 54, 20, 28] };
+pub const AnalogLocator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1231260561,
+    data2: 18603,
+    data3: 18615,
+    data4: [164, 122, 125, 14, 117, 160, 142, 222],
+};
+pub const AnalogRadioTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2322025292, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
+pub const AnalogTVTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2322025293, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct AnalogVideoStandard(pub i32);
 pub const AnalogVideo_None: AnalogVideoStandard = AnalogVideoStandard(0i32);
@@ -674,10 +682,13 @@ pub const AudioType_Reserved: i32 = -1i32;
 pub const AudioType_Standard: u32 = 0u32;
 pub const AudioType_Visually_Impaired: u32 = 2u32;
 pub const AudioType_Voiceover: u32 = 7u32;
-#[repr(C)]
-pub struct AuxInTuningSpace(i32);
-#[repr(C)]
-pub struct BDANETWORKTYPE_ATSC(i32);
+pub const AuxInTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4185299462,
+    data2: 31434,
+    data3: 20025,
+    data4: [156, 251, 151, 187, 53, 240, 231, 126],
+};
+pub const BDANETWORKTYPE_ATSC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811281, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
 #[repr(C)]
 pub struct BDANODE_DESCRIPTOR(i32);
 #[repr(C)]
@@ -733,10 +744,8 @@ pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(2i32);
 pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(4i32);
 #[repr(C)]
 pub struct BDA_DEBUG_DATA(i32);
-#[repr(C)]
-pub struct BDA_DEBUG_DATA_AVAILABLE(i32);
-#[repr(C)]
-pub struct BDA_DEBUG_DATA_TYPE_STRING(i32);
+pub const BDA_DEBUG_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1774341972, data2: 39299, data3: 18814, data4: [180, 21, 40, 43, 228, 197, 85, 251] };
+pub const BDA_DEBUG_DATA_TYPE_STRING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2819024743, data2: 56924, data3: 17164, data4: [128, 191, 162, 30, 190, 6, 199, 72] };
 #[repr(transparent)]
 pub struct BDA_DISCOVERY_STATE(pub i32);
 pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(0i32);
@@ -946,8 +955,7 @@ pub struct BDA_WMDRM_KEYINFOLIST(i32);
 pub struct BDA_WMDRM_RENEWLICENSE(i32);
 #[repr(C)]
 pub struct BDA_WMDRM_STATUS(i32);
-#[repr(C)]
-pub struct BSKYB_TERRESTRIAL_TV_NETWORK_TYPE(i32);
+pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2661172934, data2: 15034, data3: 20232, data4: [173, 14, 204, 90, 200, 20, 140, 43] };
 #[repr(C)]
 pub struct BadSampleInfo(i32);
 #[repr(transparent)]
@@ -1001,8 +1009,7 @@ pub const BDA_BCC_RATE_6_7: BinaryConvolutionCodeRate = BinaryConvolutionCodeRat
 pub const BDA_BCC_RATE_8_9: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(13i32);
 pub const BDA_BCC_RATE_9_10: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(14i32);
 pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(15i32);
-#[repr(C)]
-pub struct BroadcastEventService(i32);
+pub const BroadcastEventService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 188742546, data2: 2329, data3: 18740, data4: [157, 91, 97, 156, 113, 157, 2, 2] };
 #[repr(C)]
 pub struct CAPTURE_STREAMTIME(i32);
 pub const CDEF_BYPASS_CLASS_MANAGER: u32 = 2u32;
@@ -1226,8 +1233,7 @@ pub const CRID_LOCATION_DVB_RESERVED2: CRID_LOCATION = CRID_LOCATION(3i32);
 pub struct CROSSBAR_DEFAULT_FLAGS(pub i32);
 pub const DEF_MODE_PROFILE: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(1i32);
 pub const DEF_MODE_STREAMS: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(2i32);
-#[repr(C)]
-pub struct CXDSData(i32);
+pub const CXDSData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229812, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 #[repr(transparent)]
 pub struct CameraControlFlags(pub i32);
 pub const CameraControl_Flags_Auto: CameraControlFlags = CameraControlFlags(1i32);
@@ -1247,14 +1253,21 @@ pub struct ChannelChangeInfo(i32);
 pub struct ChannelChangeSpanningEvent_State(pub i32);
 pub const ChannelChangeSpanningEvent_Start: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(0i32);
 pub const ChannelChangeSpanningEvent_End: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(2i32);
-#[repr(C)]
-pub struct ChannelIDTuneRequest(i32);
-#[repr(C)]
-pub struct ChannelIDTuningSpace(i32);
+pub const ChannelIDTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 982788263,
+    data2: 12708,
+    data3: 17897,
+    data4: [158, 251, 224, 85, 191, 123, 179, 219],
+};
+pub const ChannelIDTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3431111215,
+    data2: 13157,
+    data3: 17983,
+    data4: [175, 19, 129, 219, 182, 243, 165, 85],
+};
 #[repr(C)]
 pub struct ChannelInfo(i32);
-#[repr(C)]
-pub struct ChannelTuneRequest(i32);
+pub const ChannelTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 57259237, data2: 17846, data3: 4563, data4: [182, 80, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct ChannelType(pub i32);
 pub const ChannelTypeNone: ChannelType = ChannelType(0i32);
@@ -1268,8 +1281,7 @@ pub const ChannelTypeSuperimpose: ChannelType = ChannelType(64i32);
 pub const ChannelTypeData: ChannelType = ChannelType(128i32);
 #[repr(C)]
 pub struct ChannelTypeInfo(i32);
-#[repr(C)]
-pub struct Component(i32);
+pub const Component: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1507608488, data2: 4460, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 #[repr(transparent)]
 pub struct ComponentCategory(pub i32);
 pub const CategoryNotSet: ComponentCategory = ComponentCategory(-1i32);
@@ -1287,12 +1299,9 @@ pub struct ComponentStatus(pub i32);
 pub const StatusActive: ComponentStatus = ComponentStatus(0i32);
 pub const StatusInactive: ComponentStatus = ComponentStatus(1i32);
 pub const StatusUnavailable: ComponentStatus = ComponentStatus(2i32);
-#[repr(C)]
-pub struct ComponentType(i32);
-#[repr(C)]
-pub struct ComponentTypes(i32);
-#[repr(C)]
-pub struct Components(i32);
+pub const ComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2184525216, data2: 792, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
+pub const ComponentTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2711794116, data2: 3642, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
+pub const Components: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2157667937, data2: 38084, data3: 18918, data4: [182, 236, 63, 15, 134, 34, 21, 170] };
 #[repr(transparent)]
 pub struct CompressionCaps(pub i32);
 pub const CompressionCaps_CanQuality: CompressionCaps = CompressionCaps(1i32);
@@ -1300,8 +1309,7 @@ pub const CompressionCaps_CanCrunch: CompressionCaps = CompressionCaps(2i32);
 pub const CompressionCaps_CanKeyFrame: CompressionCaps = CompressionCaps(4i32);
 pub const CompressionCaps_CanBFrame: CompressionCaps = CompressionCaps(8i32);
 pub const CompressionCaps_CanWindow: CompressionCaps = CompressionCaps(16i32);
-#[repr(C)]
-pub struct CreatePropBagOnRegKey(i32);
+pub const CreatePropBagOnRegKey: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2322025289, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct DDSFF_FLAGS(pub u32);
 pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1u32);
@@ -1326,10 +1334,8 @@ pub const DESC_LINKAGE_DATA: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(6i32);
 pub const DESC_LINKAGE_RESERVED1: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(7i32);
 pub const DESC_LINKAGE_USER: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(8i32);
 pub const DESC_LINKAGE_RESERVED2: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(255i32);
-#[repr(C)]
-pub struct DIGITAL_CABLE_NETWORK_TYPE(i32);
-#[repr(C)]
-pub struct DIRECT_TV_SATELLITE_TV_NETWORK_TYPE(i32);
+pub const DIGITAL_CABLE_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 339224491, data2: 63355, data3: 18829, data4: [129, 202, 90, 0, 122, 236, 40, 191] };
+pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2478206901, data2: 37844, data3: 17187, data4: [146, 28, 193, 245, 45, 246, 29, 63] };
 #[repr(transparent)]
 pub struct DISPID_TUNER(pub i32);
 pub const DISPID_TUNER_TS_UNIQUENAME: DISPID_TUNER = DISPID_TUNER(1i32);
@@ -1466,8 +1472,7 @@ pub struct DSMCC_ELEMENT(i32);
 pub struct DSMCC_FILTER_OPTIONS(i32);
 #[repr(C)]
 pub struct DSMCC_SECTION(i32);
-#[repr(C)]
-pub struct DTFilter(i32);
+pub const DTFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229810, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const DTV_CardStatus_Error: u32 = 2u32;
 pub const DTV_CardStatus_FirmwareDownload: u32 = 3u32;
 pub const DTV_CardStatus_Inserted: u32 = 0u32;
@@ -1477,12 +1482,9 @@ pub const DTV_Entitlement_NotEntitled: u32 = 1u32;
 pub const DTV_Entitlement_TechnicalFailure: u32 = 2u32;
 pub const DTV_MMIMessage_Close: u32 = 1u32;
 pub const DTV_MMIMessage_Open: u32 = 0u32;
-#[repr(C)]
-pub struct DVBCLocator(i32);
-#[repr(C)]
-pub struct DVBSLocator(i32);
-#[repr(C)]
-pub struct DVBSTuningSpace(i32);
+pub const DVBCLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3308378621, data2: 38533, data3: 16424, data4: [139, 104, 110, 18, 50, 7, 159, 30] };
+pub const DVBSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 502780198, data2: 16464, data3: 18416, data4: [167, 207, 76, 76, 169, 36, 19, 51] };
+pub const DVBSTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3057653491, data2: 51618, data3: 16486, data4: [150, 240, 189, 149, 99, 49, 71, 38] };
 pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
@@ -1494,18 +1496,33 @@ pub const DVB_Terrestrial: DVBSystemType = DVBSystemType(1i32);
 pub const DVB_Satellite: DVBSystemType = DVBSystemType(2i32);
 pub const ISDB_Terrestrial: DVBSystemType = DVBSystemType(3i32);
 pub const ISDB_Satellite: DVBSystemType = DVBSystemType(4i32);
-#[repr(C)]
-pub struct DVBTLocator(i32);
-#[repr(C)]
-pub struct DVBTLocator2(i32);
-#[repr(C)]
-pub struct DVBTuneRequest(i32);
-#[repr(C)]
-pub struct DVBTuningSpace(i32);
+pub const DVBTLocator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2631288577,
+    data2: 48627,
+    data3: 19732,
+    data4: [142, 3, 241, 41, 131, 216, 102, 100],
+};
+pub const DVBTLocator2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4024695298,
+    data2: 17879,
+    data3: 18720,
+    data4: [190, 150, 83, 250, 127, 53, 176, 230],
+};
+pub const DVBTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 366366794,
+    data2: 21652,
+    data3: 18844,
+    data4: [136, 108, 151, 60, 158, 83, 185, 241],
+};
+pub const DVBTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3333507890,
+    data2: 30378,
+    data3: 19078,
+    data4: [167, 172, 92, 121, 170, 245, 141, 167],
+};
 pub const DVB_BAT_PID: u32 = 17u32;
 pub const DVB_BAT_TID: u32 = 74u32;
-#[repr(C)]
-pub struct DVB_CABLE_TV_NETWORK_TYPE(i32);
+pub const DVB_CABLE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3691778023, data2: 1157, data3: 16998, data4: [185, 63, 104, 251, 248, 14, 216, 52] };
 pub const DVB_DIT_PID: u32 = 30u32;
 pub const DVB_DIT_TID: u32 = 126u32;
 pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
@@ -1519,8 +1536,7 @@ pub const DVB_NIT_OTHER_TID: u32 = 65u32;
 pub const DVB_NIT_PID: u32 = 16u32;
 pub const DVB_RST_PID: u32 = 19u32;
 pub const DVB_RST_TID: u32 = 113u32;
-#[repr(C)]
-pub struct DVB_SATELLITE_TV_NETWORK_TYPE(i32);
+pub const DVB_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4199233370, data2: 17844, data3: 19781, data4: [132, 64, 38, 57, 87, 177, 22, 35] };
 pub const DVB_SDT_ACTUAL_TID: u32 = 66u32;
 pub const DVB_SDT_OTHER_TID: u32 = 70u32;
 pub const DVB_SDT_PID: u32 = 17u32;
@@ -1540,8 +1556,7 @@ pub const DVB_ST_PID_20: u32 = 20u32;
 pub const DVB_ST_TID: u32 = 114u32;
 pub const DVB_TDT_PID: u32 = 20u32;
 pub const DVB_TDT_TID: u32 = 112u32;
-#[repr(C)]
-pub struct DVB_TERRESTRIAL_TV_NETWORK_TYPE(i32);
+pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 560751327, data2: 28031, data3: 20122, data4: [133, 113, 5, 241, 78, 219, 118, 106] };
 pub const DVB_TOT_PID: u32 = 20u32;
 pub const DVB_TOT_TID: u32 = 115u32;
 #[repr(transparent)]
@@ -2317,14 +2332,20 @@ pub const DXVA_SLICE_CONTROL_BUFFER: u32 = 6u32;
 pub const DXVA_STATUS_REPORTING_FUNCTION: u32 = 7u32;
 pub const DXVA_USUAL_BLOCK_HEIGHT: u32 = 8u32;
 pub const DXVA_USUAL_BLOCK_WIDTH: u32 = 8u32;
-#[repr(C)]
-pub struct DigitalCableLocator(i32);
-#[repr(C)]
-pub struct DigitalCableTuneRequest(i32);
-#[repr(C)]
-pub struct DigitalCableTuningSpace(i32);
-#[repr(C)]
-pub struct DigitalLocator(i32);
+pub const DigitalCableLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 62940182, data2: 53543, data3: 16506, data4: [171, 76, 253, 210, 121, 171, 190, 93] };
+pub const DigitalCableTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 653003619,
+    data2: 43664,
+    data3: 17802,
+    data4: [141, 244, 86, 89, 242, 200, 161, 138],
+};
+pub const DigitalCableTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3652930798,
+    data2: 47226,
+    data3: 18417,
+    data4: [172, 146, 176, 141, 156, 120, 19, 252],
+};
+pub const DigitalLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1850788877, data2: 49563, data3: 19446, data4: [129, 11, 91, 214, 7, 97, 245, 204] };
 #[repr(transparent)]
 pub struct DisplaySizeList(pub i32);
 pub const dslDefaultSize: DisplaySizeList = DisplaySizeList(0i32);
@@ -2350,8 +2371,12 @@ pub struct DvbParentalRatingDescriptor(i32);
 pub struct DvbParentalRatingParam(i32);
 #[repr(C)]
 pub struct EALocationCodeType(i32);
-#[repr(C)]
-pub struct ECHOSTAR_SATELLITE_TV_NETWORK_TYPE(i32);
+pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3304502043,
+    data2: 50879,
+    data3: 18265,
+    data4: [136, 111, 167, 56, 109, 202, 39, 160],
+};
 pub const EC_ACTIVATE: u32 = 19u32;
 pub const EC_BANDWIDTHCHANGE: u32 = 72u32;
 pub const EC_BUFFERING_DATA: u32 = 17u32;
@@ -2457,92 +2482,179 @@ pub const EC_WINDOW_DESTROYED: u32 = 21u32;
 pub const EC_WMT_EVENT: u32 = 594u32;
 pub const EC_WMT_EVENT_BASE: u32 = 593u32;
 pub const EC_WMT_INDEX_EVENT: u32 = 593u32;
-#[repr(C)]
-pub struct ESEventFactory(i32);
-#[repr(C)]
-pub struct ESEventService(i32);
-#[repr(C)]
-pub struct ETFilter(i32);
-#[repr(C)]
-pub struct EVENTID_ARIBcontentSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_AudioDescriptorSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_AudioTypeSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_BDAConditionalAccessTAG(i32);
-#[repr(C)]
-pub struct EVENTID_BDAEventingServicePendingEvent(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_CASBroadcastMMI(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_CASCloseMMI(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_CASOpenMMI(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_CASReleaseTuner(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_CASRequestTuner(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_DiseqCResponseAvailable(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_EncoderSignalLock(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_FdcStatus(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_FdcTableSection(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_GPNVValueUpdate(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_GuideDataAvailable(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_GuideDataError(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_GuideServiceInformationUpdated(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_IsdbCASResponse(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_LbigsCloseConnectionHandle(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_LbigsOpenConnection(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_LbigsSendData(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_RatingPinReset(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_TransprtStreamSelectorInfo(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_TunerNoSignal(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_TunerSignalLock(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_UpdateDrmStatus(i32);
-#[repr(C)]
-pub struct EVENTID_BDA_UpdateScanState(i32);
-#[repr(C)]
-pub struct EVENTID_CADenialCountChanged(i32);
-#[repr(C)]
-pub struct EVENTID_CASFailureSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_CSDescriptorSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_CandidatePostTuneData(i32);
-#[repr(C)]
-pub struct EVENTID_CardStatusChanged(i32);
-#[repr(C)]
-pub struct EVENTID_ChannelChangeSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_ChannelInfoSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_ChannelTypeSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_CtxADescriptorSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_DFNWithNoActualAVData(i32);
-#[repr(C)]
-pub struct EVENTID_DRMParingStatusChanged(i32);
-#[repr(C)]
-pub struct EVENTID_DRMParingStepComplete(i32);
+pub const ESEventFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2391410650,
+    data2: 29176,
+    data3: 16577,
+    data4: [169, 41, 94, 58, 134, 138, 194, 198],
+};
+pub const ESEventService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3255060476,
+    data2: 60512,
+    data3: 18270,
+    data4: [129, 63, 210, 176, 166, 222, 206, 254],
+};
+pub const ETFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229809, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_ARIBcontentSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 982859907, data2: 37840, data3: 17982, data4: [144, 178, 7, 66, 196, 150, 237, 240] };
+pub const EVENTID_AudioDescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 276550684,
+    data2: 42714,
+    data3: 18065,
+    data4: [131, 105, 17, 178, 205, 170, 40, 142],
+};
+pub const EVENTID_AudioTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1344061374,
+    data2: 47177,
+    data3: 17102,
+    data4: [155, 233, 61, 184, 105, 251, 130, 179],
+};
+pub const EVENTID_BDAConditionalAccessTAG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4022576217,
+    data2: 44683,
+    data3: 19274,
+    data4: [143, 233, 121, 160, 208, 151, 243, 234],
+};
+pub const EVENTID_BDAEventingServicePendingEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1554323217, data2: 24028, data3: 16806, data4: [148, 48, 228, 27, 139, 59, 188, 91] };
+pub const EVENTID_BDA_CASBroadcastMMI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1734899440,
+    data2: 4402,
+    data3: 16460,
+    data4: [167, 202, 231, 32, 105, 169, 213, 79],
+};
+pub const EVENTID_BDA_CASCloseMMI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1561285903,
+    data2: 56878,
+    data3: 18333,
+    data4: [131, 69, 236, 14, 149, 87, 232, 162],
+};
+pub const EVENTID_BDA_CASOpenMMI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2245708053,
+    data2: 58771,
+    data3: 16653,
+    data4: [132, 113, 214, 129, 33, 5, 242, 142],
+};
+pub const EVENTID_BDA_CASReleaseTuner: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 549560683,
+    data2: 17439,
+    data3: 18853,
+    data4: [187, 92, 233, 160, 68, 149, 198, 193],
+};
+pub const EVENTID_BDA_CASRequestTuner: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3476662744,
+    data2: 62931,
+    data3: 18053,
+    data4: [190, 87, 237, 129, 219, 164, 107, 39],
+};
+pub const EVENTID_BDA_DiseqCResponseAvailable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4020644088,
+    data2: 7980,
+    data3: 19303,
+    data4: [158, 165, 172, 246, 250, 154, 31, 54],
+};
+pub const EVENTID_BDA_EncoderSignalLock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1590234809, data2: 14842, data3: 19708, data4: [185, 63, 0, 187, 17, 7, 127, 94] };
+pub const EVENTID_BDA_FdcStatus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 99767142, data2: 53483, data3: 17362, data4: [188, 60, 104, 43, 134, 61, 241, 66] };
+pub const EVENTID_BDA_FdcTableSection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1779226455,
+    data2: 19683,
+    data3: 20059,
+    data4: [148, 68, 113, 135, 184, 113, 82, 197],
+};
+pub const EVENTID_BDA_GPNVValueUpdate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4285908620,
+    data2: 62486,
+    data3: 20094,
+    data4: [191, 23, 109, 85, 197, 223, 21, 117],
+};
+pub const EVENTID_BDA_GuideDataAvailable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2564518266,
+    data2: 18314,
+    data3: 19668,
+    data4: [146, 208, 149, 246, 107, 137, 229, 177],
+};
+pub const EVENTID_BDA_GuideDataError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889073736, data2: 28531, data3: 20439, data4: [179, 65, 89, 76, 54, 13, 141, 116] };
+pub const EVENTID_BDA_GuideServiceInformationUpdated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2713971243, data2: 5983, data3: 17496, data4: [183, 53, 80, 125, 34, 219, 35, 166] };
+pub const EVENTID_BDA_IsdbCASResponse: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3570080102,
+    data2: 16828,
+    data3: 19693,
+    data4: [154, 32, 253, 206, 172, 120, 247, 13],
+};
+pub const EVENTID_BDA_LbigsCloseConnectionHandle: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3270544281,
+    data2: 26095,
+    data3: 17172,
+    data4: [150, 113, 233, 157, 76, 206, 11, 174],
+};
+pub const EVENTID_BDA_LbigsOpenConnection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 895616946,
+    data2: 28465,
+    data3: 20144,
+    data4: [162, 113, 179, 250, 107, 183, 104, 15],
+};
+pub const EVENTID_BDA_LbigsSendData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 287516539, data2: 61894, data3: 16724, data4: [139, 13, 72, 230, 21, 112, 89, 170] };
+pub const EVENTID_BDA_RatingPinReset: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3336587456, data2: 50548, data3: 19494, data4: [188, 218, 47, 77, 53, 235, 94, 133] };
+pub const EVENTID_BDA_TransprtStreamSelectorInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3289358213,
+    data2: 2512,
+    data3: 18588,
+    data4: [158, 156, 10, 187, 181, 105, 81, 176],
+};
+pub const EVENTID_BDA_TunerNoSignal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3801823275, data2: 7901, data3: 18736, data4: [188, 70, 104, 47, 215, 45, 45, 251] };
+pub const EVENTID_BDA_TunerSignalLock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 410183488, data2: 62835, data3: 17051, data4: [160, 14, 217, 193, 228, 8, 175, 9] };
+pub const EVENTID_BDA_UpdateDrmStatus: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1705440897,
+    data2: 5218,
+    data3: 18235,
+    data4: [136, 206, 203, 115, 20, 39, 189, 181],
+};
+pub const EVENTID_BDA_UpdateScanState: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1433414480, data2: 31561, data3: 17080, data4: [168, 47, 74, 251, 105, 27, 6, 40] };
+pub const EVENTID_CADenialCountChanged: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 711312680, data2: 8777, data3: 16496, data4: [172, 22, 0, 57, 12, 223, 178, 221] };
+pub const EVENTID_CASFailureSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3940037038,
+    data2: 21801,
+    data3: 19743,
+    data4: [175, 206, 13, 140, 209, 37, 125, 48],
+};
+pub const EVENTID_CSDescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4024924633,
+    data2: 38896,
+    data3: 18310,
+    data4: [128, 13, 149, 207, 80, 93, 220, 102],
+};
+pub const EVENTID_CandidatePostTuneData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2667762640,
+    data2: 40710,
+    data3: 17257,
+    data4: [159, 30, 58, 214, 202, 25, 128, 126],
+};
+pub const EVENTID_CardStatusChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2724592362,
+    data2: 63604,
+    data3: 19256,
+    data4: [159, 247, 197, 61, 2, 150, 153, 150],
+};
+pub const EVENTID_ChannelChangeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2422719973,
+    data2: 19548,
+    data3: 16901,
+    data4: [134, 200, 122, 254, 32, 254, 30, 250],
+};
+pub const EVENTID_ChannelInfoSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1106472320, data2: 16690, data3: 19650, data4: [177, 33, 1, 164, 50, 25, 216, 27] };
+pub const EVENTID_ChannelTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1923816785, data2: 34770, data3: 18587, data4: [186, 17, 14, 8, 220, 33, 2, 67] };
+pub const EVENTID_CtxADescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 984916710, data2: 16967, data3: 19252, data4: [137, 108, 48, 175, 165, 210, 28, 36] };
+pub const EVENTID_DFNWithNoActualAVData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4117274622,
+    data2: 22009,
+    data3: 19379,
+    data4: [150, 190, 174, 151, 28, 99, 186, 224],
+};
+pub const EVENTID_DRMParingStatusChanged: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 591605, data2: 61649, data3: 16854, data4: [167, 223, 64, 40, 105, 118, 105, 246] };
+pub const EVENTID_DRMParingStepComplete: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1529790328,
+    data2: 46930,
+    data3: 17440,
+    data4: [180, 30, 164, 114, 220, 149, 130, 142],
+};
 pub const EVENTID_DTFilterCOPPBlock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229802, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_DTFilterCOPPUnblock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229800, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_DTFilterDataFormatFailure: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229805, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
@@ -2551,47 +2663,79 @@ pub const EVENTID_DTFilterRatingChange: ::windows_sys::core::GUID = ::windows_sy
 pub const EVENTID_DTFilterRatingsBlock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229795, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_DTFilterRatingsUnblock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229796, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_DTFilterXDSPacket: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229797, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-#[repr(C)]
-pub struct EVENTID_DVBScramblingControlSpanningEvent(i32);
+pub const EVENTID_DVBScramblingControlSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1272242628, data2: 37025, data3: 16649, data4: [130, 54, 39, 240, 14, 125, 204, 91] };
 pub const EVENTID_DemultiplexerFilterDiscontinuity: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 370497392,
     data2: 44757,
     data3: 18268,
     data4: [187, 152, 149, 163, 48, 112, 223, 12],
 };
-#[repr(C)]
-pub struct EVENTID_DualMonoSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_DvbParentalRatingDescriptor(i32);
-#[repr(C)]
-pub struct EVENTID_EASMessageReceived(i32);
+pub const EVENTID_DualMonoSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2846006102,
+    data2: 43083,
+    data3: 18572,
+    data4: [137, 213, 13, 78, 118, 87, 200, 206],
+};
+pub const EVENTID_DvbParentalRatingDescriptor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 711435661,
+    data2: 60581,
+    data3: 20140,
+    data4: [171, 203, 231, 52, 211, 119, 109, 10],
+};
+pub const EVENTID_EASMessageReceived: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3507354069,
+    data2: 49761,
+    data3: 19333,
+    data4: [158, 138, 81, 123, 50, 153, 202, 178],
+};
 pub const EVENTID_ETDTFilterLicenseFailure: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229807, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_ETDTFilterLicenseOK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229806, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_ETFilterCopyNever: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229808, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_ETFilterCopyOnce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229803, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_ETFilterEncryptionOff: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229799, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_ETFilterEncryptionOn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229798, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-#[repr(C)]
-pub struct EVENTID_EmmMessageSpanningEvent(i32);
+pub const EVENTID_EmmMessageSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1810891368,
+    data2: 20350,
+    data3: 17044,
+    data4: [170, 135, 233, 233, 83, 228, 63, 20],
+};
 pub const EVENTID_EncDecFilterError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229801, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_EncDecFilterEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1243301467, data2: 4025, data3: 16729, data4: [175, 189, 227, 48, 6, 160, 249, 244] };
-#[repr(C)]
-pub struct EVENTID_EntitlementChanged(i32);
+pub const EVENTID_EntitlementChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2423369053,
+    data2: 9049,
+    data3: 19605,
+    data4: [134, 148, 175, 168, 29, 112, 191, 213],
+};
 pub const EVENTID_FormatNotSupportedEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 615655434, data2: 45738, data3: 18295, data4: [191, 101, 99, 243, 94, 123, 2, 74] };
-#[repr(C)]
-pub struct EVENTID_LanguageSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_MMIMessage(i32);
-#[repr(C)]
-pub struct EVENTID_NewSignalAcquired(i32);
-#[repr(C)]
-pub struct EVENTID_PBDAParentalControlEvent(i32);
-#[repr(C)]
-pub struct EVENTID_PIDListSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_PSITable(i32);
-#[repr(C)]
-pub struct EVENTID_RRTSpanningEvent(i32);
+pub const EVENTID_LanguageSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3801245293,
+    data2: 39938,
+    data3: 17549,
+    data4: [170, 141, 120, 26, 147, 253, 195, 149],
+};
+pub const EVENTID_MMIMessage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 86780335, data2: 2468, data3: 19347, data4: [137, 15, 189, 106, 52, 137, 104, 164] };
+pub const EVENTID_NewSignalAcquired: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3363751213, data2: 52504, data3: 16458, data4: [160, 118, 192, 42, 39, 61, 61, 231] };
+pub const EVENTID_PBDAParentalControlEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4182223493,
+    data2: 64338,
+    data3: 18664,
+    data4: [185, 197, 225, 225, 244, 17, 165, 26],
+};
+pub const EVENTID_PIDListSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1207734117,
+    data2: 58043,
+    data3: 17972,
+    data4: [156, 239, 253, 191, 230, 38, 29, 92],
+};
+pub const EVENTID_PSITable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 463222531, data2: 54343, data3: 19990, data4: [151, 187, 1, 121, 159, 192, 49, 237] };
+pub const EVENTID_RRTSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4140812532,
+    data2: 55955,
+    data3: 20271,
+    data4: [191, 248, 186, 30, 230, 252, 163, 162],
+};
 pub const EVENTID_SBE2RecControlStarted: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2305206430,
     data2: 63550,
@@ -2604,35 +2748,62 @@ pub const EVENTID_SBE2RecControlStopped: ::windows_sys::core::GUID = ::windows_s
     data3: 19626,
     data4: [177, 161, 30, 122, 38, 102, 246, 195],
 };
-#[repr(C)]
-pub struct EVENTID_STBChannelNumber(i32);
-#[repr(C)]
-pub struct EVENTID_ServiceTerminated(i32);
-#[repr(C)]
-pub struct EVENTID_SignalAndServiceStatusSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_SignalStatusChanged(i32);
-#[repr(C)]
-pub struct EVENTID_StreamIDSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_StreamTypeSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_SubtitleSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_TeletextSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_TuneFailureEvent(i32);
-#[repr(C)]
-pub struct EVENTID_TuneFailureSpanningEvent(i32);
-#[repr(C)]
-pub struct EVENTID_TuningChanged(i32);
-#[repr(C)]
-pub struct EVENTID_TuningChanging(i32);
+pub const EVENTID_STBChannelNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 398776112, data2: 53488, data3: 16698, data4: [140, 153, 80, 4, 105, 222, 53, 173] };
+pub const EVENTID_ServiceTerminated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 169695516, data2: 57554, data3: 20366, data4: [137, 96, 35, 53, 190, 244, 92, 203] };
+pub const EVENTID_SignalAndServiceStatusSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2154350027, data2: 15364, data3: 18731, data4: [180, 125, 3, 8, 130, 13, 206, 81] };
+pub const EVENTID_SignalStatusChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1839004402,
+    data2: 28717,
+    data3: 19201,
+    data4: [141, 255, 104, 146, 173, 32, 209, 145],
+};
+pub const EVENTID_StreamIDSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3404835688,
+    data2: 57683,
+    data3: 19777,
+    data4: [166, 179, 167, 201, 152, 219, 117, 238],
+};
+pub const EVENTID_StreamTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2192518844, data2: 12454, data3: 16996, data4: [168, 11, 173, 46, 19, 114, 172, 96] };
+pub const EVENTID_SubtitleSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1573830728, data2: 53433, data3: 16739, data4: [135, 44, 79, 50, 34, 59, 232, 138] };
+pub const EVENTID_TeletextSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2509887824,
+    data2: 24371,
+    data3: 17943,
+    data4: [175, 124, 30, 84, 181, 16, 218, 163],
+};
+pub const EVENTID_TuneFailureEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3648161714,
+    data2: 11773,
+    data3: 17258,
+    data4: [148, 133, 153, 215, 212, 171, 90, 105],
+};
+pub const EVENTID_TuneFailureSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1871357013,
+    data2: 24289,
+    data3: 18603,
+    data4: [162, 124, 76, 141, 112, 185, 174, 186],
+};
+pub const EVENTID_TuningChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2642305589,
+    data2: 19325,
+    data3: 16989,
+    data4: [166, 209, 215, 23, 195, 59, 156, 76],
+};
+pub const EVENTID_TuningChanging: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2199403523,
+    data2: 49310,
+    data3: 17860,
+    data4: [167, 25, 128, 122, 148, 149, 43, 249],
+};
 pub const EVENTID_XDSCodecDuplicateXDSRating: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229791, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_XDSCodecNewXDSPacket: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229793, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const EVENTID_XDSCodecNewXDSRating: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229792, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-#[repr(C)]
-pub struct EVENTTYPE_CASDescrambleFailureEvent(i32);
+pub const EVENTTYPE_CASDescrambleFailureEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2987556162,
+    data2: 31717,
+    data3: 20299,
+    data4: [145, 48, 102, 121, 137, 159, 79, 75],
+};
 pub const E_PROP_ID_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023728i32 as _);
 pub const E_PROP_SET_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023726i32 as _);
 #[repr(transparent)]
@@ -2730,8 +2901,7 @@ pub struct EntitlementType(pub i32);
 pub const Entitled: EntitlementType = EntitlementType(0i32);
 pub const NotEntitled: EntitlementType = EntitlementType(1i32);
 pub const TechnicalFailure: EntitlementType = EntitlementType(2i32);
-#[repr(C)]
-pub struct EvalRat(i32);
+pub const EvalRat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3318072817, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
 #[repr(transparent)]
 pub struct FECMethod(pub i32);
 pub const BDA_FEC_METHOD_NOT_SET: FECMethod = FECMethod(-1i32);
@@ -2756,8 +2926,7 @@ pub const FORMATTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_
     data4: [129, 146, 40, 187, 14, 115, 209, 106],
 };
 pub const FORMATTYPE_ETDTFilter_Tagged: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229777, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-#[repr(C)]
-pub struct FilgraphManager(i32);
+pub const FilgraphManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3828804531, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
 #[repr(transparent)]
 pub struct FormatNotSupportedEvents(pub i32);
 pub const FORMATNOTSUPPORTED_CLEAR: FormatNotSupportedEvents = FormatNotSupportedEvents(0i32);
@@ -3782,12 +3951,15 @@ pub struct ISCTE_EAS(pub *mut ::core::ffi::c_void);
 pub struct ISDBCAS_REQUEST_ID(pub i32);
 pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56i32);
 pub const ISDBCAS_REQUEST_ID_EMD: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(58i32);
-#[repr(C)]
-pub struct ISDBSLocator(i32);
+pub const ISDBSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1694805997, data2: 42537, data3: 17756, data4: [167, 241, 4, 150, 77, 234, 92, 196] };
 pub const ISDB_BIT_PID: u32 = 36u32;
 pub const ISDB_BIT_TID: u32 = 196u32;
-#[repr(C)]
-pub struct ISDB_CABLE_TV_NETWORK_TYPE(i32);
+pub const ISDB_CABLE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3379879349,
+    data2: 16894,
+    data3: 19237,
+    data4: [151, 65, 146, 240, 73, 241, 213, 209],
+};
 pub const ISDB_CDT_PID: u32 = 41u32;
 pub const ISDB_CDT_TID: u32 = 200u32;
 pub const ISDB_EMM_TID: u32 = 133u32;
@@ -3796,18 +3968,29 @@ pub const ISDB_LDT_TID: u32 = 199u32;
 pub const ISDB_NBIT_MSG_TID: u32 = 197u32;
 pub const ISDB_NBIT_PID: u32 = 37u32;
 pub const ISDB_NBIT_REF_TID: u32 = 198u32;
-#[repr(C)]
-pub struct ISDB_SATELLITE_TV_NETWORK_TYPE(i32);
+pub const ISDB_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2963596960,
+    data2: 27162,
+    data3: 19331,
+    data4: [187, 91, 144, 62, 29, 144, 230, 182],
+};
 pub const ISDB_SDTT_ALT_PID: u32 = 40u32;
 pub const ISDB_SDTT_PID: u32 = 35u32;
 pub const ISDB_SDTT_TID: u32 = 195u32;
 pub const ISDB_ST_TID: u32 = 114u32;
-#[repr(C)]
-pub struct ISDB_S_NETWORK_TYPE(i32);
-#[repr(C)]
-pub struct ISDB_TERRESTRIAL_TV_NETWORK_TYPE(i32);
-#[repr(C)]
-pub struct ISDB_T_NETWORK_TYPE(i32);
+pub const ISDB_S_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2716303874, data2: 5209, data3: 16817, data4: [156, 169, 42, 146, 88, 122, 66, 204] };
+pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2500034415,
+    data2: 15047,
+    data3: 17490,
+    data4: [182, 196, 69, 169, 206, 146, 146, 162],
+};
+pub const ISDB_T_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4231550374,
+    data2: 51457,
+    data3: 20270,
+    data4: [171, 168, 144, 129, 90, 252, 108, 131],
+};
 #[repr(transparent)]
 pub struct ISIInbandEPG(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -3976,105 +4159,130 @@ pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0i32);
 pub const INTERLEAVE_CAPTURE: InterleavingMode = InterleavingMode(1i32);
 pub const INTERLEAVE_FULL: InterleavingMode = InterleavingMode(2i32);
 pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = InterleavingMode(3i32);
-#[repr(C)]
-pub struct KSCATEGORY_BDA_IP_SINK(i32);
-#[repr(C)]
-pub struct KSCATEGORY_BDA_NETWORK_EPG(i32);
-#[repr(C)]
-pub struct KSCATEGORY_BDA_NETWORK_PROVIDER(i32);
-#[repr(C)]
-pub struct KSCATEGORY_BDA_NETWORK_TUNER(i32);
-#[repr(C)]
-pub struct KSCATEGORY_BDA_RECEIVER_COMPONENT(i32);
-#[repr(C)]
-pub struct KSCATEGORY_BDA_TRANSPORT_INFORMATION(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SPECIFIER_BDA_IP(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SPECIFIER_BDA_TRANSPORT(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_ATSC_SI(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_BDA_IP(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_BDA_IP_CONTROL(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_BDA_MPEG2_TRANSPORT(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_OOB_PSIP(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_PSIP(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_DVB_SI(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_ISDB_SI(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_PBDA_TRANSPORT_RAW(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_TYPE_BDA_ANTENNA(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_TYPE_BDA_IF_SIGNAL(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_TYPE_BDA_IP(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_TYPE_BDA_IP_CONTROL(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_TYPE_MPE(i32);
-#[repr(C)]
-pub struct KSDATAFORMAT_TYPE_MPEG2_SECTIONS(i32);
+pub const KSCATEGORY_BDA_IP_SINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811274, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_NETWORK_EPG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811273, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_NETWORK_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811275, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_NETWORK_TUNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811272, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_RECEIVER_COMPONENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4245314292, data2: 46109, data3: 4562, data4: [156, 149, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_TRANSPORT_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732787535, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
+pub const KSDATAFORMAT_SPECIFIER_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1804145696, data2: 56073, data3: 4562, data4: [143, 50, 0, 192, 79, 121, 113, 226] };
+pub const KSDATAFORMAT_SPECIFIER_BDA_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2381162237,
+    data2: 44127,
+    data3: 17204,
+    data4: [142, 207, 164, 186, 143, 167, 208, 240],
+};
+pub const KSDATAFORMAT_SUBTYPE_ATSC_SI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3016178044,
+    data2: 54019,
+    data3: 16717,
+    data4: [179, 60, 78, 210, 201, 210, 151, 51],
+};
+pub const KSDATAFORMAT_SUBTYPE_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1520050492, data2: 56072, data3: 4562, data4: [143, 50, 0, 192, 79, 121, 113, 226] };
+pub const KSDATAFORMAT_SUBTYPE_BDA_IP_CONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1234720488,
+    data2: 59483,
+    data3: 18669,
+    data4: [155, 234, 65, 13, 13, 212, 239, 129],
+};
+pub const KSDATAFORMAT_SUBTYPE_BDA_MPEG2_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4105089858, data2: 809, data3: 20445, data4: [168, 253, 74, 255, 73, 38, 201, 120] };
+pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_OOB_PSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2501322715, data2: 53966, data3: 17704, data4: [150, 246, 51, 1, 250, 187, 45, 224] };
+pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_PSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1982742374, data2: 13167, data3: 18641, data4: [191, 131, 43, 0, 53, 44, 17, 240] };
+pub const KSDATAFORMAT_SUBTYPE_DVB_SI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3923587491, data2: 8733, data3: 19163, data4: [133, 50, 154, 243, 9, 193, 164, 8] };
+pub const KSDATAFORMAT_SUBTYPE_ISDB_SI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1244588953, data2: 25688, data3: 17720, data4: [177, 135, 4, 1, 124, 65, 65, 63] };
+pub const KSDATAFORMAT_SUBTYPE_PBDA_TRANSPORT_RAW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 226159938, data2: 52122, data3: 4571, data4: [151, 5, 0, 80, 86, 192, 0, 8] };
+pub const KSDATAFORMAT_TYPE_BDA_ANTENNA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811265, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSDATAFORMAT_TYPE_BDA_IF_SIGNAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1639844679, data2: 42475, data3: 18843, data4: [154, 133, 91, 22, 192, 127, 18, 88] };
+pub const KSDATAFORMAT_TYPE_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3797908366, data2: 52428, data3: 4562, data4: [143, 37, 0, 192, 79, 121, 113, 226] };
+pub const KSDATAFORMAT_TYPE_BDA_IP_CONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3671938969, data2: 32091, data3: 19299, data4: [128, 251, 209, 68, 47, 38, 182, 33] };
+pub const KSDATAFORMAT_TYPE_MPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1163859820,
+    data2: 19206,
+    data3: 18382,
+    data4: [154, 239, 140, 174, 247, 61, 247, 181],
+};
+pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1163859820,
+    data2: 19206,
+    data3: 18382,
+    data4: [154, 239, 140, 174, 247, 61, 247, 181],
+};
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 #[repr(C)]
 pub struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S(i32);
-#[repr(C)]
-pub struct KSEVENTSETID_BdaCAEvent(i32);
-#[repr(C)]
-pub struct KSEVENTSETID_BdaDiseqCEvent(i32);
-#[repr(C)]
-pub struct KSEVENTSETID_BdaEvent(i32);
-#[repr(C)]
-pub struct KSEVENTSETID_BdaPinEvent(i32);
-#[repr(C)]
-pub struct KSEVENTSETID_BdaTunerEvent(i32);
+pub const KSEVENTSETID_BdaCAEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1217154252, data2: 46952, data3: 16681, data4: [142, 177, 176, 10, 7, 31, 144, 104] };
+pub const KSEVENTSETID_BdaDiseqCEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2333719536,
+    data2: 16772,
+    data3: 17324,
+    data4: [173, 60, 12, 136, 155, 228, 194, 18],
+};
+pub const KSEVENTSETID_BdaEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2927515058, data2: 38615, data3: 20009, data4: [144, 143, 98, 249, 91, 42, 22, 121] };
+pub const KSEVENTSETID_BdaPinEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 273121741, data2: 20669, data3: 16597, data4: [149, 251, 8, 126, 14, 134, 165, 145] };
+pub const KSEVENTSETID_BdaTunerEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2864029207,
+    data2: 457,
+    data3: 20159,
+    data4: [147, 242, 252, 59, 121, 180, 111, 145],
+};
 #[repr(transparent)]
 pub struct KSEVENT_BDA_EVENT_TYPE(pub i32);
 pub const KSEVENT_BDA_EVENT_PENDINGEVENT: KSEVENT_BDA_EVENT_TYPE = KSEVENT_BDA_EVENT_TYPE(0i32);
 #[repr(transparent)]
 pub struct KSEVENT_BDA_TUNER(pub i32);
 pub const KSEVENT_BDA_TUNER_SCAN: KSEVENT_BDA_TUNER = KSEVENT_BDA_TUNER(0i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaChangeSync(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaConditionalAccessService(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaDebug(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaDeviceConfiguration(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaDrmService(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaEventing(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaGuideDataDeliveryService(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaIsdbConditionalAccess(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaMux(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaNameValue(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaNameValueA(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaScanning(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaTSSelector(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaTuner(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaUserActivity(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaWmdrmSession(i32);
-#[repr(C)]
-pub struct KSMETHODSETID_BdaWmdrmTuner(i32);
+pub const KSMETHODSETID_BdaChangeSync: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4245314291, data2: 46109, data3: 4562, data4: [156, 149, 0, 192, 79, 121, 113, 224] };
+pub const KSMETHODSETID_BdaConditionalAccessService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 281990068, data2: 12811, data3: 16831, data4: [152, 36, 27, 46, 104, 231, 30, 185] };
+pub const KSMETHODSETID_BdaDebug: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 222990572, data2: 50845, data3: 20194, data4: [140, 90, 251, 31, 99, 165, 13, 161] };
+pub const KSMETHODSETID_BdaDeviceConfiguration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811269, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSMETHODSETID_BdaDrmService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3220616635,
+    data2: 45230,
+    data3: 18508,
+    data4: [157, 202, 115, 82, 143, 176, 180, 110],
+};
+pub const KSMETHODSETID_BdaEventing: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4187263706,
+    data2: 24979,
+    data3: 20144,
+    data4: [134, 144, 102, 134, 203, 255, 113, 62],
+};
+pub const KSMETHODSETID_BdaGuideDataDeliveryService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2375898466, data2: 5513, data3: 16765, data4: [153, 206, 172, 83, 29, 218, 25, 249] };
+pub const KSMETHODSETID_BdaIsdbConditionalAccess: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1583924775, data2: 5826, data3: 20076, data4: [177, 226, 208, 1, 112, 205, 170, 15] };
+pub const KSMETHODSETID_BdaMux: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2485825516,
+    data2: 19461,
+    data3: 19572,
+    data4: [184, 235, 135, 6, 194, 164, 148, 63],
+};
+pub const KSMETHODSETID_BdaNameValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 920679172, data2: 40717, data3: 20104, data4: [145, 24, 172, 11, 163, 23, 183, 242] };
+pub const KSMETHODSETID_BdaNameValueA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 203688301, data2: 24565, data3: 18398, data4: [168, 86, 6, 46, 88, 126, 55, 39] };
+pub const KSMETHODSETID_BdaScanning: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 317409759,
+    data2: 25161,
+    data3: 18419,
+    data4: [177, 144, 226, 30, 110, 47, 138, 156],
+};
+pub const KSMETHODSETID_BdaTSSelector: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 500150249, data2: 46174, data3: 16819, data4: [187, 42, 86, 30, 177, 41, 174, 152] };
+pub const KSMETHODSETID_BdaTuner: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3077836847, data2: 44039, data3: 18314, data4: [130, 40, 39, 66, 217, 97, 250, 126] };
+pub const KSMETHODSETID_BdaUserActivity: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3987064884,
+    data2: 17713,
+    data3: 18492,
+    data4: [190, 10, 148, 230, 201, 111, 243, 150],
+};
+pub const KSMETHODSETID_BdaWmdrmSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1273428541,
+    data2: 1997,
+    data3: 16697,
+    data4: [139, 128, 140, 24, 186, 58, 236, 136],
+};
+pub const KSMETHODSETID_BdaWmdrmTuner: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2262399439,
+    data2: 43175,
+    data3: 20372,
+    data4: [181, 251, 20, 192, 172, 166, 143, 230],
+};
 #[repr(transparent)]
 pub struct KSMETHOD_BDA_CAS_SERVICE(pub i32);
 pub const KSMETHOD_BDA_CAS_CHECKENTITLEMENTTOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(0i32);
@@ -4250,48 +4458,87 @@ pub struct KSM_BDA_WMDRM_LICENSE(i32);
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 #[repr(C)]
 pub struct KSM_BDA_WMDRM_RENEWLICENSE(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_8PSK_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_8VSB_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_ANALOG_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_COFDM_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_COMMON_CA_POD(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_DRI_DRM(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_IP_SINK(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_ISDB_S_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_ISDB_T_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_OPENCABLE_POD(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_PBDA_CAS(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_PBDA_DRM(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_PBDA_ISDBCAS(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_PBDA_MUX(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_PBDA_TUNER(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_PID_FILTER(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_QAM_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_QPSK_DEMODULATOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_RF_TUNER(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_TS_SELECTOR(i32);
-#[repr(C)]
-pub struct KSNODE_BDA_VIDEO_ENCODER(i32);
+pub const KSNODE_BDA_8PSK_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3914834151, data2: 56728, data3: 19004, data4: [129, 11, 53, 37, 21, 122, 182, 46] };
+pub const KSNODE_BDA_8VSB_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811279, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_ANALOG_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1666036121,
+    data2: 10205,
+    data3: 18104,
+    data4: [172, 251, 236, 201, 142, 97, 162, 173],
+};
+pub const KSNODE_BDA_COFDM_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 766275077,
+    data2: 60862,
+    data3: 19356,
+    data4: [179, 135, 27, 111, 173, 125, 100, 149],
+};
+pub const KSNODE_BDA_COMMON_CA_POD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3628005628,
+    data2: 62392,
+    data3: 17835,
+    data4: [139, 113, 236, 247, 195, 57, 222, 180],
+};
+pub const KSNODE_BDA_DRI_DRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1335209332,
+    data2: 52987,
+    data3: 17106,
+    data4: [148, 169, 104, 197, 178, 193, 170, 190],
+};
+pub const KSNODE_BDA_IP_SINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811278, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_ISDB_S_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3990758154, data2: 36998, data3: 17197, data4: [184, 165, 102, 112, 38, 56, 7, 233] };
+pub const KSNODE_BDA_ISDB_T_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4243208931, data2: 11442, data3: 17997, data4: [143, 93, 48, 92, 11, 183, 120, 162] };
+pub const KSNODE_BDA_OPENCABLE_POD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 878187168,
+    data2: 64380,
+    data3: 18320,
+    data4: [170, 126, 177, 219, 136, 172, 25, 201],
+};
+pub const KSNODE_BDA_PBDA_CAS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3223750303,
+    data2: 28969,
+    data3: 20081,
+    data4: [134, 150, 236, 143, 117, 41, 155, 119],
+};
+pub const KSNODE_BDA_PBDA_DRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2666446083,
+    data2: 61089,
+    data3: 17679,
+    data4: [150, 174, 99, 62, 109, 230, 60, 206],
+};
+pub const KSNODE_BDA_PBDA_ISDBCAS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4073663155,
+    data2: 23453,
+    data3: 16558,
+    data4: [171, 124, 78, 122, 208, 189, 28, 82],
+};
+pub const KSNODE_BDA_PBDA_MUX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4169955207, data2: 26232, data3: 20299, data4: [161, 62, 218, 9, 134, 29, 104, 43] };
+pub const KSNODE_BDA_PBDA_TUNER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2858320518,
+    data2: 22844,
+    data3: 18809,
+    data4: [148, 148, 70, 162, 169, 223, 224, 118],
+};
+pub const KSNODE_BDA_PID_FILTER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4114687881,
+    data2: 45216,
+    data3: 17633,
+    data4: [174, 79, 238, 153, 155, 27, 127, 190],
+};
+pub const KSNODE_BDA_QAM_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811277, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_QPSK_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1670433029, data2: 10177, data3: 19815, data4: [189, 183, 119, 197, 13, 7, 147, 0] };
+pub const KSNODE_BDA_RF_TUNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811276, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_TS_SELECTOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1591603589,
+    data2: 65233,
+    data3: 20293,
+    data4: [150, 133, 187, 183, 60, 50, 60, 252],
+};
+pub const KSNODE_BDA_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3649317347,
+    data2: 26057,
+    data3: 19140,
+    data4: [147, 170, 118, 103, 130, 131, 59, 122],
+};
 #[repr(transparent)]
 pub struct KSPROPERTY_BDA_AUTODEMODULATE(pub i32);
 pub const KSPROPERTY_BDA_AUTODEMODULATE_START: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(0i32);
@@ -4428,38 +4675,42 @@ pub struct KSPROPERTY_IPSINK(pub u32);
 pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0u32);
 pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1u32);
 pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2u32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaAutodemodulate(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaCA(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaDigitalDemodulator(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaDiseqCommand(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaEthernetFilter(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaFrequencyFilter(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaIPv4Filter(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaIPv6Filter(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaLNBInfo(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaNullTransform(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaPIDFilter(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaPinControl(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaSignalStats(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaTableSection(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaTopology(i32);
-#[repr(C)]
-pub struct KSPROPSETID_BdaVoidTransform(i32);
+pub const KSPROPSETID_BdaAutodemodulate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3723582226, data2: 48421, data3: 4562, data4: [156, 160, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2959685478, data2: 21112, data3: 20166, data4: [185, 225, 60, 228, 5, 96, 239, 90] };
+pub const KSPROPSETID_BdaDigitalDemodulator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4012962681, data2: 39003, data3: 19728, data4: [182, 64, 167, 157, 94, 4, 225, 224] };
+pub const KSPROPSETID_BdaDiseqCommand: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4165872304,
+    data2: 15467,
+    data3: 17891,
+    data4: [160, 252, 134, 105, 212, 184, 31, 17],
+};
+pub const KSPROPSETID_BdaEthernetFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811267, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaFrequencyFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811271, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaIPv4Filter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811268, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaIPv6Filter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3782761076,
+    data2: 10787,
+    data3: 20403,
+    data4: [146, 69, 168, 248, 128, 23, 239, 51],
+};
+pub const KSPROPSETID_BdaLNBInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2569859330, data2: 18937, data3: 18201, data4: [166, 100, 196, 242, 62, 36, 8, 244] };
+pub const KSPROPSETID_BdaNullTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3723582221, data2: 48421, data3: 4562, data4: [156, 160, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaPIDFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3500572005, data2: 2271, data3: 20460, data4: [133, 51, 229, 181, 80, 65, 11, 133] };
+pub const KSPROPSETID_BdaPinControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 233654741,
+    data2: 43191,
+    data3: 19805,
+    data4: [151, 161, 18, 176, 193, 149, 135, 77],
+};
+pub const KSPROPSETID_BdaSignalStats: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 323473670, data2: 53050, data3: 17034, data4: [165, 203, 172, 13, 154, 42, 67, 56] };
+pub const KSPROPSETID_BdaTableSection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1366006213,
+    data2: 38684,
+    data3: 19119,
+    data4: [179, 243, 217, 253, 168, 161, 94, 22],
+};
+pub const KSPROPSETID_BdaTopology: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2706303029, data2: 2595, data3: 4563, data4: [156, 199, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaVoidTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811270, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 #[repr(C)]
 pub struct KSP_BDA_NODE_PIN(i32);
@@ -4487,8 +4738,7 @@ pub const BDA_LNB_SOURCE_D: LNB_Source = LNB_Source(4i32);
 pub const BDA_LNB_SOURCE_MAX: LNB_Source = LNB_Source(5i32);
 #[repr(C)]
 pub struct LONG_SECTION(i32);
-#[repr(C)]
-pub struct LanguageComponentType(i32);
+pub const LanguageComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 467967792, data2: 3611, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 #[repr(C)]
 pub struct LanguageInfo(i32);
 #[repr(transparent)]
@@ -4501,8 +4751,7 @@ pub const LIC_ExtenderBlocked: LicenseEventBlockReason = LicenseEventBlockReason
 #[repr(transparent)]
 pub struct LocationCodeSchemeType(pub i32);
 pub const SCTE_18: LocationCodeSchemeType = LocationCodeSchemeType(0i32);
-#[repr(C)]
-pub struct Locator(i32);
+pub const Locator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 143181955, data2: 44111, data3: 18755, data4: [181, 22, 44, 56, 217, 179, 69, 98] };
 pub const MAX_COUNTRY_CODE_STRING: u32 = 3u32;
 pub const MAX_DEINTERLACE_DEVICE_GUIDS: u32 = 32u32;
 pub const MAX_DEINTERLACE_SURFACES: u32 = 32u32;
@@ -4533,10 +4782,8 @@ pub struct MPEG1VIDEOINFO(i32);
 #[cfg(feature = "Win32_Media_Audio")]
 #[repr(C)]
 pub struct MPEG1WAVEFORMAT(i32);
-#[repr(C)]
-pub struct MPEG2Component(i32);
-#[repr(C)]
-pub struct MPEG2ComponentType(i32);
+pub const MPEG2Component: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 89961175, data2: 10601, data3: 17869, data4: [145, 75, 118, 137, 7, 34, 241, 18] };
+pub const MPEG2ComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1098909939, data2: 53095, data3: 18024, data4: [150, 40, 16, 220, 82, 190, 29, 8] };
 #[repr(transparent)]
 pub struct MPEG2StreamType(pub i32);
 pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1i32);
@@ -4575,10 +4822,13 @@ pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = MPEG2StreamType(37i32);
 pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(128i32);
 pub const DOLBY_AC3_AUDIO: MPEG2StreamType = MPEG2StreamType(129i32);
 pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = MPEG2StreamType(135i32);
-#[repr(C)]
-pub struct MPEG2TuneRequest(i32);
-#[repr(C)]
-pub struct MPEG2TuneRequestFactory(i32);
+pub const MPEG2TuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 156609634, data2: 48942, data3: 19642, data4: [162, 185, 166, 63, 119, 45, 70, 207] };
+pub const MPEG2TuneRequestFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 744744171,
+    data2: 19690,
+    data3: 16824,
+    data4: [145, 156, 233, 71, 234, 25, 167, 124],
+};
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
 pub struct MPEG2VIDEOINFO(i32);
@@ -4744,34 +4994,36 @@ pub const MPT_ENUM: MP_TYPE = MP_TYPE(3i32);
 pub const MPT_MAX: MP_TYPE = MP_TYPE(4i32);
 pub const MSDRI_S_MMI_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
 pub const MSDRI_S_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1i32 as _);
-#[repr(C)]
-pub struct MSEventBinder(i32);
+pub const MSEventBinder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1467984408,
+    data2: 17688,
+    data3: 17502,
+    data4: [143, 112, 20, 115, 248, 207, 75, 164],
+};
 pub const MSPID_PrimaryAudio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2740974955, data2: 40922, data3: 4560, data4: [143, 223, 0, 192, 79, 217, 24, 157] };
 pub const MSPID_PrimaryVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2740974954, data2: 40922, data3: 4560, data4: [143, 223, 0, 192, 79, 217, 24, 157] };
-#[repr(C)]
-pub struct MSVidAnalogCaptureToCCA(i32);
-#[repr(C)]
-pub struct MSVidAnalogCaptureToDataServices(i32);
-#[repr(C)]
-pub struct MSVidAnalogCaptureToOverlayMixer(i32);
-#[repr(C)]
-pub struct MSVidAnalogCaptureToStreamBufferSink(i32);
-#[repr(C)]
-pub struct MSVidAnalogCaptureToXDS(i32);
-#[repr(C)]
-pub struct MSVidAnalogTVToEncoder(i32);
-#[repr(C)]
-pub struct MSVidAnalogTunerDevice(i32);
-#[repr(C)]
-pub struct MSVidAudioRenderer(i32);
-#[repr(C)]
-pub struct MSVidAudioRendererDevices(i32);
-#[repr(C)]
-pub struct MSVidBDATunerDevice(i32);
-#[repr(C)]
-pub struct MSVidCCA(i32);
-#[repr(C)]
-pub struct MSVidCCAToStreamBufferSink(i32);
+pub const MSVidAnalogCaptureToCCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2485877001, data2: 41614, data3: 18849, data4: [162, 7, 52, 235, 203, 203, 75, 59] };
+pub const MSVidAnalogCaptureToDataServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463062, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAnalogCaptureToOverlayMixer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3783980890, data2: 2223, data3: 4563, data4: [182, 74, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAnalogCaptureToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2672879793, data2: 38192, data3: 19932, data4: [130, 94, 26, 248, 29, 71, 174, 214] };
+pub const MSVidAnalogCaptureToXDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 893441088,
+    data2: 23325,
+    data3: 18891,
+    data4: [130, 26, 232, 75, 140, 240, 101, 167],
+};
+pub const MSVidAnalogTVToEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 680867425, data2: 561, data3: 16859, data4: [137, 134, 33, 255, 67, 136, 238, 155] };
+pub const MSVidAnalogTunerDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 471192708, data2: 37149, data3: 4562, data4: [182, 50, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 934294852, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAudioRendererDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463055, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidBDATunerDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732787534, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
+pub const MSVidCCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2249529383, data2: 58491, data3: 17902, data4: [132, 33, 209, 14, 110, 105, 9, 121] };
+pub const MSVidCCAToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1056402792,
+    data2: 34401,
+    data3: 18499,
+    data4: [139, 143, 195, 113, 99, 216, 201, 206],
+};
 #[repr(transparent)]
 pub struct MSVidCCService(pub i32);
 impl MSVidCCService {
@@ -4782,16 +5034,31 @@ impl MSVidCCService {
     pub const Text2: Self = Self(4i32);
     pub const XDS: Self = Self(5i32);
 }
-#[repr(C)]
-pub struct MSVidCCToAR(i32);
-#[repr(C)]
-pub struct MSVidCCToVMR(i32);
-#[repr(C)]
-pub struct MSVidClosedCaptioning(i32);
-#[repr(C)]
-pub struct MSVidClosedCaptioningSI(i32);
-#[repr(C)]
-pub struct MSVidCtl(i32);
+pub const MSVidCCToAR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3613603018,
+    data2: 55454,
+    data3: 19375,
+    data4: [134, 171, 221, 181, 147, 114, 175, 194],
+};
+pub const MSVidCCToVMR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3300861828,
+    data2: 44544,
+    data3: 16826,
+    data4: [152, 40, 156, 149, 59, 211, 197, 74],
+};
+pub const MSVidClosedCaptioning: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2140975437,
+    data2: 18660,
+    data3: 17334,
+    data4: [147, 70, 26, 235, 195, 156, 100, 211],
+};
+pub const MSVidClosedCaptioningSI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2465040575,
+    data2: 34718,
+    data3: 17551,
+    data4: [182, 182, 163, 133, 188, 235, 132, 109],
+};
+pub const MSVidCtl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2968383843, data2: 37130, data3: 4562, data4: [182, 50, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct MSVidCtlButtonstate(pub i32);
 pub const MSVIDCTL_LEFT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
@@ -4808,66 +5075,86 @@ pub const STATE_UNBUILT: MSVidCtlStateList = MSVidCtlStateList(-1i32);
 pub const STATE_STOP: MSVidCtlStateList = MSVidCtlStateList(0i32);
 pub const STATE_PAUSE: MSVidCtlStateList = MSVidCtlStateList(1i32);
 pub const STATE_PLAY: MSVidCtlStateList = MSVidCtlStateList(2i32);
-#[repr(C)]
-pub struct MSVidDataServices(i32);
-#[repr(C)]
-pub struct MSVidDataServicesToStreamBufferSink(i32);
-#[repr(C)]
-pub struct MSVidDataServicesToXDS(i32);
-#[repr(C)]
-pub struct MSVidDevice(i32);
-#[repr(C)]
-pub struct MSVidDevice2(i32);
-#[repr(C)]
-pub struct MSVidDigitalCaptureToCCA(i32);
-#[repr(C)]
-pub struct MSVidDigitalCaptureToITV(i32);
-#[repr(C)]
-pub struct MSVidDigitalCaptureToStreamBufferSink(i32);
-#[repr(C)]
-pub struct MSVidEVR(i32);
-#[repr(C)]
-pub struct MSVidEncoder(i32);
-#[repr(C)]
-pub struct MSVidEncoderToStreamBufferSink(i32);
-#[repr(C)]
-pub struct MSVidFeature(i32);
-#[repr(C)]
-pub struct MSVidFeatures(i32);
-#[repr(C)]
-pub struct MSVidFilePlaybackDevice(i32);
-#[repr(C)]
-pub struct MSVidFilePlaybackToAudioRenderer(i32);
-#[repr(C)]
-pub struct MSVidFilePlaybackToVideoRenderer(i32);
-#[repr(C)]
-pub struct MSVidGenericComposite(i32);
-#[repr(C)]
-pub struct MSVidGenericSink(i32);
-#[repr(C)]
-pub struct MSVidITVCapture(i32);
-#[repr(C)]
-pub struct MSVidITVPlayback(i32);
-#[repr(C)]
-pub struct MSVidITVToStreamBufferSink(i32);
-#[repr(C)]
-pub struct MSVidInputDevice(i32);
-#[repr(C)]
-pub struct MSVidInputDevices(i32);
-#[repr(C)]
-pub struct MSVidMPEG2DecoderToClosedCaptioning(i32);
-#[repr(C)]
-pub struct MSVidOutput(i32);
-#[repr(C)]
-pub struct MSVidOutputDevices(i32);
-#[repr(C)]
-pub struct MSVidRect(i32);
-#[repr(C)]
-pub struct MSVidSBESourceToCC(i32);
-#[repr(C)]
-pub struct MSVidSBESourceToGenericSink(i32);
-#[repr(C)]
-pub struct MSVidSBESourceToITV(i32);
+pub const MSVidDataServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859907520, data2: 30693, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
+pub const MSVidDataServicesToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 955266086, data2: 59451, data3: 20072, data4: [182, 91, 220, 174, 115, 48, 72, 56] };
+pub const MSVidDataServicesToXDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 69856366, data2: 4420, data3: 19437, data4: [184, 139, 47, 185, 137, 154, 74, 61] };
+pub const MSVidDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1849706351,
+    data2: 40009,
+    data3: 19518,
+    data4: [139, 185, 133, 135, 149, 142, 255, 116],
+};
+pub const MSVidDevice2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 815366013, data2: 46005, data3: 18972, data4: [152, 58, 31, 232, 9, 140, 183, 125] };
+pub const MSVidDigitalCaptureToCCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1943093815, data2: 47579, data3: 20218, data4: [166, 221, 132, 53, 4, 33, 251, 47] };
+pub const MSVidDigitalCaptureToITV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1569616887, data2: 18825, data3: 19144, data4: [138, 152, 57, 186, 13, 50, 83, 2] };
+pub const MSVidDigitalCaptureToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2883846197, data2: 10179, data3: 18991, data4: [129, 83, 102, 36, 71, 22, 8, 175] };
+pub const MSVidEVR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3293735074,
+    data2: 64129,
+    data3: 19993,
+    data4: [177, 227, 114, 237, 189, 96, 174, 218],
+};
+pub const MSVidEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3142782051, data2: 55775, data3: 19273, data4: [148, 57, 99, 69, 57, 98, 229, 152] };
+pub const MSVidEncoderToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2696524951,
+    data2: 44988,
+    data3: 17837,
+    data4: [168, 166, 155, 7, 124, 64, 212, 242],
+};
+pub const MSVidFeature: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2001228555,
+    data2: 49290,
+    data3: 18410,
+    data4: [178, 76, 190, 134, 149, 255, 64, 95],
+};
+pub const MSVidFeatures: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463056, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidFilePlaybackDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 934294844, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
+pub const MSVidFilePlaybackToAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3424908599,
+    data2: 6356,
+    data3: 20174,
+    data4: [147, 189, 32, 122, 132, 114, 105, 121],
+};
+pub const MSVidFilePlaybackToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3020015083,
+    data2: 33879,
+    data3: 17023,
+    data4: [132, 234, 164, 210, 54, 51, 100, 176],
+};
+pub const MSVidGenericComposite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660913381, data2: 52281, data3: 4562, data4: [182, 57, 0, 192, 79, 121, 73, 142] };
+pub const MSVidGenericSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1247308239,
+    data2: 37533,
+    data3: 16448,
+    data4: [174, 3, 252, 175, 197, 185, 205, 66],
+};
+pub const MSVidITVCapture: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1463853826,
+    data2: 61195,
+    data3: 17870,
+    data4: [191, 59, 68, 112, 161, 74, 137, 128],
+};
+pub const MSVidITVPlayback: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2658762448,
+    data2: 21075,
+    data3: 16963,
+    data4: [169, 183, 189, 6, 197, 143, 142, 243],
+};
+pub const MSVidITVToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2461616168, data2: 6903, data3: 20078, data4: [158, 191, 119, 6, 87, 247, 122, 245] };
+pub const MSVidInputDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2887348978, data2: 5002, data3: 19619, data4: [144, 218, 174, 81, 17, 46, 218, 40] };
+pub const MSVidInputDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463052, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidMPEG2DecoderToClosedCaptioning: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1792184033, data2: 20482, data3: 20081, data4: [170, 247, 189, 7, 121, 7, 177, 164] };
+pub const MSVidOutput: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2280360205, data2: 941, data3: 20125, data4: [152, 102, 55, 110, 94, 197, 114, 237] };
+pub const MSVidOutputDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463053, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidRect: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3410130662,
+    data2: 32095,
+    data3: 19697,
+    data4: [151, 39, 98, 156, 94, 109, 182, 174],
+};
+pub const MSVidSBESourceToCC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2442373369, data2: 3258, data3: 16398, data4: [170, 151, 235, 71, 9, 22, 69, 118] };
+pub const MSVidSBESourceToGenericSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2568857573, data2: 38207, data3: 17243, data4: [190, 94, 185, 42, 5, 237, 252, 66] };
+pub const MSVidSBESourceToITV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 579946380, data2: 24291, data3: 19439, data4: [171, 93, 181, 255, 44, 245, 131, 82] };
 #[repr(transparent)]
 pub struct MSVidSegmentType(pub i32);
 pub const MSVidSEG_SOURCE: MSVidSegmentType = MSVidSegmentType(0i32);
@@ -4878,36 +5165,51 @@ pub struct MSVidSinkStreams(pub i32);
 pub const MSVidSink_Video: MSVidSinkStreams = MSVidSinkStreams(1i32);
 pub const MSVidSink_Audio: MSVidSinkStreams = MSVidSinkStreams(2i32);
 pub const MSVidSink_Other: MSVidSinkStreams = MSVidSinkStreams(4i32);
-#[repr(C)]
-pub struct MSVidStreamBufferRecordingControl(i32);
-#[repr(C)]
-pub struct MSVidStreamBufferSink(i32);
-#[repr(C)]
-pub struct MSVidStreamBufferSource(i32);
-#[repr(C)]
-pub struct MSVidStreamBufferSourceToVideoRenderer(i32);
-#[repr(C)]
-pub struct MSVidStreamBufferV2Source(i32);
-#[repr(C)]
-pub struct MSVidVMR9(i32);
-#[repr(C)]
-pub struct MSVidVideoInputDevice(i32);
-#[repr(C)]
-pub struct MSVidVideoPlaybackDevice(i32);
-#[repr(C)]
-pub struct MSVidVideoRenderer(i32);
-#[repr(C)]
-pub struct MSVidVideoRendererDevices(i32);
-#[repr(C)]
-pub struct MSVidWebDVD(i32);
-#[repr(C)]
-pub struct MSVidWebDVDAdm(i32);
-#[repr(C)]
-pub struct MSVidWebDVDToAudioRenderer(i32);
-#[repr(C)]
-pub struct MSVidWebDVDToVideoRenderer(i32);
-#[repr(C)]
-pub struct MSVidXDS(i32);
+pub const MSVidStreamBufferRecordingControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3400523139, data2: 52988, data3: 20029, data4: [186, 3, 23, 95, 23, 162, 79, 145] };
+pub const MSVidStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2658642628,
+    data2: 13797,
+    data3: 17057,
+    data4: [189, 194, 143, 63, 243, 153, 132, 124],
+};
+pub const MSVidStreamBufferSource: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2911785229,
+    data2: 8575,
+    data3: 16539,
+    data4: [128, 118, 41, 197, 231, 59, 152, 232],
+};
+pub const MSVidStreamBufferSourceToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1011288284, data2: 45441, data3: 18088, data4: [141, 168, 74, 176, 55, 23, 88, 205] };
+pub const MSVidStreamBufferV2Source: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4248116897,
+    data2: 16755,
+    data3: 19188,
+    data4: [130, 29, 128, 212, 174, 151, 144, 72],
+};
+pub const MSVidVMR9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 618412405, data2: 2495, data3: 16945, data4: [134, 85, 62, 231, 31, 67, 131, 125] };
+pub const MSVidVideoInputDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2515829259,
+    data2: 47930,
+    data3: 20013,
+    data4: [188, 100, 91, 129, 123, 194, 195, 14],
+};
+pub const MSVidVideoPlaybackDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 428922420, data2: 6750, data3: 16497, data4: [163, 74, 83, 170, 255, 206, 159, 54] };
+pub const MSVidVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 934294851, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
+pub const MSVidVideoRendererDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463054, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidWebDVD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 18560537,
+    data2: 65123,
+    data3: 18452,
+    data4: [138, 132, 21, 161, 148, 206, 156, 227],
+};
+pub const MSVidWebDVDAdm: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4202444635,
+    data2: 26279,
+    data3: 17024,
+    data4: [135, 157, 253, 69, 156, 132, 187, 2],
+};
+pub const MSVidWebDVDToAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2365858702, data2: 40913, data3: 16838, data4: [141, 227, 158, 30, 227, 9, 233, 53] };
+pub const MSVidWebDVDToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 645771443, data2: 21987, data3: 18690, data4: [148, 155, 223, 143, 92, 236, 1, 145] };
+pub const MSVidXDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 21622495, data2: 53391, data3: 16706, data4: [141, 115, 210, 57, 3, 210, 30, 144] };
 #[repr(transparent)]
 pub struct MSViddispidList(pub i32);
 pub const dispidInputs: MSViddispidList = MSViddispidList(0i32);
@@ -4986,12 +5288,19 @@ pub const BDA_MOD_DIRECTV: ModulationType = ModulationType(33i32);
 pub const BDA_MOD_ISDB_T_TMCC: ModulationType = ModulationType(34i32);
 pub const BDA_MOD_ISDB_S_TMCC: ModulationType = ModulationType(35i32);
 pub const BDA_MOD_MAX: ModulationType = ModulationType(36i32);
-#[repr(C)]
-pub struct Mpeg2Data(i32);
-#[repr(C)]
-pub struct Mpeg2DataLib(i32);
-#[repr(C)]
-pub struct Mpeg2Stream(i32);
+pub const Mpeg2Data: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3328631061,
+    data2: 47970,
+    data3: 16423,
+    data4: [161, 19, 130, 214, 67, 254, 45, 153],
+};
+pub const Mpeg2DataLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3685706779, data2: 46756, data3: 18584, data4: [174, 101, 32, 79, 13, 149, 9, 161] };
+pub const Mpeg2Stream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4179465927,
+    data2: 34057,
+    data3: 19723,
+    data4: [171, 38, 160, 221, 16, 144, 75, 183],
+};
 #[repr(C)]
 pub struct Mpeg2TableSampleHdr(i32);
 #[repr(C)]
@@ -5016,8 +5325,7 @@ pub const PARENTAL_CONTROL_TIME_RANGE: u32 = 1u32;
 pub const PARENTAL_CONTROL_VALUE_UNDEFINED: u32 = 0u32;
 #[repr(C)]
 pub struct PBDAParentalControl(i32);
-#[repr(C)]
-pub struct PBDA_ALWAYS_TUNE_IN_MUX(i32);
+pub const PBDA_ALWAYS_TUNE_IN_MUX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 505246017, data2: 22591, data3: 19138, data4: [176, 25, 31, 67, 14, 218, 15, 76] };
 pub const PBDA_AUX_CONNECTOR_TYPE_Composite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4129917772, data2: 50981, data3: 19778, data4: [132, 155, 65, 11, 187, 20, 234, 98] };
 pub const PBDA_AUX_CONNECTOR_TYPE_SVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2699625972, data2: 9417, data3: 19028, data4: [183, 97, 33, 51, 85, 239, 193, 58] };
 pub const PBDA_Encoder_Audio_AlgorithmType_AC3: u32 = 1u32;
@@ -5068,30 +5376,36 @@ pub struct PID_BITS(i32);
 pub struct PID_BITS_MIDL(i32);
 #[repr(C)]
 pub struct PID_MAP(i32);
-#[repr(C)]
-pub struct PINNAME_BDA_ANALOG_AUDIO(i32);
-#[repr(C)]
-pub struct PINNAME_BDA_ANALOG_VIDEO(i32);
-#[repr(C)]
-pub struct PINNAME_BDA_FM_RADIO(i32);
-#[repr(C)]
-pub struct PINNAME_BDA_IF_PIN(i32);
-#[repr(C)]
-pub struct PINNAME_BDA_OPENCABLE_PSIP_PIN(i32);
-#[repr(C)]
-pub struct PINNAME_BDA_TRANSPORT(i32);
-#[repr(C)]
-pub struct PINNAME_IPSINK_INPUT(i32);
-#[repr(C)]
-pub struct PINNAME_MPE(i32);
+pub const PINNAME_BDA_ANALOG_AUDIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3532281866,
+    data2: 39711,
+    data3: 19212,
+    data4: [156, 51, 155, 240, 168, 234, 99, 107],
+};
+pub const PINNAME_BDA_ANALOG_VIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1544323713, data2: 22119, data3: 18540, data4: [132, 130, 99, 227, 31, 1, 166, 233] };
+pub const PINNAME_BDA_FM_RADIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3531956205,
+    data2: 45779,
+    data3: 20203,
+    data4: [155, 208, 25, 52, 54, 162, 248, 144],
+};
+pub const PINNAME_BDA_IF_PIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 446515778, data2: 62413, data3: 18593, data4: [154, 234, 113, 222, 19, 60, 190, 20] };
+pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 695972100, data2: 58825, data3: 19150, data4: [177, 35, 149, 195, 203, 178, 77, 79] };
+pub const PINNAME_BDA_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2015455873, data2: 53160, data3: 18750, data4: [151, 17, 54, 166, 28, 8, 189, 157] };
+pub const PINNAME_IPSINK_INPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1071643248, data2: 44186, data3: 4562, data4: [143, 23, 0, 192, 79, 121, 113, 226] };
+pub const PINNAME_MPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3249565043, data2: 7611, data3: 4563, data4: [143, 70, 0, 192, 79, 121, 113, 226] };
 #[repr(transparent)]
 pub struct PIN_DIRECTION(pub i32);
 pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0i32);
 pub const PINDIR_OUTPUT: PIN_DIRECTION = PIN_DIRECTION(1i32);
 #[repr(C)]
 pub struct PIN_INFO(i32);
-#[repr(C)]
-pub struct PersistTuneXmlUtility(i32);
+pub const PersistTuneXmlUtility: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3882886832,
+    data2: 47487,
+    data3: 19643,
+    data4: [183, 251, 244, 240, 58, 214, 159, 17],
+};
 #[repr(transparent)]
 pub struct PhysicalConnectorType(pub i32);
 pub const PhysConn_Video_Tuner: PhysicalConnectorType = PhysicalConnectorType(1i32);
@@ -5359,8 +5673,12 @@ pub const ScanModulationTypesMask_MCE_All_TV: ScanModulationTypes = ScanModulati
 pub const ScanModulationTypesMask_DVBC: ScanModulationTypes = ScanModulationTypes(75i32);
 pub const BDA_SCAN_MOD_16APSK: ScanModulationTypes = ScanModulationTypes(268435456i32);
 pub const BDA_SCAN_MOD_32APSK: ScanModulationTypes = ScanModulationTypes(536870912i32);
-#[repr(C)]
-pub struct SectionList(i32);
+pub const SectionList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1943690500,
+    data2: 17223,
+    data3: 17875,
+    data4: [169, 220, 250, 233, 221, 190, 85, 141],
+};
 #[repr(transparent)]
 pub struct SegDispidList(pub i32);
 pub const dispidName: SegDispidList = SegDispidList(0i32);
@@ -5688,12 +6006,15 @@ pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = SpectralInversio
 pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = SpectralInversion(2i32);
 pub const BDA_SPECTRAL_INVERSION_INVERTED: SpectralInversion = SpectralInversion(3i32);
 pub const BDA_SPECTRAL_INVERSION_MAX: SpectralInversion = SpectralInversion(4i32);
-#[repr(C)]
-pub struct SystemTuningSpaces(i32);
+pub const SystemTuningSpaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3492457552, data2: 638, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 #[repr(C)]
 pub struct TID_EXTENSION(i32);
-#[repr(C)]
-pub struct TIFLoad(i32);
+pub const TIFLoad: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 350979912,
+    data2: 5971,
+    data3: 17299,
+    data4: [149, 174, 79, 126, 122, 135, 170, 214],
+};
 #[repr(C)]
 pub struct TIMECODEDATA(i32);
 pub const TIMECODE_RATE_30DROP: u32 = 0u32;
@@ -5728,16 +6049,18 @@ pub const BDA_XMIT_MODE_1K: TransmissionMode = TransmissionMode(6i32);
 pub const BDA_XMIT_MODE_16K: TransmissionMode = TransmissionMode(7i32);
 pub const BDA_XMIT_MODE_32K: TransmissionMode = TransmissionMode(8i32);
 pub const BDA_XMIT_MODE_MAX: TransmissionMode = TransmissionMode(9i32);
-#[repr(C)]
-pub struct TuneRequest(i32);
+pub const TuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3027111224, data2: 43829, data3: 18950, data4: [161, 55, 112, 87, 107, 1, 179, 159] };
 #[repr(transparent)]
 pub struct TunerInputType(pub i32);
 pub const TunerInputCable: TunerInputType = TunerInputType(0i32);
 pub const TunerInputAntenna: TunerInputType = TunerInputType(1i32);
-#[repr(C)]
-pub struct TunerMarshaler(i32);
-#[repr(C)]
-pub struct TuningSpace(i32);
+pub const TunerMarshaler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1681413899, data2: 3080, data3: 18981, data4: [149, 4, 128, 18, 187, 77, 80, 207] };
+pub const TuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1610466790,
+    data2: 47162,
+    data3: 19285,
+    data4: [182, 232, 198, 158, 118, 95, 233, 219],
+};
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct UDCR_TAG(i32);
@@ -6252,10 +6575,8 @@ pub const VideoProcAmp_BacklightCompensation: VideoProcAmpProperty = VideoProcAm
 pub const VideoProcAmp_Gain: VideoProcAmpProperty = VideoProcAmpProperty(9i32);
 #[repr(C)]
 pub struct WMDRMProtectionInfo(i32);
-#[repr(C)]
-pub struct XDSCodec(i32);
-#[repr(C)]
-pub struct XDSToRat(i32);
+pub const XDSCodec: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229811, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const XDSToRat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3318072816, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
 #[repr(transparent)]
 pub struct _AMRESCTL_RESERVEFLAGS(pub i32);
 pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(0i32);

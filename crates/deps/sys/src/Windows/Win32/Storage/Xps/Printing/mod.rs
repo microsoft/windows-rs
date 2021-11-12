@@ -48,10 +48,18 @@ pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletio
 pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
 #[repr(C)]
 pub struct PrintDocumentPackageStatus(i32);
-#[repr(C)]
-pub struct PrintDocumentPackageTarget(i32);
-#[repr(C)]
-pub struct PrintDocumentPackageTargetFactory(i32);
+pub const PrintDocumentPackageTarget: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1212311198,
+    data2: 39239,
+    data3: 18154,
+    data4: [139, 162, 216, 204, 228, 50, 194, 202],
+};
+pub const PrintDocumentPackageTargetFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 881783165,
+    data2: 27777,
+    data3: 18818,
+    data4: [146, 180, 238, 24, 138, 67, 134, 122],
+};
 #[repr(transparent)]
 pub struct XPS_JOB_COMPLETION(pub i32);
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);

@@ -571,6 +571,6 @@ pub const WAB_VCARD_STREAM: u32 = 1u32;
 #[repr(C)]
 pub struct _PV(i32);
 #[repr(C)]
-pub struct _WABACTIONITEM(i32);
+pub struct _WABACTIONITEM(pub u8);
 #[repr(C)]
 pub struct _flaglist(i32);

@@ -234,7 +234,7 @@ pub const PID_MIN_READONLY: u32 = 2147483648u32;
 pub const PID_MODIFY_TIME: u32 = 2147483649u32;
 pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
-pub struct PMemoryAllocator(i32);
+pub struct PMemoryAllocator(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PROPBAG2(i32);

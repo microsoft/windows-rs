@@ -150,8 +150,6 @@ pub struct IVideoFrameFactory(pub *mut ::core::ffi::c_void);
 pub struct IVideoFrameStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageDisplayProperties(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MediaControlContract(i32);
 #[repr(transparent)]
 pub struct MediaExtensionManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

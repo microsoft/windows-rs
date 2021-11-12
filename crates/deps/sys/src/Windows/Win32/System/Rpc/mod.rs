@@ -949,7 +949,7 @@ pub struct NDR64_USER_MARSHAL_FORMAT(i32);
 #[repr(C)]
 pub struct NDR64_VAR_ARRAY_HEADER_FORMAT(i32);
 #[repr(C)]
-pub struct NDR_ALLOC_ALL_NODES_CONTEXT(i32);
+pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
 #[repr(C)]
 pub struct NDR_CS_ROUTINES(i32);
 #[repr(C)]
@@ -961,7 +961,7 @@ pub struct NDR_EXPR_DESC(i32);
 pub type NDR_NOTIFY2_ROUTINE = unsafe extern "system" fn(flag: u8);
 pub type NDR_NOTIFY_ROUTINE = unsafe extern "system" fn();
 #[repr(C)]
-pub struct NDR_POINTER_QUEUE_STATE(i32);
+pub struct NDR_POINTER_QUEUE_STATE(pub u8);
 pub type NDR_RUNDOWN = unsafe extern "system" fn(context: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct NDR_SCONTEXT_1(i32);
@@ -1582,11 +1582,11 @@ pub type XMIT_HELPER_ROUTINE = unsafe extern "system" fn(param0: *mut MIDL_STUB_
 #[repr(C)]
 pub struct XMIT_ROUTINE_QUINTUPLE(i32);
 #[repr(C)]
-pub struct _NDR_ASYNC_MESSAGE(i32);
+pub struct _NDR_ASYNC_MESSAGE(pub u8);
 #[repr(C)]
-pub struct _NDR_CORRELATION_INFO(i32);
+pub struct _NDR_CORRELATION_INFO(pub u8);
 #[repr(C)]
-pub struct _NDR_PROC_CONTEXT(i32);
+pub struct _NDR_PROC_CONTEXT(pub u8);
 #[repr(C)]
 pub struct _NDR_SCONTEXT(i32);
 pub const __RPCPROXY_H_VERSION__: u32 = 475u32;

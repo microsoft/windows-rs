@@ -23,8 +23,7 @@ pub const NETWORK_ALIVE_LAN: u32 = 1u32;
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
 #[repr(C)]
 pub struct QOCINFO(i32);
-#[repr(C)]
-pub struct SENS(i32);
+pub const SENS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583494910, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_EVENTCLASS_LOGON: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583477296, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_EVENTCLASS_LOGON2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583477328, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_EVENTCLASS_NETWORK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583477280, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };

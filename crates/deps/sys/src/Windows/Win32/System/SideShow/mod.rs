@@ -156,12 +156,23 @@ pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows_sys::core::GUID = ::wind
     data3: 19582,
     data4: [153, 113, 234, 162, 233, 31, 21, 117],
 };
-#[repr(C)]
-pub struct SideShowKeyCollection(i32);
-#[repr(C)]
-pub struct SideShowNotification(i32);
-#[repr(C)]
-pub struct SideShowPropVariantCollection(i32);
-#[repr(C)]
-pub struct SideShowSession(i32);
+pub const SideShowKeyCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3753630712,
+    data2: 6366,
+    data3: 18872,
+    data4: [131, 220, 235, 199, 39, 198, 45, 148],
+};
+pub const SideShowNotification: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 216262767,
+    data2: 54733,
+    data3: 17701,
+    data4: [167, 102, 26, 186, 177, 167, 82, 245],
+};
+pub const SideShowPropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3863016469, data2: 21406, data3: 18723, data4: [150, 205, 95, 9, 59, 194, 80, 205] };
+pub const SideShowSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3791995833,
+    data2: 63365,
+    data3: 20130,
+    data4: [152, 30, 196, 255, 167, 107, 188, 124],
+};
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

@@ -580,8 +580,8 @@ pub struct WINBIO_VERSION(i32);
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 #[repr(C)]
-pub struct _WINIBIO_ENGINE_CONTEXT(i32);
+pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);
 #[repr(C)]
-pub struct _WINIBIO_SENSOR_CONTEXT(i32);
+pub struct _WINIBIO_SENSOR_CONTEXT(pub u8);
 #[repr(C)]
-pub struct _WINIBIO_STORAGE_CONTEXT(i32);
+pub struct _WINIBIO_STORAGE_CONTEXT(pub u8);

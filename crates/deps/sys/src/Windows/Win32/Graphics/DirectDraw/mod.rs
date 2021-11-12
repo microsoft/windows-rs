@@ -1594,75 +1594,75 @@ pub struct HEAPALIGNMENT(i32);
 #[repr(transparent)]
 pub struct IDDVideoPortContainer(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDDVideoPortContainerVtbl(i32);
+pub struct IDDVideoPortContainerVtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDraw(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectDraw2(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDraw2Vtbl(i32);
+pub struct IDirectDraw2Vtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDraw4(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDraw4Vtbl(i32);
+pub struct IDirectDraw4Vtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDraw7(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDraw7Vtbl(i32);
+pub struct IDirectDraw7Vtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawClipper(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawClipperVtbl(i32);
+pub struct IDirectDrawClipperVtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawColorControl(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawColorControlVtbl(i32);
+pub struct IDirectDrawColorControlVtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawGammaControl(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawGammaControlVtbl(i32);
+pub struct IDirectDrawGammaControlVtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawKernel(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawKernelVtbl(i32);
+pub struct IDirectDrawKernelVtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawPalette(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawPaletteVtbl(i32);
+pub struct IDirectDrawPaletteVtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawSurface(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectDrawSurface2(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawSurface2Vtbl(i32);
+pub struct IDirectDrawSurface2Vtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawSurface3(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawSurface3Vtbl(i32);
+pub struct IDirectDrawSurface3Vtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawSurface4(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawSurface4Vtbl(i32);
+pub struct IDirectDrawSurface4Vtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawSurface7(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawSurface7Vtbl(i32);
+pub struct IDirectDrawSurface7Vtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawSurfaceKernel(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawSurfaceKernelVtbl(i32);
+pub struct IDirectDrawSurfaceKernelVtbl(pub u8);
 #[repr(C)]
-pub struct IDirectDrawSurfaceVtbl(i32);
+pub struct IDirectDrawSurfaceVtbl(pub u8);
 #[repr(transparent)]
 pub struct IDirectDrawVideoPort(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectDrawVideoPortNotify(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IDirectDrawVideoPortNotifyVtbl(i32);
+pub struct IDirectDrawVideoPortNotifyVtbl(pub u8);
 #[repr(C)]
-pub struct IDirectDrawVideoPortVtbl(i32);
+pub struct IDirectDrawVideoPortVtbl(pub u8);
 #[repr(C)]
-pub struct IDirectDrawVtbl(i32);
+pub struct IDirectDrawVtbl(pub u8);
 pub const IRQINFO_HANDLED: u32 = 1u32;
 pub const IRQINFO_NOTHANDLED: u32 = 2u32;
 #[repr(C)]
@@ -2001,11 +2001,11 @@ pub struct VMEML(i32);
 #[repr(C)]
 pub struct VMEMR(i32);
 #[repr(C)]
-pub struct _DDFXROP(i32);
+pub struct _DDFXROP(pub u8);
 #[repr(C)]
-pub struct _DD_DESTROYDRIVERDATA(i32);
+pub struct _DD_DESTROYDRIVERDATA(pub u8);
 #[repr(C)]
-pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(i32);
+pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(pub u8);
 #[repr(C)]
-pub struct _DD_SETMODEDATA(i32);
+pub struct _DD_SETMODEDATA(pub u8);
 pub const _FACDD: u32 = 2166u32;

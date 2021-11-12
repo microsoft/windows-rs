@@ -569,12 +569,24 @@ pub struct FEEDS_XML_SORT_PROPERTY(pub i32);
 pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(0i32);
 pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(1i32);
 pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(2i32);
-#[repr(C)]
-pub struct FeedFolderWatcher(i32);
-#[repr(C)]
-pub struct FeedWatcher(i32);
-#[repr(C)]
-pub struct FeedsManager(i32);
+pub const FeedFolderWatcher: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 672137709,
+    data2: 30565,
+    data3: 19632,
+    data4: [132, 175, 233, 179, 135, 175, 1, 255],
+};
+pub const FeedWatcher: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 413561723,
+    data2: 62515,
+    data3: 18055,
+    data4: [137, 188, 161, 180, 223, 185, 241, 35],
+};
+pub const FeedsManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4209726660,
+    data2: 63087,
+    data3: 18438,
+    data4: [131, 160, 128, 82, 153, 245, 227, 173],
+};
 #[repr(transparent)]
 pub struct IFeed(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -880,8 +892,7 @@ pub const WMPGC_FLAGS_DISABLE_PLUGINS: u32 = 8u32;
 pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
 pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
 pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
-#[repr(C)]
-pub struct WMPLib(i32);
+pub const WMPLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1811229264, data2: 14666, data3: 4563, data4: [177, 83, 0, 192, 79, 121, 250, 166] };
 #[repr(transparent)]
 pub struct WMPLibraryType(pub i32);
 pub const wmpltUnknown: WMPLibraryType = WMPLibraryType(0i32);
@@ -953,8 +964,7 @@ pub const wmplcLast: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(11i
 #[repr(transparent)]
 pub struct WMPPlugin_Caps(pub i32);
 pub const WMPPlugin_Caps_CannotConvertFormats: WMPPlugin_Caps = WMPPlugin_Caps(1i32);
-#[repr(C)]
-pub struct WMPRemoteMediaServices(i32);
+pub const WMPRemoteMediaServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3744674931, data2: 11511, data3: 19426, data4: [144, 127, 154, 173, 86, 97, 54, 79] };
 #[repr(transparent)]
 pub struct WMPRipState(pub i32);
 pub const wmprsUnknown: WMPRipState = WMPRipState(0i32);
@@ -1275,8 +1285,7 @@ pub const WMProfile_V80_HIGHVBRVideo: ::windows_sys::core::GUID = ::windows_sys:
     data3: 20400,
     data4: [163, 211, 136, 212, 172, 133, 74, 204],
 };
-#[repr(C)]
-pub struct WindowsMediaPlayer(i32);
+pub const WindowsMediaPlayer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1811229266, data2: 14666, data3: 4563, data4: [177, 83, 0, 192, 79, 121, 250, 166] };
 #[repr(transparent)]
 pub struct _WMPOCXEvents(pub *mut ::core::ffi::c_void);
 pub const g_szAllAuthors: &'static str = "AllAuthors";

@@ -211,8 +211,7 @@ pub const CATID_MSIME_IImePadApplet900: ::windows_sys::core::GUID = ::windows_sy
 pub const CATID_MSIME_IImePadApplet_VER7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1242533425, data2: 50158, data3: 4561, data4: [175, 239, 0, 128, 95, 12, 139, 109] };
 pub const CATID_MSIME_IImePadApplet_VER80: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459070866, data2: 65265, data3: 4563, data4: [132, 99, 0, 192, 79, 122, 6, 229] };
 pub const CATID_MSIME_IImePadApplet_VER81: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1701126320, data2: 48008, data3: 4564, data4: [132, 192, 0, 192, 79, 122, 6, 229] };
-#[repr(C)]
-pub struct CActiveIMM(i32);
+pub const CActiveIMM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1230363955, data2: 45401, data3: 4560, data4: [143, 207, 0, 170, 0, 107, 204, 89] };
 pub const CFS_CANDIDATEPOS: u32 = 64u32;
 pub const CFS_DEFAULT: u32 = 0u32;
 pub const CFS_EXCLUDE: u32 = 128u32;

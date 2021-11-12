@@ -287,15 +287,15 @@ pub const IDTB_ZOOM: u32 = 222u32;
 #[repr(transparent)]
 pub struct IITDatabase(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IITGroup(i32);
+pub struct IITGroup(pub u8);
 #[repr(transparent)]
 pub struct IITPropList(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IITQuery(i32);
+pub struct IITQuery(pub u8);
 #[repr(transparent)]
 pub struct IITResultSet(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IITStopWordList(i32);
+pub struct IITStopWordList(pub u8);
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 #[repr(transparent)]

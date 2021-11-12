@@ -112,8 +112,6 @@ impl StoreConsumableStatus {
 }
 #[repr(transparent)]
 pub struct StoreContext(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct StoreContract(i32);
 #[repr(transparent)]
 pub struct StoreDurationUnit(pub i32);
 impl StoreDurationUnit {

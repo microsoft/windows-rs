@@ -38,8 +38,6 @@ impl AutoFocusRange {
 }
 #[repr(transparent)]
 pub struct CallControl(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CallControlContract(i32);
 #[repr(transparent)]
 pub struct CallControlEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -63,5 +63,3 @@ impl ImageScannerScanSource {
     pub const Feeder: Self = Self(2i32);
     pub const AutoConfigured: Self = Self(3i32);
 }
-#[repr(C)]
-pub struct ScannerDeviceContract(i32);

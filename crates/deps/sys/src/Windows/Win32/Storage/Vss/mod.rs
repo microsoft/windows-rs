@@ -30,7 +30,7 @@ pub struct IVssEnumMgmtObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVssEnumObject(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IVssExamineWriterMetadata(i32);
+pub struct IVssExamineWriterMetadata(pub u8);
 #[repr(transparent)]
 pub struct IVssExpressWriter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -57,8 +57,7 @@ pub struct IVssWMFiledesc(pub *mut ::core::ffi::c_void);
 pub struct IVssWriterComponents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVssWriterImpl(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct VSSCoordinator(i32);
+pub const VSSCoordinator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3849956191, data2: 7364, data3: 17588, data4: [190, 217, 222, 9, 145, 255, 6, 35] };
 #[repr(transparent)]
 pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
 pub const VSS_AWS_UNDEFINED: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(0i32);
@@ -447,5 +446,9 @@ pub const VSS_WS_FAILED_AT_PRE_RESTORE: VSS_WRITER_STATE = VSS_WRITER_STATE(13i3
 pub const VSS_WS_FAILED_AT_POST_RESTORE: VSS_WRITER_STATE = VSS_WRITER_STATE(14i32);
 pub const VSS_WS_FAILED_AT_BACKUPSHUTDOWN: VSS_WRITER_STATE = VSS_WRITER_STATE(15i32);
 pub const VSS_WS_COUNT: VSS_WRITER_STATE = VSS_WRITER_STATE(16i32);
-#[repr(C)]
-pub struct VssSnapshotMgmt(i32);
+pub const VssSnapshotMgmt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 190458962,
+    data2: 16057,
+    data3: 18186,
+    data4: [150, 226, 108, 109, 69, 112, 228, 15],
+};

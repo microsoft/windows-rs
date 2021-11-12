@@ -67,8 +67,6 @@ impl AnimationEffectTarget {
     pub const Shown: Self = Self(18i32);
     pub const Tapped: Self = Self(19i32);
 }
-#[repr(C)]
-pub struct AnimationMetricsContract(i32);
 #[repr(transparent)]
 pub struct IAnimationDescription(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

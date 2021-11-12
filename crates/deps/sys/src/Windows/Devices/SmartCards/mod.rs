@@ -139,8 +139,6 @@ impl SmartCardAutomaticResponseStatus {
     pub const Success: Self = Self(1i32);
     pub const UnknownError: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct SmartCardBackgroundTriggerContract(i32);
 #[repr(transparent)]
 pub struct SmartCardChallengeContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -288,8 +286,6 @@ impl SmartCardEmulatorConnectionSource {
     pub const Unknown: Self = Self(0i32);
     pub const NfcReader: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct SmartCardEmulatorContract(i32);
 #[repr(transparent)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {

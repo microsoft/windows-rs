@@ -39,8 +39,6 @@ pub struct DeferralCompletedHandler(pub *mut ::core::ffi::c_void);
 pub struct EventHandler<T>(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct EventRegistrationToken(i32);
-#[repr(C)]
-pub struct FoundationContract(i32);
 #[repr(transparent)]
 pub struct IAsyncAction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -148,8 +146,6 @@ pub struct Size(i32);
 pub struct TimeSpan(i32);
 #[repr(transparent)]
 pub struct TypedEventHandler<TSender, TResult>(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct UniversalApiContract(i32);
 #[repr(transparent)]
 pub struct Uri(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

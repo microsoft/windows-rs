@@ -591,8 +591,7 @@ pub const DISPID_SEStrokesAdded: DISPID_StrokeEvent = DISPID_StrokeEvent(1i32);
 pub const DISPID_SEStrokesRemoved: DISPID_StrokeEvent = DISPID_StrokeEvent(2i32);
 #[repr(C)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA(i32);
-#[repr(C)]
-pub struct DynamicRenderer(i32);
+pub const DynamicRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3973262058, data2: 29807, data3: 19915, data4: [191, 104, 8, 39, 87, 250, 255, 24] };
 pub const EM_GETDRAWATTR: u32 = 1541u32;
 pub const EM_GETFACTOID: u32 = 1549u32;
 pub const EM_GETGESTURESTATUS: u32 = 1545u32;
@@ -886,8 +885,12 @@ pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows_sys::core::GUID = ::w
 };
 pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 244523913, data2: 7543, data3: 17327, data4: [172, 0, 91, 149, 13, 109, 75, 45] };
 pub const GUID_PACKETPROPERTY_GUID_Z: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935334192, data2: 3771, data3: 18312, data4: [160, 228, 15, 49, 100, 144, 5, 93] };
-#[repr(C)]
-pub struct GestureRecognizer(i32);
+pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3929065044,
+    data2: 50732,
+    data3: 17439,
+    data4: [172, 0, 149, 249, 161, 150, 120, 44],
+};
 #[repr(C)]
 pub struct HRECOALT(i32);
 #[repr(C)]
@@ -898,8 +901,7 @@ pub struct HRECOGNIZER(i32);
 pub struct HRECOLATTICE(i32);
 #[repr(C)]
 pub struct HRECOWORDLIST(i32);
-#[repr(C)]
-pub struct HandwrittenTextInsertion(i32);
+pub const HandwrittenTextInsertion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2668056290, data2: 59113, data3: 19850, data4: [160, 71, 235, 91, 92, 60, 85, 218] };
 #[repr(transparent)]
 pub struct IDynamicRenderer(pub *mut ::core::ffi::c_void);
 pub const IECN_GESTURE: u32 = 2050u32;
@@ -1049,8 +1051,12 @@ pub struct InPlaceState(pub i32);
 pub const InPlaceState_Auto: InPlaceState = InPlaceState(0i32);
 pub const InPlaceState_HoverTarget: InPlaceState = InPlaceState(1i32);
 pub const InPlaceState_Expanded: InPlaceState = InPlaceState(2i32);
-#[repr(C)]
-pub struct Ink(i32);
+pub const Ink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 333335106,
+    data2: 36129,
+    data3: 19598,
+    data4: [191, 156, 143, 105, 203, 6, 143, 202],
+};
 #[repr(transparent)]
 pub struct InkApplicationGesture(pub i32);
 pub const IAG_AllGestures: InkApplicationGesture = InkApplicationGesture(0i32);
@@ -1128,8 +1134,12 @@ pub struct InkCollectionMode(pub i32);
 pub const ICM_InkOnly: InkCollectionMode = InkCollectionMode(0i32);
 pub const ICM_GestureOnly: InkCollectionMode = InkCollectionMode(1i32);
 pub const ICM_InkAndGesture: InkCollectionMode = InkCollectionMode(2i32);
-#[repr(C)]
-pub struct InkCollector(i32);
+pub const InkCollector: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1140528467,
+    data2: 44404,
+    data3: 20200,
+    data4: [136, 228, 62, 109, 170, 201, 21, 219],
+};
 pub const InkCollectorClipInkToMargin: i32 = 0i32;
 pub const InkCollectorDefaultMargin: i32 = -2147483648i32;
 #[repr(transparent)]
@@ -1157,24 +1167,40 @@ pub struct InkCursorButtonState(pub i32);
 pub const ICBS_Unavailable: InkCursorButtonState = InkCursorButtonState(0i32);
 pub const ICBS_Up: InkCursorButtonState = InkCursorButtonState(1i32);
 pub const ICBS_Down: InkCursorButtonState = InkCursorButtonState(2i32);
-#[repr(C)]
-pub struct InkDisp(i32);
+pub const InkDisp: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2474383924,
+    data2: 5405,
+    data3: 17936,
+    data4: [156, 166, 168, 204, 155, 219, 93, 131],
+};
 #[repr(transparent)]
 pub struct InkDisplayMode(pub i32);
 pub const IDM_Ink: InkDisplayMode = InkDisplayMode(0i32);
 pub const IDM_Text: InkDisplayMode = InkDisplayMode(1i32);
-#[repr(C)]
-pub struct InkDivider(i32);
+pub const InkDivider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2287269536,
+    data2: 18051,
+    data3: 19175,
+    data4: [145, 145, 117, 47, 230, 70, 18, 195],
+};
 #[repr(transparent)]
 pub struct InkDivisionType(pub i32);
 pub const IDT_Segment: InkDivisionType = InkDivisionType(0i32);
 pub const IDT_Line: InkDivisionType = InkDivisionType(1i32);
 pub const IDT_Paragraph: InkDivisionType = InkDivisionType(2i32);
 pub const IDT_Drawing: InkDivisionType = InkDivisionType(3i32);
-#[repr(C)]
-pub struct InkDrawingAttributes(i32);
-#[repr(C)]
-pub struct InkEdit(i32);
+pub const InkDrawingAttributes: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3636408994,
+    data2: 1445,
+    data3: 17603,
+    data4: [179, 170, 94, 128, 172, 125, 37, 118],
+};
+pub const InkEdit: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3855243765,
+    data2: 22468,
+    data3: 19928,
+    data4: [155, 214, 29, 238, 237, 210, 122, 244],
+};
 #[repr(transparent)]
 pub struct InkEditStatus(pub i32);
 pub const IES_Idle: InkEditStatus = InkEditStatus(0i32);
@@ -1219,8 +1245,12 @@ pub const IMP_ArrowQuestion: InkMousePointer = InkMousePointer(12i32);
 pub const IMP_SizeAll: InkMousePointer = InkMousePointer(13i32);
 pub const IMP_Hand: InkMousePointer = InkMousePointer(14i32);
 pub const IMP_Custom: InkMousePointer = InkMousePointer(99i32);
-#[repr(C)]
-pub struct InkOverlay(i32);
+pub const InkOverlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1708131910,
+    data2: 52707,
+    data3: 19080,
+    data4: [145, 99, 103, 105, 240, 241, 169, 125],
+};
 #[repr(transparent)]
 pub struct InkOverlayAttachMode(pub i32);
 pub const IOAM_Behind: InkOverlayAttachMode = InkOverlayAttachMode(0i32);
@@ -1249,8 +1279,7 @@ pub const IPF_InkSerializedFormat: InkPersistenceFormat = InkPersistenceFormat(0
 pub const IPF_Base64InkSerializedFormat: InkPersistenceFormat = InkPersistenceFormat(1i32);
 pub const IPF_GIF: InkPersistenceFormat = InkPersistenceFormat(2i32);
 pub const IPF_Base64GIF: InkPersistenceFormat = InkPersistenceFormat(3i32);
-#[repr(C)]
-pub struct InkPicture(i32);
+pub const InkPicture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 77718867, data2: 65078, data3: 20446, data4: [134, 94, 52, 65, 148, 230, 148, 36] };
 #[repr(transparent)]
 pub struct InkPictureSizeMode(pub i32);
 pub const IPSM_AutoSize: InkPictureSizeMode = InkPictureSizeMode(0i32);
@@ -1341,16 +1370,26 @@ pub struct InkRecognizerCharacterAutoCompletionMode(pub i32);
 pub const IRCACM_Full: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(0i32);
 pub const IRCACM_Prefix: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(1i32);
 pub const IRCACM_Random: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(2i32);
-#[repr(C)]
-pub struct InkRecognizerContext(i32);
-#[repr(C)]
-pub struct InkRecognizerGuide(i32);
-#[repr(C)]
-pub struct InkRecognizers(i32);
-#[repr(C)]
-pub struct InkRectangle(i32);
-#[repr(C)]
-pub struct InkRenderer(i32);
+pub const InkRecognizerContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2864998967,
+    data2: 37417,
+    data3: 20416,
+    data4: [140, 206, 68, 151, 86, 155, 244, 209],
+};
+pub const InkRecognizerGuide: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2272319809,
+    data2: 42554,
+    data3: 18033,
+    data4: [163, 117, 40, 85, 161, 142, 186, 115],
+};
+pub const InkRecognizers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2681530376, data2: 63206, data3: 20069, data4: [152, 211, 170, 57, 5, 76, 18, 85] };
+pub const InkRectangle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1135637286, data2: 43744, data3: 19298, data4: [168, 61, 95, 215, 104, 183, 53, 60] };
+pub const InkRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2619131620,
+    data2: 55275,
+    data3: 20203,
+    data4: [144, 145, 21, 167, 200, 121, 30, 217],
+};
 #[repr(transparent)]
 pub struct InkSelectionConstants(pub i32);
 pub const ISC_FirstElement: InkSelectionConstants = InkSelectionConstants(0i32);
@@ -1360,8 +1399,7 @@ pub struct InkShiftKeyModifierFlags(pub i32);
 pub const IKM_Shift: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(1i32);
 pub const IKM_Control: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(2i32);
 pub const IKM_Alt: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(4i32);
-#[repr(C)]
-pub struct InkStrokes(i32);
+pub const InkStrokes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1223987644, data2: 9230, data3: 18528, data4: [176, 121, 161, 233, 77, 61, 44, 134] };
 #[repr(transparent)]
 pub struct InkSystemGesture(pub i32);
 pub const ISG_Tap: InkSystemGesture = InkSystemGesture(16i32);
@@ -1374,12 +1412,14 @@ pub const ISG_HoldLeave: InkSystemGesture = InkSystemGesture(22i32);
 pub const ISG_HoverEnter: InkSystemGesture = InkSystemGesture(23i32);
 pub const ISG_HoverLeave: InkSystemGesture = InkSystemGesture(24i32);
 pub const ISG_Flick: InkSystemGesture = InkSystemGesture(31i32);
-#[repr(C)]
-pub struct InkTablets(i32);
-#[repr(C)]
-pub struct InkTransform(i32);
-#[repr(C)]
-pub struct InkWordList(i32);
+pub const InkTablets: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1850723090, data2: 20746, data3: 19776, data4: [147, 4, 29, 161, 10, 233, 20, 124] };
+pub const InkTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3822442812, data2: 5731, data3: 19064, data4: [161, 167, 34, 55, 93, 254, 186, 238] };
+pub const InkWordList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2649247892,
+    data2: 63263,
+    data3: 17649,
+    data4: [132, 113, 21, 162, 250, 118, 252, 243],
+};
 #[repr(transparent)]
 pub struct InteractionMode(pub i32);
 pub const InteractionMode_InPlace: InteractionMode = InteractionMode(0i32);
@@ -1433,8 +1473,12 @@ pub const MICUIELEMENTSTATE_NORMAL: MICUIELEMENTSTATE = MICUIELEMENTSTATE(1i32);
 pub const MICUIELEMENTSTATE_HOT: MICUIELEMENTSTATE = MICUIELEMENTSTATE(2i32);
 pub const MICUIELEMENTSTATE_PRESSED: MICUIELEMENTSTATE = MICUIELEMENTSTATE(3i32);
 pub const MICUIELEMENTSTATE_DISABLED: MICUIELEMENTSTATE = MICUIELEMENTSTATE(4i32);
-#[repr(C)]
-pub struct MathInputControl(i32);
+pub const MathInputControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3311501676,
+    data2: 5336,
+    data3: 16528,
+    data4: [131, 12, 152, 217, 148, 178, 28, 123],
+};
 #[repr(transparent)]
 pub struct MouseButton(pub i32);
 pub const NO_BUTTON: MouseButton = MouseButton(0i32);
@@ -1479,10 +1523,13 @@ pub const PT_Default: PanelType = PanelType(0i32);
 pub const PT_Inactive: PanelType = PanelType(1i32);
 pub const PT_Handwriting: PanelType = PanelType(2i32);
 pub const PT_Keyboard: PanelType = PanelType(3i32);
-#[repr(C)]
-pub struct PenInputPanel(i32);
-#[repr(C)]
-pub struct PenInputPanel_Internal(i32);
+pub const PenInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4148487318,
+    data2: 7002,
+    data3: 18590,
+    data4: [129, 220, 251, 215, 172, 98, 152, 168],
+};
+pub const PenInputPanel_Internal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2150309817, data2: 1387, data3: 18208, data4: [176, 204, 128, 210, 59, 113, 23, 30] };
 pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
@@ -1528,8 +1575,12 @@ pub const RF_PERSONALIZABLE: i32 = 16384i32;
 pub const RF_REQUIRESSEGMENTATIONBREAKING: i32 = 131072i32;
 pub const RF_RIGHT_AND_DOWN: i32 = 64i32;
 pub const RF_STROKEREORDER: i32 = 8192i32;
-#[repr(C)]
-pub struct RealTimeStylus(i32);
+pub const RealTimeStylus: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3798677101,
+    data2: 63896,
+    data3: 17358,
+    data4: [131, 111, 203, 109, 144, 68, 50, 176],
+};
 #[repr(transparent)]
 pub struct RealTimeStylusDataInterest(pub i32);
 pub const RTSDI_AllData: RealTimeStylusDataInterest = RealTimeStylusDataInterest(-1i32);
@@ -1592,10 +1643,18 @@ pub const SHR_W: SelectionHitResult = SelectionHitResult(6i32);
 pub const SHR_N: SelectionHitResult = SelectionHitResult(7i32);
 pub const SHR_S: SelectionHitResult = SelectionHitResult(8i32);
 pub const SHR_Selection: SelectionHitResult = SelectionHitResult(9i32);
-#[repr(C)]
-pub struct SketchInk(i32);
-#[repr(C)]
-pub struct StrokeBuilder(i32);
+pub const SketchInk: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4029223041,
+    data2: 59516,
+    data3: 19975,
+    data4: [151, 218, 160, 160, 55, 97, 229, 134],
+};
+pub const StrokeBuilder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3893415655,
+    data2: 28241,
+    data3: 19632,
+    data4: [170, 58, 11, 152, 91, 112, 218, 247],
+};
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct StylusInfo(i32);
@@ -1637,10 +1696,13 @@ pub const TPMU_Radians: TabletPropertyMetricUnit = TabletPropertyMetricUnit(4i32
 pub const TPMU_Seconds: TabletPropertyMetricUnit = TabletPropertyMetricUnit(5i32);
 pub const TPMU_Pounds: TabletPropertyMetricUnit = TabletPropertyMetricUnit(6i32);
 pub const TPMU_Grams: TabletPropertyMetricUnit = TabletPropertyMetricUnit(7i32);
-#[repr(C)]
-pub struct TextInputPanel(i32);
-#[repr(C)]
-pub struct TipAutoCompleteClient(i32);
+pub const TextInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4189161943, data2: 8843, data3: 20267, data4: [134, 80, 185, 127, 89, 224, 44, 140] };
+pub const TipAutoCompleteClient: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2155617900,
+    data2: 7424,
+    data3: 17727,
+    data4: [185, 32, 182, 27, 183, 205, 217, 151],
+};
 #[repr(transparent)]
 pub struct VisualState(pub i32);
 pub const InPlace: VisualState = VisualState(0i32);

@@ -251,8 +251,12 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdatePerfNameFilesW(sznewctrfilepath: super::super::Foundation::PWSTR, sznewhlpfilepath: super::super::Foundation::PWSTR, szlanguageid: super::super::Foundation::PWSTR, dwflags: usize) -> u32;
 }
-#[repr(C)]
-pub struct AppearPropPage(i32);
+pub const AppearPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3835118057,
+    data2: 37800,
+    data3: 19121,
+    data4: [142, 150, 191, 68, 130, 40, 46, 156],
+};
 #[repr(transparent)]
 pub struct AutoPathFormat(pub i32);
 pub const plaNone: AutoPathFormat = AutoPathFormat(0i32);
@@ -265,10 +269,8 @@ pub const plaYearMonth: AutoPathFormat = AutoPathFormat(2048i32);
 pub const plaYearMonthDay: AutoPathFormat = AutoPathFormat(4096i32);
 pub const plaYearMonthDayHour: AutoPathFormat = AutoPathFormat(8192i32);
 pub const plaMonthDayHourMinute: AutoPathFormat = AutoPathFormat(16384i32);
-#[repr(C)]
-pub struct BootTraceSession(i32);
-#[repr(C)]
-pub struct BootTraceSessionCollection(i32);
+pub const BootTraceSession: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946872, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const BootTraceSessionCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946873, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 #[repr(transparent)]
 pub struct ClockType(pub i32);
 pub const plaTimeStamp: ClockType = ClockType(0i32);
@@ -283,15 +285,16 @@ pub const plaCreateOrModify: CommitMode = CommitMode(3i32);
 pub const plaUpdateRunningInstance: CommitMode = CommitMode(16i32);
 pub const plaFlushTrace: CommitMode = CommitMode(32i32);
 pub const plaValidateOnly: CommitMode = CommitMode(4096i32);
-#[repr(C)]
-pub struct CounterItem(i32);
-#[repr(C)]
-pub struct CounterItem2(i32);
+pub const CounterItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3302152416, data2: 53725, data3: 4558, data4: [148, 15, 0, 128, 41, 0, 67, 72] };
+pub const CounterItem2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1125739618,
+    data2: 49951,
+    data3: 19683,
+    data4: [160, 46, 121, 239, 224, 246, 165, 37],
+};
 pub type CounterPathCallBack = unsafe extern "system" fn(param0: usize) -> i32;
-#[repr(C)]
-pub struct CounterPropPage(i32);
-#[repr(C)]
-pub struct Counters(i32);
+pub const CounterPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3482617185, data2: 60904, data3: 4558, data4: [148, 30, 0, 128, 41, 0, 67, 71] };
+pub const Counters: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2997905106, data2: 10924, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 #[repr(transparent)]
 pub struct DICounterItem(pub *mut ::core::ffi::c_void);
 pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
@@ -312,10 +315,8 @@ pub struct DISystemMonitor(pub *mut ::core::ffi::c_void);
 pub struct DISystemMonitorEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DISystemMonitorInternal(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DataCollectorSet(i32);
-#[repr(C)]
-pub struct DataCollectorSetCollection(i32);
+pub const DataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946849, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const DataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946853, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 #[repr(transparent)]
 pub struct DataCollectorSetStatus(pub i32);
 pub const plaStopped: DataCollectorSetStatus = DataCollectorSetStatus(0i32);
@@ -363,10 +364,8 @@ pub const plaDeleteData: FolderActionSteps = FolderActionSteps(2i32);
 pub const plaSendCab: FolderActionSteps = FolderActionSteps(4i32);
 pub const plaDeleteCab: FolderActionSteps = FolderActionSteps(8i32);
 pub const plaDeleteReport: FolderActionSteps = FolderActionSteps(16i32);
-#[repr(C)]
-pub struct GeneralPropPage(i32);
-#[repr(C)]
-pub struct GraphPropPage(i32);
+pub const GeneralPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3286619090, data2: 6659, data3: 4559, data4: [148, 45, 0, 128, 41, 0, 67, 71] };
+pub const GraphPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3286619091, data2: 6659, data3: 4559, data4: [148, 45, 0, 128, 41, 0, 67, 71] };
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
 #[repr(transparent)]
 pub struct IAlertDataCollector(pub *mut ::core::ffi::c_void);
@@ -421,18 +420,17 @@ pub struct IValueMap(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IValueMapItem(pub *mut ::core::ffi::c_void);
 pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
-#[repr(C)]
-pub struct LegacyDataCollectorSet(i32);
-#[repr(C)]
-pub struct LegacyDataCollectorSetCollection(i32);
-#[repr(C)]
-pub struct LegacyTraceSession(i32);
-#[repr(C)]
-pub struct LegacyTraceSessionCollection(i32);
-#[repr(C)]
-pub struct LogFileItem(i32);
-#[repr(C)]
-pub struct LogFiles(i32);
+pub const LegacyDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946854, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const LegacyDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946855, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const LegacyTraceSession: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946856, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const LegacyTraceSessionCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946857, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const LogFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 384588776, data2: 57235, data3: 16951, data4: [148, 228, 158, 233, 24, 17, 29, 113] };
+pub const LogFiles: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 657840637,
+    data2: 63161,
+    data3: 20249,
+    data4: [165, 217, 226, 208, 104, 88, 75, 197],
+};
 pub const MAX_COUNTER_PATH: u32 = 256u32;
 pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
 pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
@@ -813,12 +811,9 @@ pub struct ResourcePolicy(pub i32);
 pub const plaDeleteLargest: ResourcePolicy = ResourcePolicy(0i32);
 pub const plaDeleteOldest: ResourcePolicy = ResourcePolicy(1i32);
 pub const S_PDH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 81159000, data2: 50337, data3: 16795, data4: [128, 35, 35, 183, 57, 2, 222, 44] };
-#[repr(C)]
-pub struct ServerDataCollectorSet(i32);
-#[repr(C)]
-pub struct ServerDataCollectorSetCollection(i32);
-#[repr(C)]
-pub struct SourcePropPage(i32);
+pub const ServerDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946865, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const ServerDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946866, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const SourcePropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 217262753, data2: 30065, data3: 4560, data4: [147, 196, 0, 170, 0, 163, 221, 234] };
 #[repr(transparent)]
 pub struct StreamMode(pub i32);
 pub const plaFile: StreamMode = StreamMode(1i32);
@@ -847,22 +842,19 @@ pub const sysmonFileTsv: SysmonFileType = SysmonFileType(4i32);
 pub const sysmonFileBlg: SysmonFileType = SysmonFileType(5i32);
 pub const sysmonFileRetiredBlg: SysmonFileType = SysmonFileType(6i32);
 pub const sysmonFileGif: SysmonFileType = SysmonFileType(7i32);
-#[repr(C)]
-pub struct SystemDataCollectorSet(i32);
-#[repr(C)]
-pub struct SystemDataCollectorSetCollection(i32);
-#[repr(C)]
-pub struct SystemMonitor(i32);
-#[repr(C)]
-pub struct SystemMonitor2(i32);
-#[repr(C)]
-pub struct TraceDataProvider(i32);
-#[repr(C)]
-pub struct TraceDataProviderCollection(i32);
-#[repr(C)]
-pub struct TraceSession(i32);
-#[repr(C)]
-pub struct TraceSessionCollection(i32);
+pub const SystemDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946886, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const SystemDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946887, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3302152416, data2: 53725, data3: 4558, data4: [148, 15, 0, 128, 41, 0, 67, 71] };
+pub const SystemMonitor2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2133874572,
+    data2: 24376,
+    data3: 17938,
+    data4: [172, 254, 110, 208, 76, 123, 122, 248],
+};
+pub const TraceDataProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946835, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const TraceDataProviderCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946833, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const TraceSession: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946844, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
+pub const TraceSessionCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58946864, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 #[repr(transparent)]
 pub struct ValueMapType(pub i32);
 pub const plaIndex: ValueMapType = ValueMapType(1i32);

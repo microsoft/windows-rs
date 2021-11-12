@@ -111,8 +111,6 @@ impl XboxLiveQualityOfServiceMetric {
 pub struct XboxLiveQualityOfServiceMetricResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct XboxLiveSecureSocketsContract(i32);
 #[repr(transparent)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {

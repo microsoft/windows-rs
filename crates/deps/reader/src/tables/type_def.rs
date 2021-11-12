@@ -151,6 +151,7 @@ impl TypeDef {
         }
     }
 
+    // TODO: for sys definitions the features are less demanding since interfaces won't have dependencies
     pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         if !keys.insert(self.row.clone()) {
             return;
@@ -380,6 +381,10 @@ impl TypeDef {
 
     pub fn is_scoped(&self) -> bool {
         self.is_winrt() || self.has_attribute("ScopedEnumAttribute")
+    }
+
+    pub fn is_api_contract(&self) -> bool {
+        self.has_attribute("ApiContractAttribute")
     }
 
     pub fn is_agile(&self) -> bool {

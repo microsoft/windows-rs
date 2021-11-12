@@ -639,8 +639,7 @@ pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
 pub const DC_NOANSWER: DISCONNECT_CODE = DISCONNECT_CODE(1i32);
 pub const DC_REJECTED: DISCONNECT_CODE = DISCONNECT_CODE(2i32);
 pub const DISPIDMASK: u32 = 65535u32;
-#[repr(C)]
-pub struct DispatchMapper(i32);
+pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3911340694, data2: 51033, data3: 4561, data4: [160, 43, 0, 192, 79, 182, 128, 159] };
 #[repr(transparent)]
 pub struct FINISH_MODE(pub i32);
 pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
@@ -1732,8 +1731,7 @@ pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(7i32);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct MSP_EVENT_INFO(i32);
-#[repr(C)]
-pub struct McastAddressAllocation(i32);
+pub const McastAddressAllocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3742215922, data2: 41609, data3: 4561, data4: [134, 151, 0, 96, 8, 176, 229, 210] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct NSID(i32);
@@ -2105,10 +2103,8 @@ pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(1i32);
 pub const RAS_SITE: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(2i32);
 pub const RAS_REGION: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(3i32);
 pub const RAS_WORLD: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(4i32);
-#[repr(C)]
-pub struct Rendezvous(i32);
-#[repr(C)]
-pub struct RequestMakeCall(i32);
+pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4043480667, data2: 52059, data3: 4560, data4: [141, 89, 0, 192, 79, 217, 26, 192] };
+pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2890465248, data2: 63684, data3: 4561, data4: [160, 48, 0, 192, 79, 182, 128, 159] };
 pub const STRINGFORMAT_ASCII: u32 = 1u32;
 pub const STRINGFORMAT_BINARY: u32 = 4u32;
 pub const STRINGFORMAT_DBCS: u32 = 2u32;
@@ -2123,8 +2119,7 @@ pub const STRM_TERMINALSELECTED: u32 = 1u32;
 pub struct STnefProblem(i32);
 #[repr(C)]
 pub struct STnefProblemArray(i32);
-#[repr(C)]
-pub struct TAPI(i32);
+pub const TAPI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 567727246, data2: 43147, data3: 4560, data4: [131, 221, 0, 170, 0, 60, 202, 189] };
 pub const TAPIERR_CONNECTED: i32 = 0i32;
 pub const TAPIERR_DESTBUSY: i32 = -11i32;
 pub const TAPIERR_DESTNOANSWER: i32 = -12i32;

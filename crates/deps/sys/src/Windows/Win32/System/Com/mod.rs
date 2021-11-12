@@ -574,7 +574,7 @@ pub struct IConnectionPoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IConnectionPointContainer(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IContext(i32);
+pub struct IContext(pub u8);
 #[repr(transparent)]
 pub struct IContextCallback(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -592,7 +592,7 @@ pub struct IEnumConnectionPoints(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IEnumConnections(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IEnumContextProps(i32);
+pub struct IEnumContextProps(pub u8);
 #[repr(transparent)]
 pub struct IEnumFORMATETC(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

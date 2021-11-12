@@ -299,22 +299,29 @@ pub const NET_FW_SERVICE_UPNP: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(1i32);
 pub const NET_FW_SERVICE_REMOTE_DESKTOP: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(2i32);
 pub const NET_FW_SERVICE_NONE: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(3i32);
 pub const NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(4i32);
-#[repr(C)]
-pub struct NetFwAuthorizedApplication(i32);
-#[repr(C)]
-pub struct NetFwMgr(i32);
-#[repr(C)]
-pub struct NetFwOpenPort(i32);
-#[repr(C)]
-pub struct NetFwPolicy2(i32);
-#[repr(C)]
-pub struct NetFwProduct(i32);
-#[repr(C)]
-pub struct NetFwProducts(i32);
-#[repr(C)]
-pub struct NetFwRule(i32);
-#[repr(C)]
-pub struct NetSharingManager(i32);
+pub const NetFwAuthorizedApplication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3969402547, data2: 10082, data3: 19051, data4: [162, 20, 106, 203, 96, 52, 98, 210] };
+pub const NetFwMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810346818, data2: 28217, data3: 16600, data4: [148, 58, 185, 19, 196, 12, 156, 212] };
+pub const NetFwOpenPort: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 212157894, data2: 14253, data3: 19052, data4: [191, 146, 159, 118, 16, 6, 126, 245] };
+pub const NetFwPolicy2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3803433343,
+    data2: 27361,
+    data3: 16812,
+    data4: [129, 122, 246, 249, 33, 102, 215, 221],
+};
+pub const NetFwProduct: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2641649368, data2: 50452, data3: 19741, data4: [191, 66, 117, 31, 237, 45, 90, 199] };
+pub const NetFwProducts: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3424192411,
+    data2: 33394,
+    data3: 19827,
+    data4: [187, 112, 205, 181, 51, 82, 123, 97],
+};
+pub const NetFwRule: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 744211518,
+    data2: 13161,
+    data3: 19507,
+    data4: [171, 12, 190, 148, 105, 103, 122, 244],
+};
+pub const NetSharingManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1550041517, data2: 14678, data3: 20472, data4: [132, 134, 64, 3, 71, 88, 49, 91] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type PAC_CHANGES_CALLBACK_FN = unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE);
 #[cfg(feature = "Win32_Foundation")]
@@ -339,8 +346,12 @@ pub struct SHARINGCONNECTION_ENUM_FLAGS(pub i32);
 pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = SHARINGCONNECTION_ENUM_FLAGS(0i32);
 pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = SHARINGCONNECTION_ENUM_FLAGS(1i32);
 pub const S_OBJECT_NO_LONGER_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
-#[repr(C)]
-pub struct UPnPNAT(i32);
+pub const UPnPNAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2921201834,
+    data2: 16341,
+    data3: 16444,
+    data4: [138, 39, 43, 189, 195, 12, 208, 225],
+};
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0(i32);

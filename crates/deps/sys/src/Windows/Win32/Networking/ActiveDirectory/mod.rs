@@ -707,16 +707,16 @@ pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = AD
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ADS_VLV(i32);
-#[repr(C)]
-pub struct ADSystemInfo(i32);
-#[repr(C)]
-pub struct ADsSecurityUtility(i32);
-#[repr(C)]
-pub struct AccessControlEntry(i32);
-#[repr(C)]
-pub struct AccessControlList(i32);
-#[repr(C)]
-pub struct BackLink(i32);
+pub const ADSystemInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1354117759, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
+pub const ADsSecurityUtility: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4067477066,
+    data2: 65464,
+    data3: 19172,
+    data4: [133, 254, 58, 117, 229, 52, 121, 102],
+};
+pub const AccessControlEntry: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3076177920, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
+pub const AccessControlList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3093209170, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
+pub const BackLink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4240412783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 pub const CLSID_CommonQuery: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2210160320, data2: 28458, data3: 4560, data4: [161, 196, 0, 170, 0, 193, 110, 101] };
 pub const CLSID_DsAdminCreateObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3808534537, data2: 63745, data3: 4562, data4: [130, 185, 0, 192, 79, 104, 146, 139] };
 pub const CLSID_DsDisplaySpecifier: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 448047296, data2: 27147, data3: 4562, data4: [173, 73, 0, 192, 79, 163, 26, 134] };
@@ -758,17 +758,14 @@ pub const CQPM_INITIALIZE: u32 = 1u32;
 pub const CQPM_PERSIST: u32 = 7u32;
 pub const CQPM_RELEASE: u32 = 2u32;
 pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
-#[repr(C)]
-pub struct CaseIgnoreList(i32);
+pub const CaseIgnoreList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 368609877, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
 pub const DBDTF_RETURNFQDN: u32 = 1u32;
 pub const DBDTF_RETURNINBOUND: u32 = 8u32;
 pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
 pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
-#[repr(C)]
-pub struct DNWithBinary(i32);
-#[repr(C)]
-pub struct DNWithString(i32);
+pub const DNWithBinary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2124005539, data2: 63797, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
+pub const DNWithString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 860379084, data2: 63796, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DOMAINDESC(i32);
@@ -1415,8 +1412,7 @@ pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
 pub const DS_WRITABLE_FLAG: u32 = 256u32;
 pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
 pub const DS_WS_FLAG: u32 = 8192u32;
-#[repr(C)]
-pub struct Email(i32);
+pub const Email: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2408753239, data2: 18318, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 pub const FACILITY_BACKUP: u32 = 2047u32;
 pub const FACILITY_NTDSB: u32 = 2048u32;
 pub const FACILITY_SYSTEM: u32 = 0u32;
@@ -1426,12 +1422,10 @@ pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
 pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
 pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
-#[repr(C)]
-pub struct FaxNumber(i32);
+pub const FaxNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768642581, data2: 18049, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
 pub struct GetDcContextHandle(i32);
-#[repr(C)]
-pub struct Hold(i32);
+pub const Hold: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3014475283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(transparent)]
 pub struct IADs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1596,8 +1590,7 @@ pub type LPCQADDPAGESPROC = unsafe extern "system" fn(lparam: super::super::Foun
 pub type LPCQPAGEPROC = unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMATTRIBUTES = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
-#[repr(C)]
-pub struct LargeInteger(i32);
+pub const LargeInteger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457432565, data2: 2361, data3: 4561, data4: [139, 225, 0, 192, 79, 216, 213, 3] };
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;
 pub const NTDSAPI_BIND_FORCE_KERBEROS: u32 = 4u32;
@@ -1649,10 +1642,8 @@ pub const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2u32;
 pub const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1u32;
 pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
-#[repr(C)]
-pub struct NameTranslate(i32);
-#[repr(C)]
-pub struct NetAddress(i32);
+pub const NameTranslate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 659533343, data2: 13862, data3: 4561, data4: [163, 164, 0, 192, 79, 185, 80, 220] };
+pub const NetAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2964787783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
 pub struct OPENQUERYWINDOW(i32);
@@ -1668,22 +1659,15 @@ pub const OQWF_REMOVESCOPES: u32 = 16u32;
 pub const OQWF_SAVEQUERYONOK: u32 = 512u32;
 pub const OQWF_SHOWOPTIONAL: u32 = 128u32;
 pub const OQWF_SINGLESELECT: u32 = 4u32;
-#[repr(C)]
-pub struct OctetList(i32);
-#[repr(C)]
-pub struct Path(i32);
-#[repr(C)]
-pub struct Pathname(i32);
-#[repr(C)]
-pub struct PostalAddress(i32);
-#[repr(C)]
-pub struct PropertyEntry(i32);
-#[repr(C)]
-pub struct PropertyValue(i32);
+pub const OctetList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 306266127, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
+pub const Path: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2991819033, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const Pathname: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 135073144, data2: 62497, data3: 4560, data4: [163, 110, 0, 192, 79, 185, 80, 220] };
+pub const PostalAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 175484877, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
+pub const PropertyEntry: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1926491586, data2: 42180, data3: 4560, data4: [133, 51, 0, 192, 79, 216, 213, 3] };
+pub const PropertyValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2073966768, data2: 43388, data3: 4560, data4: [133, 52, 0, 192, 79, 216, 213, 3] };
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
-#[repr(C)]
-pub struct ReplicaPointer(i32);
+pub const ReplicaPointer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4124162783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
 pub struct SCHEDULE(i32);
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
@@ -1695,12 +1679,9 @@ pub const STATUS_SEVERITY_ERROR: u32 = 3u32;
 pub const STATUS_SEVERITY_INFORMATIONAL: u32 = 1u32;
 pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
-#[repr(C)]
-pub struct SecurityDescriptor(i32);
-#[repr(C)]
-pub struct Timestamp(i32);
-#[repr(C)]
-pub struct TypedName(i32);
+pub const SecurityDescriptor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3109615420, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
+pub const Timestamp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2998850283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const TypedName: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3006350283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 pub const WM_ADSPROP_NOTIFY_APPLY: u32 = 2128u32;
 pub const WM_ADSPROP_NOTIFY_CHANGE: u32 = 2127u32;
 pub const WM_ADSPROP_NOTIFY_ERROR: u32 = 2134u32;
@@ -1709,8 +1690,7 @@ pub const WM_ADSPROP_NOTIFY_FOREGROUND: u32 = 2130u32;
 pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
-#[repr(C)]
-pub struct WinNTSystemInfo(i32);
+pub const WinNTSystemInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1712860868, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ads_search_column(i32);

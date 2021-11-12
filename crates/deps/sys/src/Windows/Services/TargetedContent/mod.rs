@@ -55,8 +55,6 @@ pub struct TargetedContentChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentContainer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct TargetedContentContract(i32);
 #[repr(transparent)]
 pub struct TargetedContentFile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

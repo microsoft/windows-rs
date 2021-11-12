@@ -380,8 +380,6 @@ pub struct IUssdReply(pub *mut ::core::ffi::c_void);
 pub struct IUssdSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUssdSessionStatics(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LegacyNetworkOperatorsContract(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandAccount(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -603,8 +601,6 @@ pub struct NetworkOperatorTetheringClient(pub *mut ::core::ffi::c_void);
 pub struct NetworkOperatorTetheringManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringOperationResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct NetworkOperatorsFdnContract(i32);
 #[repr(transparent)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {

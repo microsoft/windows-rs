@@ -1523,8 +1523,12 @@ pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_133Mhz: u32 = 8u32;
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: u32 = 16u32;
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: u32 = 32u32;
 pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: u32 = 4u32;
-#[repr(C)]
-pub struct Dot11AdHocManager(i32);
+pub const Dot11AdHocManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3708201039,
+    data2: 33725,
+    data3: 19713,
+    data4: [138, 185, 35, 137, 254, 160, 134, 158],
+};
 pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3425272444,
     data2: 40111,

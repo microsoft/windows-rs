@@ -450,20 +450,31 @@ pub const Button_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20275,
     data4: [169, 215, 121, 242, 13, 12, 120, 142],
 };
-#[repr(C)]
-pub struct CAccPropServices(i32);
+pub const CAccPropServices: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3052942603,
+    data2: 1352,
+    data3: 18609,
+    data4: [166, 238, 136, 189, 0, 180, 165, 231],
+};
 pub const CLSID_AccPropServices: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3052942603,
     data2: 1352,
     data3: 18609,
     data4: [166, 238, 136, 189, 0, 180, 165, 231],
 };
-#[repr(C)]
-pub struct CUIAutomation(i32);
-#[repr(C)]
-pub struct CUIAutomation8(i32);
-#[repr(C)]
-pub struct CUIAutomationRegistrar(i32);
+pub const CUIAutomation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4282964900, data2: 24815, data3: 16897, data4: [170, 135, 84, 16, 62, 239, 89, 78] };
+pub const CUIAutomation8: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3794457395,
+    data2: 45663,
+    data3: 17932,
+    data4: [131, 208, 5, 129, 16, 115, 149, 201],
+};
+pub const CUIAutomationRegistrar: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1848244927,
+    data2: 39287,
+    data3: 17105,
+    data4: [141, 14, 202, 126, 97, 173, 135, 230],
+};
 pub const Calendar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2299784072, data2: 229, data3: 18108, data4: [142, 78, 20, 167, 134, 225, 101, 161] };
 #[repr(transparent)]
 pub struct CapStyle(pub i32);

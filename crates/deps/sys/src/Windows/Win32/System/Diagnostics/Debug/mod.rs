@@ -1289,8 +1289,7 @@ pub const CBA_SRCSRV_INFO: u32 = 536870912u32;
 pub const CBA_SYMBOLS_UNLOADED: u32 = 4u32;
 pub const CBA_UPDATE_STATUS_BAR: u32 = 1342177280u32;
 pub const CBA_XML_LOG: u32 = 2415919104u32;
-#[repr(C)]
-pub struct CDebugDocumentHelper(i32);
+pub const CDebugDocumentHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2209922214, data2: 26748, data3: 4560, data4: [164, 5, 0, 170, 0, 96, 39, 92] };
 pub const CERT_PE_IMAGE_DIGEST_ALL_IMPORT_INFO: u32 = 4u32;
 pub const CERT_PE_IMAGE_DIGEST_DEBUG_INFO: u32 = 1u32;
 pub const CERT_PE_IMAGE_DIGEST_NON_PE_INFO: u32 = 8u32;
@@ -2308,8 +2307,7 @@ pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
 pub struct DebugBaseEventCallbacks(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DebugBaseEventCallbacksWide(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DebugHelper(i32);
+pub const DebugHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201113696, data2: 35869, data3: 4560, data4: [172, 205, 0, 170, 0, 96, 39, 92] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DebugPropertyInfo(i32);
@@ -2319,8 +2317,7 @@ pub struct DebugStackFrameDescriptor(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DebugStackFrameDescriptor64(i32);
-#[repr(C)]
-pub struct DefaultDebugSessionProvider(i32);
+pub const DefaultDebugSessionProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2202085538, data2: 20980, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 #[repr(transparent)]
 pub struct ERRORRESUMEACTION(pub i32);
 pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
@@ -4054,10 +4051,13 @@ pub const ModuleWriteCvRecord: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(8i32);
 pub const ModuleReferencedByMemory: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(16i32);
 pub const ModuleWriteTlsData: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(32i32);
 pub const ModuleWriteCodeSegs: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(64i32);
-#[repr(C)]
-pub struct MachineDebugManager_DEBUG(i32);
-#[repr(C)]
-pub struct MachineDebugManager_RETAIL(i32);
+pub const MachineDebugManager_DEBUG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1232510188,
+    data2: 14933,
+    data3: 19376,
+    data4: [182, 151, 136, 254, 222, 119, 232, 234],
+};
+pub const MachineDebugManager_RETAIL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201995878, data2: 12489, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 #[repr(transparent)]
 pub struct ModelObjectKind(pub i32);
 pub const ObjectPropertyAccessor: ModelObjectKind = ModelObjectKind(0i32);
@@ -4529,8 +4529,7 @@ pub const FormatEnumNameOnly: PreferredFormat = PreferredFormat(12i32);
 pub const FormatEscapedStringWithQuote: PreferredFormat = PreferredFormat(13i32);
 pub const FormatUTF32String: PreferredFormat = PreferredFormat(14i32);
 pub const FormatQuotedUTF32String: PreferredFormat = PreferredFormat(15i32);
-#[repr(C)]
-pub struct ProcessDebugManager(i32);
+pub const ProcessDebugManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2024085538, data2: 20980, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 #[repr(C)]
 pub struct READCONTROLSPACE(i32);
 #[repr(C)]

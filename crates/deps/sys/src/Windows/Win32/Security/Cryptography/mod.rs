@@ -1120,14 +1120,25 @@ pub const ENUM_SETUPPROP_PARENTCANAME: CASetupProperty = CASetupProperty(13i32);
 pub const ENUM_SETUPPROP_REQUESTFILE: CASetupProperty = CASetupProperty(14i32);
 pub const ENUM_SETUPPROP_WEBCAMACHINE: CASetupProperty = CASetupProperty(15i32);
 pub const ENUM_SETUPPROP_WEBCANAME: CASetupProperty = CASetupProperty(16i32);
-#[repr(C)]
-pub struct CCertSrvSetup(i32);
-#[repr(C)]
-pub struct CCertSrvSetupKeyInformation(i32);
-#[repr(C)]
-pub struct CCertificateEnrollmentPolicyServerSetup(i32);
-#[repr(C)]
-pub struct CCertificateEnrollmentServerSetup(i32);
+pub const CCertSrvSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2518620175,
+    data2: 62812,
+    data3: 16701,
+    data4: [169, 179, 125, 42, 244, 216, 228, 47],
+};
+pub const CCertSrvSetupKeyInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 943143174,
+    data2: 21555,
+    data3: 17971,
+    data4: [176, 251, 41, 183, 231, 130, 98, 225],
+};
+pub const CCertificateEnrollmentPolicyServerSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2950887986,
+    data2: 16817,
+    data3: 17821,
+    data4: [165, 222, 73, 173, 216, 167, 33, 130],
+};
+pub const CCertificateEnrollmentServerSetup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2567107516, data2: 34991, data3: 19704, data4: [174, 98, 113, 64, 83, 21, 82, 182] };
 #[repr(transparent)]
 pub struct CEPSetupProperty(pub i32);
 pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = CEPSetupProperty(0i32);
@@ -2230,8 +2241,12 @@ pub struct CMC_TAGGED_CONTENT_INFO(i32);
 pub struct CMC_TAGGED_OTHER_MSG(i32);
 #[repr(C)]
 pub struct CMC_TAGGED_REQUEST(i32);
-#[repr(C)]
-pub struct CMSCEPSetup(i32);
+pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2857327618,
+    data2: 36476,
+    data3: 18884,
+    data4: [148, 250, 103, 165, 204, 94, 173, 180],
+};
 pub const CMSG_ATTR_CERT_COUNT_PARAM: u32 = 31u32;
 pub const CMSG_ATTR_CERT_PARAM: u32 = 32u32;
 pub const CMSG_AUTHENTICATED_ATTRIBUTES_FLAG: u32 = 8u32;

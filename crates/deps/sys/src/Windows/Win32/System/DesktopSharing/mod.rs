@@ -213,32 +213,59 @@ pub struct IRDPViewerInputSink(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
 pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = RDPENCOMAPI_ATTENDEE_FLAGS(1i32);
-#[repr(C)]
-pub struct RDPSRAPIApplication(i32);
-#[repr(C)]
-pub struct RDPSRAPIApplicationFilter(i32);
-#[repr(C)]
-pub struct RDPSRAPIApplicationList(i32);
-#[repr(C)]
-pub struct RDPSRAPIAttendee(i32);
-#[repr(C)]
-pub struct RDPSRAPIAttendeeDisconnectInfo(i32);
-#[repr(C)]
-pub struct RDPSRAPIAttendeeManager(i32);
-#[repr(C)]
-pub struct RDPSRAPIFrameBuffer(i32);
-#[repr(C)]
-pub struct RDPSRAPIInvitation(i32);
-#[repr(C)]
-pub struct RDPSRAPIInvitationManager(i32);
-#[repr(C)]
-pub struct RDPSRAPISessionProperties(i32);
-#[repr(C)]
-pub struct RDPSRAPITcpConnectionInfo(i32);
-#[repr(C)]
-pub struct RDPSRAPIWindow(i32);
-#[repr(C)]
-pub struct RDPSRAPIWindowList(i32);
+pub const RDPSRAPIApplication: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3239486596,
+    data2: 19237,
+    data3: 19359,
+    data4: [138, 84, 185, 52, 176, 110, 87, 250],
+};
+pub const RDPSRAPIApplicationFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3814379145, data2: 51176, data3: 17022, data4: [164, 249, 185, 218, 7, 40, 38, 189] };
+pub const RDPSRAPIApplicationList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2654062613,
+    data2: 29747,
+    data3: 18550,
+    data4: [151, 251, 237, 89, 254, 43, 170, 34],
+};
+pub const RDPSRAPIAttendee: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1962490805, data2: 30047, data3: 18574, data4: [138, 41, 35, 144, 16, 138, 239, 85] };
+pub const RDPSRAPIAttendeeDisconnectInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3028120144,
+    data2: 23515,
+    data3: 16477,
+    data4: [180, 135, 202, 173, 156, 86, 244, 248],
+};
+pub const RDPSRAPIAttendeeManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3618716161,
+    data2: 63444,
+    data3: 17062,
+    data4: [133, 149, 18, 252, 140, 36, 232, 81],
+};
+pub const RDPSRAPIFrameBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2767612876, data2: 21390, data3: 16641, data4: [149, 29, 48, 132, 122, 219, 81, 1] };
+pub const RDPSRAPIInvitation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1226264006,
+    data2: 1841,
+    data3: 19294,
+    data4: [142, 225, 131, 166, 61, 56, 104, 250],
+};
+pub const RDPSRAPIInvitationManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1406781915,
+    data2: 30123,
+    data3: 17009,
+    data4: [148, 138, 76, 78, 179, 106, 143, 43],
+};
+pub const RDPSRAPISessionProperties: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3715470591,
+    data2: 59946,
+    data3: 19462,
+    data4: [143, 223, 19, 45, 228, 139, 101, 16],
+};
+pub const RDPSRAPITcpConnectionInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3192511295,
+    data2: 60342,
+    data3: 17016,
+    data4: [140, 224, 213, 69, 88, 51, 234, 238],
+};
+pub const RDPSRAPIWindow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 63915739, data2: 52805, data3: 19766, data4: [134, 237, 237, 40, 183, 67, 152, 191] };
+pub const RDPSRAPIWindowList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2619466424, data2: 24020, data3: 17100, data4: [129, 186, 28, 9, 152, 82, 230, 250] };
 #[repr(transparent)]
 pub struct RDPSRAPI_APP_FLAGS(pub i32);
 pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = RDPSRAPI_APP_FLAGS(1i32);
@@ -263,14 +290,25 @@ pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_
 #[repr(transparent)]
 pub struct RDPSRAPI_WND_FLAGS(pub i32);
 pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
-#[repr(C)]
-pub struct RDPSession(i32);
-#[repr(C)]
-pub struct RDPTransportStreamBuffer(i32);
-#[repr(C)]
-pub struct RDPTransportStreamEvents(i32);
-#[repr(C)]
-pub struct RDPViewer(i32);
+pub const RDPSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2608394470,
+    data2: 15877,
+    data3: 19035,
+    data4: [178, 232, 231, 67, 168, 149, 107, 101],
+};
+pub const RDPTransportStreamBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2370444393,
+    data2: 61823,
+    data3: 17737,
+    data4: [166, 153, 118, 28, 110, 107, 92, 10],
+};
+pub const RDPTransportStreamEvents: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 837004064,
+    data2: 21328,
+    data3: 18495,
+    data4: [157, 198, 103, 72, 102, 94, 253, 235],
+};
+pub const RDPViewer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 851336914, data2: 23686, data3: 18447, data4: [169, 20, 15, 248, 136, 90, 27, 63] };
 #[repr(transparent)]
 pub struct _IRDPSessionEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

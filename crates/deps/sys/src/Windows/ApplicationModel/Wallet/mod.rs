@@ -56,8 +56,6 @@ impl WalletBarcodeSymbology {
     pub const Aztec: Self = Self(10i32);
     pub const Custom: Self = Self(100000i32);
 }
-#[repr(C)]
-pub struct WalletContract(i32);
 #[repr(transparent)]
 pub struct WalletDetailViewPosition(pub i32);
 impl WalletDetailViewPosition {

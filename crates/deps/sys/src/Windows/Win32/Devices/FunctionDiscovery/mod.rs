@@ -46,10 +46,13 @@ pub const FMTID_WSD: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18212,
     data4: [160, 90, 91, 129, 136, 90, 124, 146],
 };
-#[repr(C)]
-pub struct FunctionDiscovery(i32);
-#[repr(C)]
-pub struct FunctionInstanceCollection(i32);
+pub const FunctionDiscovery: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3341542124,
+    data2: 36496,
+    data3: 17708,
+    data4: [178, 154, 171, 143, 241, 192, 113, 252],
+};
+pub const FunctionInstanceCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3129052389, data2: 46431, data3: 17471, data4: [173, 57, 47, 232, 155, 230, 25, 31] };
 #[repr(transparent)]
 pub struct IFunctionDiscovery(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1981,10 +1984,13 @@ pub const PKEY_WNET_Usage: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     },
     pid: 4u32,
 };
-#[repr(C)]
-pub struct PNPXAssociation(i32);
-#[repr(C)]
-pub struct PNPXPairingHandler(i32);
+pub const PNPXAssociation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3471363273, data2: 20331, data3: 17513, data4: [162, 53, 90, 34, 134, 158, 239, 3] };
+pub const PNPXPairingHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3097655618,
+    data2: 44519,
+    data3: 16517,
+    data4: [170, 110, 79, 173, 199, 173, 161, 239],
+};
 pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
 pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
 pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
@@ -2001,10 +2007,8 @@ pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
 pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
 pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
 pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
-#[repr(C)]
-pub struct PropertyStore(i32);
-#[repr(C)]
-pub struct PropertyStoreCollection(i32);
+pub const PropertyStore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3833161040, data2: 57185, data3: 17547, data4: [145, 147, 19, 252, 19, 65, 177, 99] };
+pub const PropertyStoreCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3990052905, data2: 55123, data3: 18530, data4: [170, 91, 91, 204, 173, 42, 77, 41] };
 #[repr(transparent)]
 pub struct QueryCategoryType(pub i32);
 pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);

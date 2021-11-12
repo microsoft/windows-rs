@@ -138,8 +138,6 @@ impl CoreWindowActivationState {
 }
 #[repr(transparent)]
 pub struct CoreWindowDialog(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CoreWindowDialogsContract(i32);
 #[repr(transparent)]
 pub struct CoreWindowEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

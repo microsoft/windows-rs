@@ -701,14 +701,25 @@ pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
 pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
 pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
 pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
-#[repr(C)]
-pub struct EnhancedStorageACT(i32);
-#[repr(C)]
-pub struct EnhancedStorageSilo(i32);
-#[repr(C)]
-pub struct EnhancedStorageSiloAction(i32);
-#[repr(C)]
-pub struct EnumEnhancedStorageACT(i32);
+pub const EnhancedStorageACT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2936498709,
+    data2: 11982,
+    data3: 19156,
+    data4: [187, 33, 41, 240, 64, 225, 118, 216],
+};
+pub const EnhancedStorageSilo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3408208396, data2: 30407, data3: 20462, data4: [132, 43, 243, 56, 60, 208, 34, 188] };
+pub const EnhancedStorageSiloAction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2288855517,
+    data2: 46342,
+    data3: 18027,
+    data4: [159, 191, 180, 79, 243, 131, 251, 63],
+};
+pub const EnumEnhancedStorageACT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4270068883,
+    data2: 33628,
+    data3: 20387,
+    data4: [182, 204, 180, 178, 212, 113, 152, 72],
+};
 pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;

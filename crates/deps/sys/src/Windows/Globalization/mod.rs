@@ -28,8 +28,6 @@ impl DayOfWeek {
 }
 #[repr(transparent)]
 pub struct GeographicRegion(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GlobalizationJapanesePhoneticAnalyzerContract(i32);
 #[repr(transparent)]
 pub struct IApplicationLanguagesStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -647,8 +647,12 @@ pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
 pub struct DataFlow(pub i32);
 pub const In: DataFlow = DataFlow(0i32);
 pub const Out: DataFlow = DataFlow(1i32);
-#[repr(C)]
-pub struct DeviceTopology(i32);
+pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 502675920,
+    data2: 24257,
+    data3: 18346,
+    data4: [147, 121, 130, 141, 193, 170, 140, 89],
+};
 #[repr(C)]
 pub struct ECHOWAVEFILTER(i32);
 #[repr(transparent)]
@@ -1110,8 +1114,12 @@ pub const MIXER_SETCONTROLDETAILSF_CUSTOM: i32 = 1i32;
 pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
 pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
 pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
-#[repr(C)]
-pub struct MMDeviceEnumerator(i32);
+pub const MMDeviceEnumerator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3168666517,
+    data2: 58671,
+    data3: 18044,
+    data4: [142, 61, 196, 87, 146, 145, 105, 46],
+};
 pub const MM_ACM_FILTERCHOOSE: u32 = 32768u32;
 pub const MM_ACM_FORMATCHOOSE: u32 = 32768u32;
 pub const MOD_FMSYNTH: u32 = 4u32;

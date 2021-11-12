@@ -23,8 +23,6 @@ impl EnforcementLevel {
     pub const Override: Self = Self(2i32);
     pub const Block: Self = Self(3i32);
 }
-#[repr(C)]
-pub struct EnterpriseDataContract(i32);
 #[repr(transparent)]
 pub struct FileProtectionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

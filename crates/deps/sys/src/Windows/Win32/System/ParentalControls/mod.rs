@@ -480,9 +480,6 @@ pub const WPC_SETTINGS_LOCATE: u32 = 20u32;
 pub const WPC_SETTINGS_MODIFY: u32 = 21u32;
 pub const WPC_SYSTEM: u32 = 23u32;
 pub const WPC_WEB: u32 = 24u32;
-#[repr(C)]
-pub struct WindowsParentalControls(i32);
-#[repr(C)]
-pub struct WpcProviderSupport(i32);
-#[repr(C)]
-pub struct WpcSettingsProvider(i32);
+pub const WindowsParentalControls: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3883714715, data2: 29697, data3: 19460, data4: [140, 237, 20, 157, 179, 90, 221, 4] };
+pub const WpcProviderSupport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3138963360, data2: 8582, data3: 19424, data4: [151, 216, 4, 132, 123, 98, 142, 2] };
+pub const WpcSettingsProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 895352746, data2: 15263, data3: 17244, data4: [180, 40, 93, 68, 41, 11, 197, 242] };

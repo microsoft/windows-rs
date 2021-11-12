@@ -3,5 +3,3 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ICorePerceptionAutomationStatics(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PerceptionAutomationCoreContract(i32);

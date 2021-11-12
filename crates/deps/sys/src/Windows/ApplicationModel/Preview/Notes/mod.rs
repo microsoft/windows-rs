@@ -21,5 +21,3 @@ pub struct NoteVisibilityChangedPreviewEventArgs(pub *mut ::core::ffi::c_void);
 pub struct NotesWindowManagerPreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NotesWindowManagerPreviewShowNoteOptions(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PreviewNotesContract(i32);

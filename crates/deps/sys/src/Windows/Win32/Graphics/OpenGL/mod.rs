@@ -557,10 +557,10 @@ pub const GLU_VERSION_1_2: u32 = 1u32;
 pub const GLU_VERTEX: u32 = 100101u32;
 pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(C)]
-pub struct GLUnurbs(i32);
+pub struct GLUnurbs(pub u8);
 pub type GLUnurbsErrorProc = unsafe extern "system" fn(param0: u32);
 #[repr(C)]
-pub struct GLUquadric(i32);
+pub struct GLUquadric(pub u8);
 pub type GLUquadricErrorProc = unsafe extern "system" fn(param0: u32);
 pub type GLUtessBeginDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void);
 pub type GLUtessBeginProc = unsafe extern "system" fn(param0: u32);
@@ -575,7 +575,7 @@ pub type GLUtessErrorProc = unsafe extern "system" fn(param0: u32);
 pub type GLUtessVertexDataProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void);
 pub type GLUtessVertexProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct GLUtesselator(i32);
+pub struct GLUtesselator(pub u8);
 #[repr(C)]
 pub struct GLYPHMETRICSFLOAT(i32);
 pub const GL_2D: u32 = 1536u32;

@@ -160,8 +160,12 @@ pub const AA_UNTRUSTED: AATrustClassID = AATrustClassID(0i32);
 pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = AATrustClassID(1i32);
 pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = AATrustClassID(2i32);
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
-#[repr(C)]
-pub struct ADsTSUserEx(i32);
+pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3806972646,
+    data2: 7803,
+    data3: 19342,
+    data4: [186, 189, 233, 191, 98, 146, 172, 41],
+};
 #[repr(C)]
 pub struct AE_CURRENT_POSITION(i32);
 #[repr(transparent)]
@@ -724,8 +728,7 @@ pub const STATE_RESET: TSSESSION_STATE = TSSESSION_STATE(7i32);
 pub const STATE_DOWN: TSSESSION_STATE = TSSESSION_STATE(8i32);
 pub const STATE_INIT: TSSESSION_STATE = TSSESSION_STATE(9i32);
 pub const STATE_MAX: TSSESSION_STATE = TSSESSION_STATE(10i32);
-#[repr(C)]
-pub struct TSUserExInterfaces(i32);
+pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 152100097, data2: 57228, data3: 4561, data4: [174, 39, 0, 192, 79, 163, 88, 19] };
 #[repr(transparent)]
 pub struct TS_SB_SORT_BY(pub i32);
 pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = TS_SB_SORT_BY(0i32);
@@ -1213,8 +1216,7 @@ pub const WTS_WSD_LOGOFF: u32 = 1u32;
 pub const WTS_WSD_POWEROFF: u32 = 8u32;
 pub const WTS_WSD_REBOOT: u32 = 4u32;
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
-#[repr(C)]
-pub struct Workspace(i32);
+pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1327365286, data2: 15021, data3: 18657, data4: [132, 6, 75, 194, 26, 80, 29, 124] };
 #[repr(transparent)]
 pub struct _ITSWkspEvents(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]

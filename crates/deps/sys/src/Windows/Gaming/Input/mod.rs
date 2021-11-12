@@ -161,8 +161,6 @@ impl GamepadButtons {
 pub struct GamepadReading(i32);
 #[repr(C)]
 pub struct GamepadVibration(i32);
-#[repr(C)]
-pub struct GamingInputPreviewContract(i32);
 #[repr(transparent)]
 pub struct Headset(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

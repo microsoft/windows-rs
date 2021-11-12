@@ -118,9 +118,52 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_name(def, gen);
-    let features = features(def, gen);
-    let cfg = gen.gen_struct_cfg(def, &features);
+    if def.is_api_contract() {
+        return quote!{};
+    }
+
+    gen_struct_with_name(def, def.name(), gen, &TokenStream::new())
+}
+
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &TokenStream) -> TokenStream {
+    let name = to_ident(struct_name);
+
+    let (doc, cfg) = if cfg.is_empty() {
+        let features = features(def, gen);
+        let cfg = gen.gen_struct_cfg(def, &features);
+        let doc = gen.gen_cfg_doc(&features);
+        (doc, cfg)
+    } else {
+        (TokenStream::new(), cfg.clone())
+    };
+
+    let fields: Vec<(Field, Signature, TokenStream)> = def
+        .fields()
+        .filter_map(move |f| {
+            if f.is_literal() {
+                None
+            } else {
+                let signature = f.signature(Some(def));
+                let name = f.name();
+                Some((f, signature, to_ident(name)))
+            }
+        })
+        .collect();
+
+    if fields.is_empty() {
+        if let Some(guid) = GUID::from_attributes(def.attributes()) {
+            let guid = gen_sys_guid(&guid);
+
+            return quote! {
+                pub const #name: ::windows_sys::core::GUID = #guid;
+            };
+        } else {
+            return quote! {
+                #[repr(C)]
+                pub struct #name(pub u8);
+            };
+        }
+    }
 
     quote! { #cfg #[repr(C)] pub struct #name(i32); }
 }

@@ -121,8 +121,7 @@ extern "system" {
 #[repr(C)]
 pub struct CLASSIC_EVENT_ID(i32);
 pub const CLSID_TraceRelogger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2067822893, data2: 1535, data3: 17604, data4: [144, 88, 244, 64, 199, 31, 23, 212] };
-#[repr(C)]
-pub struct CTraceRelogger(i32);
+pub const CTraceRelogger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2067822893, data2: 1535, data3: 17604, data4: [144, 88, 244, 64, 199, 31, 23, 212] };
 #[repr(transparent)]
 pub struct DECODING_SOURCE(pub i32);
 pub const DecodingSourceXMLFile: DECODING_SOURCE = DECODING_SOURCE(0i32);

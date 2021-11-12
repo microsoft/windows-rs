@@ -31,7 +31,7 @@ extern "system" {
     pub fn D3DX11CreateSegmentedScan(pdevicecontext: ID3D11DeviceContext, maxelementscansize: u32, ppscan: *mut ID3DX11SegmentedScan) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
-pub struct CD3D11_VIDEO_DEFAULT(i32);
+pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 pub const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
 #[repr(transparent)]
 pub struct D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG(pub i32);

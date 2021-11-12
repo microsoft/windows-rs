@@ -32,8 +32,7 @@ pub const CLSID_VirtualViewportContent: ::windows_sys::core::GUID = ::windows_sy
     data3: 19636,
     data4: [167, 243, 22, 227, 183, 226, 216, 82],
 };
-#[repr(C)]
-pub struct DCompManipulationCompositor(i32);
+pub const DCompManipulationCompositor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2044634663, data2: 41098, data3: 17324, data4: [142, 245, 105, 0, 185, 41, 145, 38] };
 #[repr(transparent)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(pub i32);
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_STOP: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(0i32);
@@ -143,16 +142,36 @@ pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE: DIRECTMANIPULATION_V
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(4i32);
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_EXPLICITHITTEST: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(8i32);
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_DISABLEPIXELSNAPPING: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(16i32);
-#[repr(C)]
-pub struct DirectManipulationManager(i32);
-#[repr(C)]
-pub struct DirectManipulationPrimaryContent(i32);
-#[repr(C)]
-pub struct DirectManipulationSharedManager(i32);
-#[repr(C)]
-pub struct DirectManipulationUpdateManager(i32);
-#[repr(C)]
-pub struct DirectManipulationViewport(i32);
+pub const DirectManipulationManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1424101814,
+    data2: 13904,
+    data3: 20341,
+    data4: [131, 52, 250, 53, 149, 152, 225, 197],
+};
+pub const DirectManipulationPrimaryContent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3399493217,
+    data2: 54686,
+    data3: 16839,
+    data4: [131, 147, 59, 163, 186, 203, 107, 87],
+};
+pub const DirectManipulationSharedManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2574856838,
+    data2: 30668,
+    data3: 19287,
+    data4: [150, 219, 59, 53, 79, 111, 159, 181],
+};
+pub const DirectManipulationUpdateManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2680274901,
+    data2: 6197,
+    data3: 17434,
+    data4: [179, 177, 182, 204, 116, 183, 39, 208],
+};
+pub const DirectManipulationViewport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 887230902,
+    data2: 13904,
+    data3: 20341,
+    data4: [131, 52, 250, 53, 149, 152, 225, 197],
+};
 #[repr(transparent)]
 pub struct IDirectManipulationAutoScrollBehavior(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

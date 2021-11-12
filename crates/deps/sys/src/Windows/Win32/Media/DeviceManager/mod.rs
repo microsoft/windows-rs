@@ -141,10 +141,13 @@ pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
-#[repr(C)]
-pub struct MediaDevMgr(i32);
-#[repr(C)]
-pub struct MediaDevMgrClassFactory(i32);
+pub const MediaDevMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 632991105, data2: 13664, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const MediaDevMgrClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1342442525,
+    data2: 48575,
+    data3: 18724,
+    data4: [184, 115, 241, 77, 108, 91, 253, 102],
+};
 #[repr(C)]
 pub struct OPAQUECOMMAND(i32);
 pub const RSA_KEY_LEN: u32 = 64u32;
@@ -167,15 +170,12 @@ pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub struct WMDMDATETIME(i32);
 #[repr(C)]
 pub struct WMDMDetermineMaxPropStringLen(i32);
-#[repr(C)]
-pub struct WMDMDevice(i32);
-#[repr(C)]
-pub struct WMDMDeviceEnum(i32);
+pub const WMDMDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560159, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMDeviceEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1125004719, data2: 14705, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
 #[repr(C)]
 pub struct WMDMID(i32);
 pub const WMDMID_LENGTH: u32 = 128u32;
-#[repr(C)]
-pub struct WMDMLogger(i32);
+pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
 #[repr(transparent)]
 pub struct WMDMMessage(pub i32);
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
@@ -187,12 +187,9 @@ pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = WMDMMessage(3i32);
 pub struct WMDMMetadataView(i32);
 #[repr(C)]
 pub struct WMDMRIGHTS(i32);
-#[repr(C)]
-pub struct WMDMStorage(i32);
-#[repr(C)]
-pub struct WMDMStorageEnum(i32);
-#[repr(C)]
-pub struct WMDMStorageGlobal(i32);
+pub const WMDMStorage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560160, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3946846779, data2: 15095, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageGlobal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560161, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
 pub const WMDM_CONTENT_FOLDER: u32 = 8u32;

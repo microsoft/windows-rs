@@ -254,16 +254,36 @@ pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = AppPolicyWindo
 pub const AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = AppPolicyWindowingModel(1i32);
 pub const AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = AppPolicyWindowingModel(2i32);
 pub const AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = AppPolicyWindowingModel(3i32);
-#[repr(C)]
-pub struct AppxBundleFactory(i32);
-#[repr(C)]
-pub struct AppxEncryptionFactory(i32);
-#[repr(C)]
-pub struct AppxFactory(i32);
-#[repr(C)]
-pub struct AppxPackageEditor(i32);
-#[repr(C)]
-pub struct AppxPackagingDiagnosticEventSinkManager(i32);
+pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 932054086,
+    data2: 21380,
+    data3: 17335,
+    data4: [136, 119, 231, 219, 221, 136, 52, 70],
+};
+pub const AppxEncryptionFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3697692637,
+    data2: 55400,
+    data3: 18158,
+    data4: [135, 128, 141, 25, 108, 183, 57, 247],
+};
+pub const AppxFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1480761664,
+    data2: 65439,
+    data3: 16742,
+    data4: [143, 92, 98, 245, 183, 176, 199, 129],
+};
+pub const AppxPackageEditor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4026856138,
+    data2: 44732,
+    data3: 19213,
+    data4: [191, 88, 229, 22, 213, 188, 192, 171],
+};
+pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1355418182,
+    data2: 5512,
+    data3: 16737,
+    data4: [142, 210, 239, 158, 70, 156, 237, 93],
+};
 #[repr(transparent)]
 pub struct CreatePackageDependencyOptions(pub i32);
 pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = CreatePackageDependencyOptions(0i32);

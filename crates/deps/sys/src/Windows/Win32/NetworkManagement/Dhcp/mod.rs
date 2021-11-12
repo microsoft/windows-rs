@@ -605,7 +605,7 @@ pub struct DHCP_CLIENT_INFO_V6(i32);
 #[repr(C)]
 pub struct DHCP_CLIENT_INFO_VQ(i32);
 #[repr(C)]
-pub struct DHCP_CLIENT_SEARCH_UNION(i32);
+pub struct DHCP_CLIENT_SEARCH_UNION(pub u8);
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
 pub const DHCP_CONTROL_START: u32 = 1u32;
@@ -729,7 +729,7 @@ pub const DhcpBinaryDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(6i
 pub const DhcpEncapsulatedDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(7i32);
 pub const DhcpIpv6AddressOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(8i32);
 #[repr(C)]
-pub struct DHCP_OPTION_ELEMENT_UNION(i32);
+pub struct DHCP_OPTION_ELEMENT_UNION(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DHCP_OPTION_LIST(i32);
@@ -752,7 +752,7 @@ pub const DhcpScopeOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(1
 pub const DhcpReservedOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(2i32);
 pub const DhcpGlobalOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(3i32);
 #[repr(C)]
-pub struct DHCP_OPTION_SCOPE_UNION6(i32);
+pub struct DHCP_OPTION_SCOPE_UNION6(pub u8);
 #[repr(transparent)]
 pub struct DHCP_OPTION_TYPE(pub i32);
 pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(0i32);
@@ -931,11 +931,11 @@ pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE
 pub const Dhcpv6ReservedIps: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(1i32);
 pub const Dhcpv6ExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(2i32);
 #[repr(C)]
-pub struct DHCP_SUBNET_ELEMENT_UNION(i32);
+pub struct DHCP_SUBNET_ELEMENT_UNION(pub u8);
 #[repr(C)]
-pub struct DHCP_SUBNET_ELEMENT_UNION_V4(i32);
+pub struct DHCP_SUBNET_ELEMENT_UNION_V4(pub u8);
 #[repr(C)]
-pub struct DHCP_SUBNET_ELEMENT_UNION_V6(i32);
+pub struct DHCP_SUBNET_ELEMENT_UNION_V6(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DHCP_SUBNET_INFO(i32);

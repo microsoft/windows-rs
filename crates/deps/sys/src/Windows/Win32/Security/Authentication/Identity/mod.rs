@@ -3700,7 +3700,7 @@ pub const WINDOWS_SLID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1:
 pub struct X509Certificate(i32);
 pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(C)]
-pub struct _HMAPPER(i32);
+pub struct _HMAPPER(pub u8);
 #[repr(transparent)]
 pub struct eTlsHashAlgorithm(pub i32);
 pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = eTlsHashAlgorithm(0i32);

@@ -24,5 +24,3 @@ impl IndexedResourceType {
 }
 #[repr(transparent)]
 pub struct ResourceIndexer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ResourceIndexerContract(i32);

@@ -89,5 +89,3 @@ pub struct IppTextWithLanguage(pub *mut ::core::ffi::c_void);
 pub struct Print3DDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintSchema(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintersContract(i32);

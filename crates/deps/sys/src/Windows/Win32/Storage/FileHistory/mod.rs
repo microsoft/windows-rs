@@ -111,10 +111,8 @@ pub const BackupLimitUserBusyMachineOnAC: FhBackupStopReason = FhBackupStopReaso
 pub const BackupLimitUserIdleMachineOnDC: FhBackupStopReason = FhBackupStopReason(2i32);
 pub const BackupLimitUserBusyMachineOnDC: FhBackupStopReason = FhBackupStopReason(3i32);
 pub const BackupCancelled: FhBackupStopReason = FhBackupStopReason(4i32);
-#[repr(C)]
-pub struct FhConfigMgr(i32);
-#[repr(C)]
-pub struct FhReassociation(i32);
+pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980639036, data2: 2537, data3: 18826, data4: [157, 246, 33, 119, 36, 76, 109, 180] };
+pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1299353141, data2: 5882, data3: 17184, data4: [158, 139, 191, 215, 16, 10, 136, 70] };
 #[repr(transparent)]
 pub struct IFhConfigMgr(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

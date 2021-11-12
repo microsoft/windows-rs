@@ -51,12 +51,6 @@ impl PlatformDataCollectionLevel {
     pub const Enhanced: Self = Self(2i32);
     pub const Full: Self = Self(3i32);
 }
-#[repr(C)]
-pub struct ProfileHardwareTokenContract(i32);
-#[repr(C)]
-pub struct ProfileRetailInfoContract(i32);
-#[repr(C)]
-pub struct ProfileSharedModeContract(i32);
 #[repr(transparent)]
 pub struct SystemIdentificationInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

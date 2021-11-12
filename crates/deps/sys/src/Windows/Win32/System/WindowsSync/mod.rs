@@ -484,5 +484,4 @@ pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 pub struct SyncProviderConfigUIConfiguration(i32);
 #[repr(C)]
 pub struct SyncProviderConfiguration(i32);
-#[repr(C)]
-pub struct SyncProviderRegistration(i32);
+pub const SyncProviderRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4163587825, data2: 37801, data3: 19934, data4: [128, 21, 247, 149, 10, 26, 110, 49] };

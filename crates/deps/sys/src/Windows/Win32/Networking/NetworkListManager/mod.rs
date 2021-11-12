@@ -93,5 +93,9 @@ pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct NLM_USAGE_DATA(i32);
-#[repr(C)]
-pub struct NetworkListManager(i32);
+pub const NetworkListManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3702524929,
+    data2: 22287,
+    data3: 19099,
+    data4: [141, 105, 25, 159, 219, 165, 114, 59],
+};

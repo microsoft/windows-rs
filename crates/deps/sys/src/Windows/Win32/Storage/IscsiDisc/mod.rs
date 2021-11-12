@@ -596,4 +596,4 @@ pub const TargetFlags: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(6i32)
 pub const LoginOptions: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(7i32);
 pub const WmiScsiAddressGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1408590607, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
 #[repr(C)]
-pub struct _ADAPTER_OBJECT(i32);
+pub struct _ADAPTER_OBJECT(pub u8);

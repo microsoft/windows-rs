@@ -11,10 +11,6 @@ pub struct CallAnswerEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CallRejectEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CallStateChangeEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CallsPhoneContract(i32);
-#[repr(C)]
-pub struct CallsVoipContract(i32);
 #[repr(transparent)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
@@ -139,8 +135,6 @@ pub struct IVoipPhoneCall(pub *mut ::core::ffi::c_void);
 pub struct IVoipPhoneCall2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVoipPhoneCall3(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LockScreenCallContract(i32);
 #[repr(transparent)]
 pub struct LockScreenCallEndCallDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

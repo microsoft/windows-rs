@@ -1637,30 +1637,63 @@ pub const ACO_NOPREFIXFILTERING: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(256i3
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct AUTO_SCROLL_DATA(i32);
-#[repr(C)]
-pub struct AccessibilityDockingService(i32);
-#[repr(C)]
-pub struct AlphabeticalCategorizer(i32);
-#[repr(C)]
-pub struct AppShellVerbHandler(i32);
-#[repr(C)]
-pub struct AppStartupLink(i32);
-#[repr(C)]
-pub struct AppVisibility(i32);
-#[repr(C)]
-pub struct ApplicationActivationManager(i32);
-#[repr(C)]
-pub struct ApplicationAssociationRegistration(i32);
-#[repr(C)]
-pub struct ApplicationAssociationRegistrationUI(i32);
-#[repr(C)]
-pub struct ApplicationDesignModeSettings(i32);
-#[repr(C)]
-pub struct ApplicationDestinations(i32);
-#[repr(C)]
-pub struct ApplicationDocumentLists(i32);
-#[repr(C)]
-pub struct AttachmentServices(i32);
+pub const AccessibilityDockingService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 701373766,
+    data2: 46209,
+    data3: 19104,
+    data4: [160, 138, 211, 235, 200, 172, 164, 2],
+};
+pub const AlphabeticalCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1009145030, data2: 29554, data3: 20331, data4: [179, 16, 85, 214, 18, 143, 73, 210] };
+pub const AppShellVerbHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1322493721,
+    data2: 52904,
+    data3: 19417,
+    data4: [145, 13, 226, 82, 249, 151, 175, 194],
+};
+pub const AppStartupLink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 658421223,
+    data2: 34992,
+    data3: 18499,
+    data4: [191, 239, 226, 200, 29, 67, 170, 229],
+};
+pub const AppVisibility: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2120213465,
+    data2: 39007,
+    data3: 18696,
+    data4: [145, 249, 238, 25, 249, 253, 21, 20],
+};
+pub const ApplicationActivationManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1169822333,
+    data2: 4264,
+    data3: 18154,
+    data4: [138, 183, 86, 234, 144, 120, 148, 60],
+};
+pub const ApplicationAssociationRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1494354375,
+    data2: 30331,
+    data3: 17074,
+    data4: [159, 186, 68, 238, 70, 21, 242, 199],
+};
+pub const ApplicationAssociationRegistrationUI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 426250349,
+    data2: 62389,
+    data3: 17615,
+    data4: [137, 14, 17, 111, 203, 158, 206, 241],
+};
+pub const ApplicationDesignModeSettings: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2508877749,
+    data2: 56498,
+    data3: 20399,
+    data4: [170, 253, 127, 176, 84, 173, 26, 59],
+};
+pub const ApplicationDestinations: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2260811779, data2: 19819, data3: 20211, data4: [167, 180, 5, 6, 102, 59, 46, 104] };
+pub const ApplicationDocumentLists: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2260648482, data2: 12530, data3: 18400, data4: [159, 37, 96, 209, 28, 215, 92, 40] };
+pub const AttachmentServices: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1093000598,
+    data2: 57402,
+    data3: 16643,
+    data4: [143, 112, 224, 89, 125, 128, 59, 156],
+};
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[repr(C)]
 pub struct BANDINFOSFB(i32);
@@ -1920,8 +1953,7 @@ pub struct CDBURNINGEXTENSIONRET(pub i32);
 pub const CDBE_RET_DEFAULT: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(0i32);
 pub const CDBE_RET_DONTRUNOTHEREXTS: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(1i32);
 pub const CDBE_RET_STOPWIZARD: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(2i32);
-#[repr(C)]
-pub struct CDBurn(i32);
+pub const CDBurn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4226517509, data2: 48878, data3: 17474, data4: [128, 78, 64, 157, 108, 69, 21, 233] };
 #[repr(transparent)]
 pub struct CDCONTROLSTATEF(pub i32);
 pub const CDCS_INACTIVE: CDCONTROLSTATEF = CDCONTROLSTATEF(0i32);
@@ -2346,8 +2378,7 @@ pub const CSIDL_SYSTEM: u32 = 37u32;
 pub const CSIDL_SYSTEMX86: u32 = 41u32;
 pub const CSIDL_TEMPLATES: u32 = 21u32;
 pub const CSIDL_WINDOWS: u32 = 36u32;
-#[repr(C)]
-pub struct CScriptErrorList(i32);
+pub const CScriptErrorList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023390976, data2: 5647, data3: 4562, data4: [187, 46, 0, 128, 95, 247, 239, 202] };
 pub const CTF_COINIT: i32 = 8i32;
 pub const CTF_COINIT_MTA: i32 = 4096i32;
 pub const CTF_COINIT_STA: i32 = 8i32;
@@ -2368,8 +2399,7 @@ pub struct CommandStateChangeConstants(pub i32);
 pub const CSC_UPDATECOMMANDS: CommandStateChangeConstants = CommandStateChangeConstants(-1i32);
 pub const CSC_NAVIGATEFORWARD: CommandStateChangeConstants = CommandStateChangeConstants(1i32);
 pub const CSC_NAVIGATEBACK: CommandStateChangeConstants = CommandStateChangeConstants(2i32);
-#[repr(C)]
-pub struct ConflictFolder(i32);
+pub const ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 681146540, data2: 41217, data3: 17217, data4: [168, 23, 33, 235, 167, 253, 4, 109] };
 #[repr(C)]
 pub struct DATABLOCK_HEADER(i32);
 #[repr(transparent)]
@@ -2625,20 +2655,38 @@ pub const DWFRF_NORMAL: u32 = 0u32;
 pub struct DWebBrowserEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DWebBrowserEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct DefFolderMenu(i32);
-#[repr(C)]
-pub struct DesktopGadget(i32);
-#[repr(C)]
-pub struct DesktopWallpaper(i32);
-#[repr(C)]
-pub struct DestinationList(i32);
-#[repr(C)]
-pub struct DocPropShellExtension(i32);
-#[repr(C)]
-pub struct DriveSizeCategorizer(i32);
-#[repr(C)]
-pub struct DriveTypeCategorizer(i32);
+pub const DefFolderMenu: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3325264574,
+    data2: 31027,
+    data3: 18640,
+    data4: [154, 200, 133, 251, 70, 190, 47, 221],
+};
+pub const DesktopGadget: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2454506523,
+    data2: 25954,
+    data3: 19589,
+    data4: [134, 87, 209, 119, 146, 82, 34, 182],
+};
+pub const DesktopWallpaper: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3268358416,
+    data2: 17934,
+    data3: 20417,
+    data4: [185, 208, 138, 28, 12, 156, 196, 189],
+};
+pub const DestinationList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2012286192,
+    data2: 15797,
+    data3: 18790,
+    data4: [181, 32, 183, 197, 79, 211, 94, 214],
+};
+pub const DocPropShellExtension: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2285073347, data2: 49033, data3: 4561, data4: [190, 53, 8, 0, 54, 177, 26, 3] };
+pub const DriveSizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2486532947, data2: 51753, data3: 19320, data4: [131, 174, 232, 254, 116, 9, 19, 79] };
+pub const DriveTypeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2963862479,
+    data2: 17203,
+    data3: 19371,
+    data4: [136, 115, 28, 203, 28, 173, 164, 139],
+};
 #[repr(transparent)]
 pub struct EC_HOST_UI_MODE(pub i32);
 pub const ECHUIM_DESKTOP: EC_HOST_UI_MODE = EC_HOST_UI_MODE(0i32);
@@ -2736,14 +2784,25 @@ pub const E_USERTILE_FILESIZE: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const E_USERTILE_LARGEORDYNAMIC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927214i32 as _);
 pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927216i32 as _);
 pub const E_USERTILE_VIDEOFRAMESIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927213i32 as _);
-#[repr(C)]
-pub struct EnumerableObjectCollection(i32);
-#[repr(C)]
-pub struct ExecuteFolder(i32);
-#[repr(C)]
-pub struct ExecuteUnknown(i32);
-#[repr(C)]
-pub struct ExplorerBrowser(i32);
+pub const EnumerableObjectCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 758409409, data2: 13991, data3: 17334, data4: [172, 36, 211, 240, 47, 217, 96, 122] };
+pub const ExecuteFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 299611260,
+    data2: 42277,
+    data3: 16395,
+    data4: [158, 128, 165, 70, 21, 160, 144, 192],
+};
+pub const ExecuteUnknown: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3830354984,
+    data2: 48572,
+    data3: 18823,
+    data4: [160, 153, 64, 220, 143, 210, 85, 231],
+};
+pub const ExplorerBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1912169349,
+    data2: 56790,
+    data3: 18643,
+    data4: [160, 193, 174, 6, 232, 176, 85, 251],
+};
 pub const FCIDM_BROWSERFIRST: u32 = 40960u32;
 pub const FCIDM_BROWSERLAST: u32 = 48896u32;
 pub const FCIDM_GLOBALFIRST: u32 = 32768u32;
@@ -3655,8 +3714,7 @@ pub const FO_COPY: u32 = 2u32;
 pub const FO_DELETE: u32 = 3u32;
 pub const FO_MOVE: u32 = 1u32;
 pub const FO_RENAME: u32 = 4u32;
-#[repr(C)]
-pub struct FSCopyHandler(i32);
+pub const FSCopyHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3516348426, data2: 2681, data3: 19912, data4: [160, 51, 237, 136, 44, 47, 161, 75] };
 pub const FVSIF_CANVIEWIT: u32 = 1073741824u32;
 pub const FVSIF_NEWFAILED: u32 = 134217728u32;
 pub const FVSIF_NEWFILE: u32 = 2147483648u32;
@@ -3665,14 +3723,20 @@ pub const FVSIF_RECT: u32 = 1u32;
 #[repr(transparent)]
 pub struct FVTEXTTYPE(pub i32);
 pub const FVST_EMPTYTEXT: FVTEXTTYPE = FVTEXTTYPE(0i32);
-#[repr(C)]
-pub struct FileOpenDialog(i32);
-#[repr(C)]
-pub struct FileOperation(i32);
-#[repr(C)]
-pub struct FileSaveDialog(i32);
-#[repr(C)]
-pub struct FileSearchBand(i32);
+pub const FileOpenDialog: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3692845724,
+    data2: 59530,
+    data3: 19934,
+    data4: [165, 161, 96, 248, 42, 32, 174, 247],
+};
+pub const FileOperation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 986731893, data2: 34903, data3: 18512, data4: [146, 119, 17, 184, 91, 219, 142, 9] };
+pub const FileSaveDialog: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3233080051,
+    data2: 47649,
+    data3: 18291,
+    data4: [141, 186, 51, 94, 201, 70, 235, 139],
+};
+pub const FileSearchBand: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3303944691, data2: 18280, data3: 4562, data4: [190, 92, 0, 160, 201, 168, 61, 161] };
 #[repr(transparent)]
 pub struct Folder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -3693,12 +3757,24 @@ pub struct FolderItems(pub *mut ::core::ffi::c_void);
 pub struct FolderItems2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FolderItems3(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FolderViewHost(i32);
-#[repr(C)]
-pub struct FrameworkInputPane(i32);
-#[repr(C)]
-pub struct FreeSpaceCategorizer(i32);
+pub const FolderViewHost: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 548522787,
+    data2: 26984,
+    data3: 20153,
+    data4: [183, 212, 166, 109, 0, 208, 124, 238],
+};
+pub const FrameworkInputPane: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3574729379,
+    data2: 18106,
+    data3: 17605,
+    data4: [130, 45, 202, 128, 146, 193, 252, 114],
+};
+pub const FreeSpaceCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3042998163,
+    data2: 9388,
+    data3: 17607,
+    data4: [130, 226, 131, 23, 38, 170, 108, 183],
+};
 pub const GADOF_DIRTY: u32 = 1u32;
 pub const GCS_HELPTEXT: u32 = 5u32;
 pub const GCS_HELPTEXTA: u32 = 1u32;
@@ -3733,8 +3809,7 @@ pub const GIL_SIMULATEDOC: u32 = 1u32;
 pub const GPFIDL_ALTNAME: i32 = 1i32;
 pub const GPFIDL_DEFAULT: i32 = 0i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2i32;
-#[repr(C)]
-pub struct GenericCredentialProvider(i32);
+pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 634108310, data2: 37613, data3: 17790, data4: [178, 140, 71, 116, 8, 75, 213, 98] };
 #[repr(C)]
 pub struct HDROP(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -3833,10 +3908,8 @@ pub const HGSC_DOCUMENTSLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOIC
 pub const HGSC_PRINTERS: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(16i32);
 #[repr(C)]
 pub struct HPSXA(i32);
-#[repr(C)]
-pub struct HideInputPaneAnimationCoordinator(i32);
-#[repr(C)]
-pub struct HomeGroup(i32);
+pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 944194225, data2: 10871, data3: 19635, data4: [140, 248, 17, 54, 245, 225, 126, 89] };
+pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3732388356, data2: 15506, data3: 19729, data4: [161, 165, 66, 53, 42, 83, 224, 227] };
 #[repr(transparent)]
 pub struct IACList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -4046,8 +4119,12 @@ pub const IEIFLAG_SCREEN: u32 = 32u32;
 pub const IEIT_PRIORITY_NORMAL: u32 = 268435456u32;
 pub const IEI_PRIORITY_MAX: u32 = 2147483647u32;
 pub const IEI_PRIORITY_MIN: u32 = 0u32;
-#[repr(C)]
-pub struct IENamespaceTreeControl(i32);
+pub const IENamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2900700419,
+    data2: 58829,
+    data3: 19232,
+    data4: [130, 255, 231, 27, 17, 190, 174, 29],
+};
 #[repr(transparent)]
 pub struct IEPDNFLAGS(pub i32);
 pub const IEPDN_BINDINGUI: IEPDNFLAGS = IEPDNFLAGS(1i32);
@@ -4719,20 +4796,33 @@ pub struct IWizardExtension(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWizardSite(pub *mut ::core::ffi::c_void);
 pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2711114395, data2: 29455, data3: 16521, data4: [182, 70, 161, 37, 87, 245, 102, 94] };
-#[repr(C)]
-pub struct ImageProperties(i32);
-#[repr(C)]
-pub struct ImageRecompress(i32);
-#[repr(C)]
-pub struct ImageTranscode(i32);
-#[repr(C)]
-pub struct InputPanelConfiguration(i32);
-#[repr(C)]
-pub struct InternetExplorer(i32);
-#[repr(C)]
-pub struct InternetExplorerMedium(i32);
-#[repr(C)]
-pub struct InternetPrintOrdering(i32);
+pub const ImageProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2058842311, data2: 3619, data3: 19834, data4: [138, 162, 25, 191, 173, 71, 152, 41] };
+pub const ImageRecompress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1848838428, data2: 54008, data3: 18240, data4: [181, 94, 46, 17, 209, 71, 122, 44] };
+pub const ImageTranscode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 397889894,
+    data2: 37519,
+    data3: 16765,
+    data4: [150, 133, 100, 170, 19, 85, 101, 193],
+};
+pub const InputPanelConfiguration: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 676572627,
+    data2: 61590,
+    data3: 19555,
+    data4: [167, 143, 127, 163, 234, 131, 127, 183],
+};
+pub const InternetExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 188161, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const InternetExplorerMedium: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3588752413,
+    data2: 37391,
+    data3: 17897,
+    data4: [184, 251, 177, 222, 184, 44, 110, 94],
+};
+pub const InternetPrintOrdering: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2916313768,
+    data2: 29978,
+    data3: 17785,
+    data4: [162, 102, 214, 111, 82, 2, 204, 187],
+};
 pub const ItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2881444933,
     data2: 23756,
@@ -4771,8 +4861,12 @@ pub const KF_FLAG_DEFAULT_PATH: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(1024i32);
 pub const KF_FLAG_NOT_PARENT_RELATIVE: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(512i32);
 pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(256i32);
 pub const KF_FLAG_ALIAS_ONLY: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(-2147483648i32);
-#[repr(C)]
-pub struct KnownFolderManager(i32);
+pub const KnownFolderManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1307625264,
+    data2: 57245,
+    data3: 19171,
+    data4: [145, 83, 170, 107, 130, 233, 121, 90],
+};
 #[repr(transparent)]
 pub struct LIBRARYFOLDERFILTER(pub i32);
 pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(1i32);
@@ -4799,8 +4893,7 @@ pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRE
 pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
-#[repr(C)]
-pub struct LocalThumbnailCache(i32);
+pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1357858116, data2: 44191, data3: 19086, data4: [178, 27, 138, 38, 24, 13, 177, 63] };
 pub const MAXFILELEN: u32 = 13u32;
 pub const MAX_COLUMN_DESC_LEN: u32 = 128u32;
 pub const MAX_COLUMN_NAME_LEN: u32 = 80u32;
@@ -4856,10 +4949,13 @@ pub const MAV_APP_VISIBLE: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(2i32)
 pub struct MULTIKEYHELPA(i32);
 #[repr(C)]
 pub struct MULTIKEYHELPW(i32);
-#[repr(C)]
-pub struct MailRecipient(i32);
-#[repr(C)]
-pub struct MergedCategorizer(i32);
+pub const MailRecipient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2656484960, data2: 50447, data3: 4559, data4: [154, 44, 0, 160, 201, 10, 144, 206] };
+pub const MergedCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2390916113,
+    data2: 13287,
+    data3: 19393,
+    data4: [178, 66, 140, 217, 161, 194, 179, 4],
+};
 #[repr(transparent)]
 pub struct NAMESPACEWALKFLAG(pub i32);
 pub const NSWF_DEFAULT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(0i32);
@@ -4958,8 +5054,7 @@ pub const NIM_MODIFY: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(1u32);
 pub const NIM_DELETE: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(2u32);
 pub const NIM_SETFOCUS: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(3u32);
 pub const NIM_SETVERSION: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(4u32);
-#[repr(C)]
-pub struct NPCredentialProvider(i32);
+pub const NPCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1037483712, data2: 33171, data3: 20478, data4: [174, 37, 224, 142, 57, 234, 64, 99] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WNet"))]
 #[repr(C)]
 pub struct NRESARRAY(i32);
@@ -5015,16 +5110,26 @@ pub const NWMF_FORCETAB: NWMF = NWMF(131072i32);
 pub const NWMF_SUGGESTWINDOW: NWMF = NWMF(262144i32);
 pub const NWMF_SUGGESTTAB: NWMF = NWMF(524288i32);
 pub const NWMF_INACTIVETAB: NWMF = NWMF(1048576i32);
-#[repr(C)]
-pub struct NamespaceTreeControl(i32);
-#[repr(C)]
-pub struct NamespaceWalker(i32);
-#[repr(C)]
-pub struct NetworkConnections(i32);
-#[repr(C)]
-pub struct NetworkExplorerFolder(i32);
-#[repr(C)]
-pub struct NetworkPlaces(i32);
+pub const NamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2919580178,
+    data2: 13621,
+    data3: 17456,
+    data4: [131, 237, 213, 1, 170, 102, 128, 230],
+};
+pub const NamespaceWalker: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1928028640,
+    data2: 34418,
+    data3: 17155,
+    data4: [145, 117, 242, 228, 198, 139, 46, 124],
+};
+pub const NetworkConnections: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1879551175, data2: 12802, data3: 4561, data4: [170, 210, 0, 128, 95, 193, 39, 14] };
+pub const NetworkExplorerFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4029422093,
+    data2: 48673,
+    data3: 17232,
+    data4: [136, 176, 115, 103, 252, 150, 239, 60],
+};
+pub const NetworkPlaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 546122848, data2: 15082, data3: 4201, data4: [162, 215, 8, 0, 43, 48, 48, 157] };
 #[repr(transparent)]
 pub struct NewProcessCauseConstants(pub i32);
 pub const ProtectedModeRedirect: NewProcessCauseConstants = NewProcessCauseConstants(1i32);
@@ -5112,12 +5217,9 @@ pub const OFS_ONLINE: OfflineFolderStatus = OfflineFolderStatus(0i32);
 pub const OFS_OFFLINE: OfflineFolderStatus = OfflineFolderStatus(1i32);
 pub const OFS_SERVERBACK: OfflineFolderStatus = OfflineFolderStatus(2i32);
 pub const OFS_DIRTYCACHE: OfflineFolderStatus = OfflineFolderStatus(3i32);
-#[repr(C)]
-pub struct OnexCredentialProvider(i32);
-#[repr(C)]
-pub struct OnexPlapSmartcardCredentialProvider(i32);
-#[repr(C)]
-pub struct OpenControlPanel(i32);
+pub const OnexCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 128583814, data2: 52365, data3: 19993, data4: [164, 16, 28, 117, 175, 104, 110, 98] };
+pub const OnexPlapSmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 868773078, data2: 28767, data3: 19361, data4: [154, 219, 103, 7, 11, 131, 119, 117] };
+pub const OpenControlPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 107097477, data2: 26710, data3: 17504, data4: [141, 225, 168, 25, 33, 180, 28, 75] };
 #[repr(transparent)]
 pub struct PACKAGE_EXECUTION_STATE(pub i32);
 pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(0i32);
@@ -5288,8 +5390,7 @@ pub const PIFPARAMSSIZE: u32 = 64u32;
 pub const PIFSHDATASIZE: u32 = 64u32;
 pub const PIFSHPROGSIZE: u32 = 64u32;
 pub const PIFSTARTLOCSIZE: u32 = 63u32;
-#[repr(C)]
-pub struct PINLogonCredentialProvider(i32);
+pub const PINLogonCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3414354450, data2: 40817, data3: 17517, data4: [137, 225, 141, 9, 36, 225, 37, 110] };
 pub const PLATFORM_BROWSERONLY: u32 = 1u32;
 pub const PLATFORM_IE3: u32 = 1u32;
 pub const PLATFORM_INTEGRATED: u32 = 2u32;
@@ -5349,18 +5450,27 @@ pub const PAI_ASSIGNEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(2i32);
 pub const PAI_PUBLISHEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(4i32);
 pub const PAI_SCHEDULEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(8i32);
 pub const PAI_EXPIRETIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(16i32);
-#[repr(C)]
-pub struct PackageDebugSettings(i32);
-#[repr(C)]
-pub struct PasswordCredentialProvider(i32);
-#[repr(C)]
-pub struct PreviousVersions(i32);
-#[repr(C)]
-pub struct PropertiesUI(i32);
-#[repr(C)]
-pub struct PublishDropTarget(i32);
-#[repr(C)]
-pub struct PublishingWizard(i32);
+pub const PackageDebugSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2981020015, data2: 9091, data3: 18514, data4: [176, 233, 143, 11, 29, 198, 107, 77] };
+pub const PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1622642312,
+    data2: 60120,
+    data3: 17500,
+    data4: [156, 253, 11, 135, 247, 78, 166, 205],
+};
+pub const PreviousVersions: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1500164194,
+    data2: 46290,
+    data3: 16917,
+    data4: [159, 116, 233, 16, 155, 10, 129, 83],
+};
+pub const PropertiesUI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3641899215, data2: 918, data3: 18709, data4: [136, 78, 251, 66, 93, 50, 148, 59] };
+pub const PublishDropTarget: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3429822459,
+    data2: 17398,
+    data3: 18117,
+    data4: [150, 25, 81, 213, 113, 150, 127, 125],
+};
+pub const PublishingWizard: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1798510140, data2: 30373, data3: 19308, data4: [191, 33, 69, 222, 156, 213, 3, 161] };
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[repr(C)]
 pub struct QCMINFO(i32);
@@ -5391,10 +5501,18 @@ pub const QUNS_PRESENTATION_MODE: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOT
 pub const QUNS_ACCEPTS_NOTIFICATIONS: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(5i32);
 pub const QUNS_QUIET_TIME: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(6i32);
 pub const QUNS_APP: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(7i32);
-#[repr(C)]
-pub struct QueryCancelAutoPlay(i32);
-#[repr(C)]
-pub struct RASProvider(i32);
+pub const QueryCancelAutoPlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 857675624,
+    data2: 1449,
+    data3: 19933,
+    data4: [184, 110, 218, 227, 77, 220, 153, 138],
+};
+pub const RASProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1429725827,
+    data2: 45543,
+    data3: 20216,
+    data4: [156, 110, 122, 176, 175, 229, 5, 109],
+};
 #[repr(transparent)]
 pub struct RESTRICTIONS(pub i32);
 pub const REST_NONE: RESTRICTIONS = RESTRICTIONS(0i32);
@@ -6912,10 +7030,13 @@ pub const S_SYNCMGR_ENUMITEMS: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const S_SYNCMGR_ITEMDELETED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262672i32 as _);
 pub const S_SYNCMGR_MISSINGITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
 pub const S_SYNCMGR_RETRYSYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262658i32 as _);
-#[repr(C)]
-pub struct ScheduledTasks(i32);
-#[repr(C)]
-pub struct SearchFolderItemFactory(i32);
+pub const ScheduledTasks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3592911248, data2: 19562, data3: 4559, data4: [141, 135, 0, 170, 0, 96, 245, 191] };
+pub const SearchFolderItemFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 335613442,
+    data2: 48061,
+    data3: 16880,
+    data4: [136, 227, 237, 163, 113, 33, 101, 132],
+};
 #[repr(transparent)]
 pub struct SecureLockIconConstants(pub i32);
 pub const secureLockIconUnsecure: SecureLockIconConstants = SecureLockIconConstants(0i32);
@@ -6933,26 +7054,16 @@ pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows
 };
 #[repr(C)]
 pub struct ShFindChangeNotificationHandle(i32);
-#[repr(C)]
-pub struct SharedBitmap(i32);
-#[repr(C)]
-pub struct SharingConfigurationManager(i32);
-#[repr(C)]
-pub struct Shell(i32);
-#[repr(C)]
-pub struct ShellBrowserWindow(i32);
-#[repr(C)]
-pub struct ShellDesktop(i32);
-#[repr(C)]
-pub struct ShellDispatchInproc(i32);
-#[repr(C)]
-pub struct ShellFSFolder(i32);
-#[repr(C)]
-pub struct ShellFolderItem(i32);
-#[repr(C)]
-pub struct ShellFolderView(i32);
-#[repr(C)]
-pub struct ShellFolderViewOC(i32);
+pub const SharedBitmap: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1303536758, data2: 26503, data3: 16454, data4: [184, 54, 232, 65, 42, 158, 138, 39] };
+pub const SharingConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1240691169, data2: 35932, data3: 19868, data4: [154, 59, 84, 166, 130, 127, 81, 60] };
+pub const Shell: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 326145568, data2: 49785, data3: 4558, data4: [164, 158, 68, 69, 83, 84, 0, 0] };
+pub const ShellBrowserWindow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230334352, data2: 62113, data3: 4561, data4: [132, 85, 0, 160, 201, 31, 56, 128] };
+pub const ShellDesktop: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136192, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const ShellDispatchInproc: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 176793696, data2: 55217, data3: 4558, data4: [131, 80, 68, 69, 83, 84, 0, 0] };
+pub const ShellFSFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4080421792, data2: 26041, data3: 4558, data4: [169, 186, 0, 170, 0, 74, 232, 55] };
+pub const ShellFolderItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 803427050, data2: 64799, data3: 4562, data4: [177, 244, 0, 192, 79, 142, 235, 62] };
+pub const ShellFolderView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1645292193, data2: 60388, data3: 4559, data4: [165, 251, 0, 32, 175, 231, 41, 45] };
+pub const ShellFolderViewOC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2610977137, data2: 63144, data3: 4559, data4: [164, 66, 0, 160, 201, 10, 143, 57] };
 #[repr(transparent)]
 pub struct ShellFolderViewOptions(pub i32);
 pub const SFVVO_SHOWALLOBJECTS: ShellFolderViewOptions = ShellFolderViewOptions(1i32);
@@ -6962,18 +7073,22 @@ pub const SFVVO_SHOWSYSFILES: ShellFolderViewOptions = ShellFolderViewOptions(32
 pub const SFVVO_WIN95CLASSIC: ShellFolderViewOptions = ShellFolderViewOptions(64i32);
 pub const SFVVO_DOUBLECLICKINWEBVIEW: ShellFolderViewOptions = ShellFolderViewOptions(128i32);
 pub const SFVVO_DESKTOPHTML: ShellFolderViewOptions = ShellFolderViewOptions(512i32);
-#[repr(C)]
-pub struct ShellImageDataFactory(i32);
-#[repr(C)]
-pub struct ShellItem(i32);
-#[repr(C)]
-pub struct ShellLibrary(i32);
-#[repr(C)]
-pub struct ShellLink(i32);
-#[repr(C)]
-pub struct ShellLinkObject(i32);
-#[repr(C)]
-pub struct ShellNameSpace(i32);
+pub const ShellImageDataFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1726276859,
+    data2: 62341,
+    data3: 19920,
+    data4: [141, 116, 162, 239, 209, 188, 97, 120],
+};
+pub const ShellItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2596928481, data2: 57506, data3: 19158, data4: [180, 238, 226, 18, 1, 62, 169, 23] };
+pub const ShellLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3652395293,
+    data2: 58751,
+    data3: 17446,
+    data4: [170, 239, 48, 168, 6, 173, 211, 151],
+};
+pub const ShellLink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136193, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const ShellLinkObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 287413280, data2: 5992, data3: 4561, data4: [149, 190, 0, 96, 151, 151, 234, 79] };
+pub const ShellNameSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1427335173, data2: 45790, data3: 4561, data4: [185, 242, 0, 160, 201, 139, 197, 71] };
 #[repr(transparent)]
 pub struct ShellSpecialFolderConstants(pub i32);
 pub const ssfDESKTOP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(0i32);
@@ -7014,8 +7129,7 @@ pub const ssfMYPICTURES: ShellSpecialFolderConstants = ShellSpecialFolderConstan
 pub const ssfPROFILE: ShellSpecialFolderConstants = ShellSpecialFolderConstants(40i32);
 pub const ssfSYSTEMx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(41i32);
 pub const ssfPROGRAMFILESx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(48i32);
-#[repr(C)]
-pub struct ShellUIHelper(i32);
+pub const ShellUIHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1688947639, data2: 4382, data3: 4561, data4: [143, 121, 0, 192, 79, 194, 251, 225] };
 #[repr(transparent)]
 pub struct ShellWindowFindWindowOptions(pub i32);
 pub const SWFO_NEEDDISPATCH: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(1i32);
@@ -7028,42 +7142,74 @@ pub const SWC_BROWSER: ShellWindowTypeConstants = ShellWindowTypeConstants(1i32)
 pub const SWC_3RDPARTY: ShellWindowTypeConstants = ShellWindowTypeConstants(2i32);
 pub const SWC_CALLBACK: ShellWindowTypeConstants = ShellWindowTypeConstants(4i32);
 pub const SWC_DESKTOP: ShellWindowTypeConstants = ShellWindowTypeConstants(8i32);
-#[repr(C)]
-pub struct ShellWindows(i32);
-#[repr(C)]
-pub struct ShowInputPaneAnimationCoordinator(i32);
-#[repr(C)]
-pub struct SimpleConflictPresenter(i32);
-#[repr(C)]
-pub struct SizeCategorizer(i32);
-#[repr(C)]
-pub struct SmartcardCredentialProvider(i32);
-#[repr(C)]
-pub struct SmartcardPinProvider(i32);
-#[repr(C)]
-pub struct SmartcardReaderSelectionProvider(i32);
-#[repr(C)]
-pub struct SmartcardWinRTProvider(i32);
-#[repr(C)]
-pub struct StartMenuPin(i32);
-#[repr(C)]
-pub struct StorageProviderBanners(i32);
-#[repr(C)]
-pub struct SuspensionDependencyManager(i32);
-#[repr(C)]
-pub struct SyncMgr(i32);
-#[repr(C)]
-pub struct SyncMgrClient(i32);
-#[repr(C)]
-pub struct SyncMgrControl(i32);
-#[repr(C)]
-pub struct SyncMgrFolder(i32);
-#[repr(C)]
-pub struct SyncMgrScheduleWizard(i32);
-#[repr(C)]
-pub struct SyncResultsFolder(i32);
-#[repr(C)]
-pub struct SyncSetupFolder(i32);
+pub const ShellWindows: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2610977138, data2: 63144, data3: 4559, data4: [164, 66, 0, 160, 201, 10, 143, 57] };
+pub const ShowInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 520383167,
+    data2: 12802,
+    data3: 19905,
+    data4: [140, 181, 60, 103, 97, 124, 225, 250],
+};
+pub const SimpleConflictPresenter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2047830711, data2: 60804, data3: 18102, data4: [180, 126, 2, 170, 21, 154, 21, 43] };
+pub const SizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1440200786,
+    data2: 63185,
+    data3: 17138,
+    data4: [170, 117, 135, 40, 161, 178, 210, 100],
+};
+pub const SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2413289884,
+    data2: 15351,
+    data3: 18587,
+    data4: [167, 44, 132, 106, 179, 103, 140, 150],
+};
+pub const SmartcardPinProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2488888446,
+    data2: 14148,
+    data3: 16846,
+    data4: [137, 62, 187, 240, 145, 34, 247, 106],
+};
+pub const SmartcardReaderSelectionProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 455620705,
+    data2: 30031,
+    data3: 16418,
+    data4: [173, 71, 165, 234, 170, 97, 136, 148],
+};
+pub const SmartcardWinRTProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 518468479, data2: 34220, data3: 17890, data4: [162, 60, 55, 199, 83, 32, 151, 105] };
+pub const StartMenuPin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2729006173,
+    data2: 41154,
+    data3: 17076,
+    data4: [151, 8, 160, 178, 186, 221, 119, 200],
+};
+pub const StorageProviderBanners: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2093873652,
+    data2: 58742,
+    data3: 17754,
+    data4: [139, 199, 246, 236, 104, 214, 240, 99],
+};
+pub const SuspensionDependencyManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1797734341,
+    data2: 25085,
+    data3: 18712,
+    data4: [149, 162, 195, 181, 233, 215, 245, 129],
+};
+pub const SyncMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1653989159, data2: 13806, data3: 4561, data4: [135, 7, 0, 192, 79, 217, 51, 39] };
+pub const SyncMgrClient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 302177120, data2: 7596, data3: 17093, data4: [174, 213, 26, 189, 212, 50, 36, 142] };
+pub const SyncMgrControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 438256134, data2: 1672, data3: 20095, data4: [190, 3, 216, 46, 198, 157, 249, 165] };
+pub const SyncMgrFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2624845285,
+    data2: 31463,
+    data3: 20018,
+    data4: [168, 232, 141, 35, 184, 82, 85, 191],
+};
+pub const SyncMgrScheduleWizard: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2374733360,
+    data2: 50257,
+    data3: 16923,
+    data4: [133, 83, 210, 151, 106, 250, 100, 140],
+};
+pub const SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1910084708, data2: 15211, data3: 18268, data4: [178, 65, 225, 88, 131, 32, 117, 41] };
+pub const SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 782129600, data2: 46135, data3: 18817, data4: [166, 71, 156, 52, 185, 185, 8, 145] };
 pub const TBIF_APPEND: u32 = 0u32;
 pub const TBIF_DEFAULT: u32 = 0u32;
 pub const TBIF_INTERNETBAR: u32 = 65536u32;
@@ -7121,24 +7267,33 @@ pub const TLOG_FORE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
 pub struct TOOLBARITEM(i32);
-#[repr(C)]
-pub struct TaskbarList(i32);
-#[repr(C)]
-pub struct ThumbnailStreamCache(i32);
+pub const TaskbarList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459483460, data2: 64877, data3: 4560, data4: [149, 138, 0, 96, 151, 201, 160, 144] };
+pub const ThumbnailStreamCache: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3420520147,
+    data2: 19345,
+    data3: 20112,
+    data4: [131, 84, 138, 140, 132, 236, 104, 114],
+};
 #[repr(transparent)]
 pub struct ThumbnailStreamCacheOptions(pub i32);
 pub const ExtractIfNotCached: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(0i32);
 pub const ReturnOnlyIfCached: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(1i32);
 pub const ResizeThumbnail: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(2i32);
 pub const AllowSmallerSize: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(4i32);
-#[repr(C)]
-pub struct TimeCategorizer(i32);
-#[repr(C)]
-pub struct TrackShellMenu(i32);
-#[repr(C)]
-pub struct TrayBandSiteService(i32);
-#[repr(C)]
-pub struct TrayDeskBand(i32);
+pub const TimeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1001656719,
+    data2: 56829,
+    data3: 19760,
+    data4: [163, 72, 159, 181, 214, 191, 26, 254],
+};
+pub const TrackShellMenu: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2188966193, data2: 10814, data3: 4562, data4: [131, 143, 0, 192, 79, 217, 24, 208] };
+pub const TrayBandSiteService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4127903904, data2: 58849, data3: 17867, data4: [181, 26, 225, 91, 159, 139, 41, 52] };
+pub const TrayDeskBand: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3863225399,
+    data2: 27752,
+    data3: 20306,
+    data4: [148, 221, 44, 254, 210, 103, 239, 185],
+};
 #[repr(transparent)]
 pub struct UNDOCK_REASON(pub i32);
 pub const UR_RESOLUTION_CHANGE: UNDOCK_REASON = UNDOCK_REASON(0i32);
@@ -7221,14 +7376,15 @@ pub const URL_UNESCAPE_HIGH_ANSI_ONLY: u32 = 4194304u32;
 pub const URL_UNESCAPE_INPLACE: u32 = 1048576u32;
 pub const URL_UNESCAPE_URI_COMPONENT: u32 = 262144u32;
 pub const URL_WININET_COMPATIBILITY: u32 = 2147483648u32;
-#[repr(C)]
-pub struct UserNotification(i32);
-#[repr(C)]
-pub struct V1PasswordCredentialProvider(i32);
-#[repr(C)]
-pub struct V1SmartcardCredentialProvider(i32);
-#[repr(C)]
-pub struct V1WinBioCredentialProvider(i32);
+pub const UserNotification: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1083662, data2: 34697, data3: 16700, data4: [173, 188, 72, 245, 181, 17, 179, 175] };
+pub const V1PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1866849310, data2: 21380, data3: 17786, data4: [188, 19, 44, 216, 27, 13, 40, 237] };
+pub const V1SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2348394768,
+    data2: 43263,
+    data3: 17791,
+    data4: [153, 159, 165, 202, 16, 180, 168, 133],
+};
+pub const V1WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889531977, data2: 59424, data3: 17219, data4: [166, 91, 55, 122, 198, 52, 220, 9] };
 #[repr(transparent)]
 pub struct VALIDATEUNC_OPTION(pub i32);
 pub const VALIDATEUNC_CONNECT: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(1i32);
@@ -7275,10 +7431,13 @@ pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = VPCOLORFLAGS(5i32);
 pub struct VPWATERMARKFLAGS(pub i32);
 pub const VPWF_DEFAULT: VPWATERMARKFLAGS = VPWATERMARKFLAGS(0i32);
 pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = VPWATERMARKFLAGS(1i32);
-#[repr(C)]
-pub struct VaultProvider(i32);
-#[repr(C)]
-pub struct VirtualDesktopManager(i32);
+pub const VaultProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1345796560,
+    data2: 19550,
+    data3: 19709,
+    data4: [179, 186, 216, 129, 51, 79, 13, 242],
+};
+pub const VirtualDesktopManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2857406598, data2: 23721, data3: 19493, data4: [143, 149, 88, 157, 60, 7, 180, 138] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[repr(C)]
 pub struct WINDOWDATA(i32);
@@ -7337,18 +7496,24 @@ pub const WTS_IDEALCACHESIZEONLY: WTS_FLAGS = WTS_FLAGS(32768i32);
 pub const WTS_SCALEUP: WTS_FLAGS = WTS_FLAGS(65536i32);
 #[repr(C)]
 pub struct WTS_THUMBNAILID(i32);
+pub const WebBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2287401313, data2: 13322, data3: 4560, data4: [169, 107, 0, 192, 79, 215, 5, 162] };
+pub const WebBrowser_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3937544899, data2: 12481, data3: 4559, data4: [167, 235, 0, 0, 192, 91, 174, 11] };
+pub const WebWizardHost: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3358060873,
+    data2: 21953,
+    data3: 19752,
+    data4: [147, 94, 87, 228, 124, 174, 217, 115],
+};
+pub const WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3200291363,
+    data2: 45080,
+    data3: 16749,
+    data4: [160, 172, 82, 57, 113, 182, 57, 245],
+};
 #[repr(C)]
-pub struct WebBrowser(i32);
+pub struct _APPCONSTRAIN_REGISTRATION(pub u8);
 #[repr(C)]
-pub struct WebBrowser_V1(i32);
-#[repr(C)]
-pub struct WebWizardHost(i32);
-#[repr(C)]
-pub struct WinBioCredentialProvider(i32);
-#[repr(C)]
-pub struct _APPCONSTRAIN_REGISTRATION(i32);
-#[repr(C)]
-pub struct _APPSTATE_REGISTRATION(i32);
+pub struct _APPSTATE_REGISTRATION(pub u8);
 #[repr(transparent)]
 pub struct _BROWSERFRAMEOPTIONS(pub i32);
 pub const BFO_NONE: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(0i32);

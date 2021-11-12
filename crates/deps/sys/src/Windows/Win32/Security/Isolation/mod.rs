@@ -24,8 +24,7 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IIsolatedAppLauncher(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct IsolatedAppLauncher(i32);
+pub const IsolatedAppLauncher: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3162580016, data2: 59230, data3: 20433, data4: [150, 65, 31, 159, 30, 45, 154, 31] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct IsolatedAppLauncherTelemetryParameters(i32);

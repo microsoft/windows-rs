@@ -219,5 +219,4 @@ pub const OPC_URI_TARGET_MODE_EXTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MOD
 pub struct OPC_WRITE_FLAGS(pub u32);
 pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0u32);
 pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1u32);
-#[repr(C)]
-pub struct OpcFactory(i32);
+pub const OpcFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1798138784, data2: 40766, data3: 20263, data4: [146, 11, 49, 60, 196, 38, 163, 158] };

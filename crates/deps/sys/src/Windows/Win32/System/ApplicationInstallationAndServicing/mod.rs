@@ -1364,8 +1364,7 @@ pub const MSITRANSFORM_VALIDATE_NEWGREATERBASEVERSION: MSITRANSFORM_VALIDATE = M
 pub const MSITRANSFORM_VALIDATE_UPGRADECODE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(2048i32);
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
-#[repr(C)]
-pub struct MsmMerge(i32);
+pub const MsmMerge: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298672, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 #[repr(transparent)]
 pub struct PACKMAN_RUNTIME(pub i32);
 pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(1i32);
@@ -1441,8 +1440,12 @@ pub const PID_WORDCOUNT: u32 = 15u32;
 pub type PINSTALLUI_HANDLER_RECORD = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32;
 #[repr(C)]
 pub struct PMSIHANDLE(i32);
-#[repr(C)]
-pub struct PMSvc(i32);
+pub const PMSvc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3118797308,
+    data2: 58212,
+    data3: 18810,
+    data4: [161, 33, 183, 179, 97, 44, 237, 206],
+};
 #[repr(transparent)]
 pub struct PM_ACTIVATION_POLICY(pub i32);
 pub const PM_ACTIVATION_POLICY_RESUME: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(0i32);

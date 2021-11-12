@@ -30,8 +30,6 @@ impl HttpDiagnosticRequestInitiator {
 }
 #[repr(transparent)]
 pub struct HttpDiagnosticSourceLocation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HttpDiagnosticsContract(i32);
 #[repr(transparent)]
 pub struct IHttpDiagnosticProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

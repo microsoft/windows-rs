@@ -360,13 +360,13 @@ pub const FTS5_TOKENIZE_QUERY: u32 = 1u32;
 pub const FTS5_TOKEN_COLOCATED: u32 = 1u32;
 pub const FULLY_WITHIN: u32 = 2u32;
 #[repr(C)]
-pub struct Fts5Context(i32);
+pub struct Fts5Context(pub u8);
 #[repr(C)]
 pub struct Fts5ExtensionApi(i32);
 #[repr(C)]
 pub struct Fts5PhraseIter(i32);
 #[repr(C)]
-pub struct Fts5Tokenizer(i32);
+pub struct Fts5Tokenizer(pub u8);
 pub const NOT_WITHIN: u32 = 0u32;
 pub const PARTLY_WITHIN: u32 = 1u32;
 pub const SQLITE3_TEXT: u32 = 3u32;
@@ -750,7 +750,7 @@ pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5Ex
 #[repr(C)]
 pub struct fts5_tokenizer(i32);
 #[repr(C)]
-pub struct sqlite3(i32);
+pub struct sqlite3(pub u8);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
@@ -760,12 +760,12 @@ pub struct sqlite3_api_routines(i32);
 #[repr(C)]
 pub struct sqlite3_api_routines(i32);
 #[repr(C)]
-pub struct sqlite3_backup(i32);
+pub struct sqlite3_backup(pub u8);
 #[repr(C)]
-pub struct sqlite3_blob(i32);
+pub struct sqlite3_blob(pub u8);
 pub type sqlite3_callback = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32;
 #[repr(C)]
-pub struct sqlite3_context(i32);
+pub struct sqlite3_context(pub u8);
 pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct sqlite3_file(i32);
@@ -781,11 +781,11 @@ pub struct sqlite3_mem_methods(i32);
 #[repr(C)]
 pub struct sqlite3_module(i32);
 #[repr(C)]
-pub struct sqlite3_mutex(i32);
+pub struct sqlite3_mutex(pub u8);
 #[repr(C)]
 pub struct sqlite3_mutex_methods(i32);
 #[repr(C)]
-pub struct sqlite3_pcache(i32);
+pub struct sqlite3_pcache(pub u8);
 #[repr(C)]
 pub struct sqlite3_pcache_methods(i32);
 #[repr(C)]
@@ -799,12 +799,12 @@ pub struct sqlite3_rtree_query_info(i32);
 #[repr(C)]
 pub struct sqlite3_snapshot(i32);
 #[repr(C)]
-pub struct sqlite3_stmt(i32);
+pub struct sqlite3_stmt(pub u8);
 #[repr(C)]
-pub struct sqlite3_str(i32);
+pub struct sqlite3_str(pub u8);
 pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
 #[repr(C)]
-pub struct sqlite3_value(i32);
+pub struct sqlite3_value(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct sqlite3_vfs(i32);

@@ -547,12 +547,9 @@ pub const DISPID_XTLRUNTIME_FORMATNUMBER: u32 = 193u32;
 pub const DISPID_XTLRUNTIME_FORMATTIME: u32 = 195u32;
 pub const DISPID_XTLRUNTIME_UNIQUEID: u32 = 187u32;
 pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
-#[repr(C)]
-pub struct DOMDocument(i32);
-#[repr(C)]
-pub struct DOMDocument60(i32);
-#[repr(C)]
-pub struct DOMFreeThreadedDocument(i32);
+pub const DOMDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 691257232, data2: 31542, data3: 4562, data4: [178, 14, 0, 192, 79, 152, 62, 96] };
+pub const DOMDocument60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949829, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const DOMFreeThreadedDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 691257233, data2: 31542, data3: 4562, data4: [178, 14, 0, 192, 79, 152, 62, 96] };
 #[repr(transparent)]
 pub struct DOMNodeType(pub i32);
 pub const NODE_INVALID: DOMNodeType = DOMNodeType(0i32);
@@ -572,10 +569,8 @@ pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
 pub const E_XML_INVALID: i32 = -1072897499i32;
 pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
-#[repr(C)]
-pub struct FreeThreadedDOMDocument60(i32);
-#[repr(C)]
-pub struct FreeThreadedXMLHTTP60(i32);
+pub const FreeThreadedDOMDocument60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949830, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const FreeThreadedXMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949833, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(transparent)]
 pub struct IMXAttributes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -748,16 +743,11 @@ pub struct IXSLProcessor(pub *mut ::core::ffi::c_void);
 pub struct IXSLTemplate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXTLRuntime(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MXHTMLWriter60(i32);
-#[repr(C)]
-pub struct MXNamespaceManager60(i32);
-#[repr(C)]
-pub struct MXXMLWriter60(i32);
-#[repr(C)]
-pub struct SAXAttributes60(i32);
-#[repr(C)]
-pub struct SAXXMLReader60(i32);
+pub const MXHTMLWriter60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949840, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const MXNamespaceManager60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949841, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const MXXMLWriter60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949839, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const SAXAttributes60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949838, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const SAXXMLReader60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949836, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(transparent)]
 pub struct SCHEMACONTENTTYPE(pub i32);
 pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(0i32);
@@ -892,8 +882,7 @@ pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = SXH_SERVE
 pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(4096i32);
 pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(8192i32);
 pub const SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(13056i32);
-#[repr(C)]
-pub struct ServerXMLHTTP60(i32);
+pub const ServerXMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949835, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(transparent)]
 pub struct XHR_AUTH(pub i32);
 pub const XHR_AUTH_ALL: XHR_AUTH = XHR_AUTH(0i32);
@@ -963,10 +952,8 @@ pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
 #[repr(transparent)]
 pub struct XMLDOMDocumentEvents(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct XMLDSOControl(i32);
-#[repr(C)]
-pub struct XMLDocument(i32);
+pub const XMLDSOControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1426971184, data2: 1345, data3: 4562, data4: [156, 169, 0, 96, 176, 236, 61, 57] };
+pub const XMLDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3485702575, data2: 55414, data3: 4560, data4: [156, 16, 0, 192, 79, 201, 156, 142] };
 #[repr(transparent)]
 pub struct XMLEMEM_TYPE(pub i32);
 pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(0i32);
@@ -976,16 +963,12 @@ pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(3i32);
 pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = XMLEMEM_TYPE(4i32);
 pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = XMLEMEM_TYPE(5i32);
 pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = XMLEMEM_TYPE(6i32);
-#[repr(C)]
-pub struct XMLHTTP60(i32);
-#[repr(C)]
-pub struct XMLHTTPRequest(i32);
-#[repr(C)]
-pub struct XMLSchemaCache60(i32);
+pub const XMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949834, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const XMLHTTPRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3985379470, data2: 17225, data3: 4562, data4: [145, 164, 0, 192, 79, 121, 105, 232] };
+pub const XMLSchemaCache60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949831, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct XML_ERROR(i32);
-#[repr(C)]
-pub struct XSLTemplate60(i32);
+pub const XSLTemplate60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949832, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(C)]
 pub struct __msxml6_ReferenceRemainingTypes__(i32);

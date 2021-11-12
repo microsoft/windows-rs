@@ -254,11 +254,18 @@ pub const TASK_TUESDAY: u32 = 4u32;
 pub const TASK_WEDNESDAY: u32 = 8u32;
 #[repr(C)]
 pub struct TRIGGER_TYPE_UNION(i32);
-#[repr(C)]
-pub struct TaskHandlerPS(i32);
-#[repr(C)]
-pub struct TaskHandlerStatusPS(i32);
-#[repr(C)]
-pub struct TaskScheduler(i32);
+pub const TaskHandlerPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4071005623,
+    data2: 55852,
+    data3: 17234,
+    data4: [144, 102, 134, 254, 230, 218, 202, 201],
+};
+pub const TaskHandlerStatusPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2668963437,
+    data2: 55226,
+    data3: 18672,
+    data4: [147, 193, 230, 137, 95, 111, 229, 172],
+};
+pub const TaskScheduler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 260519583, data2: 42213, data3: 19708, data4: [189, 62, 115, 230, 21, 69, 114, 221] };
 #[repr(C)]
 pub struct WEEKLY(i32);

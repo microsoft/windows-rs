@@ -2162,87 +2162,52 @@ pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
 #[repr(C)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT(i32);
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
-#[repr(C)]
-pub struct ClusApplication(i32);
-#[repr(C)]
-pub struct ClusCryptoKeys(i32);
-#[repr(C)]
-pub struct ClusDisk(i32);
-#[repr(C)]
-pub struct ClusDisks(i32);
-#[repr(C)]
-pub struct ClusNetInterface(i32);
-#[repr(C)]
-pub struct ClusNetInterfaces(i32);
-#[repr(C)]
-pub struct ClusNetwork(i32);
-#[repr(C)]
-pub struct ClusNetworkNetInterfaces(i32);
-#[repr(C)]
-pub struct ClusNetworks(i32);
-#[repr(C)]
-pub struct ClusNode(i32);
-#[repr(C)]
-pub struct ClusNodeNetInterfaces(i32);
-#[repr(C)]
-pub struct ClusNodes(i32);
-#[repr(C)]
-pub struct ClusPartition(i32);
-#[repr(C)]
-pub struct ClusPartitionEx(i32);
-#[repr(C)]
-pub struct ClusPartitions(i32);
-#[repr(C)]
-pub struct ClusProperties(i32);
-#[repr(C)]
-pub struct ClusProperty(i32);
-#[repr(C)]
-pub struct ClusPropertyValue(i32);
-#[repr(C)]
-pub struct ClusPropertyValueData(i32);
-#[repr(C)]
-pub struct ClusPropertyValues(i32);
-#[repr(C)]
-pub struct ClusRefObject(i32);
-#[repr(C)]
-pub struct ClusRegistryKeys(i32);
-#[repr(C)]
-pub struct ClusResDependencies(i32);
-#[repr(C)]
-pub struct ClusResDependents(i32);
-#[repr(C)]
-pub struct ClusResGroup(i32);
-#[repr(C)]
-pub struct ClusResGroupPreferredOwnerNodes(i32);
-#[repr(C)]
-pub struct ClusResGroupResources(i32);
-#[repr(C)]
-pub struct ClusResGroups(i32);
-#[repr(C)]
-pub struct ClusResPossibleOwnerNodes(i32);
-#[repr(C)]
-pub struct ClusResType(i32);
-#[repr(C)]
-pub struct ClusResTypePossibleOwnerNodes(i32);
-#[repr(C)]
-pub struct ClusResTypeResources(i32);
-#[repr(C)]
-pub struct ClusResTypes(i32);
-#[repr(C)]
-pub struct ClusResource(i32);
-#[repr(C)]
-pub struct ClusResources(i32);
-#[repr(C)]
-pub struct ClusScsiAddress(i32);
-#[repr(C)]
-pub struct ClusVersion(i32);
-#[repr(C)]
-pub struct Cluster(i32);
-#[repr(C)]
-pub struct ClusterNames(i32);
+pub const ClusApplication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161317, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusCryptoKeys: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161387, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusDisk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161379, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusDisks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161381, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetInterface: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161325, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161327, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetwork: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161329, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetworkNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161333, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetworks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161331, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161335, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNodeNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161339, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161337, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPartition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161375, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPartitionEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1406475558,
+    data2: 46363,
+    data3: 19065,
+    data4: [178, 195, 80, 72, 217, 58, 152, 252],
+};
+pub const ClusPartitions: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161377, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161343, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161341, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161369, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValueData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161373, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValues: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161371, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusRefObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161345, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusRegistryKeys: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161385, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResDependencies: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161347, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResDependents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161389, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161349, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroupPreferredOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161319, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroupResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161321, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroups: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161351, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResPossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161357, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161359, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypePossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161367, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypeResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161363, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161361, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResource: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161353, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161355, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusScsiAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161383, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusVersion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161365, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const Cluster: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161315, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusterNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161323, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 pub const DNS_LENGTH: u32 = 64u32;
-#[repr(C)]
-pub struct DomainNames(i32);
+pub const DomainNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161313, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 #[repr(transparent)]
 pub struct FAILURE_TYPE(pub i32);
 pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = FAILURE_TYPE(0i32);
@@ -3182,54 +3147,54 @@ pub struct WitnessTagHelper(i32);
 #[repr(C)]
 pub struct WitnessTagUpdateHelper(i32);
 #[repr(C)]
-pub struct _HCHANGE(i32);
+pub struct _HCHANGE(pub u8);
 #[repr(C)]
-pub struct _HCLUSCRYPTPROVIDER(i32);
+pub struct _HCLUSCRYPTPROVIDER(pub u8);
 #[repr(C)]
-pub struct _HCLUSENUM(i32);
+pub struct _HCLUSENUM(pub u8);
 #[repr(C)]
-pub struct _HCLUSENUMEX(i32);
+pub struct _HCLUSENUMEX(pub u8);
 #[repr(C)]
-pub struct _HCLUSTER(i32);
+pub struct _HCLUSTER(pub u8);
 #[repr(C)]
-pub struct _HGROUP(i32);
+pub struct _HGROUP(pub u8);
 #[repr(C)]
-pub struct _HGROUPENUM(i32);
+pub struct _HGROUPENUM(pub u8);
 #[repr(C)]
-pub struct _HGROUPENUMEX(i32);
+pub struct _HGROUPENUMEX(pub u8);
 #[repr(C)]
-pub struct _HGROUPSET(i32);
+pub struct _HGROUPSET(pub u8);
 #[repr(C)]
-pub struct _HGROUPSETENUM(i32);
+pub struct _HGROUPSETENUM(pub u8);
 #[repr(C)]
-pub struct _HNETINTERFACE(i32);
+pub struct _HNETINTERFACE(pub u8);
 #[repr(C)]
-pub struct _HNETINTERFACEENUM(i32);
+pub struct _HNETINTERFACEENUM(pub u8);
 #[repr(C)]
-pub struct _HNETWORK(i32);
+pub struct _HNETWORK(pub u8);
 #[repr(C)]
-pub struct _HNETWORKENUM(i32);
+pub struct _HNETWORKENUM(pub u8);
 #[repr(C)]
-pub struct _HNODE(i32);
+pub struct _HNODE(pub u8);
 #[repr(C)]
-pub struct _HNODEENUM(i32);
+pub struct _HNODEENUM(pub u8);
 #[repr(C)]
-pub struct _HNODEENUMEX(i32);
+pub struct _HNODEENUMEX(pub u8);
 #[repr(C)]
-pub struct _HREGBATCH(i32);
+pub struct _HREGBATCH(pub u8);
 #[repr(C)]
-pub struct _HREGBATCHNOTIFICATION(i32);
+pub struct _HREGBATCHNOTIFICATION(pub u8);
 #[repr(C)]
-pub struct _HREGBATCHPORT(i32);
+pub struct _HREGBATCHPORT(pub u8);
 #[repr(C)]
-pub struct _HREGREADBATCH(i32);
+pub struct _HREGREADBATCH(pub u8);
 #[repr(C)]
-pub struct _HREGREADBATCHREPLY(i32);
+pub struct _HREGREADBATCHREPLY(pub u8);
 #[repr(C)]
-pub struct _HRESENUM(i32);
+pub struct _HRESENUM(pub u8);
 #[repr(C)]
-pub struct _HRESENUMEX(i32);
+pub struct _HRESENUMEX(pub u8);
 #[repr(C)]
-pub struct _HRESOURCE(i32);
+pub struct _HRESOURCE(pub u8);
 #[repr(C)]
-pub struct _HRESTYPEENUM(i32);
+pub struct _HRESTYPEENUM(pub u8);

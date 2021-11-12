@@ -380,8 +380,6 @@ impl ShutdownKind {
     pub const Shutdown: Self = Self(0i32);
     pub const Restart: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct SystemManagementContract(i32);
 #[repr(transparent)]
 pub struct User(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

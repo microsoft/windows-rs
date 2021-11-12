@@ -63,10 +63,13 @@ pub struct GAMING_DEVICE_MODEL_INFORMATION(i32);
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
 pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
 pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(-1024700366i32);
-#[repr(C)]
-pub struct GameExplorer(i32);
-#[repr(C)]
-pub struct GameStatistics(i32);
+pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2589895056, data2: 12340, data3: 19823, data4: [145, 40, 1, 243, 198, 16, 34, 188] };
+pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3687340588,
+    data2: 49372,
+    data3: 18785,
+    data4: [182, 226, 210, 139, 98, 193, 26, 212],
+};
 pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IGameExplorer(pub *mut ::core::ffi::c_void);
@@ -118,7 +121,15 @@ pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = X
 pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(6i32);
 pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(7i32);
 pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(-1i32);
-#[repr(C)]
-pub struct XblIdpAuthManager(i32);
-#[repr(C)]
-pub struct XblIdpAuthTokenResult(i32);
+pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3458421579,
+    data2: 22232,
+    data3: 18808,
+    data4: [134, 162, 126, 229, 112, 100, 4, 104],
+};
+pub const XblIdpAuthTokenResult: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2672374849,
+    data2: 29770,
+    data3: 16652,
+    data4: [174, 43, 154, 34, 247, 199, 115, 31],
+};

@@ -24,12 +24,9 @@ extern "system" {
     #[cfg(feature = "Win32_System_AddressBook")]
     pub fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct BlockRange(i32);
-#[repr(C)]
-pub struct BlockRangeList(i32);
-#[repr(C)]
-pub struct BootOptions(i32);
+pub const BlockRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3037186599, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
+pub const BlockRangeList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3037186600, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
+pub const BootOptions: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904974, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3171631974, data2: 36355, data3: 4562, data4: [148, 246, 0, 192, 79, 121, 241, 214] };
 pub const CATID_SMTP_DSN: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 582309681,
@@ -265,16 +262,11 @@ pub const Emulation12MFloppy: EmulationType = EmulationType(1i32);
 pub const Emulation144MFloppy: EmulationType = EmulationType(2i32);
 pub const Emulation288MFloppy: EmulationType = EmulationType(3i32);
 pub const EmulationHardDisk: EmulationType = EmulationType(4i32);
-#[repr(C)]
-pub struct EnumFsiItems(i32);
-#[repr(C)]
-pub struct EnumProgressItems(i32);
-#[repr(C)]
-pub struct FileSystemImageResult(i32);
-#[repr(C)]
-pub struct FsiDirectoryItem(i32);
-#[repr(C)]
-pub struct FsiFileItem(i32);
+pub const EnumFsiItems: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904966, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const EnumProgressItems: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904970, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const FileSystemImageResult: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904972, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const FsiDirectoryItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904968, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const FsiFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904967, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 #[repr(transparent)]
 pub struct FsiFileSystems(pub i32);
 pub const FsiFileSystemNone: FsiFileSystems = FsiFileSystems(0i32);
@@ -287,10 +279,13 @@ pub struct FsiItemType(pub i32);
 pub const FsiItemNotFound: FsiItemType = FsiItemType(0i32);
 pub const FsiItemDirectory: FsiItemType = FsiItemType(1i32);
 pub const FsiItemFile: FsiItemType = FsiItemType(2i32);
-#[repr(C)]
-pub struct FsiNamedStreams(i32);
-#[repr(C)]
-pub struct FsiStream(i32);
+pub const FsiNamedStreams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3333880045,
+    data2: 27929,
+    data3: 17588,
+    data4: [181, 57, 177, 89, 183, 147, 163, 45],
+};
+pub const FsiStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904973, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 pub const GUID_SMTPSVC_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456918630, data2: 58480, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4217750748, data2: 58472, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 #[repr(transparent)]
@@ -795,48 +790,38 @@ pub const MP_STATUS_CATEGORIZED: u32 = 5u32;
 pub const MP_STATUS_RETRY: u32 = 1u32;
 pub const MP_STATUS_SUBMITTED: u32 = 4u32;
 pub const MP_STATUS_SUCCESS: u32 = 0u32;
-#[repr(C)]
-pub struct MSDiscMasterObj(i32);
-#[repr(C)]
-pub struct MSDiscRecorderObj(i32);
-#[repr(C)]
-pub struct MSEnumDiscRecordersObj(i32);
+pub const MSDiscMasterObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1376569955, data2: 20901, data3: 4563, data4: [145, 68, 0, 16, 75, 161, 28, 94] };
+pub const MSDiscRecorderObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1376569953, data2: 20901, data3: 4563, data4: [145, 68, 0, 16, 75, 161, 28, 94] };
+pub const MSEnumDiscRecordersObj: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2315474554,
+    data2: 25547,
+    data3: 19368,
+    data4: [186, 246, 82, 17, 152, 22, 209, 239],
+};
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage);
-#[repr(C)]
-pub struct MsftDiscFormat2Data(i32);
-#[repr(C)]
-pub struct MsftDiscFormat2Erase(i32);
-#[repr(C)]
-pub struct MsftDiscFormat2RawCD(i32);
-#[repr(C)]
-pub struct MsftDiscFormat2TrackAtOnce(i32);
-#[repr(C)]
-pub struct MsftDiscMaster2(i32);
-#[repr(C)]
-pub struct MsftDiscRecorder2(i32);
-#[repr(C)]
-pub struct MsftFileSystemImage(i32);
-#[repr(C)]
-pub struct MsftIsoImageManager(i32);
-#[repr(C)]
-pub struct MsftMultisessionRandomWrite(i32);
-#[repr(C)]
-pub struct MsftMultisessionSequential(i32);
-#[repr(C)]
-pub struct MsftRawCDImageCreator(i32);
-#[repr(C)]
-pub struct MsftStreamConcatenate(i32);
-#[repr(C)]
-pub struct MsftStreamInterleave(i32);
-#[repr(C)]
-pub struct MsftStreamPrng001(i32);
-#[repr(C)]
-pub struct MsftStreamZero(i32);
-#[repr(C)]
-pub struct MsftWriteEngine2(i32);
-#[repr(C)]
-pub struct MsftWriteSpeedDescriptor(i32);
+pub const MsftDiscFormat2Data: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801514, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscFormat2Erase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801515, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscFormat2RawCD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801512, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscFormat2TrackAtOnce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801513, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscMaster2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801518, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscRecorder2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801517, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftFileSystemImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904965, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const MsftIsoImageManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3471719266,
+    data2: 36694,
+    data3: 16470,
+    data4: [134, 155, 239, 22, 145, 126, 62, 252],
+};
+pub const MsftMultisessionRandomWrite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3037186596, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
+pub const MsftMultisessionSequential: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801506, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftRawCDImageCreator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 630732129, data2: 40293, data3: 18894, data4: [179, 53, 64, 99, 13, 144, 18, 39] };
+pub const MsftStreamConcatenate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801509, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftStreamInterleave: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801508, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftStreamPrng001: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801510, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftStreamZero: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801511, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftWriteEngine2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801516, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftWriteSpeedDescriptor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801507, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
 pub const NMP_PROCESS_CONTROL: u32 = 2u32;
 pub const NMP_PROCESS_MODERATOR: u32 = 4u32;
 pub const NMP_PROCESS_POST: u32 = 1u32;
@@ -846,10 +831,8 @@ pub const PlatformX86: PlatformId = PlatformId(0i32);
 pub const PlatformPowerPC: PlatformId = PlatformId(1i32);
 pub const PlatformMac: PlatformId = PlatformId(2i32);
 pub const PlatformEFI: PlatformId = PlatformId(239i32);
-#[repr(C)]
-pub struct ProgressItem(i32);
-#[repr(C)]
-pub struct ProgressItems(i32);
+pub const ProgressItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904971, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const ProgressItems: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904969, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 #[repr(transparent)]
 pub struct RECORDER_TYPES(pub i32);
 pub const RECORDER_CDR: RECORDER_TYPES = RECORDER_TYPES(1i32);
@@ -882,18 +865,12 @@ pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
 #[repr(C)]
 pub struct SPropAttrArray(i32);
 #[repr(C)]
-pub struct _MSGSESS(i32);
-#[repr(C)]
-pub struct tagIMMPID_CPV_STRUCT(i32);
+pub struct _MSGSESS(pub u8);
+pub const tagIMMPID_CPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2728880938, data2: 58669, data3: 4561, data4: [170, 100, 0, 192, 79, 163, 91, 130] };
 #[repr(C)]
 pub struct tagIMMPID_GUIDLIST_ITEM(i32);
-#[repr(C)]
-pub struct tagIMMPID_MPV_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_MP_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_NMP_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_RPV_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_RP_STRUCT(i32);
+pub const tagIMMPID_MPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3420886790, data2: 51645, data3: 4561, data4: [159, 242, 0, 192, 79, 163, 115, 72] };
+pub const tagIMMPID_MP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 322456816, data2: 46020, data3: 4561, data4: [170, 146, 0, 170, 0, 107, 200, 11] };
+pub const tagIMMPID_NMP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1949542826, data2: 8418, data3: 4562, data4: [148, 214, 0, 192, 79, 163, 121, 241] };
+pub const tagIMMPID_RPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2045255753, data2: 54048, data3: 4561, data4: [159, 244, 0, 192, 79, 163, 115, 72] };
+pub const tagIMMPID_RP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2045255752, data2: 54048, data3: 4561, data4: [159, 244, 0, 192, 79, 163, 115, 72] };

@@ -85,8 +85,6 @@ impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     pub const IsolatedWindowsEnvironmentToHost: Self = Self(2u32);
 }
 #[repr(C)]
-pub struct IsolatedWindowsEnvironmentContract(i32);
-#[repr(C)]
 pub struct IsolatedWindowsEnvironmentCreateProgress(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateResult(pub *mut ::core::ffi::c_void);

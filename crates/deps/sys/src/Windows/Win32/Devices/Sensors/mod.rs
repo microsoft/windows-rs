@@ -1757,19 +1757,25 @@ pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVI
 pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(3i32);
 pub const SimpleDeviceOrientation_Faceup: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(4i32);
 pub const SimpleDeviceOrientation_Facedown: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(5i32);
-#[repr(C)]
-pub struct Sensor(i32);
-#[repr(C)]
-pub struct SensorCollection(i32);
+pub const Sensor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3917278464,
+    data2: 21050,
+    data3: 16691,
+    data4: [191, 111, 211, 162, 218, 231, 246, 186],
+};
+pub const SensorCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2042903259, data2: 42025, data3: 18079, data4: [170, 57, 47, 43, 116, 183, 89, 55] };
 #[repr(transparent)]
 pub struct SensorConnectionType(pub i32);
 pub const SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = SensorConnectionType(0i32);
 pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = SensorConnectionType(1i32);
 pub const SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = SensorConnectionType(2i32);
-#[repr(C)]
-pub struct SensorDataReport(i32);
-#[repr(C)]
-pub struct SensorManager(i32);
+pub const SensorDataReport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1319753455,
+    data2: 26955,
+    data3: 16920,
+    data4: [136, 22, 204, 218, 141, 167, 75, 186],
+};
+pub const SensorManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2007091239, data2: 64722, data3: 18057, data4: [137, 21, 157, 97, 60, 197, 250, 62] };
 #[repr(transparent)]
 pub struct SensorState(pub i32);
 pub const SENSOR_STATE_MIN: SensorState = SensorState(0i32);

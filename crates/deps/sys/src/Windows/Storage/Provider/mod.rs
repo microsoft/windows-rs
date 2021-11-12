@@ -17,8 +17,6 @@ impl CachedFileTarget {
 }
 #[repr(transparent)]
 pub struct CachedFileUpdaterUI(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CloudFilesContract(i32);
 #[repr(transparent)]
 pub struct FileUpdateRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

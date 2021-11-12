@@ -7,8 +7,6 @@ pub struct AccountsSettingsPane(pub *mut ::core::ffi::c_void);
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AccountsSettingsPaneEventDeferral(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ApplicationsSettingsContract(i32);
 #[repr(transparent)]
 pub struct CredentialCommand(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

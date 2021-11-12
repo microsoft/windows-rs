@@ -1766,12 +1766,9 @@ pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
 pub const CANITER_SKIP_ZEROES: u32 = 1u32;
 #[repr(C)]
 pub struct CHARSETINFO(i32);
-#[repr(C)]
-pub struct CMLangConvertCharset(i32);
-#[repr(C)]
-pub struct CMLangString(i32);
-#[repr(C)]
-pub struct CMultiLanguage(i32);
+pub const CMLangConvertCharset: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3597496217, data2: 52650, data3: 4560, data4: [184, 34, 0, 192, 79, 201, 179, 31] };
+pub const CMLangString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3226297807, data2: 46861, data3: 4560, data4: [177, 136, 0, 170, 0, 56, 201, 105] };
+pub const CMultiLanguage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660349922, data2: 14151, data3: 4560, data4: [159, 234, 0, 170, 0, 63, 134, 70] };
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -2628,8 +2625,12 @@ pub const GEO_ID: SYSGEOTYPE = SYSGEOTYPE(18i32);
 #[repr(transparent)]
 pub struct SYSNLS_FUNCTION(pub i32);
 pub const COMPARE_STRING: SYSNLS_FUNCTION = SYSNLS_FUNCTION(1i32);
-#[repr(C)]
-pub struct SpellCheckerFactory(i32);
+pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2058577491,
+    data2: 6038,
+    data3: 18507,
+    data4: [189, 250, 231, 79, 29, 183, 193, 220],
+};
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -2672,7 +2673,7 @@ pub const UBIDI_MAX_EXPLICIT_LEVEL: u32 = 125u32;
 pub const UBIDI_OUTPUT_REVERSE: u32 = 16u32;
 pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
 #[repr(C)]
-pub struct UBiDi(i32);
+pub struct UBiDi(pub u8);
 pub type UBiDiClassCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection;
 #[repr(transparent)]
 pub struct UBiDiDirection(pub i32);
@@ -2704,7 +2705,7 @@ pub const UBIDI_OPTION_INSERT_MARKS: UBiDiReorderingOption = UBiDiReorderingOpti
 pub const UBIDI_OPTION_REMOVE_CONTROLS: UBiDiReorderingOption = UBiDiReorderingOption(2i32);
 pub const UBIDI_OPTION_STREAMING: UBiDiReorderingOption = UBiDiReorderingOption(4i32);
 #[repr(C)]
-pub struct UBiDiTransform(i32);
+pub struct UBiDiTransform(pub u8);
 #[repr(transparent)]
 pub struct UBidiPairedBracketType(pub i32);
 pub const U_BPT_NONE: UBidiPairedBracketType = UBidiPairedBracketType(0i32);
@@ -3025,7 +3026,7 @@ pub const UBLOCK_TANGUT_SUPPLEMENT: UBlockCode = UBlockCode(307i32);
 pub const UBLOCK_YEZIDI: UBlockCode = UBlockCode(308i32);
 pub const UBLOCK_INVALID_CODE: UBlockCode = UBlockCode(-1i32);
 #[repr(C)]
-pub struct UBreakIterator(i32);
+pub struct UBreakIterator(pub u8);
 #[repr(transparent)]
 pub struct UBreakIteratorType(pub i32);
 pub const UBRK_CHARACTER: UBreakIteratorType = UBreakIteratorType(0i32);
@@ -3040,7 +3041,7 @@ pub const UCNV_SI: u32 = 15u32;
 pub const UCNV_SO: u32 = 14u32;
 pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
 #[repr(C)]
-pub struct UCPMap(i32);
+pub struct UCPMap(pub u8);
 #[repr(transparent)]
 pub struct UCPMapRangeOption(pub i32);
 pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = UCPMapRangeOption(0i32);
@@ -3161,7 +3162,7 @@ pub const UCAL_WEEKEND: UCalendarWeekdayType = UCalendarWeekdayType(1i32);
 pub const UCAL_WEEKEND_ONSET: UCalendarWeekdayType = UCalendarWeekdayType(2i32);
 pub const UCAL_WEEKEND_CEASE: UCalendarWeekdayType = UCalendarWeekdayType(3i32);
 #[repr(C)]
-pub struct UCaseMap(i32);
+pub struct UCaseMap(pub u8);
 #[repr(transparent)]
 pub struct UCharCategory(pub i32);
 pub const U_UNASSIGNED: UCharCategory = UCharCategory(0i32);
@@ -3247,9 +3248,9 @@ pub const U_UNICODE_CHAR_NAME: UCharNameChoice = UCharNameChoice(0i32);
 pub const U_EXTENDED_CHAR_NAME: UCharNameChoice = UCharNameChoice(2i32);
 pub const U_CHAR_NAME_ALIAS: UCharNameChoice = UCharNameChoice(3i32);
 #[repr(C)]
-pub struct UCharsetDetector(i32);
+pub struct UCharsetDetector(pub u8);
 #[repr(C)]
-pub struct UCharsetMatch(i32);
+pub struct UCharsetMatch(pub u8);
 #[repr(transparent)]
 pub struct UColAttribute(pub i32);
 pub const UCOL_FRENCH_COLLATION: UColAttribute = UColAttribute(0i32);
@@ -3299,18 +3300,18 @@ pub struct UColRuleOption(pub i32);
 pub const UCOL_TAILORING_ONLY: UColRuleOption = UColRuleOption(0i32);
 pub const UCOL_FULL_RULES: UColRuleOption = UColRuleOption(1i32);
 #[repr(C)]
-pub struct UCollationElements(i32);
+pub struct UCollationElements(pub u8);
 #[repr(transparent)]
 pub struct UCollationResult(pub i32);
 pub const UCOL_EQUAL: UCollationResult = UCollationResult(0i32);
 pub const UCOL_GREATER: UCollationResult = UCollationResult(1i32);
 pub const UCOL_LESS: UCollationResult = UCollationResult(-1i32);
 #[repr(C)]
-pub struct UCollator(i32);
+pub struct UCollator(pub u8);
 #[repr(C)]
-pub struct UConstrainedFieldPosition(i32);
+pub struct UConstrainedFieldPosition(pub u8);
 #[repr(C)]
-pub struct UConverter(i32);
+pub struct UConverter(pub u8);
 #[repr(transparent)]
 pub struct UConverterCallbackReason(pub i32);
 pub const UCNV_UNASSIGNED: UConverterCallbackReason = UConverterCallbackReason(0i32);
@@ -3329,7 +3330,7 @@ pub struct UConverterPlatform(pub i32);
 pub const UCNV_UNKNOWN: UConverterPlatform = UConverterPlatform(-1i32);
 pub const UCNV_IBM: UConverterPlatform = UConverterPlatform(0i32);
 #[repr(C)]
-pub struct UConverterSelector(i32);
+pub struct UConverterSelector(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterToUCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
 #[cfg(feature = "Win32_Foundation")]
@@ -3514,9 +3515,9 @@ pub const UDAT_ZODIAC_NAMES_WIDE: UDateFormatSymbolType = UDateFormatSymbolType(
 pub const UDAT_ZODIAC_NAMES_ABBREVIATED: UDateFormatSymbolType = UDateFormatSymbolType(26i32);
 pub const UDAT_ZODIAC_NAMES_NARROW: UDateFormatSymbolType = UDateFormatSymbolType(27i32);
 #[repr(C)]
-pub struct UDateFormatSymbols(i32);
+pub struct UDateFormatSymbols(pub u8);
 #[repr(C)]
-pub struct UDateIntervalFormat(i32);
+pub struct UDateIntervalFormat(pub u8);
 #[repr(transparent)]
 pub struct UDateRelativeDateTimeFormatterStyle(pub i32);
 pub const UDAT_STYLE_LONG: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(0i32);
@@ -3632,7 +3633,7 @@ pub const U_EA_WIDE: UEastAsianWidth = UEastAsianWidth(5i32);
 #[cfg(feature = "Win32_Foundation")]
 pub type UEnumCharNamesFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8;
 #[repr(C)]
-pub struct UEnumeration(i32);
+pub struct UEnumeration(pub u8);
 #[repr(transparent)]
 pub struct UErrorCode(pub i32);
 pub const U_USING_FALLBACK_WARNING: UErrorCode = UErrorCode(-128i32);
@@ -3800,7 +3801,7 @@ pub const UFIELD_CATEGORY_DATE_INTERVAL_SPAN: UFieldCategory = UFieldCategory(41
 #[repr(C)]
 pub struct UFieldPosition(i32);
 #[repr(C)]
-pub struct UFieldPositionIterator(i32);
+pub struct UFieldPositionIterator(pub u8);
 #[repr(transparent)]
 pub struct UFormattableType(pub i32);
 pub const UFMT_DATE: UFormattableType = UFormattableType(0i32);
@@ -3811,24 +3812,24 @@ pub const UFMT_ARRAY: UFormattableType = UFormattableType(4i32);
 pub const UFMT_INT64: UFormattableType = UFormattableType(5i32);
 pub const UFMT_OBJECT: UFormattableType = UFormattableType(6i32);
 #[repr(C)]
-pub struct UFormattedDateInterval(i32);
+pub struct UFormattedDateInterval(pub u8);
 #[repr(C)]
-pub struct UFormattedList(i32);
+pub struct UFormattedList(pub u8);
 #[repr(C)]
-pub struct UFormattedNumber(i32);
+pub struct UFormattedNumber(pub u8);
 #[repr(C)]
-pub struct UFormattedNumberRange(i32);
+pub struct UFormattedNumberRange(pub u8);
 #[repr(C)]
-pub struct UFormattedRelativeDateTime(i32);
+pub struct UFormattedRelativeDateTime(pub u8);
 #[repr(C)]
-pub struct UFormattedValue(i32);
+pub struct UFormattedValue(pub u8);
 #[repr(transparent)]
 pub struct UGender(pub i32);
 pub const UGENDER_MALE: UGender = UGender(0i32);
 pub const UGENDER_FEMALE: UGender = UGender(1i32);
 pub const UGENDER_OTHER: UGender = UGender(2i32);
 #[repr(C)]
-pub struct UGenderInfo(i32);
+pub struct UGenderInfo(pub u8);
 #[repr(transparent)]
 pub struct UGraphemeClusterBreak(pub i32);
 pub const U_GCB_OTHER: UGraphemeClusterBreak = UGraphemeClusterBreak(0i32);
@@ -3858,9 +3859,9 @@ pub const U_HST_TRAILING_JAMO: UHangulSyllableType = UHangulSyllableType(3i32);
 pub const U_HST_LV_SYLLABLE: UHangulSyllableType = UHangulSyllableType(4i32);
 pub const U_HST_LVT_SYLLABLE: UHangulSyllableType = UHangulSyllableType(5i32);
 #[repr(C)]
-pub struct UHashtable(i32);
+pub struct UHashtable(pub u8);
 #[repr(C)]
-pub struct UIDNA(i32);
+pub struct UIDNA(pub u8);
 #[repr(C)]
 pub struct UIDNAInfo(i32);
 pub const UIDNA_CHECK_BIDI: i32 = 4i32;
@@ -4128,7 +4129,7 @@ pub const UBRK_LINE_SOFT_LIMIT: ULineBreakTag = ULineBreakTag(100i32);
 pub const UBRK_LINE_HARD: ULineBreakTag = ULineBreakTag(100i32);
 pub const UBRK_LINE_HARD_LIMIT: ULineBreakTag = ULineBreakTag(200i32);
 #[repr(C)]
-pub struct UListFormatter(i32);
+pub struct UListFormatter(pub u8);
 #[repr(transparent)]
 pub struct UListFormatterField(pub i32);
 pub const ULISTFMT_LITERAL_FIELD: UListFormatterField = UListFormatterField(0i32);
@@ -4153,7 +4154,7 @@ pub struct ULocDataLocaleType(pub i32);
 pub const ULOC_ACTUAL_LOCALE: ULocDataLocaleType = ULocDataLocaleType(0i32);
 pub const ULOC_VALID_LOCALE: ULocDataLocaleType = ULocDataLocaleType(1i32);
 #[repr(C)]
-pub struct ULocaleData(i32);
+pub struct ULocaleData(pub u8);
 #[repr(transparent)]
 pub struct ULocaleDataDelimiterType(pub i32);
 pub const ULOCDATA_QUOTATION_START: ULocaleDataDelimiterType = ULocaleDataDelimiterType(0i32);
@@ -4167,7 +4168,7 @@ pub const ULOCDATA_ES_AUXILIARY: ULocaleDataExemplarSetType = ULocaleDataExempla
 pub const ULOCDATA_ES_INDEX: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(2i32);
 pub const ULOCDATA_ES_PUNCTUATION: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(3i32);
 #[repr(C)]
-pub struct ULocaleDisplayNames(i32);
+pub struct ULocaleDisplayNames(pub u8);
 pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
 pub const UMSGPAT_ARG_NAME_NOT_VALID: i32 = -2i32;
 #[repr(transparent)]
@@ -4214,7 +4215,7 @@ pub const UMSGPAT_PART_TYPE_ARG_SELECTOR: UMessagePatternPartType = UMessagePatt
 pub const UMSGPAT_PART_TYPE_ARG_INT: UMessagePatternPartType = UMessagePatternPartType(12i32);
 pub const UMSGPAT_PART_TYPE_ARG_DOUBLE: UMessagePatternPartType = UMessagePatternPartType(13i32);
 #[repr(C)]
-pub struct UMutableCPTrie(i32);
+pub struct UMutableCPTrie(pub u8);
 pub type UNESCAPE_CHAR_AT = unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16;
 #[repr(C)]
 pub struct UNICODERANGE(i32);
@@ -4242,7 +4243,7 @@ pub const UNORM_NFKC: UNormalizationMode = UNormalizationMode(5i32);
 pub const UNORM_FCD: UNormalizationMode = UNormalizationMode(6i32);
 pub const UNORM_MODE_COUNT: UNormalizationMode = UNormalizationMode(7i32);
 #[repr(C)]
-pub struct UNormalizer2(i32);
+pub struct UNormalizer2(pub u8);
 #[repr(transparent)]
 pub struct UNumberCompactStyle(pub i32);
 pub const UNUM_SHORT: UNumberCompactStyle = UNumberCompactStyle(0i32);
@@ -4379,7 +4380,7 @@ pub const UNUM_CURRENCY_CODE: UNumberFormatTextAttribute = UNumberFormatTextAttr
 pub const UNUM_DEFAULT_RULESET: UNumberFormatTextAttribute = UNumberFormatTextAttribute(6i32);
 pub const UNUM_PUBLIC_RULESETS: UNumberFormatTextAttribute = UNumberFormatTextAttribute(7i32);
 #[repr(C)]
-pub struct UNumberFormatter(i32);
+pub struct UNumberFormatter(pub u8);
 #[repr(transparent)]
 pub struct UNumberGroupingStrategy(pub i32);
 pub const UNUM_GROUPING_OFF: UNumberGroupingStrategy = UNumberGroupingStrategy(0i32);
@@ -4423,7 +4424,7 @@ pub const UNUM_UNIT_WIDTH_ISO_CODE: UNumberUnitWidth = UNumberUnitWidth(3i32);
 pub const UNUM_UNIT_WIDTH_HIDDEN: UNumberUnitWidth = UNumberUnitWidth(4i32);
 pub const UNUM_UNIT_WIDTH_COUNT: UNumberUnitWidth = UNumberUnitWidth(5i32);
 #[repr(C)]
-pub struct UNumberingSystem(i32);
+pub struct UNumberingSystem(pub u8);
 #[repr(transparent)]
 pub struct UNumericType(pub i32);
 pub const U_NT_NONE: UNumericType = UNumericType(0i32);
@@ -4433,7 +4434,7 @@ pub const U_NT_NUMERIC: UNumericType = UNumericType(3i32);
 #[repr(C)]
 pub struct UParseError(i32);
 #[repr(C)]
-pub struct UPluralRules(i32);
+pub struct UPluralRules(pub u8);
 #[repr(transparent)]
 pub struct UPluralType(pub i32);
 pub const UPLURAL_TYPE_CARDINAL: UPluralType = UPluralType(0i32);
@@ -4569,7 +4570,7 @@ pub const UREGEX_UNIX_LINES: URegexpFlag = URegexpFlag(1i32);
 pub const UREGEX_UWORD: URegexpFlag = URegexpFlag(256i32);
 pub const UREGEX_ERROR_ON_UNKNOWN_ESCAPES: URegexpFlag = URegexpFlag(512i32);
 #[repr(C)]
-pub struct URegion(i32);
+pub struct URegion(pub u8);
 #[repr(transparent)]
 pub struct URegionType(pub i32);
 pub const URGN_UNKNOWN: URegionType = URegionType(0i32);
@@ -4580,9 +4581,9 @@ pub const URGN_SUBCONTINENT: URegionType = URegionType(4i32);
 pub const URGN_GROUPING: URegionType = URegionType(5i32);
 pub const URGN_DEPRECATED: URegionType = URegionType(6i32);
 #[repr(C)]
-pub struct URegularExpression(i32);
+pub struct URegularExpression(pub u8);
 #[repr(C)]
-pub struct URelativeDateTimeFormatter(i32);
+pub struct URelativeDateTimeFormatter(pub u8);
 #[repr(transparent)]
 pub struct URelativeDateTimeFormatterField(pub i32);
 pub const UDAT_REL_LITERAL_FIELD: URelativeDateTimeFormatterField = URelativeDateTimeFormatterField(0i32);
@@ -4617,7 +4618,7 @@ pub const URES_INT: UResType = UResType(7i32);
 pub const URES_ARRAY: UResType = UResType(8i32);
 pub const URES_INT_VECTOR: UResType = UResType(14i32);
 #[repr(C)]
-pub struct UResourceBundle(i32);
+pub struct UResourceBundle(pub u8);
 #[repr(transparent)]
 pub struct URestrictionLevel(pub i32);
 pub const USPOOF_ASCII: URestrictionLevel = URestrictionLevel(268435456i32);
@@ -4845,7 +4846,7 @@ pub const USCRIPT_USAGE_LIMITED_USE: UScriptUsage = UScriptUsage(3i32);
 pub const USCRIPT_USAGE_ASPIRATIONAL: UScriptUsage = UScriptUsage(4i32);
 pub const USCRIPT_USAGE_RECOMMENDED: UScriptUsage = UScriptUsage(5i32);
 #[repr(C)]
-pub struct USearch(i32);
+pub struct USearch(pub u8);
 #[repr(transparent)]
 pub struct USearchAttribute(pub i32);
 pub const USEARCH_OVERLAP: USearchAttribute = USearchAttribute(0i32);
@@ -4884,16 +4885,16 @@ pub const UBRK_SENTENCE_SEP_LIMIT: USentenceBreakTag = USentenceBreakTag(200i32)
 #[repr(C)]
 pub struct USerializedSet(i32);
 #[repr(C)]
-pub struct USet(i32);
+pub struct USet(pub u8);
 #[repr(transparent)]
 pub struct USetSpanCondition(pub i32);
 pub const USET_SPAN_NOT_CONTAINED: USetSpanCondition = USetSpanCondition(0i32);
 pub const USET_SPAN_CONTAINED: USetSpanCondition = USetSpanCondition(1i32);
 pub const USET_SPAN_SIMPLE: USetSpanCondition = USetSpanCondition(2i32);
 #[repr(C)]
-pub struct USpoofCheckResult(i32);
+pub struct USpoofCheckResult(pub u8);
 #[repr(C)]
-pub struct USpoofChecker(i32);
+pub struct USpoofChecker(pub u8);
 #[repr(transparent)]
 pub struct USpoofChecks(pub i32);
 pub const USPOOF_SINGLE_SCRIPT_CONFUSABLE: USpoofChecks = USpoofChecks(1i32);
@@ -4909,7 +4910,7 @@ pub const USPOOF_ALL_CHECKS: USpoofChecks = USpoofChecks(65535i32);
 pub const USPOOF_AUX_INFO: USpoofChecks = USpoofChecks(1073741824i32);
 pub type UStringCaseMapper = unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
 #[repr(C)]
-pub struct UStringPrepProfile(i32);
+pub struct UStringPrepProfile(pub u8);
 #[repr(transparent)]
 pub struct UStringPrepProfileType(pub i32);
 pub const USPREP_RFC3491_NAMEPREP: UStringPrepProfileType = UStringPrepProfileType(0i32);
@@ -4927,7 +4928,7 @@ pub const USPREP_RFC4505_TRACE: UStringPrepProfileType = UStringPrepProfileType(
 pub const USPREP_RFC4518_LDAP: UStringPrepProfileType = UStringPrepProfileType(12i32);
 pub const USPREP_RFC4518_LDAP_CI: UStringPrepProfileType = UStringPrepProfileType(13i32);
 #[repr(C)]
-pub struct UStringSearch(i32);
+pub struct UStringSearch(pub u8);
 #[repr(transparent)]
 pub struct UStringTrieBuildOption(pub i32);
 pub const USTRINGTRIE_BUILD_FAST: UStringTrieBuildOption = UStringTrieBuildOption(0i32);

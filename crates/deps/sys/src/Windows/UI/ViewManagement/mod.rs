@@ -237,8 +237,6 @@ impl UserInteractionMode {
     pub const Mouse: Self = Self(0i32);
     pub const Touch: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct ViewManagementViewScalingContract(i32);
 #[repr(transparent)]
 pub struct ViewModePreferences(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

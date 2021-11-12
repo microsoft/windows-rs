@@ -270,4 +270,4 @@ pub const BaseTrust: TrustLevel = TrustLevel(0i32);
 pub const PartialTrust: TrustLevel = TrustLevel(1i32);
 pub const FullTrust: TrustLevel = TrustLevel(2i32);
 #[repr(C)]
-pub struct _RO_REGISTRATION_COOKIE(i32);
+pub struct _RO_REGISTRATION_COOKIE(pub u8);

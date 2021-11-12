@@ -2202,8 +2202,7 @@ pub const NWSAP_EVENT_WANHANDLEMEMORY_ERROR: i32 = -1073733292i32;
 pub const NWSAP_EVENT_WANSEM_FAIL: i32 = -1073733298i32;
 pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
 pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
-#[repr(C)]
-pub struct NetProvisioning(i32);
+pub const NetProvisioning: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 715306494, data2: 47174, data3: 19719, data4: [129, 12, 178, 30, 228, 83, 32, 227] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct OBO_TOKEN(i32);

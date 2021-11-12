@@ -516,14 +516,15 @@ pub const CRESTRICTIONS_MDSCHEMA_MEMBERS: u32 = 12u32;
 pub const CRESTRICTIONS_MDSCHEMA_PROPERTIES: u32 = 9u32;
 pub const CRESTRICTIONS_MDSCHEMA_SETS: u32 = 5u32;
 pub const CSTORAGEPROPERTY: u32 = 23u32;
-#[repr(C)]
-pub struct CSearchLanguageSupport(i32);
-#[repr(C)]
-pub struct CSearchManager(i32);
-#[repr(C)]
-pub struct CSearchRoot(i32);
-#[repr(C)]
-pub struct CSearchScopeRule(i32);
+pub const CSearchLanguageSupport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1785252992, data2: 17207, data3: 19900, data4: [189, 39, 251, 251, 16, 83, 130, 11] };
+pub const CSearchManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2097769567, data2: 44040, data3: 20255, data4: [190, 183, 92, 34, 197, 23, 206, 57] };
+pub const CSearchRoot: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 813067218, data2: 59932, data3: 20264, data4: [191, 39, 11, 68, 226, 246, 141, 183] };
+pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3862816592,
+    data2: 15319,
+    data3: 19429,
+    data4: [156, 132, 107, 66, 129, 152, 140, 68],
+};
 #[repr(transparent)]
 pub struct CatalogPausedReason(pub i32);
 pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = CatalogPausedReason(0i32);
@@ -546,10 +547,13 @@ pub const CATALOG_STATUS_FULL_CRAWL: CatalogStatus = CatalogStatus(3i32);
 pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = CatalogStatus(4i32);
 pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = CatalogStatus(5i32);
 pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = CatalogStatus(6i32);
-#[repr(C)]
-pub struct CompoundCondition(i32);
-#[repr(C)]
-pub struct ConditionFactory(i32);
+pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 292523283, data2: 4126, data3: 20389, data4: [132, 212, 255, 130, 121, 56, 25, 53] };
+pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3762193840,
+    data2: 31715,
+    data3: 16384,
+    data4: [186, 152, 108, 19, 222, 159, 164, 134],
+};
 #[repr(C)]
 pub struct DATE_STRUCT(i32);
 #[repr(transparent)]
@@ -2069,8 +2073,7 @@ pub const DS_E_TOOMANYDATASOURCES: i32 = -2147220461i32;
 pub const DS_E_UNKNOWNPARAM: i32 = -2147220450i32;
 pub const DS_E_UNKNOWNREQUEST: i32 = -2147220476i32;
 pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
-#[repr(C)]
-pub struct DataLinks(i32);
+pub const DataLinks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 570871218, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
 #[repr(transparent)]
 pub struct DataSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2414,8 +2417,7 @@ pub const FTE_S_RESOURCES_STARTING_TO_GET_LOW: i32 = 275993i32;
 pub const FTE_S_RESUME: i32 = 276014i32;
 pub const FTE_S_STATUS_CHANGE_REQUEST: i32 = 276011i32;
 pub const FTE_S_TRY_TO_FLUSH: i32 = 276055i32;
-#[repr(C)]
-pub struct FilterRegistration(i32);
+pub const FilterRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2652330893, data2: 62762, data3: 4568, data4: [185, 165, 80, 80, 84, 80, 48, 48] };
 pub const GENERATE_METHOD_PREFIXMATCH: u32 = 1u32;
 pub const GENERATE_METHOD_STEMMED: u32 = 2u32;
 pub const GHTR_E_INSUFFICIENT_DISK_SPACE: i32 = -2147218037i32;
@@ -2821,7 +2823,7 @@ pub struct IRowsetCurrentIndex(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IRowsetEvents(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IRowsetExactScroll(i32);
+pub struct IRowsetExactScroll(pub u8);
 #[repr(transparent)]
 pub struct IRowsetFastLoad(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2986,8 +2988,12 @@ pub struct IWordBreaker(pub *mut ::core::ffi::c_void);
 pub struct IWordFormSink(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWordSink(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct Interval(i32);
+pub const Interval: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3646363423,
+    data2: 19449,
+    data3: 19938,
+    data4: [188, 213, 199, 10, 124, 165, 88, 54],
+};
 pub const JET_GET_PROP_STORE_ERROR: i32 = -1073732822i32;
 pub const JET_INIT_ERROR: i32 = -1073732824i32;
 pub const JET_MULTIINSTANCE_DISABLED: i32 = -2147474645i32;
@@ -3059,8 +3065,12 @@ pub struct LOCKMODEENUM(pub i32);
 pub const LOCKMODE_INVALID: LOCKMODEENUM = LOCKMODEENUM(0i32);
 pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = LOCKMODEENUM(1i32);
 pub const LOCKMODE_SHARED: LOCKMODEENUM = LOCKMODEENUM(2i32);
-#[repr(C)]
-pub struct LeafCondition(i32);
+pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1391549577,
+    data2: 23063,
+    data3: 18657,
+    data4: [187, 205, 70, 163, 248, 156, 124, 194],
+};
 pub const MAXNAME: u32 = 129u32;
 pub const MAXNUMERICLEN: u32 = 16u32;
 pub const MAXUSEVERITY: u32 = 18u32;
@@ -3226,16 +3236,21 @@ pub const MD_E_INVALIDAXIS: ::windows_sys::core::HRESULT = ::windows_sys::core::
 pub const MD_E_INVALIDCELLRANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217820i32 as _);
 pub const MINFATALERR: u32 = 20u32;
 pub const MIN_USER_DATATYPE: u32 = 256u32;
-#[repr(C)]
-pub struct MSDAINITIALIZE(i32);
-#[repr(C)]
-pub struct MSDAORA(i32);
-#[repr(C)]
-pub struct MSDAORA8(i32);
-#[repr(C)]
-pub struct MSDAORA8_ERROR(i32);
-#[repr(C)]
-pub struct MSDAORA_ERROR(i32);
+pub const MSDAINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 570871216, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
+pub const MSDAORA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3905703102, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
+pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2131141491,
+    data2: 56682,
+    data3: 17371,
+    data4: [180, 224, 31, 193, 33, 229, 230, 43],
+};
+pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2131141492,
+    data2: 56682,
+    data3: 17371,
+    data4: [180, 224, 31, 193, 33, 229, 230, 43],
+};
+pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3905703103, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
 #[repr(transparent)]
 pub struct MSDSDBINITPROPENUM(pub i32);
 pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = MSDSDBINITPROPENUM(2i32);
@@ -3297,8 +3312,7 @@ pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
 #[repr(C)]
 pub struct NOTRESTRICTION(i32);
 pub const NOT_N_PARSE_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(526638i32 as _);
-#[repr(C)]
-pub struct NegationCondition(i32);
+pub const NegationCondition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2380908364, data2: 24666, data3: 19149, data4: [190, 227, 43, 34, 42, 162, 210, 61] };
 pub const OCC_INVALID: u32 = 4294967295u32;
 pub const ODBCVER: u32 = 896u32;
 pub const ODBC_ADD_DSN: u32 = 1u32;
@@ -3387,8 +3401,7 @@ pub const OSPXFER_COMPLETE: OSPXFER = OSPXFER(0i32);
 pub const OSPXFER_ABORT: OSPXFER = OSPXFER(1i32);
 pub const OSPXFER_ERROR: OSPXFER = OSPXFER(2i32);
 pub const OSP_IndexLabel: u32 = 0u32;
-#[repr(C)]
-pub struct PDPO(i32);
+pub const PDPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3434409056, data2: 47580, data3: 4561, data4: [172, 128, 0, 160, 201, 3, 72, 115] };
 pub const PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: i32 = -2147205110i32;
 pub const PEOPLE_IMPORT_E_DATATYPENOTSUPPORTED: i32 = -2147205115i32;
 pub const PEOPLE_IMPORT_E_DBCONNFAIL: i32 = -2147205120i32;
@@ -3518,10 +3531,8 @@ pub const QUERY_SORTDEFAULT: u32 = 4u32;
 pub const QUERY_SORTXASCEND: u32 = 2u32;
 pub const QUERY_SORTXDESCEND: u32 = 3u32;
 pub const QUERY_VALIDBITS: u32 = 3u32;
-#[repr(C)]
-pub struct QueryParser(i32);
-#[repr(C)]
-pub struct QueryParserManager(i32);
+pub const QueryParser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3073347544, data2: 4011, data3: 19929, data4: [189, 191, 36, 90, 108, 225, 72, 91] };
+pub const QueryParserManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1351136154, data2: 10676, data3: 19869, data4: [130, 69, 78, 226, 137, 34, 47, 102] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[repr(C)]
 pub struct RANGECATEGORIZE(i32);
@@ -3571,8 +3582,7 @@ pub const RTOr: u32 = 2u32;
 pub const RTProperty: u32 = 5u32;
 pub const RTProximity: u32 = 6u32;
 pub const RTVector: u32 = 7u32;
-#[repr(C)]
-pub struct RootBinder(i32);
+pub const RootBinder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4279572514, data2: 45247, data3: 4561, data4: [168, 13, 0, 0, 0, 0, 0, 0] };
 pub const SCHEMA_E_ADDSTOPWORDS: i32 = -2147218420i32;
 pub const SCHEMA_E_BADATTRIBUTE: i32 = -2147218412i32;
 pub const SCHEMA_E_BADCOLUMNNAME: i32 = -2147218414i32;
@@ -5504,8 +5514,7 @@ pub const SUBSMGRUPDATE_MINIMIZE: u32 = 1u32;
 pub const SUCCEED: u32 = 1u32;
 pub const SUCCEED_ABORT: u32 = 2u32;
 pub const SUCCEED_ASYNC: u32 = 3u32;
-#[repr(C)]
-pub struct SubscriptionMgr(i32);
+pub const SubscriptionMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2881368528, data2: 28078, data3: 4560, data4: [190, 202, 0, 192, 79, 217, 64, 190] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct TEXT_SOURCE(i32);

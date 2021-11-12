@@ -42,8 +42,6 @@ impl SocialFeedUpdateMode {
     pub const Append: Self = Self(0i32);
     pub const Replace: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct SocialInfoContract(i32);
 #[repr(transparent)]
 pub struct SocialItemBadgeStyle(pub i32);
 impl SocialItemBadgeStyle {

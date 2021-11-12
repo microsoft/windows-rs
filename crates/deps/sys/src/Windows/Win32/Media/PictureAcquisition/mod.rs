@@ -130,18 +130,12 @@ pub const PROGRESS_DIALOG_ICON_LARGE: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIAL
 pub const PROGRESS_DIALOG_ICON_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(2i32);
 pub const PROGRESS_DIALOG_BITMAP_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(3i32);
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
-#[repr(C)]
-pub struct PhotoAcquire(i32);
-#[repr(C)]
-pub struct PhotoAcquireAutoPlayDropTarget(i32);
-#[repr(C)]
-pub struct PhotoAcquireAutoPlayHWEventHandler(i32);
-#[repr(C)]
-pub struct PhotoAcquireDeviceSelectionDialog(i32);
-#[repr(C)]
-pub struct PhotoAcquireOptionsDialog(i32);
-#[repr(C)]
-pub struct PhotoProgressDialog(i32);
+pub const PhotoAcquire: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 15887874, data2: 59890, data3: 19103, data4: [159, 221, 90, 150, 47, 178, 106, 152] };
+pub const PhotoAcquireAutoPlayDropTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 15863477, data2: 36822, data3: 19869, data4: [183, 94, 54, 128, 23, 102, 200, 241] };
+pub const PhotoAcquireAutoPlayHWEventHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 15905843, data2: 17636, data3: 19848, data4: [178, 176, 38, 152, 160, 169, 29, 186] };
+pub const PhotoAcquireDeviceSelectionDialog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 15899188, data2: 47265, data3: 18476, data4: [188, 248, 58, 199, 176, 254, 143, 98] };
+pub const PhotoAcquireOptionsDialog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 15863969, data2: 25328, data3: 17291, data4: [159, 126, 150, 24, 215, 42, 24, 49] };
+pub const PhotoProgressDialog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 15879328, data2: 29839, data3: 20106, data4: [137, 79, 14, 3, 87, 198, 121, 159] };
 #[repr(transparent)]
 pub struct USER_INPUT_STRING_TYPE(pub i32);
 pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(0i32);

@@ -1246,8 +1246,7 @@ pub const IPM_SETRANGE: u32 = 1127u32;
 pub const I_IMAGECALLBACK: i32 = -1i32;
 pub const I_IMAGENONE: i32 = -2i32;
 pub const I_INDENTCALLBACK: i32 = -1i32;
-#[repr(C)]
-pub struct ImageList(i32);
+pub const ImageList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2085055394, data2: 689, data3: 18676, data4: [128, 72, 178, 70, 25, 221, 192, 88] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct LHITTESTINFO(i32);

@@ -1220,10 +1220,13 @@ pub const WiaAudFmt_WMA: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17295,
     data4: [147, 173, 33, 189, 72, 77, 182, 161],
 };
-#[repr(C)]
-pub struct WiaDevMgr(i32);
-#[repr(C)]
-pub struct WiaDevMgr2(i32);
+pub const WiaDevMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2717181734, data2: 36081, data3: 4561, data4: [191, 146, 0, 96, 8, 30, 216, 17] };
+pub const WiaDevMgr2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3066204860,
+    data2: 31880,
+    data3: 16878,
+    data4: [139, 84, 142, 201, 38, 23, 229, 153],
+};
 pub const WiaImgFmt_ASF: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2375323369,
     data2: 53418,
@@ -1364,9 +1367,12 @@ pub const WiaItemTypeTransfer: u32 = 8192u32;
 pub const WiaItemTypeTwainCapabilityPassThrough: u32 = 131072u32;
 pub const WiaItemTypeVPanorama: u32 = 1024u32;
 pub const WiaItemTypeVideo: u32 = 65536u32;
-#[repr(C)]
-pub struct WiaLog(i32);
+pub const WiaLog: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2716291927,
+    data2: 34842,
+    data3: 16798,
+    data4: [131, 226, 187, 22, 219, 25, 124, 104],
+};
 #[repr(C)]
 pub struct WiaTransferParams(i32);
-#[repr(C)]
-pub struct WiaVideo(i32);
+pub const WiaVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 956875725, data2: 17528, data3: 17718, data4: [175, 47, 16, 194, 93, 78, 248, 154] };

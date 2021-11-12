@@ -188,8 +188,6 @@ impl RemovalOptions {
 }
 #[repr(transparent)]
 pub struct SharedPackageContainer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SharedPackageContainerContract(i32);
 #[repr(transparent)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {

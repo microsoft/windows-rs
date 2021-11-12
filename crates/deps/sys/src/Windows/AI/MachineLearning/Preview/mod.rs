@@ -78,8 +78,6 @@ impl LearningModelFeatureKindPreview {
 pub struct LearningModelPreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LearningModelVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MachineLearningPreviewContract(i32);
 #[repr(transparent)]
 pub struct MapVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

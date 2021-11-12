@@ -7,10 +7,13 @@ extern "system" {
     pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
     pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut IXAudio2, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct AudioReverb(i32);
-#[repr(C)]
-pub struct AudioVolumeMeter(i32);
+pub const AudioReverb: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3261283094, data2: 18203, data3: 17560, data4: [184, 197, 79, 9, 89, 226, 236, 9] };
+pub const AudioVolumeMeter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1338224998,
+    data2: 38698,
+    data3: 16591,
+    data4: [188, 55, 125, 176, 61, 178, 251, 163],
+};
 pub const FACILITY_XAPO: u32 = 2199u32;
 pub const FACILITY_XAUDIO2: u32 = 2198u32;
 pub const FXECHO_DEFAULT_DELAY: f32 = 500f32;
@@ -26,8 +29,12 @@ pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
 pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
 #[repr(C)]
 pub struct FXECHO_PARAMETERS(i32);
-#[repr(C)]
-pub struct FXEQ(i32);
+pub const FXEQ: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4125102359,
+    data2: 54980,
+    data3: 18522,
+    data4: [163, 245, 105, 81, 150, 243, 219, 250],
+};
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
 pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100f32;
 pub const FXEQ_DEFAULT_FREQUENCY_CENTER_1: f32 = 800f32;
@@ -44,8 +51,7 @@ pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
 pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
 #[repr(C)]
 pub struct FXEQ_PARAMETERS(i32);
-#[repr(C)]
-pub struct FXEcho(i32);
+pub const FXEcho: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1345967936, data2: 63286, data3: 17562, data4: [132, 211, 165, 98, 2, 85, 123, 135] };
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
 pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
 pub const FXMASTERINGLIMITER_DEFAULT_LOUDNESS: u32 = 1000u32;
@@ -56,8 +62,7 @@ pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
 pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
 #[repr(C)]
 pub struct FXMASTERINGLIMITER_PARAMETERS(i32);
-#[repr(C)]
-pub struct FXMasteringLimiter(i32);
+pub const FXMasteringLimiter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3289610518, data2: 11233, data3: 18173, data4: [133, 153, 68, 21, 54, 244, 152, 86] };
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
 pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
 pub const FXREVERB_MAX_DIFFUSION: f32 = 1f32;
@@ -66,8 +71,7 @@ pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
 pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
 #[repr(C)]
 pub struct FXREVERB_PARAMETERS(i32);
-#[repr(C)]
-pub struct FXReverb(i32);
+pub const FXReverb: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2107296342, data2: 52072, data3: 18439, data4: [182, 50, 177, 55, 53, 46, 133, 150] };
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
 pub const HRTF_MAX_GAIN_LIMIT: f32 = 12f32;
 pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;

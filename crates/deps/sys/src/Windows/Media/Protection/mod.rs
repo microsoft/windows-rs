@@ -75,8 +75,6 @@ impl ProtectionCapabilityResult {
     pub const Maybe: Self = Self(1i32);
     pub const Probably: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct ProtectionRenewalContract(i32);
 #[repr(transparent)]
 pub struct RebootNeededEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

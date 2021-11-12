@@ -26,8 +26,6 @@ impl SecurityAppKind {
 }
 #[repr(transparent)]
 pub struct SecurityAppManager(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SecurityAppManagerContract(i32);
 #[repr(transparent)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {

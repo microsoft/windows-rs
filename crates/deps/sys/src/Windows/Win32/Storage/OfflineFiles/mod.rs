@@ -362,7 +362,15 @@ pub const OFFLINEFILES_SYNC_STATE_LOCAL_KNOWN: u32 = 1u32;
 pub const OFFLINEFILES_SYNC_STATE_REMOTE_KNOWN: u32 = 2u32;
 pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
 pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
-#[repr(C)]
-pub struct OfflineFilesCache(i32);
-#[repr(C)]
-pub struct OfflineFilesSetting(i32);
+pub const OfflineFilesCache: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1220984444,
+    data2: 14449,
+    data3: 17356,
+    data4: [180, 111, 20, 73, 161, 187, 47, 243],
+};
+pub const OfflineFilesSetting: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4248197609,
+    data2: 43296,
+    data3: 16675,
+    data4: [173, 100, 127, 199, 108, 122, 172, 223],
+};

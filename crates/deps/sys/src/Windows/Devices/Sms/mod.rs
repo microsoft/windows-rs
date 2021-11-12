@@ -74,8 +74,6 @@ pub struct ISmsTextMessageStatics(pub *mut ::core::ffi::c_void);
 pub struct ISmsVoicemailMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISmsWapMessage(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LegacySmsApiContract(i32);
 #[repr(transparent)]
 pub struct SendSmsMessageOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

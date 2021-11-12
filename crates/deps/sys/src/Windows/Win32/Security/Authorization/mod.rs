@@ -592,12 +592,19 @@ pub const AZ_CLIENT_CONTEXT_SKIP_GROUP: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i
 pub const AZ_CLIENT_CONTEXT_SKIP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
 pub const AZ_CLIENT_CONTEXT_GET_GROUP_RECURSIVE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
 pub const AZ_CLIENT_CONTEXT_GET_GROUPS_STORE_LEVEL_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[repr(C)]
-pub struct AzAuthorizationStore(i32);
-#[repr(C)]
-pub struct AzBizRuleContext(i32);
-#[repr(C)]
-pub struct AzPrincipalLocator(i32);
+pub const AzAuthorizationStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2998730585,
+    data2: 42839,
+    data3: 19211,
+    data4: [161, 188, 234, 105, 152, 29, 166, 158],
+};
+pub const AzBizRuleContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1546504559,
+    data2: 36177,
+    data3: 17227,
+    data4: [179, 60, 55, 155, 204, 174, 119, 195],
+};
+pub const AzPrincipalLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1211824989, data2: 28895, data3: 19990, data4: [171, 220, 161, 222, 77, 1, 90, 62] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct EXPLICIT_ACCESS_A(i32);

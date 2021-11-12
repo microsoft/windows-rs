@@ -85,8 +85,7 @@ pub const E_WPD_SERVICE_NOT_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const E_WPD_SMS_INVALID_MESSAGE_BODY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731035i32 as _);
 pub const E_WPD_SMS_INVALID_RECIPIENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731036i32 as _);
 pub const E_WPD_SMS_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731034i32 as _);
-#[repr(C)]
-pub struct EnumBthMtpConnectors(i32);
+pub const EnumBthMtpConnectors: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2706833737, data2: 58949, data3: 20291, data4: [139, 13, 64, 155, 6, 29, 178, 252] };
 pub const FACILITY_WPD: u32 = 42u32;
 pub const FLAG_MessageObj_DayOfWeekFriday: u32 = 32u32;
 pub const FLAG_MessageObj_DayOfWeekMonday: u32 = 2u32;
@@ -179,28 +178,42 @@ pub struct IRadioInstance(pub *mut ::core::ffi::c_void);
 pub struct IRadioInstanceCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWpdSerializer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PortableDevice(i32);
-#[repr(C)]
-pub struct PortableDeviceDispatchFactory(i32);
-#[repr(C)]
-pub struct PortableDeviceFTM(i32);
-#[repr(C)]
-pub struct PortableDeviceKeyCollection(i32);
-#[repr(C)]
-pub struct PortableDeviceManager(i32);
-#[repr(C)]
-pub struct PortableDevicePropVariantCollection(i32);
-#[repr(C)]
-pub struct PortableDeviceService(i32);
-#[repr(C)]
-pub struct PortableDeviceServiceFTM(i32);
-#[repr(C)]
-pub struct PortableDeviceValues(i32);
-#[repr(C)]
-pub struct PortableDeviceValuesCollection(i32);
-#[repr(C)]
-pub struct PortableDeviceWebControl(i32);
+pub const PortableDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1921655237, data2: 15774, data3: 18647, data4: [152, 16, 134, 72, 72, 240, 244, 4] };
+pub const PortableDeviceDispatchFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1126375987, data2: 33592, data3: 18008, data4: [174, 1, 11, 74, 232, 48, 182, 176] };
+pub const PortableDeviceFTM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4156556186,
+    data2: 18274,
+    data3: 18570,
+    data4: [180, 179, 118, 14, 249, 161, 186, 155],
+};
+pub const PortableDeviceKeyCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3727491629,
+    data2: 9344,
+    data3: 17342,
+    data4: [151, 240, 209, 250, 44, 249, 143, 79],
+};
+pub const PortableDeviceManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 183569644, data2: 11981, data3: 19346, data4: [149, 129, 52, 246, 174, 6, 55, 243] };
+pub const PortableDevicePropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 145333807,
+    data2: 28013,
+    data3: 19328,
+    data4: [175, 90, 186, 242, 188, 190, 76, 185],
+};
+pub const PortableDeviceService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4015895746,
+    data2: 37650,
+    data3: 16940,
+    data4: [145, 82, 65, 28, 217, 196, 221, 132],
+};
+pub const PortableDeviceServiceFTM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 373928276, data2: 51092, data3: 18810, data4: [155, 3, 243, 240, 18, 19, 2, 243] };
+pub const PortableDeviceValues: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 202757379, data2: 53271, data3: 18382, data4: [144, 22, 123, 63, 151, 135, 33, 204] };
+pub const PortableDeviceValuesCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 948048717, data2: 5327, data3: 16928, data4: [156, 180, 67, 95, 134, 216, 63, 96] };
+pub const PortableDeviceWebControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 409849900,
+    data2: 11756,
+    data3: 16821,
+    data4: [167, 212, 181, 144, 86, 250, 222, 81],
+};
 pub const RANGEMAX_MessageObj_PatternDayOfMonth: u32 = 31u32;
 pub const RANGEMAX_MessageObj_PatternMonthOfYear: u32 = 12u32;
 pub const RANGEMAX_StatusSvc_BatteryLife: u32 = 100u32;
@@ -5769,5 +5782,4 @@ pub const WPD_PARAMETER_ATTRIBUTE_FORM_RANGE: WpdParameterAttributeForm = WpdPar
 pub const WPD_PARAMETER_ATTRIBUTE_FORM_ENUMERATION: WpdParameterAttributeForm = WpdParameterAttributeForm(2i32);
 pub const WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttributeForm = WpdParameterAttributeForm(3i32);
 pub const WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = WpdParameterAttributeForm(4i32);
-#[repr(C)]
-pub struct WpdSerializer(i32);
+pub const WpdSerializer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 194094923, data2: 44412, data3: 19101, data4: [181, 99, 41, 238, 249, 22, 113, 114] };

@@ -542,7 +542,7 @@ pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
 #[repr(C)]
 pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR(i32);
 #[repr(C)]
-pub struct WS_CHANNEL(i32);
+pub struct WS_CHANNEL(pub u8);
 #[repr(transparent)]
 pub struct WS_CHANNEL_BINDING(pub i32);
 pub const WS_HTTP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(0i32);
@@ -762,7 +762,7 @@ pub const WS_ENVELOPE_VERSION_SOAP_1_1: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSIO
 pub const WS_ENVELOPE_VERSION_SOAP_1_2: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(2i32);
 pub const WS_ENVELOPE_VERSION_NONE: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(3i32);
 #[repr(C)]
-pub struct WS_ERROR(i32);
+pub struct WS_ERROR(pub u8);
 #[repr(C)]
 pub struct WS_ERROR_PROPERTY(i32);
 #[repr(transparent)]
@@ -851,7 +851,7 @@ pub const WS_FROM_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(5i32);
 pub const WS_REPLY_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(6i32);
 pub const WS_FAULT_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(7i32);
 #[repr(C)]
-pub struct WS_HEAP(i32);
+pub struct WS_HEAP(pub u8);
 #[repr(C)]
 pub struct WS_HEAP_PROPERTIES(i32);
 #[repr(C)]
@@ -975,7 +975,7 @@ pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
 #[repr(C)]
 pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
 #[repr(C)]
-pub struct WS_LISTENER(i32);
+pub struct WS_LISTENER(pub u8);
 #[repr(C)]
 pub struct WS_LISTENER_PROPERTIES(i32);
 #[repr(C)]
@@ -1018,7 +1018,7 @@ pub const WS_MATCH_URL_PORT: i32 = 32i32;
 pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128i32;
 pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
 #[repr(C)]
-pub struct WS_MESSAGE(i32);
+pub struct WS_MESSAGE(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WS_MESSAGE_DESCRIPTION(i32);
@@ -1069,7 +1069,7 @@ pub const WS_MESSAGE_STATE_READING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(3i32);
 pub const WS_MESSAGE_STATE_WRITING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(4i32);
 pub const WS_MESSAGE_STATE_DONE: WS_MESSAGE_STATE = WS_MESSAGE_STATE(5i32);
 #[repr(C)]
-pub struct WS_METADATA(i32);
+pub struct WS_METADATA(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WS_METADATA_ENDPOINT(i32);
@@ -1130,7 +1130,7 @@ pub type WS_OPEN_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *
 pub type WS_OPEN_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_OPERATION_CANCEL_CALLBACK = unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const ::core::ffi::c_void);
 #[repr(C)]
-pub struct WS_OPERATION_CONTEXT(i32);
+pub struct WS_OPERATION_CONTEXT(pub u8);
 #[repr(transparent)]
 pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(pub i32);
 pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(0i32);
@@ -1159,7 +1159,7 @@ pub const WS_PARAMETER_TYPE_ARRAY: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(1i32);
 pub const WS_PARAMETER_TYPE_ARRAY_COUNT: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(2i32);
 pub const WS_PARAMETER_TYPE_MESSAGES: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(3i32);
 #[repr(C)]
-pub struct WS_POLICY(i32);
+pub struct WS_POLICY(pub u8);
 #[repr(C)]
 pub struct WS_POLICY_CONSTRAINTS(i32);
 #[repr(C)]
@@ -1375,7 +1375,7 @@ pub const WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING
 #[repr(C)]
 pub struct WS_SECURITY_CONSTRAINTS(i32);
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT(i32);
+pub struct WS_SECURITY_CONTEXT(pub u8);
 #[repr(C)]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING(i32);
 #[repr(C)]
@@ -1451,7 +1451,7 @@ pub const WS_SECURITY_TIMESTAMP_USAGE_ALWAYS: WS_SECURITY_TIMESTAMP_USAGE = WS_S
 pub const WS_SECURITY_TIMESTAMP_USAGE_NEVER: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(2i32);
 pub const WS_SECURITY_TIMESTAMP_USAGE_REQUESTS_ONLY: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(3i32);
 #[repr(C)]
-pub struct WS_SECURITY_TOKEN(i32);
+pub struct WS_SECURITY_TOKEN(pub u8);
 #[repr(transparent)]
 pub struct WS_SECURITY_TOKEN_PROPERTY_ID(pub i32);
 pub const WS_SECURITY_TOKEN_PROPERTY_KEY_TYPE: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(1i32);
@@ -1503,7 +1503,7 @@ pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA: WS_SERVICE_ENDPOINT_PROPERTY_ID
 pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_URL_SUFFIX: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(13i32);
 pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CHANNELS: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(14i32);
 #[repr(C)]
-pub struct WS_SERVICE_HOST(i32);
+pub struct WS_SERVICE_HOST(pub u8);
 #[repr(transparent)]
 pub struct WS_SERVICE_HOST_STATE(pub i32);
 pub const WS_SERVICE_HOST_STATE_CREATED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(0i32);
@@ -1535,7 +1535,7 @@ pub const WS_SERVICE_PROPERTY_HOST_STATE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PR
 pub const WS_SERVICE_PROPERTY_METADATA: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(4i32);
 pub const WS_SERVICE_PROPERTY_CLOSE_TIMEOUT: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(5i32);
 #[repr(C)]
-pub struct WS_SERVICE_PROXY(i32);
+pub struct WS_SERVICE_PROXY(pub u8);
 #[repr(transparent)]
 pub struct WS_SERVICE_PROXY_STATE(pub i32);
 pub const WS_SERVICE_PROXY_STATE_CREATED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(0i32);
@@ -1989,7 +1989,7 @@ pub struct WS_XML_BASE64_TEXT(i32);
 #[repr(C)]
 pub struct WS_XML_BOOL_TEXT(i32);
 #[repr(C)]
-pub struct WS_XML_BUFFER(i32);
+pub struct WS_XML_BUFFER(pub u8);
 #[repr(C)]
 pub struct WS_XML_BUFFER_PROPERTY(i32);
 #[repr(transparent)]
@@ -2060,7 +2060,7 @@ pub struct WS_XML_QNAME_DESCRIPTION(i32);
 #[repr(C)]
 pub struct WS_XML_QNAME_TEXT(i32);
 #[repr(C)]
-pub struct WS_XML_READER(i32);
+pub struct WS_XML_READER(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WS_XML_READER_BINARY_ENCODING(i32);
@@ -2159,7 +2159,7 @@ pub struct WS_XML_UTF16_TEXT(i32);
 #[repr(C)]
 pub struct WS_XML_UTF8_TEXT(i32);
 #[repr(C)]
-pub struct WS_XML_WRITER(i32);
+pub struct WS_XML_WRITER(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WS_XML_WRITER_BINARY_ENCODING(i32);

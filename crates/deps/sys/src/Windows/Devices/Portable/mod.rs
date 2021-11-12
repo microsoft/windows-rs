@@ -5,8 +5,6 @@ extern "system" {}
 pub struct IServiceDeviceStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IStorageDeviceStatics(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PortableDeviceContract(i32);
 #[repr(transparent)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {

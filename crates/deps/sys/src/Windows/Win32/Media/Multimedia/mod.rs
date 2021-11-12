@@ -1013,8 +1013,7 @@ pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
 pub const JPEG_RGB: u32 = 3u32;
 pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
-#[repr(C)]
-pub struct KSDATAFORMAT_SUBTYPE_IEEE_FLOAT(i32);
+pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

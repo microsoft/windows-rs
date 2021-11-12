@@ -14,5 +14,3 @@ impl MessagingSyncPolicy {
     pub const Allowed: Self = Self(1i32);
     pub const Required: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct WorkplaceSettingsContract(i32);

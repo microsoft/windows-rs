@@ -26,8 +26,7 @@ pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 32u32,
 };
 pub const SID_WcnProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3238051530, data2: 54074, data3: 19019, data4: [191, 35, 187, 239, 70, 99, 208, 23] };
-#[repr(C)]
-pub struct WCNDeviceObject(i32);
+pub const WCNDeviceObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3238051495, data2: 54074, data3: 19019, data4: [191, 35, 187, 239, 70, 99, 208, 23] };
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
 #[repr(transparent)]
 pub struct WCN_ATTRIBUTE_TYPE(pub i32);

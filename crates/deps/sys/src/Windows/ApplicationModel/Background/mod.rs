@@ -47,8 +47,6 @@ impl BackgroundAccessStatus {
     pub const DeniedBySystemPolicy: Self = Self(6i32);
     pub const DeniedByUser: Self = Self(7i32);
 }
-#[repr(C)]
-pub struct BackgroundAlarmApplicationContract(i32);
 #[repr(transparent)]
 pub struct BackgroundTaskBuilder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

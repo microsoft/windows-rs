@@ -71,9 +71,5 @@ impl SetImageFeedResult {
     pub const ChangeDisabled: Self = Self(1i32);
     pub const UserCanceled: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct UserProfileContract(i32);
-#[repr(C)]
-pub struct UserProfileLockScreenContract(i32);
 #[repr(transparent)]
 pub struct UserProfilePersonalizationSettings(pub *mut ::core::ffi::c_void);

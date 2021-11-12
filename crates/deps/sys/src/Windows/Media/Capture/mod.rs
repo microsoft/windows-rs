@@ -50,8 +50,6 @@ impl AppBroadcastCaptureTargetType {
     pub const AppView: Self = Self(0i32);
     pub const EntireDisplay: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct AppBroadcastContract(i32);
 #[repr(transparent)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
 impl AppBroadcastExitBroadcastModeReason {
@@ -188,8 +186,6 @@ pub struct AppBroadcastViewerCountChangedEventArgs(pub *mut ::core::ffi::c_void)
 pub struct AppCapture(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppCaptureAlternateShortcutKeys(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppCaptureContract(i32);
 #[repr(transparent)]
 pub struct AppCaptureDurationGeneratedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -200,8 +196,6 @@ impl AppCaptureHistoricalBufferLengthUnit {
     pub const Megabytes: Self = Self(0i32);
     pub const Seconds: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct AppCaptureMetadataContract(i32);
 #[repr(transparent)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
@@ -258,8 +252,6 @@ impl AppCaptureVideoEncodingResolutionMode {
 }
 #[repr(transparent)]
 pub struct CameraCaptureUI(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CameraCaptureUIContract(i32);
 #[repr(transparent)]
 pub struct CameraCaptureUIMaxPhotoResolution(pub i32);
 impl CameraCaptureUIMaxPhotoResolution {
@@ -339,8 +331,6 @@ impl GameBarCommandOrigin {
     pub const Cortana: Self = Self(1i32);
     pub const AppCommand: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct GameBarContract(i32);
 #[repr(transparent)]
 pub struct GameBarServices(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

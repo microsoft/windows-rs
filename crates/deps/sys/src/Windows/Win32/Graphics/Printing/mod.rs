@@ -482,12 +482,19 @@ pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
 pub const BOOKLET_PRINT: u32 = 2u32;
 pub const BORDER_PRINT: u32 = 0u32;
-#[repr(C)]
-pub struct BidiRequest(i32);
-#[repr(C)]
-pub struct BidiRequestContainer(i32);
-#[repr(C)]
-pub struct BidiSpl(i32);
+pub const BidiRequest: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3105237539,
+    data2: 17913,
+    data3: 18380,
+    data4: [128, 245, 254, 15, 233, 185, 225, 162],
+};
+pub const BidiRequestContainer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4233857572,
+    data2: 56069,
+    data3: 18945,
+    data4: [131, 136, 34, 237, 246, 194, 187, 186],
+};
+pub const BidiSpl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 711017024, data2: 42181, data3: 19507, data4: [189, 135, 27, 199, 9, 51, 22, 57] };
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct BranchOfficeJobData(i32);
@@ -2609,8 +2616,7 @@ pub struct PrintPropertiesCollection(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PrintPropertyValue(i32);
-#[repr(C)]
-pub struct PrintSchemaAsyncOperation(i32);
+pub const PrintSchemaAsyncOperation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1135802429, data2: 4338, data3: 18603, data4: [131, 27, 85, 253, 189, 189, 52, 164] };
 #[repr(transparent)]
 pub struct PrintSchemaConstrainedSetting(pub i32);
 pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
@@ -2626,12 +2632,14 @@ pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = Pr
 pub struct PrintSchemaSelectionType(pub i32);
 pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
 pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = PrintSchemaSelectionType(1i32);
-#[repr(C)]
-pub struct PrinterExtensionManager(i32);
-#[repr(C)]
-pub struct PrinterQueue(i32);
-#[repr(C)]
-pub struct PrinterQueueView(i32);
+pub const PrinterExtensionManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 857432282,
+    data2: 40592,
+    data3: 19920,
+    data4: [156, 132, 234, 196, 230, 89, 182, 31],
+};
+pub const PrinterQueue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3948200496, data2: 31116, data3: 19614, data4: [180, 97, 41, 250, 208, 64, 57, 177] };
+pub const PrinterQueueView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3948200497, data2: 31116, data3: 19614, data4: [180, 97, 41, 250, 208, 64, 57, 177] };
 pub const QCP_DEVICEPROFILE: u32 = 0u32;
 pub const QCP_PROFILEDISK: u32 = 2u32;
 pub const QCP_PROFILEMEMORY: u32 = 1u32;

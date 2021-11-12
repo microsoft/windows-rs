@@ -1218,11 +1218,11 @@ pub const ER_MANAGEMENT_ALREADY_STARTED: QStatus = QStatus(37186i32);
 pub const ER_MANAGEMENT_NOT_STARTED: QStatus = QStatus(37187i32);
 pub const ER_BUS_DESCRIPTION_ALREADY_EXISTS: QStatus = QStatus(37188i32);
 #[repr(C)]
-pub struct _alljoyn_abouticon_handle(i32);
+pub struct _alljoyn_abouticon_handle(pub u8);
 #[repr(C)]
-pub struct _alljoyn_abouticonobj_handle(i32);
+pub struct _alljoyn_abouticonobj_handle(pub u8);
 #[repr(C)]
-pub struct _alljoyn_abouticonproxy_handle(i32);
+pub struct _alljoyn_abouticonproxy_handle(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_about_announced_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg);
 #[repr(transparent)]

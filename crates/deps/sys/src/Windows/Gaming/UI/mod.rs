@@ -11,8 +11,6 @@ impl GameChatMessageOrigin {
 pub struct GameChatMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GameChatOverlay(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GameChatOverlayContract(i32);
 #[repr(transparent)]
 pub struct GameChatOverlayMessageSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -29,8 +27,6 @@ impl GameChatOverlayPosition {
 }
 #[repr(transparent)]
 pub struct GameUIProviderActivatedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GamingUIProviderContract(i32);
 #[repr(transparent)]
 pub struct IGameBarStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

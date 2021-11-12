@@ -957,7 +957,7 @@ pub const THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = THREAD_PRIORITY(15i32
 #[repr(C)]
 pub struct TP_CALLBACK_ENVIRON_V3(i32);
 #[repr(C)]
-pub struct TP_CALLBACK_INSTANCE(i32);
+pub struct TP_CALLBACK_INSTANCE(pub u8);
 #[repr(transparent)]
 pub struct TP_CALLBACK_PRIORITY(pub i32);
 pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(0i32);
@@ -966,15 +966,15 @@ pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(
 pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(3i32);
 pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(3i32);
 #[repr(C)]
-pub struct TP_IO(i32);
+pub struct TP_IO(pub u8);
 #[repr(C)]
 pub struct TP_POOL_STACK_INFORMATION(i32);
 #[repr(C)]
-pub struct TP_TIMER(i32);
+pub struct TP_TIMER(pub u8);
 #[repr(C)]
-pub struct TP_WAIT(i32);
+pub struct TP_WAIT(pub u8);
 #[repr(C)]
-pub struct TP_WORK(i32);
+pub struct TP_WORK(pub u8);
 #[repr(C)]
 pub struct TimerQueueHandle(i32);
 #[cfg(feature = "Win32_System_SystemServices")]

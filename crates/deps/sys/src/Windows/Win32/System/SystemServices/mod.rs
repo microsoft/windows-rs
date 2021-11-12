@@ -194,7 +194,7 @@ pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
 pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = ATF_FLAGS(2u32);
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
 #[repr(C)]
-pub struct AtlThunkData_t(i32);
+pub struct AtlThunkData_t(pub u8);
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648u32;
 pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: u32 = 7u32;
 pub const BREAK_DEBUG_BASE: u32 = 524288u32;
@@ -4486,7 +4486,7 @@ pub struct TAPE_SET_MEDIA_PARAMETERS(i32);
 #[repr(C)]
 pub struct TAPE_WMI_OPERATIONS(i32);
 #[repr(C)]
-pub struct TEB(i32);
+pub struct TEB(pub u8);
 pub const THREAD_BASE_PRIORITY_IDLE: i32 = -15i32;
 pub const THREAD_BASE_PRIORITY_LOWRT: u32 = 15u32;
 pub const THREAD_BASE_PRIORITY_MAX: u32 = 2u32;
@@ -4507,9 +4507,9 @@ pub struct TOKEN_BNO_ISOLATION_INFORMATION(i32);
 pub struct TOKEN_SID_INFORMATION(i32);
 pub const TOKEN_SOURCE_LENGTH: u32 = 8u32;
 #[repr(C)]
-pub struct TP_CLEANUP_GROUP(i32);
+pub struct TP_CLEANUP_GROUP(pub u8);
 #[repr(C)]
-pub struct TP_POOL(i32);
+pub struct TP_POOL(pub u8);
 #[repr(C)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION(i32);
 pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32u32;

@@ -750,7 +750,7 @@ pub struct ldapmodA(i32);
 #[repr(C)]
 pub struct ldapmodW(i32);
 #[repr(C)]
-pub struct ldapsearch(i32);
+pub struct ldapsearch(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ldapsortkeyA(i32);

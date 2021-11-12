@@ -603,8 +603,12 @@ pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG(i32);
-#[repr(C)]
-pub struct CameraUIControl(i32);
+pub const CameraUIControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 383099582,
+    data2: 45509,
+    data3: 18355,
+    data4: [142, 174, 204, 188, 244, 82, 199, 232],
+};
 #[repr(transparent)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
@@ -753,8 +757,7 @@ pub const DRIVE_UNKNOWN: u32 = 0u32;
 pub const DTR_CONTROL_DISABLE: u32 = 0u32;
 pub const DTR_CONTROL_ENABLE: u32 = 1u32;
 pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
-#[repr(C)]
-pub struct DefaultBrowserSyncSettings(i32);
+pub const DefaultBrowserSyncSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 986199075, data2: 12562, data3: 19110, data4: [155, 91, 31, 235, 35, 208, 197, 249] };
 pub const EFSRPC_SECURE_ONLY: u32 = 8u32;
 pub const EFS_DROP_ALTERNATE_STREAMS: u32 = 16u32;
 pub const EFS_USE_RECOVERY_KEYS: u32 = 1u32;
@@ -764,10 +767,13 @@ pub type ENUM_CALLBACK = unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFAC
 pub const ER_ICMP: u32 = 896u32;
 pub const EVENPARITY: u32 = 2u32;
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
-#[repr(C)]
-pub struct EditionUpgradeBroker(i32);
-#[repr(C)]
-pub struct EditionUpgradeHelper(i32);
+pub const EditionUpgradeBroker: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3290892327,
+    data2: 20281,
+    data3: 17887,
+    data4: [146, 136, 18, 255, 107, 133, 169, 33],
+};
+pub const EditionUpgradeHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 24604147, data2: 47535, data3: 20048, data4: [155, 28, 86, 233, 49, 22, 215, 4] };
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
 #[repr(transparent)]
@@ -1406,9 +1412,9 @@ pub const WM_IME_REPORT: u32 = 640u32;
 pub const WM_INTERIM: u32 = 268u32;
 pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
 #[repr(C)]
-pub struct _D3DHAL_CALLBACKS(i32);
+pub struct _D3DHAL_CALLBACKS(pub u8);
 #[repr(C)]
-pub struct _D3DHAL_GLOBALDRIVERDATA(i32);
+pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[repr(C)]
 pub struct tcp_request_query_information_ex32_xp(i32);

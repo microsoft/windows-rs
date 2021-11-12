@@ -9,8 +9,6 @@ pub mod OfflineMaps;
 extern "system" {}
 #[repr(transparent)]
 pub struct EnhancedWaypoint(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GuidanceContract(i32);
 #[repr(transparent)]
 pub struct IEnhancedWaypoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -79,8 +77,6 @@ pub struct IPlaceInfoCreateOptions(pub *mut ::core::ffi::c_void);
 pub struct IPlaceInfoStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPlaceInfoStatics2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LocalSearchContract(i32);
 #[repr(transparent)]
 pub struct ManeuverWarning(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

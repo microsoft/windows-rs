@@ -3,8 +3,12 @@
 extern "system" {}
 #[repr(C)]
 pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS(i32);
-#[repr(C)]
-pub struct DEVINTERFACE_AUDIOENDPOINTPLUGIN(i32);
+pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2670689126,
+    data2: 26028,
+    data3: 20390,
+    data4: [138, 228, 18, 60, 120, 184, 147, 19],
+};
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 316160983, data2: 53010, data3: 18110, data4: [133, 64, 129, 39, 16, 211, 2, 28] },

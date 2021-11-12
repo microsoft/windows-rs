@@ -148,8 +148,6 @@ pub struct Printing3DComponentWithMatrix(pub *mut ::core::ffi::c_void);
 pub struct Printing3DCompositeMaterial(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DCompositeMaterialGroup(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct Printing3DContract(i32);
 #[repr(transparent)]
 pub struct Printing3DFaceReductionOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

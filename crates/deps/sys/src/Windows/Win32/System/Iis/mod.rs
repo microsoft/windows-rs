@@ -92,8 +92,12 @@ pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
 pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
 pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
-#[repr(C)]
-pub struct FtpProvider(i32);
+pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1891485287,
+    data2: 13234,
+    data3: 17904,
+    data4: [172, 82, 195, 202, 70, 247, 166, 86],
+};
 pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2951774718, data2: 583, data3: 17013, data4: [156, 78, 2, 31, 61, 193, 218, 53] };
 pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1106,4 +1110,4 @@ pub const WAM_MD_ID_END_RESERVED: u32 = 32767u32;
 pub const WAM_MD_SERVER_BASE: u32 = 7500u32;
 pub const WEBDAV_MD_SERVER_BASE: u32 = 8500u32;
 #[repr(C)]
-pub struct _IIS_CRYPTO_BLOB(i32);
+pub struct _IIS_CRYPTO_BLOB(pub u8);

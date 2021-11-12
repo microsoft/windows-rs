@@ -554,4 +554,4 @@ pub const SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: u32 = 7u32;
 pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
 pub const USER_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1425753800, data2: 61577, data3: 17996, data4: [177, 253, 89, 209, 182, 44, 59, 80] };
 #[repr(C)]
-pub struct _SC_NOTIFICATION_REGISTRATION(i32);
+pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);

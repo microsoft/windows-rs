@@ -3,8 +3,6 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct CustomDevice(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CustomDeviceContract(i32);
 #[repr(transparent)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {

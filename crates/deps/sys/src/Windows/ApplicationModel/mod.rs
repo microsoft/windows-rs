@@ -85,8 +85,6 @@ impl AppInstallerPolicySource {
 pub struct AppInstance(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EnteredBackgroundEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FullTrustAppContract(i32);
 #[repr(transparent)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
@@ -287,8 +285,6 @@ pub struct PackageUpdatingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct PackageVersion(i32);
 #[repr(transparent)]
 pub struct StartupTask(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct StartupTaskContract(i32);
 #[repr(transparent)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {

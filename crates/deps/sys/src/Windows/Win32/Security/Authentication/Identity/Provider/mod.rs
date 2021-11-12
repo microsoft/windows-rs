@@ -20,10 +20,18 @@ pub struct AsyncIIdentityProvider(pub *mut ::core::ffi::c_void);
 pub struct AsyncIIdentityStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AsyncIIdentityStoreEx(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CIdentityProfileHandler(i32);
-#[repr(C)]
-pub struct CoClassIdentityStore(i32);
+pub const CIdentityProfileHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3975528262,
+    data2: 58294,
+    data3: 17562,
+    data4: [181, 107, 67, 245, 143, 134, 120, 20],
+};
+pub const CoClassIdentityStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 819237446,
+    data2: 53783,
+    data3: 18015,
+    data4: [176, 11, 172, 157, 221, 101, 46, 183],
+};
 #[repr(transparent)]
 pub struct IAssociatedIdentityProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

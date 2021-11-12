@@ -598,7 +598,7 @@ pub struct IWSManResourceLocatorInternal(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWSManSession(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct WSMAN_API(i32);
+pub struct WSMAN_API(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSMAN_AUTHENTICATION_CREDENTIALS(i32);
@@ -608,7 +608,7 @@ pub struct WSMAN_AUTHZ_QUOTA(i32);
 #[repr(C)]
 pub struct WSMAN_CERTIFICATE_DETAILS(i32);
 #[repr(C)]
-pub struct WSMAN_COMMAND(i32);
+pub struct WSMAN_COMMAND(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSMAN_COMMAND_ARG_SET(i32);
@@ -652,7 +652,7 @@ pub struct WSMAN_FRAGMENT(i32);
 #[repr(C)]
 pub struct WSMAN_KEY(i32);
 #[repr(C)]
-pub struct WSMAN_OPERATION(i32);
+pub struct WSMAN_OPERATION(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSMAN_OPERATION_INFO(i32);
@@ -731,9 +731,9 @@ pub struct WSMAN_SELECTOR_SET(i32);
 #[repr(C)]
 pub struct WSMAN_SENDER_DETAILS(i32);
 #[repr(C)]
-pub struct WSMAN_SESSION(i32);
+pub struct WSMAN_SESSION(pub u8);
 #[repr(C)]
-pub struct WSMAN_SHELL(i32);
+pub struct WSMAN_SHELL(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSMAN_SHELL_ASYNC(i32);
@@ -753,8 +753,12 @@ pub struct WSMAN_STREAM_ID_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSMAN_USERNAME_PASSWORD_CREDS(i32);
-#[repr(C)]
-pub struct WSMan(i32);
+pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3169673595,
+    data2: 60419,
+    data3: 16907,
+    data4: [133, 8, 151, 125, 199, 166, 134, 189],
+};
 #[repr(transparent)]
 pub struct WSManAuthenticationFlags(pub i32);
 pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(0i32);
@@ -794,8 +798,7 @@ pub const WSManFlagHierarchyShallow: WSManEnumFlags = WSManEnumFlags(32i32);
 pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = WSManEnumFlags(64i32);
 pub const WSManFlagAssociatedInstance: WSManEnumFlags = WSManEnumFlags(0i32);
 pub const WSManFlagAssociationInstance: WSManEnumFlags = WSManEnumFlags(128i32);
-#[repr(C)]
-pub struct WSManInternal(i32);
+pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2111866789, data2: 24011, data3: 19959, data4: [187, 18, 9, 36, 173, 143, 189, 154] };
 #[repr(transparent)]
 pub struct WSManProxyAccessType(pub i32);
 pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(1i32);
