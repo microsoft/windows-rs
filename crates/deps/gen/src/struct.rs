@@ -9,7 +9,7 @@ use super::*;
 
 pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_api_contract() {
-        return quote!{};
+        return quote! {};
     }
 
     gen_struct_with_name(def, def.name(), gen, &TokenStream::new())
