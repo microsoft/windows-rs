@@ -51,12 +51,16 @@ fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let generics = def.generics.iter().map(|g| gen_name(g, gen));
+    let generics = quote! { #(#generics),* };
+    let phantoms = gen_phantoms(def);
     let name = gen_type_name(def, gen);
+
     quote! {
         #[repr(transparent)]
-        pub struct #name(pub *mut ::core::ffi::c_void);
-        impl ::core::marker::Copy for #name {}
-        impl ::core::clone::Clone for #name {
+        pub struct #name(pub *mut ::core::ffi::c_void, #(#phantoms,)*);
+        impl<#generics> ::core::marker::Copy for #name {}
+        impl<#generics> ::core::clone::Clone for #name {
             fn clone(&self) -> Self {
                 *self
             }

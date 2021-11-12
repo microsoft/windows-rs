@@ -18,41 +18,41 @@ impl ::core::clone::Clone for AsyncActionCompletedHandler {
     }
 }
 #[repr(transparent)]
-pub struct AsyncActionProgressHandler<TProgress>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncActionProgressHandler<TProgress> {}
-impl ::core::clone::Clone for AsyncActionProgressHandler<TProgress> {
+pub struct AsyncActionProgressHandler<TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TProgress>);
+impl<TProgress> ::core::marker::Copy for AsyncActionProgressHandler<TProgress> {}
+impl<TProgress> ::core::clone::Clone for AsyncActionProgressHandler<TProgress> {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(transparent)]
-pub struct AsyncActionWithProgressCompletedHandler<TProgress>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncActionWithProgressCompletedHandler<TProgress> {}
-impl ::core::clone::Clone for AsyncActionWithProgressCompletedHandler<TProgress> {
+pub struct AsyncActionWithProgressCompletedHandler<TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TProgress>);
+impl<TProgress> ::core::marker::Copy for AsyncActionWithProgressCompletedHandler<TProgress> {}
+impl<TProgress> ::core::clone::Clone for AsyncActionWithProgressCompletedHandler<TProgress> {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(transparent)]
-pub struct AsyncOperationCompletedHandler<TResult>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncOperationCompletedHandler<TResult> {}
-impl ::core::clone::Clone for AsyncOperationCompletedHandler<TResult> {
+pub struct AsyncOperationCompletedHandler<TResult>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>);
+impl<TResult> ::core::marker::Copy for AsyncOperationCompletedHandler<TResult> {}
+impl<TResult> ::core::clone::Clone for AsyncOperationCompletedHandler<TResult> {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(transparent)]
-pub struct AsyncOperationProgressHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncOperationProgressHandler<TResult, TProgress> {}
-impl ::core::clone::Clone for AsyncOperationProgressHandler<TResult, TProgress> {
+pub struct AsyncOperationProgressHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>);
+impl<TResult, TProgress> ::core::marker::Copy for AsyncOperationProgressHandler<TResult, TProgress> {}
+impl<TResult, TProgress> ::core::clone::Clone for AsyncOperationProgressHandler<TResult, TProgress> {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(transparent)]
-pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {}
-impl ::core::clone::Clone for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
+pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>);
+impl<TResult, TProgress> ::core::marker::Copy for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {}
+impl<TResult, TProgress> ::core::clone::Clone for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
     fn clone(&self) -> Self {
         *self
     }
@@ -98,9 +98,9 @@ impl ::core::clone::Clone for DeferralCompletedHandler {
     }
 }
 #[repr(transparent)]
-pub struct EventHandler<T>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EventHandler<T> {}
-impl ::core::clone::Clone for EventHandler<T> {
+pub struct EventHandler<T>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<T>);
+impl<T> ::core::marker::Copy for EventHandler<T> {}
+impl<T> ::core::clone::Clone for EventHandler<T> {
     fn clone(&self) -> Self {
         *self
     }
@@ -124,9 +124,9 @@ impl ::core::clone::Clone for IAsyncAction {
     }
 }
 #[repr(transparent)]
-pub struct IAsyncActionWithProgress<TProgress>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAsyncActionWithProgress<TProgress> {}
-impl ::core::clone::Clone for IAsyncActionWithProgress<TProgress> {
+pub struct IAsyncActionWithProgress<TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TProgress>);
+impl<TProgress> ::core::marker::Copy for IAsyncActionWithProgress<TProgress> {}
+impl<TProgress> ::core::clone::Clone for IAsyncActionWithProgress<TProgress> {
     fn clone(&self) -> Self {
         *self
     }
@@ -140,17 +140,17 @@ impl ::core::clone::Clone for IAsyncInfo {
     }
 }
 #[repr(transparent)]
-pub struct IAsyncOperation<TResult>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAsyncOperation<TResult> {}
-impl ::core::clone::Clone for IAsyncOperation<TResult> {
+pub struct IAsyncOperation<TResult>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>);
+impl<TResult> ::core::marker::Copy for IAsyncOperation<TResult> {}
+impl<TResult> ::core::clone::Clone for IAsyncOperation<TResult> {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(transparent)]
-pub struct IAsyncOperationWithProgress<TResult, TProgress>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAsyncOperationWithProgress<TResult, TProgress> {}
-impl ::core::clone::Clone for IAsyncOperationWithProgress<TResult, TProgress> {
+pub struct IAsyncOperationWithProgress<TResult, TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>);
+impl<TResult, TProgress> ::core::marker::Copy for IAsyncOperationWithProgress<TResult, TProgress> {}
+impl<TResult, TProgress> ::core::clone::Clone for IAsyncOperationWithProgress<TResult, TProgress> {
     fn clone(&self) -> Self {
         *self
     }
@@ -236,17 +236,17 @@ impl ::core::clone::Clone for IPropertyValueStatics {
     }
 }
 #[repr(transparent)]
-pub struct IReference<T>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IReference<T> {}
-impl ::core::clone::Clone for IReference<T> {
+pub struct IReference<T>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<T>);
+impl<T> ::core::marker::Copy for IReference<T> {}
+impl<T> ::core::clone::Clone for IReference<T> {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(transparent)]
-pub struct IReferenceArray<T>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IReferenceArray<T> {}
-impl ::core::clone::Clone for IReferenceArray<T> {
+pub struct IReferenceArray<T>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<T>);
+impl<T> ::core::marker::Copy for IReferenceArray<T> {}
+impl<T> ::core::clone::Clone for IReferenceArray<T> {
     fn clone(&self) -> Self {
         *self
     }
@@ -420,9 +420,9 @@ impl ::core::clone::Clone for TimeSpan {
     }
 }
 #[repr(transparent)]
-pub struct TypedEventHandler<TSender, TResult>(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for TypedEventHandler<TSender, TResult> {}
-impl ::core::clone::Clone for TypedEventHandler<TSender, TResult> {
+pub struct TypedEventHandler<TSender, TResult>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TSender>, ::core::marker::PhantomData<TResult>);
+impl<TSender, TResult> ::core::marker::Copy for TypedEventHandler<TSender, TResult> {}
+impl<TSender, TResult> ::core::clone::Clone for TypedEventHandler<TSender, TResult> {
     fn clone(&self) -> Self {
         *self
     }
