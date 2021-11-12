@@ -1,180 +1,224 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_DIRECT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_DYNAMIC: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_HEAD: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
+pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn ActivatePackageVirtualizationContext();
+    pub fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, cookie: *mut usize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPackageDependency();
+    pub fn AddPackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetClrCompat();
+    pub fn AppPolicyGetClrCompat(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyClrCompat) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetCreateFileAccess();
+    pub fn AppPolicyGetCreateFileAccess(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyCreateFileAccess) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetLifecycleManagement();
+    pub fn AppPolicyGetLifecycleManagement(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyLifecycleManagement) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetMediaFoundationCodecLoading();
+    pub fn AppPolicyGetMediaFoundationCodecLoading(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyMediaFoundationCodecLoading) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetProcessTerminationMethod();
+    pub fn AppPolicyGetProcessTerminationMethod(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyProcessTerminationMethod) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetShowDeveloperDiagnostic();
+    pub fn AppPolicyGetShowDeveloperDiagnostic(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyShowDeveloperDiagnostic) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetThreadInitializationType();
+    pub fn AppPolicyGetThreadInitializationType(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyThreadInitializationType) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppPolicyGetWindowingModel();
+    pub fn AppPolicyGetWindowingModel(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyWindowingModel) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CheckIsMSIXPackage();
+    pub fn CheckIsMSIXPackage(packagefullname: super::super::super::Foundation::PWSTR, ismsixpackage: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn ClosePackageInfo();
+    pub fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreatePackageVirtualizationContext();
+    pub fn CreatePackageVirtualizationContext(packagefamilyname: super::super::super::Foundation::PWSTR, context: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn DeactivatePackageVirtualizationContext();
+    pub fn DeactivatePackageVirtualizationContext(cookie: usize);
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeletePackageDependency();
+    pub fn DeletePackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn DuplicatePackageVirtualizationContext();
+    pub fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, destcontext: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindPackagesByPackageFamily();
+    pub fn FindPackagesByPackageFamily(packagefamilyname: super::super::super::Foundation::PWSTR, packagefilters: u32, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR, packageproperties: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FormatApplicationUserModelId();
+    pub fn FormatApplicationUserModelId(packagefamilyname: super::super::super::Foundation::PWSTR, packagerelativeapplicationid: super::super::super::Foundation::PWSTR, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetApplicationUserModelId();
+    pub fn GetApplicationUserModelId(hprocess: super::super::super::Foundation::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetApplicationUserModelIdFromToken();
+    pub fn GetApplicationUserModelIdFromToken(token: super::super::super::Foundation::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentApplicationUserModelId();
+    pub fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentPackageFamilyName();
+    pub fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentPackageFullName();
+    pub fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn GetCurrentPackageId();
+    pub fn GetCurrentPackageId(bufferlength: *mut u32, buffer: *mut u8) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn GetCurrentPackageInfo();
+    pub fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn GetCurrentPackageInfo2();
+    pub fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentPackagePath();
+    pub fn GetCurrentPackagePath(pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentPackagePath2();
+    pub fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn GetCurrentPackageVirtualizationContext();
+    pub fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetIdForPackageDependencyContext();
+    pub fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__, packagedependencyid: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn GetPackageApplicationIds();
+    pub fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackageFamilyName();
+    pub fn GetPackageFamilyName(hprocess: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackageFamilyNameFromToken();
+    pub fn GetPackageFamilyNameFromToken(token: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackageFullName();
+    pub fn GetPackageFullName(hprocess: super::super::super::Foundation::HANDLE, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackageFullNameFromToken();
+    pub fn GetPackageFullNameFromToken(token: super::super::super::Foundation::HANDLE, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackageId();
+    pub fn GetPackageId(hprocess: super::super::super::Foundation::HANDLE, bufferlength: *mut u32, buffer: *mut u8) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn GetPackageInfo();
+    pub fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn GetPackageInfo2();
+    pub fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackagePath();
+    pub fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackagePathByFullName();
+    pub fn GetPackagePathByFullName(packagefullname: super::super::super::Foundation::PWSTR, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackagePathByFullName2();
+    pub fn GetPackagePathByFullName2(packagefullname: super::super::super::Foundation::PWSTR, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPackagesByPackageFamily();
+    pub fn GetPackagesByPackageFamily(packagefamilyname: super::super::super::Foundation::PWSTR, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessesInVirtualizationContext();
+    pub fn GetProcessesInVirtualizationContext(packagefamilyname: super::super::super::Foundation::PWSTR, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetResolvedPackageFullNameForPackageDependency();
+    pub fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid: super::super::super::Foundation::PWSTR, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStagedPackageOrigin();
+    pub fn GetStagedPackageOrigin(packagefullname: super::super::super::Foundation::PWSTR, origin: *mut PackageOrigin) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStagedPackagePathByFullName();
+    pub fn GetStagedPackagePathByFullName(packagefullname: super::super::super::Foundation::PWSTR, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStagedPackagePathByFullName2();
+    pub fn GetStagedPackagePathByFullName2(packagefullname: super::super::super::Foundation::PWSTR, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenPackageInfoByFullName();
+    pub fn OpenPackageInfoByFullName(packagefullname: super::super::super::Foundation::PWSTR, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenPackageInfoByFullNameForUser();
+    pub fn OpenPackageInfoByFullNameForUser(usersid: super::super::super::Foundation::PSID, packagefullname: super::super::super::Foundation::PWSTR, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PackageFamilyNameFromFullName();
+    pub fn PackageFamilyNameFromFullName(packagefullname: super::super::super::Foundation::PWSTR, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PackageFamilyNameFromId();
+    pub fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PackageFullNameFromId();
+    pub fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PackageIdFromFullName();
+    pub fn PackageIdFromFullName(packagefullname: super::super::super::Foundation::PWSTR, flags: u32, bufferlength: *mut u32, buffer: *mut u8) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PackageNameAndPublisherIdFromFamilyName();
+    pub fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname: super::super::super::Foundation::PWSTR, packagenamelength: *mut u32, packagename: super::super::super::Foundation::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ParseApplicationUserModelId();
+    pub fn ParseApplicationUserModelId(applicationusermodelid: super::super::super::Foundation::PWSTR, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn ReleasePackageVirtualizationContext();
+    pub fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__);
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
-    pub fn RemovePackageDependency();
+    pub fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TryCreatePackageDependency();
+    pub fn TryCreatePackageDependency(user: super::super::super::Foundation::PSID, packagefamilyname: super::super::super::Foundation::PWSTR, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: super::super::super::Foundation::PWSTR, options: CreatePackageDependencyOptions, packagedependencyid: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyApplicationUserModelId();
+    pub fn VerifyApplicationUserModelId(applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyPackageFamilyName();
+    pub fn VerifyPackageFamilyName(packagefamilyname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyPackageFullName();
+    pub fn VerifyPackageFullName(packagefullname: super::super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyPackageId();
+    pub fn VerifyPackageId(packageid: *const PACKAGE_ID) -> i32;
     #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyPackageRelativeApplicationId();
+    pub fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32;
 }

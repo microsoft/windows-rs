@@ -1,3 +1,37 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const DEFAULT_WEIGHT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SAPI_ERROR_BASE: u32 = 20480u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SPRP_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_LOW_CONFIDENCE: i32 = -1i32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_MAX_LANGIDS: u32 = 20u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_MAX_PRON_LENGTH: u32 = 384u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_STREAMPOS_ASAP: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const SpeechAllElements: i32 = -1i32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const Speech_Default_Weight: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const Speech_Max_Pron_Length: i32 = 384i32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const Speech_Max_Word_Length: i32 = 128i32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const Speech_StreamPos_Asap: i32 = 0i32;
+#[doc = "*Required features: `Win32_Media_Speech`*"]
+pub const Speech_StreamPos_RealTime: i32 = -1i32;
 #[link(name = "windows")]
 extern "system" {}

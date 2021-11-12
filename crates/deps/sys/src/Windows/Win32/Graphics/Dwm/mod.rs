@@ -1,91 +1,131 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWMWA_COLOR_NONE: u32 = 4294967294u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_BB_BLURREGION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_BB_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_CLOAKED_APP: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_CLOAKED_SHELL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_TNP_OPACITY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const DWM_TNP_VISIBLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const c_DwmMaxAdapters: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const c_DwmMaxMonitors: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Dwm`*"]
+pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmAttachMilContent();
+    pub fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmDefWindowProc();
+    pub fn DwmDefWindowProc(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmDetachMilContent();
+    pub fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DwmEnableBlurBehindWindow();
+    pub fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
-    pub fn DwmEnableComposition();
+    pub fn DwmEnableComposition(ucompositionaction: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmEnableMMCSS();
+    pub fn DwmEnableMMCSS(fenablemmcss: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_UI_Controls`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn DwmExtendFrameIntoClientArea();
+    pub fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
-    pub fn DwmFlush();
+    pub fn DwmFlush() -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmGetColorizationColor();
+    pub fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmGetCompositionTimingInfo();
+    pub fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
-    pub fn DwmGetGraphicsStreamClient();
+    pub fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
-    pub fn DwmGetGraphicsStreamTransformHint();
+    pub fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmGetTransportAttributes();
+    pub fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmGetUnmetTabRequirements();
+    pub fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmGetWindowAttribute();
+    pub fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmInvalidateIconicBitmaps();
+    pub fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmIsCompositionEnabled();
+    pub fn DwmIsCompositionEnabled(pfenabled: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmModifyPreviousDxFrameDuration();
+    pub fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmQueryThumbnailSourceSize();
+    pub fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmRegisterThumbnail();
+    pub fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND, phthumbnailid: *mut isize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmRenderGesture();
+    pub fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmSetDxFrameDuration();
+    pub fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DwmSetIconicLivePreviewBitmap();
+    pub fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DwmSetIconicThumbnail();
+    pub fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmSetPresentParameters();
+    pub fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmSetWindowAttribute();
+    pub fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
-    pub fn DwmShowContact();
+    pub fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmTetherContact();
+    pub fn DwmTetherContact(dwpointerid: u32, fenable: super::super::Foundation::BOOL, pttether: super::super::Foundation::POINT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmTransitionOwnedWindow();
+    pub fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
-    pub fn DwmUnregisterThumbnail();
+    pub fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DwmUpdateThumbnailProperties();
+    pub fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows_sys::core::HRESULT;
 }

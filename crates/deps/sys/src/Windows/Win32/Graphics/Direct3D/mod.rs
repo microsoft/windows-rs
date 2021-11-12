@@ -3,5 +3,122 @@
 pub mod Dxc;
 #[cfg(feature = "Win32_Graphics_Direct3D_Fxc")]
 pub mod Fxc;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_COMPONENT_MASK_W: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_COMPONENT_MASK_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_COMPONENT_MASK_Y: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_COMPONENT_MASK_Z: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_DEFAULT_MAX_ANISOTROPY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_IA_PRIMITIVE_MAX_COUNT: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_MAX_TEXTURE_REPEAT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_REQ_TEXTURE1D_U_DIMENSION: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_REQ_TEXTURE3D_U_V_OR_W_DIMENSION: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_REQ_TEXTURECUBE_DIMENSION: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_1_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_2_IA_PRIMITIVE_MAX_COUNT: u32 = 1048575u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_2_MAX_TEXTURE_REPEAT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_3_MAX_TEXTURE_REPEAT: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_3_REQ_TEXTURE1D_U_DIMENSION: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_3_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_3_REQ_TEXTURECUBE_DIMENSION: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_FL9_3_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_11_1_DOUBLE_EXTENSIONS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_11_1_SHADER_EXTENSIONS: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_64_UAVS: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_ATOMIC_INT64_ON_DESCRIPTOR_HEAP_RESOURCE: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_ATOMIC_INT64_ON_GROUP_SHARED: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_ATOMIC_INT64_ON_TYPED_RESOURCE: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_BARYCENTRICS: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_COMPUTE_SHADERS_PLUS_RAW_AND_STRUCTURED_BUFFERS_VIA_SHADER_4_X: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_DERIVATIVES_IN_MESH_AND_AMPLIFICATION_SHADERS: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_DOUBLES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_INNER_COVERAGE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_INT64_OPS: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_LEVEL_9_COMPARISON_FILTERING: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_MINIMUM_PRECISION: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_NATIVE_16BIT_OPS: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_RAYTRACING_TIER_1_1: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_RESOURCE_DESCRIPTOR_HEAP_INDEXING: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_ROVS: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_SAMPLER_DESCRIPTOR_HEAP_INDEXING: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_SAMPLER_FEEDBACK: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_SHADING_RATE: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_STENCIL_REF: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_TILED_RESOURCES: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_TYPED_UAV_LOAD_ADDITIONAL_FORMATS: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_UAVS_AT_EVERY_STAGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING_RASTERIZER: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_VIEW_ID: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
+pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
+pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1276062179, data2: 16223, data3: 19765, data4: [132, 201, 188, 9, 131, 182, 44, 40] };
+pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3051103055,
+    data2: 29371,
+    data3: 19436,
+    data4: [151, 5, 140, 242, 88, 223, 107, 108],
+};
+pub const WKPDID_CommentStringW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3491012032, data2: 37096, data3: 20168, data4: [129, 68, 233, 0, 173, 38, 107, 178] };
+pub const WKPDID_D3D12UniqueObjectId: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456777237, data2: 60420, data3: 19374, data4: [186, 77, 140, 239, 121, 252, 4, 193] };
+pub const WKPDID_D3DDebugObjectName: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1117490210,
+    data2: 37256,
+    data3: 19212,
+    data4: [135, 66, 172, 176, 191, 133, 194, 0],
+};
+pub const WKPDID_D3DDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1288331224,
+    data2: 37407,
+    data3: 17096,
+    data4: [133, 102, 112, 202, 242, 169, 183, 65],
+};
 #[link(name = "windows")]
 extern "system" {}

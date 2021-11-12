@@ -62,6 +62,7 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
+// TODO: only return windows_sys types
 pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::String => {

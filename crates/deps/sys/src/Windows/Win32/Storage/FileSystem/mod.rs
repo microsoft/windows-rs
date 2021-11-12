@@ -1,1208 +1,1815 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_CLOSE: u8 = 8u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_FORWARD: u8 = 2u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_INIT: u8 = 1u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
+pub const CLSID_DiskQuotaControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2039002481, data2: 60553, data3: 4559, data4: [156, 0, 0, 170, 0, 161, 79, 86] };
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_NONE: u32 = 48u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_CACHE_VDO: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_MASK: u32 = 48u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSC_MASK_EXT: u32 = 8240u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsClientRecord: u8 = 3u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerActive: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsDataRecord: u8 = 1u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsNullRecord: u8 = 0u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClfsRestartRecord: u8 = 2u8;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerActive: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_ADD_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_BASE: u32 = 86u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LOG_POLICY_PERSIST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_BADINHANDLE: i32 = -1i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_BADVALUE: i32 = -7i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_GLOBALLOC: i32 = -5i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_GLOBLOCK: i32 = -6i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_READ: i32 = -3i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_UNKNOWNALG: i32 = -8i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const LZERROR_WRITE: i32 = -4i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const MAX_SID_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMSMLI_MAXTYPE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_REVISION_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
+pub const PARTITION_BASIC_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3956318370,
+    data2: 47589,
+    data3: 17459,
+    data4: [135, 192, 104, 182, 183, 38, 153, 199],
+};
+pub const PARTITION_BSP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 19961, data3: 17849, data4: [142, 158, 35, 112, 240, 6, 69, 124] };
+pub const PARTITION_CLUSTER_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3684162473,
+    data2: 2112,
+    data3: 19374,
+    data4: [151, 240, 255, 185, 163, 39, 199, 225],
+};
+pub const PARTITION_DPP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 38091,
+    data3: 17392,
+    data4: [165, 51, 215, 60, 16, 207, 165, 125],
+};
+pub const PARTITION_ENTRY_UNUSED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const PARTITION_LDM_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2946195616, data2: 5169, data3: 20322, data4: [188, 104, 51, 17, 113, 74, 105, 173] };
+pub const PARTITION_LDM_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1476970666,
+    data2: 32399,
+    data3: 17120,
+    data4: [133, 210, 225, 233, 4, 52, 207, 179],
+};
+pub const PARTITION_LEGACY_BL_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1112318178,
+    data2: 31922,
+    data3: 20409,
+    data4: [129, 67, 197, 42, 153, 57, 139, 198],
+};
+pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1112292972,
+    data2: 55199,
+    data3: 18891,
+    data4: [147, 93, 54, 215, 20, 103, 162, 136],
+};
+pub const PARTITION_MAIN_OS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 36677, data3: 16478, data4: [138, 35, 24, 109, 138, 67, 48, 211] };
+pub const PARTITION_MSFT_RECOVERY_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3734289316,
+    data2: 1745,
+    data3: 19776,
+    data4: [161, 106, 191, 213, 1, 121, 214, 172],
+};
+pub const PARTITION_MSFT_RESERVED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3821658902, data2: 2908, data3: 19896, data4: [129, 125, 249, 45, 240, 2, 21, 174] };
+pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3403541489, data2: 17408, data3: 19944, data4: [177, 3, 18, 17, 125, 207, 60, 207] };
+pub const PARTITION_OS_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 9202, data3: 17621, data4: [168, 48, 103, 187, 218, 166, 9, 249] };
+pub const PARTITION_PATCH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2305271430, data2: 38570, data3: 27304, data4: [149, 137, 168, 66, 86, 84, 16, 144] };
+pub const PARTITION_PRE_INSTALLED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 32736, data3: 16790, data4: [155, 66, 66, 123, 81, 100, 52, 132] };
+pub const PARTITION_SERVICING_FILES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 17198,
+    data3: 16404,
+    data4: [174, 76, 141, 234, 169, 192, 0, 106],
+};
+pub const PARTITION_SERVICING_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 50833,
+    data3: 18949,
+    data4: [187, 78, 112, 61, 175, 210, 41, 206],
+};
+pub const PARTITION_SERVICING_RESERVE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 19329,
+    data3: 17931,
+    data4: [163, 25, 255, 182, 254, 19, 109, 20],
+};
+pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 59469,
+    data3: 20100,
+    data4: [170, 243, 236, 187, 189, 4, 185, 223],
+};
+pub const PARTITION_SPACES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3886931124,
+    data2: 56372,
+    data3: 17721,
+    data4: [154, 118, 235, 189, 7, 190, 111, 126],
+};
+pub const PARTITION_SPACES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3881611151,
+    data2: 63104,
+    data3: 19694,
+    data4: [175, 163, 176, 1, 229, 110, 252, 45],
+};
+pub const PARTITION_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3240784680, data2: 63519, data3: 4562, data4: [186, 75, 0, 160, 201, 62, 201, 59] };
+pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1464029011,
+    data2: 58339,
+    data3: 17969,
+    data4: [165, 197, 38, 210, 36, 56, 115, 170],
+};
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_PATH_PARMNUM: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_DFS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STATSOPT_CLR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED1: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED2: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED3: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED4: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED5: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_USER_DEFINED: u32 = 100u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const VS_VERSION_INFO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_BOOT_OS_WIM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WOF_PROVIDER_FILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const WOF_PROVIDER_WIM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+pub const _FT_TYPES_DEFINITION_: u32 = 1u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddLogContainer();
+    pub fn AddLogContainer(hlog: super::super::Foundation::HANDLE, pcbcontainer: *const u64, pwszcontainerpath: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddLogContainerSet();
+    pub fn AddLogContainerSet(hlog: super::super::Foundation::HANDLE, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn AddUsersToEncryptedFile();
+    pub fn AddUsersToEncryptedFile(lpfilename: super::super::Foundation::PWSTR, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn AdvanceLogBase();
+    pub fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AlignReservedLog();
+    pub fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AllocReservedLog();
+    pub fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AreFileApisANSI();
+    pub fn AreFileApisANSI() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AreShortNamesEnabled();
+    pub fn AreShortNamesEnabled(handle: super::super::Foundation::HANDLE, enabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BackupRead();
+    pub fn BackupRead(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BackupSeek();
+    pub fn BackupSeek(hfile: super::super::Foundation::HANDLE, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BackupWrite();
+    pub fn BackupWrite(hfile: super::super::Foundation::HANDLE, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: super::super::Foundation::BOOL, bprocesssecurity: super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BuildIoRingCancelRequest();
+    pub fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BuildIoRingReadFile();
+    pub fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn BuildIoRingRegisterBuffers();
+    pub fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BuildIoRingRegisterFileHandles();
+    pub fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CheckNameLegalDOS8Dot3A();
+    pub fn CheckNameLegalDOS8Dot3A(lpname: super::super::Foundation::PSTR, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CheckNameLegalDOS8Dot3W();
+    pub fn CheckNameLegalDOS8Dot3W(lpname: super::super::Foundation::PWSTR, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseAndResetLogFile();
+    pub fn CloseAndResetLogFile(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn CloseEncryptedFileRaw();
+    pub fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void);
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn CloseIoRing();
+    pub fn CloseIoRing(ioring: *const HIORING__) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CommitComplete();
+    pub fn CommitComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CommitEnlistment();
+    pub fn CommitEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CommitTransaction();
+    pub fn CommitTransaction(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CommitTransactionAsync();
+    pub fn CommitTransactionAsync(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CompareFileTime();
+    pub fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILETIME, lpfiletime2: *const super::super::Foundation::FILETIME) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFile2();
+    pub fn CopyFile2(pwszexistingfilename: super::super::Foundation::PWSTR, pwsznewfilename: super::super::Foundation::PWSTR, pextendedparameters: *const COPYFILE2_EXTENDED_PARAMETERS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFileA();
+    pub fn CopyFileA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, bfailifexists: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFileExA();
+    pub fn CopyFileExA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFileExW();
+    pub fn CopyFileExW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFileFromAppW();
+    pub fn CopyFileFromAppW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, bfailifexists: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFileTransactedA();
+    pub fn CopyFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFileTransactedW();
+    pub fn CopyFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyFileW();
+    pub fn CopyFileW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, bfailifexists: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn CopyLZFile();
+    pub fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateDirectoryA();
+    pub fn CreateDirectoryA(lppathname: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateDirectoryExA();
+    pub fn CreateDirectoryExA(lptemplatedirectory: super::super::Foundation::PSTR, lpnewdirectory: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateDirectoryExW();
+    pub fn CreateDirectoryExW(lptemplatedirectory: super::super::Foundation::PWSTR, lpnewdirectory: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateDirectoryFromAppW();
+    pub fn CreateDirectoryFromAppW(lppathname: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateDirectoryTransactedA();
+    pub fn CreateDirectoryTransactedA(lptemplatedirectory: super::super::Foundation::PSTR, lpnewdirectory: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateDirectoryTransactedW();
+    pub fn CreateDirectoryTransactedW(lptemplatedirectory: super::super::Foundation::PWSTR, lpnewdirectory: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateDirectoryW();
+    pub fn CreateDirectoryW(lppathname: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateEnlistment();
+    pub fn CreateEnlistment(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: super::super::Foundation::HANDLE, transactionhandle: super::super::Foundation::HANDLE, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateFile2();
+    pub fn CreateFile2(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateFile2FromAppW();
+    pub fn CreateFile2FromAppW(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateFileA();
+    pub fn CreateFileA(lpfilename: super::super::Foundation::PSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateFileFromAppW();
+    pub fn CreateFileFromAppW(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateFileTransactedA();
+    pub fn CreateFileTransactedA(
+        lpfilename: super::super::Foundation::PSTR,
+        dwdesiredaccess: u32,
+        dwsharemode: FILE_SHARE_MODE,
+        lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
+        dwcreationdisposition: FILE_CREATION_DISPOSITION,
+        dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
+        htemplatefile: super::super::Foundation::HANDLE,
+        htransaction: super::super::Foundation::HANDLE,
+        pusminiversion: *const TXFS_MINIVERSION,
+        lpextendedparameter: *mut ::core::ffi::c_void,
+    ) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateFileTransactedW();
+    pub fn CreateFileTransactedW(
+        lpfilename: super::super::Foundation::PWSTR,
+        dwdesiredaccess: u32,
+        dwsharemode: FILE_SHARE_MODE,
+        lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
+        dwcreationdisposition: FILE_CREATION_DISPOSITION,
+        dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
+        htemplatefile: super::super::Foundation::HANDLE,
+        htransaction: super::super::Foundation::HANDLE,
+        pusminiversion: *const TXFS_MINIVERSION,
+        lpextendedparameter: *mut ::core::ffi::c_void,
+    ) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateFileW();
+    pub fn CreateFileW(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateHardLinkA();
+    pub fn CreateHardLinkA(lpfilename: super::super::Foundation::PSTR, lpexistingfilename: super::super::Foundation::PSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateHardLinkTransactedA();
+    pub fn CreateHardLinkTransactedA(lpfilename: super::super::Foundation::PSTR, lpexistingfilename: super::super::Foundation::PSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateHardLinkTransactedW();
+    pub fn CreateHardLinkTransactedW(lpfilename: super::super::Foundation::PWSTR, lpexistingfilename: super::super::Foundation::PWSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateHardLinkW();
+    pub fn CreateHardLinkW(lpfilename: super::super::Foundation::PWSTR, lpexistingfilename: super::super::Foundation::PWSTR, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn CreateIoRing();
+    pub fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32, h: *mut *mut HIORING__) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn CreateLogContainerScanContext();
+    pub fn CreateLogContainerScanContext(hlog: super::super::Foundation::HANDLE, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateLogFile();
+    pub fn CreateLogFile(pszlogfilename: super::super::Foundation::PWSTR, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateLogMarshallingArea();
+    pub fn CreateLogMarshallingArea(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: CLFS_BLOCK_ALLOCATION, pfnfreebuffer: CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateResourceManager();
+    pub fn CreateResourceManager(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows_sys::core::GUID, createoptions: u32, tmhandle: super::super::Foundation::HANDLE, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateSymbolicLinkA();
+    pub fn CreateSymbolicLinkA(lpsymlinkfilename: super::super::Foundation::PSTR, lptargetfilename: super::super::Foundation::PSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateSymbolicLinkTransactedA();
+    pub fn CreateSymbolicLinkTransactedA(lpsymlinkfilename: super::super::Foundation::PSTR, lptargetfilename: super::super::Foundation::PSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateSymbolicLinkTransactedW();
+    pub fn CreateSymbolicLinkTransactedW(lpsymlinkfilename: super::super::Foundation::PWSTR, lptargetfilename: super::super::Foundation::PWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateSymbolicLinkW();
+    pub fn CreateSymbolicLinkW(lpsymlinkfilename: super::super::Foundation::PWSTR, lptargetfilename: super::super::Foundation::PWSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateTapePartition();
+    pub fn CreateTapePartition(hdevice: super::super::Foundation::HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateTransaction();
+    pub fn CreateTransaction(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows_sys::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateTransactionManager();
+    pub fn CreateTransactionManager(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: super::super::Foundation::PWSTR, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DecryptFileA();
+    pub fn DecryptFileA(lpfilename: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DecryptFileW();
+    pub fn DecryptFileW(lpfilename: super::super::Foundation::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DefineDosDeviceA();
+    pub fn DefineDosDeviceA(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: super::super::Foundation::PSTR, lptargetpath: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DefineDosDeviceW();
+    pub fn DefineDosDeviceW(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: super::super::Foundation::PWSTR, lptargetpath: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteFileA();
+    pub fn DeleteFileA(lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteFileFromAppW();
+    pub fn DeleteFileFromAppW(lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteFileTransactedA();
+    pub fn DeleteFileTransactedA(lpfilename: super::super::Foundation::PSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteFileTransactedW();
+    pub fn DeleteFileTransactedW(lpfilename: super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteFileW();
+    pub fn DeleteFileW(lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteLogByHandle();
+    pub fn DeleteLogByHandle(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteLogFile();
+    pub fn DeleteLogFile(pszlogfilename: super::super::Foundation::PWSTR, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteLogMarshallingArea();
+    pub fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteVolumeMountPointA();
+    pub fn DeleteVolumeMountPointA(lpszvolumemountpoint: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteVolumeMountPointW();
+    pub fn DeleteVolumeMountPointW(lpszvolumemountpoint: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeregisterManageableLogClient();
+    pub fn DeregisterManageableLogClient(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn DuplicateEncryptionInfoFile();
+    pub fn DuplicateEncryptionInfoFile(srcfilename: super::super::Foundation::PWSTR, dstfilename: super::super::Foundation::PWSTR, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EncryptFileA();
+    pub fn EncryptFileA(lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EncryptFileW();
+    pub fn EncryptFileW(lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EncryptionDisable();
+    pub fn EncryptionDisable(dirpath: super::super::Foundation::PWSTR, disable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EraseTape();
+    pub fn EraseTape(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FileEncryptionStatusA();
+    pub fn FileEncryptionStatusA(lpfilename: super::super::Foundation::PSTR, lpstatus: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FileEncryptionStatusW();
+    pub fn FileEncryptionStatusW(lpfilename: super::super::Foundation::PWSTR, lpstatus: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FileTimeToLocalFileTime();
+    pub fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundation::FILETIME, lplocalfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindClose();
+    pub fn FindClose(hfindfile: FindFileHandle) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindCloseChangeNotification();
+    pub fn FindCloseChangeNotification(hchangehandle: FindChangeNotificationHandle) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstChangeNotificationA();
+    pub fn FindFirstChangeNotificationA(lppathname: super::super::Foundation::PSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstChangeNotificationW();
+    pub fn FindFirstChangeNotificationW(lppathname: super::super::Foundation::PWSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileA();
+    pub fn FindFirstFileA(lpfilename: super::super::Foundation::PSTR, lpfindfiledata: *mut WIN32_FIND_DATAA) -> FindFileHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileExA();
+    pub fn FindFirstFileExA(lpfilename: super::super::Foundation::PSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileExFromAppW();
+    pub fn FindFirstFileExFromAppW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileExW();
+    pub fn FindFirstFileExW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileNameTransactedW();
+    pub fn FindFirstFileNameTransactedW(lpfilename: super::super::Foundation::PWSTR, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> FindFileNameHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileNameW();
+    pub fn FindFirstFileNameW(lpfilename: super::super::Foundation::PWSTR, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> FindFileNameHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileTransactedA();
+    pub fn FindFirstFileTransactedA(lpfilename: super::super::Foundation::PSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileTransactedW();
+    pub fn FindFirstFileTransactedW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstFileW();
+    pub fn FindFirstFileW(lpfilename: super::super::Foundation::PWSTR, lpfindfiledata: *mut WIN32_FIND_DATAW) -> FindFileHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstStreamTransactedW();
+    pub fn FindFirstStreamTransactedW(lpfilename: super::super::Foundation::PWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindStreamHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstStreamW();
+    pub fn FindFirstStreamW(lpfilename: super::super::Foundation::PWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstVolumeA();
+    pub fn FindFirstVolumeA(lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstVolumeMountPointA();
+    pub fn FindFirstVolumeMountPointA(lpszrootpathname: super::super::Foundation::PSTR, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstVolumeMountPointW();
+    pub fn FindFirstVolumeMountPointW(lpszrootpathname: super::super::Foundation::PWSTR, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindFirstVolumeW();
+    pub fn FindFirstVolumeW(lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeHandle;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextChangeNotification();
+    pub fn FindNextChangeNotification(hchangehandle: FindChangeNotificationHandle) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextFileA();
+    pub fn FindNextFileA(hfindfile: FindFileHandle, lpfindfiledata: *mut WIN32_FIND_DATAA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextFileNameW();
+    pub fn FindNextFileNameW(hfindstream: FindFileNameHandle, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextFileW();
+    pub fn FindNextFileW(hfindfile: super::super::Foundation::HANDLE, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextStreamW();
+    pub fn FindNextStreamW(hfindstream: FindStreamHandle, lpfindstreamdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextVolumeA();
+    pub fn FindNextVolumeA(hfindvolume: FindVolumeHandle, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextVolumeMountPointA();
+    pub fn FindNextVolumeMountPointA(hfindvolumemountpoint: FindVolumeMointPointHandle, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextVolumeMountPointW();
+    pub fn FindNextVolumeMountPointW(hfindvolumemountpoint: FindVolumeMointPointHandle, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNextVolumeW();
+    pub fn FindNextVolumeW(hfindvolume: FindVolumeHandle, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindVolumeClose();
+    pub fn FindVolumeClose(hfindvolume: FindVolumeHandle) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindVolumeMountPointClose();
+    pub fn FindVolumeMountPointClose(hfindvolumemountpoint: FindVolumeMointPointHandle) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FlushFileBuffers();
+    pub fn FlushFileBuffers(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn FlushLogBuffers();
+    pub fn FlushLogBuffers(pvmarshal: *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn FlushLogToLsn();
+    pub fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn FreeEncryptedFileMetadata();
+    pub fn FreeEncryptedFileMetadata(pbmetadata: *const u8);
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn FreeEncryptionCertificateHashList();
+    pub fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeReservedLog();
+    pub fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetBinaryTypeA();
+    pub fn GetBinaryTypeA(lpapplicationname: super::super::Foundation::PSTR, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetBinaryTypeW();
+    pub fn GetBinaryTypeW(lpapplicationname: super::super::Foundation::PWSTR, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCompressedFileSizeA();
+    pub fn GetCompressedFileSizeA(lpfilename: super::super::Foundation::PSTR, lpfilesizehigh: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCompressedFileSizeTransactedA();
+    pub fn GetCompressedFileSizeTransactedA(lpfilename: super::super::Foundation::PSTR, lpfilesizehigh: *mut u32, htransaction: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCompressedFileSizeTransactedW();
+    pub fn GetCompressedFileSizeTransactedW(lpfilename: super::super::Foundation::PWSTR, lpfilesizehigh: *mut u32, htransaction: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCompressedFileSizeW();
+    pub fn GetCompressedFileSizeW(lpfilename: super::super::Foundation::PWSTR, lpfilesizehigh: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrentClockTransactionManager();
+    pub fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDiskFreeSpaceA();
+    pub fn GetDiskFreeSpaceA(lprootpathname: super::super::Foundation::PSTR, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDiskFreeSpaceExA();
+    pub fn GetDiskFreeSpaceExA(lpdirectoryname: super::super::Foundation::PSTR, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDiskFreeSpaceExW();
+    pub fn GetDiskFreeSpaceExW(lpdirectoryname: super::super::Foundation::PWSTR, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDiskFreeSpaceW();
+    pub fn GetDiskFreeSpaceW(lprootpathname: super::super::Foundation::PWSTR, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDiskSpaceInformationA();
+    pub fn GetDiskSpaceInformationA(rootpath: super::super::Foundation::PSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDiskSpaceInformationW();
+    pub fn GetDiskSpaceInformationW(rootpath: super::super::Foundation::PWSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDriveTypeA();
+    pub fn GetDriveTypeA(lprootpathname: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDriveTypeW();
+    pub fn GetDriveTypeW(lprootpathname: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetEncryptedFileMetadata();
+    pub fn GetEncryptedFileMetadata(lpfilename: super::super::Foundation::PWSTR, pcbmetadata: *mut u32, ppbmetadata: *mut *mut u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetEnlistmentId();
+    pub fn GetEnlistmentId(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetEnlistmentRecoveryInformation();
+    pub fn GetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetExpandedNameA();
+    pub fn GetExpandedNameA(lpszsource: super::super::Foundation::PSTR, lpszbuffer: super::super::Foundation::PSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetExpandedNameW();
+    pub fn GetExpandedNameW(lpszsource: super::super::Foundation::PWSTR, lpszbuffer: super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileAttributesA();
+    pub fn GetFileAttributesA(lpfilename: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileAttributesExA();
+    pub fn GetFileAttributesExA(lpfilename: super::super::Foundation::PSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileAttributesExFromAppW();
+    pub fn GetFileAttributesExFromAppW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileAttributesExW();
+    pub fn GetFileAttributesExW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileAttributesTransactedA();
+    pub fn GetFileAttributesTransactedA(lpfilename: super::super::Foundation::PSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileAttributesTransactedW();
+    pub fn GetFileAttributesTransactedW(lpfilename: super::super::Foundation::PWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileAttributesW();
+    pub fn GetFileAttributesW(lpfilename: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileBandwidthReservation();
+    pub fn GetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut i32, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileInformationByHandle();
+    pub fn GetFileInformationByHandle(hfile: super::super::Foundation::HANDLE, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileInformationByHandleEx();
+    pub fn GetFileInformationByHandleEx(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileSize();
+    pub fn GetFileSize(hfile: super::super::Foundation::HANDLE, lpfilesizehigh: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileSizeEx();
+    pub fn GetFileSizeEx(hfile: super::super::Foundation::HANDLE, lpfilesize: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileTime();
+    pub fn GetFileTime(hfile: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lplastaccesstime: *mut super::super::Foundation::FILETIME, lplastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileType();
+    pub fn GetFileType(hfile: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoA();
+    pub fn GetFileVersionInfoA(lptstrfilename: super::super::Foundation::PSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoExA();
+    pub fn GetFileVersionInfoExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoExW();
+    pub fn GetFileVersionInfoExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoSizeA();
+    pub fn GetFileVersionInfoSizeA(lptstrfilename: super::super::Foundation::PSTR, lpdwhandle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoSizeExA();
+    pub fn GetFileVersionInfoSizeExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PSTR, lpdwhandle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoSizeExW();
+    pub fn GetFileVersionInfoSizeExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: super::super::Foundation::PWSTR, lpdwhandle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoSizeW();
+    pub fn GetFileVersionInfoSizeW(lptstrfilename: super::super::Foundation::PWSTR, lpdwhandle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileVersionInfoW();
+    pub fn GetFileVersionInfoW(lptstrfilename: super::super::Foundation::PWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFinalPathNameByHandleA();
+    pub fn GetFinalPathNameByHandleA(hfile: super::super::Foundation::HANDLE, lpszfilepath: super::super::Foundation::PSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFinalPathNameByHandleW();
+    pub fn GetFinalPathNameByHandleW(hfile: super::super::Foundation::HANDLE, lpszfilepath: super::super::Foundation::PWSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFullPathNameA();
+    pub fn GetFullPathNameA(lpfilename: super::super::Foundation::PSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFullPathNameTransactedA();
+    pub fn GetFullPathNameTransactedA(lpfilename: super::super::Foundation::PSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR, htransaction: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFullPathNameTransactedW();
+    pub fn GetFullPathNameTransactedW(lpfilename: super::super::Foundation::PWSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFullPathNameW();
+    pub fn GetFullPathNameW(lpfilename: super::super::Foundation::PWSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn GetIoRingInfo();
+    pub fn GetIoRingInfo(ioring: *const HIORING__, info: *mut IORING_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogContainerName();
+    pub fn GetLogContainerName(hlog: super::super::Foundation::HANDLE, cidlogicalcontainer: u32, pwstrcontainername: super::super::Foundation::PWSTR, clencontainername: u32, pcactuallencontainername: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogFileInformation();
+    pub fn GetLogFileInformation(hlog: super::super::Foundation::HANDLE, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogIoStatistics();
+    pub fn GetLogIoStatistics(hlog: super::super::Foundation::HANDLE, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogReservationInfo();
+    pub fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogicalDriveStringsA();
+    pub fn GetLogicalDriveStringsA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogicalDriveStringsW();
+    pub fn GetLogicalDriveStringsW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn GetLogicalDrives();
+    pub fn GetLogicalDrives() -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLongPathNameA();
+    pub fn GetLongPathNameA(lpszshortpath: super::super::Foundation::PSTR, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLongPathNameTransactedA();
+    pub fn GetLongPathNameTransactedA(lpszshortpath: super::super::Foundation::PSTR, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32, htransaction: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLongPathNameTransactedW();
+    pub fn GetLongPathNameTransactedW(lpszshortpath: super::super::Foundation::PWSTR, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32, htransaction: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLongPathNameW();
+    pub fn GetLongPathNameW(lpszshortpath: super::super::Foundation::PWSTR, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNextLogArchiveExtent();
+    pub fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNotificationResourceManager();
+    pub fn GetNotificationResourceManager(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn GetNotificationResourceManagerAsync();
+    pub fn GetNotificationResourceManagerAsync(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetShortPathNameA();
+    pub fn GetShortPathNameA(lpszlongpath: super::super::Foundation::PSTR, lpszshortpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetShortPathNameW();
+    pub fn GetShortPathNameW(lpszlongpath: super::super::Foundation::PWSTR, lpszshortpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTapeParameters();
+    pub fn GetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTapePosition();
+    pub fn GetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTapeStatus();
+    pub fn GetTapeStatus(hdevice: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTempFileNameA();
+    pub fn GetTempFileNameA(lppathname: super::super::Foundation::PSTR, lpprefixstring: super::super::Foundation::PSTR, uunique: u32, lptempfilename: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTempFileNameW();
+    pub fn GetTempFileNameW(lppathname: super::super::Foundation::PWSTR, lpprefixstring: super::super::Foundation::PWSTR, uunique: u32, lptempfilename: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTempPath2A();
+    pub fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTempPath2W();
+    pub fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTempPathA();
+    pub fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTempPathW();
+    pub fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTransactionId();
+    pub fn GetTransactionId(transactionhandle: super::super::Foundation::HANDLE, transactionid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTransactionInformation();
+    pub fn GetTransactionInformation(transactionhandle: super::super::Foundation::HANDLE, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, bufferlength: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTransactionManagerId();
+    pub fn GetTransactionManagerId(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumeInformationA();
+    pub fn GetVolumeInformationA(lprootpathname: super::super::Foundation::PSTR, lpvolumenamebuffer: super::super::Foundation::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumeInformationByHandleW();
+    pub fn GetVolumeInformationByHandleW(hfile: super::super::Foundation::HANDLE, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumeInformationW();
+    pub fn GetVolumeInformationW(lprootpathname: super::super::Foundation::PWSTR, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumeNameForVolumeMountPointA();
+    pub fn GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint: super::super::Foundation::PSTR, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumeNameForVolumeMountPointW();
+    pub fn GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumePathNameA();
+    pub fn GetVolumePathNameA(lpszfilename: super::super::Foundation::PSTR, lpszvolumepathname: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumePathNameW();
+    pub fn GetVolumePathNameW(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumePathNamesForVolumeNameA();
+    pub fn GetVolumePathNamesForVolumeNameA(lpszvolumename: super::super::Foundation::PSTR, lpszvolumepathnames: super::super::Foundation::PSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVolumePathNamesForVolumeNameW();
+    pub fn GetVolumePathNamesForVolumeNameW(lpszvolumename: super::super::Foundation::PWSTR, lpszvolumepathnames: super::super::Foundation::PWSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HandleLogFull();
+    pub fn HandleLogFull(hlog: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallLogPolicy();
+    pub fn InstallLogPolicy(hlog: super::super::Foundation::HANDLE, ppolicy: *mut CLFS_MGMT_POLICY) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsIoRingOpSupported();
+    pub fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LZClose();
+    pub fn LZClose(hfile: i32);
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LZCopy();
+    pub fn LZCopy(hfsource: i32, hfdest: i32) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub fn LZDone();
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LZInit();
+    pub fn LZInit(hfsource: i32) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LZOpenFileA();
+    pub fn LZOpenFileA(lpfilename: super::super::Foundation::PSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LZOpenFileW();
+    pub fn LZOpenFileW(lpfilename: super::super::Foundation::PWSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LZRead();
+    pub fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbread: i32) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LZSeek();
+    pub fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LZStart();
+    pub fn LZStart() -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LocalFileTimeToFileTime();
+    pub fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foundation::FILETIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LockFile();
+    pub fn LockFile(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn LockFileEx();
+    pub fn LockFileEx(hfile: super::super::Foundation::HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LogTailAdvanceFailure();
+    pub fn LogTailAdvanceFailure(hlog: super::super::Foundation::HANDLE, dwreason: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LsnBlockOffset();
+    pub fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LsnContainer();
+    pub fn LsnContainer(plsn: *const CLS_LSN) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LsnCreate();
+    pub fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LsnEqual();
+    pub fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LsnGreater();
+    pub fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LsnIncrement();
+    pub fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LsnInvalid();
+    pub fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LsnLess();
+    pub fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LsnNull();
+    pub fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn LsnRecordSequence();
+    pub fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileA();
+    pub fn MoveFileA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileExA();
+    pub fn MoveFileExA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileExW();
+    pub fn MoveFileExW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileFromAppW();
+    pub fn MoveFileFromAppW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileTransactedA();
+    pub fn MoveFileTransactedA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileTransactedW();
+    pub fn MoveFileTransactedW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileW();
+    pub fn MoveFileW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileWithProgressA();
+    pub fn MoveFileWithProgressA(lpexistingfilename: super::super::Foundation::PSTR, lpnewfilename: super::super::Foundation::PSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MoveFileWithProgressW();
+    pub fn MoveFileWithProgressW(lpexistingfilename: super::super::Foundation::PWSTR, lpnewfilename: super::super::Foundation::PWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetConnectionEnum();
+    pub fn NetConnectionEnum(servername: super::super::Foundation::PWSTR, qualifier: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetFileClose();
+    pub fn NetFileClose(servername: super::super::Foundation::PWSTR, fileid: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetFileEnum();
+    pub fn NetFileEnum(servername: super::super::Foundation::PWSTR, basepath: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetFileGetInfo();
+    pub fn NetFileGetInfo(servername: super::super::Foundation::PWSTR, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerAliasAdd();
+    pub fn NetServerAliasAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerAliasDel();
+    pub fn NetServerAliasDel(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerAliasEnum();
+    pub fn NetServerAliasEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetSessionDel();
+    pub fn NetSessionDel(servername: super::super::Foundation::PWSTR, uncclientname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetSessionEnum();
+    pub fn NetSessionEnum(servername: super::super::Foundation::PWSTR, uncclientname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetSessionGetInfo();
+    pub fn NetSessionGetInfo(servername: super::super::Foundation::PWSTR, uncclientname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareAdd();
+    pub fn NetShareAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareCheck();
+    pub fn NetShareCheck(servername: super::super::Foundation::PWSTR, device: super::super::Foundation::PWSTR, r#type: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareDel();
+    pub fn NetShareDel(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, reserved: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareDelEx();
+    pub fn NetShareDelEx(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareDelSticky();
+    pub fn NetShareDelSticky(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, reserved: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareEnum();
+    pub fn NetShareEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareEnumSticky();
+    pub fn NetShareEnumSticky(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareGetInfo();
+    pub fn NetShareGetInfo(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetShareSetInfo();
+    pub fn NetShareSetInfo(servername: super::super::Foundation::PWSTR, netname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn NetStatisticsGet();
+    pub fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-    pub fn NtCreateFile();
+    pub fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenEncryptedFileRawA();
+    pub fn OpenEncryptedFileRawA(lpfilename: super::super::Foundation::PSTR, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenEncryptedFileRawW();
+    pub fn OpenEncryptedFileRawW(lpfilename: super::super::Foundation::PWSTR, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenEnlistment();
+    pub fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenFile();
+    pub fn OpenFile(lpfilename: super::super::Foundation::PSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn OpenFileById();
+    pub fn OpenFileById(hvolumehint: super::super::Foundation::HANDLE, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenResourceManager();
+    pub fn OpenResourceManager(dwdesiredaccess: u32, tmhandle: super::super::Foundation::HANDLE, resourcemanagerid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenTransaction();
+    pub fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenTransactionManager();
+    pub fn OpenTransactionManager(logfilename: super::super::Foundation::PWSTR, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenTransactionManagerById();
+    pub fn OpenTransactionManagerById(transactionmanagerid: *const ::windows_sys::core::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn PopIoRingCompletion();
+    pub fn PopIoRingCompletion(ioring: *const HIORING__, cqe: *mut IORING_CQE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrePrepareComplete();
+    pub fn PrePrepareComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrePrepareEnlistment();
+    pub fn PrePrepareEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrepareComplete();
+    pub fn PrepareComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrepareEnlistment();
+    pub fn PrepareEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrepareLogArchive();
+    pub fn PrepareLogArchive(hlog: super::super::Foundation::HANDLE, pszbaselogfilename: super::super::Foundation::PWSTR, clen: u32, plsnlow: *const CLS_LSN, plsnhigh: *const CLS_LSN, pcactuallength: *mut u32, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PrepareTape();
+    pub fn PrepareTape(hdevice: super::super::Foundation::HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryDosDeviceA();
+    pub fn QueryDosDeviceA(lpdevicename: super::super::Foundation::PSTR, lptargetpath: super::super::Foundation::PSTR, ucchmax: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryDosDeviceW();
+    pub fn QueryDosDeviceW(lpdevicename: super::super::Foundation::PWSTR, lptargetpath: super::super::Foundation::PWSTR, ucchmax: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn QueryIoRingCapabilities();
+    pub fn QueryIoRingCapabilities(capabilities: *mut IORING_CAPABILITIES) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryLogPolicy();
+    pub fn QueryLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn QueryRecoveryAgentsOnEncryptedFile();
+    pub fn QueryRecoveryAgentsOnEncryptedFile(lpfilename: super::super::Foundation::PWSTR, precoveryagents: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn QueryUsersOnEncryptedFile();
+    pub fn QueryUsersOnEncryptedFile(lpfilename: super::super::Foundation::PWSTR, pusers: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReOpenFile();
+    pub fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadDirectoryChangesExW();
+    pub fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadDirectoryChangesW();
+    pub fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn ReadEncryptedFileRaw();
+    pub fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadFile();
+    pub fn ReadFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadFileEx();
+    pub fn ReadFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadFileScatter();
+    pub fn ReadFileScatter(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReadLogArchiveMetadata();
+    pub fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadLogNotification();
+    pub fn ReadLogNotification(hlog: super::super::Foundation::HANDLE, pnotification: *mut CLFS_MGMT_NOTIFICATION, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadLogRecord();
+    pub fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadLogRestartArea();
+    pub fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadNextLogRecord();
+    pub fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReadOnlyEnlistment();
+    pub fn ReadOnlyEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReadPreviousLogRestartArea();
+    pub fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RecoverEnlistment();
+    pub fn RecoverEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RecoverResourceManager();
+    pub fn RecoverResourceManager(resourcemanagerhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RecoverTransactionManager();
+    pub fn RecoverTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterForLogWriteNotification();
+    pub fn RegisterForLogWriteNotification(hlog: super::super::Foundation::HANDLE, cbthreshold: u32, fenable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterManageableLogClient();
+    pub fn RegisterManageableLogClient(hlog: super::super::Foundation::HANDLE, pcallbacks: *mut LOG_MANAGEMENT_CALLBACKS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveDirectoryA();
+    pub fn RemoveDirectoryA(lppathname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveDirectoryFromAppW();
+    pub fn RemoveDirectoryFromAppW(lppathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveDirectoryTransactedA();
+    pub fn RemoveDirectoryTransactedA(lppathname: super::super::Foundation::PSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveDirectoryTransactedW();
+    pub fn RemoveDirectoryTransactedW(lppathname: super::super::Foundation::PWSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveDirectoryW();
+    pub fn RemoveDirectoryW(lppathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveLogContainer();
+    pub fn RemoveLogContainer(hlog: super::super::Foundation::HANDLE, pwszcontainerpath: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveLogContainerSet();
+    pub fn RemoveLogContainerSet(hlog: super::super::Foundation::HANDLE, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveLogPolicy();
+    pub fn RemoveLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn RemoveUsersFromEncryptedFile();
+    pub fn RemoveUsersFromEncryptedFile(lpfilename: super::super::Foundation::PWSTR, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RenameTransactionManager();
+    pub fn RenameTransactionManager(logfilename: super::super::Foundation::PWSTR, existingtransactionmanagerguid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReplaceFileA();
+    pub fn ReplaceFileA(lpreplacedfilename: super::super::Foundation::PSTR, lpreplacementfilename: super::super::Foundation::PSTR, lpbackupfilename: super::super::Foundation::PSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReplaceFileFromAppW();
+    pub fn ReplaceFileFromAppW(lpreplacedfilename: super::super::Foundation::PWSTR, lpreplacementfilename: super::super::Foundation::PWSTR, lpbackupfilename: super::super::Foundation::PWSTR, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReplaceFileW();
+    pub fn ReplaceFileW(lpreplacedfilename: super::super::Foundation::PWSTR, lpreplacementfilename: super::super::Foundation::PWSTR, lpbackupfilename: super::super::Foundation::PWSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReserveAndAppendLog();
+    pub fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ReserveAndAppendLogAligned();
+    pub fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RollbackComplete();
+    pub fn RollbackComplete(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RollbackEnlistment();
+    pub fn RollbackEnlistment(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RollbackTransaction();
+    pub fn RollbackTransaction(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RollbackTransactionAsync();
+    pub fn RollbackTransactionAsync(transactionhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RollforwardTransactionManager();
+    pub fn RollforwardTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ScanLogContainers();
+    pub fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SearchPathA();
+    pub fn SearchPathA(lppath: super::super::Foundation::PSTR, lpfilename: super::super::Foundation::PSTR, lpextension: super::super::Foundation::PSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SearchPathW();
+    pub fn SearchPathW(lppath: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR, lpextension: super::super::Foundation::PWSTR, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn SetEncryptedFileMetadata();
+    pub fn SetEncryptedFileMetadata(lpfilename: super::super::Foundation::PWSTR, pboldmetadata: *const u8, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetEndOfFile();
+    pub fn SetEndOfFile(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn SetEndOfLog();
+    pub fn SetEndOfLog(hlog: super::super::Foundation::HANDLE, plsnend: *mut CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetEnlistmentRecoveryInformation();
+    pub fn SetEnlistmentRecoveryInformation(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub fn SetFileApisToANSI();
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
     pub fn SetFileApisToOEM();
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileAttributesA();
+    pub fn SetFileAttributesA(lpfilename: super::super::Foundation::PSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileAttributesFromAppW();
+    pub fn SetFileAttributesFromAppW(lpfilename: super::super::Foundation::PWSTR, dwfileattributes: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileAttributesTransactedA();
+    pub fn SetFileAttributesTransactedA(lpfilename: super::super::Foundation::PSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileAttributesTransactedW();
+    pub fn SetFileAttributesTransactedW(lpfilename: super::super::Foundation::PWSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileAttributesW();
+    pub fn SetFileAttributesW(lpfilename: super::super::Foundation::PWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileBandwidthReservation();
+    pub fn SetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: super::super::Foundation::BOOL, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileCompletionNotificationModes();
+    pub fn SetFileCompletionNotificationModes(filehandle: super::super::Foundation::HANDLE, flags: u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileInformationByHandle();
+    pub fn SetFileInformationByHandle(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileIoOverlappedRange();
+    pub fn SetFileIoOverlappedRange(filehandle: super::super::Foundation::HANDLE, overlappedrangestart: *const u8, length: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFilePointer();
+    pub fn SetFilePointer(hfile: super::super::Foundation::HANDLE, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFilePointerEx();
+    pub fn SetFilePointerEx(hfile: super::super::Foundation::HANDLE, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileShortNameA();
+    pub fn SetFileShortNameA(hfile: super::super::Foundation::HANDLE, lpshortname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileShortNameW();
+    pub fn SetFileShortNameW(hfile: super::super::Foundation::HANDLE, lpshortname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileTime();
+    pub fn SetFileTime(hfile: super::super::Foundation::HANDLE, lpcreationtime: *const super::super::Foundation::FILETIME, lplastaccesstime: *const super::super::Foundation::FILETIME, lplastwritetime: *const super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetFileValidData();
+    pub fn SetFileValidData(hfile: super::super::Foundation::HANDLE, validdatalength: i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetIoRingCompletionEvent();
+    pub fn SetIoRingCompletionEvent(ioring: *const HIORING__, hevent: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetLogArchiveMode();
+    pub fn SetLogArchiveMode(hlog: super::super::Foundation::HANDLE, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetLogArchiveTail();
+    pub fn SetLogArchiveTail(hlog: super::super::Foundation::HANDLE, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetLogFileSizeWithPolicy();
+    pub fn SetLogFileSizeWithPolicy(hlog: super::super::Foundation::HANDLE, pdesiredsize: *mut u64, presultingsize: *mut u64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetResourceManagerCompletionPort();
+    pub fn SetResourceManagerCompletionPort(resourcemanagerhandle: super::super::Foundation::HANDLE, iocompletionporthandle: super::super::Foundation::HANDLE, completionkey: usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSearchPathMode();
+    pub fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetTapeParameters();
+    pub fn SetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetTapePosition();
+    pub fn SetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetTransactionInformation();
+    pub fn SetTransactionInformation(transactionhandle: super::super::Foundation::HANDLE, isolationlevel: u32, isolationflags: u32, timeout: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Security`*"]
     #[cfg(feature = "Win32_Security")]
-    pub fn SetUserFileEncryptionKey();
+    pub fn SetUserFileEncryptionKey(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Security`*"]
     #[cfg(feature = "Win32_Security")]
-    pub fn SetUserFileEncryptionKeyEx();
+    pub fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetVolumeLabelA();
+    pub fn SetVolumeLabelA(lprootpathname: super::super::Foundation::PSTR, lpvolumename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetVolumeLabelW();
+    pub fn SetVolumeLabelW(lprootpathname: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetVolumeMountPointA();
+    pub fn SetVolumeMountPointA(lpszvolumemountpoint: super::super::Foundation::PSTR, lpszvolumename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetVolumeMountPointW();
+    pub fn SetVolumeMountPointW(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SinglePhaseReject();
+    pub fn SinglePhaseReject(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn SubmitIoRing();
+    pub fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32, submittedentries: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TerminateLogArchive();
+    pub fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TerminateReadLog();
+    pub fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn TruncateLog();
+    pub fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn TxfGetThreadMiniVersionForCreate();
+    pub fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16);
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TxfLogCreateFileReadContext();
+    pub fn TxfLogCreateFileReadContext(logpath: super::super::Foundation::PWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TxfLogCreateRangeReadContext();
+    pub fn TxfLogCreateRangeReadContext(logpath: super::super::Foundation::PWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TxfLogDestroyReadContext();
+    pub fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TxfLogReadRecords();
+    pub fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, bufferlength: u32, buffer: *mut ::core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TxfLogRecordGetFileName();
+    pub fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: super::super::Foundation::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TxfLogRecordGetGenericType();
+    pub fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TxfReadMetadataInfo();
+    pub fn TxfReadMetadataInfo(filehandle: super::super::Foundation::HANDLE, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn TxfSetThreadMiniVersionForCreate();
+    pub fn TxfSetThreadMiniVersionForCreate(miniversion: u16);
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnlockFile();
+    pub fn UnlockFile(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn UnlockFileEx();
+    pub fn UnlockFileEx(hfile: super::super::Foundation::HANDLE, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn ValidateLog();
+    pub fn ValidateLog(pszlogfilename: super::super::Foundation::PWSTR, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: *mut CLS_INFORMATION, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerFindFileA();
+    pub fn VerFindFileA(uflags: VER_FIND_FILE_FLAGS, szfilename: super::super::Foundation::PSTR, szwindir: super::super::Foundation::PSTR, szappdir: super::super::Foundation::PSTR, szcurdir: super::super::Foundation::PSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerFindFileW();
+    pub fn VerFindFileW(uflags: VER_FIND_FILE_FLAGS, szfilename: super::super::Foundation::PWSTR, szwindir: super::super::Foundation::PWSTR, szappdir: super::super::Foundation::PWSTR, szcurdir: super::super::Foundation::PWSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerInstallFileA();
+    pub fn VerInstallFileA(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: super::super::Foundation::PSTR, szdestfilename: super::super::Foundation::PSTR, szsrcdir: super::super::Foundation::PSTR, szdestdir: super::super::Foundation::PSTR, szcurdir: super::super::Foundation::PSTR, sztmpfile: super::super::Foundation::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerInstallFileW();
+    pub fn VerInstallFileW(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: super::super::Foundation::PWSTR, szdestfilename: super::super::Foundation::PWSTR, szsrcdir: super::super::Foundation::PWSTR, szdestdir: super::super::Foundation::PWSTR, szcurdir: super::super::Foundation::PWSTR, sztmpfile: super::super::Foundation::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerLanguageNameA();
+    pub fn VerLanguageNameA(wlang: u32, szlang: super::super::Foundation::PSTR, cchlang: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerLanguageNameW();
+    pub fn VerLanguageNameW(wlang: u32, szlang: super::super::Foundation::PWSTR, cchlang: u32) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerQueryValueA();
+    pub fn VerQueryValueA(pblock: *const ::core::ffi::c_void, lpsubblock: super::super::Foundation::PSTR, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VerQueryValueW();
+    pub fn VerQueryValueW(pblock: *const ::core::ffi::c_void, lpsubblock: super::super::Foundation::PWSTR, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofEnumEntries();
+    pub fn WofEnumEntries(volumename: super::super::Foundation::PWSTR, provider: u32, enumproc: WofEnumEntryProc, userdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofFileEnumFiles();
+    pub fn WofFileEnumFiles(volumename: super::super::Foundation::PWSTR, algorithm: u32, enumproc: WofEnumFilesProc, userdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofGetDriverVersion();
+    pub fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32, wofversion: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofIsExternalFile();
+    pub fn WofIsExternalFile(filepath: super::super::Foundation::PWSTR, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofSetFileDataLocation();
+    pub fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofShouldCompressBinaries();
+    pub fn WofShouldCompressBinaries(volume: super::super::Foundation::PWSTR, algorithm: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofWimAddEntry();
+    pub fn WofWimAddEntry(volumename: super::super::Foundation::PWSTR, wimpath: super::super::Foundation::PWSTR, wimtype: u32, wimindex: u32, datasourceid: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofWimEnumFiles();
+    pub fn WofWimEnumFiles(volumename: super::super::Foundation::PWSTR, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofWimRemoveEntry();
+    pub fn WofWimRemoveEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofWimSuspendEntry();
+    pub fn WofWimSuspendEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WofWimUpdateEntry();
+    pub fn WofWimUpdateEntry(volumename: super::super::Foundation::PWSTR, datasourceid: i64, newwimpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn Wow64DisableWow64FsRedirection();
+    pub fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn Wow64EnableWow64FsRedirection();
+    pub fn Wow64EnableWow64FsRedirection(wow64fsenableredirection: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn Wow64RevertWow64FsRedirection();
+    pub fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`*"]
-    pub fn WriteEncryptedFileRaw();
+    pub fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WriteFile();
+    pub fn WriteFile(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WriteFileEx();
+    pub fn WriteFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WriteFileGather();
+    pub fn WriteFileGather(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`, `Win32_System_IO`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WriteLogRestartArea();
+    pub fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WriteTapemark();
+    pub fn WriteTapemark(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
 }

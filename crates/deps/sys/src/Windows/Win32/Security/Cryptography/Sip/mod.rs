@@ -1,40 +1,78 @@
 #![allow(non_snake_case, non_camel_case_types)]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_DIGEST_GENERATE_FLAG: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_DIGEST_SIGN_EX_FLAG: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_DIGEST_SIGN_FLAG: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_EXC_PE_PAGE_HASHES_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_INC_PE_DEBUG_INFO_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_INC_PE_PAGE_HASHES_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_INC_PE_RESOURCES_FLAG: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSIPAddProvider();
+    pub fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPCreateIndirectData();
+    pub fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPGetCaps();
+    pub fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPGetSealedDigest();
+    pub fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPGetSignedDataMsg();
+    pub fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPLoad();
+    pub fn CryptSIPLoad(pgsubject: *const ::windows_sys::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPPutSignedDataMsg();
+    pub fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSIPRemoveProvider();
+    pub fn CryptSIPRemoveProvider(pgprov: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPRemoveSignedDataMsg();
+    pub fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSIPRetrieveSubjectGuid();
+    pub fn CryptSIPRetrieveSubjectGuid(filename: super::super::super::Foundation::PWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSIPRetrieveSubjectGuidForCatalogFile();
+    pub fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename: super::super::super::Foundation::PWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-    pub fn CryptSIPVerifyIndirectData();
+    pub fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
 }
