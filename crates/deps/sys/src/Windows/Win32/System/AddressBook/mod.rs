@@ -154,8 +154,11 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_AddressBook`*"]
     pub fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows_sys::core::HRESULT;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct ADRENTRY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct ADRLIST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct ADRPARM(i32);
 pub struct CALLERRELEASE(i32);
 pub struct DTBLBUTTON(i32);
@@ -348,6 +351,7 @@ pub const FACILITY_IMAPI2: u32 = 170u32;
 pub struct FLATENTRY(i32);
 pub struct FLATENTRYLIST(i32);
 pub struct FLATMTSIDLIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNIDLE(i32);
 pub struct Gender(i32);
 pub struct IABContainer(i32);
@@ -498,36 +502,51 @@ pub struct IWABOBJECT_(i32);
 pub struct IWABOBJECT_AddRef_METHOD(i32);
 pub struct IWABOBJECT_AllocateBuffer_METHOD(i32);
 pub struct IWABOBJECT_AllocateMore_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_Backup_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_Find_METHOD(i32);
 pub struct IWABOBJECT_FreeBuffer_METHOD(i32);
 pub struct IWABOBJECT_GetLastError_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_GetMe_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_Import_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_LDAPUrl_METHOD(i32);
 pub struct IWABOBJECT_QueryInterface_METHOD(i32);
 pub struct IWABOBJECT_Release_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_SetMe_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_VCardCreate_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_VCardDisplay_METHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IWABOBJECT_VCardRetrieve_METHOD(i32);
 pub struct IWABObject(i32);
 pub struct LPALLOCATEBUFFER(i32);
 pub struct LPALLOCATEMORE(i32);
 pub struct LPCREATECONVERSATIONINDEX(i32);
 pub struct LPDISPATCHNOTIFICATIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNABSDI(i32);
 pub struct LPFNBUTTON(i32);
 pub struct LPFNDISMISS(i32);
 pub struct LPFREEBUFFER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPNOTIFCALLBACK(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct LPOPENSTREAMONFILE(i32);
 pub struct LPWABALLOCATEBUFFER(i32);
 pub struct LPWABALLOCATEMORE(i32);
 pub struct LPWABFREEBUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPWABOPEN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPWABOPENEX(i32);
 pub struct MAPIERROR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MAPINAMEID(i32);
 pub struct MAPIUID(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
@@ -574,9 +593,11 @@ pub const MV_FLAG: u32 = 4096u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const MV_INSTANCE: u32 = 8192u32;
 pub struct NEWMAIL_NOTIFICATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct NOTIFICATION(i32);
 pub struct NOTIFKEY(i32);
 pub struct OBJECT_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNIDLE(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const PRIHIGHEST: u32 = 32767u32;
@@ -592,15 +613,20 @@ pub const PROP_ID_NULL: u32 = 0u32;
 pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SAndRestriction(i32);
 pub struct SAppTimeArray(i32);
 pub struct SBinary(i32);
 pub struct SBinaryArray(i32);
 pub struct SBitMaskRestriction(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SCommentRestriction(i32);
 pub struct SComparePropsRestriction(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SContentRestriction(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct SCurrencyArray(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SDateTimeArray(i32);
 pub struct SDoubleArray(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
@@ -609,26 +635,37 @@ pub const SERVICE_UI_ALLOWED: u32 = 16u32;
 pub const SERVICE_UI_ALWAYS: u32 = 2u32;
 pub struct SExistRestriction(i32);
 pub struct SGuidArray(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SLPSTRArray(i32);
 pub struct SLargeIntegerArray(i32);
 pub struct SLongArray(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SNotRestriction(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SOrRestriction(i32);
 pub struct SPropProblem(i32);
 pub struct SPropProblemArray(i32);
 pub struct SPropTagArray(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SPropValue(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SPropertyRestriction(i32);
 pub struct SRealArray(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SRestriction(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SRow(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SRowSet(i32);
 pub struct SShortArray(i32);
 pub struct SSizeRestriction(i32);
 pub struct SSortOrder(i32);
 pub struct SSortOrderSet(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSubRestriction(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct STATUS_OBJECT_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWStringArray(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const S_IMAPI_BOTHADJUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141126i32 as _);
@@ -646,6 +683,7 @@ pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::window
 pub const TABLE_CHANGED: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const TABLE_ERROR: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct TABLE_NOTIFICATION(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const TABLE_RELOAD: u32 = 9u32;
@@ -667,7 +705,9 @@ pub const TAD_ALL_ROWS: u32 = 1u32;
 pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const UI_SERVICE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WABEXTDISPLAY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WABIMPORTPARAM(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
@@ -687,6 +727,7 @@ pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
 pub const WAB_IGNORE_PROFILES: u32 = 8388608u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const WAB_LOCAL_CONTAINERS: u32 = 1048576u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAB_PARAM(i32);
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
@@ -696,6 +737,7 @@ pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
 pub const WAB_VCARD_FILE: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const WAB_VCARD_STREAM: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct _PV(i32);
 pub struct _WABACTIONITEM(i32);
 pub struct _flaglist(i32);

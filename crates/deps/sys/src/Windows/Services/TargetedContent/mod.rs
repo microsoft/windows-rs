@@ -24,6 +24,7 @@ pub struct TargetedContentChangedEventArgs(i32);
 pub struct TargetedContentCollection(i32);
 pub struct TargetedContentContainer(i32);
 pub struct TargetedContentContract(i32);
+#[cfg(feature = "Storage_Streams")]
 pub struct TargetedContentFile(i32);
 pub struct TargetedContentImage(i32);
 pub struct TargetedContentInteraction(i32);

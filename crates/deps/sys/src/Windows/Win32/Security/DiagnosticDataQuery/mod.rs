@@ -87,15 +87,22 @@ extern "system" {
     #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`*"]
     pub fn DdqSetTranscriptConfiguration(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig: *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows_sys::core::HRESULT;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION(i32);
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_STATS(i32);
 pub struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION(i32);
 pub struct DIAGNOSTIC_DATA_GENERAL_STATS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_RECORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_REPORT_DATA(i32);
 pub struct DIAGNOSTIC_REPORT_PARAMETER(i32);
 pub struct DIAGNOSTIC_REPORT_SIGNATURE(i32);

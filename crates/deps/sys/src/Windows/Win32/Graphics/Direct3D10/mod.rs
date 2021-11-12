@@ -137,7 +137,9 @@ pub const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 pub struct D3D10_ASYNC_GETDATA_FLAG(i32);
 pub struct D3D10_BIND_FLAG(i32);
 pub struct D3D10_BLEND(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_BLEND_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_BLEND_DESC1(i32);
 pub struct D3D10_BLEND_OP(i32);
 pub struct D3D10_BOX(i32);
@@ -287,7 +289,9 @@ pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_WIDTH: u32 = 0u32;
 pub struct D3D10_DEPTH_STENCILOP_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_DEPTH_STENCIL_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D10_DEPTH_STENCIL_VIEW_DESC(i32);
 pub struct D3D10_DEPTH_WRITE_MASK(i32);
 pub struct D3D10_DEVICE_STATE_TYPES(i32);
@@ -297,13 +301,17 @@ pub struct D3D10_DSV_DIMENSION(i32);
 pub const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_EFFECT_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_EFFECT_SHADER_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_SINGLE_THREADED: u32 = 8u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub struct D3D10_EFFECT_TYPE_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_EFFECT_VARIABLE_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4u32;
@@ -401,6 +409,7 @@ pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 pub struct D3D10_INFO_QUEUE_FILTER(i32);
 pub struct D3D10_INFO_QUEUE_FILTER_DESC(i32);
 pub struct D3D10_INPUT_CLASSIFICATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D10_INPUT_ELEMENT_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
@@ -452,6 +461,7 @@ pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_PASS_DESC(i32);
 pub struct D3D10_PASS_SHADER_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -493,12 +503,16 @@ pub const D3D10_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
 pub struct D3D10_QUERY(i32);
 pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS(i32);
 pub struct D3D10_QUERY_DATA_SO_STATISTICS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT(i32);
 pub struct D3D10_QUERY_DESC(i32);
 pub struct D3D10_QUERY_MISC_FLAG(i32);
 pub struct D3D10_RAISE_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_RASTERIZER_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D10_RENDER_TARGET_VIEW_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_BLEND_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
@@ -558,26 +572,33 @@ pub const D3D10_SDK_LAYERS_VERSION: u32 = 11u32;
 pub const D3D10_SDK_VERSION: u32 = 29u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub struct D3D10_SHADER_BUFFER_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_DEBUG: u32 = 1u32;
 pub struct D3D10_SHADER_DEBUG_FILE_INFO(i32);
 pub struct D3D10_SHADER_DEBUG_INFO(i32);
 pub struct D3D10_SHADER_DEBUG_INPUT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_SHADER_DEBUG_INST_INFO(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_DEBUG_NAME_FOR_BINARY: u32 = 8388608u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_DEBUG_NAME_FOR_SOURCE: u32 = 4194304u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_SHADER_DEBUG_OUTPUTVAR(i32);
 pub struct D3D10_SHADER_DEBUG_REGTYPE(i32);
 pub struct D3D10_SHADER_DEBUG_SCOPETYPE(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO(i32);
 pub struct D3D10_SHADER_DEBUG_SCOPE_INFO(i32);
 pub struct D3D10_SHADER_DEBUG_TOKEN_INFO(i32);
 pub struct D3D10_SHADER_DEBUG_VARTYPE(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D10_SHADER_DEBUG_VAR_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub struct D3D10_SHADER_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096u32;
@@ -595,6 +616,7 @@ pub const D3D10_SHADER_FORCE_PS_SOFTWARE_NO_OPT: u32 = 128u32;
 pub const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_IEEE_STRICTNESS: u32 = 8192u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub struct D3D10_SHADER_INPUT_BIND_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_MAJOR_VERSION: u32 = 4u32;
@@ -618,13 +640,17 @@ pub const D3D10_SHADER_PARTIAL_PRECISION: u32 = 32u32;
 pub const D3D10_SHADER_PREFER_FLOW_CONTROL: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_RESOURCES_MAY_ALIAS: u32 = 524288u32;
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC1(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_SKIP_VALIDATION: u32 = 2u32;
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D10_SHADER_TYPE_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_SHADER_VARIABLE_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_WARNINGS_ARE_ERRORS: u32 = 262144u32;
@@ -632,6 +658,7 @@ pub const D3D10_SHADER_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub struct D3D10_SIGNATURE_PARAMETER_DESC(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
@@ -643,6 +670,7 @@ pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256u32;
 pub const D3D10_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_SO_DECLARATION_ENTRY(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1u32;
@@ -686,6 +714,7 @@ pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub struct D3D10_SUBRESOURCE_DATA(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D10_TECHNIQUE_DESC(i32);
 pub struct D3D10_TEX1D_ARRAY_DSV(i32);
 pub struct D3D10_TEX1D_ARRAY_RTV(i32);
@@ -711,8 +740,11 @@ pub struct D3D10_TEXCUBE_ARRAY_SRV1(i32);
 pub struct D3D10_TEXCUBE_SRV(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18u32;
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D10_TEXTURE1D_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D10_TEXTURE2D_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D10_TEXTURE3D_DESC(i32);
 pub struct D3D10_TEXTURECUBE_FACE(i32);
 pub struct D3D10_TEXTURE_ADDRESS_MODE(i32);
@@ -821,7 +853,9 @@ pub struct ID3D10Texture2D(i32);
 pub struct ID3D10Texture3D(i32);
 pub struct ID3D10VertexShader(i32);
 pub struct ID3D10View(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub struct PFN_D3D10_CREATE_DEVICE1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const _FACD3D10: u32 = 2169u32;

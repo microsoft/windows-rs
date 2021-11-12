@@ -11995,6 +11995,7 @@ pub const DLCTL_URL_ENCODING_ENABLE_UTF8: u32 = 262144u32;
 pub const DLCTL_VIDEOS: u32 = 32u32;
 pub struct DOCHOSTUIDBLCLK(i32);
 pub struct DOCHOSTUIFLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOCHOSTUIINFO(i32);
 pub struct DOCHOSTUITYPE(i32);
 pub struct DOMBeforeUnloadEvent(i32);
@@ -12514,8 +12515,10 @@ pub struct HTMLXMLHttpRequest(i32);
 pub struct HTMLXMLHttpRequestEvents(i32);
 pub struct HTMLXMLHttpRequestFactory(i32);
 pub struct HTML_PAINTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTML_PAINTER_INFO(i32);
 pub struct HTML_PAINT_DRAW_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct HTML_PAINT_DRAW_INFO(i32);
 pub struct HTML_PAINT_DRAW_INFO_FLAGS(i32);
 pub struct HTML_PAINT_EVENT_FLAGS(i32);
@@ -13591,9 +13594,11 @@ pub const IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 6u32;
 pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IEISXMLNSREGISTEREDFN(i32);
 pub struct IELAUNCHOPTION_FLAGS(i32);
 pub struct IELAUNCHURLINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IEREGISTERXMLNSFN(i32);
 pub struct IEWebDriverManager(i32);
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
@@ -14303,12 +14308,16 @@ pub struct SCRIPT_TIMER_TYPE(i32);
 pub struct SCROLLABLECONTEXTMENU_PLACEMENT(i32);
 pub struct SECUREURLHOSTVALIDATE_FLAGS(i32);
 pub struct SELECTION_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SHOWHTMLDIALOGEXFN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SHOWHTMLDIALOGFN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SHOWMODELESSHTMLDIALOGFN(i32);
 pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct STATURL(i32);
 #[doc = "*Required features: `Win32_Web_MsHtml`*"]
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;

@@ -23,6 +23,7 @@ pub struct IWordSegment(i32);
 pub struct IWordsSegmenter(i32);
 pub struct IWordsSegmenterFactory(i32);
 pub struct SelectableWordSegment(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct SelectableWordSegmentsTokenizingHandler(i32);
 pub struct SelectableWordsSegmenter(i32);
 pub struct SemanticTextQuery(i32);
@@ -36,5 +37,6 @@ pub struct UnicodeCharacters(i32);
 pub struct UnicodeGeneralCategory(i32);
 pub struct UnicodeNumericType(i32);
 pub struct WordSegment(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct WordSegmentsTokenizingHandler(i32);
 pub struct WordsSegmenter(i32);

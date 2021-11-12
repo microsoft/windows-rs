@@ -17,12 +17,17 @@ extern "system" {
     pub fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
 }
 pub struct COMPARTMENT_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CSTRING(i32);
 pub struct EVENT_TYPE(i32);
 pub struct EXCEPTION_DISPOSITION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_REGISTRATION_RECORD(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_ROUTINE(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct FLOATING_SAVE_AREA(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct FLOATING_SAVE_AREA(i32);
 pub struct LIST_ENTRY(i32);
 pub struct LIST_ENTRY32(i32);
@@ -34,6 +39,7 @@ pub const MAXULONG: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const MAXUSHORT: u32 = 65535u32;
 pub struct NT_PRODUCT_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct NT_TIB(i32);
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const NULL64: u32 = 0u32;
@@ -72,9 +78,13 @@ pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
 pub struct SINGLE_LIST_ENTRY(i32);
 pub struct SINGLE_LIST_ENTRY32(i32);
 pub struct SLIST_ENTRY(i32);
+#[cfg(any(target_arch = "aarch64",))]
 pub struct SLIST_HEADER(i32);
+#[cfg(any(target_arch = "x86_64",))]
 pub struct SLIST_HEADER(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SLIST_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STRING(i32);
 pub struct STRING32(i32);
 pub struct STRING64(i32);

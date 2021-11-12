@@ -1289,10 +1289,13 @@ pub struct DESIGNVECTOR(i32);
 pub const DEVICEDATA: u32 = 19u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const DEVICE_FONTTYPE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW(i32);
 pub struct DFCS_STATE(i32);
 pub struct DFC_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIBSECTION(i32);
 pub struct DIB_USAGE(i32);
 pub struct DISPLAYCONFIG_COLOR_ENCODING(i32);
@@ -1330,6 +1333,7 @@ pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
 pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAY_DEVICEA(i32);
 pub struct DISPLAY_DEVICEW(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
@@ -1816,6 +1820,7 @@ pub const DRAFTMODE: u32 = 7u32;
 pub struct DRAWEDGE_FLAGS(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const DRAWPATTERNRECT: u32 = 25u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRAWSTATEPROC(i32);
 pub struct DRAWSTATE_FLAGS(i32);
 pub struct DRAWTEXTPARAMS(i32);
@@ -1847,48 +1852,75 @@ pub const ELF_VERSION: u32 = 0u32;
 pub struct EMBEDDED_FONT_PRIV_STATUS(i32);
 pub struct EMBED_FONT_CHARSET(i32);
 pub struct EMR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRALPHABLEND(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRANGLEARC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRARC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRBITBLT(i32);
 pub struct EMRCREATEBRUSHINDIRECT(i32);
 pub struct EMRCREATEDIBPATTERNBRUSHPT(i32);
 pub struct EMRCREATEMONOBRUSH(i32);
 pub struct EMRCREATEPALETTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRCREATEPEN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRELLIPSE(i32);
 pub struct EMREOF(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMREXCLUDECLIPRECT(i32);
 pub struct EMREXTCREATEFONTINDIRECTW(i32);
 pub struct EMREXTCREATEPEN(i32);
 pub struct EMREXTESCAPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTFLOODFILL(i32);
 pub struct EMREXTSELECTCLIPRGN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTTEXTOUTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRFILLPATH(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRFILLRGN(i32);
 pub struct EMRFORMAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRFRAMERGN(i32);
 pub struct EMRGDICOMMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRGLSBOUNDEDRECORD(i32);
 pub struct EMRGLSRECORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRGRADIENTFILL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRINVERTRGN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRLINETO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRMASKBLT(i32);
 pub struct EMRMODIFYWORLDTRANSFORM(i32);
 pub struct EMRNAMEDESCAPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMROFFSETCLIPRGN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPLGBLT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYDRAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYDRAW16(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYLINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYLINE16(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYPOLYLINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYPOLYLINE16(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYTEXTOUTA(i32);
 pub struct EMRRESIZEPALETTE(i32);
 pub struct EMRRESTOREDC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRROUNDRECT(i32);
 pub struct EMRSCALEVIEWPORTEXTEX(i32);
 pub struct EMRSELECTCLIPPATH(i32);
@@ -1897,19 +1929,27 @@ pub struct EMRSELECTPALETTE(i32);
 pub struct EMRSETARCDIRECTION(i32);
 pub struct EMRSETCOLORADJUSTMENT(i32);
 pub struct EMRSETCOLORSPACE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETDIBITSTODEVICE(i32);
 pub struct EMRSETICMPROFILE(i32);
 pub struct EMRSETMAPPERFLAGS(i32);
 pub struct EMRSETMITERLIMIT(i32);
 pub struct EMRSETPALETTEENTRIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETPIXELV(i32);
 pub struct EMRSETTEXTCOLOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETVIEWPORTEXTEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETVIEWPORTORGEX(i32);
 pub struct EMRSETWORLDTRANSFORM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRSTRETCHBLT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRSTRETCHDIBITS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRTRANSPARENTBLT(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const EMR_ABORTPATH: u32 = 68u32;
@@ -2169,15 +2209,20 @@ pub const ENCAPSULATED_POSTSCRIPT: u32 = 4116u32;
 pub const ENDDOC: u32 = 11u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const END_PATH: u32 = 4098u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENHMETAHEADER(i32);
 pub struct ENHMETARECORD(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENHMFENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTEXDVA(i32);
 pub struct ENUMLOGFONTEXDVW(i32);
 pub struct ENUMLOGFONTEXW(i32);
@@ -2338,6 +2383,7 @@ pub const ERR_WRITECONTROL: u32 = 1004u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const ERR_WRITEOUTOFBOUNDS: u32 = 1002u32;
 pub struct ETO_OPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGFONTA(i32);
 pub struct EXTLOGFONTW(i32);
 pub struct EXTLOGPEN(i32);
@@ -2488,7 +2534,9 @@ pub const FLI_GLYPHS: i32 = 262144i32;
 pub const FLI_MASK: u32 = 4155u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const FLUSHOUTPUT: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FONTENUMPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FONTENUMPROCW(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const FONTMAPPER_MAX: u32 = 10u32;
@@ -2598,7 +2646,9 @@ pub const GCP_DBCS: u32 = 1u32;
 pub const GCP_ERROR: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GCP_JUSTIFYIN: i32 = 2097152i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GCP_RESULTSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GCP_RESULTSW(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GDICOMMENT_BEGINGROUP: u32 = 2u32;
@@ -2669,10 +2719,12 @@ pub const GET_PS_FEATURESETTING: u32 = 4121u32;
 pub struct GET_STOCK_OBJECT_FLAGS(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GLYPHMETRICS(i32);
 pub struct GLYPHSET(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GM_LAST: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOBJENUMPROC(i32);
 pub struct GRADIENT_FILL(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
@@ -2680,6 +2732,7 @@ pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 pub struct GRADIENT_RECT(i32);
 pub struct GRADIENT_TRIANGLE(i32);
 pub struct GRAPHICS_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GRAYSTRINGPROC(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GREEK_CHARSET: u32 = 161u32;
@@ -2782,12 +2835,15 @@ pub const LC_WIDESTYLED: u32 = 64u32;
 pub const LF_FACESIZE: u32 = 32u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const LF_FULLFACESIZE: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LINEDDAPROC(i32);
 pub struct LOGBRUSH(i32);
 pub struct LOGBRUSH32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOGFONTA(i32);
 pub struct LOGFONTW(i32);
 pub struct LOGPALETTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOGPEN(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const LPD_DOUBLEBUFFER: u32 = 1u32;
@@ -2813,7 +2869,9 @@ pub const LPD_TRANSPARENT: u32 = 4096u32;
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const LPD_TYPE_RGBA: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNDEVCAPS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNDEVMODE(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MAC_CHARSET: u32 = 77u32;
@@ -2964,6 +3022,7 @@ pub const META_STRETCHDIB: u32 = 3907u32;
 pub const META_TEXTOUT: u32 = 1313u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MFCOMMENT: u32 = 15u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFENUMPROC(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
@@ -2974,9 +3033,13 @@ pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MM_MAX_NUMAXES: u32 = 16u32;
 pub struct MODIFY_WORLD_TRANSFORM_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONITORENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXW(i32);
 pub struct MONITOR_FROM_FLAGS(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
@@ -3016,10 +3079,13 @@ pub struct OBJ_TYPE(i32);
 pub const OEM_CHARSET: u32 = 255u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const OPENCHANNEL: u32 = 4110u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct OUTLINETEXTMETRICA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OUTLINETEXTMETRICW(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PAINTSTRUCT(i32);
 pub struct PALETTEENTRY(i32);
 pub struct PANOSE(i32);
@@ -3322,7 +3388,9 @@ pub const PFD_UNDERLAY_PLANE: i32 = -1i32;
 pub struct POINTFX(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const POLYFILL_LAST: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLYTEXTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLYTEXTW(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const POSTSCRIPT_DATA: u32 = 37u32;
@@ -3438,7 +3506,9 @@ pub const RELATIVE: u32 = 2u32;
 pub const RESTORE_CTM: u32 = 4100u32;
 pub struct RGBQUAD(i32);
 pub struct RGBTRIPLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATAHEADER(i32);
 pub struct RGN_COMBINE_MODE(i32);
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]

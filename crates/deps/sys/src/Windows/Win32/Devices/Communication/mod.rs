@@ -92,12 +92,14 @@ extern "system" {
     pub fn WaitCommEvent(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
 }
 pub struct CLEAR_COMM_ERROR_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMMCONFIG(i32);
 pub struct COMMPROP(i32);
 pub struct COMMPROP_STOP_PARITY(i32);
 pub struct COMMTIMEOUTS(i32);
 pub struct COMM_EVENT_MASK(i32);
 pub struct COMSTAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DCB(i32);
 pub struct ESCAPE_COMM_FUNCTION(i32);
 #[doc = "*Required features: `Win32_Devices_Communication`*"]

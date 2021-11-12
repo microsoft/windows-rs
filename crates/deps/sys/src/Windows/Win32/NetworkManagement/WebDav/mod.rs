@@ -50,7 +50,10 @@ pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`*"]
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 pub struct DAV_CALLBACK_AUTH_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DAV_CALLBACK_AUTH_UNP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DAV_CALLBACK_CRED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDAVAUTHCALLBACK(i32);
 pub struct PFNDAVAUTHCALLBACK_FREECRED(i32);

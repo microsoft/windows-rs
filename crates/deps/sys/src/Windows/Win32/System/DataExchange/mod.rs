@@ -221,7 +221,9 @@ pub const APPCLASS_MASK: i32 = 15i32;
 pub const APPCMD_MASK: i32 = 4080i32;
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const CADV_LATEACK: u32 = 65535u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct CONVCONTEXT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct CONVINFO(i32);
 pub struct CONVINFO_CONVERSATION_STATE(i32);
 pub struct CONVINFO_STATUS(i32);
@@ -310,6 +312,7 @@ pub struct HSZ(i32);
 pub struct HSZPAIR(i32);
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MAX_MONITORS: u32 = 4u32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct METAFILEPICT(i32);
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MF_MASK: u32 = 4278190080u32;
@@ -321,12 +324,19 @@ pub const MH_CREATE: u32 = 1u32;
 pub const MH_DELETE: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MH_KEEP: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct MONCBSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONCONVSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONERRSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONHSZSTRUCTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONHSZSTRUCTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONLINKSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONMSGSTRUCT(i32);
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MSGF_DDEMGR: u32 = 32769u32;

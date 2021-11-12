@@ -196,7 +196,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WNetUseConnectionW(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpuserid: super::super::Foundation::PWSTR, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONNECTDLGSTRUCTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONNECTDLGSTRUCTW(i32);
 pub struct CONNECTDLGSTRUCT_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
@@ -219,21 +221,28 @@ pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
 pub const CONNECT_RESERVED: u32 = 4278190080u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISCDLGSTRUCTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISCDLGSTRUCTW(i32);
 pub struct DISCDLGSTRUCT_FLAGS(i32);
 pub struct NETCONNECTINFOSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NETINFOSTRUCT(i32);
 pub struct NETINFOSTRUCT_CHARACTERISTICS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NETRESOURCEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NETRESOURCEW(i32);
 pub struct NETWORK_NAME_FORMAT_FLAGS(i32);
 pub struct NET_RESOURCE_SCOPE(i32);
 pub struct NET_RESOURCE_TYPE(i32);
 pub struct NET_USE_CONNECT_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYADD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYCANCEL(i32);
 pub struct NOTIFYINFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
@@ -243,38 +252,70 @@ pub const NOTIFY_PRE: u32 = 1u32;
 pub struct NPDIRECTORY_NOTIFY_OPERATION(i32);
 pub struct NP_PROPERTY_DIALOG_SELECTION(i32);
 pub struct NetEnumHandle(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_AddConnectNotify(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_CancelConnectNotify(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPAddConnection(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPAddConnection3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPAddConnection4(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPCancelConnection(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPCancelConnection2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPCloseEnum(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPDeviceMode(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPDirectoryNotify(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPEnumResource(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPFMXEditPerm(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPFMXGetPermCaps(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPFMXGetPermHelp(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPFormatNetworkName(i32);
 pub struct PF_NPGetCaps(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetConnection(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetConnection3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetConnectionPerformance(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetDirectoryType(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetPersistentUseOptionsForConnection(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetPropertyText(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetResourceInformation(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetResourceParent(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetUniversalName(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPGetUser(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPLogonNotify(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPOpenEnum(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPPasswordChangeNotify(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPPropertyDialog(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_NPSearchDialog(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REMOTE_NAME_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REMOTE_NAME_INFOW(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
@@ -299,7 +340,9 @@ pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCE_RECENT: u32 = 4u32;
 pub struct UNC_INFO_LEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UNIVERSAL_NAME_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UNIVERSAL_NAME_INFOW(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNCON_DYNAMIC: u32 = 8u32;

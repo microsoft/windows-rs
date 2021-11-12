@@ -4,6 +4,7 @@ extern "system" {}
 pub struct DnssdRegistrationResult(i32);
 pub struct DnssdRegistrationStatus(i32);
 pub struct DnssdServiceInstance(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct DnssdServiceInstanceCollection(i32);
 pub struct DnssdServiceWatcher(i32);
 pub struct DnssdServiceWatcherStatus(i32);

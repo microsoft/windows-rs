@@ -380,8 +380,11 @@ pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
 pub struct MofCompiler(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWbemAnalysisMatrix(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWbemAnalysisMatrixList(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWbemAssocQueryInf(i32);
 pub struct SWbemDateTime(i32);
 pub struct SWbemEventSource(i32);
@@ -401,11 +404,15 @@ pub struct SWbemProperty(i32);
 pub struct SWbemPropertySet(i32);
 pub struct SWbemQualifier(i32);
 pub struct SWbemQualifierSet(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWbemQueryQualifiedName(i32);
 pub struct SWbemRefreshableItem(i32);
 pub struct SWbemRefresher(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWbemRpnConst(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWbemRpnEncodedQuery(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SWbemRpnQueryToken(i32);
 pub struct SWbemRpnTokenList(i32);
 pub struct SWbemSecurity(i32);

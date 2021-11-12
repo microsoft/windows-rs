@@ -501,6 +501,7 @@ extern "system" {
     pub fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR;
 }
 pub struct ACCESS_MASKENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUTHENTICATION_INFO(i32);
 pub struct AUTH_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
@@ -569,7 +570,9 @@ pub const BUCKET_EXPONENTIAL: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const BUCKET_LINEAR: u32 = 0u32;
 pub struct CASE_REQUIREMENT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CATEGORIZATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CATEGORIZATIONSET(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const CATEGORIZE_BUCKETS: u32 = 2u32;
@@ -688,8 +691,10 @@ pub const COLL_E_NOMOREDATA: i32 = -2147220222i32;
 pub const COLL_E_NOSORTCOLUMN: i32 = -2147220217i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const COLL_E_TOOMANYMERGECOLUMNS: i32 = -2147220215i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct COLUMNSET(i32);
 pub struct CONDITION_CREATION_OPTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CONTENTRESTRICTION(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const CONTENT_SOURCE_E_CONTENT_CLASS_READ: i32 = -2147208188i32;
@@ -826,18 +831,32 @@ pub struct DATE_STRUCT(i32);
 pub struct DBACCESSORFLAGSENUM(i32);
 pub struct DBASYNCHOPENUM(i32);
 pub struct DBASYNCHPHASEENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBBINDEXT(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBBINDEXT(i32);
 pub struct DBBINDFLAGENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Com")]
 pub struct DBBINDING(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Com")]
 pub struct DBBINDING(i32);
 pub struct DBBINDSTATUSENUM(i32);
 pub struct DBBINDURLFLAGENUM(i32);
 pub struct DBBINDURLSTATUSENUM(i32);
 pub struct DBBOOKMARK(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBCOLUMNACCESS(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBCOLUMNACCESS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC(i32);
 pub struct DBCOLUMNDESCFLAGSENUM(i32);
 pub struct DBCOLUMNFLAGS15ENUM(i32);
@@ -845,7 +864,11 @@ pub struct DBCOLUMNFLAGSENUM(i32);
 pub struct DBCOLUMNFLAGSENUM20(i32);
 pub struct DBCOLUMNFLAGSENUM21(i32);
 pub struct DBCOLUMNFLAGSENUM26(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO(i32);
 pub struct DBCOMMANDPERSISTFLAGENUM(i32);
 pub struct DBCOMMANDPERSISTFLAGENUM21(i32);
@@ -858,13 +881,19 @@ pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
 pub const DBCOMPUTEMODE_DYNAMIC: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCONSTRAINTDESC(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCONSTRAINTDESC(i32);
 pub struct DBCONSTRAINTTYPEENUM(i32);
 pub struct DBCONVERTFLAGSENUM(i32);
 pub struct DBCONVERTFLAGSENUM20(i32);
 pub struct DBCOPYFLAGSENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBCOST(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBCOST(i32);
 pub struct DBCOSTUNITENUM(i32);
 pub struct DBDATACONVERTENUM(i32);
@@ -873,35 +902,59 @@ pub struct DBDEFERRABILITYENUM(i32);
 pub struct DBDELETEFLAGSENUM(i32);
 pub struct DBEVENTPHASEENUM(i32);
 pub struct DBEXECLIMITSENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBFAILUREINFO(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBFAILUREINFO(i32);
 pub const DBGUID_MSSQLXML: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1565727922, data2: 59117, data3: 4562, data4: [178, 82, 0, 192, 79, 104, 27, 113] };
 pub const DBGUID_XPATH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3962192531, data2: 59544, data3: 4562, data4: [177, 183, 0, 192, 79, 104, 12, 86] };
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBIMPLICITSESSION(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBIMPLICITSESSION(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBINDEXCOLUMNDESC(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBINDEXCOLUMNDESC(i32);
 pub struct DBINDEX_COL_ORDERENUM(i32);
 pub struct DBLITERALENUM(i32);
 pub struct DBLITERALENUM20(i32);
 pub struct DBLITERALENUM21(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBLITERALINFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBLITERALINFO(i32);
 pub struct DBMATCHTYPEENUM(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBMAXCHAR: u32 = 8001u32;
 pub struct DBMEMOWNERENUM(i32);
 pub struct DBMOVEFLAGSENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBOBJECT(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBOBJECT(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBPARAMBINDINFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBPARAMBINDINFO(i32);
 pub struct DBPARAMFLAGSENUM(i32);
 pub struct DBPARAMFLAGSENUM20(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct DBPARAMINFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct DBPARAMINFO(i32);
 pub struct DBPARAMIOENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBPARAMS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBPARAMS(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPARAMTYPE_INPUT: u32 = 1u32;
@@ -923,7 +976,11 @@ pub const DBPROMPT_COMPLETEREQUIRED: u32 = 3u32;
 pub const DBPROMPT_NOPROMPT: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPROMPT_PROMPT: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROP(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROP(i32);
 pub struct DBPROPENUM(i32);
 pub struct DBPROPENUM15(i32);
@@ -938,14 +995,28 @@ pub struct DBPROPFLAGSENUM25(i32);
 pub struct DBPROPFLAGSENUM26(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBPROPIDSET(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBPROPIDSET(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFO(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFOSET(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFOSET(i32);
 pub struct DBPROPOPTIONSENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPSET(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPSET(i32);
 pub const DBPROPSET_MSDAORA8_ROWSET: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2131141493,
@@ -1389,7 +1460,9 @@ pub struct DBSTATUSENUM25(i32);
 pub struct DBSTATUSENUM26(i32);
 pub struct DBTABLESTATISTICSTYPE26(i32);
 pub struct DBTIME(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBTIMESTAMP(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBTIMESTAMP(i32);
 pub struct DBTYPEENUM(i32);
 pub struct DBTYPEENUM15(i32);
@@ -1397,7 +1470,9 @@ pub struct DBTYPEENUM20(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBTYPE_SQLVARIANT: u32 = 144u32;
 pub struct DBUPDELRULEENUM(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBVECTOR(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct DBVECTOR(i32);
 pub struct DBWATCHMODEENUM(i32);
 pub struct DBWATCHNOTIFYENUM(i32);
@@ -1819,6 +1894,7 @@ pub const DB_S_UNWANTEDREASON: ::windows_sys::core::HRESULT = ::windows_sys::cor
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DB_UNSEARCHABLE: u32 = 1u32;
 pub struct DB_VARNUMERIC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DCINFO(i32);
 pub struct DCINFOTYPEENUM(i32);
 pub struct DELIVERY_AGENT_FLAGS(i32);
@@ -1931,7 +2007,9 @@ pub struct DataSource(i32);
 pub struct DataSourceListener(i32);
 pub struct DataSourceObject(i32);
 pub struct EBindInfoOptions(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct ERRORINFO(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct ERRORINFO(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const ERROR_FTE: u32 = 13824u32;
@@ -2375,6 +2453,7 @@ pub const EX_TYPE: u32 = 12u32;
 pub const EX_USER: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const FAIL: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILTERED_DATA_SOURCES(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: i32 = -2147212282i32;
@@ -3043,6 +3122,7 @@ pub struct IMDFind(i32);
 pub struct IMDRangeRowset(i32);
 pub struct IMetaData(i32);
 pub struct IMultipleResults(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INCREMENTAL_ACCESS_INFO(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146693246i32 as _);
@@ -3151,7 +3231,9 @@ pub struct IStemmer(i32);
 pub struct ISubscriptionItem(i32);
 pub struct ISubscriptionMgr(i32);
 pub struct ISubscriptionMgr2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct ITEMPROP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ITEM_INFO(i32);
 pub struct ITableCreation(i32);
 pub struct ITableDefinition(i32);
@@ -3209,6 +3291,7 @@ pub const JPS_E_SCHEMA_ERROR: i32 = -2147217018i32;
 pub const JPS_E_SHARING_VIOLATION: i32 = -2147217014i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const JPS_S_DUPLICATE_DOC_DETECTED: i32 = 266624i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct KAGGETDIAG(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const KAGPROPVAL_CONCUR_LOCK: u32 = 4u32;
@@ -3304,7 +3387,11 @@ pub const MAXNUMERICLEN: u32 = 16u32;
 pub const MAXUSEVERITY: u32 = 18u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const MAX_QUERY_RANK: u32 = 1000u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MDAXISINFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MDAXISINFO(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const MDAXIS_CHAPTERS: u32 = 4u32;
@@ -3662,6 +3749,7 @@ pub const MSS_E_INVALIDAPPNAME: i32 = -2147213056i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
 pub struct NAMED_ENTITY_CERTAINTY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NATLANGUAGERESTRICTION(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NET_E_DISCONNECTED: i32 = -2147220733i32;
@@ -3679,6 +3767,7 @@ pub const NLADMIN_E_DUPLICATE_CATALOG: i32 = -2147215103i32;
 pub const NLADMIN_E_FAILED_TO_GIVE_ACCOUNT_PRIVILEGE: i32 = -2147215101i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NLADMIN_S_NOT_ALL_BUILD_CATALOGS_INITIALIZED: i32 = 268546i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NODERESTRICTION(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NOTESPH_E_ATTACHMENTS: i32 = -2147211770i32;
@@ -3702,6 +3791,7 @@ pub const NOTESPH_E_UNSUPPORTED_CONTENT_FIELD_TYPE: i32 = -2147211773i32;
 pub const NOTESPH_S_IGNORE_ID: i32 = 271874i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NOTRESTRICTION(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NOT_N_PARSE_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(526638i32 as _);
@@ -3790,6 +3880,7 @@ pub const ODBC_REMOVE_SYS_DSN: u32 = 6u32;
 pub const ODBC_SYSTEM_DSN: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const ODBC_USER_DSN: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ODBC_VS_ARGS(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const ODBC_VS_FLAG_RETCODE: i32 = 4i32;
@@ -3849,6 +3940,7 @@ pub const PEOPLE_IMPORT_E_USERNAME_NOTRESOLVED: i32 = -2147205109i32;
 pub const PEOPLE_IMPORT_NODSDEFINED: i32 = -2147205119i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PEOPLE_IMPORT_NOMAPPINGDEFINED: i32 = -2147205117i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFILLTEXTBUFFER(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PRAll: u32 = 256u32;
@@ -3862,6 +3954,7 @@ pub struct PRIORITY_LEVEL(i32);
 pub const PROGID_MSPersist_Version_W: &'static str = "MSPersist.1";
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PROGID_MSPersist_W: &'static str = "MSPersist";
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct PROPERTYRESTRICTION(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
@@ -3870,6 +3963,7 @@ pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
 pub struct PROXY_ACCESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROXY_INFO(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PRRE: u32 = 6u32;
@@ -4018,7 +4112,9 @@ pub const QUERY_SORTXDESCEND: u32 = 3u32;
 pub const QUERY_VALIDBITS: u32 = 3u32;
 pub struct QueryParser(i32);
 pub struct QueryParserManager(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct RANGECATEGORIZE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct RESTRICTION(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const REXSPH_E_DUPLICATE_PROPERTY: i32 = -2147207927i32;
@@ -4040,7 +4136,11 @@ pub const REXSPH_E_UNEXPECTED_FILTER_STATE: i32 = -2147207928i32;
 pub const REXSPH_E_UNKNOWN_DATA_TYPE: i32 = -2147207929i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK(i32);
 pub struct ROWSETEVENT_ITEMSTATE(i32);
 pub struct ROWSETEVENT_TYPE(i32);
@@ -4133,10 +4233,13 @@ pub const SCRIPTPI_E_CHUNK_NOT_VALUE: i32 = -2147213309i32;
 pub const SCRIPTPI_E_PID_NOT_NAME: i32 = -2147213311i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SCRIPTPI_E_PID_NOT_NUMERIC: i32 = -2147213310i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SEARCH_COLUMN_PROPERTIES(i32);
 pub struct SEARCH_INDEXING_PHASE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SEARCH_ITEM_CHANGE(i32);
 pub struct SEARCH_ITEM_INDEXING_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE(i32);
 pub struct SEARCH_KIND_OF_CHANGE(i32);
 pub struct SEARCH_NOTIFICATION_PRIORITY(i32);
@@ -4168,13 +4271,23 @@ pub const SEC_E_NOTINITIALIZED: i32 = -2147216382i32;
 pub const SEC_E_NOTRUSTEEID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217813i32 as _);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SEC_E_PERMISSIONDENIED: i32 = -2147217911i32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT_ELEMENT(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT_ELEMENT(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SI_TEMPORARY: u32 = 2147483648u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SORTKEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SORTSET(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SPS_WS_ERROR: i32 = -2147211753i32;
@@ -4548,6 +4661,7 @@ pub const SQL_ASYNC_ENABLE_ON: u32 = 1u32;
 pub const SQL_ASYNC_MODE: u32 = 10021u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQL_ASYNC_NOTIFICATION: u32 = 10025u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SQL_ASYNC_NOTIFICATION_CALLBACK(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQL_ASYNC_NOTIFICATION_CAPABLE: i32 = 1i32;
@@ -7527,6 +7641,7 @@ pub const SSPROP_STREAM_XSL: u32 = 16u32;
 pub const SSPROP_UNICODECOMPARISONSTYLE: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SSPROP_UNICODELCID: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const STD_BOOKMARKLENGTH: u32 = 1u32;
@@ -7565,6 +7680,7 @@ pub struct STRUCTURED_QUERY_SYNTAX(i32);
 pub const STS_ABORTXMLPARSE: i32 = -2147211756i32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const STS_WS_ERROR: i32 = -2147211754i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SUBSCRIPTIONINFO(i32);
 pub struct SUBSCRIPTIONINFOFLAGS(i32);
 pub struct SUBSCRIPTIONITEMINFO(i32);
@@ -7587,6 +7703,7 @@ pub const SUCCEED_ABORT: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SUCCEED_ASYNC: u32 = 3u32;
 pub struct SubscriptionMgr(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TEXT_SOURCE(i32);
 pub struct TIMEOUT_INFO(i32);
 pub struct TIMESTAMP_STRUCT(i32);
@@ -7597,6 +7714,7 @@ pub const TRACE_ON: i32 = 1i32;
 pub const TRACE_VERSION: u32 = 1000u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const TRACE_VS_EVENT_ON: i32 = 2i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct VECTORRESTRICTION(i32);
 pub struct WEBCRAWL_RECURSEFLAGS(i32);
 #[doc = "*Required features: `Win32_System_Search`*"]
@@ -7683,8 +7801,11 @@ pub struct dbmoney(i32);
 pub struct dbvarybin(i32);
 pub struct dbvarychar(i32);
 pub struct sqlperf(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct tagDBROWWATCHRANGE(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct tagDBROWWATCHRANGE(i32);
 pub struct tagSQL_DAY_SECOND(i32);
 pub struct tagSQL_YEAR_MONTH(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct tagSSErrorInfo(i32);

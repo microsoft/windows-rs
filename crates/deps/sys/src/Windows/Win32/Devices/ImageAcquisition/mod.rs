@@ -140,7 +140,9 @@ pub const DETECT_FLAT: u32 = 8u32;
 pub const DETECT_SCAN: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_STOR: u32 = 4096u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA2(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DEVICE_ATTENTION: u32 = 1024u32;
@@ -150,6 +152,7 @@ pub const DUP: u32 = 4u32;
 pub const DUPLEX: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DUP_READY: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DeviceDialogFunction(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EFFECTMODE_BW: u32 = 2u32;
@@ -335,6 +338,7 @@ pub const MCRO_STATUS_OK: u32 = 1u32;
 pub const MICR_READER: u32 = 1048576u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MICR_READER_READY: u32 = 65536u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MINIDRV_TRANSFER_CONTEXT(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MIRRORED: u32 = 1u32;
@@ -365,6 +369,7 @@ pub const RIGHT_JUSTIFIED: u32 = 2u32;
 pub const ROT180: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ROT270: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCANINFO(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCANMODE_FINALSCAN: u32 = 0u32;
@@ -402,6 +407,7 @@ pub const TYMED_CALLBACK: u32 = 128u32;
 pub const TYMED_MULTIPAGE_CALLBACK: u32 = 512u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TYMED_MULTIPAGE_FILE: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct VAL(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_AUTO: u32 = 2u32;
@@ -417,9 +423,12 @@ pub const WHITEBALANCE_MANUAL: u32 = 1u32;
 pub const WHITEBALANCE_ONEPUSH_AUTO: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_TUNGSTEN: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIAS_CHANGED_VALUE_INFO(i32);
 pub struct WIAS_DOWN_SAMPLE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIAS_ENDORSER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIAS_ENDORSER_VALUE(i32);
 pub struct WIAVIDEO_STATE(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -733,6 +742,7 @@ pub const WIA_DATA_RAW_YUV: u32 = 8u32;
 pub const WIA_DATA_RAW_YUVK: u32 = 9u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_THRESHOLD: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DATA_TRANSFER_INFO(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEPTH_AUTO: u32 = 0u32;
@@ -752,7 +762,9 @@ pub const WIA_DEVICE_NOT_CONNECTED: u32 = 0u32;
 pub const WIA_DEVINFO_ENUM_ALL: u32 = 15u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVINFO_ENUM_LOCAL: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DEV_CAP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DEV_CAP_DRV(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_BAUDRATE: u32 = 12u32;
@@ -788,6 +800,7 @@ pub const WIA_DIP_UI_CLSID: u32 = 10u32;
 pub const WIA_DIP_VEND_DESC: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_WIA_VERSION: u32 = 14u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DITHER_PATTERN_DATA(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DONT_SHOW_PREVIEW_CONTROL: u32 = 1u32;
@@ -1841,8 +1854,11 @@ pub const WIA_PRINT_YEAR: u32 = 1u32;
 pub const WIA_PRIVATE_DEVPROP: u32 = 38914u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRIVATE_ITEMPROP: u32 = 71682u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPID_TO_NAME(i32);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2u32;

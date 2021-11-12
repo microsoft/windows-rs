@@ -989,9 +989,11 @@ pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
 pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
 pub struct LINEAGENTGROUPENTRY(i32);
 pub struct LINEAGENTGROUPLIST(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEAGENTINFO(i32);
 pub struct LINEAGENTLIST(i32);
 pub struct LINEAGENTSESSIONENTRY(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEAGENTSESSIONINFO(i32);
 pub struct LINEAGENTSESSIONLIST(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1394,6 +1396,7 @@ pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
 pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LINECALLSTATUS(i32);
 pub struct LINECALLTREATMENTENTRY(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1855,6 +1858,7 @@ pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LINEINITIALIZEEXPARAMS(i32);
 pub struct LINELOCATIONENTRY(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1933,6 +1937,7 @@ pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
 pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
 pub struct LINEPROVIDERENTRY(i32);
 pub struct LINEPROVIDERLIST(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST(i32);
 pub struct LINEPROXYREQUESTLIST(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2004,7 +2009,9 @@ pub const LINEREMOVEFROMCONF_ANY: u32 = 3u32;
 pub const LINEREMOVEFROMCONF_LAST: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINEREMOVEFROMCONF_NONE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LINEREQMAKECALL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LINEREQMEDIACALL(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINEREQUESTMODE_DROP: u32 = 4u32;
@@ -2171,15 +2178,20 @@ pub const LINE_REMOVE: i32 = 25i32;
 pub const LINE_REPLY: i32 = 12i32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINE_REQUEST: i32 = 13i32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct LPGETTNEFSTREAMCODEPAGE(i32);
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub struct LPOPENTNEFSTREAM(i32);
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub struct LPOPENTNEFSTREAMEX(i32);
 pub struct MSP_ADDRESS_EVENT(i32);
 pub struct MSP_CALL_EVENT(i32);
 pub struct MSP_CALL_EVENT_CAUSE(i32);
 pub struct MSP_EVENT(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO(i32);
 pub struct McastAddressAllocation(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NSID(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const PHONEBUTTONFUNCTION_ABBREVDIAL: u32 = 11u32;
@@ -2457,6 +2469,7 @@ pub const PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const PHONEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PHONEINITIALIZEEXPARAMS(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const PHONELAMPMODE_BROKENFLUTTER: u32 = 64u32;
@@ -3094,6 +3107,7 @@ pub const TSPI_PROVIDERINSTALL: u32 = 592u32;
 pub const TSPI_PROVIDERREMOVE: u32 = 593u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const TSPI_PROVIDERSHUTDOWN: u32 = 594u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS(i32);
 pub struct TUISPIDLLCALLBACK(i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3105,6 +3119,7 @@ pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
 pub struct VARSTRING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct _ADDR_ALIAS(i32);
 pub struct _dtr(i32);
 pub struct _renddata(i32);
@@ -3120,4 +3135,5 @@ pub const atypOle: i32 = 2i32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const atypPicture: i32 = 3i32;
 pub struct linereqmakecallW_tag(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct linereqmediacallW_tag(i32);

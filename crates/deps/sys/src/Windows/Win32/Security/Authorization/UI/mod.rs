@@ -21,6 +21,7 @@ pub const DOBJ_RES_ROOT: i32 = 2i32;
 pub const DOBJ_RIBBON_LAUNCH: i32 = 16i32;
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 pub const DOBJ_VOL_NTACLS: i32 = 4i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EFFPERM_RESULT_LIST(i32);
 pub struct IEffectivePermission(i32);
 pub struct IEffectivePermission2(i32);
@@ -30,6 +31,7 @@ pub struct ISecurityInformation3(i32);
 pub struct ISecurityInformation4(i32);
 pub struct ISecurityObjectTypeInfo(i32);
 pub struct SECURITY_INFO_PAGE_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_OBJECT(i32);
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 pub const SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE: u32 = 4u32;
@@ -39,8 +41,11 @@ pub const SECURITY_OBJECT_ID_CENTRAL_POLICY: u32 = 3u32;
 pub const SECURITY_OBJECT_ID_OBJECT_SD: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 pub const SECURITY_OBJECT_ID_SHARE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SID_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SID_INFO_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SI_ACCESS(i32);
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 pub const SI_ACCESS_CONTAINER: i32 = 262144i32;
@@ -56,6 +61,7 @@ pub const SI_CONTAINER: i32 = 4i32;
 pub const SI_EDIT_OWNER: i32 = 1i32;
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 pub const SI_EDIT_PERMS: i32 = 0i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SI_INHERIT_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 pub const SI_NO_ACL_PROTECT: i32 = 512i32;
@@ -63,6 +69,7 @@ pub const SI_NO_ACL_PROTECT: i32 = 512i32;
 pub const SI_NO_TREE_APPLY: i32 = 1024i32;
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]
 pub const SI_OBJECT_GUID: i32 = 65536i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SI_OBJECT_INFO(i32);
 pub struct SI_OBJECT_INFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_Authorization_UI`*"]

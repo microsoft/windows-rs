@@ -320,12 +320,16 @@ pub struct AsyncIPipeByte(i32);
 pub struct AsyncIPipeDouble(i32);
 pub struct AsyncIPipeLong(i32);
 pub struct AsyncIUnknown(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct BINDINFO(i32);
 pub struct BINDINFOF(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct BINDPTR(i32);
 pub struct BIND_FLAGS(i32);
 pub struct BIND_OPTS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BIND_OPTS2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BIND_OPTS3(i32);
 pub struct BLOB(i32);
 pub struct BYTE_BLOB(i32);
@@ -335,6 +339,7 @@ pub struct CALLTYPE(i32);
 pub struct CATEGORYINFO(i32);
 pub struct CLSCTX(i32);
 pub struct COAUTHIDENTITY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COAUTHINFO(i32);
 pub struct COINIT(i32);
 pub struct COINITBASE(i32);
@@ -354,13 +359,16 @@ pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
 #[doc = "*Required features: `Win32_System_Com`*"]
 pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
 pub struct CONNECTDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COSERVERINFO(i32);
 pub struct COWAIT_FLAGS(i32);
 pub struct CO_DEVICE_CATALOG_COOKIE(i32);
 pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(i32);
 pub struct CO_MTA_USAGE_COOKIE(i32);
 pub struct CSPLATFORM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct CUSTDATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct CUSTDATAITEM(i32);
 pub struct CWMO_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Com`*"]
@@ -382,22 +390,28 @@ pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
 pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
 pub struct DCOM_CALL_STATE(i32);
 pub struct DESCKIND(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct DISPPARAMS(i32);
 #[doc = "*Required features: `Win32_System_Com`*"]
 pub const DMUS_ERRBASE: u32 = 4096u32;
 pub struct DVASPECT(i32);
 pub struct DVTARGETDEVICE(i32);
 pub struct DWORD_BLOB(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct ELEMDESC(i32);
 pub struct EOLE_AUTHENTICATION_CAPABILITIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPINFO(i32);
 pub struct EXTCONN(i32);
 pub struct FLAGGED_BYTE_BLOB(i32);
 pub struct FLAGGED_WORD_BLOB(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FLAG_STGMEDIUM(i32);
 pub struct FORMATETC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct FUNCDESC(i32);
 pub struct FUNCKIND(i32);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct GDI_OBJECT(i32);
 pub struct GLOBALOPT_EH_VALUES(i32);
 pub struct GLOBALOPT_PROPERTIES(i32);
@@ -516,6 +530,7 @@ pub struct IUriBuilder(i32);
 pub struct IUrlMon(i32);
 pub struct IWaitMultiple(i32);
 pub struct LONG_SIZEDARR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPEXCEPFINO_DEFERRED_FILLIN(i32);
 pub struct LPFNCANUNLOADNOW(i32);
 pub struct LPFNGETCLASSOBJECT(i32);
@@ -550,9 +565,12 @@ pub struct SERVERCALL(i32);
 pub struct SHORT_SIZEDARR(i32);
 pub struct SOLE_AUTHENTICATION_INFO(i32);
 pub struct SOLE_AUTHENTICATION_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOLE_AUTHENTICATION_SERVICE(i32);
 pub struct STATDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STATSTG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STGMEDIUM(i32);
 pub struct STGTY(i32);
 #[doc = "*Required features: `Win32_System_Com`*"]
@@ -566,20 +584,26 @@ pub const STG_TOEND: i32 = -1i32;
 pub struct STREAM_SEEK(i32);
 pub struct SYSKIND(i32);
 pub struct ShutdownType(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct StorageLayout(i32);
 pub struct THDTYPE(i32);
 pub struct TLIBATTR(i32);
 pub struct TYMED(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct TYPEATTR(i32);
+#[cfg(feature = "Win32_System_Ole")]
 pub struct TYPEDESC(i32);
 pub struct TYPEKIND(i32);
 pub struct TYSPEC(i32);
 pub struct URI_CREATE_FLAGS(i32);
 pub struct Uri_PROPERTY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARDESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARIANT(i32);
 pub struct VARKIND(i32);
 pub struct WORD_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct uCLSSPEC(i32);
 pub struct userFLAG_STGMEDIUM(i32);
 pub struct userSTGMEDIUM(i32);

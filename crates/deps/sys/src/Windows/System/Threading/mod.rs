@@ -10,6 +10,7 @@ pub struct ThreadPool(i32);
 pub struct ThreadPoolTimer(i32);
 pub struct TimerDestroyedHandler(i32);
 pub struct TimerElapsedHandler(i32);
+#[cfg(feature = "Foundation")]
 pub struct WorkItemHandler(i32);
 pub struct WorkItemOptions(i32);
 pub struct WorkItemPriority(i32);

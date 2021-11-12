@@ -189,6 +189,7 @@ pub struct PedometerReadingChangedEventArgs(i32);
 pub struct PedometerStepKind(i32);
 pub struct ProximitySensor(i32);
 pub struct ProximitySensorDataThreshold(i32);
+#[cfg(feature = "Foundation")]
 pub struct ProximitySensorDisplayOnOffController(i32);
 pub struct ProximitySensorReading(i32);
 pub struct ProximitySensorReadingChangedEventArgs(i32);

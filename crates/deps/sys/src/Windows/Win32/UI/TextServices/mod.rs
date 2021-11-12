@@ -492,6 +492,7 @@ pub const TF_DISABLE_COMMANDING: u32 = 4u32;
 pub const TF_DISABLE_DICTATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TF_DISPLAYATTRIBUTE(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220218i32 as _);
@@ -582,7 +583,9 @@ pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
 pub struct TF_LANGBARITEMINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TF_LANGUAGEPROFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TF_LBBALLOONINFO(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_BALLOON: u32 = 16u32;
@@ -636,6 +639,7 @@ pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
 pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TF_LMLATTELEMENT(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MENUREADY: u32 = 1u32;
@@ -723,6 +727,7 @@ pub const TF_PROFILE_WUBI: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [186, 29, 134, 103, 36, 111, 223, 142],
 };
 pub const TF_PROFILE_YI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1083999094, data2: 123, data3: 17239, data4: [174, 142, 38, 49, 110, 227, 251, 13] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct TF_PROPERTYVAL(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
@@ -758,7 +763,9 @@ pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
 pub const TF_SD_LOADING: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SD_READONLY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TF_SELECTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TF_SELECTIONSTYLE(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
@@ -1223,6 +1230,7 @@ pub const TS_AS_SEL_CHANGE: u32 = 2u32;
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct TS_ATTRVAL(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
@@ -1297,8 +1305,11 @@ pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTIONSTYLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTION_ACP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTION_ANCHOR(i32);
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;

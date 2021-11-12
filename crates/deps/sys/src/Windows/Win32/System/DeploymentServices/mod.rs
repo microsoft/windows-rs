@@ -340,13 +340,21 @@ pub struct IWdsTransportTftpManager(i32);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsCliCallback(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsCliTraceFunction(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientReceiveContents(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientReceiveMetadata(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionComplete(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionNegotiate(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionStart(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WdsTransportClientSessionStartEx(i32);
 pub struct PXE_ADDRESS(i32);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -404,6 +412,7 @@ pub const PXE_GSI_SERVER_DUID: u32 = 2u32;
 pub const PXE_GSI_TRACE_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_MAX_ADDRESS: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PXE_PROVIDER(i32);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
@@ -632,6 +641,7 @@ pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(i32);
 pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(i32);
 pub struct WDSTRANSPORT_TFTP_CAPABILITY(i32);
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WDS_CLI_CRED(i32);
 pub struct WDS_CLI_FIRMWARE_TYPE(i32);
 pub struct WDS_CLI_IMAGE_PARAM_TYPE(i32);
@@ -706,6 +716,7 @@ pub const WDS_MC_TRACE_INFO: u32 = 131072u32;
 pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS(i32);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
@@ -713,6 +724,7 @@ pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_NO_CACHE: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_PROTOCOL_MULTICAST: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WDS_TRANSPORTCLIENT_REQUEST(i32);
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(i32);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -721,6 +733,7 @@ pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS(i32);
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS(i32);
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]

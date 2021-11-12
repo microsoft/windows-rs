@@ -19,8 +19,10 @@ pub mod Streams;
 extern "system" {}
 pub struct AppDataPaths(i32);
 pub struct ApplicationData(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct ApplicationDataCompositeValue(i32);
 pub struct ApplicationDataContainer(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct ApplicationDataContainerSettings(i32);
 pub struct ApplicationDataCreateDisposition(i32);
 pub struct ApplicationDataLocality(i32);
@@ -119,7 +121,9 @@ pub struct StorageLibraryLastChangeId(i32);
 pub struct StorageOpenOptions(i32);
 pub struct StorageProvider(i32);
 pub struct StorageStreamTransaction(i32);
+#[cfg(feature = "Storage_Streams")]
 pub struct StreamedFileDataRequest(i32);
+#[cfg(feature = "Storage_Streams")]
 pub struct StreamedFileDataRequestedHandler(i32);
 pub struct StreamedFileFailureMode(i32);
 pub struct SystemAudioProperties(i32);

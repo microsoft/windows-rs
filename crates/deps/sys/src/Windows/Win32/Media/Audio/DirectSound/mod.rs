@@ -52,7 +52,9 @@ pub const DIRECTSOUND_VERSION: u32 = 1792u32;
 pub const DS3DALG_HRTF_FULL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052864, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
 pub const DS3DALG_HRTF_LIGHT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052866, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
 pub const DS3DALG_NO_VIRTUALIZATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052863, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct DS3DBUFFER(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct DS3DLISTENER(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const DS3DMODE_DISABLE: u32 = 2u32;
@@ -155,6 +157,7 @@ pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
 pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSBPOSITIONNOTIFY(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const DSBSIZE_FX_MIN: u32 = 150u32;
@@ -226,7 +229,9 @@ pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
 pub struct DSCEFFECTDESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSCFXAec(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSCFXNoiseSuppress(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
@@ -753,7 +758,9 @@ pub struct IDirectSoundNotify(i32);
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDSENUMCALLBACKA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDSENUMCALLBACKW(i32);
 #[doc = "*Required features: `Win32_Media_Audio_DirectSound`*"]
 pub const _FACDS: u32 = 2168u32;

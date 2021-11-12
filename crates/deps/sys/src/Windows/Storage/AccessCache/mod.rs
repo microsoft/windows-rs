@@ -3,6 +3,7 @@
 extern "system" {}
 pub struct AccessCacheOptions(i32);
 pub struct AccessListEntry(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct AccessListEntryView(i32);
 pub struct IItemRemovedEventArgs(i32);
 pub struct IStorageApplicationPermissionsStatics(i32);

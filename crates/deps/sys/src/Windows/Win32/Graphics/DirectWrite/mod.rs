@@ -12,7 +12,9 @@ pub struct DWRITE_BREAK_CONDITION(i32);
 pub struct DWRITE_CARET_METRICS(i32);
 pub struct DWRITE_CLUSTER_METRICS(i32);
 pub struct DWRITE_COLOR_F(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_COLOR_GLYPH_RUN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_COLOR_GLYPH_RUN1(i32);
 pub struct DWRITE_CONTAINER_TYPE(i32);
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
@@ -39,7 +41,9 @@ pub struct DWRITE_FONT_FEATURE_TAG(i32);
 pub struct DWRITE_FONT_FILE_TYPE(i32);
 pub struct DWRITE_FONT_LINE_GAP_USAGE(i32);
 pub struct DWRITE_FONT_METRICS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_FONT_METRICS1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_FONT_PROPERTY(i32);
 pub struct DWRITE_FONT_PROPERTY_ID(i32);
 pub struct DWRITE_FONT_SIMULATIONS(i32);
@@ -47,20 +51,27 @@ pub struct DWRITE_FONT_SOURCE_TYPE(i32);
 pub struct DWRITE_FONT_STRETCH(i32);
 pub struct DWRITE_FONT_STYLE(i32);
 pub struct DWRITE_FONT_WEIGHT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct DWRITE_GLYPH_IMAGE_DATA(i32);
 pub struct DWRITE_GLYPH_IMAGE_FORMATS(i32);
 pub struct DWRITE_GLYPH_METRICS(i32);
 pub struct DWRITE_GLYPH_OFFSET(i32);
 pub struct DWRITE_GLYPH_ORIENTATION_ANGLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_GLYPH_RUN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION(i32);
 pub struct DWRITE_GRID_FIT_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_HIT_TEST_METRICS(i32);
 pub struct DWRITE_INFORMATIONAL_STRING_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_INLINE_OBJECT_METRICS(i32);
 pub struct DWRITE_JUSTIFICATION_OPPORTUNITY(i32);
 pub struct DWRITE_LINE_BREAKPOINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_LINE_METRICS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_LINE_METRICS1(i32);
 pub struct DWRITE_LINE_SPACING(i32);
 pub struct DWRITE_LINE_SPACING_METHOD(i32);
@@ -107,6 +118,7 @@ pub struct DWRITE_SCRIPT_PROPERTIES(i32);
 pub struct DWRITE_SCRIPT_SHAPES(i32);
 pub struct DWRITE_SHAPING_GLYPH_PROPERTIES(i32);
 pub struct DWRITE_SHAPING_TEXT_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_STRIKETHROUGH(i32);
 pub struct DWRITE_TEXTURE_TYPE(i32);
 pub struct DWRITE_TEXT_ALIGNMENT(i32);
@@ -117,6 +129,7 @@ pub struct DWRITE_TEXT_RANGE(i32);
 pub struct DWRITE_TRIMMING(i32);
 pub struct DWRITE_TRIMMING_GRANULARITY(i32);
 pub struct DWRITE_TYPOGRAPHIC_FEATURES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_UNDERLINE(i32);
 pub struct DWRITE_UNICODE_RANGE(i32);
 pub struct DWRITE_VERTICAL_GLYPH_ORIENTATION(i32);

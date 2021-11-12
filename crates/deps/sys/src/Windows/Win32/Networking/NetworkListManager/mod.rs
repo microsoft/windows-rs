@@ -16,6 +16,7 @@ pub struct INetworkListManagerEvents(i32);
 pub struct NLM_CONNECTION_COST(i32);
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(i32);
 pub struct NLM_CONNECTIVITY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLM_DATAPLAN_STATUS(i32);
 pub struct NLM_DOMAIN_TYPE(i32);
 pub struct NLM_ENUM_NETWORK(i32);
@@ -29,5 +30,6 @@ pub struct NLM_SIMULATED_PROFILE_INFO(i32);
 pub struct NLM_SOCKADDR(i32);
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLM_USAGE_DATA(i32);
 pub struct NetworkListManager(i32);

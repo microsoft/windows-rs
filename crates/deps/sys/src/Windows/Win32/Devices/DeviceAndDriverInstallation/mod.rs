@@ -1593,9 +1593,17 @@ pub const BOOT_LOG_CONF: u32 = 3u32;
 pub struct BUSNUMBER_DES(i32);
 pub struct BUSNUMBER_RANGE(i32);
 pub struct BUSNUMBER_RESOURCE(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABINET_INFO_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABINET_INFO_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABINET_INFO_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABINET_INFO_W(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_ADD_ID_BITS: u32 = 1u32;
@@ -1939,6 +1947,7 @@ pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
 pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
 pub struct CM_NOTIFY_ACTION(i32);
 pub struct CM_NOTIFY_EVENT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
@@ -2175,11 +2184,16 @@ pub const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1u32;
 pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COINSTALLER_CONTEXT_DATA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COINSTALLER_CONTEXT_DATA(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CONFIGMG_VERSION: u32 = 1024u32;
 pub struct CONFIGRET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONFLICT_DETAILS_A(i32);
 pub struct CONFLICT_DETAILS_W(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
@@ -2818,13 +2832,29 @@ pub const FILEOP_RENAME: u32 = 1u32;
 pub const FILEOP_RETRY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const FILEOP_SKIP: u32 = 2u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_SIGNERINFO_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_SIGNERINFO_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_SIGNERINFO_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_SIGNERINFO_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEPATHS_W(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const FILE_COMPRESSION_MSZIP: u32 = 2u32;
@@ -2834,9 +2864,17 @@ pub const FILE_COMPRESSION_NONE: u32 = 0u32;
 pub const FILE_COMPRESSION_NTCAB: u32 = 3u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const FILE_COMPRESSION_WINLZA: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_IN_CABINET_INFO_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_IN_CABINET_INFO_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_IN_CABINET_INFO_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_IN_CABINET_INFO_W(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const FILTERED_LOG_CONF: u32 = 1u32;
@@ -3375,6 +3413,7 @@ pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows_sys::core::GUID = ::windows_s
     data4: [162, 210, 215, 12, 21, 248, 183, 91],
 };
 pub struct HCMNOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HWProfileInfo_sA(i32);
 pub struct HWProfileInfo_sW(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
@@ -3445,7 +3484,9 @@ pub const IDI_RESOURCELAST: u32 = 161u32;
 pub const IDI_RESOURCEOVERLAYFIRST: u32 = 161u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const IDI_RESOURCEOVERLAYLAST: u32 = 161u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct INFCONTEXT(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct INFCONTEXT(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const INFINFO_DEFAULT_SEARCH: u32 = 3u32;
@@ -3653,6 +3694,7 @@ pub const PCD_MAX_IO: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const PCD_MAX_MEMORY: u32 = 2u32;
 pub struct PCM_NOTIFY_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDETECT_PROGRESS_NOTIFY(i32);
 pub struct PNP_VETO_TYPE(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
@@ -3736,9 +3778,17 @@ pub const SIGNERSCORE_UNSIGNED: u32 = 2147483648u32;
 pub const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SIGNERSCORE_WHQL: u32 = 218103813u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOURCE_MEDIA_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOURCE_MEDIA_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOURCE_MEDIA_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOURCE_MEDIA_W(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SPCRP_CHARACTERISTICS: u32 = 27u32;
@@ -4058,11 +4108,21 @@ pub const SPWP_USE_DEVINFO_DATA: u32 = 1u32;
 pub const SP_ALTPLATFORM_FLAGS_SUITE_MASK: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct SP_ALTPLATFORM_INFO_V1(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct SP_ALTPLATFORM_INFO_V1(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct SP_ALTPLATFORM_INFO_V2(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct SP_ALTPLATFORM_INFO_V2(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_ALTPLATFORM_INFO_V3(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_ALTPLATFORM_INFO_V3(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_BACKUP_BACKUPPASS: u32 = 1u32;
@@ -4070,102 +4130,237 @@ pub const SP_BACKUP_BACKUPPASS: u32 = 1u32;
 pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_BACKUP_DEMANDPASS: u32 = 2u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_BACKUP_SPECIAL: u32 = 4u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_UI_Controls")]
 pub struct SP_CLASSIMAGELIST_DATA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_Controls")]
 pub struct SP_CLASSIMAGELIST_DATA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_CLASSINSTALL_HEADER(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_CLASSINSTALL_HEADER(i32);
 pub struct SP_COPY_STYLE(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DETECTDEVICE_PARAMS(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DETECTDEVICE_PARAMS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DEVICE_INTERFACE_DATA(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_DEVICE_INTERFACE_DATA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DEVINFO_DATA(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_DEVINFO_DATA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINSTALL_PARAMS_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINSTALL_PARAMS_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINSTALL_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINSTALL_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V1_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V1_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DRVINFO_DATA_V1_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_DRVINFO_DATA_V1_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V2_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V2_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V2_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V2_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DETAIL_DATA_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DETAIL_DATA_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DETAIL_DATA_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DETAIL_DATA_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DRVINSTALL_PARAMS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_DRVINSTALL_PARAMS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_ENABLECLASS_PARAMS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_ENABLECLASS_PARAMS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_FILE_COPY_PARAMS_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_FILE_COPY_PARAMS_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_FILE_COPY_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_FILE_COPY_PARAMS_W(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_INF_INFORMATION(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_INF_INFORMATION(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_INF_SIGNER_INFO_V1_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_INF_SIGNER_INFO_V1_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_INF_SIGNER_INFO_V1_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_INF_SIGNER_INFO_V1_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_INF_SIGNER_INFO_V2_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_INF_SIGNER_INFO_V2_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_INF_SIGNER_INFO_V2_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_INF_SIGNER_INFO_V2_W(i32);
 pub struct SP_INF_STYLE(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SP_INSTALLWIZARD_DATA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SP_INSTALLWIZARD_DATA(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_MAX_MACHINENAME_LENGTH: u32 = 263u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SP_NEWDEVICEWIZARD_DATA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SP_NEWDEVICEWIZARD_DATA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_ORIGINAL_FILE_INFO_A(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_ORIGINAL_FILE_INFO_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_ORIGINAL_FILE_INFO_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_ORIGINAL_FILE_INFO_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_PROPCHANGE_PARAMS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_PROPCHANGE_PARAMS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_PROPSHEETPAGE_REQUEST(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_PROPSHEETPAGE_REQUEST(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_REGISTER_CONTROL_STATUSA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_REGISTER_CONTROL_STATUSA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_REGISTER_CONTROL_STATUSW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_REGISTER_CONTROL_STATUSW(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_REMOVEDEVICE_PARAMS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_REMOVEDEVICE_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_SELECTDEVICE_PARAMS_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_SELECTDEVICE_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_SELECTDEVICE_PARAMS_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_TROUBLESHOOTER_PARAMS_A(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_TROUBLESHOOTER_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_TROUBLESHOOTER_PARAMS_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_UNREMOVEDEVICE_PARAMS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SP_UNREMOVEDEVICE_PARAMS(i32);
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SRCINFO_DESCRIPTION: u32 = 3u32;

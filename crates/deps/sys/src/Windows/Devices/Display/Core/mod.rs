@@ -20,6 +20,7 @@ pub struct DisplayPath(i32);
 pub struct DisplayPathScaling(i32);
 pub struct DisplayPathStatus(i32);
 pub struct DisplayPresentStatus(i32);
+#[cfg(feature = "Foundation_Numerics")]
 pub struct DisplayPresentationRate(i32);
 pub struct DisplayPrimaryDescription(i32);
 pub struct DisplayRotation(i32);

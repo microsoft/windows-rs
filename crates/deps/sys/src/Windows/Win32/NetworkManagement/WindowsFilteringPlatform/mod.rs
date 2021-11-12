@@ -574,8 +574,11 @@ pub struct DL_EUI64(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const DL_HEADER_LENGTH_MAXIMUM: u32 = 64u32;
 pub struct DL_OUI(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct DL_TEREDO_ADDRESS(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct DL_TEREDO_ADDRESS_PRV(i32);
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
 pub struct DL_TUNNEL_ADDRESS(i32);
 pub struct ETHERNET_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -625,6 +628,7 @@ pub const FWPM_ACTRL_WRITE: u32 = 1024u32;
 pub struct FWPM_APPC_NETWORK_CAPABILITY_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_AUTO_WEIGHT_BITS: u32 = 60u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CALLOUT0(i32);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2006391204,
@@ -811,7 +815,9 @@ pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V6_SILENT_DROP: ::windows_sys::core::
     data4: [180, 118, 146, 134, 238, 206, 129, 78],
 };
 pub struct FWPM_CHANGE_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_CLASSIFY_OPTION0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_CLASSIFY_OPTIONS0(i32);
 pub const FWPM_CONDITION_ALE_APP_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3616415367,
@@ -1329,13 +1335,16 @@ pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows_sys::core::GUID = 
     data3: 20036,
     data4: [160, 37, 101, 185, 187, 15, 159, 148],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CONNECTION0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CONNECTION_CALLBACK0(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0(i32);
 pub struct FWPM_CONNECTION_EVENT_TYPE(i32);
 pub struct FWPM_CONNECTION_SUBSCRIPTION0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_DISPLAY_DATA0(i32);
 pub struct FWPM_DYNAMIC_KEYWORD_CALLBACK0(i32);
 pub struct FWPM_ENGINE_OPTION(i32);
@@ -1349,10 +1358,13 @@ pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1u32;
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0u32;
 pub struct FWPM_FIELD0(i32);
 pub struct FWPM_FIELD_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_FILTER0(i32);
 pub struct FWPM_FILTER_CHANGE0(i32);
 pub struct FWPM_FILTER_CHANGE_CALLBACK0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_FILTER_CONDITION0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0(i32);
 pub struct FWPM_FILTER_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -1369,6 +1381,7 @@ pub const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192u32;
 pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_FILTER_SUBSCRIPTION0(i32);
 pub const FWPM_KEYING_MODULE_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 300145376,
@@ -1378,6 +1391,7 @@ pub const FWPM_KEYING_MODULE_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::
 };
 pub const FWPM_KEYING_MODULE_IKE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2847668103, data2: 33448, data3: 17851, data4: [164, 0, 93, 126, 89, 82, 199, 169] };
 pub const FWPM_KEYING_MODULE_IKEV2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 68653772, data2: 36615, data3: 16797, data4: [163, 148, 113, 105, 104, 203, 22, 71] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_LAYER0(i32);
 pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3280820177,
@@ -1759,24 +1773,42 @@ pub const FWPM_LAYER_STREAM_V6: ::windows_sys::core::GUID = ::windows_sys::GUID 
     data4: [182, 228, 72, 233, 38, 177, 237, 164],
 };
 pub const FWPM_LAYER_STREAM_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 279289799, data2: 46632, data3: 19521, data4: [158, 184, 207, 55, 213, 81, 3, 207] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT3(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT4_(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT5_(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK3(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_CALLBACK4(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0(i32);
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32u32;
@@ -1806,24 +1838,33 @@ pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16u32;
 pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER3(i32);
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1u32;
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_(i32);
 pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0(i32);
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0(i32);
@@ -1840,14 +1881,20 @@ pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32u32;
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0(i32);
 pub struct FWPM_NET_EVENT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_PROVIDER0(i32);
 pub struct FWPM_PROVIDER_CHANGE0(i32);
 pub struct FWPM_PROVIDER_CHANGE_CALLBACK0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_PROVIDER_CONTEXT0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_PROVIDER_CONTEXT1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_PROVIDER_CONTEXT2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_PROVIDER_CONTEXT3_(i32);
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0(i32);
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0(i32);
@@ -1900,6 +1947,7 @@ pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windo
 };
 pub const FWPM_PROVIDER_TCP_TEMPLATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1993329968, data2: 13204, data3: 17197, data4: [190, 211, 68, 26, 229, 14, 99, 195] };
 pub struct FWPM_SERVICE_STATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_SESSION0(i32);
 pub struct FWPM_SESSION_ENUM_TEMPLATE0(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -1907,6 +1955,7 @@ pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456u32;
 pub struct FWPM_STATISTICS0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_SUBLAYER0(i32);
 pub struct FWPM_SUBLAYER_CHANGE0(i32);
 pub struct FWPM_SUBLAYER_CHANGE_CALLBACK0(i32);
@@ -1984,7 +2033,9 @@ pub const FWPM_TUNNEL_FLAG_POINT_TO_POINT: u32 = 1u32;
 pub const FWPM_TUNNEL_FLAG_RESERVED0: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT_CALLBACK0(i32);
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0(i32);
 pub struct FWPM_VSWITCH_EVENT_TYPE(i32);
@@ -2259,6 +2310,7 @@ pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: u32 = 2u32;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWP_CONDITION_VALUE0(i32);
 pub struct FWP_DATA_TYPE(i32);
 pub struct FWP_DIRECTION(i32);
@@ -2292,12 +2344,15 @@ pub const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: u32 = 0u32;
 pub const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWP_RANGE0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWP_TOKEN_INFORMATION(i32);
 pub struct FWP_V4_ADDR_AND_MASK(i32);
 pub struct FWP_V6_ADDR_AND_MASK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWP_VALUE0(i32);
 pub struct FWP_VSWITCH_NETWORK_TYPE(i32);
 pub struct ICMP4_TIME_EXCEED_CODE(i32);
@@ -2325,6 +2380,7 @@ pub const ICMP6_TIME_EXCEED_TRANSIT: u32 = 0u32;
 pub struct ICMPV4_ADDRESS_MASK_MESSAGE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMPV4_INVALID_PREFERENCE_LEVEL: u32 = 2147483648u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct ICMPV4_ROUTER_ADVERT_ENTRY(i32);
 pub struct ICMPV4_ROUTER_ADVERT_HEADER(i32);
 pub struct ICMPV4_ROUTER_SOLICIT(i32);
@@ -2333,9 +2389,12 @@ pub struct ICMPV4_TIMESTAMP_MESSAGE(i32);
 pub const ICMPV6_ECHO_REQUEST_FLAG_REVERSE: u32 = 1u32;
 pub struct ICMP_HEADER(i32);
 pub struct ICMP_MESSAGE(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMPV3_QUERY_HEADER(i32);
 pub struct IGMPV3_REPORT_HEADER(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMPV3_REPORT_RECORD_HEADER(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMP_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_LEAVE_GROUP_TYPE: u32 = 23u32;
@@ -2349,15 +2408,20 @@ pub const IGMP_VERSION2_REPORT_TYPE: u32 = 22u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION3_REPORT_TYPE: u32 = 34u32;
 pub struct IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_AUTHENTICATION_METHOD0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_AUTHENTICATION_METHOD1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_AUTHENTICATION_METHOD2(i32);
 pub struct IKEEXT_AUTHENTICATION_METHOD_TYPE(i32);
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0(i32);
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2(i32);
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0(i32);
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0(i32);
 pub struct IKEEXT_CERT_AUTH(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -2368,10 +2432,12 @@ pub struct IKEEXT_CERT_CONFIG_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: u32 = 1u32;
 pub struct IKEEXT_CERT_CRITERIA_NAME_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERT_EKUS0(i32);
 pub struct IKEEXT_CERT_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERT_NAME0(i32);
 pub struct IKEEXT_CERT_ROOT_CONFIG0(i32);
 pub struct IKEEXT_CIPHER_ALGORITHM0(i32);
@@ -2379,30 +2445,44 @@ pub struct IKEEXT_CIPHER_TYPE(i32);
 pub struct IKEEXT_COMMON_STATISTICS0(i32);
 pub struct IKEEXT_COMMON_STATISTICS1(i32);
 pub struct IKEEXT_COOKIE_PAIR0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIAL0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIAL1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIAL2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIALS0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIALS1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIALS2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIAL_PAIR0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIAL_PAIR1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CREDENTIAL_PAIR2(i32);
 pub struct IKEEXT_DH_GROUP(i32);
 pub struct IKEEXT_EAP_AUTHENTICATION0(i32);
 pub struct IKEEXT_EAP_AUTHENTICATION_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_EM_POLICY0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_EM_POLICY1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_EM_POLICY2(i32);
 pub struct IKEEXT_EM_SA_STATE(i32);
 pub struct IKEEXT_INTEGRITY_ALGORITHM0(i32);
 pub struct IKEEXT_INTEGRITY_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0(i32);
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0(i32);
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1(i32);
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0(i32);
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1(i32);
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1(i32);
 pub struct IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -2411,12 +2491,16 @@ pub struct IKEEXT_KEYMODULE_STATISTICS0(i32);
 pub struct IKEEXT_KEYMODULE_STATISTICS1(i32);
 pub struct IKEEXT_KEY_MODULE_TYPE(i32);
 pub struct IKEEXT_MM_SA_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_NAME_CREDENTIAL0(i32);
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_POLICY0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_POLICY1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_POLICY2(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128u32;
@@ -2436,9 +2520,13 @@ pub struct IKEEXT_PROPOSAL0(i32);
 pub struct IKEEXT_QM_SA_STATE(i32);
 pub struct IKEEXT_RESERVED_AUTHENTICATION0(i32);
 pub struct IKEEXT_RESERVED_AUTHENTICATION_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_SA_DETAILS0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_SA_DETAILS1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_SA_DETAILS2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IKEEXT_SA_ENUM_TEMPLATE0(i32);
 pub struct IKEEXT_SA_ROLE(i32);
 pub struct IKEEXT_STATISTICS0(i32);
@@ -2523,18 +2611,24 @@ pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0(i32);
 pub struct IPSEC_FAILURE_POINT(i32);
 pub struct IPSEC_GETSPI0(i32);
 pub struct IPSEC_GETSPI1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_ID0(i32);
 pub struct IPSEC_KEYING_POLICY0(i32);
 pub struct IPSEC_KEYING_POLICY1(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
 pub struct IPSEC_KEYMODULE_STATE0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_KEY_MANAGER0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_DICTATE_KEY0(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_NOTIFY_KEY0(i32);
 pub struct IPSEC_PFS_GROUP(i32);
 pub struct IPSEC_POLICY_FLAG(i32);
@@ -2548,7 +2642,9 @@ pub struct IPSEC_PROPOSAL0(i32);
 pub struct IPSEC_SA0(i32);
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0(i32);
 pub struct IPSEC_SA_AUTH_INFORMATION0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_SA_BUNDLE0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_SA_BUNDLE1(i32);
 pub struct IPSEC_SA_BUNDLE_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -2578,14 +2674,20 @@ pub const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
 pub struct IPSEC_SA_CIPHER_INFORMATION0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_SA_CONTEXT0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_SA_CONTEXT1(i32);
 pub struct IPSEC_SA_CONTEXT_CALLBACK0(i32);
 pub struct IPSEC_SA_CONTEXT_CHANGE0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0(i32);
 pub struct IPSEC_SA_CONTEXT_EVENT_TYPE0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_SA_DETAILS0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_SA_DETAILS1(i32);
 pub struct IPSEC_SA_ENUM_TEMPLATE0(i32);
 pub struct IPSEC_SA_IDLE_TIMEOUT0(i32);
@@ -2605,20 +2707,29 @@ pub struct IPSEC_TRAFFIC_STATISTICS0(i32);
 pub struct IPSEC_TRAFFIC_STATISTICS1(i32);
 pub struct IPSEC_TRAFFIC_TYPE(i32);
 pub struct IPSEC_TRANSFORM_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TRANSPORT_POLICY0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TRANSPORT_POLICY1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TRANSPORT_POLICY2(i32);
 pub struct IPSEC_TUNNEL_ENDPOINT0(i32);
 pub struct IPSEC_TUNNEL_ENDPOINTS0(i32);
 pub struct IPSEC_TUNNEL_ENDPOINTS1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TUNNEL_ENDPOINTS2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TUNNEL_POLICY0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TUNNEL_POLICY1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TUNNEL_POLICY2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_TUNNEL_POLICY3_(i32);
 pub struct IPSEC_V4_UDP_ENCAPSULATION0(i32);
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0(i32);
 pub struct IPTLS_METADATA(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MAX_MINIMUM_MTU: u32 = 576u32;
@@ -2642,6 +2753,7 @@ pub const IPV6_FLOW_LABEL_MASK: u32 = 4294905600u32;
 pub struct IPV6_FRAGMENT_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_FULL_TRAFFIC_CLASS_MASK: u32 = 61455u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV6_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_MINIMUM_MTU: u32 = 1280u32;
@@ -2665,9 +2777,12 @@ pub const MAX_IPV4_HLEN: u32 = 60u32;
 pub const MAX_IPV4_PACKET: u32 = 65535u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV6_PAYLOAD: u32 = 65535u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLDV2_QUERY_HEADER(i32);
 pub struct MLDV2_REPORT_HEADER(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLDV2_REPORT_RECORD_HEADER(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLD_HEADER(i32);
 pub struct MLD_MAX_RESP_CODE_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -2701,6 +2816,7 @@ pub const ND_RA_FLAG_MANAGED: u32 = 128u32;
 pub const ND_RA_FLAG_OTHER: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_PREFERENCE: u32 = 24u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NPI_MODULEID(i32);
 pub struct NPI_MODULEID_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -2762,15 +2878,20 @@ pub const _BIG_ENDIAN: u32 = 4321u32;
 pub const _LITTLE_ENDIAN: u32 = 1234u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _PDP_ENDIAN: u32 = 3412u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_neighbor_advert(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_neighbor_solicit(i32);
 pub struct nd_opt_dnssl(i32);
 pub struct nd_opt_hdr(i32);
 pub struct nd_opt_mtu(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_prefix_info(i32);
 pub struct nd_opt_rd_hdr(i32);
 pub struct nd_opt_rdnss(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_route_info(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_redirect(i32);
 pub struct nd_router_advert(i32);
 pub struct nd_router_solicit(i32);

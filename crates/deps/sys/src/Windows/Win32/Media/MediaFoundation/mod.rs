@@ -1157,67 +1157,105 @@ pub struct CZuneAACCCDecMediaObject(i32);
 pub struct CZuneM4S2DecMediaObject(i32);
 pub struct CodecAPIEventData(i32);
 pub struct D3D12_BITSTREAM_ENCRYPTION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS(i32);
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT(i32);
 pub struct D3D12_FEATURE_VIDEO(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS(i32);
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT(i32);
 pub struct D3D12_RESOURCE_COORDINATE(i32);
 pub struct D3D12_VIDEO_DECODER_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC(i32);
 pub struct D3D12_VIDEO_DECODE_ARGUMENT_TYPE(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM(i32);
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION(i32);
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1(i32);
 pub struct D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(i32);
 pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT(i32);
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(i32);
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1(i32);
 pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 387084297,
@@ -1284,6 +1322,7 @@ pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows_sys::core::GUID = ::windows_
     data4: [135, 109, 131, 170, 109, 96, 184, 158],
 };
 pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES(i32);
 pub struct D3D12_VIDEO_DECODE_STATUS(i32);
 pub struct D3D12_VIDEO_DECODE_SUPPORT_FLAGS(i32);
@@ -1307,11 +1346,16 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(i32);
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT(i32);
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264(i32);
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS(i32);
 pub struct D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER(i32);
 pub struct D3D12_VIDEO_ENCODER_FLAGS(i32);
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(i32);
@@ -1329,13 +1373,17 @@ pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC(i32);
 pub struct D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(i32);
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA(i32);
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264(i32);
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(i32);
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION(i32);
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC(i32);
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC(i32);
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(i32);
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA(i32);
@@ -1345,6 +1393,7 @@ pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC(i32);
 pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC(i32);
 pub struct D3D12_VIDEO_ENCODER_PROFILE_H264(i32);
 pub struct D3D12_VIDEO_ENCODER_PROFILE_HEVC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL(i32);
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR(i32);
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS(i32);
@@ -1353,11 +1402,17 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(i32);
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(i32);
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR(i32);
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC(i32);
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(i32);
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE(i32);
@@ -1366,25 +1421,33 @@ pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC(i32);
 pub struct D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(i32);
 pub struct D3D12_VIDEO_ENCODER_TIER_HEVC(i32);
 pub struct D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES(i32);
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO(i32);
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO(i32);
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(i32);
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(i32);
 pub struct D3D12_VIDEO_FIELD_TYPE(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_FORMAT(i32);
 pub struct D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(i32);
 pub struct D3D12_VIDEO_FRAME_STEREO_FORMAT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT(i32);
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT(i32);
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(i32);
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(i32);
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(i32);
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING(i32);
 pub struct D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(i32);
 pub struct D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(i32);
@@ -1393,28 +1456,42 @@ pub struct D3D12_VIDEO_PROCESS_FEATURE_FLAGS(i32);
 pub struct D3D12_VIDEO_PROCESS_FILTER(i32);
 pub struct D3D12_VIDEO_PROCESS_FILTER_FLAGS(i32);
 pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC(i32);
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(i32);
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_LUMA_KEY(i32);
 pub struct D3D12_VIDEO_PROCESS_ORIENTATION(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET(i32);
 pub struct D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM(i32);
 pub struct D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_SAMPLE(i32);
 pub struct D3D12_VIDEO_SCALE_SUPPORT(i32);
 pub struct D3D12_VIDEO_SCALE_SUPPORT_FLAGS(i32);
 pub struct D3D12_VIDEO_SIZE_RANGE(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct D3DCONTENTPROTECTIONCAPS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct D3DCONTENTPROTECTIONCAPS(i32);
 pub struct D3DOVERLAYCAPS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_INFO(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_UI_Shell_PropertiesSystem`*"]
@@ -1422,6 +1499,7 @@ pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::Prop
     fmtid: ::windows_sys::GUID { data1: 1859937037, data2: 49891, data3: 17335, data4: [178, 209, 32, 82, 90, 26, 241, 32] },
     pid: 3u32,
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIRTYRECT_INFO(i32);
 pub struct DXVA2_AES_CTR_IV(i32);
 pub struct DXVA2_AYUVSample16(i32);
@@ -1540,6 +1618,7 @@ pub struct DXVA2_SurfaceType(i32);
 pub struct DXVA2_VPDev(i32);
 pub struct DXVA2_ValueRange(i32);
 pub struct DXVA2_VideoChromaSubSampling(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA2_VideoDesc(i32);
 pub struct DXVA2_VideoLighting(i32);
 pub struct DXVA2_VideoPrimaries(i32);
@@ -1562,13 +1641,17 @@ pub const DXVA2_VideoProcSoftwareDevice: ::windows_sys::core::GUID = ::windows_s
     data4: [148, 117, 219, 241, 55, 108, 72, 16],
 };
 pub struct DXVA2_VideoProcess(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA2_VideoProcessBltParams(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA2_VideoProcessorCaps(i32);
 pub struct DXVA2_VideoRenderTargetType(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVA2_VideoSample(i32);
 pub struct DXVA2_VideoTransferFunction(i32);
 pub struct DXVA2_VideoTransferMatrix(i32);
 pub struct DXVABufferInfo(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVACompBufferInfo(i32);
 pub const DXVAHDControlGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
 pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1746812190, data2: 22132, data3: 20403, data4: [165, 3, 47, 32, 85, 233, 31, 96] };
@@ -1594,23 +1677,32 @@ pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows_sys::core::GUID = ::wind
 pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640420610, data2: 8349, data3: 18413, data4: [148, 216, 130, 174, 2, 184, 74, 167] };
 pub struct DXVAHDETW_CREATEVIDEOPROCESSOR(i32);
 pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDSW_CALLBACKS(i32);
 pub struct DXVAHD_ALPHA_FILL_MODE(i32);
 pub struct DXVAHD_BLT_STATE(i32);
 pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA(i32);
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA(i32);
 pub struct DXVAHD_BLT_STATE_PRIVATE_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA(i32);
 pub struct DXVAHD_COLOR(i32);
 pub struct DXVAHD_COLOR_RGBA(i32);
 pub struct DXVAHD_COLOR_YCbCrA(i32);
 pub struct DXVAHD_CONTENT_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_CUSTOM_RATE_DATA(i32);
 pub struct DXVAHD_DEVICE_CAPS(i32);
 pub struct DXVAHD_DEVICE_TYPE(i32);
@@ -1625,25 +1717,37 @@ pub struct DXVAHD_ITELECINE_CAPS(i32);
 pub struct DXVAHD_OUTPUT_RATE(i32);
 pub struct DXVAHD_PROCESSOR_CAPS(i32);
 pub struct DXVAHD_RATIONAL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHD_STREAM_DATA(i32);
 pub struct DXVAHD_STREAM_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_ALPHA_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_FILTER_DATA(i32);
 pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA(i32);
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA(i32);
 pub struct DXVAHD_STREAM_STATE_PALETTE_DATA(i32);
 pub struct DXVAHD_STREAM_STATE_PRIVATE_DATA(i32);
 pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2623544892, data2: 3891, data3: 16716, data4: [167, 57, 153, 84, 14, 228, 45, 165] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA(i32);
 pub struct DXVAHD_SURFACE_TYPE(i32);
 pub struct DXVAHD_VPCAPS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAHD_VPDEVCAPS(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAUncompDataInfo(i32);
 pub struct DXVA_AYUVsample2(i32);
 pub struct DXVA_BufferDescription(i32);
@@ -1652,11 +1756,17 @@ pub struct DXVA_COPPSignature(i32);
 pub struct DXVA_COPPStatusInput(i32);
 pub struct DXVA_COPPStatusOutput(i32);
 pub struct DXVA_ConfigPictureDecode(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBlt(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBltEx(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBltEx32(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_DeinterlaceCaps(i32);
 pub struct DXVA_DeinterlaceQueryAvailableModes(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_DeinterlaceQueryModeCaps(i32);
 pub struct DXVA_DeinterlaceTech(i32);
 pub struct DXVA_DestinationFlags(i32);
@@ -1664,21 +1774,31 @@ pub struct DXVA_ExtendedFormat(i32);
 pub struct DXVA_Frequency(i32);
 pub struct DXVA_NominalRange(i32);
 pub struct DXVA_PictureParameters(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_ProcAmpControlBlt(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_ProcAmpControlCaps(i32);
 pub struct DXVA_ProcAmpControlProp(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_ProcAmpControlQueryRange(i32);
 pub struct DXVA_SampleFlags(i32);
 pub struct DXVA_SampleFormat(i32);
 pub struct DXVA_VideoChromaSubsampling(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_VideoDesc(i32);
 pub struct DXVA_VideoLighting(i32);
 pub struct DXVA_VideoPrimaries(i32);
 pub struct DXVA_VideoProcessCaps(i32);
 pub struct DXVA_VideoPropertyRange(i32);
 pub struct DXVA_VideoSample(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample32(i32);
 pub struct DXVA_VideoTransferFunction(i32);
 pub struct DXVA_VideoTransferMatrix(i32);
@@ -2499,6 +2619,7 @@ pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS(i32);
 pub const MFImageFormat_JPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 434415018, data2: 22114, data3: 20421, data4: [160, 192, 23, 88, 2, 142, 16, 87] };
 pub const MFImageFormat_RGB32: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 22, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub struct MFMEDIASOURCE_CHARACTERISTICS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFMPEG2DLNASINKSTATS(i32);
 pub const MFMPEG4Format_Base: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 30330, data3: 18765, data4: [180, 120, 242, 157, 37, 220, 144, 55] };
 pub struct MFMediaKeyStatus(i32);
@@ -2636,6 +2757,7 @@ pub const MFNET_SAVEJOB_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID
     data4: [149, 101, 85, 211, 236, 30, 127, 247],
 };
 pub struct MFNetAuthenticationFlags(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFNetCredentialManagerGetParam(i32);
 pub struct MFNetCredentialOptions(i32);
 pub struct MFNetCredentialRequirements(i32);
@@ -2714,23 +2836,37 @@ pub const MFPROTECTION_VIDEO_FRAMES: ::windows_sys::core::GUID = ::windows_sys::
     data4: [188, 32, 70, 167, 201, 229, 151, 240],
 };
 pub const MFPROTECTION_WMDRMOTA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2724701857, data2: 13870, data3: 18384, data4: [136, 5, 70, 40, 89, 138, 35, 228] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT(i32);
 pub struct MFP_CREATION_OPTIONS(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_ERROR_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_EVENT_HEADER(i32);
 pub struct MFP_EVENT_TYPE(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_FRAME_STEP_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CREATED_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_SET_EVENT(i32);
 pub struct MFP_MEDIAPLAYER_STATE(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MF_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PAUSE_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAYBACK_ENDED_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAY_EVENT(i32);
 pub const MFP_POSITIONTYPE_100NS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_POSITION_SET_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_RATE_SET_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_STOP_EVENT(i32);
 pub struct MFPaletteEntry(i32);
 pub struct MFPinholeCameraIntrinsic_IntrinsicModel(i32);
@@ -3196,6 +3332,7 @@ pub const MFT_PROCESS_LOCAL_Attribute: ::windows_sys::core::GUID = ::windows_sys
     data4: [181, 136, 74, 163, 82, 175, 243, 121],
 };
 pub struct MFT_REGISTER_TYPE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFT_REGISTRATION_INFO(i32);
 pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 911118213, data2: 16174, data3: 17260, data4: [178, 162, 68, 64, 160, 18, 169, 232] };
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -3252,13 +3389,17 @@ pub const MFTranscodeContainerType_WAVE: ::windows_sys::core::GUID = ::windows_s
     data3: 18241,
     data4: [190, 99, 135, 189, 248, 187, 147, 91],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFVIDEOFORMAT(i32);
 pub struct MFVP_MESSAGE_TYPE(i32);
 pub struct MFVideo3DFormat(i32);
 pub struct MFVideo3DSampleFormat(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub struct MFVideoAlphaBitmap(i32);
 pub struct MFVideoAlphaBitmapFlags(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoAlphaBitmapParams(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoArea(i32);
 pub struct MFVideoAspectRatioMode(i32);
 pub struct MFVideoChromaSubsampling(i32);
@@ -3354,6 +3495,7 @@ pub const MFVideoFormat_YVYU: ::windows_sys::core::GUID = ::windows_sys::GUID { 
 pub const MFVideoFormat_v210: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808530550, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_v216: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193846, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_v410: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808531062, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoInfo(i32);
 pub struct MFVideoInterlaceMode(i32);
 pub struct MFVideoLighting(i32);
@@ -6679,7 +6821,9 @@ pub const MF_XVP_DISABLE_FRC: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2857229097, data2: 20788, data3: 17251, data4: [172, 114, 131, 236, 75, 193, 4, 38] };
 pub struct MIC_ARRAY_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MOVEREGION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_RECT(i32);
 pub struct MP3ACMCodecWrapper(i32);
 pub const MR_AUDIO_POLICY_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -6707,11 +6851,13 @@ pub const MR_VIDEO_MIXER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub const MR_VIDEO_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 278046828, data2: 43802, data3: 17818, data4: [163, 54, 131, 31, 188, 77, 17, 255] };
 pub struct MSAMRNBDecoder(i32);
 pub struct MSAMRNBEncoder(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MT_ARBITRARY_HEADER(i32);
 pub struct MT_CUSTOM_VIDEO_PRIMARIES(i32);
 pub struct MULawCodecWrapper(i32);
 pub struct OPM_ACP_AND_CGMSA_SIGNALING(i32);
 pub struct OPM_ACP_PROTECTION_LEVEL(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct OPM_ACTUAL_OUTPUT_FORMAT(i32);
 pub struct OPM_BUS_TYPE(i32);
 pub struct OPM_CGMSA(i32);
@@ -6797,28 +6943,46 @@ pub struct OPM_STATUS(i32);
 pub struct OPM_TYPE(i32);
 pub struct OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(i32);
 pub struct OPM_VIDEO_OUTPUT_SEMANTICS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PDXVAHDSW_CreateDevice(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_CreateVideoProcessor(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_DestroyDevice(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_DestroyVideoProcessor(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_GetVideoProcessBltStatePrivate(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_GetVideoProcessStreamStatePrivate(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_GetVideoProcessorCaps(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_GetVideoProcessorCustomRates(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PDXVAHDSW_GetVideoProcessorDeviceCaps(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_GetVideoProcessorFilterRange(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PDXVAHDSW_GetVideoProcessorInputFormats(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PDXVAHDSW_GetVideoProcessorOutputFormats(i32);
 pub struct PDXVAHDSW_Plugin(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PDXVAHDSW_ProposeVideoPrivateFormat(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_SetVideoProcessBltState(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVAHDSW_SetVideoProcessStreamState(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PDXVAHDSW_VideoProcessBltHD(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct PDXVAHD_CreateDevice(i32);
 pub struct PLAYTO_SOURCE_CREATEFLAGS(i32);
 pub struct PM_CONNECTOR_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ROI_AREA(i32);
 pub struct SAMPLE_PROTECTION_VERSION(i32);
 pub struct SEEK_ORIGIN(i32);

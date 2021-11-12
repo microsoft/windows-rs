@@ -33,7 +33,11 @@ pub const MAX_LANA: u32 = 254u32;
 pub struct NAME_BUFFER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const NAME_FLAGS_MASK: u32 = 135u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NCB(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NCB(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const NCBACTION: u32 = 119u32;

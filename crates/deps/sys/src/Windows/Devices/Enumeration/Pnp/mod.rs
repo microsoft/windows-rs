@@ -6,6 +6,7 @@ pub struct IPnpObjectStatics(i32);
 pub struct IPnpObjectUpdate(i32);
 pub struct IPnpObjectWatcher(i32);
 pub struct PnpObject(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PnpObjectCollection(i32);
 pub struct PnpObjectType(i32);
 pub struct PnpObjectUpdate(i32);

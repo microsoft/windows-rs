@@ -32,8 +32,10 @@ fn gen_type(entry: &ElementType, gen: &Gen) -> TokenStream {
 
 fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
+    let features = features(def, gen);
+    let cfg = gen.gen_struct_cfg(def, &features);
 
-    quote! { pub struct #name(i32); }
+    quote! { #cfg pub struct #name(i32); }
 }
 
 fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {

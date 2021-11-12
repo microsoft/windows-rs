@@ -578,8 +578,11 @@ pub const IECN_RECOGNITIONRESULT: u32 = 2051u32;
 pub const IECN_STROKE: u32 = 2049u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IECN__BASE: u32 = 2048u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct IEC_RECOGNITIONRESULTINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct IEC_STROKEINFO(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IEC__BASE: u32 = 1536u32;
@@ -690,6 +693,7 @@ pub struct InkPersistenceFormat(i32);
 pub struct InkPicture(i32);
 pub struct InkPictureSizeMode(i32);
 pub struct InkRasterOperation(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct InkRecoGuide(i32);
 pub struct InkRecognitionAlternatesSelection(i32);
 pub struct InkRecognitionConfidence(i32);
@@ -711,8 +715,10 @@ pub struct InkTransform(i32);
 pub struct InkWordList(i32);
 pub struct InteractionMode(i32);
 pub struct KEYMODIFIER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LATTICE_METRICS(i32);
 pub struct LINE_METRICS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LINE_SEGMENT(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const MAX_FRIENDLYNAME: u32 = 64u32;
@@ -824,6 +830,7 @@ pub struct SelAlignmentConstants(i32);
 pub struct SelectionHitResult(i32);
 pub struct SketchInk(i32);
 pub struct StrokeBuilder(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct StylusInfo(i32);
 pub struct StylusQueue(i32);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]

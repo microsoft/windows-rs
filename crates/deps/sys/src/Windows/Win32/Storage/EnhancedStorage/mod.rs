@@ -407,6 +407,7 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI
     },
     pid: 6u32,
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]

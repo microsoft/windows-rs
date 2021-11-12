@@ -29,6 +29,7 @@ pub struct IndexedState(i32);
 pub struct IndexerOption(i32);
 pub struct QueryOptions(i32);
 pub struct SortEntry(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct SortEntryVector(i32);
 pub struct StorageFileQueryResult(i32);
 pub struct StorageFolderQueryResult(i32);

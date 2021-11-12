@@ -78,9 +78,13 @@ pub struct INTERACTION_ARGUMENTS_MANIPULATION(i32);
 pub struct INTERACTION_ARGUMENTS_TAP(i32);
 pub struct INTERACTION_CONFIGURATION_FLAGS(i32);
 pub struct INTERACTION_CONTEXT_CONFIGURATION(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT2(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK2(i32);
 pub struct INTERACTION_CONTEXT_PROPERTY(i32);
 pub struct INTERACTION_FLAGS(i32);

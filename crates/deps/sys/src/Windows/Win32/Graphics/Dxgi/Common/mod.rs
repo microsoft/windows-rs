@@ -19,6 +19,7 @@ pub struct DXGI_FORMAT(i32);
 #[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_FORMAT_DEFINED: u32 = 1u32;
 pub struct DXGI_GAMMA_CONTROL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_GAMMA_CONTROL_CAPABILITIES(i32);
 pub struct DXGI_JPEG_AC_HUFFMAN_TABLE(i32);
 pub struct DXGI_JPEG_DC_HUFFMAN_TABLE(i32);

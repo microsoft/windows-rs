@@ -29,24 +29,31 @@ pub struct HPSS(i32);
 pub struct HPSSWALK(i32);
 pub struct PSS_ALLOCATOR(i32);
 pub struct PSS_AUXILIARY_PAGES_INFORMATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct PSS_AUXILIARY_PAGE_ENTRY(i32);
 pub struct PSS_CAPTURE_FLAGS(i32);
 pub struct PSS_DUPLICATE_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY(i32);
 pub struct PSS_HANDLE_FLAGS(i32);
 pub struct PSS_HANDLE_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_TRACE_INFORMATION(i32);
 pub struct PSS_OBJECT_TYPE(i32);
 pub struct PSS_PERFORMANCE_COUNTERS(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
 pub struct PSS_PROCESS_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_PROCESS_INFORMATION(i32);
 pub struct PSS_QUERY_INFORMATION_CLASS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PSS_THREAD_ENTRY(i32);
 pub struct PSS_THREAD_FLAGS(i32);
 pub struct PSS_THREAD_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_VA_CLONE_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_VA_SPACE_ENTRY(i32);
 pub struct PSS_VA_SPACE_INFORMATION(i32);
 pub struct PSS_WALK_INFORMATION_CLASS(i32);

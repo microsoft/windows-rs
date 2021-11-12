@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct Block(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct BlockCollection(i32);
 pub struct Bold(i32);
 pub struct ContactContentLinkProvider(i32);
@@ -73,6 +74,7 @@ pub struct ITypography(i32);
 pub struct ITypographyStatics(i32);
 pub struct IUnderline(i32);
 pub struct Inline(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct InlineCollection(i32);
 pub struct InlineUIContainer(i32);
 pub struct Italic(i32);

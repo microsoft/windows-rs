@@ -726,6 +726,7 @@ pub struct PROPERTYKEY(i32);
 pub struct PROPERTYUI_FLAGS(i32);
 pub struct PROPERTYUI_FORMAT_FLAGS(i32);
 pub struct PROPERTYUI_NAME_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPPRG(i32);
 pub struct PROPVAR_CHANGE_FLAGS(i32);
 pub struct PROPVAR_COMPARE_FLAGS(i32);

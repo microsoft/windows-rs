@@ -2017,6 +2017,7 @@ extern "system" {
     pub fn wvnsprintfW(pszdest: super::super::Foundation::PWSTR, cchdest: i32, pszfmt: super::super::Foundation::PWSTR, arglist: *const i8) -> i32;
 }
 pub struct AASHELLMENUFILENAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AASHELLMENUITEM(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const ABE_BOTTOM: u32 = 3u32;
@@ -2092,13 +2093,21 @@ pub const AD_GETWP_LAST_APPLIED: u32 = 2u32;
 pub struct AHE_TYPE(i32);
 pub struct AHTYPE(i32);
 pub struct APPACTIONFLAGS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPBARDATA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPBARDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPCATEGORYINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPCATEGORYINFOLIST(i32);
 pub struct APPDOCLISTTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPINFODATA(i32);
 pub struct APPINFODATAFLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPLET_PROC(i32);
 pub struct APPLICATION_VIEW_MIN_WIDTH(i32);
 pub struct APPLICATION_VIEW_ORIENTATION(i32);
@@ -2193,7 +2202,11 @@ pub const ASSOCF_PER_MACHINE_ONLY: i32 = 32768i32;
 pub const ASSOCF_REMAPRUNDLL: i32 = 128i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const ASSOCF_VERIFY: i32 = 64i32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct ASSOCIATIONELEMENT(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct ASSOCIATIONELEMENT(i32);
 pub struct ASSOCIATIONLEVEL(i32);
 pub struct ASSOCIATIONTYPE(i32);
@@ -2204,6 +2217,7 @@ pub struct ATTACHMENT_ACTION(i32);
 pub struct ATTACHMENT_PROMPT(i32);
 pub struct AUTOCOMPLETELISTOPTIONS(i32);
 pub struct AUTOCOMPLETEOPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUTO_SCROLL_DATA(i32);
 pub struct AccessibilityDockingService(i32);
 pub struct AlphabeticalCategorizer(i32);
@@ -2217,13 +2231,18 @@ pub struct ApplicationDesignModeSettings(i32);
 pub struct ApplicationDestinations(i32);
 pub struct ApplicationDocumentLists(i32);
 pub struct AttachmentServices(i32);
+#[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct BANDINFOSFB(i32);
 pub struct BANDSITECID(i32);
 pub struct BANDSITEINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BANNER_NOTIFICATION(i32);
 pub struct BANNER_NOTIFICATION_EVENT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATALH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATAXP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BFFCALLBACK(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const BFFM_ENABLEOK: u32 = 1125u32;
@@ -2352,7 +2371,9 @@ pub const BMICON_LARGE: i32 = 0i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const BMICON_SMALL: i32 = 1i32;
 pub struct BNSTATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BROWSEINFOA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BROWSEINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const BSF_CANMAXIMIZE: u32 = 1024u32;
@@ -2593,8 +2614,11 @@ pub const CMIC_MASK_CONTROL_DOWN: u32 = 1073741824u32;
 pub const CMIC_MASK_PTINVOKE: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CMINVOKECOMMANDINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CMINVOKECOMMANDINFOEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE(i32);
 pub struct CM_COLUMNINFO(i32);
 pub struct CM_ENUM_FLAGS(i32);
@@ -2649,7 +2673,9 @@ pub const COMP_TYPE_MAX: u32 = 4u32;
 pub const COMP_TYPE_PICTURE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const COMP_TYPE_WEBSITE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONFIRM_CONFLICT_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONFIRM_CONFLICT_RESULT_INFO(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const COPYENGINE_E_ACCESSDENIED_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927681i32 as _);
@@ -2888,6 +2914,7 @@ pub struct CPVIEW(i32);
 pub struct CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(i32);
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(i32);
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR(i32);
 pub struct CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(i32);
 pub struct CREDENTIAL_PROVIDER_FIELD_STATE(i32);
@@ -2897,6 +2924,7 @@ pub struct CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(i32);
 pub const CREDENTIAL_PROVIDER_NO_DEFAULT: u32 = 4294967295u32;
 pub struct CREDENTIAL_PROVIDER_STATUS_ICON(i32);
 pub struct CREDENTIAL_PROVIDER_USAGE_SCENARIO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct CSFV(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const CSIDL_ADMINTOOLS: u32 = 48u32;
@@ -3137,17 +3165,21 @@ pub const DBIM_TITLE: u32 = 16u32;
 pub const DBPC_SELECTFIRST: u32 = 4294967295u32;
 pub struct DEFAULTSAVEFOLDERTYPE(i32);
 pub struct DEFAULT_FOLDER_MENU_RESTRICTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub struct DEFCONTEXTMENU(i32);
 pub struct DEF_SHARE_ID(i32);
 pub struct DELEGATEITEMID(i32);
 pub struct DESKBANDCID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DESKBANDINFO(i32);
 pub struct DESKTOP_SLIDESHOW_DIRECTION(i32);
 pub struct DESKTOP_SLIDESHOW_OPTIONS(i32);
 pub struct DESKTOP_SLIDESHOW_STATE(i32);
 pub struct DESKTOP_WALLPAPER_POSITION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct DETAILSINFO(i32);
 pub struct DFConstraint(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFMICS(i32);
 pub struct DFM_CMD(i32);
 pub struct DFM_MESSAGE_ID(i32);
@@ -3247,11 +3279,20 @@ pub const DLLVER_PLATFORM_NT: u32 = 2u32;
 pub const DLLVER_PLATFORM_WINDOWS: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const DLLVER_QFE_MASK: u64 = 65535u64;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOW(i32);
 pub struct DROPDESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DROPFILES(i32);
 pub struct DROPIMAGETYPE(i32);
 pub struct DSH_FLAGS(i32);
@@ -3323,6 +3364,7 @@ pub struct EXPLORER_BROWSER_FILL_FLAGS(i32);
 pub struct EXPLORER_BROWSER_OPTIONS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXP_DARWIN_LINK(i32);
 pub struct EXP_PROPERTYSTORAGE(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -3332,6 +3374,7 @@ pub struct EXP_SPECIAL_FOLDER(i32);
 pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const EXP_SZ_ICON_SIG: u32 = 2684354567u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXP_SZ_LINK(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const EXP_SZ_LINK_SIG: u32 = 2684354561u32;
@@ -3479,9 +3522,13 @@ pub const FDTF_SHORTDATE: u32 = 2u32;
 pub const FDTF_SHORTTIME: u32 = 1u32;
 pub struct FD_FLAGS(i32);
 pub struct FFFP_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEDESCRIPTORA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEDESCRIPTORW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEGROUPDESCRIPTORA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILEGROUPDESCRIPTORW(i32);
 pub struct FILETYPEATTRIBUTEFLAGS(i32);
 pub struct FILE_ATTRIBUTES_ARRAY(i32);
@@ -4339,10 +4386,13 @@ pub const GPFIDL_DEFAULT: i32 = 0i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2i32;
 pub struct GenericCredentialProvider(i32);
 pub struct HDROP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HELPINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HELPWININFOA(i32);
 pub struct HELPWININFOW(i32);
 pub struct HLBWIF_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HLBWINFO(i32);
 pub struct HLFNAMEF(i32);
 pub struct HLID_INFO(i32);
@@ -4356,6 +4406,7 @@ pub const HLINK_E_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRE
 pub const HLINK_S_DONTHIDE: i32 = 262400i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const HLINK_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262400i32 as _);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HLITEM(i32);
 pub struct HLNF(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -4375,6 +4426,7 @@ pub const HLNF_TRUSTFIRSTDOWNLOAD: u32 = 16777216u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432u32;
 pub struct HLQF_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HLTBINFO(i32);
 pub struct HLTB_INFO(i32);
 pub struct HOMEGROUPSHARINGCHOICES(i32);
@@ -4941,6 +4993,7 @@ pub const ItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GU
 pub const ItemIndex_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2459980762, data2: 10601, data3: 16417, data4: [191, 39, 81, 76, 252, 46, 74, 105] };
 pub struct KF_CATEGORY(i32);
 pub struct KNOWNDESTCATEGORY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KNOWNFOLDER_DEFINITION(i32);
 pub struct KNOWN_FOLDER_FLAG(i32);
 pub struct KnownFolderManager(i32);
@@ -4954,7 +5007,9 @@ pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = ::win
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927232i32 as _);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927485i32 as _);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct LPFNDFMCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNVIEWCALLBACK(i32);
 pub struct LocalThumbnailCache(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -4979,6 +5034,7 @@ pub struct MENUPOPUPSELECT(i32);
 pub struct MERGE_UPDATE_STATUS(i32);
 pub struct MM_FLAGS(i32);
 pub struct MONITOR_APP_VISIBILITY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MULTIKEYHELPA(i32);
 pub struct MULTIKEYHELPW(i32);
 pub struct MailRecipient(i32);
@@ -4996,7 +5052,9 @@ pub const NCM_SETALLOWTYPE: u32 = 1026u32;
 pub struct NC_ADDRESS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const NETCACHE_E_NEGATIVE_CACHE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927488i32 as _);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NEWCPLINFOA(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct NEWCPLINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const NIIF_ERROR: u32 = 3u32;
@@ -5036,11 +5094,23 @@ pub const NIN_SELECT: u32 = 1024u32;
 pub const NIS_HIDDEN: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const NIS_SHAREDICON: u32 = 2u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAW(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYICONIDENTIFIER(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYICONIDENTIFIER(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const NOTIFYICON_VERSION: u32 = 3u32;
@@ -5049,13 +5119,16 @@ pub const NOTIFYICON_VERSION_4: u32 = 4u32;
 pub struct NOTIFY_ICON_DATA_FLAGS(i32);
 pub struct NOTIFY_ICON_MESSAGE(i32);
 pub struct NPCredentialProvider(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WNet"))]
 pub struct NRESARRAY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct NSTCCUSTOMDRAW(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const NSTCDHPOS_ONTOP: i32 = -1i32;
 pub struct NSTCFOLDERCAPABILITIES(i32);
 pub struct NSTCGNI(i32);
 pub struct NSTCSTYLE2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 pub struct NT_CONSOLE_PROPS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562u32;
@@ -5089,15 +5162,24 @@ pub const OF_CAP_CANSWITCHTO: u32 = 1u32;
 pub const OI_ASYNC: u32 = 4294962926u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const OI_DEFAULT: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPENASINFO(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const OPENPROPS_INHIBITPIF: u32 = 32768u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const OPENPROPS_NONE: u32 = 0u32;
 pub struct OPEN_AS_INFO_FLAGS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOW(i32);
 pub struct OS(i32);
 pub struct OfflineFolderStatus(i32);
@@ -5121,9 +5203,13 @@ pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PANE_ZONE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PAPPCONSTRAIN_CHANGE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PAPPSTATE_CHANGE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PARSEDURLA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PARSEDURLW(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PATHCCH_MAX_CCH: u32 = 32768u32;
@@ -5135,8 +5221,11 @@ pub const PDTIMER_PAUSE: u32 = 2u32;
 pub const PDTIMER_RESET: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PDTIMER_RESUME: u32 = 3u32;
+#[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct PERSIST_FOLDER_TARGET_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNCANSHAREFOLDERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSHOWSHAREFOLDERUIW(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
@@ -5304,6 +5393,7 @@ pub const PPCF_FORCEQUALIFY: u32 = 64u32;
 pub const PPCF_LONGESTPOSSIBLE: u32 = 128u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PPCF_NODIRECTORIES: u32 = 16u32;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct PREVIEWHANDLERFRAMEINFO(i32);
 pub struct PRF_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -5324,7 +5414,9 @@ pub const PRINTACTION_SERVERPROPERTIES: u32 = 7u32;
 pub const PRINTACTION_TESTPAGE: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PRINT_PROP_FORCE_NAME: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROFILEINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROFILEINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PROGDLG_AUTOTIME: u32 = 2u32;
@@ -5342,6 +5434,7 @@ pub const PROGDLG_NOPROGRESSBAR: u32 = 16u32;
 pub const PROGDLG_NORMAL: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PROGDLG_NOTIME: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PUBAPPINFO(i32);
 pub struct PUBAPPINFOFLAGS(i32);
 pub struct PackageDebugSettings(i32);
@@ -5350,6 +5443,7 @@ pub struct PreviousVersions(i32);
 pub struct PropertiesUI(i32);
 pub struct PublishDropTarget(i32);
 pub struct PublishingWizard(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct QCMINFO(i32);
 pub struct QCMINFO_IDMAP(i32);
 pub struct QCMINFO_IDMAP_PLACEMENT(i32);
@@ -5590,6 +5684,7 @@ pub const SFVM_ADDOBJECT: u32 = 3u32;
 pub const SFVM_GETSELECTEDOBJECTS: u32 = 9u32;
 pub struct SFVM_HELPTOPIC_DATA(i32);
 pub struct SFVM_MESSAGE_ID(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SFVM_PROPPAGE_DATA(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SFVM_REARRANGE: u32 = 1u32;
@@ -5609,6 +5704,7 @@ pub const SFVSOC_INVALIDATE_ALL: u32 = 1u32;
 pub const SFVSOC_NOSCROLL: u32 = 2u32;
 pub struct SFVS_SELECT(i32);
 pub struct SFV_CREATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct SFV_SETITEMPOS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHACF_AUTOAPPEND_FORCE_OFF: u32 = 2147483648u32;
@@ -5635,8 +5731,11 @@ pub const SHACF_USETAB: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHACF_VIRTUAL_NAMESPACE: u32 = 64u32;
 pub struct SHARD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHARDAPPIDINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct SHARDAPPIDINFOIDLIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHARDAPPIDINFOLINK(i32);
 pub struct SHARE_ROLE(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -5658,24 +5757,40 @@ pub const SHCNEE_ORDERCHANGED: i32 = 2i32;
 pub struct SHCNE_ID(i32);
 pub struct SHCNF_FLAGS(i32);
 pub struct SHCNRF_SOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHCOLUMNDATA(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct SHCOLUMNINFO(i32);
 pub struct SHCOLUMNINIT(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 pub struct SHCREATEPROCESSINFOW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 pub struct SHCREATEPROCESSINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927180i32 as _);
 pub struct SHChangeDWORDAsIDList(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct SHChangeNotifyEntry(i32);
 pub struct SHChangeProductKeyAsIDList(i32);
 pub struct SHChangeUpdateImageIDList(i32);
 pub struct SHDESCRIPTIONID(i32);
 pub struct SHDID_ID(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct SHDRAGIMAGE(i32);
 pub struct SHELLBROWSERSHOWCONTROL(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOW(i32);
 pub struct SHELLFLAGSTATE(i32);
 pub struct SHELLSTATEA(i32);
@@ -5695,17 +5810,34 @@ pub const SHERB_NOCONFIRMATION: u32 = 1u32;
 pub const SHERB_NOPROGRESSUI: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHERB_NOSOUND: u32 = 4u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct SHFILEINFOA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct SHFILEINFOA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOW(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTW(i32);
 pub struct SHFMT_ID(i32);
 pub struct SHFMT_OPT(i32);
 pub struct SHFMT_RET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHFOLDERCUSTOMSETTINGS(i32);
 pub struct SHGDFIL_FORMAT(i32);
 pub struct SHGFI_FLAGS(i32);
@@ -5765,9 +5897,17 @@ pub const SHIMGDEC_THUMBNAIL: u32 = 1u32;
 pub const SHIMSTCAPFLAG_LOCKABLE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHIMSTCAPFLAG_PURGEABLE: u32 = 2u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHNAMEMAPPINGA(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHNAMEMAPPINGA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHNAMEMAPPINGW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHNAMEMAPPINGW(i32);
 pub struct SHOP_TYPE(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -5794,7 +5934,9 @@ pub const SHPWHF_NORECOMPRESS: u32 = 1u32;
 pub const SHPWHF_USEMRU: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SHQUERYRBINFO(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct SHQUERYRBINFO(i32);
 pub struct SHREGDEL_FLAGS(i32);
 pub struct SHREGENUM_FLAGS(i32);
@@ -5807,7 +5949,11 @@ pub const SHREGSET_HKCU: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHREGSET_HKLM: u32 = 4u32;
 pub struct SHSTOCKICONID(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHSTOCKICONINFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHSTOCKICONINFO(i32);
 pub struct SIATTRIBFLAGS(i32);
 pub const SID_CommandsPropertyBag: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -5884,6 +6030,7 @@ pub const SIOM_RESERVED_SHARED: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SIOM_RESERVED_SLOWFILE: u32 = 2u32;
 pub struct SLGP_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SLOWAPPINFO(i32);
 pub struct SLR_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -5894,6 +6041,7 @@ pub const SMAE_EXPANDED: u32 = 1u32;
 pub const SMAE_USER: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SMAE_VALID: u32 = 7u32;
+#[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct SMCSHCHANGENOTIFYSTRUCT(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SMC_AUTOEXPANDCHANGE: u32 = 66u32;
@@ -5947,6 +6095,7 @@ pub const SMC_SFEXEC_MIDDLE: u32 = 49u32;
 pub const SMC_SFSELECTITEM: u32 = 10u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SMC_SHCHANGENOTIFY: u32 = 46u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct SMDATA(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SMDM_HMENU: u32 = 2u32;
@@ -5986,6 +6135,7 @@ pub const SMSET_BOTTOM: u32 = 536870912u32;
 pub const SMSET_DONTOWN: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SMSET_TOP: u32 = 268435456u32;
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct SORTCOLUMN(i32);
 pub struct SORTDIRECTION(i32);
 pub struct SORT_ORDER_TYPE(i32);
@@ -6071,7 +6221,9 @@ pub struct STORAGE_PROVIDER_FILE_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const STORE_E_NEWER_VERSION_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927484i32 as _);
 pub struct STPFLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SUBCLASSPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SV2CVW2_PARAMS(i32);
 pub struct SVUIA_STATUS(i32);
 pub struct SYNCMGRERRORFLAGS(i32);
@@ -6079,8 +6231,10 @@ pub struct SYNCMGRFLAG(i32);
 pub struct SYNCMGRHANDLERFLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SYNCMGRHANDLERFLAG_MASK: u32 = 15u32;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SYNCMGRHANDLERINFO(i32);
 pub struct SYNCMGRINVOKEFLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct SYNCMGRITEM(i32);
 pub struct SYNCMGRITEMFLAGS(i32);
 pub struct SYNCMGRITEMSTATE(i32);
@@ -6094,6 +6248,7 @@ pub const SYNCMGRLOGERROR_ERRORID: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SYNCMGRLOGERROR_ITEMID: u32 = 4u32;
 pub struct SYNCMGRLOGLEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYNCMGRPROGRESSITEM(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SYNCMGRPROGRESSITEM_MAXVALUE: u32 = 8u32;
@@ -6108,6 +6263,7 @@ pub struct SYNCMGRREGISTERFLAGS(i32);
 pub const SYNCMGRREGISTERFLAGS_MASK: u32 = 7u32;
 pub struct SYNCMGRSTATUS(i32);
 pub struct SYNCMGR_CANCEL_REQUEST(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct SYNCMGR_CONFLICT_ID_INFO(i32);
 pub struct SYNCMGR_CONFLICT_ITEM_TYPE(i32);
 pub struct SYNCMGR_CONTROL_FLAGS(i32);
@@ -6245,6 +6401,7 @@ pub struct TBINFO(i32);
 pub struct TBPFLAG(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const THBN_CLICKED: u32 = 6144u32;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct THUMBBUTTON(i32);
 pub struct THUMBBUTTONFLAGS(i32);
 pub struct THUMBBUTTONMASK(i32);
@@ -6264,6 +6421,7 @@ pub const TLOG_BACK: i32 = -1i32;
 pub const TLOG_CURRENT: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const TLOG_FORE: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct TOOLBARITEM(i32);
 pub struct TaskbarList(i32);
 pub struct ThumbnailStreamCache(i32);
@@ -6381,6 +6539,7 @@ pub struct VPCOLORFLAGS(i32);
 pub struct VPWATERMARKFLAGS(i32);
 pub struct VaultProvider(i32);
 pub struct VirtualDesktopManager(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct WINDOWDATA(i32);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const WM_CPL_LAUNCH: u32 = 2024u32;
@@ -6464,5 +6623,7 @@ pub struct iurl_seturl_flags(i32);
 pub struct mimeassociationdialog_in_flags(i32);
 pub struct translateurl_in_flags(i32);
 pub struct urlassociationdialog_in_flags(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct urlinvokecommandinfoA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct urlinvokecommandinfoW(i32);

@@ -79,7 +79,11 @@ pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CI_VERSION_WIN70: u32 = 1792u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBID(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBID(i32);
 pub struct DBKINDENUM(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
@@ -167,6 +171,7 @@ pub const FILTER_S_LAST_TEXT: ::windows_sys::core::HRESULT = ::windows_sys::core
 pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268042i32 as _);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268036i32 as _);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FULLPROPSPEC(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
@@ -262,6 +267,7 @@ pub const SCOPE_TYPE_VPATH: u32 = 512u32;
 pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const STAT_BUSY: u32 = 0u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STAT_CHUNK(i32);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;

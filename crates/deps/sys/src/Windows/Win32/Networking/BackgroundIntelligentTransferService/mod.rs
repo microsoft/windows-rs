@@ -2,10 +2,13 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct AsyncIBackgroundCopyCallback(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BG_AUTH_CREDENTIALS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BG_AUTH_CREDENTIALS_UNION(i32);
 pub struct BG_AUTH_SCHEME(i32);
 pub struct BG_AUTH_TARGET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BG_BASIC_CREDENTIALS(i32);
 pub struct BG_CERT_STORE_LOCATION(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -279,7 +282,9 @@ pub const BG_E_VALIDATION_FAILED: i32 = -2145386413i32;
 pub const BG_E_VOLUME_CHANGED: i32 = -2145386482i32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_E_WATCHDOG_TIMEOUT: i32 = -2145386391i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct BG_FILE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BG_FILE_PROGRESS(i32);
 pub struct BG_FILE_RANGE(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -305,6 +310,7 @@ pub struct BG_JOB_PROGRESS(i32);
 pub struct BG_JOB_PROXY_USAGE(i32);
 pub struct BG_JOB_REPLY_PROGRESS(i32);
 pub struct BG_JOB_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BG_JOB_TIMES(i32);
 pub struct BG_JOB_TYPE(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -362,8 +368,10 @@ pub const BITS_COST_STATE_UNRESTRICTED: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_COST_STATE_USAGE_BASED: u32 = 64u32;
 pub struct BITS_FILE_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BITS_FILE_PROPERTY_VALUE(i32);
 pub struct BITS_JOB_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BITS_JOB_PROPERTY_VALUE(i32);
 pub struct BITS_JOB_TRANSFER_POLICY(i32);
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
@@ -401,6 +409,7 @@ pub struct BackgroundCopyManager3_0(i32);
 pub struct BackgroundCopyManager4_0(i32);
 pub struct BackgroundCopyManager5_0(i32);
 pub struct BackgroundCopyQMgr(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILESETINFO(i32);
 pub struct GROUPPROP(i32);
 pub struct IBITSExtensionSetup(i32);

@@ -164,13 +164,17 @@ pub struct SPCFGRULEATTRIBUTES(i32);
 pub struct SPCOMMITFLAGS(i32);
 pub struct SPCONTEXTSTATE(i32);
 pub struct SPDATAKEYLOCATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPDISPLAYPHRASE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPDISPLAYTOKEN(i32);
 pub struct SPDISPLYATTRIBUTES(i32);
 pub struct SPEAKFLAGS(i32);
 pub struct SPENDSRSTREAMFLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPEVENT(i32);
 pub struct SPEVENTENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPEVENTEX(i32);
 pub struct SPEVENTLPARAMTYPE(i32);
 pub struct SPEVENTSOURCEINFO(i32);
@@ -183,35 +187,48 @@ pub struct SPLEXICONTYPE(i32);
 pub struct SPLOADOPTIONS(i32);
 pub struct SPMATCHINGMODE(i32);
 pub struct SPNORMALIZATIONLIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPNOTIFYCALLBACK(i32);
 pub struct SPPARTOFSPEECH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPPHRASEELEMENT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASEPROPERTY(i32);
 pub struct SPPHRASEPROPERTYUNIONTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPPHRASEREPLACEMENT(i32);
 pub struct SPPHRASERNG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPPHRASERULE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE_50(i32);
 pub struct SPPRONUNCIATIONFLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPROPERTYINFO(i32);
 pub struct SPRECOCONTEXTSTATUS(i32);
 pub struct SPRECOEVENTFLAGS(i32);
 pub struct SPRECOGNIZERSTATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPRECORESULTTIMES(i32);
 pub struct SPRECOSTATE(i32);
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SPRP_NORMAL: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPRULE(i32);
 pub struct SPRULESTATE(i32);
 pub struct SPRUNSTATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPSEMANTICERRORINFO(i32);
 pub struct SPSEMANTICFORMAT(i32);
 pub struct SPSERIALIZEDEVENT(i32);
 pub struct SPSERIALIZEDEVENT64(i32);
 pub struct SPSERIALIZEDPHRASE(i32);
 pub struct SPSERIALIZEDRESULT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPSHORTCUTPAIR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPSHORTCUTPAIRLIST(i32);
 pub struct SPSHORTCUTTYPE(i32);
 pub struct SPSTATEHANDLE__(i32);
@@ -219,6 +236,7 @@ pub struct SPSTREAMFORMAT(i32);
 pub struct SPTEXTSELECTIONINFO(i32);
 pub struct SPVACTIONS(i32);
 pub struct SPVALUETYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPVCONTEXT(i32);
 pub struct SPVFEATURE(i32);
 pub struct SPVISEMES(i32);
@@ -226,9 +244,12 @@ pub struct SPVLIMITS(i32);
 pub struct SPVOICESTATUS(i32);
 pub struct SPVPITCH(i32);
 pub struct SPVPRIORITY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPVSTATE(i32);
 pub struct SPWAVEFORMATTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPWORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPWORDLIST(i32);
 pub struct SPWORDPRONOUNCEABLE(i32);
 pub struct SPWORDPRONUNCIATION(i32);

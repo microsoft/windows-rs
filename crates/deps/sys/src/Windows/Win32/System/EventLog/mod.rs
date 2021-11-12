@@ -189,6 +189,7 @@ pub struct EVT_QUERY_PROPERTY_ID(i32);
 pub const EVT_READ_ACCESS: u32 = 1u32;
 pub struct EVT_RENDER_CONTEXT_FLAGS(i32);
 pub struct EVT_RENDER_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVT_RPC_LOGIN(i32);
 pub struct EVT_RPC_LOGIN_FLAGS(i32);
 pub struct EVT_SEEK_FLAGS(i32);
@@ -196,6 +197,7 @@ pub struct EVT_SUBSCRIBE_CALLBACK(i32);
 pub struct EVT_SUBSCRIBE_FLAGS(i32);
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(i32);
 pub struct EVT_SYSTEM_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVT_VARIANT(i32);
 pub struct EVT_VARIANT_TYPE(i32);
 #[doc = "*Required features: `Win32_System_EventLog`*"]

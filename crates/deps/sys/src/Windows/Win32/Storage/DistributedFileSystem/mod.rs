@@ -73,30 +73,48 @@ pub const DFS_ADD_VOLUME: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_100(i32);
 pub struct DFS_INFO_101(i32);
 pub struct DFS_INFO_102(i32);
 pub struct DFS_INFO_103(i32);
 pub struct DFS_INFO_104(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_105(i32);
 pub struct DFS_INFO_106(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_107(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_150(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_1_32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_200(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_2_32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_300(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_3_32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_4(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_INFO_4_32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_5(i32);
 pub struct DFS_INFO_50(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_6(i32);
 pub struct DFS_INFO_7(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_8(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_9(i32);
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
@@ -115,14 +133,19 @@ pub const DFS_PROPERTY_FLAG_SITE_COSTING: u32 = 4u32;
 pub const DFS_PROPERTY_FLAG_TARGET_FAILBACK: u32 = 8u32;
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_RESTORE_VOLUME: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_SITELIST_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_SITENAME_INFO(i32);
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_SITE_PRIMARY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_STORAGE_INFO(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DFS_STORAGE_INFO_0_32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DFS_STORAGE_INFO_1(i32);
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_STATES: u32 = 15u32;

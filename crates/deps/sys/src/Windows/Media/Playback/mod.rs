@@ -80,6 +80,7 @@ pub struct MediaBreakSkippedEventArgs(i32);
 pub struct MediaBreakStartedEventArgs(i32);
 pub struct MediaCommandEnablingRule(i32);
 pub struct MediaItemDisplayProperties(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct MediaPlaybackAudioTrackList(i32);
 pub struct MediaPlaybackCommandManager(i32);
 pub struct MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(i32);
@@ -106,7 +107,9 @@ pub struct MediaPlaybackSessionOutputDegradationPolicyState(i32);
 pub struct MediaPlaybackSessionVideoConstrictionReason(i32);
 pub struct MediaPlaybackSphericalVideoProjection(i32);
 pub struct MediaPlaybackState(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct MediaPlaybackTimedMetadataTrackList(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct MediaPlaybackVideoTrackList(i32);
 pub struct MediaPlayer(i32);
 pub struct MediaPlayerAudioCategory(i32);

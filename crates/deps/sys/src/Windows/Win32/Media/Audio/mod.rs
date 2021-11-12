@@ -432,7 +432,9 @@ pub const ACMDM_STREAM_UNPREPARE: u32 = 24658u32;
 pub const ACMDM_STREAM_UPDATE: u32 = 24659u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMDM_USER: u32 = 16384u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct ACMDRIVERDETAILSA(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct ACMDRIVERDETAILSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMDRIVERDETAILS_COPYRIGHT_CHARS: u32 = 80u32;
@@ -458,6 +460,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMDRIVERENUMCB(i32);
 pub struct ACMDRVFORMATSUGGEST(i32);
 pub struct ACMDRVSTREAMHEADER(i32);
@@ -473,9 +476,13 @@ pub const ACMERR_CANCELED: u32 = 515u32;
 pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMERR_UNPREPARED: u32 = 514u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEHOOKPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEHOOKPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
@@ -489,21 +496,31 @@ pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64i32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERDETAILSA(i32);
 pub struct ACMFILTERDETAILSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERENUMCBA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERENUMCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERTAGDETAILSA(i32);
 pub struct ACMFILTERTAGDETAILSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERTAGENUMCBA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERTAGENUMCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEHOOKPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEHOOKPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
@@ -517,18 +534,26 @@ pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATDETAILSA(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATENUMCBA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATENUMCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATTAGDETAILSA(i32);
 pub struct ACMFORMATTAGDETAILSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATTAGENUMCBA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATTAGENUMCBW(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct ACMSTREAMHEADER(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct ACMSTREAMHEADER(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
@@ -790,12 +815,16 @@ pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
 pub struct AUDIO_DUCKING_OPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_EFFECT(i32);
 pub struct AUDIO_EFFECT_STATE(i32);
 pub struct AUDIO_STREAM_CATEGORY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUXCAPS2A(i32);
 pub struct AUXCAPS2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUXCAPSA(i32);
 pub struct AUXCAPSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -807,7 +836,9 @@ pub const AUXCAPS_LRVOLUME: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const AUXCAPS_VOLUME: u32 = 1u32;
 pub struct AudioClient3ActivationParams(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AudioClientProperties(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AudioExtensionParams(i32);
 pub struct AudioObjectType(i32);
 pub struct AudioSessionDisconnectReason(i32);
@@ -969,8 +1000,11 @@ pub struct ISpatialAudioObjectRenderStreamForHrtf(i32);
 pub struct ISpatialAudioObjectRenderStreamForMetadata(i32);
 pub struct ISpatialAudioObjectRenderStreamNotify(i32);
 pub struct ISubunit(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPACMDRIVERPROC(i32);
+#[cfg(feature = "Win32_Media_Multimedia")]
 pub struct LPMIDICALLBACK(i32);
+#[cfg(feature = "Win32_Media_Multimedia")]
 pub struct LPWAVECALLBACK(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
@@ -1013,13 +1047,18 @@ pub const MIDIERR_STILLPLAYING: u32 = 65u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const MIDIERR_UNPREPARED: u32 = 64u32;
 pub struct MIDIEVENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIHDR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIINCAPS2A(i32);
 pub struct MIDIINCAPS2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIINCAPSA(i32);
 pub struct MIDIINCAPSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIOUTCAPS2A(i32);
 pub struct MIDIOUTCAPS2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIOUTCAPSA(i32);
 pub struct MIDIOUTCAPSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -1046,13 +1085,18 @@ pub const MIDI_CACHE_QUERY: u32 = 3u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const MIDI_UNCACHE: u32 = 4u32;
 pub struct MIDI_WAVE_OPEN_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCAPS2A(i32);
 pub struct MIXERCAPS2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCAPSA(i32);
 pub struct MIXERCAPSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLDETAILS(i32);
 pub struct MIXERCONTROLDETAILS_BOOLEAN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA(i32);
 pub struct MIXERCONTROLDETAILS_LISTTEXTW(i32);
 pub struct MIXERCONTROLDETAILS_SIGNED(i32);
@@ -1174,7 +1218,9 @@ pub const MIXERCONTROL_CT_UNITS_PERCENT: i32 = 327680i32;
 pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERLINEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERLINECONTROLSA(i32);
 pub struct MIXERLINECONTROLSW(i32);
 pub struct MIXERLINEW(i32);
@@ -1565,7 +1611,9 @@ pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows_sys::core::HRESULT
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004286972i32 as _);
 pub struct SpatialAudioClientActivationParams(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioHrtfActivationParams(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioHrtfActivationParams2(i32);
 pub struct SpatialAudioHrtfDirectivity(i32);
 pub struct SpatialAudioHrtfDirectivityCardioid(i32);
@@ -1578,9 +1626,13 @@ pub struct SpatialAudioHrtfEnvironmentType(i32);
 pub struct SpatialAudioMetadataCopyMode(i32);
 pub struct SpatialAudioMetadataItemsInfo(i32);
 pub struct SpatialAudioMetadataWriterOverflowMode(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioObjectRenderStreamActivationParams(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioObjectRenderStreamActivationParams2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2(i32);
 pub struct VOLUMEWAVEFILTER(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -1599,9 +1651,12 @@ pub struct WAVEFILTER(i32);
 pub struct WAVEFORMAT(i32);
 pub struct WAVEFORMATEX(i32);
 pub struct WAVEFORMATEXTENSIBLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEHDR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEINCAPS2A(i32);
 pub struct WAVEINCAPS2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEINCAPSA(i32);
 pub struct WAVEINCAPSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -1610,8 +1665,10 @@ pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0u32;
 pub const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Audio`*"]
 pub const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEOUTCAPS2A(i32);
 pub struct WAVEOUTCAPS2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEOUTCAPSA(i32);
 pub struct WAVEOUTCAPSW(i32);
 #[doc = "*Required features: `Win32_Media_Audio`*"]
@@ -1700,6 +1757,8 @@ pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
 pub const WODM_MAPPER_STATUS: u32 = 8192u32;
 pub struct _AUDCLNT_BUFFERFLAGS(i32);
 pub struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct tACMDRVOPENDESCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct tACMDRVOPENDESCW(i32);
 pub struct tACMFORMATDETAILSW(i32);

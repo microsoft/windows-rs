@@ -1219,6 +1219,7 @@ pub const EEInfoNextRecordsMissing: u32 = 2u32;
 pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const EEInfoUseFileTime: u32 = 4u32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct EXPR_EVAL(i32);
 pub struct EXPR_TOKEN(i32);
 pub struct ExtendedErrorParamTypes(i32);
@@ -1233,8 +1234,10 @@ pub struct IDL_CS_CONVERT(i32);
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 pub struct I_RpcFreeCalloutStateFn(i32);
 pub struct I_RpcPerformCalloutFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct I_RpcProxyCallbackInterface(i32);
 pub struct I_RpcProxyFilterIfFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct I_RpcProxyGetClientAddressFn(i32);
 pub struct I_RpcProxyGetClientSessionAndResourceUUID(i32);
 pub struct I_RpcProxyGetConnectionTimeoutFn(i32);
@@ -1247,18 +1250,24 @@ pub struct MIDL_ES_ALLOC(i32);
 pub struct MIDL_ES_CODE(i32);
 pub struct MIDL_ES_HANDLE_STYLE(i32);
 pub struct MIDL_ES_READ(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDL_ES_WRITE(i32);
 pub struct MIDL_FORMAT_STRING(i32);
 pub struct MIDL_INTERCEPTION_INFO(i32);
 pub struct MIDL_INTERFACE_METHOD_PROPERTIES(i32);
 pub struct MIDL_METHOD_PROPERTY(i32);
 pub struct MIDL_METHOD_PROPERTY_MAP(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_SERVER_INFO(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUBLESS_PROXY_INFO(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_DESC(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_MESSAGE(i32);
 pub struct MIDL_SYNTAX_INFO(i32);
 pub struct MIDL_TYPE_PICKLING_INFO(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
@@ -1357,10 +1366,13 @@ pub struct NDR_NOTIFY_ROUTINE(i32);
 pub struct NDR_POINTER_QUEUE_STATE(i32);
 pub struct NDR_RUNDOWN(i32);
 pub struct NDR_SCONTEXT_1(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct NDR_USER_MARSHAL_INFO(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const NT351_INTERFACE_SIZE: u32 = 64u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct PFN_RPCNOTIFICATION_ROUTINE(i32);
 pub struct PROXY_PHASE(i32);
 pub struct PRPC_RUNDOWN(i32);
@@ -1399,7 +1411,9 @@ pub struct RPCLT_PDU_FILTER_FUNC(i32);
 pub struct RPC_ADDRESS_CHANGE_FN(i32);
 pub struct RPC_ADDRESS_CHANGE_TYPE(i32);
 pub struct RPC_ASYNC_EVENT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_STATE(i32);
 pub struct RPC_AUTH_KEY_RETRIEVAL_FN(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1408,7 +1422,9 @@ pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
 pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(i32);
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_A(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_W(i32);
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A(i32);
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W(i32);
@@ -1424,11 +1440,17 @@ pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
 pub const RPC_BUFFER_NONOTIFY: u32 = 65536u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_BUFFER_PARTIAL: u32 = 8192u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V1_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V1_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V2_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V2_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V3_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_CALL_ATTRIBUTES_V3_W(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2u32;
@@ -1584,6 +1606,7 @@ pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9u32;
 pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_C_OPT_DONT_LINGER: u32 = 13u32;
@@ -1687,10 +1710,12 @@ pub struct RPC_DISPATCH_FUNCTION(i32);
 pub struct RPC_DISPATCH_TABLE(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_EEINFO_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_EE_INFO_PARAM(i32);
 pub struct RPC_ENDPOINT_TEMPLATEA(i32);
 pub struct RPC_ENDPOINT_TEMPLATEW(i32);
 pub struct RPC_ERROR_ENUM_HANDLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_EXTENDED_ERROR_INFO(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
@@ -1781,14 +1806,23 @@ pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
 pub struct RPC_SECURITY_CALLBACK_FN(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V2_A(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V2_W(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V3_A(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V3_W(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V4_A(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V4_W(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V5_A(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct RPC_SECURITY_QOS_V5_W(i32);
 pub struct RPC_SEC_CONTEXT_KEY_INFO(i32);
 pub struct RPC_SERVER_INTERFACE(i32);
@@ -1820,6 +1854,7 @@ pub struct SEC_WINNT_AUTH_IDENTITY_A(i32);
 pub struct SEC_WINNT_AUTH_IDENTITY_W(i32);
 pub struct SERVER_ROUTINE(i32);
 pub struct STUB_PHASE(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct STUB_THUNK(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
@@ -1851,6 +1886,7 @@ pub const TRANSPORT_TYPE_WMSG: u32 = 8u32;
 pub const USER_CALL_IS_ASYNC: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512u32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct USER_MARSHAL_CB(i32);
 pub struct USER_MARSHAL_CB_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1884,7 +1920,9 @@ pub struct USER_MARSHAL_SIZING_ROUTINE(i32);
 pub struct USER_MARSHAL_UNMARSHALLING_ROUTINE(i32);
 pub struct UUID_VECTOR(i32);
 pub struct XLAT_SIDE(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_HELPER_ROUTINE(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_ROUTINE_QUINTUPLE(i32);
 pub struct _NDR_ASYNC_MESSAGE(i32);
 pub struct _NDR_CORRELATION_INFO(i32);

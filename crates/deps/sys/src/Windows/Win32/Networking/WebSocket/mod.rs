@@ -37,6 +37,7 @@ pub struct WEB_SOCKET_BUFFER(i32);
 pub struct WEB_SOCKET_BUFFER_TYPE(i32);
 pub struct WEB_SOCKET_CLOSE_STATUS(i32);
 pub struct WEB_SOCKET_HANDLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEB_SOCKET_HTTP_HEADER(i32);
 #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;

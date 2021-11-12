@@ -468,9 +468,13 @@ pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
 pub const PDH_ASYNC_QUERY_TIMEOUT: i32 = -2147481637i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_W(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_CALC_NEGATIVE_DENOMINATOR: i32 = -2147481642i32;
@@ -488,9 +492,13 @@ pub const PDH_CANNOT_READ_NAME_STRINGS: i32 = -1073738808i32;
 pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: i32 = -2147481636i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_COUNTER_ALREADY_IN_QUERY: i32 = -1073738762i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_INFO_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_INFO_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_CSTATUS_BAD_COUNTERNAME: i32 = -1073738816i32;
@@ -512,7 +520,9 @@ pub const PDH_CSTATUS_NO_MACHINE: i32 = -2147481648i32;
 pub const PDH_CSTATUS_NO_OBJECT: i32 = -1073738824i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_CSTATUS_VALID_DATA: i32 = 0i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
@@ -530,8 +540,11 @@ pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
 pub struct PDH_FMT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_FMT_COUNTERVALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_FUNCTION_NOT_FOUND: i32 = -1073738818i32;
@@ -570,7 +583,9 @@ pub const PDH_LOG_FILE_OPEN_ERROR: i32 = -1073738806i32;
 pub const PDH_LOG_FILE_TOO_SMALL: i32 = -1073738788i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_LOG_SAMPLE_TOO_SMALL: i32 = -1073738760i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W(i32);
 pub struct PDH_LOG_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
@@ -642,8 +657,11 @@ pub const PDH_PLA_VALIDATION_ERROR: i32 = -1073738766i32;
 pub const PDH_PLA_VALIDATION_WARNING: i32 = -2147480589i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_QUERY_PERF_DATA_TIMEOUT: i32 = -1073738754i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_W(i32);
 pub struct PDH_RAW_LOG_RECORD(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
@@ -669,6 +687,7 @@ pub const PDH_SQL_FETCH_FAILED: i32 = -1073738781i32;
 pub const PDH_SQL_MORE_RESULTS_FAILED: i32 = -1073738779i32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_SQL_ROWCOUNT_FAILED: i32 = -1073738780i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDH_STATISTICS(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_STRING_NOT_FOUND: i32 = -1073738796i32;
@@ -726,7 +745,11 @@ pub struct PERF_COUNTER_AGGREGATE_FUNC(i32);
 pub const PERF_COUNTER_BASE: u32 = 196608u32;
 pub struct PERF_COUNTER_BLOCK(i32);
 pub struct PERF_COUNTER_DATA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_COUNTER_DEFINITION(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_COUNTER_DEFINITION(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
@@ -749,7 +772,9 @@ pub const PERF_COUNTER_RATE: u32 = 65536u32;
 pub struct PERF_COUNTER_REG_INFO(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTER_VALUE: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_DATA_BLOCK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_DATA_HEADER(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_DATA_REVISION: u32 = 1u32;
@@ -802,7 +827,11 @@ pub const PERF_NUMBER_DEC_1000: u32 = 131072u32;
 pub const PERF_NUMBER_HEX: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_OBJECT_TYPE(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_OBJECT_TYPE(i32);
 pub struct PERF_PROVIDER_CONTEXT(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
@@ -841,6 +870,7 @@ pub const PERF_TYPE_TEXT: u32 = 2048u32;
 pub const PERF_TYPE_ZERO: u32 = 3072u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLA_CABEXTRACT_CALLBACK(i32);
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
@@ -857,7 +887,9 @@ pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
 pub struct PM_CLOSE_PROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_COLLECT_PROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_OPEN_PROC(i32);
 pub struct PerfCounterDataType(i32);
 pub struct PerfProviderHandle(i32);

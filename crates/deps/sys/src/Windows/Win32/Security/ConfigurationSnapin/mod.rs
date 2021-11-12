@@ -5,9 +5,13 @@ pub struct ISceSvcAttachmentData(i32);
 pub struct ISceSvcAttachmentPersistInfo(i32);
 pub struct PFSCE_FREE_INFO(i32);
 pub struct PFSCE_LOG_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFSCE_QUERY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFSCE_SET_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_ConfigAnalyzeService(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PF_UpdateService(i32);
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
@@ -51,6 +55,7 @@ pub const SCESTATUS_SUCCESS: i32 = 0i32;
 pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 pub struct SCESVC_ANALYSIS_INFO(i32);
 pub struct SCESVC_ANALYSIS_LINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCESVC_CALLBACK_INFO(i32);
 pub struct SCESVC_CONFIGURATION_INFO(i32);
 pub struct SCESVC_CONFIGURATION_LINE(i32);

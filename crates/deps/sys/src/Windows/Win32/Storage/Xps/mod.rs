@@ -40,10 +40,14 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ABORTPROC(i32);
 pub struct DEVICE_CAPABILITIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOCINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOCINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRAWPATRECT(i32);
 pub struct HPTPROVIDER(i32);
 pub struct IXpsDocumentPackageTarget(i32);
@@ -116,6 +120,7 @@ pub struct IXpsSignatureRequestCollection(i32);
 pub struct IXpsSigningOptions(i32);
 pub struct PRINT_WINDOW_FLAGS(i32);
 pub struct PSFEATURE_CUSTPAPER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSFEATURE_OUTPUT(i32);
 pub struct PSINJECTDATA(i32);
 pub struct PSINJECT_POINT(i32);

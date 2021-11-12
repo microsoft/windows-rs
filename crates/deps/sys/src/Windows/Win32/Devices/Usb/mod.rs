@@ -624,9 +624,12 @@ pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0u32;
 pub struct USBD_VERSION_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_BUS_CONFIGURATION_INFO(i32);
 pub struct USBFN_BUS_SPEED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_CLASS_INFORMATION_PACKET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_CLASS_INFORMATION_PACKET_EX(i32);
 pub struct USBFN_CLASS_INTERFACE(i32);
 pub struct USBFN_CLASS_INTERFACE_EX(i32);
@@ -645,6 +648,7 @@ pub struct USBSCAN_PIPE_CONFIGURATION(i32);
 pub struct USBSCAN_PIPE_INFORMATION(i32);
 pub struct USBSCAN_TIMEOUT(i32);
 pub struct USBUSER_BANDWIDTH_INFO_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_BUS_STATISTICS_0_REQUEST(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918u32;
@@ -659,6 +663,7 @@ pub const USBUSER_GET_BUS_STATISTICS_0: u32 = 6u32;
 pub const USBUSER_GET_CONTROLLER_DRIVER_KEY: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USBUSER_GET_CONTROLLER_INFO_0: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_GET_DRIVER_VERSION(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USBUSER_GET_POWER_STATE_MAP: u32 = 4u32;
@@ -691,6 +696,7 @@ pub const USBUSER_OP_SEND_RAW_COMMAND: u32 = 536870916u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USBUSER_PASS_THRU: u32 = 3u32;
 pub struct USBUSER_PASS_THRU_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_POWER_INFO_REQUEST(i32);
 pub struct USBUSER_RAW_RESET_ROOT_PORT(i32);
 pub struct USBUSER_REFRESH_HCT_REG(i32);
@@ -734,6 +740,7 @@ pub struct USB_BANDWIDTH_INFO(i32);
 pub struct USB_BOS_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_BOS_DESCRIPTOR_TYPE: u32 = 15u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USB_BUS_STATISTICS_0(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_CHARGING_POLICY_DEFAULT: u32 = 0u32;
@@ -924,6 +931,7 @@ pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263u32;
 pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USB_DRIVER_VERSION_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_ENABLE_PORT: u32 = 5u32;
@@ -1013,6 +1021,7 @@ pub const USB_FEATURE_TEST_MODE: u32 = 2u32;
 pub const USB_FEATURE_U1_ENABLE: u32 = 48u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_FEATURE_U2_ENABLE: u32 = 49u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION(i32);
 pub struct USB_FUNCTION_SUSPEND_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
@@ -1178,6 +1187,7 @@ pub const USB_PORT_STATUS_POWER: u32 = 256u32;
 pub const USB_PORT_STATUS_RESET: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_PORT_STATUS_SUSPEND: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USB_POWER_INFO(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_RECORD_FAILURE: u32 = 10u32;
@@ -1248,6 +1258,7 @@ pub const USB_RESET_PORT: u32 = 1u32;
 pub struct USB_SEND_RAW_COMMAND_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_STATUS_EXT_PORT_STATUS: u32 = 2u32;
@@ -1257,6 +1268,7 @@ pub const USB_STATUS_PD_STATUS: u32 = 1u32;
 pub const USB_STATUS_PORT_STATUS: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 287u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION(i32);
 pub struct USB_STRING_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_Devices_Usb`*"]

@@ -887,9 +887,12 @@ pub struct MEMORY_PRIORITY_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 pub struct NamespaceHandle(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PEB(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct PEB_LDR_DATA(i32);
 pub struct PFLS_CALLBACK_FUNCTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PINIT_ONCE_FN(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const PME_CURRENT_VERSION: u32 = 1u32;
@@ -905,6 +908,7 @@ pub struct PROCESSINFOCLASS(i32);
 pub struct PROCESSOR_FEATURE_ID(i32);
 pub struct PROCESS_ACCESS_RIGHTS(i32);
 pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PROCESS_BASIC_INFORMATION(i32);
 pub struct PROCESS_CREATION_FLAGS(i32);
 pub struct PROCESS_DEP_FLAGS(i32);
@@ -912,6 +916,7 @@ pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET(i32);
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION(i32);
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE(i32);
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_INFORMATION(i32);
 pub struct PROCESS_INFORMATION_CLASS(i32);
 pub struct PROCESS_LEAP_SECOND_INFO(i32);
@@ -935,6 +940,7 @@ pub struct PROCESS_PROTECTION_LEVEL(i32);
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
+#[cfg(feature = "Win32_System_SystemServices")]
 pub struct PRTL_UMS_SCHEDULER_ENTRY_POINT(i32);
 pub struct PTIMERAPCROUTINE(i32);
 pub struct PTP_CLEANUP_GROUP_CANCEL_CALLBACK(i32);
@@ -945,18 +951,26 @@ pub struct PTP_WAIT_CALLBACK(i32);
 pub struct PTP_WIN32_IO_CALLBACK(i32);
 pub struct PTP_WORK_CALLBACK(i32);
 pub struct QUEUE_USER_APC_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REASON_CONTEXT(i32);
 pub struct RTL_BARRIER(i32);
 pub struct RTL_CONDITION_VARIABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct RTL_CRITICAL_SECTION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct RTL_CRITICAL_SECTION_DEBUG(i32);
 pub struct RTL_RUN_ONCE(i32);
 pub struct RTL_SRWLOCK(i32);
 pub struct RTL_UMS_THREAD_INFO_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RTL_USER_PROCESS_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOEXW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOW(i32);
 pub struct STARTUPINFOW_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
@@ -986,8 +1000,10 @@ pub struct TP_TIMER(i32);
 pub struct TP_WAIT(i32);
 pub struct TP_WORK(i32);
 pub struct TimerQueueHandle(i32);
+#[cfg(feature = "Win32_System_SystemServices")]
 pub struct UMS_SCHEDULER_STARTUP_INFO(i32);
 pub struct UMS_SYSTEM_THREAD_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAITORTIMERCALLBACK(i32);
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const WAIT_ABANDONED: u32 = 128u32;

@@ -1392,7 +1392,11 @@ pub struct fts5_api(i32);
 pub struct fts5_extension_function(i32);
 pub struct fts5_tokenizer(i32);
 pub struct sqlite3(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_api_routines(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_api_routines(i32);
 pub struct sqlite3_backup(i32);
 pub struct sqlite3_blob(i32);
@@ -1400,8 +1404,10 @@ pub struct sqlite3_callback(i32);
 pub struct sqlite3_context(i32);
 pub struct sqlite3_destructor_type(i32);
 pub struct sqlite3_file(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info(i32);
 pub struct sqlite3_io_methods(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_loadext_entry(i32);
 pub struct sqlite3_mem_methods(i32);
 pub struct sqlite3_module(i32);
@@ -1418,6 +1424,9 @@ pub struct sqlite3_stmt(i32);
 pub struct sqlite3_str(i32);
 pub struct sqlite3_syscall_ptr(i32);
 pub struct sqlite3_value(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_vfs(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_vtab(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_vtab_cursor(i32);

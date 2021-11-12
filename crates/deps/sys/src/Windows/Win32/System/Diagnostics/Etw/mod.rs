@@ -285,6 +285,7 @@ pub const ETW_SIZET_TYPE_VALUE: u32 = 106u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_STRING_TYPE_VALUE: u32 = 2u32;
 pub struct ETW_TRACE_PARTITION_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ETW_TRACE_PARTITION_INFORMATION_V2(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_UINT16_TYPE_VALUE: u32 = 6u32;
@@ -354,9 +355,12 @@ pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64(i32);
 pub struct EVENT_EXTENDED_ITEM_TS_ID(i32);
 pub struct EVENT_FIELD_TYPE(i32);
 pub struct EVENT_FILTER_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_EVENT_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_EVENT_NAME(i32);
 pub struct EVENT_FILTER_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_LEVEL_KW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416u32;
@@ -458,6 +462,7 @@ pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
 pub struct EVENT_INFO_CLASS(i32);
 pub struct EVENT_INSTANCE_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_INSTANCE_INFO(i32);
 pub struct EVENT_MAP_ENTRY(i32);
 pub struct EVENT_MAP_INFO(i32);
@@ -507,7 +512,9 @@ pub const EVENT_TRACE_FLAG_FORWARD_WMI: u32 = 1073741824u32;
 pub struct EVENT_TRACE_HEADER(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_MODE_RESERVED: u32 = 1048576u32;
@@ -521,7 +528,9 @@ pub const EVENT_TRACE_PERSIST_ON_HYBRID_SHUTDOWN: u32 = 8388608u32;
 pub const EVENT_TRACE_PRIVATE_IN_PROC: u32 = 131072u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_PRIVATE_LOGGER_MODE: u32 = 2048u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_REAL_TIME_MODE: u32 = 256u32;
@@ -794,12 +803,15 @@ pub const MAX_MOF_FIELDS: u32 = 16u32;
 pub const MAX_PAYLOAD_PREDICATES: u32 = 8u32;
 pub struct MOF_FIELD(i32);
 pub struct OFFSETINSTANCEDATAANDLENGTH(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PAYLOAD_FILTER_PREDICATE(i32);
 pub struct PAYLOAD_OPERATOR(i32);
 pub struct PENABLECALLBACK(i32);
 pub struct PEVENT_CALLBACK(i32);
 pub struct PEVENT_RECORD_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct PEVENT_TRACE_BUFFER_CALLBACKA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct PEVENT_TRACE_BUFFER_CALLBACKW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
@@ -1104,7 +1116,9 @@ pub const TRACELOG_REGISTER_GUIDS: u32 = 2048u32;
 pub struct TRACE_ENABLE_INFO(i32);
 pub struct TRACE_EVENT_INFO(i32);
 pub struct TRACE_GUID_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_REGISTRATION(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_LOG_WNODE: u32 = 262144u32;
@@ -1138,8 +1152,11 @@ pub const TRACE_LEVEL_RESERVED9: u32 = 9u32;
 pub const TRACE_LEVEL_VERBOSE: u32 = 5u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_WARNING: u32 = 3u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER32(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER64(i32);
 pub struct TRACE_MESSAGE_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -1159,6 +1176,7 @@ pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2u32;
 pub struct TRACE_PROVIDER_INFO(i32);
 pub struct TRACE_PROVIDER_INSTANCE_INFO(i32);
 pub struct TRACE_QUERY_INFO_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_STACK_CACHING_INFO(i32);
 pub struct TRACE_VERSION_INFO(i32);
 pub struct WMIDPREQUEST(i32);
@@ -1205,8 +1223,11 @@ pub const WMI_GUIDTYPE_EVENT: u32 = 3u32;
 pub const WMI_GUIDTYPE_TRACE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMI_GUIDTYPE_TRACECONTROL: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_ALL_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_EVENT_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_EVENT_REFERENCE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_ALL_DATA: u32 = 1u32;
@@ -1254,10 +1275,15 @@ pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_METHOD_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_SINGLE_INSTANCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_SINGLE_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_TOO_SMALL(i32);
 pub struct _TDH_IN_TYPE(i32);
 pub struct _TDH_OUT_TYPE(i32);

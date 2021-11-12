@@ -528,12 +528,16 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerPnrpUpdateRegistration(hregistration: *const ::core::ffi::c_void, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO) -> ::windows_sys::core::HRESULT;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_ADDRESS(i32);
 pub struct DRT_ADDRESS_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_ADDRESS_LIST(i32);
 pub struct DRT_BOOTSTRAP_PROVIDER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_BOOTSTRAP_RESOLVE_CALLBACK(i32);
 pub struct DRT_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA(i32);
 pub struct DRT_EVENT_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
@@ -635,10 +639,12 @@ pub const DRT_PAYLOAD_REVOKED: u32 = 1u32;
 pub struct DRT_REGISTRATION(i32);
 pub struct DRT_REGISTRATION_STATE(i32);
 pub struct DRT_SCOPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRT_SEARCH_INFO(i32);
 pub struct DRT_SEARCH_RESULT(i32);
 pub struct DRT_SECURITY_MODE(i32);
 pub struct DRT_SECURITY_PROVIDER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRT_SETTINGS(i32);
 pub struct DRT_STATUS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
@@ -651,6 +657,7 @@ pub const NS_PNRPCLOUD: u32 = 39u32;
 pub const NS_PNRPNAME: u32 = 38u32;
 pub const NS_PROVIDER_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013070, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
 pub const NS_PROVIDER_PNRPNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013069, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEERDIST_CLIENT_BASIC_INFO(i32);
 pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(i32);
 pub struct PEERDIST_CONTENT_TAG(i32);
@@ -669,35 +676,53 @@ pub struct PEERDIST_RETRIEVAL_OPTIONS(i32);
 pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(i32);
 pub struct PEERDIST_STATUS(i32);
 pub struct PEERDIST_STATUS_INFO(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_ADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_APPLICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_APPLICATION_REGISTRATION_INFO(i32);
 pub struct PEER_APPLICATION_REGISTRATION_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_APP_LAUNCH_INFO(i32);
 pub struct PEER_CHANGE_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_COLLAB_EVENT_DATA(i32);
 pub struct PEER_COLLAB_EVENT_REGISTRATION(i32);
 pub struct PEER_COLLAB_EVENT_TYPE(i32);
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3709203487, data2: 64590, data3: 18722, data4: [176, 53, 76, 6, 167, 84, 208, 29] };
 pub struct PEER_CONNECTION_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_CONNECTION_INFO(i32);
 pub struct PEER_CONNECTION_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_CONTACT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_CREDENTIAL_INFO(i32);
 pub struct PEER_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_ENDPOINT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_APPLICATION_CHANGED_DATA(i32);
 pub struct PEER_EVENT_CONNECTION_CHANGE_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA(i32);
 pub struct PEER_EVENT_INCOMING_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_EVENT_MEMBER_CHANGE_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_EVENT_NODE_CHANGE_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_OBJECT_CHANGED_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_PRESENCE_CHANGED_DATA(i32);
 pub struct PEER_EVENT_RECORD_CHANGE_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA(i32);
 pub struct PEER_EVENT_SYNCHRONIZED_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024713i32 as _);
@@ -721,18 +746,22 @@ pub const PEER_E_INVALID_IDENTITY: ::windows_sys::core::HRESULT = ::windows_sys:
 pub const PEER_E_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023728i32 as _);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_TOO_MUCH_LOAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147013392i32 as _);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GRAPH_EVENT_DATA(i32);
 pub struct PEER_GRAPH_EVENT_REGISTRATION(i32);
 pub struct PEER_GRAPH_EVENT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GRAPH_PROPERTIES(i32);
 pub struct PEER_GRAPH_PROPERTY_FLAGS(i32);
 pub struct PEER_GRAPH_SCOPE(i32);
 pub struct PEER_GRAPH_STATUS_FLAGS(i32);
 pub struct PEER_GROUP_AUTHENTICATION_SCHEME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GROUP_EVENT_DATA(i32);
 pub struct PEER_GROUP_EVENT_REGISTRATION(i32);
 pub struct PEER_GROUP_EVENT_TYPE(i32);
 pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_GROUP_PROPERTIES(i32);
 pub struct PEER_GROUP_PROPERTY_FLAGS(i32);
 pub const PEER_GROUP_ROLE_ADMIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 70807847, data2: 43606, data3: 17674, data4: [140, 229, 79, 86, 92, 103, 144, 244] };
@@ -749,39 +778,56 @@ pub const PEER_GROUP_ROLE_MEMBER: ::windows_sys::core::GUID = ::windows_sys::GUI
     data4: [147, 252, 177, 187, 25, 163, 216, 194],
 };
 pub struct PEER_GROUP_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_INVITATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_INVITATION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_INVITATION_RESPONSE(i32);
 pub struct PEER_INVITATION_RESPONSE_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_MEMBER(i32);
 pub struct PEER_MEMBER_CHANGE_TYPE(i32);
 pub struct PEER_MEMBER_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_NAME_PAIR(i32);
 pub struct PEER_NODE_CHANGE_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_NODE_INFO(i32);
 pub struct PEER_OBJECT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PEOPLE_NEAR_ME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_PNRP_CLOUD_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_ENDPOINT_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_REGISTRATION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_PRESENCE_INFO(i32);
 pub struct PEER_PRESENCE_STATUS(i32);
 pub struct PEER_PUBLICATION_SCOPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_RECORD(i32);
 pub struct PEER_RECORD_CHANGE_TYPE(i32);
 pub struct PEER_RECORD_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PEER_SECURITY_INTERFACE(i32);
 pub struct PEER_SIGNIN_FLAGS(i32);
 pub struct PEER_VERSION_DATA(i32);
 pub struct PEER_WATCH_PERMISSION(i32);
 pub struct PFNPEER_FREE_SECURITY_DATA(i32);
 pub struct PFNPEER_ON_PASSWORD_AUTH_FAILED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNPEER_SECURE_RECORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNPEER_VALIDATE_RECORD(i32);
 pub struct PNRPCLOUDINFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PNRPINFO_HINT: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PNRPINFO_V1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 pub struct PNRPINFO_V2(i32);
 pub struct PNRP_CLOUD_FLAGS(i32);
 pub struct PNRP_CLOUD_ID(i32);

@@ -1241,6 +1241,7 @@ pub struct ACTIVATEFLAGS(i32);
 pub const ACTIVEOBJECT_STRONG: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ACTIVEOBJECT_WEAK: u32 = 1u32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct ARRAYDESC(i32);
 pub struct AspectInfo(i32);
 pub struct AspectInfoFlag(i32);
@@ -1254,6 +1255,7 @@ pub const BZ_DISABLESWITCHTOBUTTON: i32 = 2i32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const BZ_NOTRESPONDINGDIALOG: i32 = 8i32;
 pub struct CADWORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CALPOLESTR(i32);
 pub struct CAUUID(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
@@ -1309,6 +1311,7 @@ pub const CONNECT_E_OVERRIDDEN: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const CONNECT_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262656i32 as _);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_S_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262671i32 as _);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct CONTROLINFO(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CSF_EXPLORER: i32 = 8i32;
@@ -1607,6 +1610,7 @@ pub const EMBDHLP_INPROC_HANDLER: i32 = 0i32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const EMBDHLP_INPROC_SERVER: i32 = 1i32;
 pub struct ENUM_CONTROLS_WHICH_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ExtentInfo(i32);
 pub struct ExtentMode(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
@@ -1633,6 +1637,7 @@ pub const FADF_STATIC: u32 = 2u32;
 pub const FADF_UNKNOWN: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const FADF_VARIANT: u32 = 2048u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct FONTDESC(i32);
 pub struct FUNCFLAGS(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
@@ -1977,6 +1982,7 @@ pub const INSTALL_SCOPE_INVALID: u32 = 0u32;
 pub const INSTALL_SCOPE_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const INSTALL_SCOPE_USER: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct INTERFACEDATA(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_CHECKDISPLAYASICON: i32 = 16i32;
@@ -2075,6 +2081,7 @@ pub struct IViewObject2(i32);
 pub struct IViewObjectEx(i32);
 pub struct IZoomEvents(i32);
 pub struct LIBFLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LICINFO(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
@@ -2082,6 +2089,7 @@ pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNOLEUIHOOK(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const LP_COLOR: u32 = 4u32;
@@ -2094,6 +2102,7 @@ pub const LP_VGACOLOR: u32 = 2u32;
 pub struct MEDIAPLAYBACK_STATE(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MEMBERID_NIL: i32 = -1i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct METHODDATA(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MK_ALT: u32 = 32u32;
@@ -2143,9 +2152,11 @@ pub const NUMPRS_TRAILING_PLUS: u32 = 8u32;
 pub const NUMPRS_TRAILING_WHITE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const NUMPRS_USE_ALL: u32 = 4096u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct OBJECTDESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OCM__BASE: u32 = 8192u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct OCPFIPARAMS(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OF_GET: u32 = 2u32;
@@ -2153,6 +2164,7 @@ pub const OF_GET: u32 = 2u32;
 pub const OF_HANDLER: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OF_SET: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OIFI(i32);
 pub struct OLECLOSE(i32);
 pub struct OLECMD(i32);
@@ -2221,30 +2233,54 @@ pub const OLEIVERB_UIACTIVATE: i32 = -4i32;
 pub struct OLELINKBIND(i32);
 pub struct OLEMISC(i32);
 pub struct OLERENDER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 pub struct OLEUIBUSYA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 pub struct OLEUIBUSYW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICHANGEICONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICHANGEICONW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 pub struct OLEUICHANGESOURCEA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 pub struct OLEUICHANGESOURCEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICONVERTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICONVERTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OLEUIEDITLINKSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OLEUIEDITLINKSW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIGNRLPROPSA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIGNRLPROPSW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct OLEUIINSERTOBJECTA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct OLEUIINSERTOBJECTW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUILINKPROPSA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUILINKPROPSW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIOBJECTPROPSA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIOBJECTPROPSW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct OLEUIPASTEENTRYA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct OLEUIPASTEENTRYW(i32);
 pub struct OLEUIPASTEFLAG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct OLEUIPASTESPECIALA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct OLEUIPASTESPECIALW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIVIEWPROPSA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIVIEWPROPSW(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
@@ -2413,6 +2449,7 @@ pub const OLEUI_VPERR_DVASPECTINVALID: u32 = 132u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
 pub struct OLEUPDATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OLEVERB(i32);
 pub struct OLEVERBATTRIB(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
@@ -2436,9 +2473,13 @@ pub const OT_STATIC: i32 = 3i32;
 pub struct OleMenuGroupWidths(i32);
 pub struct PAGEACTION_UI(i32);
 pub struct PAGERANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PAGESET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PARAMDATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct PARAMDESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct PARAMDESCEX(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PARAMFLAG_FHASCUSTDATA: u32 = 64u32;
@@ -2466,6 +2507,7 @@ pub const PERPROP_E_NOPAGEAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sy
 pub const PERPROP_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262656i32 as _);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PERPROP_S_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262671i32 as _);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PICTDESC(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_BITMAP: u32 = 1u32;
@@ -2483,6 +2525,7 @@ pub struct POINTERINACTIVE(i32);
 pub struct POINTF(i32);
 pub struct PRINTFLAG(i32);
 pub struct PROPBAG2_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPPAGEINFO(i32);
 pub struct PROPPAGESTATUS(i32);
 #[doc = "*Required features: `Win32_System_Ole`*"]
@@ -2504,6 +2547,7 @@ pub const PSF_STAYONCLIPBOARDCHANGE: i32 = 64i32;
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PS_MAXLINKTYPES: u32 = 8u32;
 pub struct PictureAttributes(i32);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct QACONTAINER(i32);
 pub struct QACONTAINERFLAGS(i32);
 pub struct QACONTROL(i32);
@@ -2541,6 +2585,7 @@ pub const STDOLE_MINORVERNUM: u32 = 0u32;
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
 pub struct TYPEFLAGS(i32);
 pub struct UASFLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UDATE(i32);
 pub struct UPDFCACHE_FLAGS(i32);
 pub struct USERCLASSTYPE(i32);
@@ -2594,12 +2639,18 @@ pub const WIN32: u32 = 100u32;
 pub struct WPCSETTING(i32);
 pub struct XFORMCOORDS(i32);
 pub struct _wireBRECORD(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct _wireSAFEARRAY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct _wireSAFEARRAY_UNION(i32);
 pub struct _wireSAFEARR_BRECORD(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct _wireSAFEARR_BSTR(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct _wireSAFEARR_DISPATCH(i32);
 pub struct _wireSAFEARR_HAVEIID(i32);
 pub struct _wireSAFEARR_UNKNOWN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct _wireSAFEARR_VARIANT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct _wireVARIANT(i32);

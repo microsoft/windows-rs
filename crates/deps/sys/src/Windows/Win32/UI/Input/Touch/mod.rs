@@ -34,7 +34,9 @@ extern "system" {
 }
 pub struct GESTURECONFIG(i32);
 pub struct GESTURECONFIG_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GESTUREINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GESTURENOTIFYSTRUCT(i32);
 pub struct HGESTUREINFO(i32);
 pub struct HTOUCHINPUT(i32);
@@ -45,6 +47,7 @@ pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(i32);
 pub struct ManipulationProcessor(i32);
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(i32);
 pub struct TOUCHEVENTF_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TOUCHINPUT(i32);
 pub struct TOUCHINPUTMASKF_MASK(i32);
 pub struct _IManipulationEvents(i32);

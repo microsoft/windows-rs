@@ -69,14 +69,19 @@ extern "system" {
     #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
     pub fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows_sys::core::HRESULT;
 }
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct DEVPROP_FILTER_EXPRESSION(i32);
 pub struct DEVPROP_OPERATOR(i32);
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct DEV_OBJECT(i32);
 pub struct DEV_OBJECT_TYPE(i32);
 pub struct DEV_QUERY_FLAGS(i32);
+#[cfg(feature = "Win32_Devices_Properties")]
 pub struct DEV_QUERY_PARAMETER(i32);
 pub struct DEV_QUERY_RESULT_ACTION(i32);
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct DEV_QUERY_RESULT_ACTION_DATA(i32);
 pub struct DEV_QUERY_STATE(i32);
 pub struct HDEVQUERY__(i32);
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub struct PDEV_QUERY_RESULT_CALLBACK(i32);

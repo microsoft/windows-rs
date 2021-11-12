@@ -39,14 +39,17 @@ pub const CCH_RM_SESSION_KEY: u32 = 32u32;
 pub struct RM_APP_STATUS(i32);
 pub struct RM_APP_TYPE(i32);
 pub struct RM_FILTER_ACTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RM_FILTER_INFO(i32);
 pub struct RM_FILTER_TRIGGER(i32);
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const RM_INVALID_PROCESS: i32 = -1i32;
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RM_PROCESS_INFO(i32);
 pub struct RM_REBOOT_REASON(i32);
 pub struct RM_SHUTDOWN_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RM_UNIQUE_PROCESS(i32);
 pub struct RM_WRITE_STATUS_CALLBACK(i32);

@@ -89,7 +89,10 @@ pub struct INPUT_INJECTION_VALUE(i32);
 pub struct INPUT_TRANSFORM(i32);
 pub struct POINTER_BUTTON_CHANGE_TYPE(i32);
 pub struct POINTER_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_PEN_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_TOUCH_INFO(i32);
 pub struct TOUCH_FEEDBACK_MODE(i32);

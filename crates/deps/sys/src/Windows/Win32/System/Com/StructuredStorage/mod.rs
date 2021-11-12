@@ -120,21 +120,27 @@ extern "system" {
 }
 pub struct BSTRBLOB(i32);
 pub struct CABOOL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABSTR(i32);
 pub struct CABSTRBLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CAC(i32);
 pub struct CACLIPDATA(i32);
 pub struct CACLSID(i32);
 pub struct CACY(i32);
 pub struct CADATE(i32);
 pub struct CADBL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CAFILETIME(i32);
 pub struct CAFLT(i32);
 pub struct CAH(i32);
 pub struct CAI(i32);
 pub struct CAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CALPSTR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CALPWSTR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CAPROPVARIANT(i32);
 pub struct CASCODE(i32);
 pub struct CAUB(i32);
@@ -275,6 +281,7 @@ pub const PID_MODIFY_TIME: u32 = 2147483649u32;
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const PID_SECURITY: u32 = 2147483650u32;
 pub struct PMemoryAllocator(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPBAG2(i32);
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const PROPSETFLAG_ANSI: u32 = 2u32;
@@ -290,15 +297,19 @@ pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPSPEC(i32);
 pub struct PROPSPEC_KIND(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT(i32);
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const PRSPEC_INVALID: u32 = 4294967295u32;
 pub struct RemSNB(i32);
 pub struct SERIALIZEDPROPERTYVALUE(i32);
 pub struct STATFLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSETSTG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSTG(i32);
 pub struct STGC(i32);
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
@@ -350,6 +361,7 @@ pub const STGM_SIMPLE: i32 = 134217728i32;
 pub const STGM_TRANSACTED: i32 = 65536i32;
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const STGM_WRITE: i32 = 1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STGOPTIONS(i32);
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const STGOPTIONS_VERSION: u32 = 1u32;

@@ -25,6 +25,7 @@ pub struct HolographicSpace(i32);
 pub struct HolographicSpaceCameraAddedEventArgs(i32);
 pub struct HolographicSpaceCameraRemovedEventArgs(i32);
 pub struct HolographicSpaceUserPresence(i32);
+#[cfg(feature = "Foundation_Numerics")]
 pub struct HolographicStereoTransform(i32);
 pub struct HolographicViewConfiguration(i32);
 pub struct HolographicViewConfigurationKind(i32);

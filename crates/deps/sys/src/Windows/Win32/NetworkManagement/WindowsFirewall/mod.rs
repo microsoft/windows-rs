@@ -37,11 +37,15 @@ pub struct IEnumNetSharingPublicConnection(i32);
 pub struct INATEventManager(i32);
 pub struct INATExternalIPAddressCallback(i32);
 pub struct INATNumberOfEntriesCallback(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INET_FIREWALL_AC_BINARIES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_AC_CAPABILITIES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_AC_CHANGE(i32);
 pub struct INET_FIREWALL_AC_CHANGE_TYPE(i32);
 pub struct INET_FIREWALL_AC_CREATION_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_APP_CONTAINER(i32);
 pub struct INetConnection(i32);
 pub struct INetConnectionConnectUi(i32);
@@ -83,6 +87,7 @@ pub struct NETCON_CHARACTERISTIC_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
 pub struct NETCON_MEDIATYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NETCON_PROPERTIES(i32);
 pub struct NETCON_STATUS(i32);
 pub struct NETCON_TYPE(i32);
@@ -113,20 +118,29 @@ pub struct NetFwProduct(i32);
 pub struct NetFwProducts(i32);
 pub struct NetFwRule(i32);
 pub struct NetSharingManager(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct PAC_CHANGES_CALLBACK_FN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWADDDYNAMICKEYWORDADDRESS0(i32);
 pub struct PFN_FWDELETEDYNAMICKEYWORDADDRESS0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PNETISO_EDP_ID_CALLBACK_FN(i32);
 pub struct SHARINGCONNECTIONTYPE(i32);
 pub struct SHARINGCONNECTION_ENUM_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 pub const S_OBJECT_NO_LONGER_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
 pub struct UPnPNAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0(i32);
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(i32);
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(i32);

@@ -216,8 +216,10 @@ pub const ASN_PRIMITIVE: u32 = 0u32;
 pub const ASN_PRIVATE: u32 = 192u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const ASN_UNIVERSAL: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AsnAny(i32);
 pub struct AsnObjectIdentifier(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AsnOctetString(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const DEFAULT_SNMPTRAP_PORT_IPX: u32 = 36880u32;
@@ -237,15 +239,22 @@ pub const MAXVENDORINFO: u32 = 32u32;
 pub const MGMCTL_SETAGENTPORT: u32 = 1u32;
 pub struct PFNSNMPCLEANUPEX(i32);
 pub struct PFNSNMPEXTENSIONCLOSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONINIT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONINITEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONMONITOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONQUERY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONQUERYEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSNMPEXTENSIONTRAP(i32);
 pub struct PFNSNMPSTARTUPEX(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMPAPI_ALLOC_ERROR: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SNMPAPI_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMPAPI_CONTEXT_INVALID: u32 = 3u32;
@@ -406,10 +415,13 @@ pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBind(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBindList(i32);
 pub struct smiCNTR64(i32);
 pub struct smiOCTETS(i32);
 pub struct smiOID(i32);
 pub struct smiVALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct smiVENDORINFO(i32);

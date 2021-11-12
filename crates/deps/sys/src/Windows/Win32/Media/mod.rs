@@ -48,6 +48,7 @@ pub struct IReferenceClock2(i32);
 pub struct IReferenceClockTimerControl(i32);
 #[doc = "*Required features: `Win32_Media`*"]
 pub const JOYERR_BASE: u32 = 160u32;
+#[cfg(feature = "Win32_Media_Multimedia")]
 pub struct LPDRVCALLBACK(i32);
 pub struct LPTIMECALLBACK(i32);
 #[doc = "*Required features: `Win32_Media`*"]

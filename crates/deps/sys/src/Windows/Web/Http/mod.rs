@@ -11,6 +11,7 @@ pub struct HttpBufferContent(i32);
 pub struct HttpClient(i32);
 pub struct HttpCompletionOption(i32);
 pub struct HttpCookie(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct HttpCookieCollection(i32);
 pub struct HttpCookieManager(i32);
 pub struct HttpFormUrlEncodedContent(i32);
@@ -20,6 +21,7 @@ pub struct HttpGetStringResult(i32);
 pub struct HttpMethod(i32);
 pub struct HttpMultipartContent(i32);
 pub struct HttpMultipartFormDataContent(i32);
+#[cfg(feature = "Foundation")]
 pub struct HttpProgress(i32);
 pub struct HttpProgressStage(i32);
 pub struct HttpRequestMessage(i32);

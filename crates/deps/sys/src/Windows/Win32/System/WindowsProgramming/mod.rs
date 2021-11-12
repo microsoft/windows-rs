@@ -686,8 +686,10 @@ pub const ACTCTX_FLAG_RESOURCE_NAME_VALID: u32 = 8u32;
 pub const ACTCTX_FLAG_SET_PROCESS_DEFAULT: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACTCTX_SECTION_KEYED_DATA_2600(i32);
 pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: u32 = 1u32;
@@ -798,7 +800,9 @@ pub const BATTERY_FLAG_UNKNOWN: u32 = 255u32;
 pub const BATTERY_LIFE_UNKNOWN: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const BATTERY_PERCENTAGE_UNKNOWN: u32 = 255u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABINFOW(i32);
 pub const CATID_DeleteBrowsingHistory: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 835385060,
@@ -848,6 +852,7 @@ pub const CE_OOP: u32 = 4096u32;
 pub const CE_PTO: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const CE_TXFULL: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLIENT_ID(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const CL_NL_IP: u32 = 771u32;
@@ -953,6 +958,7 @@ pub const CREATE_FOR_DIR: u32 = 2u32;
 pub const CREATE_FOR_IMPORT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG(i32);
 pub struct CameraUIControl(i32);
 pub struct CameraUIControlCaptureMode(i32);
@@ -970,6 +976,7 @@ pub const DCICREATEOFFSCREENSURFACE: u32 = 2u32;
 pub const DCICREATEOVERLAYSURFACE: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const DCICREATEPRIMARYSURFACE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DCIENUMINPUT(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const DCIENUMSURFACE: u32 = 4u32;
@@ -1073,8 +1080,13 @@ pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
 pub struct DECISION_LOCATION(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DELAYLOAD_INFO(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DELAYLOAD_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DELAYLOAD_PROC_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const DELETE_BROWSING_HISTORY_COOKIES: u32 = 2u32;
@@ -1142,6 +1154,7 @@ pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
 pub struct FEATURE_CHANGE_TIME(i32);
 pub struct FEATURE_ENABLED_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FEATURE_ERROR(i32);
 pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(i32);
 pub struct FH_SERVICE_PIPE_HANDLE(i32);
@@ -1323,6 +1336,7 @@ pub const HINSTANCE_ERROR: u32 = 32u32;
 pub struct HWINWATCH(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HW_PROFILE_INFOA(i32);
 pub struct HW_PROFILE_INFOW(i32);
 pub struct ICameraUIControl(i32);
@@ -1390,8 +1404,11 @@ pub const IMEA_INIT: u32 = 1u32;
 pub const IMEA_NEXT: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IMEA_PREV: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEPROA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEPROW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMESTRUCT(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IME_BANJAtoJUNJA: u32 = 19u32;
@@ -1491,6 +1508,7 @@ pub const INTERIM_WINDOW: u32 = 0u32;
 pub const INVALID_ENTITY_INSTANCE: i32 = -1i32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IOCTL_TDI_TL_IO_CONTROL_ENDPOINT: u32 = 2162744u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IO_STATUS_BLOCK(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IR_CHANGECONVERT: u32 = 289u32;
@@ -1517,10 +1535,13 @@ pub const IR_STRINGSTART: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const IR_UNDETERMINE: u32 = 368u32;
 pub struct IWindowsLockModeHelper(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JAVA_TRUST(i32);
 pub struct JIT_DEBUG_INFO(i32);
 pub struct KEY_SET_INFORMATION_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KEY_VALUE_ENTRY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LDR_DATA_TABLE_ENTRY(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const LIS_NOGRPCONV: u32 = 2u32;
@@ -1562,6 +1583,7 @@ pub const MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS: u3
 pub const MODE_WINDOW: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const NOPARITY: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct OBJECT_ATTRIBUTES(i32);
 pub struct OBJECT_INFORMATION_CLASS(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
@@ -1576,12 +1598,17 @@ pub const ONESTOPBIT: u32 = 0u32;
 pub const OPERATION_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const OVERWRITE_HIDDEN: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDELAYLOAD_FAILURE_DLL_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERUSERSECTIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERUSERSECTIONW(i32);
 pub struct PFEATURE_STATE_CHANGE_CALLBACK(i32);
 pub struct PFIBER_CALLOUT_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PIO_APC_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PQUERYACTCTXW_FUNC(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT: u32 = 1u32;
@@ -1623,20 +1650,31 @@ pub const PROGRESS_STOP: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const PROTECTION_LEVEL_SAME: u32 = 4294967295u32;
 pub struct PUBLIC_OBJECT_BASIC_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PUBLIC_OBJECT_TYPE_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINSTATIONQUERYINFORMATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_ISAPPAPPROVEDBYPOLICY_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_ISDYNAMICCODEPOLICYENABLED_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_ISPRODUCTIONCONFIGURATION_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_QUERYDEVICESECURITYINFORMATION_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_QUERYDYNAMICODETRUST_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_QUERYPOLICYSETTINGENABLED2_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_QUERYPOLICYSETTINGENABLED_API(i32);
 pub struct PWLDP_QUERYWINDOWSLOCKDOWNMODE_API(i32);
 pub struct PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API(i32);
 pub struct PWLDP_RESETPRODUCTIONCONFIGURATION_API(i32);
 pub struct PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWLDP_SETDYNAMICCODETRUST_API(i32);
 pub struct PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
@@ -1649,6 +1687,7 @@ pub const QUERY_ACTCTX_FLAG_NO_ADDREF: u32 = 2147483648u32;
 pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGINSTALLA(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
@@ -1748,10 +1787,14 @@ pub const STREAM_MODIFIED_WHEN_READ: u32 = 1u32;
 pub const STREAM_NORMAL_ATTRIBUTE: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const STREAM_SPARSE_ATTRIBUTE: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STRENTRYA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STRENTRYW(i32);
 pub struct STRINGEXSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STRTABLEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STRTABLEW(i32);
 pub struct SYSTEM_BASIC_INFORMATION(i32);
 pub struct SYSTEM_CODEINTEGRITY_INFORMATION(i32);
@@ -1762,10 +1805,12 @@ pub struct SYSTEM_LOOKASIDE_INFORMATION(i32);
 pub struct SYSTEM_PERFORMANCE_INFORMATION(i32);
 pub struct SYSTEM_POLICY_INFORMATION(i32);
 pub struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_PROCESS_INFORMATION(i32);
 pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const SYSTEM_STATUS_FLAG_POWER_SAVING_ON: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_THREAD_INFORMATION(i32);
 pub struct SYSTEM_TIMEOFDAY_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
@@ -1841,6 +1886,7 @@ pub struct TDIEntityID(i32);
 pub struct TDIObjectID(i32);
 pub struct TDI_TL_IO_CONTROL_ENDPOINT(i32);
 pub struct TDI_TL_IO_CONTROL_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct THREAD_NAME_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
@@ -1860,6 +1906,7 @@ pub const VOLUME_NAME_NONE: u32 = 4u32;
 pub const VOLUME_NAME_NT: u32 = 2u32;
 pub struct WINSTATIONINFOCLASS(i32);
 pub struct WINSTATIONINFORMATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINWATCHNOTIFYPROC(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
@@ -1871,11 +1918,13 @@ pub const WINWATCHNOTIFY_DESTROY: u32 = 2u32;
 pub const WINWATCHNOTIFY_START: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WLDP_DEVICE_SECURITY_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
 pub struct WLDP_HOST(i32);
 pub struct WLDP_HOST_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WLDP_HOST_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
@@ -1915,6 +1964,7 @@ pub const WM_INTERIM: u32 = 268u32;
 pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
 pub struct _D3DHAL_CALLBACKS(i32);
 pub struct _D3DHAL_GLOBALDRIVERDATA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct tcp_request_query_information_ex32_xp(i32);
 pub struct tcp_request_query_information_ex_w2k(i32);
 pub struct tcp_request_query_information_ex_xp(i32);

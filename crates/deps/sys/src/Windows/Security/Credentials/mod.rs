@@ -28,6 +28,7 @@ pub struct KeyCredentialOperationResult(i32);
 pub struct KeyCredentialRetrievalResult(i32);
 pub struct KeyCredentialStatus(i32);
 pub struct PasswordCredential(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PasswordCredentialPropertyStore(i32);
 pub struct PasswordVault(i32);
 pub struct WebAccount(i32);

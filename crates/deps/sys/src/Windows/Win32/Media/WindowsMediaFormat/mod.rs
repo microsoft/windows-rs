@@ -235,6 +235,7 @@ pub const WMMEDIATYPE_Image: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const WMMEDIATYPE_Script: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935895908, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const WMMEDIATYPE_Text: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2612666023, data2: 23218, data3: 18473, data4: [186, 87, 9, 64, 32, 155, 207, 62] };
 pub const WMMEDIATYPE_Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935960438, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMMPEG2VIDEOINFO(i32);
 pub struct WMSCRIPTFORMAT(i32);
 pub const WMSCRIPTTYPE_TwoStrings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2196998768, data2: 49823, data3: 4561, data4: [151, 173, 0, 160, 201, 94, 168, 80] };
@@ -278,6 +279,7 @@ pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
 pub struct WMT_VIDEOIMAGE_SAMPLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WMT_VIDEOIMAGE_SAMPLE2(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
@@ -329,15 +331,19 @@ pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29u32;
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WMT_WATERMARK_ENTRY(i32);
 pub struct WMT_WATERMARK_ENTRY_TYPE(i32);
 pub struct WMT_WEBSTREAM_FORMAT(i32);
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMVIDEOINFOHEADER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMVIDEOINFOHEADER2(i32);
 pub struct WM_ADDRESS_ACCESSENTRY(i32);
 pub struct WM_AETYPE(i32);
 pub struct WM_CLIENT_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_CLIENT_PROPERTIES_EX(i32);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CL_INTERLACED420: u32 = 0u32;
@@ -358,16 +364,21 @@ pub struct WM_LEAKY_BUCKET_PAIR(i32);
 pub const WM_MAX_STREAMS: u32 = 63u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_MEDIA_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_PICTURE(i32);
 pub struct WM_PLAYBACK_DRC_LEVEL(i32);
 pub struct WM_PORT_NUMBER_RANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_READER_CLIENTINFO(i32);
 pub struct WM_READER_STATISTICS(i32);
 pub struct WM_SFEX_TYPE(i32);
 pub struct WM_SF_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_STREAM_PRIORITY_RECORD(i32);
 pub struct WM_STREAM_TYPE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_SYNCHRONISED_LYRICS(i32);
 pub const WM_SampleExtensionGUID_ChromaLocation: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1281019040,
@@ -421,7 +432,9 @@ pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_USER_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WM_USER_WEB_URL(i32);
 pub struct WM_WRITER_STATISTICS(i32);
 pub struct WM_WRITER_STATISTICS_EX(i32);

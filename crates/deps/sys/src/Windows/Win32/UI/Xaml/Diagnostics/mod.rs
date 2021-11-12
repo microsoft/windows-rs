@@ -9,10 +9,13 @@ extern "system" {
     pub fn InitializeXamlDiagnosticsEx(endpointname: super::super::super::Foundation::PWSTR, pid: u32, wszdllxamldiagnostics: super::super::super::Foundation::PWSTR, wsztapdllname: super::super::super::Foundation::PWSTR, tapclsid: ::windows_sys::core::GUID, wszinitializationdata: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
 pub struct BaseValueSource(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct BitmapDescription(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CollectionElementValue(i32);
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 pub const E_UNKNOWNTYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144665560i32 as _);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct EnumType(i32);
 pub struct IBitmapData(i32);
 pub struct IVisualTreeService(i32);
@@ -23,11 +26,15 @@ pub struct IVisualTreeServiceCallback2(i32);
 pub struct IXamlDiagnostics(i32);
 pub struct MetadataBit(i32);
 pub struct ParentChildRelation(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PropertyChainSource(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PropertyChainValue(i32);
 pub struct RenderTargetBitmapOptions(i32);
 pub struct ResourceType(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SourceInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VisualElement(i32);
 pub struct VisualElementState(i32);
 pub struct VisualMutationType(i32);

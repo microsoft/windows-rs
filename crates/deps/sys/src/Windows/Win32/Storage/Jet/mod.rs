@@ -670,22 +670,37 @@ extern "system" {
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetUpdate2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_W(i32);
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_COLUMNBASE_A(i32);
 pub struct JET_COLUMNBASE_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_COLUMNCREATE_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_COLUMNCREATE_W(i32);
 pub struct JET_COLUMNDEF(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_COLUMNLIST(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_COMMIT_ID(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_COMMIT_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_CONDITIONALCOLUMN_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_CONDITIONALCOLUMN_W(i32);
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
@@ -693,9 +708,13 @@ pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
 pub const JET_ColInfoGrbitNonDerivedColumnsOnly: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_ColInfoGrbitSortByColumnid: u32 = 536870912u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC4(i32);
 pub struct JET_DBINFOUPGRADE(i32);
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -762,27 +781,41 @@ pub const JET_ExceptionMsgBox: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_ExceptionNone: u32 = 2u32;
 pub struct JET_INDEXCHECKING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE2_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE2_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE3_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE3_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE_W(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct JET_INDEXID(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct JET_INDEXID(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INDEXLIST(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INDEXRANGE(i32);
 pub struct JET_INDEX_COLUMN(i32);
 pub struct JET_INDEX_RANGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_INSTANCE_INFO_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_INSTANCE_INFO_W(i32);
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_IOPriorityLow: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_IOPriorityNormal: u32 = 0u32;
 pub struct JET_LGPOS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGINFO_A(i32);
 pub struct JET_LOGINFO_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME(i32);
 pub struct JET_LS(i32);
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -793,10 +826,15 @@ pub const JET_MoveFirst: u32 = 2147483648u32;
 pub const JET_MoveLast: u32 = 2147483647u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_MovePrevious: i32 = -1i32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct JET_OBJECTINFO(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct JET_OBJECTINFO(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OBJECTLIST(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OPENTEMPORARYTABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_OPENTEMPORARYTABLE2(i32);
 pub struct JET_OPERATIONCONTEXT(i32);
 pub struct JET_OSSNAPID(i32);
@@ -810,48 +848,83 @@ pub const JET_OnlineDefragDatabases: u32 = 2u32;
 pub const JET_OnlineDefragDisable: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_PFNDURABLECOMMITCALLBACK(i32);
 pub struct JET_PFNREALLOC(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_PFNSTATUS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSINFOMISC(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSINFOMISC(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSREVERTINFOMISC(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSREVERTINFOMISC(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_RECORDLIST(i32);
 pub struct JET_RECPOS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct JET_RECSIZE(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct JET_RECSIZE(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct JET_RECSIZE2(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct JET_RECSIZE2(i32);
 pub struct JET_RELOP(i32);
 pub struct JET_RETINFO(i32);
 pub struct JET_RETRIEVECOLUMN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_RSTINFO_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_RSTINFO_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_RSTMAP_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_RSTMAP_W(i32);
 pub struct JET_SETCOLUMN(i32);
 pub struct JET_SETINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_SETSYSPARAM_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_SETSYSPARAM_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_SIGNATURE(i32);
 pub struct JET_SNPROG(i32);
 pub struct JET_SPACEHINTS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE2_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE2_W(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE3_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE3_W(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE4_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE4_W(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE_W(i32);
 pub struct JET_THREADSTATS(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct JET_THREADSTATS2(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct JET_THREADSTATS2(i32);
 pub struct JET_TUPLELIMITS(i32);
 pub struct JET_UNICODEINDEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_UNICODEINDEX2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_USERDEFINEDDEFAULT_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_USERDEFINEDDEFAULT_W(i32);
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_bitAbortSnapshot: u32 = 1u32;

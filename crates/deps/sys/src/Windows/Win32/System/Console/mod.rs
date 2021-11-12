@@ -291,6 +291,7 @@ pub const BACKGROUND_INTENSITY: u32 = 128u32;
 pub const BACKGROUND_RED: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const CAPSLOCK_ON: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHAR_INFO(i32);
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024u32;
@@ -308,6 +309,7 @@ pub const COMMON_LVB_SBCSDBCS: u32 = 768u32;
 pub const COMMON_LVB_TRAILING_BYTE: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const COMMON_LVB_UNDERSCORE: u32 = 32768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONSOLE_CURSOR_INFO(i32);
 pub struct CONSOLE_FONT_INFO(i32);
 pub struct CONSOLE_FONT_INFOEX(i32);
@@ -327,6 +329,7 @@ pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
 pub struct CONSOLE_READCONSOLE_CONTROL(i32);
 pub struct CONSOLE_SCREEN_BUFFER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONSOLE_SCREEN_BUFFER_INFOEX(i32);
 pub struct CONSOLE_SELECTION_INFO(i32);
 #[doc = "*Required features: `Win32_System_Console`*"]
@@ -354,6 +357,7 @@ pub const DOUBLE_CLICK: u32 = 2u32;
 pub const ENHANCED_KEY: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const FOCUS_EVENT: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FOCUS_EVENT_RECORD(i32);
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const FOREGROUND_BLUE: u32 = 1u32;
@@ -374,9 +378,11 @@ pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
 pub struct HPCON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INPUT_RECORD(i32);
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const KEY_EVENT: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KEY_EVENT_RECORD(i32);
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
@@ -410,6 +416,7 @@ pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const NUMLOCK_ON: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PHANDLER_ROUTINE(i32);
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;

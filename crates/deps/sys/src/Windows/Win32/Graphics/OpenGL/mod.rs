@@ -850,6 +850,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct EMRPIXELFORMAT(i32);
 #[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;

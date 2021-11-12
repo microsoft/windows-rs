@@ -519,6 +519,7 @@ pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_ASSERTION(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
@@ -546,6 +547,7 @@ pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
@@ -559,6 +561,7 @@ pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
@@ -570,9 +573,11 @@ pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CLIENT_DATA(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_COMMON_ATTESTATION(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
@@ -594,12 +599,17 @@ pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: i32 = -37i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CREDENTIALS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CREDENTIAL_ATTESTATION(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
@@ -613,9 +623,11 @@ pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CREDENTIAL_EX(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CREDENTIAL_LIST(i32);
 pub struct WEBAUTHN_CRED_BLOB_EXTENSION(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
@@ -646,6 +658,7 @@ pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_SUPPORTED: u32 = 2u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
@@ -665,7 +678,9 @@ pub const WEBAUTHN_ENTERPRISE_ATTESTATION_NONE: u32 = 0u32;
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_EXTENSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_EXTENSIONS(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
@@ -675,9 +690,11 @@ pub const WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: u32 = 2u32;
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_MAX_USER_ID_LENGTH: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_RP_ENTITY_INFORMATION(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_USER_ENTITY_INFORMATION(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
@@ -703,15 +720,19 @@ pub struct WS_ABORT_CHANNEL_CALLBACK(i32);
 pub struct WS_ABORT_LISTENER_CALLBACK(i32);
 pub struct WS_ACCEPT_CHANNEL_CALLBACK(i32);
 pub struct WS_ADDRESSING_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ANY_ATTRIBUTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ANY_ATTRIBUTES(i32);
 pub struct WS_ASYNC_CALLBACK(i32);
 pub struct WS_ASYNC_CONTEXT(i32);
 pub struct WS_ASYNC_FUNCTION(i32);
 pub struct WS_ASYNC_OPERATION(i32);
 pub struct WS_ASYNC_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ATTRIBUTE_DESCRIPTION(i32);
 pub struct WS_BINDING_TEMPLATE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_BOOL_DESCRIPTION(i32);
 pub struct WS_BUFFERS(i32);
 pub struct WS_BYTES(i32);
@@ -721,7 +742,9 @@ pub struct WS_CALLBACK_MODEL(i32);
 pub struct WS_CALL_PROPERTY(i32);
 pub struct WS_CALL_PROPERTY_ID(i32);
 pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT(i32);
 pub struct WS_CERT_CREDENTIAL(i32);
 pub struct WS_CERT_CREDENTIAL_TYPE(i32);
@@ -736,12 +759,16 @@ pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
 pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK(i32);
 pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR(i32);
 pub struct WS_CHANNEL(i32);
 pub struct WS_CHANNEL_BINDING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_CHANNEL_DECODER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_CHANNEL_ENCODER(i32);
 pub struct WS_CHANNEL_PROPERTIES(i32);
 pub struct WS_CHANNEL_PROPERTY(i32);
@@ -753,6 +780,7 @@ pub struct WS_CHARSET(i32);
 pub struct WS_CHAR_ARRAY_DESCRIPTION(i32);
 pub struct WS_CLOSE_CHANNEL_CALLBACK(i32);
 pub struct WS_CLOSE_LISTENER_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_CONTRACT_DESCRIPTION(i32);
 pub struct WS_COOKIE_MODE(i32);
 pub struct WS_CREATE_CHANNEL_CALLBACK(i32);
@@ -760,41 +788,60 @@ pub struct WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK(i32);
 pub struct WS_CREATE_DECODER_CALLBACK(i32);
 pub struct WS_CREATE_ENCODER_CALLBACK(i32);
 pub struct WS_CREATE_LISTENER_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CUSTOM_CERT_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_CHANNEL_CALLBACKS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_HTTP_PROXY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_LISTENER_CALLBACKS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_TYPE_DESCRIPTION(i32);
 pub struct WS_DATETIME(i32);
 pub struct WS_DATETIME_DESCRIPTION(i32);
 pub struct WS_DATETIME_FORMAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DECIMAL_DESCRIPTION(i32);
 pub struct WS_DECODER_DECODE_CALLBACK(i32);
 pub struct WS_DECODER_END_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DECODER_GET_CONTENT_TYPE_CALLBACK(i32);
 pub struct WS_DECODER_START_CALLBACK(i32);
 pub struct WS_DEFAULT_VALUE(i32);
 pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DNS_ENDPOINT_IDENTITY(i32);
 pub struct WS_DOUBLE_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DURATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DURATION_COMPARISON_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DURATION_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DYNAMIC_STRING_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ELEMENT_DESCRIPTION(i32);
 pub struct WS_ENCODER_ENCODE_CALLBACK(i32);
 pub struct WS_ENCODER_END_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENCODER_GET_CONTENT_TYPE_CALLBACK(i32);
 pub struct WS_ENCODER_START_CALLBACK(i32);
 pub struct WS_ENCODING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENDPOINT_ADDRESS(i32);
 pub struct WS_ENDPOINT_ADDRESS_DESCRIPTION(i32);
 pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(i32);
 pub struct WS_ENDPOINT_IDENTITY(i32);
 pub struct WS_ENDPOINT_IDENTITY_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENDPOINT_POLICY_EXTENSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENUM_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENUM_VALUE(i32);
 pub struct WS_ENVELOPE_VERSION(i32);
 pub struct WS_ERROR(i32);
@@ -803,13 +850,18 @@ pub struct WS_ERROR_PROPERTY_ID(i32);
 pub struct WS_EXCEPTION_CODE(i32);
 pub struct WS_EXTENDED_PROTECTION_POLICY(i32);
 pub struct WS_EXTENDED_PROTECTION_SCENARIO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_FAULT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_FAULT_CODE(i32);
 pub struct WS_FAULT_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_FAULT_DETAIL_DESCRIPTION(i32);
 pub struct WS_FAULT_DISCLOSURE(i32);
 pub struct WS_FAULT_ERROR_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_FAULT_REASON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_FIELD_DESCRIPTION(i32);
 pub struct WS_FIELD_MAPPING(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
@@ -827,6 +879,7 @@ pub struct WS_FREE_CHANNEL_CALLBACK(i32);
 pub struct WS_FREE_DECODER_CALLBACK(i32);
 pub struct WS_FREE_ENCODER_CALLBACK(i32);
 pub struct WS_FREE_LISTENER_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_GET_CERT_CALLBACK(i32);
 pub struct WS_GET_CHANNEL_PROPERTY_CALLBACK(i32);
 pub struct WS_GET_LISTENER_PROPERTY_CALLBACK(i32);
@@ -836,7 +889,9 @@ pub struct WS_HEAP(i32);
 pub struct WS_HEAP_PROPERTIES(i32);
 pub struct WS_HEAP_PROPERTY(i32);
 pub struct WS_HEAP_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HOST_NAMES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTPS_URL(i32);
 pub struct WS_HTTP_BINDING_TEMPLATE(i32);
 pub struct WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE(i32);
@@ -858,6 +913,7 @@ pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT(i32);
 pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
 pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE(i32);
 pub struct WS_HTTP_HEADER_AUTH_TARGET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_HEADER_MAPPING(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
@@ -865,10 +921,13 @@ pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
 pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4i32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: i32 = 2i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_MESSAGE_MAPPING(i32);
 pub struct WS_HTTP_POLICY_DESCRIPTION(i32);
 pub struct WS_HTTP_PROXY_SETTING_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_REDIRECT_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
@@ -884,17 +943,23 @@ pub struct WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION(i32);
 pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
 pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
 pub struct WS_HTTP_SSL_POLICY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE(i32);
 pub struct WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
 pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_URL(i32);
 pub struct WS_INT16_DESCRIPTION(i32);
 pub struct WS_INT32_DESCRIPTION(i32);
 pub struct WS_INT64_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_INT8_DESCRIPTION(i32);
 pub struct WS_IP_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_IS_DEFAULT_VALUE_CALLBACK(i32);
 pub struct WS_ITEM_RANGE(i32);
 pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING(i32);
@@ -927,6 +992,7 @@ pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128i32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
 pub struct WS_MESSAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_MESSAGE_DESCRIPTION(i32);
 pub struct WS_MESSAGE_DONE_CALLBACK(i32);
 pub struct WS_MESSAGE_INITIALIZATION(i32);
@@ -936,7 +1002,9 @@ pub struct WS_MESSAGE_PROPERTY_ID(i32);
 pub struct WS_MESSAGE_SECURITY_USAGE(i32);
 pub struct WS_MESSAGE_STATE(i32);
 pub struct WS_METADATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_METADATA_ENDPOINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_METADATA_ENDPOINTS(i32);
 pub struct WS_METADATA_EXCHANGE_TYPE(i32);
 pub struct WS_METADATA_PROPERTY(i32);
@@ -947,14 +1015,19 @@ pub struct WS_MOVE_TO(i32);
 pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1i32;
 pub struct WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING(i32);
 pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_NETPIPE_URL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_NETTCP_URL(i32);
 pub struct WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_OPEN_CHANNEL_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_OPEN_LISTENER_CALLBACK(i32);
 pub struct WS_OPERATION_CANCEL_CALLBACK(i32);
 pub struct WS_OPERATION_CONTEXT(i32);
 pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_OPERATION_DESCRIPTION(i32);
 pub struct WS_OPERATION_FREE_STATE_CALLBACK(i32);
 pub struct WS_OPERATION_STYLE(i32);
@@ -1039,15 +1112,20 @@ pub struct WS_SECURITY_TOKEN_REFERENCE_MODE(i32);
 pub struct WS_SERVICE_ACCEPT_CHANNEL_CALLBACK(i32);
 pub struct WS_SERVICE_CANCEL_REASON(i32);
 pub struct WS_SERVICE_CLOSE_CHANNEL_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_CONTRACT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_ENDPOINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_ENDPOINT_METADATA(i32);
 pub struct WS_SERVICE_ENDPOINT_PROPERTY(i32);
 pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(i32);
 pub struct WS_SERVICE_HOST(i32);
 pub struct WS_SERVICE_HOST_STATE(i32);
 pub struct WS_SERVICE_MESSAGE_RECEIVE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_METADATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_METADATA_DOCUMENT(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
@@ -1057,30 +1135,40 @@ pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK(i32);
 pub struct WS_SERVICE_PROPERTY_ID(i32);
 pub struct WS_SERVICE_PROXY(i32);
 pub struct WS_SERVICE_PROXY_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_SECURITY_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_SECURITY_IDENTITIES(i32);
 pub struct WS_SERVICE_STUB_CALLBACK(i32);
 pub struct WS_SET_CHANNEL_PROPERTY_CALLBACK(i32);
 pub struct WS_SET_LISTENER_PROPERTY_CALLBACK(i32);
 pub struct WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SOAPUDP_URL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SPN_ENDPOINT_IDENTITY(i32);
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT(i32);
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE(i32);
 pub struct WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_STRING(i32);
 pub struct WS_STRING_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_STRING_USERNAME_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_STRUCT_DESCRIPTION(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_SUBJECT_NAME_CERT_CREDENTIAL(i32);
 pub struct WS_TCP_BINDING_TEMPLATE(i32);
 pub struct WS_TCP_POLICY_DESCRIPTION(i32);
@@ -1093,10 +1181,13 @@ pub struct WS_TCP_SSPI_POLICY_DESCRIPTION(i32);
 pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING(i32);
 pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT(i32);
 pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE(i32);
 pub struct WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
 pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_THUMBPRINT_CERT_CREDENTIAL(i32);
 pub struct WS_TIMESPAN(i32);
 pub struct WS_TIMESPAN_DESCRIPTION(i32);
@@ -1109,11 +1200,15 @@ pub struct WS_UINT16_DESCRIPTION(i32);
 pub struct WS_UINT32_DESCRIPTION(i32);
 pub struct WS_UINT64_DESCRIPTION(i32);
 pub struct WS_UINT8_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_UNION_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_UNION_FIELD_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_UNIQUE_ID(i32);
 pub struct WS_UNIQUE_ID_DESCRIPTION(i32);
 pub struct WS_UNKNOWN_ENDPOINT_IDENTITY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_UPN_ENDPOINT_IDENTITY(i32);
 pub struct WS_URL(i32);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
@@ -1125,11 +1220,14 @@ pub const WS_URL_FLAGS_ZERO_TERMINATE: i32 = 4i32;
 pub struct WS_URL_SCHEME_TYPE(i32);
 pub struct WS_USERNAME_CREDENTIAL(i32);
 pub struct WS_USERNAME_CREDENTIAL_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING(i32);
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
 pub struct WS_UTF8_ARRAY_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_VALIDATE_PASSWORD_CALLBACK(i32);
 pub struct WS_VALIDATE_SAML_CALLBACK(i32);
 pub struct WS_VALUE_TYPE(i32);
@@ -1143,21 +1241,28 @@ pub struct WS_WRITE_MESSAGE_START_CALLBACK(i32);
 pub struct WS_WRITE_OPTION(i32);
 pub struct WS_WRITE_TYPE_CALLBACK(i32);
 pub struct WS_WSZ_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_ATTRIBUTE(i32);
 pub struct WS_XML_BASE64_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_BOOL_TEXT(i32);
 pub struct WS_XML_BUFFER(i32);
 pub struct WS_XML_BUFFER_PROPERTY(i32);
 pub struct WS_XML_BUFFER_PROPERTY_ID(i32);
 pub struct WS_XML_CANONICALIZATION_ALGORITHM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES(i32);
 pub struct WS_XML_CANONICALIZATION_PROPERTY(i32);
 pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_COMMENT_NODE(i32);
 pub struct WS_XML_DATETIME_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_DECIMAL_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_DICTIONARY(i32);
 pub struct WS_XML_DOUBLE_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_ELEMENT_NODE(i32);
 pub struct WS_XML_FLOAT_TEXT(i32);
 pub struct WS_XML_GUID_TEXT(i32);
@@ -1167,16 +1272,20 @@ pub struct WS_XML_LIST_TEXT(i32);
 pub struct WS_XML_NODE(i32);
 pub struct WS_XML_NODE_POSITION(i32);
 pub struct WS_XML_NODE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_QNAME(i32);
 pub struct WS_XML_QNAME_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_QNAME_TEXT(i32);
 pub struct WS_XML_READER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_READER_BINARY_ENCODING(i32);
 pub struct WS_XML_READER_BUFFER_INPUT(i32);
 pub struct WS_XML_READER_ENCODING(i32);
 pub struct WS_XML_READER_ENCODING_TYPE(i32);
 pub struct WS_XML_READER_INPUT(i32);
 pub struct WS_XML_READER_INPUT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_READER_MTOM_ENCODING(i32);
 pub struct WS_XML_READER_PROPERTIES(i32);
 pub struct WS_XML_READER_PROPERTY(i32);
@@ -1186,6 +1295,7 @@ pub struct WS_XML_READER_STREAM_INPUT(i32);
 pub struct WS_XML_READER_TEXT_ENCODING(i32);
 pub struct WS_XML_SECURITY_TOKEN_PROPERTY(i32);
 pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_STRING(i32);
 pub struct WS_XML_STRING_DESCRIPTION(i32);
 pub struct WS_XML_TEXT(i32);
@@ -1196,12 +1306,15 @@ pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING(i32);
 pub struct WS_XML_UINT64_TEXT(i32);
 pub struct WS_XML_UNIQUE_ID_TEXT(i32);
 pub struct WS_XML_UTF16_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_UTF8_TEXT(i32);
 pub struct WS_XML_WRITER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_WRITER_BINARY_ENCODING(i32);
 pub struct WS_XML_WRITER_BUFFER_OUTPUT(i32);
 pub struct WS_XML_WRITER_ENCODING(i32);
 pub struct WS_XML_WRITER_ENCODING_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_WRITER_MTOM_ENCODING(i32);
 pub struct WS_XML_WRITER_OUTPUT(i32);
 pub struct WS_XML_WRITER_OUTPUT_TYPE(i32);

@@ -1218,6 +1218,7 @@ extern "system" {
     pub fn wvsprintfW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, arglist: *const i8) -> i32;
 }
 pub struct ACCEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ALTTABINFO(i32);
 pub struct ANIMATE_WINDOW_FLAGS(i32);
 pub struct ANIMATIONINFO(i32);
@@ -1239,6 +1240,7 @@ pub const ARW_STARTTOP: i32 = 2i32;
 pub const ARW_UP: i32 = 4i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ASFW_ANY: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUDIODESCRIPTION(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_CLICK: u32 = 245u32;
@@ -1399,8 +1401,11 @@ pub const CBS_SIMPLE: i32 = 1i32;
 pub const CBS_SORT: i32 = 256i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_UPPERCASE: i32 = 8192i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CBTACTIVATESTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CBT_CREATEWNDA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CBT_CREATEWNDW(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_ADDSTRING: u32 = 323u32;
@@ -1490,6 +1495,7 @@ pub struct CHANGEFILTERSTRUCT(i32);
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CHILDID_SELF: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLIENTCREATESTRUCT(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const COLOR_BTNHIGHLIGHT: u32 = 20u32;
@@ -1509,7 +1515,9 @@ pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
 pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREATESTRUCTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREATESTRUCTW(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CSOUND_SYSTEM: u32 = 16u32;
@@ -1529,6 +1537,7 @@ pub const CTLCOLOR_MSGBOX: u32 = 0u32;
 pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_STATIC: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CURSORINFO(i32);
 pub struct CURSORINFO_FLAGS(i32);
 pub struct CURSORSHAPE(i32);
@@ -1538,7 +1547,9 @@ pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
 pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CWF_CREATE_ONLY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CWPRETSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CWPSTRUCT(i32);
 pub struct CWP_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -1547,6 +1558,7 @@ pub const CW_USEDEFAULT: i32 = -2147483648i32;
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DC_HASDEFID: u32 = 21323u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUGHOOKINFO(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_CREATEMENU: i32 = 4i32;
@@ -1596,6 +1608,7 @@ pub const DLGC_WANTMESSAGE: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTTAB: u32 = 2u32;
 pub struct DLGITEMTEMPLATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DLGPROC(i32);
 pub struct DLGTEMPLATE(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -1624,6 +1637,7 @@ pub const DOF_SHELLDATA: u32 = 2u32;
 pub const DO_DROPFILE: i32 = 1162627398i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DO_PRINTFILE: i32 = 1414419024i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DROPSTRUCT(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_3DLOOK: i32 = 4i32;
@@ -1742,6 +1756,7 @@ pub const ES_RIGHT: i32 = 2i32;
 pub const ES_UPPERCASE: i32 = 8i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_WANTRETURN: i32 = 4096i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EVENTMSG(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_AIA_END: u32 = 45055u32;
@@ -1963,6 +1978,7 @@ pub const FKF_HOTKEYACTIVE: u32 = 4u32;
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_INDICATOR: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FLASHWINFO(i32);
 pub struct FLASHWINFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -2005,6 +2021,7 @@ pub const GF_INERTIA: u32 = 2u32;
 pub const GIDC_ARRIVAL: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GIDC_REMOVAL: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GUITHREADINFO(i32);
 pub struct GUITHREADINFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -2015,6 +2032,7 @@ pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
 pub const GW_MAX: u32 = 5u32;
 pub struct HACCEL(i32);
 pub struct HANDEDNESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HARDWAREHOOKSTRUCT(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
@@ -2143,6 +2161,7 @@ pub const HKL_NEXT: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HKL_PREV: u32 = 0u32;
 pub struct HMENU(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HOOKPROC(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
@@ -2252,10 +2271,15 @@ pub const HWND_TOP: super::super::Foundation::HWND = super::super::Foundation::H
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const HWND_TOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-1i32 as _);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONINFOEXA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONINFOEXW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONMETRICSA(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONMETRICSW(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ICON_BIG: u32 = 1u32;
@@ -2395,6 +2419,7 @@ pub const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: u32 = 3u32;
 pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: u32 = 5u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IndexedResourceQualifier(i32);
 pub struct KBDLLHOOKSTRUCT(i32);
 pub struct KBDLLHOOKSTRUCT_FLAGS(i32);
@@ -2587,18 +2612,25 @@ pub const MA_ACTIVATEANDEAT: u32 = 2u32;
 pub const MA_NOACTIVATE: u32 = 3u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MDICREATESTRUCTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MDICREATESTRUCTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MDINEXTMENU(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MENUBARINFO(i32);
 pub struct MENUGETOBJECTINFO(i32);
 pub struct MENUGETOBJECTINFO_FLAGS(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUINFO(i32);
 pub struct MENUINFO_MASK(i32);
 pub struct MENUINFO_STYLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MENUITEMINFOA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MENUITEMINFOW(i32);
 pub struct MENUITEMTEMPLATE(i32);
 pub struct MENUITEMTEMPLATEHEADER(i32);
@@ -2617,6 +2649,7 @@ pub struct MINIMIZEDMETRICS(i32);
 pub struct MINIMIZEDMETRICS_ARRANGE(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MINMAXINFO(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
@@ -2680,7 +2713,9 @@ pub const MNGO_NOINTERFACE: u32 = 0u32;
 pub const MN_GETHMENU: u32 = 481u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MONITORINFOF_PRIMARY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MOUSEHOOKSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MOUSEHOOKSTRUCTEX(i32);
 pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -2689,9 +2724,13 @@ pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXCALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSW(i32);
 pub struct MSGFLTINFO_STATUS(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -2709,6 +2748,7 @@ pub const MSGF_SCROLLBAR: u32 = 5u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_USER: u32 = 4096u32;
 pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSLLHOOKSTRUCT(i32);
 pub struct MrmDumpType(i32);
 pub struct MrmIndexerFlags(i32);
@@ -2716,10 +2756,14 @@ pub struct MrmPackagingMode(i32);
 pub struct MrmPackagingOptions(i32);
 pub struct MrmPlatformVersion(i32);
 pub struct MrmResourceIndexerHandle(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MrmResourceIndexerMessage(i32);
 pub struct MrmResourceIndexerMessageSeverity(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NAMEENUMPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NAMEENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NCCALCSIZE_PARAMS(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NFR_ANSI: u32 = 1u32;
@@ -2741,7 +2785,9 @@ pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
 pub const NID_MULTI_INPUT: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_READY: u32 = 128u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NONCLIENTMETRICSA(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NONCLIENTMETRICSW(i32);
 pub struct OBJECT_IDENTIFIER(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -2996,6 +3042,7 @@ pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PREGISTERCLASSNAMEW(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
@@ -3009,9 +3056,13 @@ pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_OWNED: i32 = 32i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCEXW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPENUMPROCW(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PWR_CRITICALRESUME: u32 = 3u32;
@@ -3210,6 +3261,7 @@ pub const SB_THUMBTRACK: u32 = 5u32;
 pub const SB_TOP: u32 = 6u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SCF_ISSECURE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCROLLBARINFO(i32);
 pub struct SCROLLBAR_CONSTANTS(i32);
 pub struct SCROLLINFO(i32);
@@ -3256,9 +3308,11 @@ pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_ZOOM: u32 = 61488u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SENDASYNCPROC(i32);
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(i32);
 pub struct SET_WINDOW_POS_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SHELLHOOKINFO(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SHOW_FULLSCREEN: u32 = 3u32;
@@ -3498,6 +3552,7 @@ pub struct SYSTEM_PARAMETERS_INFO_ACTION(i32);
 pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(i32);
 pub struct SYS_COLOR_INDEX(i32);
 pub struct TILE_WINDOWS_HOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TIMERPROC(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
@@ -3507,7 +3562,9 @@ pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_NO_COALESCING: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TITLEBARINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TITLEBARINFOEX(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_AVAILABLE: u32 = 2u32;
@@ -3557,6 +3614,7 @@ pub const TOUCH_MASK_NONE: u32 = 0u32;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TPMPARAMS(i32);
 pub struct TRACK_POPUP_MENU_FLAGS(i32);
 pub struct TouchPredictionParameters(i32);
@@ -3576,6 +3634,7 @@ pub const UIS_SET: u32 = 1u32;
 pub const UNICODE_NOCHAR: u32 = 65535u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct UPDATELAYEREDWINDOWINFO(i32);
 pub struct UPDATE_LAYERED_WINDOW_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -3602,9 +3661,12 @@ pub const WH_MAXHOOK: u32 = 14u32;
 pub const WH_MIN: i32 = -1i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WH_MINHOOK: i32 = -1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWPLACEMENT(i32);
 pub struct WINDOWPLACEMENT_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWPOS(i32);
 pub struct WINDOWS_HOOK_ID(i32);
 pub struct WINDOW_DISPLAY_AFFINITY(i32);
@@ -4154,12 +4216,18 @@ pub const WM_XBUTTONDBLCLK: u32 = 525u32;
 pub const WM_XBUTTONDOWN: u32 = 523u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_XBUTTONUP: u32 = 524u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSEXA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSEXW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSW(i32);
 pub struct WNDCLASS_STYLES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNDENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WNDPROC(i32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WSF_VISIBLE: i32 = 1i32;

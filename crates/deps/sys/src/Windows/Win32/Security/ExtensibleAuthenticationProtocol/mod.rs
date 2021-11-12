@@ -106,7 +106,9 @@ pub const EAPCODE_Response: u32 = 2u32;
 pub const EAPCODE_Success: u32 = 3u32;
 pub struct EAPHOST_AUTH_INFO(i32);
 pub struct EAPHOST_AUTH_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAPHOST_IDENTITY_UI_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
@@ -117,7 +119,9 @@ pub struct EAP_ATTRIBUTES(i32);
 pub struct EAP_ATTRIBUTE_TYPE(i32);
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES(i32);
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
@@ -128,7 +132,9 @@ pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
 pub struct EAP_CONFIG_INPUT_FIELD_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CREDENTIAL_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_CRED_EXPIRY_REQ(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_ERROR(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045u32;
@@ -264,6 +270,7 @@ pub const EAP_FLAG_USER_AUTH: u32 = 262144u32;
 pub const EAP_FLAG_VPN: u32 = 8388608u32;
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_GROUP_MASK: i32 = 65280i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_INTERACTIVE_UI_DATA(i32);
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
@@ -285,17 +292,26 @@ pub const EAP_I_USER_LAST: i32 = 1078067711i32;
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY: u32 = 1u32;
 pub struct EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_INFO_ARRAY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_INFO_ARRAY_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_INFO_EX(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_METHOD_INVALID_PACKET: u32 = 2151809047u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_PROPERTY_ARRAY(i32);
 pub struct EAP_METHOD_PROPERTY_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_PROPERTY_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL(i32);
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD(i32);
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING(i32);
@@ -307,6 +323,7 @@ pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64u32;
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768u32;
 pub struct EAP_PEER_METHOD_ROUTINES(i32);
 pub struct EAP_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EAP_UI_DATA_FORMAT(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
@@ -316,21 +333,29 @@ pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapCertificateCredential(i32);
 pub struct EapCode(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapCredential(i32);
 pub struct EapCredentialType(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapCredentialTypeData(i32);
 pub struct EapHostPeerAuthParams(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapHostPeerMethodResult(i32);
 pub struct EapHostPeerMethodResultReason(i32);
 pub struct EapHostPeerResponseAction(i32);
 pub struct EapPacket(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapPeerMethodOutput(i32);
 pub struct EapPeerMethodResponseAction(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapPeerMethodResult(i32);
 pub struct EapPeerMethodResultReason(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapSimCredential(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EapUsernamePasswordCredential(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
@@ -400,6 +425,7 @@ pub struct IEAPProviderConfig2(i32);
 pub struct IEAPProviderConfig3(i32);
 pub struct IRouterProtocolConfig(i32);
 pub struct ISOLATION_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LEGACY_IDENTITY_UI_PARAMS(i32);
 pub struct LEGACY_INTERACTIVE_UI_PARAMS(i32);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
@@ -410,11 +436,14 @@ pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256u32;
 pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NgcTicketContext(i32);
 pub struct NotificationHandler(i32);
 pub struct PPP_EAP_ACTION(i32);
 pub struct PPP_EAP_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PPP_EAP_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PPP_EAP_OUTPUT(i32);
 pub struct PPP_EAP_PACKET(i32);
 pub struct RAS_AUTH_ATTRIBUTE(i32);

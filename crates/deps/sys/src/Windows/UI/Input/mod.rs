@@ -96,10 +96,12 @@ pub struct InputActivationListenerActivationChangedEventArgs(i32);
 pub struct InputActivationState(i32);
 pub struct KeyboardDeliveryInterceptor(i32);
 pub struct ManipulationCompletedEventArgs(i32);
+#[cfg(feature = "Foundation")]
 pub struct ManipulationDelta(i32);
 pub struct ManipulationInertiaStartingEventArgs(i32);
 pub struct ManipulationStartedEventArgs(i32);
 pub struct ManipulationUpdatedEventArgs(i32);
+#[cfg(feature = "Foundation")]
 pub struct ManipulationVelocities(i32);
 pub struct MouseWheelParameters(i32);
 pub struct PointerPoint(i32);

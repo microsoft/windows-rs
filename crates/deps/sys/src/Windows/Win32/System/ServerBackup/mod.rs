@@ -10,8 +10,12 @@ pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
 #[doc = "*Required features: `Win32_System_ServerBackup`*"]
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_REGISTRATION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_ENTRY(i32);
 pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_INFO(i32);

@@ -1731,7 +1731,9 @@ pub const DEVPKEY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY =
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 10u32,
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVPROPCOMPKEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVPROPERTY(i32);
 #[doc = "*Required features: `Win32_Devices_Properties`*"]
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;

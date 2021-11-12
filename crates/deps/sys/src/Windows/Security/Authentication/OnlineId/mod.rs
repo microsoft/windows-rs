@@ -19,6 +19,8 @@ pub struct OnlineIdSystemAuthenticatorForUser(i32);
 pub struct OnlineIdSystemIdentity(i32);
 pub struct OnlineIdSystemTicketResult(i32);
 pub struct OnlineIdSystemTicketStatus(i32);
+#[cfg(feature = "Foundation")]
 pub struct SignOutUserOperation(i32);
+#[cfg(feature = "Foundation")]
 pub struct UserAuthenticationOperation(i32);
 pub struct UserIdentity(i32);

@@ -43,9 +43,13 @@ pub struct SpatialAnchorManager(i32);
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(i32);
 pub struct SpatialAnchorStore(i32);
 pub struct SpatialAnchorTransferManager(i32);
+#[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingBox(i32);
+#[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingFrustum(i32);
+#[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingOrientedBox(i32);
+#[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingSphere(i32);
 pub struct SpatialBoundingVolume(i32);
 pub struct SpatialCoordinateSystem(i32);
@@ -64,6 +68,7 @@ pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(i32);
 pub struct SpatialLookDirectionRange(i32);
 pub struct SpatialMovementRange(i32);
 pub struct SpatialPerceptionAccessStatus(i32);
+#[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialRay(i32);
 pub struct SpatialStageFrameOfReference(i32);
 pub struct SpatialStationaryFrameOfReference(i32);

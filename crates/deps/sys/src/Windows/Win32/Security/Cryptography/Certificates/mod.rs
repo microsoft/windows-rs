@@ -483,6 +483,7 @@ pub const CSCONTROL_RESTART: u64 = 3u64;
 pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSCONTROL_SUSPEND: u64 = 2u64;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CSEDB_RSTMAPW(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
@@ -802,18 +803,26 @@ pub struct FNCERTSRVBACKUPFREE(i32);
 pub struct FNCERTSRVBACKUPGETBACKUPLOGSW(i32);
 pub struct FNCERTSRVBACKUPGETDATABASENAMESW(i32);
 pub struct FNCERTSRVBACKUPGETDYNAMICFILELISTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNCERTSRVBACKUPOPENFILEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNCERTSRVBACKUPPREPAREW(i32);
 pub struct FNCERTSRVBACKUPREAD(i32);
 pub struct FNCERTSRVBACKUPTRUNCATELOGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNCERTSRVISSERVERONLINEW(i32);
 pub struct FNCERTSRVRESTOREEND(i32);
 pub struct FNCERTSRVRESTOREGETDATABASELOCATIONSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNCERTSRVRESTOREPREPAREW(i32);
 pub struct FNCERTSRVRESTOREREGISTERCOMPLETE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNCERTSRVRESTOREREGISTERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNCERTSRVSERVERCONTROLW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNIMPORTPFXTOPROVIDER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FNIMPORTPFXTOPROVIDERFREEDATA(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;

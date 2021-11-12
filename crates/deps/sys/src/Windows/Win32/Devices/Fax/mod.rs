@@ -199,20 +199,29 @@ pub struct FAXROUTE_ENABLE(i32);
 pub struct FAX_ACCESS_RIGHTS_ENUM(i32);
 pub struct FAX_ACCESS_RIGHTS_ENUM_2(i32);
 pub struct FAX_ACCOUNT_EVENTS_TYPE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_CONFIGURATIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_CONFIGURATIONW(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_CONFIG_QUERY: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_CONFIG_SET: u32 = 8u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct FAX_CONTEXT_INFOA(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct FAX_CONTEXT_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_COVERPAGE_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_COVERPAGE_INFOW(i32);
 pub struct FAX_COVERPAGE_TYPE_ENUM(i32);
 pub struct FAX_DEVICE_RECEIVE_MODE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_DEVICE_STATUSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_DEVICE_STATUSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_DEV_STATUS(i32);
 pub struct FAX_ENUM_DELIVERY_REPORT_TYPES(i32);
 pub struct FAX_ENUM_DEVICE_ID_SOURCE(i32);
@@ -251,7 +260,9 @@ pub const FAX_ERR_SRV_OUTOFMEMORY: i32 = 7001i32;
 pub const FAX_ERR_START: i32 = 7001i32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_ERR_VERSION_MISMATCH: i32 = 7012i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_EVENTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_EVENTW(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_E_BAD_GROUP_CONFIGURATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214501i32 as _);
@@ -279,16 +290,22 @@ pub const FAX_E_RULE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const FAX_E_SRV_OUTOFMEMORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214503i32 as _);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_E_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214492i32 as _);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_GLOBAL_ROUTING_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_GLOBAL_ROUTING_INFOW(i32);
 pub struct FAX_GROUP_STATUS_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_JOB_ENTRYA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_JOB_ENTRYW(i32);
 pub struct FAX_JOB_EXTENDED_STATUS_ENUM(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_JOB_MANAGE: u32 = 64u32;
 pub struct FAX_JOB_OPERATIONS_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_JOB_PARAMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_JOB_PARAMW(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_JOB_QUERY: u32 = 2u32;
@@ -296,28 +313,40 @@ pub struct FAX_JOB_STATUS_ENUM(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_JOB_SUBMIT: u32 = 1u32;
 pub struct FAX_JOB_TYPE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_LOG_CATEGORYA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_LOG_CATEGORYW(i32);
 pub struct FAX_LOG_LEVEL_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_PORT_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_PORT_INFOW(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_PORT_QUERY: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_PORT_SET: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_PRINT_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_PRINT_INFOW(i32);
 pub struct FAX_PRIORITY_TYPE_ENUM(i32);
 pub struct FAX_PROVIDER_STATUS_ENUM(i32);
 pub struct FAX_RECEIPT_TYPE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_RECEIVE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_ROUTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_ROUTE_CALLBACKROUTINES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_ROUTING_METHODA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_ROUTING_METHODW(i32);
 pub struct FAX_ROUTING_RULE_CODE_ENUM(i32);
 pub struct FAX_RULE_STATUS_ENUM(i32);
 pub struct FAX_SCHEDULE_TYPE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FAX_SEND(i32);
 pub struct FAX_SERVER_APIVERSION_ENUM(i32);
 pub struct FAX_SERVER_EVENTS_TYPE_ENUM(i32);
@@ -615,96 +644,184 @@ pub const JT_SEND: u32 = 1u32;
 pub const JT_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const MAX_NOTIFICATION_DATA: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXABORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXACCESSCHECK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCLOSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCOMPLETEJOBPARAMSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCOMPLETEJOBPARAMSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCONNECTFAXSERVERA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXCONNECTFAXSERVERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVABORTOPERATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct PFAXDEVCONFIGURE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVENDJOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVINITIALIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVRECEIVE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVREPORTSTATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVSEND(i32);
 pub struct PFAXDEVSHUTDOWN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVSTARTJOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXDEVVIRTUALDEVICECREATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENABLEROUTINGMETHODA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENABLEROUTINGMETHODW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMGLOBALROUTINGINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMGLOBALROUTINGINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMJOBSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMJOBSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMPORTSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMPORTSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMROUTINGMETHODSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXENUMROUTINGMETHODSW(i32);
 pub struct PFAXFREEBUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETCONFIGURATIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETCONFIGURATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETDEVICESTATUSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETDEVICESTATUSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETJOBA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETJOBW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETLOGGINGCATEGORIESA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETLOGGINGCATEGORIESW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETPAGEDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETPORTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETPORTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETROUTINGINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXGETROUTINGINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXINITIALIZEEVENTQUEUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXOPENPORT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXPRINTCOVERPAGEA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXPRINTCOVERPAGEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXREGISTERROUTINGEXTENSIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXREGISTERSERVICEPROVIDERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEADDFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEDELETEFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEDEVICECHANGENOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEDEVICEENABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEENUMFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEENUMFILES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEGETFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEGETROUTINGINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEINITIALIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEMETHOD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTEMODIFYROUTINGDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXROUTESETROUTINGINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTFORBROADCASTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTFORBROADCASTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSENDDOCUMENTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETCONFIGURATIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETCONFIGURATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETGLOBALROUTINGINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETGLOBALROUTINGINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETJOBA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETJOBW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETLOGGINGCATEGORIESA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETLOGGINGCATEGORIESW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETPORTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETPORTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETROUTINGINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXSETROUTINGINFOW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXSTARTPRINTJOBA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PFAXSTARTPRINTJOBW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAXUNREGISTERSERVICEPROVIDERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_CONFIG_CHANGE(i32);
 pub struct PFAX_EXT_FREE_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_GET_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_INITIALIZE_CONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_REGISTER_FOR_EVENTS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_SET_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_EXT_UNREGISTER_FOR_EVENTS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_LINECALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_RECIPIENT_CALLBACKA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_RECIPIENT_CALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_ROUTING_INSTALLATION_CALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_SEND_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFAX_SERVICE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STIEDFL_ALLDEVICES: u32 = 0u32;
@@ -755,6 +872,7 @@ pub const STIERR_SHARING_VIOLATION: ::windows_sys::core::HRESULT = ::windows_sys
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STIERR_UNSUPPORTED: i32 = -2147467263i32;
 pub struct STINOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STISUBSCRIBE(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STI_CHANGENOEFFECT: i32 = 1i32;
@@ -768,6 +886,7 @@ pub const STI_DEVICE_CREATE_FOR_MONITOR: u32 = 16777216u32;
 pub const STI_DEVICE_CREATE_MASK: u32 = 65535u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STI_DEVICE_CREATE_STATUS: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STI_DEVICE_INFORMATIONW(i32);
 pub struct STI_DEVICE_MJ_TYPE(i32);
 pub struct STI_DEVICE_STATUS(i32);
@@ -870,6 +989,7 @@ pub const STI_VERSION_FLAG_UNICODE: u32 = 16777216u32;
 pub const STI_VERSION_MIN_ALLOWED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STI_VERSION_REAL: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STI_WIA_DEVICE_INFORMATIONW(i32);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;

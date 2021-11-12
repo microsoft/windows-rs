@@ -97,6 +97,7 @@ extern "system" {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct ADDRESS_LIST_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ADM_CTRL_FAILED: u32 = 3u32;
@@ -170,6 +171,7 @@ pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_NO_MORE_INFO: u32 = 1u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct ERROR_SPEC(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_SPECF_InPlace: u32 = 1u32;
@@ -195,7 +197,9 @@ pub const ERR_Usage_serv: u32 = 17u32;
 pub const ERR_global_mask: u32 = 4095u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Error_Spec_IPv4(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct FILTER_SPEC(i32);
 pub struct FLOWDESCRIPTOR(i32);
 pub struct FLOWSPEC(i32);
@@ -226,7 +230,9 @@ pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
 pub struct FilterType(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Filter_Spec_IPv4(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Filter_Spec_IPv4GPI(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GENERAL_INFO: u32 = 1u32;
@@ -567,17 +573,20 @@ pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PREDICTIVE_SERV: u32 = 3u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct QOS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOSSPBASE: u32 = 50000u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct QOS_DESTADDR(i32);
 pub struct QOS_DIFFSERV(i32);
 pub struct QOS_DIFFSERV_RULE(i32);
 pub struct QOS_DS_CLASS(i32);
 pub struct QOS_FLOWRATE_OUTGOING(i32);
 pub struct QOS_FLOWRATE_REASON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct QOS_FLOW_FUNDAMENTALS(i32);
 pub struct QOS_FRIENDLY_NAME(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -696,7 +705,9 @@ pub struct RSVP_FILTERSPEC_V6_FLOW(i32);
 pub struct RSVP_FILTERSPEC_V6_GPI(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_HOP(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_MSG_OBJS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_OBJECT_ID_BASE: u32 = 1000u32;
@@ -715,7 +726,9 @@ pub const RSVP_RESV: u32 = 2u32;
 pub const RSVP_RESV_ERR: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_RESV_TEAR: u32 = 6u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_SCOPE(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_SESSION(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
@@ -723,6 +736,7 @@ pub struct RSVP_STATUS_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
 pub struct RsvpObjHdr(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Rsvp_Hop_IPv4(i32);
 pub struct SENDER_TSPEC(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
@@ -1085,19 +1099,27 @@ pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
 pub const SIPALOGVERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const STATE_TIMEOUT: u32 = 4u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Scope_list_ipv4(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Session_IPv4(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TCBASE: u32 = 7500u32;
 pub struct TCG_PCClientPCREventStruct(i32);
 pub struct TCG_PCClientTaggedEventStruct(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_ADD_FLOW_COMPLETE_HANDLER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_CLIENT_FUNC_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_DEL_FLOW_COMPLETE_HANDLER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_MOD_FLOW_COMPLETE_HANDLER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCI_NOTIFY_HANDLER(i32);
 pub struct TC_GEN_FILTER(i32);
 pub struct TC_GEN_FLOW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct TC_IFC_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NONCONF_BORROW: u32 = 0u32;
@@ -1117,6 +1139,7 @@ pub const TC_NOTIFY_IFC_CLOSE: u32 = 2u32;
 pub const TC_NOTIFY_IFC_UP: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4u32;
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct TC_SUPPORTED_INFO_BUFFER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
@@ -1156,8 +1179,10 @@ pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
 pub struct WBCL_Iterator(i32);
 pub struct WBCL_LogHdr(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct flow_desc(i32);
 pub struct int_serv_wkp(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct lpmiptable(i32);
 pub struct policy_decision(i32);
 pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD(i32);

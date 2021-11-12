@@ -50,6 +50,7 @@ pub struct ColorPickerHsvChannel(i32);
 pub struct ColorSpectrumComponents(i32);
 pub struct ColorSpectrumShape(i32);
 pub struct ColumnDefinition(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct ColumnDefinitionCollection(i32);
 pub struct ComboBox(i32);
 pub struct ComboBoxItem(i32);
@@ -120,6 +121,7 @@ pub struct HandwritingViewCandidatesChangedEventArgs(i32);
 pub struct HandwritingViewTextSubmittedEventArgs(i32);
 pub struct Hub(i32);
 pub struct HubSection(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct HubSectionCollection(i32);
 pub struct HubSectionHeaderClickEventArgs(i32);
 pub struct HubSectionHeaderClickEventHandler(i32);
@@ -1008,6 +1010,7 @@ pub struct InkToolbarToolButton(i32);
 pub struct IsTextTrimmedChangedEventArgs(i32);
 pub struct ItemClickEventArgs(i32);
 pub struct ItemClickEventHandler(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct ItemCollection(i32);
 pub struct ItemContainerGenerator(i32);
 pub struct ItemsControl(i32);
@@ -1029,6 +1032,7 @@ pub struct ListViewBaseHeaderItem(i32);
 pub struct ListViewHeaderItem(i32);
 pub struct ListViewItem(i32);
 pub struct ListViewItemToKeyHandler(i32);
+#[cfg(feature = "Foundation")]
 pub struct ListViewKeyToItemHandler(i32);
 pub struct ListViewPersistenceHelper(i32);
 pub struct ListViewReorderMode(i32);
@@ -1111,6 +1115,7 @@ pub struct RichEditClipboardFormat(i32);
 pub struct RichTextBlock(i32);
 pub struct RichTextBlockOverflow(i32);
 pub struct RowDefinition(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct RowDefinitionCollection(i32);
 pub struct ScrollBarVisibility(i32);
 pub struct ScrollContentPresenter(i32);
@@ -1202,6 +1207,7 @@ pub struct TwoPaneViewMode(i32);
 pub struct TwoPaneViewPriority(i32);
 pub struct TwoPaneViewTallModeConfiguration(i32);
 pub struct TwoPaneViewWideModeConfiguration(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct UIElementCollection(i32);
 pub struct UserControl(i32);
 pub struct VariableSizedWrapGrid(i32);

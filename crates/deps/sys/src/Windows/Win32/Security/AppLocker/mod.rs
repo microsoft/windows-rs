@@ -32,7 +32,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SaferiIsExecutableFileType(szfullpathname: super::super::Foundation::PWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_CODE_PROPERTIES_V1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_CODE_PROPERTIES_V2(i32);
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
@@ -49,8 +51,11 @@ pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
 pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_HASH_IDENTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_HASH_IDENTIFICATION2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_IDENTIFICATION_HEADER(i32);
 pub struct SAFER_IDENTIFICATION_TYPES(i32);
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
@@ -72,6 +77,7 @@ pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
 pub struct SAFER_OBJECT_INFO_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_PATHNAME_IDENTIFICATION(i32);
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
@@ -102,4 +108,5 @@ pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
 pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_SCOPEID_USER: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_URLZONE_IDENTIFICATION(i32);

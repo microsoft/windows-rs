@@ -2,10 +2,15 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct CellularClass(i32);
+#[cfg(feature = "Foundation")]
 pub struct DeleteSmsMessageOperation(i32);
+#[cfg(feature = "Foundation")]
 pub struct DeleteSmsMessagesOperation(i32);
+#[cfg(feature = "Foundation")]
 pub struct GetSmsDeviceOperation(i32);
+#[cfg(feature = "Foundation")]
 pub struct GetSmsMessageOperation(i32);
+#[cfg(feature = "Foundation")]
 pub struct GetSmsMessagesOperation(i32);
 pub struct ISmsAppMessage(i32);
 pub struct ISmsBinaryMessage(i32);
@@ -36,6 +41,7 @@ pub struct ISmsTextMessageStatics(i32);
 pub struct ISmsVoicemailMessage(i32);
 pub struct ISmsWapMessage(i32);
 pub struct LegacySmsApiContract(i32);
+#[cfg(feature = "Foundation")]
 pub struct SendSmsMessageOperation(i32);
 pub struct SmsAppMessage(i32);
 pub struct SmsBinaryMessage(i32);

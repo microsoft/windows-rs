@@ -763,6 +763,7 @@ pub const WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY: super::super::UI::Shell::Pro
     pid: 6u32,
 };
 pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY(i32);
 pub struct WPD_COMMAND_ACCESS_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

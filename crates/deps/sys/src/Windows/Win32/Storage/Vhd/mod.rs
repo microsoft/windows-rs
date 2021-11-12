@@ -99,6 +99,7 @@ pub struct COMPACT_VIRTUAL_DISK_FLAG(i32);
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS(i32);
 pub struct COMPACT_VIRTUAL_DISK_VERSION(i32);
 pub struct CREATE_VIRTUAL_DISK_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
@@ -114,9 +115,11 @@ pub struct EXPAND_VIRTUAL_DISK_FLAG(i32);
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS(i32);
 pub struct EXPAND_VIRTUAL_DISK_VERSION(i32);
 pub struct FORK_VIRTUAL_DISK_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS(i32);
 pub struct FORK_VIRTUAL_DISK_VERSION(i32);
 pub struct GET_STORAGE_DEPENDENCY_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO(i32);
 pub struct GET_VIRTUAL_DISK_INFO_VERSION(i32);
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
@@ -125,12 +128,15 @@ pub struct MERGE_VIRTUAL_DISK_FLAG(i32);
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS(i32);
 pub struct MERGE_VIRTUAL_DISK_VERSION(i32);
 pub struct MIRROR_VIRTUAL_DISK_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS(i32);
 pub struct MIRROR_VIRTUAL_DISK_VERSION(i32);
 pub struct MODIFY_VHDSET_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MODIFY_VHDSET_PARAMETERS(i32);
 pub struct MODIFY_VHDSET_VERSION(i32);
 pub struct OPEN_VIRTUAL_DISK_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
@@ -138,16 +144,20 @@ pub struct OPEN_VIRTUAL_DISK_VERSION(i32);
 pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(i32);
 pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE(i32);
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS(i32);
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE(i32);
 pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(i32);
 pub struct RESIZE_VIRTUAL_DISK_FLAG(i32);
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS(i32);
 pub struct RESIZE_VIRTUAL_DISK_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO(i32);
 pub struct SET_VIRTUAL_DISK_INFO_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEPENDENCY_INFO(i32);
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_2(i32);
 pub struct STORAGE_DEPENDENCY_INFO_VERSION(i32);
 pub struct TAKE_SNAPSHOT_VHDSET_FLAG(i32);

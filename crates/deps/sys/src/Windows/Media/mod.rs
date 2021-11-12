@@ -106,6 +106,7 @@ pub struct MediaPlaybackAutoRepeatMode(i32);
 pub struct MediaPlaybackStatus(i32);
 pub struct MediaPlaybackType(i32);
 pub struct MediaProcessingTriggerDetails(i32);
+#[cfg(feature = "Foundation")]
 pub struct MediaTimeRange(i32);
 pub struct MediaTimelineController(i32);
 pub struct MediaTimelineControllerFailedEventArgs(i32);

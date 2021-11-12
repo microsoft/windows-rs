@@ -287,7 +287,9 @@ pub const NTDDI_WS08SP3: u32 = 100664064u32;
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
 pub struct NUMA_NODE_RELATIONSHIP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OSVERSIONINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OSVERSIONINFOEXA(i32);
 pub struct OSVERSIONINFOEXW(i32);
 pub struct OSVERSIONINFOW(i32);
@@ -295,7 +297,9 @@ pub struct OSVERSIONINFOW(i32);
 pub const OSVERSION_MASK: u32 = 4294901760u32;
 pub struct OS_DEPLOYEMENT_STATE_VALUES(i32);
 pub struct OS_PRODUCT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_SYSTEM_WOW64_DIRECTORY_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_SYSTEM_WOW64_DIRECTORY_W(i32);
 pub struct PROCESSOR_CACHE_TYPE(i32);
 pub struct PROCESSOR_GROUP_INFO(i32);
@@ -316,9 +320,11 @@ pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
 pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct SYSTEM_INFO(i32);
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION(i32);
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION(i32);
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION(i32);
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION(i32);

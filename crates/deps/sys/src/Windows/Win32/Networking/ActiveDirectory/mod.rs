@@ -494,9 +494,12 @@ pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
 pub struct ADSI_DIALECT_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADSPROPERROR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADSPROPINITPARAMS(i32);
 pub struct ADSTYPEENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADSVALUE(i32);
 pub struct ADS_ACEFLAG_ENUM(i32);
 pub struct ADS_ACETYPE_ENUM(i32);
@@ -504,21 +507,29 @@ pub struct ADS_ACETYPE_ENUM(i32);
 pub const ADS_ATTR_APPEND: u32 = 3u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_ATTR_CLEAR: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_DEF(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_ATTR_DELETE: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_ATTR_UPDATE: u32 = 2u32;
 pub struct ADS_AUTHENTICATION_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_BACKLINK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_CASEIGNORE_LIST(i32);
 pub struct ADS_CHASE_REFERRALS_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_CLASS_DEF(i32);
 pub struct ADS_DEREFENUM(i32);
 pub struct ADS_DISPLAY_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_DN_WITH_BINARY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_DN_WITH_STRING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_EMAIL(i32);
 pub struct ADS_ESCAPE_MODE_ENUM(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -529,26 +540,32 @@ pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
 pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_FAXNUMBER(i32);
 pub struct ADS_FLAGTYPE_ENUM(i32);
 pub struct ADS_FORMAT_ENUM(i32);
 pub struct ADS_GROUP_TYPE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_HOLD(i32);
 pub struct ADS_NAME_INITTYPE_ENUM(i32);
 pub struct ADS_NAME_TYPE_ENUM(i32);
 pub struct ADS_NETADDRESS(i32);
 pub struct ADS_NT_SECURITY_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_OBJECT_INFO(i32);
 pub struct ADS_OCTET_LIST(i32);
 pub struct ADS_OCTET_STRING(i32);
 pub struct ADS_OPTION_ENUM(i32);
 pub struct ADS_PASSWORD_ENCODING_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_PATH(i32);
 pub struct ADS_PATHTYPE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_POSTALADDRESS(i32);
 pub struct ADS_PREFERENCES_ENUM(i32);
 pub struct ADS_PROPERTY_OPERATION_ENUM(i32);
 pub struct ADS_PROV_SPECIFIC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_REPLICAPOINTER(i32);
 pub struct ADS_RIGHTS_ENUM(i32);
 pub struct ADS_SCOPEENUM(i32);
@@ -558,12 +575,15 @@ pub struct ADS_SD_REVISION_ENUM(i32);
 pub struct ADS_SEARCHPREF_ENUM(i32);
 pub struct ADS_SECURITY_INFO_ENUM(i32);
 pub struct ADS_SETTYPE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SORTKEY(i32);
 pub struct ADS_STATUSENUM(i32);
 pub struct ADS_SYSTEMFLAG_ENUM(i32);
 pub struct ADS_TIMESTAMP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_TYPEDNAME(i32);
 pub struct ADS_USER_FLAG_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADS_VLV(i32);
 pub struct ADSystemInfo(i32);
 pub struct ADsSecurityUtility(i32);
@@ -598,7 +618,9 @@ pub const CLSID_MicrosoftDS: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const CQFF_ISOPTIONAL: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CQFORM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CQPAGE(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const CQPM_CLEARFORM: u32 = 6u32;
@@ -631,9 +653,13 @@ pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
 pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
 pub struct DNWithBinary(i32);
 pub struct DNWithString(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOMAINDESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOMAIN_CONTROLLER_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOMAIN_CONTROLLER_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOMAIN_TREE(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
@@ -643,6 +669,7 @@ pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
 pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct DSA_NEWOBJ_DISPINFO(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSA_NOTIFY_DEL: u32 = 1u32;
@@ -666,7 +693,9 @@ pub const DSBF_STATE: u32 = 1u32;
 pub const DSBID_BANNER: u32 = 256u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSBID_CONTAINERLIST: u32 = 257u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSBITEMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSBITEMW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSBI_CHECKBOXES: u32 = 256u32;
@@ -708,7 +737,9 @@ pub const DSBM_QUERYINSERT: u32 = 100u32;
 pub const DSBM_QUERYINSERTA: u32 = 101u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSBM_QUERYINSERTW: u32 = 100u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSBS_CHECKED: u32 = 1u32;
@@ -846,6 +877,7 @@ pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
 pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSOP_INIT_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
@@ -871,6 +903,7 @@ pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSOP_SCOPE_INIT_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
@@ -925,13 +958,16 @@ pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
 pub struct DSQUERYCLASSLIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSQUERYINITPARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSQUERYPARAMS(i32);
 pub struct DSROLE_MACHINE_ROLE(i32);
 pub struct DSROLE_OPERATION_STATE(i32);
 pub struct DSROLE_OPERATION_STATE_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC(i32);
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -1000,11 +1036,17 @@ pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
 pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
@@ -1018,7 +1060,9 @@ pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
 pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_TRUSTSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_TRUSTSW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_DS_10_FLAG: u32 = 65536u32;
@@ -1085,9 +1129,13 @@ pub struct DS_MANGLE_FOR(i32);
 pub struct DS_NAME_ERROR(i32);
 pub struct DS_NAME_FLAGS(i32);
 pub struct DS_NAME_FORMAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_NAME_RESULTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_NAME_RESULTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_NAME_RESULT_ITEMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_NAME_RESULT_ITEMW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_NDNC_FLAG: u32 = 1024u32;
@@ -1145,24 +1193,38 @@ pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
 pub const DS_REPDEL_REF_OK: u32 = 64u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA_2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT(i32);
 pub struct DS_REPL_CURSOR(i32);
 pub struct DS_REPL_CURSORS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSORS_2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSORS_3W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_3W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_BLOB(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
 pub struct DS_REPL_INFO_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILURESW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILUREW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
@@ -1200,20 +1262,34 @@ pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
 pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORW_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OBJ_META_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OBJ_META_DATA_2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OPW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OPW_BLOB(i32);
 pub struct DS_REPL_OP_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_PENDING_OPSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_QUEUE_STATISTICSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_EXT(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
@@ -1237,7 +1313,9 @@ pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPSYNCALL_ERRINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPSYNCALL_ERRINFOW(i32);
 pub struct DS_REPSYNCALL_ERROR(i32);
 pub struct DS_REPSYNCALL_EVENT(i32);
@@ -1249,11 +1327,15 @@ pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
 pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPSYNCALL_SYNCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPSYNCALL_SYNCW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPSYNCALL_UPDATEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPSYNCALL_UPDATEW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
@@ -1337,11 +1419,15 @@ pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
 pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_SCHEMA_GUID_MAPA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DS_SCHEMA_GUID_MAPW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DS_SELECTION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DS_SELECTION_LIST(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
@@ -1462,9 +1548,13 @@ pub struct IPersistQuery(i32);
 pub struct IPrivateDispatch(i32);
 pub struct IPrivateUnknown(i32);
 pub struct IQueryForm(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct LPCQADDFORMSPROC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct LPCQADDPAGESPROC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct LPCQPAGEPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDSENUMATTRIBUTES(i32);
 pub struct LargeInteger(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -1571,6 +1661,7 @@ pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
 pub struct NameTranslate(i32);
 pub struct NetAddress(i32);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct OPENQUERYWINDOW(i32);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
@@ -1643,5 +1734,7 @@ pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
 pub struct WinNTSystemInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ads_search_column(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ads_searchpref_info(i32);

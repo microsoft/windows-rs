@@ -195,6 +195,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WTSWaitSystemEvent(hserver: super::super::Foundation::HANDLE, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct AAAccountingData(i32);
 pub struct AAAccountingDataType(i32);
 pub struct AAAuthSchemes(i32);
@@ -209,7 +210,9 @@ pub struct BITMAP_RENDERER_STATISTICS(i32);
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHANNEL_DEF(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHANNEL_ENTRY_POINTS(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
@@ -546,8 +549,11 @@ pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::c
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1645401943, data2: 67, data3: 18530, data4: [153, 195, 159, 48, 89, 172, 42, 59] };
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 427573882, data2: 309, data3: 19309, data4: [156, 94, 230, 87, 154, 10, 182, 37] };
 pub struct PVIRTUALCHANNELCLOSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PVIRTUALCHANNELENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PVIRTUALCHANNELINIT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PVIRTUALCHANNELOPEN(i32);
 pub struct PVIRTUALCHANNELWRITE(i32);
 pub struct PasswordEncodingType(i32);
@@ -573,8 +579,10 @@ pub const RESERVED_FOR_LEGACY: u32 = 4u32;
 pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RFX_GFX_MONITOR_INFO(i32);
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE(i32);
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM(i32);
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY(i32);
@@ -625,6 +633,7 @@ pub struct VM_HOST_NOTIFY_STATUS(i32);
 pub struct VM_NOTIFY_ENTRY(i32);
 pub struct VM_NOTIFY_INFO(i32);
 pub struct VM_NOTIFY_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VM_PATCH_INFO(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
@@ -640,8 +649,11 @@ pub const WRDS_CLIENTADDRESS_LENGTH: u32 = 30u32;
 pub const WRDS_CLIENTNAME_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_CONNECTION_SETTING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_CONNECTION_SETTINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_CONNECTION_SETTINGS_1(i32);
 pub struct WRDS_CONNECTION_SETTING_LEVEL(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
@@ -704,8 +716,11 @@ pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3533258573, data2: 719, data3: 17024, data4: [140, 72, 22, 36, 180, 79, 135, 6] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_SETTING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_SETTINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_SETTINGS_1(i32);
 pub struct WRDS_SETTING_LEVEL(i32);
 pub struct WRDS_SETTING_STATUS(i32);
@@ -723,18 +738,25 @@ pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
 pub struct WRdsGraphicsChannelType(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSCLIENTA(i32);
 pub struct WTSCLIENTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSCONFIGINFOA(i32);
 pub struct WTSCONFIGINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSINFOEXA(i32);
 pub struct WTSINFOEXW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSINFOEX_LEVEL1_A(i32);
 pub struct WTSINFOEX_LEVEL1_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSINFOEX_LEVEL_A(i32);
 pub struct WTSINFOEX_LEVEL_W(i32);
 pub struct WTSINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSLISTENERCONFIGA(i32);
 pub struct WTSLISTENERCONFIGW(i32);
 pub struct WTSSBX_ADDRESS_FAMILY(i32);
@@ -745,9 +767,11 @@ pub struct WTSSBX_MACHINE_INFO(i32);
 pub struct WTSSBX_MACHINE_SESSION_MODE(i32);
 pub struct WTSSBX_MACHINE_STATE(i32);
 pub struct WTSSBX_NOTIFICATION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSSBX_SESSION_INFO(i32);
 pub struct WTSSBX_SESSION_STATE(i32);
 pub struct WTSSESSION_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTSUSERCONFIGA(i32);
 pub struct WTSUSERCONFIGW(i32);
 pub struct WTS_CACHE_STATS(i32);
@@ -770,6 +794,7 @@ pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
 pub struct WTS_CLIENT_ADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_CLIENT_DATA(i32);
 pub struct WTS_CLIENT_DISPLAY(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
@@ -825,6 +850,7 @@ pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
 pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_LICENSE_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
@@ -869,15 +895,21 @@ pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
 pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_POLICY_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFO_EXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFO_EXW(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROPERTY_VALUE(i32);
 pub struct WTS_PROTOCOL_CACHE(i32);
 pub struct WTS_PROTOCOL_COUNTERS(i32);
@@ -928,7 +960,9 @@ pub const WTS_SECURITY_RESET: u32 = 4u32;
 pub const WTS_SECURITY_SET_INFORMATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_SERVER_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_SERVER_INFOW(i32);
 pub struct WTS_SERVICE_STATE(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
@@ -939,9 +973,13 @@ pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295u32;
 pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1u32;
 pub struct WTS_SESSION_ADDRESS(i32);
 pub struct WTS_SESSION_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_SESSION_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_SESSION_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_SESSION_INFO_1A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_SESSION_INFO_1W(i32);
 pub struct WTS_SMALL_RECT(i32);
 pub struct WTS_SOCKADDR(i32);
@@ -952,6 +990,7 @@ pub struct WTS_TYPE_CLASS(i32);
 pub const WTS_USERNAME_LENGTH: u32 = 255u32;
 pub struct WTS_USER_CREDENTIAL(i32);
 pub struct WTS_USER_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WTS_VALIDATION_INFORMATIONA(i32);
 pub struct WTS_VALIDATION_INFORMATIONW(i32);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
@@ -975,8 +1014,11 @@ pub const WTS_WSD_REBOOT: u32 = 4u32;
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
 pub struct Workspace(i32);
 pub struct _ITSWkspEvents(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct _WTS_PRODUCT_INFOA(i32);
 pub struct _WTS_PRODUCT_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct pluginResource(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct pluginResource2(i32);
 pub struct pluginResource2FileAssociation(i32);

@@ -48,6 +48,7 @@ pub struct MediaEncodingProfile(i32);
 pub struct MediaEncodingSubtypes(i32);
 pub struct MediaMirroringOptions(i32);
 pub struct MediaPixelFormat(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct MediaPropertySet(i32);
 pub struct MediaRatio(i32);
 pub struct MediaRotation(i32);

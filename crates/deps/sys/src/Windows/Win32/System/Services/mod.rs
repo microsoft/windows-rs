@@ -231,9 +231,13 @@ pub const DOMAIN_LEAVE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [149, 116, 195, 182, 21, 212, 46, 161],
 };
 pub struct ENUM_SERVICE_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUS_PROCESSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUS_PROCESSW(i32);
 pub struct ENUM_SERVICE_TYPE(i32);
 pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -247,7 +251,9 @@ pub struct HANDLER_FUNCTION(i32);
 pub struct HANDLER_FUNCTION_EX(i32);
 pub struct LPHANDLER_FUNCTION(i32);
 pub struct LPHANDLER_FUNCTION_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPSERVICE_MAIN_FUNCTIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPSERVICE_MAIN_FUNCTIONW(i32);
 pub const MACHINE_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1704970982,
@@ -270,9 +276,13 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_sys::core::GUI
 };
 pub struct PFN_SC_NOTIFY_CALLBACK(i32);
 pub struct PSC_NOTIFICATION_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_CONFIGA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_CONFIGW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_LOCK_STATUSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_LOCK_STATUSW(i32);
 pub const RPC_INTERFACE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3163607399,
@@ -364,7 +374,9 @@ pub const SERVICE_CONTROL_SESSIONCHANGE: u32 = 14u32;
 pub const SERVICE_CONTROL_SHUTDOWN: u32 = 5u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW(i32);
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
@@ -375,8 +387,11 @@ pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_CONTROL_TRIGGEREVENT: u32 = 32u32;
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_DELAYED_AUTO_START_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_DESCRIPTIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_DESCRIPTIONW(i32);
 pub struct SERVICE_DIRECTORY_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -384,8 +399,11 @@ pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
 pub struct SERVICE_ERROR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_FAILURE_ACTIONSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_FAILURE_ACTIONSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG(i32);
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_INTERROGATE: u32 = 128u32;
@@ -399,10 +417,13 @@ pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
 pub struct SERVICE_MAIN_FUNCTIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_MAIN_FUNCTIONW(i32);
 pub struct SERVICE_NOTIFY(i32);
 pub struct SERVICE_NOTIFY_1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2W(i32);
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE: u32 = 2u32;
@@ -414,6 +435,7 @@ pub const SERVICE_NOTIFY_STATUS_CHANGE_2: u32 = 2u32;
 pub const SERVICE_NO_CHANGE: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_PREFERRED_NODE_INFO(i32);
 pub struct SERVICE_PRESHUTDOWN_INFO(i32);
 #[doc = "*Required features: `Win32_System_Services`*"]
@@ -421,7 +443,9 @@ pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
 pub struct SERVICE_REGISTRY_STATE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW(i32);
 pub struct SERVICE_RUNS_IN_PROCESS(i32);
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(i32);
@@ -537,7 +561,9 @@ pub const SERVICE_STOP_REASON_MINOR_UNSTABLE: u32 = 7u32;
 pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYW(i32);
 pub struct SERVICE_TIMECHANGE_INFO(i32);
 pub struct SERVICE_TRIGGER(i32);

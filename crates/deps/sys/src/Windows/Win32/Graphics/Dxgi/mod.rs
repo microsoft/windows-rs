@@ -14,9 +14,13 @@ extern "system" {
     #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
     pub fn DXGIGetDebugInterface1(flags: u32, riid: *const ::windows_sys::core::GUID, pdebug: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC3(i32);
 pub struct DXGI_ADAPTER_FLAG(i32);
 pub struct DXGI_ADAPTER_FLAG3(i32);
@@ -139,6 +143,7 @@ pub struct DXGI_MATRIX_3X2_F(i32);
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
 pub struct DXGI_MEMORY_SEGMENT_GROUP(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct DXGI_MODE_DESC1(i32);
 pub struct DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(i32);
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
@@ -152,14 +157,21 @@ pub const DXGI_MWA_VALID: u32 = 7u32;
 pub struct DXGI_Message_Id(i32);
 pub struct DXGI_OFFER_RESOURCE_FLAGS(i32);
 pub struct DXGI_OFFER_RESOURCE_PRIORITY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct DXGI_OUTDUPL_DESC(i32);
 pub struct DXGI_OUTDUPL_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_OUTDUPL_FRAME_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_OUTDUPL_MOVE_RECT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_OUTDUPL_POINTER_POSITION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO(i32);
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub struct DXGI_OUTPUT_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub struct DXGI_OUTPUT_DESC1(i32);
 pub struct DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(i32);
 pub struct DXGI_OVERLAY_SUPPORT_FLAG(i32);
@@ -169,6 +181,7 @@ pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512u32;
 pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_PRESENT_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_PRESENT_RESTART: u32 = 4u32;
@@ -188,16 +201,21 @@ pub struct DXGI_RESIDENCY(i32);
 pub struct DXGI_RESOURCE_PRIORITY(i32);
 pub struct DXGI_RGBA(i32);
 pub struct DXGI_SCALING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_SHARED_RESOURCE(i32);
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct DXGI_SURFACE_DESC(i32);
 pub struct DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct DXGI_SWAP_CHAIN_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct DXGI_SWAP_CHAIN_DESC1(i32);
 pub struct DXGI_SWAP_CHAIN_FLAG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC(i32);
 pub struct DXGI_SWAP_EFFECT(i32);
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]

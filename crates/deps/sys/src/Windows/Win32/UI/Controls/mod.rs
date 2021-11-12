@@ -679,6 +679,7 @@ pub struct BORDERTYPE(i32);
 pub struct BP_ANIMATIONPARAMS(i32);
 pub struct BP_ANIMATIONSTYLE(i32);
 pub struct BP_BUFFERFORMAT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct BP_PAINTPARAMS(i32);
 pub struct BP_PAINTPARAMS_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -711,8 +712,10 @@ pub const BTNS_SEP: u32 = 1u32;
 pub const BTNS_SHOWTEXT: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const BTNS_WHOLEDROPDOWN: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct BUTTON_IMAGELIST(i32);
 pub struct BUTTON_IMAGELIST_ALIGN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BUTTON_SPLITINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const CBEMAXSTRLEN: u32 = 260u32;
@@ -796,7 +799,9 @@ pub const CCHCCCLASS: u32 = 32u32;
 pub const CCHCCDESC: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const CCHCCTEXT: u32 = 256u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CCINFOA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CCINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const CCM_DPISCALE: u32 = 8204u32;
@@ -824,8 +829,11 @@ pub const CCM_SETUNICODEFORMAT: u32 = 8197u32;
 pub const CCM_SETVERSION: u32 = 8199u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const CCM_SETWINDOWTHEME: u32 = 8203u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CCSTYLEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CCSTYLEFLAGA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CCSTYLEFLAGW(i32);
 pub struct CCSTYLEW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -906,20 +914,26 @@ pub struct COLORMAP(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const COLORMGMTDLGORD: u32 = 1551u32;
 pub struct COLORSCHEME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMBOBOXEXITEMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMBOBOXEXITEMW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMBOBOXINFO(i32);
 pub struct COMBOBOXINFO_BUTTON_STATE(i32);
 pub struct COMBOBOX_EX_ITEM_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const COMCTL32_VERSION: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMPAREITEMSTRUCT(i32);
 pub struct CONTENTALIGNMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DATETIMEPICKERINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DA_ERR: i32 = -1i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DA_LAST: u32 = 2147483647u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DELETEITEMSTRUCT(i32);
 pub struct DLG_BUTTON_CHECK_STATE(i32);
 pub struct DLG_DIR_LIST_FILE_TYPE(i32);
@@ -951,8 +965,10 @@ pub const DPAS_SORTED: u32 = 1u32;
 pub const DPA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DPA_ERR: i32 = -1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRAGLISTINFO(i32);
 pub struct DRAGLISTINFO_NOTIFICATION_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DRAWITEMSTRUCT(i32);
 pub struct DRAWITEMSTRUCT_CTL_TYPE(i32);
 pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(i32);
@@ -960,6 +976,7 @@ pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(i32);
 pub const DSA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DSA_ERR: i32 = -1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DTBGOPTS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DTBG_CLIPRECT: u32 = 1u32;
@@ -1027,7 +1044,9 @@ pub const DTS_SHOWNONE: u32 = 2u32;
 pub const DTS_TIMEFORMAT: u32 = 9u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DTS_UPDOWN: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DTTOPTS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DTT_CALLBACK_PROC(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
@@ -1037,9 +1056,12 @@ pub const DTT_GRAYED: u32 = 1u32;
 pub const ECM_FIRST: u32 = 5376u32;
 pub struct EC_ENDOFLINE(i32);
 pub struct EC_SEARCHWEB_ENTRYPOINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EDITBALLOONTIP(i32);
 pub struct EDITBALLOONTIP_ICON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EDITWORDBREAKPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EDITWORDBREAKPROCW(i32);
 pub struct EMPTYMARKUPPARTS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -1260,12 +1282,16 @@ pub const HDF_SORTUP: u32 = 1024u32;
 pub const HDF_SPLITBUTTON: u32 = 16777216u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const HDF_STRING: u32 = 16384u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HDHITTESTINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const HDIS_FOCUSED: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct HDITEMA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct HDITEMW(i32);
 pub struct HDI_MASK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct HDLAYOUT(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const HDM_CLEARFILTER: u32 = 4632u32;
@@ -1361,7 +1387,9 @@ pub const HDS_HOTTRACK: u32 = 4u32;
 pub const HDS_NOSIZING: u32 = 2048u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const HDS_OVERFLOW: u32 = 4096u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HD_TEXTFILTERA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HD_TEXTFILTERW(i32);
 pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -1556,8 +1584,10 @@ pub const ILS_NORMAL: u32 = 0u32;
 pub const ILS_SATURATE: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const ILS_SHADOW: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct IMAGEINFO(i32);
 pub struct IMAGELAYOUT(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMAGELISTDRAWPARAMS(i32);
 pub struct IMAGELISTSTATS(i32);
 pub struct IMAGELIST_CREATION_FLAGS(i32);
@@ -1591,6 +1621,7 @@ pub const I_IMAGENONE: i32 = -2i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const I_INDENTCALLBACK: i32 = -1i32;
 pub struct ImageList(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LHITTESTINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LIF_ITEMID: u32 = 4u32;
@@ -1623,15 +1654,25 @@ pub const LM_HITTEST: u32 = 1792u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LM_SETITEM: u32 = 1794u32;
 pub struct LOGOFFBUTTONSSTATES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNADDPROPSHEETPAGES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCINFOA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCINFOW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCSIZETOTEXTA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LPFNCCSIZETOTEXTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNCCSTYLEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNCCSTYLEW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct LPFNPSPCALLBACKA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct LPFNPSPCALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNSVADDPROPSHEETPAGE(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVA_ALIGNLEFT: u32 = 1u32;
@@ -1661,7 +1702,9 @@ pub const LVBKIF_STYLE_NORMAL: u32 = 0u32;
 pub const LVBKIF_STYLE_TILE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVBKIF_TYPE_WATERMARK: u32 = 268435456u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LVBKIMAGEA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LVBKIMAGEW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVCDRF_NOGROUPFRAME: u32 = 131072u32;
@@ -1675,18 +1718,24 @@ pub const LVCFMT_LINE_BREAK: u32 = 1048576u32;
 pub const LVCFMT_NO_TITLE: u32 = 8388608u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVCFMT_WRAP: u32 = 4194304u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVCOLUMNA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVCOLUMNW(i32);
 pub struct LVCOLUMNW_FORMAT(i32);
 pub struct LVCOLUMNW_MASK(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVFF_ITEMCOUNT: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVFINDINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVFINDINFOW(i32);
 pub struct LVFINDINFOW_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVFIS_FOCUSED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVFOOTERINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVFOOTERITEM(i32);
 pub struct LVFOOTERITEM_MASK(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -1735,6 +1784,7 @@ pub const LVGMF_BORDERSIZE: u32 = 1u32;
 pub const LVGMF_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVGMF_TEXTCOLOR: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVGROUP(i32);
 pub struct LVGROUPMETRICS(i32);
 pub struct LVGROUP_MASK(i32);
@@ -1756,6 +1806,7 @@ pub const LVGS_SELECTED: u32 = 32u32;
 pub const LVGS_SUBSETED: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVGS_SUBSETLINKFOCUSED: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVHITTESTINFO(i32);
 pub struct LVHITTESTINFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -1780,6 +1831,7 @@ pub const LVIF_STATE: u32 = 8u32;
 pub const LVIF_TEXT: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVIM_AFTER: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVINSERTGROUPSORTED(i32);
 pub struct LVINSERTMARK(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -1806,9 +1858,11 @@ pub const LVIS_OVERLAYMASK: u32 = 3840u32;
 pub const LVIS_SELECTED: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVIS_STATEIMAGEMASK: u32 = 61440u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVITEMA(i32);
 pub struct LVITEMA_GROUP_ID(i32);
 pub struct LVITEMINDEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVITEMW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVKF_ALT: u32 = 1u32;
@@ -2160,6 +2214,7 @@ pub const LVNSCH_IGNORE: i32 = -3i32;
 pub const LVSCW_AUTOSIZE: i32 = -1i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVSETINFOTIP(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVSICF_NOINVALIDATEALL: u32 = 1u32;
@@ -2278,6 +2333,7 @@ pub const LVS_TYPEMASK: u32 = 3u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
 pub struct LVTILEINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVTILEVIEWINFO(i32);
 pub struct LVTILEVIEWINFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -2332,9 +2388,11 @@ pub const MAX_LINKID_TEXT: u32 = 48u32;
 pub const MAX_THEMECOLOR: u32 = 64u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const MAX_THEMESIZE: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MCGRIDINFO(i32);
 pub struct MCGRIDINFO_FLAGS(i32);
 pub struct MCGRIDINFO_PART(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MCHITTESTINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const MCHT_CALENDAR: u32 = 131072u32;
@@ -2497,105 +2555,195 @@ pub const NFS_LISTCOMBO: u32 = 4u32;
 pub const NFS_STATIC: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const NFS_USEFONTASSOC: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMBCDROPDOWN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMBCHOTITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEDRAGBEGINA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEDRAGBEGINW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEENDEDITA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEENDEDITW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCHAR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCOMBOBOXEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCOMBOBOXEXW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMCUSTOMDRAW(i32);
 pub struct NMCUSTOMDRAW_DRAW_STAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMCUSTOMSPLITRECTINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMCUSTOMTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMECHANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATQUERYA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATQUERYW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMESTRINGA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMESTRINGW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEWMKEYDOWNA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEWMKEYDOWNW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMDAYSTATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMHDDISPINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMHDDISPINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMHDFILTERBTNCLICK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMHDR(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMHEADERA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMHEADERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMIPADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMITEMACTIVATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMKEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLINK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLISTVIEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVCACHEHINT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMLVCUSTOMDRAW(i32);
 pub struct NMLVCUSTOMDRAW_ALIGN(i32);
 pub struct NMLVCUSTOMDRAW_ITEM_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVDISPINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVDISPINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVEMPTYMARKUP(i32);
 pub struct NMLVEMPTYMARKUP_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVFINDITEMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVFINDITEMW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVGETINFOTIPA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVGETINFOTIPW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVKEYDOWN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVLINK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVODSTATECHANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMLVSCROLL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMMOUSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMOBJECTNOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMPGCALCSIZE(i32);
 pub struct NMPGCALCSIZE_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMPGHOTITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMPGSCROLL(i32);
 pub struct NMPGSCROLL_DIR(i32);
 pub struct NMPGSCROLL_KEYS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMRBAUTOSIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMREBAR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARAUTOBREAK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARCHEVRON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARCHILDSIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARSPLITTER(i32);
 pub struct NMREBAR_MASK_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMSEARCHWEB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMSELCHANGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTBCUSTOMDRAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTBDISPINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTBDISPINFOW(i32);
 pub struct NMTBDISPINFOW_MASK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTBGETINFOTIPA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTBGETINFOTIPW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTBHOTITEM(i32);
 pub struct NMTBHOTITEM_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTBRESTORE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTBSAVE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTCKEYDOWN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTOOLBARA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTOOLBARW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTOOLTIPSCREATED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTRBTHUMBPOSCHANGING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTREEVIEWA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTREEVIEWW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTTCUSTOMDRAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTTDISPINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTTDISPINFOW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTVASYNCDRAW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTVCUSTOMDRAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOEXW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVGETINFOTIPA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVGETINFOTIPW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVITEMCHANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVKEYDOWN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMTVSTATEIMAGECHANGING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMUPDOWN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NMVIEWCHANGE(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
@@ -2656,17 +2804,26 @@ pub const PBS_SMOOTH: u32 = 1u32;
 pub const PBS_SMOOTHREVERSE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PBS_VERTICAL: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDACOMPARE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDACOMPARECONST(i32);
 pub struct PFNDAENUMCALLBACK(i32);
 pub struct PFNDAENUMCALLBACKCONST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDPAMERGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNDPAMERGECONST(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct PFNDPASTREAM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNLVCOMPARE(i32);
 pub struct PFNLVGROUPCOMPARE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNPROPSHEETCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNTVCOMPARE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFTASKDIALOGCALLBACK(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
@@ -2722,10 +2879,12 @@ pub const PGS_HORZ: u32 = 1u32;
 pub const PGS_VERT: u32 = 0u32;
 pub struct POINTER_DEVICE_CURSOR_INFO(i32);
 pub struct POINTER_DEVICE_CURSOR_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct POINTER_DEVICE_INFO(i32);
 pub struct POINTER_DEVICE_PROPERTY(i32);
 pub struct POINTER_DEVICE_TYPE(i32);
 pub struct POINTER_FEEDBACK_MODE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_TYPE_INFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PRINTDLGEXORD: u32 = 1549u32;
@@ -2734,17 +2893,29 @@ pub const PRINTDLGORD: u32 = 1538u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PRNSETUPDLGORD: u32 = 1539u32;
 pub struct PROPERTYORIGIN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERA_V1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERA_V2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERW_V1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERW_V2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V3(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V3(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PROP_LG_CXDLG: u32 = 252u32;
@@ -2780,6 +2951,7 @@ pub const PSCB_BUTTONPRESSED: u32 = 3u32;
 pub const PSCB_INITIALIZED: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PSCB_PRECREATE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSHNOTIFY(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PSH_AEROWIZARD: u32 = 16384u32;
@@ -3032,6 +3204,7 @@ pub const RBBS_TOPALIGN: u32 = 2048u32;
 pub const RBBS_USECHEVRON: u32 = 512u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const RBBS_VARIABLEHEIGHT: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RBHITTESTINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const RBHT_CAPTION: u32 = 2u32;
@@ -3161,7 +3334,9 @@ pub const RB_SETWINDOWTHEME: u32 = 8203u32;
 pub const RB_SHOWBAND: u32 = 1059u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const RB_SIZETORECT: u32 = 1047u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct REBARBANDINFOA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct REBARBANDINFOW(i32);
 pub struct REBARINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -3272,7 +3447,9 @@ pub const STD_REPLACE: u32 = 13u32;
 pub const STD_UNDO: u32 = 3u32;
 pub struct TASKBANDPARTS(i32);
 pub struct TASKBARPARTS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct TASKDIALOGCONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TASKDIALOG_BUTTON(i32);
 pub struct TASKDIALOG_COMMON_BUTTON_FLAGS(i32);
 pub struct TASKDIALOG_ELEMENTS(i32);
@@ -3291,12 +3468,17 @@ pub struct TA_TRANSFORM_CLIP(i32);
 pub struct TA_TRANSFORM_FLAG(i32);
 pub struct TA_TRANSFORM_OPACITY(i32);
 pub struct TA_TRANSFORM_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TBADDBITMAP(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TBBF_LARGE: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct TBBUTTON(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct TBBUTTON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TBBUTTONINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TBBUTTONINFOW(i32);
 pub struct TBBUTTONINFOW_MASK(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -3410,8 +3592,11 @@ pub const TBM_SETUNICODEFORMAT: u32 = 8197u32;
 pub const TBNRF_ENDCUSTOMIZE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TBNRF_HIDEHELP: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TBREPLACEBITMAP(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct TBSAVEPARAMSA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct TBSAVEPARAMSW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TBSTATE_CHECKED: u32 = 1u32;
@@ -3753,16 +3938,21 @@ pub const TB_THUMBPOSITION: u32 = 4u32;
 pub const TB_THUMBTRACK: u32 = 5u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TB_TOP: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCHITTESTINFO(i32);
 pub struct TCHITTESTINFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TCIS_BUTTONPRESSED: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TCIS_HIGHLIGHTED: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMHEADERA(i32);
 pub struct TCITEMHEADERA_MASK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMHEADERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TCM_ADJUSTRECT: u32 = 4904u32;
@@ -3883,7 +4073,9 @@ pub const TCS_VERTICAL: u32 = 128u32;
 pub struct TEXTSHADOWTYPE(i32);
 pub struct THEMESIZE(i32);
 pub struct THEME_PROPERTY_SYMBOL_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TOUCH_HIT_TESTING_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION(i32);
 pub struct TRAILINGGRIDCELLSTATES(i32);
 pub struct TRAILINGGRIDCELLUPPERSTATES(i32);
@@ -3899,8 +4091,11 @@ pub const TTDT_INITIAL: u32 = 3u32;
 pub const TTDT_RESHOW: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TTF_DI_SETITEM: u32 = 32768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TTGETTITLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TTHITTESTINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TTHITTESTINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TTM_ACTIVATE: u32 = 1025u32;
@@ -4028,7 +4223,9 @@ pub const TTS_NOFADE: u32 = 32u32;
 pub const TTS_NOPREFIX: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TTS_USEVISUALSTYLE: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TTTOOLINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TTTOOLINFOW(i32);
 pub struct TTTOOLINFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -4049,6 +4246,7 @@ pub const TVE_EXPAND: u32 = 2u32;
 pub const TVE_EXPANDPARTIAL: u32 = 16384u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TVE_TOGGLE: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVGETITEMPARTRECTINFO(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TVGN_CARET: u32 = 9u32;
@@ -4074,9 +4272,12 @@ pub const TVGN_PREVIOUS: u32 = 2u32;
 pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TVGN_ROOT: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVHITTESTINFO(i32);
 pub struct TVHITTESTINFO_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVINSERTSTRUCTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVINSERTSTRUCTW(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TVIS_BOLD: u32 = 16u32;
@@ -4104,11 +4305,15 @@ pub const TVIS_SELECTED: u32 = 2u32;
 pub const TVIS_STATEIMAGEMASK: u32 = 61440u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TVIS_USERMASK: u32 = 61440u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMEXW(i32);
 pub struct TVITEMEXW_CHILDREN(i32);
 pub struct TVITEMPART(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMW(i32);
 pub struct TVITEM_MASK(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -4257,6 +4462,7 @@ pub const TVSIL_NORMAL: u32 = 0u32;
 pub const TVSIL_STATE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TVSORTCB(i32);
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const TVS_CHECKBOXES: u32 = 256u32;

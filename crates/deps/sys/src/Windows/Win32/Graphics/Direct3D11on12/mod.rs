@@ -9,4 +9,5 @@ pub struct D3D11_RESOURCE_FLAGS(i32);
 pub struct ID3D11On12Device(i32);
 pub struct ID3D11On12Device1(i32);
 pub struct ID3D11On12Device2(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
 pub struct PFN_D3D11ON12_CREATE_DEVICE(i32);

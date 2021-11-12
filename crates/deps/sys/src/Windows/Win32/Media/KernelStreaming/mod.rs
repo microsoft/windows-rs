@@ -48,6 +48,7 @@ pub const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const AUDIOMODULE_MAX_NAME_CCH_SIZE: u32 = 128u32;
 pub struct AUDIOPOSTURE_ORIENTATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP(i32);
 pub struct AUDIO_CURVE_TYPE(i32);
 pub struct AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION(i32);
@@ -178,6 +179,7 @@ pub const IOCTL_KS_WRITE_STREAM: u32 = 3112979u32;
 pub const JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const JACKDESC2_PRESENCE_DETECT_CAPABILITY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_ALTERNATE_AUDIO(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSAC3_ALTERNATE_AUDIO_1: u32 = 1u32;
@@ -187,8 +189,11 @@ pub const KSAC3_ALTERNATE_AUDIO_2: u32 = 2u32;
 pub const KSAC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
 pub struct KSAC3_BIT_STREAM_MODE(i32);
 pub struct KSAC3_DIALOGUE_LEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_DOWNMIX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_ERROR_CONCEALMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_ROOM_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSAC3_SERVICE_COMMENTARY: u32 = 5u32;
@@ -324,6 +329,7 @@ pub struct KSAUDIOMODULE_DESCRIPTOR(i32);
 pub struct KSAUDIOMODULE_NOTIFICATION(i32);
 pub struct KSAUDIOMODULE_PROPERTY(i32);
 pub struct KSAUDIO_CHANNEL_CONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_COPY_PROTECTION(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647u32;
@@ -332,8 +338,11 @@ pub const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: u32 = 0u32;
 pub struct KSAUDIO_DYNAMIC_RANGE(i32);
 pub struct KSAUDIO_MICROPHONE_COORDINATES(i32);
 pub struct KSAUDIO_MIC_ARRAY_GEOMETRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_MIXCAP_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_MIXLEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_MIX_CAPS(i32);
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS(i32);
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2(i32);
@@ -413,6 +422,7 @@ pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_OFF: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_ULTRALOWLIGHT: u64 = 8u64;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR: u64 = 1u64;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
@@ -625,11 +635,15 @@ pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_ON: u64 = 1u64;
 pub struct KSCAMERA_EXTENDEDPROP_ROITYPE(i32);
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS(i32);
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_INFO(i32);
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL(i32);
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: u64 = 0u64;
@@ -710,6 +724,7 @@ pub const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: u64 = 1u64;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: u64 = 2u64;
 pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK(i32);
 pub struct KSCAMERA_METADATA_CAPTURESTATS(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
@@ -970,6 +985,7 @@ pub struct KSDS3D_HRTF_FILTER_METHOD(i32);
 pub struct KSDS3D_HRTF_FILTER_QUALITY(i32);
 pub struct KSDS3D_HRTF_FILTER_VERSION(i32);
 pub struct KSDS3D_HRTF_INIT_MSG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSDS3D_HRTF_PARAMS_MSG(i32);
 pub struct KSDS3D_ITD_PARAMS(i32);
 pub struct KSDS3D_ITD_PARAMS_MSG(i32);
@@ -1002,6 +1018,7 @@ pub const KSDSOUND_BUFFER_PRIMARY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSDSOUND_BUFFER_STATIC: u32 = 2u32;
 pub struct KSERROR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENTDATA(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSEVENTF_DPC: u32 = 16u32;
@@ -1056,9 +1073,12 @@ pub struct KSEVENT_PINCAPS_CHANGENOTIFICATIONS(i32);
 pub struct KSEVENT_SOUNDDETECTOR(i32);
 pub struct KSEVENT_STREAMALLOCATOR(i32);
 pub struct KSEVENT_TELEPHONY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TIME_INTERVAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TIME_MARK(i32);
 pub struct KSEVENT_TUNER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TUNER_INITIATE_SCAN_S(i32);
 pub struct KSEVENT_TVAUDIO(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
@@ -1097,6 +1117,7 @@ pub const KSFILTER_FLAG_RECEIVE_ZERO_LENGTH_SAMPLES: u32 = 8u32;
 pub struct KSFRAMETIME(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSFRAMETIME_VARIABLESIZE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSGOP_USERDATA(i32);
 pub struct KSIDENTIFIER(i32);
 pub struct KSINTERFACESETID_FileIo(i32);
@@ -1106,9 +1127,11 @@ pub struct KSINTERFACE_FILEIO(i32);
 pub struct KSINTERFACE_MEDIA(i32);
 pub struct KSINTERFACE_STANDARD(i32);
 pub struct KSINTERVAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSJACK_DESCRIPTION(i32);
 pub struct KSJACK_DESCRIPTION2(i32);
 pub struct KSJACK_SINK_CONNECTIONTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSJACK_SINK_INFORMATION(i32);
 pub struct KSMEDIUMSETID_MidiBus(i32);
 pub struct KSMEDIUMSETID_Standard(i32);
@@ -1202,11 +1225,15 @@ pub const KSNODEPIN_SUM_MUX_IN: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSNODEPIN_SUM_MUX_OUT: u32 = 0u32;
 pub struct KSNODEPROPERTY(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER(i32);
 pub struct KSNODEPROPERTY_AUDIO_CHANNEL(i32);
 pub struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY(i32);
 pub struct KSNODETYPE_1394_DA_STREAM(i32);
 pub struct KSNODETYPE_1394_DV_STREAM_SOUNDTRACK(i32);
@@ -1312,6 +1339,7 @@ pub struct KSNOTIFICATIONID_AudioModule(i32);
 pub struct KSNOTIFICATIONID_SoundDetector(i32);
 pub struct KSPIN_CINSTANCES(i32);
 pub struct KSPIN_COMMUNICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPIN_CONNECT(i32);
 pub struct KSPIN_DATAFLOW(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
@@ -1452,9 +1480,11 @@ pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_ASYNC: i32 = -214748
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_AUTO: i32 = 1i32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_MANUAL: i32 = 2i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S(i32);
 pub struct KSPROPERTY_CAMERACONTROL_S(i32);
 pub struct KSPROPERTY_CAMERACONTROL_S2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_CAMERACONTROL_S_EX(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_AUTO: i32 = 4i32;
@@ -1491,7 +1521,9 @@ pub struct KSPROPERTY_EXTDEVICE(i32);
 pub struct KSPROPERTY_EXTDEVICE_S(i32);
 pub struct KSPROPERTY_EXTENSION_UNIT(i32);
 pub struct KSPROPERTY_EXTXPORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_NODE_S(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_S(i32);
 pub struct KSPROPERTY_FMRX_CONTROL(i32);
 pub struct KSPROPERTY_FMRX_TOPOLOGY(i32);
@@ -1520,6 +1552,7 @@ pub const KSPROPERTY_MEMORY_TRANSPORT: i32 = 1i32;
 pub struct KSPROPERTY_MPEG2VID(i32);
 pub struct KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(i32);
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO(i32);
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(i32);
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER(i32);
@@ -1561,8 +1594,10 @@ pub struct KSPROPERTY_TUNER_MODES(i32);
 pub struct KSPROPERTY_TUNER_MODE_CAPS_S(i32);
 pub struct KSPROPERTY_TUNER_MODE_S(i32);
 pub struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_TUNER_SCAN_CAPS_S(i32);
 pub struct KSPROPERTY_TUNER_SCAN_STATUS_S(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_TUNER_STANDARD_MODE_S(i32);
 pub struct KSPROPERTY_TUNER_STANDARD_S(i32);
 pub struct KSPROPERTY_TUNER_STATUS_S(i32);
@@ -1624,8 +1659,10 @@ pub struct KSPROPERTY_VIDCAP_VIDEOPROCAMP(i32);
 pub struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S(i32);
 pub struct KSPROPERTY_VIDEOCOMPRESSION_S(i32);
 pub struct KSPROPERTY_VIDEOCOMPRESSION_S1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S(i32);
 pub struct KSPROPERTY_VIDEOCONTROL_CAPS_S(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S(i32);
 pub struct KSPROPERTY_VIDEOCONTROL_MODE_S(i32);
 pub struct KSPROPERTY_VIDEODECODER_CAPS_S(i32);
@@ -1702,7 +1739,9 @@ pub struct KSP_NODE(i32);
 pub struct KSP_PIN(i32);
 pub struct KSP_TIMEFORMAT(i32);
 pub struct KSQUALITY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSQUALITY_MANAGER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSQUERYBUFFER(i32);
 pub struct KSRATE(i32);
 pub struct KSRATE_CAPABILITY(i32);
@@ -1710,6 +1749,7 @@ pub struct KSRATE_CAPABILITY(i32);
 pub const KSRATE_NOPRESENTATIONDURATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSRATE_NOPRESENTATIONSTART: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSRELATIVEEVENT(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSRELATIVEEVENT_FLAG_HANDLE: u32 = 1u32;
@@ -1717,18 +1757,22 @@ pub const KSRELATIVEEVENT_FLAG_HANDLE: u32 = 1u32;
 pub const KSRELATIVEEVENT_FLAG_POINTER: u32 = 2u32;
 pub struct KSRESET(i32);
 pub struct KSRESOLUTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_BUFFER32(i32);
 pub struct KSRTAUDIO_BUFFER_PROPERTY(i32);
 pub struct KSRTAUDIO_BUFFER_PROPERTY32(i32);
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION(i32);
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_GETREADPACKET_INFO(i32);
 pub struct KSRTAUDIO_HWLATENCY(i32);
 pub struct KSRTAUDIO_HWREGISTER(i32);
 pub struct KSRTAUDIO_HWREGISTER32(i32);
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY(i32);
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY(i32);
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32(i32);
 pub struct KSRTAUDIO_PACKETVREGISTER(i32);
@@ -1740,7 +1784,9 @@ pub struct KSSTREAMALLOCATOR_STATUS(i32);
 pub struct KSSTREAMALLOCATOR_STATUS_EX(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct KSSTREAM_HEADER(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct KSSTREAM_HEADER(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: u32 = 1024u32;
@@ -1811,6 +1857,7 @@ pub struct KSTOPOLOGY_ENDPOINTIDPAIR(i32);
 pub struct KSVPMAXPIXELRATE(i32);
 pub struct KSVPSIZE_PROP(i32);
 pub struct KSVPSURFACEPARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSWAVETABLE_WAVE_DESC(i32);
 pub struct KSWAVE_BUFFER(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
@@ -1834,7 +1881,9 @@ pub const KS_AMCONTROL_PAD_TO_4x3: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_AMCONTROL_USED: u32 = 1u32;
 pub struct KS_AMPixAspectRatio(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_AMVPDATAINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_AMVPDIMINFO(i32);
 pub struct KS_AMVPSIZE(i32);
 pub struct KS_AMVP_MODE(i32);
@@ -1844,6 +1893,7 @@ pub struct KS_AM_PROPERTY_TS_RATE_CHANGE(i32);
 pub struct KS_AM_SimpleRateChange(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_AM_UseNewCSSKey: i32 = 1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_AnalogVideoInfo(i32);
 pub struct KS_AnalogVideoStandard(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
@@ -1899,19 +1949,32 @@ pub struct KS_CameraControlAsyncOperation(i32);
 pub struct KS_CompressionCaps(i32);
 pub struct KS_DATAFORMAT_H264VIDEOINFO(i32);
 pub struct KS_DATAFORMAT_IMAGEINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_MPEGVIDEOINFO2(i32);
 pub struct KS_DATAFORMAT_VBIINFOHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_VIDEOINFO_PALETTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_ANALOGVIDEO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_H264_VIDEO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_IMAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_MPEG1_VIDEO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_MPEG2_VIDEO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO_PALETTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO_VBI(i32);
 pub struct KS_DVDCOPYSTATE(i32);
 pub struct KS_DVDCOPY_BUSKEY(i32);
@@ -1944,6 +2007,7 @@ pub const KS_DVD_SECTOR_PROTECTED: u32 = 32u32;
 pub const KS_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
 pub struct KS_DVD_YCrCb(i32);
 pub struct KS_DVD_YUV(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_FRAME_INFO(i32);
 pub struct KS_FRAMING_ITEM(i32);
 pub struct KS_FRAMING_RANGE(i32);
@@ -1979,6 +2043,7 @@ pub struct KS_LogicalMemoryType(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
 pub struct KS_MPEAUDIOINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_MPEG1VIDEOINFO(i32);
 pub struct KS_MPEG2Level(i32);
 pub struct KS_MPEG2Profile(i32);
@@ -2004,6 +2069,7 @@ pub const KS_MPEG2_SourceIsLetterboxed: u32 = 8u32;
 pub const KS_MPEG2_WidescreenAnalogOut: u32 = 512u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_MPEGAUDIOINFO_27MhzTimebase: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_MPEGVIDEOINFO2(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_ADVERTISER_BASE: u32 = 2224u32;
@@ -2091,8 +2157,11 @@ pub const KS_VBI_FLAG_TVTUNER_CHANGE: i32 = 16i32;
 pub const KS_VBI_FLAG_VBIINFOHEADER_CHANGE: i32 = 32i32;
 pub struct KS_VBI_FRAME_INFO(i32);
 pub struct KS_VIDEODECODER_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEOINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEOINFOHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEOINFOHEADER2(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_VIDEOSTREAM_CAPTURE: u32 = 2u32;
@@ -2140,6 +2209,7 @@ pub const KS_VIDEO_FLAG_P_FRAME: i32 = 16i32;
 pub const KS_VIDEO_FLAG_REPEAT_FIELD: i32 = 64i32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_VIDEO_FLAG_WEAVE: i32 = 8i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEO_STREAM_CONFIG_CAPS(i32);
 pub struct KS_VideoControlFlags(i32);
 pub struct KS_VideoStreamingHints(i32);
@@ -2161,6 +2231,7 @@ pub const KS_iPALETTE_COLORS: u32 = 256u32;
 pub const KS_iRED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const KS_iTRUECOLOR: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOOPEDSTREAMING_POSITION_EVENT_DATA(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const MAX_NABTS_VBI_LINES_PER_FIELD: u32 = 11u32;
@@ -2170,6 +2241,7 @@ pub const MAX_RESOURCEGROUPID_LENGTH: u32 = 256u32;
 pub const MAX_SINK_DESCRIPTION_NAME_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]
 pub const MAX_WST_VBI_LINES_PER_FIELD: u32 = 17u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MEDIUM_INFO(i32);
 pub struct MF_MDL_SHARED_PAYLOAD_KEY(i32);
 #[doc = "*Required features: `Win32_Media_KernelStreaming`*"]

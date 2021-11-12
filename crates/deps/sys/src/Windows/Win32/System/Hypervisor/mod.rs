@@ -287,13 +287,16 @@ extern "system" {
     #[doc = "*Required features: `Win32_System_Hypervisor`*"]
     pub fn WHvWriteVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOS_IMAGE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FOUND_IMAGE_CALLBACK(i32);
 pub struct GPA_MEMORY_CHUNK(i32);
 pub struct GUEST_OS_INFO(i32);
 pub struct GUEST_OS_MICROSOFT_IDS(i32);
 pub struct GUEST_OS_OPENSOURCE_IDS(i32);
 pub struct GUEST_OS_VENDOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK(i32);
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
 pub struct HDV_DEVICE_TYPE(i32);
@@ -304,7 +307,9 @@ pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 pub struct HDV_PCI_BAR_SELECTOR(i32);
 pub struct HDV_PCI_DEVICE_GET_DETAILS(i32);
 pub struct HDV_PCI_DEVICE_INITIALIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_INTERFACE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_SET_CONFIGURATION(i32);
 pub struct HDV_PCI_DEVICE_START(i32);
 pub struct HDV_PCI_DEVICE_STOP(i32);
@@ -357,6 +362,7 @@ pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1:
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MODULE_INFO(i32);
 pub struct PAGING_MODE(i32);
 pub struct REGISTER_ID(i32);
@@ -374,6 +380,7 @@ pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_ANY_VP: u32 = 4294967295u32;
 pub struct WHV_CACHE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHV_CAPABILITY(i32);
 pub struct WHV_CAPABILITY_CODE(i32);
 pub struct WHV_CAPABILITY_FEATURES(i32);
@@ -415,6 +422,7 @@ pub struct WHV_NOTIFICATION_PORT_TYPE(i32);
 pub struct WHV_PARTITION_COUNTER_SET(i32);
 pub struct WHV_PARTITION_HANDLE(i32);
 pub struct WHV_PARTITION_MEMORY_COUNTERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHV_PARTITION_PROPERTY(i32);
 pub struct WHV_PARTITION_PROPERTY_CODE(i32);
 pub struct WHV_PROCESSOR_APIC_COUNTERS(i32);
@@ -441,6 +449,7 @@ pub struct WHV_RUN_VP_CANCEL_REASON(i32);
 pub struct WHV_RUN_VP_EXIT_CONTEXT(i32);
 pub struct WHV_RUN_VP_EXIT_REASON(i32);
 pub struct WHV_SCHEDULER_FEATURES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR(i32);
 pub struct WHV_SYNIC_EVENT_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]

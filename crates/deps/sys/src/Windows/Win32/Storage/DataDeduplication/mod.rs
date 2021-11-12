@@ -19,6 +19,7 @@ pub struct DedupDataPortRequestStatus(i32);
 pub struct DedupDataPortVolumeStatus(i32);
 pub struct DedupHash(i32);
 pub struct DedupHashingAlgorithm(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DedupStream(i32);
 pub struct DedupStreamEntry(i32);
 pub struct IDedupBackupSupport(i32);

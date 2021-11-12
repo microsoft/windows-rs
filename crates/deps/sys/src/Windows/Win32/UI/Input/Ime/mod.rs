@@ -249,6 +249,7 @@ extern "system" {
     pub fn ImmUnregisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszunregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
 }
 pub struct APPLETIDLIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPLYCANDEXPARAM(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const ATTR_CONVERTED: u32 = 2u32;
@@ -262,6 +263,7 @@ pub const ATTR_INPUT_ERROR: u32 = 4u32;
 pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CANDIDATEFORM(i32);
 pub struct CANDIDATEINFO(i32);
 pub struct CANDIDATELIST(i32);
@@ -329,6 +331,7 @@ pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::
     data3: 18203,
     data4: [174, 231, 125, 51, 39, 133, 102, 13],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMPOSITIONFORM(i32);
 pub struct COMPOSITIONSTRING(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -677,6 +680,7 @@ pub struct IImePad(i32);
 pub struct IImePadApplet(i32);
 pub struct IImePlugInDictDictionaryList(i32);
 pub struct IImeSpecifyApplets(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub struct IMCENUMPROC(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
@@ -718,12 +722,17 @@ pub const IMC_SETSOFTKBDPOS: u32 = 20u32;
 pub const IMC_SETSOFTKBDSUBTYPE: u32 = 22u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMC_SETSTATUSWINDOWPOS: u32 = 16u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct IMEAPPLETCFG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEAPPLETUI(i32);
 pub struct IMECHARINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMECHARPOSITION(i32);
 pub struct IMECOMPOSITIONSTRINGINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEDLG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEDP(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
@@ -747,12 +756,17 @@ pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKEYCTRL_UP: u32 = 1u32;
+#[cfg(feature = "Win32_Globalization")]
 pub struct IMEKMS(i32);
 pub struct IMEKMSFUNCDESC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEKMSINIT(i32);
+#[cfg(feature = "Win32_Globalization")]
 pub struct IMEKMSINVK(i32);
 pub struct IMEKMSKEY(i32);
+#[cfg(feature = "Win32_Globalization")]
 pub struct IMEKMSKMP(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub struct IMEKMSNTFY(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKMS_2NDLEVEL: u32 = 4u32;
@@ -770,7 +784,9 @@ pub const IMEKMS_NOCOMPOSITION: u32 = 0u32;
 pub const IMEKMS_SELECTION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKMS_TYPECAND: u32 = 7u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct IMEMENUITEMINFOA(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMEMENUITEMINFOW(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
@@ -888,14 +904,18 @@ pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
 pub struct IMEREG(i32);
 pub struct IMEREL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMESHF(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMESTRINGCANDIDATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMESTRINGCANDIDATEINFO(i32);
 pub struct IMEUCT(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEVER_0310: u32 = 196618u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEVER_0400: u32 = 262144u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEWRD(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IME_CAND_CODE: u32 = 2u32;
@@ -1128,6 +1148,7 @@ pub const INIT_SENTENCE: u32 = 4u32;
 pub const INIT_SOFTKBDPOS: u32 = 32u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const INIT_STATUSWNDPOS: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub struct INPUTCONTEXT(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IPACFG_CATEGORY: i32 = 262144i32;
@@ -1543,6 +1564,7 @@ pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const MOD_RIGHT: u32 = 16384u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MORRSLT(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const NI_CONTEXTUPDATED: u32 = 3u32;
@@ -1550,6 +1572,7 @@ pub const NI_CONTEXTUPDATED: u32 = 3u32;
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
 pub struct NOTIFY_IME_ACTION(i32);
 pub struct NOTIFY_IME_INDEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNLOG(i32);
 pub struct POSTBL(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -1559,9 +1582,13 @@ pub struct RECONVERTSTRING(i32);
 pub const RECONVOPT_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDENUMPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDW(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
@@ -1585,11 +1612,14 @@ pub struct SOFTKBDDATA(i32);
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STYLEBUFA(i32);
 pub struct STYLEBUFW(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRANSMSG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRANSMSGLIST(i32);
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const UI_CAP_2700: u32 = 1u32;
@@ -1622,4 +1652,5 @@ pub struct fpCreateIFECommonInstanceType(i32);
 pub struct fpCreateIFEDictionaryInstanceType(i32);
 pub struct fpCreateIFELanguageInstanceType(i32);
 pub struct tabIMEFAREASTINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct tabIMESTRINGINFO(i32);

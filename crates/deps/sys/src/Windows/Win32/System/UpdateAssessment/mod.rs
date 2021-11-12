@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct IWaaSAssessor(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OSUpdateAssessment(i32);
 pub struct UpdateAssessment(i32);
 pub struct UpdateAssessmentStatus(i32);

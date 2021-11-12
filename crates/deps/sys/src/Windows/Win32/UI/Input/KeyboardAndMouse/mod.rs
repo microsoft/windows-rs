@@ -390,6 +390,7 @@ pub const TONOS: u32 = 900u32;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRACKMOUSEEVENT(i32);
 pub struct TRACKMOUSEEVENT_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -442,6 +443,7 @@ pub struct VK_TO_WCHAR_TABLE(i32);
 pub struct VK_VSC(i32);
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const VK__none_: u32 = 255u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct VSC_LPWSTR(i32);
 pub struct VSC_VK(i32);
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
@@ -452,5 +454,6 @@ pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;
 pub struct _VK_FUNCTION_PARAM(i32);
 pub struct _VK_TO_FUNCTION_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct tagKbdLayer(i32);
 pub struct tagKbdNlsLayer(i32);

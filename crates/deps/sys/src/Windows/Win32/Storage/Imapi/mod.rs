@@ -634,6 +634,7 @@ pub const MP_STATUS_SUCCESS: u32 = 0u32;
 pub struct MSDiscMasterObj(i32);
 pub struct MSDiscRecorderObj(i32);
 pub struct MSEnumDiscRecordersObj(i32);
+#[cfg(feature = "Win32_System_AddressBook")]
 pub struct MSGCALLRELEASE(i32);
 pub struct MsftDiscFormat2Data(i32);
 pub struct MsftDiscFormat2Erase(i32);

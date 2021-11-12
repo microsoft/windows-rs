@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[cfg(feature = "Foundation_Collections")]
 pub struct HostMessageReceivedCallback(i32);
 pub struct IIsolatedWindowsEnvironment(i32);
 pub struct IIsolatedWindowsEnvironment2(i32);
@@ -62,4 +63,5 @@ pub struct IsolatedWindowsEnvironmentStartProcessStatus(i32);
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(i32);
 pub struct IsolatedWindowsEnvironmentUserInfo(i32);
 pub struct IsolatedWindowsHostMessenger(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct MessageReceivedCallback(i32);

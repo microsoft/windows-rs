@@ -956,11 +956,17 @@ pub const CLCTL_INTERNAL_SHIFT: u32 = 20u32;
 pub const CLCTL_MODIFY_SHIFT: u32 = 22u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLCTL_USER_SHIFT: u32 = 21u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_FUNCTION_TABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V1_FUNCTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V2_FUNCTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V3_FUNCTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V4_FUNCTIONS(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLRES_VERSION_V1_00: u32 = 256u32;
@@ -1069,6 +1075,7 @@ pub const CLUSCTL_FUNCTION_SHIFT: u32 = 2u32;
 pub const CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1: u32 = 1u32;
 pub struct CLUSCTL_GROUPSET_CODES(i32);
 pub struct CLUSCTL_GROUP_CODES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT(i32);
 pub struct CLUSCTL_NETINTERFACE_CODES(i32);
 pub struct CLUSCTL_NETWORK_CODES(i32);
@@ -1125,8 +1132,10 @@ pub const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: u64 = 4u64;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSGRP_STATUS_WAITING_TO_START: u64 = 16u64;
 pub struct CLUSPROP_BINARY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct CLUSPROP_BUFFER_HELPER(i32);
 pub struct CLUSPROP_DWORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSPROP_FILETIME(i32);
 pub struct CLUSPROP_FTSET_INFO(i32);
 pub struct CLUSPROP_IPADDR_ENABLENETBIOS(i32);
@@ -1141,6 +1150,7 @@ pub struct CLUSPROP_REQUIRED_DEPENDENCY(i32);
 pub struct CLUSPROP_RESOURCE_CLASS(i32);
 pub struct CLUSPROP_RESOURCE_CLASS_INFO(i32);
 pub struct CLUSPROP_SCSI_ADDRESS(i32);
+#[cfg(feature = "Win32_System_SystemServices")]
 pub struct CLUSPROP_SECURITY_DESCRIPTOR(i32);
 pub struct CLUSPROP_SYNTAX(i32);
 pub struct CLUSPROP_SZ(i32);
@@ -1196,9 +1206,11 @@ pub const CLUSRES_STATUS_UNMONITORED: u64 = 64u64;
 pub struct CLUSTERSET_OBJECT_TYPE(i32);
 pub struct CLUSTERVERSIONINFO(i32);
 pub struct CLUSTERVERSIONINFO_NT4(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_AVAILABILITY_SET_CONFIG(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_BATCH_COMMAND(i32);
 pub struct CLUSTER_CHANGE(i32);
 pub struct CLUSTER_CHANGE_CLUSTER_V2(i32);
@@ -1227,6 +1239,7 @@ pub struct CLUSTER_CSV_VOLUME_FAULT_STATE(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
 pub struct CLUSTER_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_ENUM_ITEM(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
@@ -1234,6 +1247,7 @@ pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
 pub struct CLUSTER_GROUP_AUTOFAILBACK_TYPE(i32);
 pub struct CLUSTER_GROUP_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_GROUP_ENUM_ITEM(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
@@ -1241,9 +1255,11 @@ pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 pub struct CLUSTER_GROUP_PRIORITY(i32);
 pub struct CLUSTER_GROUP_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_HEALTH_FAULT(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_HEALTH_FAULT_ARRAY(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
@@ -1261,7 +1277,9 @@ pub const CLUSTER_HEALTH_FAULT_PROVIDER: u32 = 4u32;
 pub const CLUSTER_HEALTH_FAULT_RESERVED: u32 = 6u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_INSTALLED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_IP_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_MEMBERSHIP_INFO(i32);
 pub struct CLUSTER_MGMT_POINT_RESTYPE(i32);
 pub struct CLUSTER_MGMT_POINT_TYPE(i32);
@@ -1281,6 +1299,7 @@ pub struct CLUSTER_PROPERTY_SYNTAX(i32);
 pub struct CLUSTER_PROPERTY_TYPE(i32);
 pub struct CLUSTER_QUORUM_TYPE(i32);
 pub struct CLUSTER_QUORUM_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_READ_BATCH_COMMAND(i32);
 pub struct CLUSTER_REG_COMMAND(i32);
 pub struct CLUSTER_RESOURCE_APPLICATION_STATE(i32);
@@ -1288,6 +1307,7 @@ pub struct CLUSTER_RESOURCE_CLASS(i32);
 pub struct CLUSTER_RESOURCE_CREATE_FLAGS(i32);
 pub struct CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(i32);
 pub struct CLUSTER_RESOURCE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
@@ -1308,6 +1328,7 @@ pub struct CLUSTER_SETUP_PHASE_TYPE(i32);
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUSTER_SET_PASSWORD_STATUS(i32);
 pub struct CLUSTER_SHARED_VOLUME_BACKUP_STATE(i32);
 pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT(i32);
@@ -1343,10 +1364,12 @@ pub struct CLUS_CHKDSK_INFO(i32);
 pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1u32;
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT(i32);
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_CSV_MAINTENANCE_MODE_INFO(i32);
 pub struct CLUS_CSV_VOLUME_INFO(i32);
 pub struct CLUS_CSV_VOLUME_NAME(i32);
 pub struct CLUS_DISK_NUMBER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_DNN_LEADER_STATUS(i32);
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS(i32);
 pub struct CLUS_FLAGS(i32);
@@ -1361,7 +1384,9 @@ pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0u32;
 pub const CLUS_GRP_MOVE_LOCKED: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_HYBRID_QUORUM: u32 = 1024u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_MAINTENANCE_MODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_MODIFY: u32 = 1u32;
@@ -1369,6 +1394,7 @@ pub struct CLUS_NETNAME_IP_INFO_ENTRY(i32);
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL(i32);
 pub struct CLUS_NETNAME_PWD_INFO(i32);
 pub struct CLUS_NETNAME_PWD_INFOEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_NETNAME_VS_TOKEN_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0u32;
@@ -1413,18 +1439,23 @@ pub struct CLUS_RESSUBCLASS(i32);
 pub struct CLUS_RESSUBCLASS_NETWORK(i32);
 pub struct CLUS_RESSUBCLASS_STORAGE(i32);
 pub struct CLUS_SCSI_ADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_SET_MAINTENANCE_MODE_INPUT(i32);
 pub struct CLUS_SHARED_VOLUME_BACKUP_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_STARTING_PARAMS(i32);
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS(i32);
 pub struct CLUS_STORAGE_REMAP_DRIVELETTER(i32);
 pub struct CLUS_STORAGE_SET_DRIVELETTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLUS_WORKER(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CREATEDC_PRESENT: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_CLUSTER_CONFIG(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
@@ -1575,6 +1606,7 @@ pub const MAX_CREATINGDC_LENGTH: u32 = 256u32;
 pub const MAX_OBJECTID: u32 = 64u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const MN_UPGRADE_VERSION: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONITOR_STATE(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const NINETEEN_H1_UPGRADE_VERSION: u32 = 1u32;
@@ -1610,60 +1642,89 @@ pub const NT8_MAJOR_VERSION: u32 = 7u32;
 pub const NT9_MAJOR_VERSION: u32 = 8u32;
 pub struct NodeUtilizationInfoElement(i32);
 pub struct PARBITRATE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PBEGIN_RESCALL_AS_USER_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PBEGIN_RESCALL_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PBEGIN_RESTYPECALL_AS_USER_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PBEGIN_RESTYPECALL_ROUTINE(i32);
 pub struct PCANCEL_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCHANGE_RESOURCE_PROCESS_FOR_DUMPS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS(i32);
 pub struct PCLOSE_CLUSTER_CRYPT_PROVIDER(i32);
 pub struct PCLOSE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPIClusWorkerCheckTerminate(i32);
 pub struct PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY(i32);
 pub struct PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY(i32);
 pub struct PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_ADD_CLUSTER_NODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_ADD_CLUSTER_NODE_EX(i32);
 pub struct PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY(i32);
 pub struct PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY(i32);
 pub struct PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_BACKUP_CLUSTER_DATABASE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT(i32);
 pub struct PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP(i32);
 pub struct PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER_GROUP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER_NETWORK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER_NODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLOSE_CLUSTER_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE(i32);
 pub struct PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL(i32);
 pub struct PCLUSAPI_CLUSTER_CLOSE_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_CLOSE_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_CONTROL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_GET_ENUM_COUNT(i32);
 pub struct PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX(i32);
 pub struct PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_GROUP_CONTROL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_GROUP_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_GROUP_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT(i32);
 pub struct PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX(i32);
 pub struct PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL(i32);
 pub struct PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_NETWORK_CONTROL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_NETWORK_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT(i32);
 pub struct PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM(i32);
@@ -1671,7 +1732,9 @@ pub struct PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL(i32);
 pub struct PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_NODE_CONTROL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_NODE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_NODE_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT(i32);
 pub struct PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX(i32);
@@ -1679,55 +1742,90 @@ pub struct PCLUSAPI_CLUSTER_NODE_OPEN_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_OPEN_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_OPEN_ENUM_EX(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_CLUSTER_REG_CLOSE_KEY(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_CLUSTER_REG_CREATE_BATCH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_CREATE_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_DELETE_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_DELETE_VALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_ENUM_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_ENUM_VALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_OPEN_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_QUERY_VALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_CLUSTER_REG_SET_VALUE(i32);
 pub struct PCLUSAPI_CLUSTER_REG_SYNC_DATABASE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE(i32);
 pub struct PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUP_GROUPSET(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_CONTROL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_RESOURCE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(i32);
 pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUSTER_UPGRADE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUS_WORKER_CREATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CLUS_WORKER_TERMINATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_CNOLESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_GROUP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_GROUPEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT(i32);
 pub struct PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT(i32);
 pub struct PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE(i32);
 pub struct PCLUSAPI_DELETE_CLUSTER_GROUP(i32);
 pub struct PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET(i32);
 pub struct PCLUSAPI_DELETE_CLUSTER_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_DESTROY_CLUSTER(i32);
 pub struct PCLUSAPI_DESTROY_CLUSTER_GROUP(i32);
 pub struct PCLUSAPI_EVICT_CLUSTER_NODE(i32);
@@ -1739,52 +1837,89 @@ pub struct PCLUSAPI_GET_CLUSTER_FROM_NETWORK(i32);
 pub struct PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE(i32);
 pub struct PCLUSAPI_GET_CLUSTER_FROM_NODE(i32);
 pub struct PCLUSAPI_GET_CLUSTER_FROM_RESOURCE(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_GET_CLUSTER_GROUP_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_GROUP_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_INFORMATION(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_GET_CLUSTER_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_NETWORK_ID(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_GET_CLUSTER_NETWORK_KEY(i32);
 pub struct PCLUSAPI_GET_CLUSTER_NETWORK_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_NET_INTERFACE(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY(i32);
 pub struct PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_NODE_ID(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_GET_CLUSTER_NODE_KEY(i32);
 pub struct PCLUSAPI_GET_CLUSTER_NODE_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_NOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_NOTIFY_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_NODE_CLUSTER_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME(i32);
 pub struct PCLUSAPI_MOVE_CLUSTER_GROUP(i32);
 pub struct PCLUSAPI_OFFLINE_CLUSTER_GROUP(i32);
 pub struct PCLUSAPI_OFFLINE_CLUSTER_RESOURCE(i32);
 pub struct PCLUSAPI_ONLINE_CLUSTER_GROUP(i32);
 pub struct PCLUSAPI_ONLINE_CLUSTER_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_GROUP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_GROUP_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_NETWORK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_NETWORK_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_NODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_NODE_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX(i32);
 pub struct PCLUSAPI_OPEN_NODE_BY_ID(i32);
 pub struct PCLUSAPI_PAUSE_CLUSTER_NODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_PAUSE_CLUSTER_NODE_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_REGISTER_CLUSTER_NOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2(i32);
 pub struct PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY(i32);
 pub struct PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY(i32);
@@ -1792,168 +1927,292 @@ pub struct PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(i32);
 pub struct PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT(i32);
 pub struct PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY(i32);
 pub struct PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY(i32);
 pub struct PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES(i32);
 pub struct PCLUSAPI_RESTART_CLUSTER_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_RESTORE_CLUSTER_DATABASE(i32);
 pub struct PCLUSAPI_RESUME_CLUSTER_NODE(i32);
 pub struct PCLUSAPI_RESUME_CLUSTER_NODE_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_CLUSTER_GROUP_NAME(i32);
 pub struct PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_CLUSTER_NETWORK_NAME(i32);
 pub struct PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_CLUSTER_RESOURCE_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSAPI_SetClusterName(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_CLEAR_BACKUP_STATE_FOR_SHARED_VOLUME(i32);
 pub struct PCLUSTER_DECRYPT(i32);
 pub struct PCLUSTER_ENCRYPT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_GET_VOLUME_PATH_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_IS_PATH_ON_SHARED_VOLUME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_REG_BATCH_ADD_COMMAND(i32);
 pub struct PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_REG_BATCH_READ_COMMAND(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_REG_CLOSE_BATCH(i32);
 pub struct PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT(i32);
 pub struct PCLUSTER_REG_CLOSE_READ_BATCH(i32);
 pub struct PCLUSTER_REG_CLOSE_READ_BATCH_EX(i32);
 pub struct PCLUSTER_REG_CLOSE_READ_BATCH_REPLY(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PCLUSTER_REG_CREATE_READ_BATCH(i32);
 pub struct PCLUSTER_REG_GET_BATCH_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_REG_READ_BATCH_ADD_COMMAND(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_SETUP_PROGRESS_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_SET_ACCOUNT_ACCESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PCLUSTER_UPGRADE_PROGRESS_CALLBACK(i32);
 pub struct PEND_CONTROL_CALL(i32);
 pub struct PEND_TYPE_CONTROL_CALL(i32);
 pub struct PEXTEND_RES_CONTROL_CALL(i32);
 pub struct PEXTEND_RES_TYPE_CONTROL_CALL(i32);
 pub struct PFREE_CLUSTER_CRYPT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PIS_ALIVE_ROUTINE(i32);
 pub struct PLACEMENT_OPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLOG_EVENT_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLOOKS_ALIVE_ROUTINE(i32);
 pub struct POFFLINE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POFFLINE_V2_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PONLINE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PONLINE_V2_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POPEN_CLUSTER_CRYPT_PROVIDER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POPEN_CLUSTER_CRYPT_PROVIDEREX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct POPEN_ROUTINE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct POPEN_V2_ROUTINE(i32);
 pub struct POST_UPGRADE_VERSION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PQUERY_APPINSTANCE_VERSION(i32);
 pub struct PQUORUM_RESOURCE_LOST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRAISE_RES_TYPE_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PREGISTER_APPINSTANCE(i32);
 pub struct PREGISTER_APPINSTANCE_VERSION(i32);
 pub struct PRELEASE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PREQUEST_DUMP_ROUTINE(i32);
 pub struct PRESET_ALL_APPINSTANCE_VERSIONS(i32);
 pub struct PRESOURCE_CONTROL_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESOURCE_TYPE_CONTROL_ROUTINE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_ADD_UNKNOWN_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_CREATE_DIRECTORY_TREE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_DUP_PARAMETER_BLOCK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_DUP_STRING(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_ENUM_PRIVATE_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_ENUM_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_ENUM_RESOURCES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_ENUM_RESOURCES_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_ENUM_RESOURCES_EX2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_EXPAND_ENVIRONMENT_STRINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_BINARY_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_DWORD_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_EXPANDED_SZ_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_EXPAND_SZ_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_FILETIME_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_LONG_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_MULTI_SZ_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_SZ_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FIND_ULARGEINTEGER_PROPERTY(i32);
 pub struct PRESUTIL_FREE_ENVIRONMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_FREE_PARAMETER_BLOCK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_ALL_PROPERTIES(i32);
 pub struct PRESUTIL_GET_BINARY_PROPERTY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_BINARY_VALUE(i32);
 pub struct PRESUTIL_GET_CORE_CLUSTER_RESOURCES(i32);
 pub struct PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX(i32);
 pub struct PRESUTIL_GET_DWORD_PROPERTY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_DWORD_VALUE(i32);
 pub struct PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_EXPAND_SZ_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_FILETIME_PROPERTY(i32);
 pub struct PRESUTIL_GET_LONG_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_MULTI_SZ_PROPERTY(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PRESUTIL_GET_PRIVATE_PROPERTIES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_PROPERTIES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_PROPERTY_FORMATS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_PROPERTY_SIZE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_QWORD_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_GET_SZ_PROPERTY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_GET_SZ_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_IS_PATH_VALID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_IS_RESOURCE_CLASS_EQUAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_RESOURCES_EQUAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_RESOURCE_TYPES_EQUAL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_BINARY_VALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_DWORD_VALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_EXPAND_SZ_VALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_MULTI_SZ_VALUE(i32);
+#[cfg(feature = "Win32_System_Registry")]
 pub struct PRESUTIL_SET_PRIVATE_PROPERTY_LIST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_PROPERTY_TABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_PROPERTY_TABLE_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_QWORD_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_SZ_VALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PRESUTIL_SET_UNKNOWN_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_START_RESOURCE_SERVICE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_STOP_RESOURCE_SERVICE(i32);
+#[cfg(feature = "Win32_Security")]
 pub struct PRESUTIL_STOP_SERVICE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL(i32);
 pub struct PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_VERIFY_PROPERTY_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRESUTIL_VERIFY_RESOURCE_SERVICE(i32);
+#[cfg(feature = "Win32_Security")]
 pub struct PRESUTIL_VERIFY_SERVICE(i32);
 pub struct PRES_UTIL_VERIFY_SHUTDOWN_SAFE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSET_INTERNAL_STATE(i32);
 pub struct PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSET_RESOURCE_LOCKED_MODE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSET_RESOURCE_STATUS_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSET_RESOURCE_STATUS_ROUTINE_EX(i32);
 pub struct PSIGNAL_FAILURE_ROUTINE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PSTARTUP_EX_ROUTINE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PSTARTUP_ROUTINE(i32);
 pub struct PTERMINATE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWORKER_START_ROUTINE(i32);
 pub struct PaxosTagCStruct(i32);
 pub struct RESDLL_CONTEXT_OPERATION_TYPE(i32);
@@ -1963,15 +2222,20 @@ pub struct RESOURCE_FAILURE_INFO_BUFFER(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
 pub struct RESOURCE_MONITOR_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESOURCE_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESOURCE_STATUS_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESUTIL_FILETIME_DATA(i32);
 pub struct RESUTIL_LARGEINT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESUTIL_PROPERTY_ITEM(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8u32;
@@ -2005,17 +2269,22 @@ pub const RedirectedIOReasonUserRequest: u64 = 1u64;
 pub struct ResourceUtilizationInfoElement(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SET_APP_INSTANCE_CSV_FLAGS(i32);
 pub struct SR_DISK_REPLICATION_ELIGIBLE(i32);
 pub struct SR_REPLICATED_DISK_TYPE(i32);
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP(i32);
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT(i32);
 pub struct SR_RESOURCE_TYPE_DISK_INFO(i32);
 pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS(i32);
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISK(i32);
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT(i32);

@@ -100,6 +100,7 @@ extern "system" {
     #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
     pub fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows_sys::core::HRESULT;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub struct CF_CALLBACK(i32);
 pub struct CF_CALLBACK_CANCEL_FLAGS(i32);
 pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(i32);
@@ -110,9 +111,12 @@ pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(i32);
 pub struct CF_CALLBACK_DELETE_FLAGS(i32);
 pub struct CF_CALLBACK_FETCH_DATA_FLAGS(i32);
 pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub struct CF_CALLBACK_INFO(i32);
 pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub struct CF_CALLBACK_REGISTRATION(i32);
 pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(i32);
 pub struct CF_CALLBACK_RENAME_FLAGS(i32);
@@ -124,6 +128,7 @@ pub struct CF_CONVERT_FLAGS(i32);
 pub struct CF_CREATE_FLAGS(i32);
 pub struct CF_DEHYDRATE_FLAGS(i32);
 pub struct CF_FILE_RANGE(i32);
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_FS_METADATA(i32);
 pub struct CF_HARDLINK_POLICY(i32);
 pub struct CF_HYDRATE_FLAGS(i32);
@@ -145,7 +150,9 @@ pub struct CF_OPERATION_ACK_DATA_FLAGS(i32);
 pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(i32);
 pub struct CF_OPERATION_ACK_DELETE_FLAGS(i32);
 pub struct CF_OPERATION_ACK_RENAME_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub struct CF_OPERATION_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS(i32);
 pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(i32);
 pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(i32);
@@ -155,6 +162,7 @@ pub struct CF_OPERATION_TYPE(i32);
 pub struct CF_PIN_STATE(i32);
 pub struct CF_PLACEHOLDER_BASIC_INFO(i32);
 pub struct CF_PLACEHOLDER_CREATE_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_PLACEHOLDER_CREATE_INFO(i32);
 pub struct CF_PLACEHOLDER_INFO_CLASS(i32);
 pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(i32);
@@ -169,6 +177,7 @@ pub struct CF_POPULATION_POLICY_MODIFIER(i32);
 pub struct CF_POPULATION_POLICY_MODIFIER_USHORT(i32);
 pub struct CF_POPULATION_POLICY_PRIMARY(i32);
 pub struct CF_POPULATION_POLICY_PRIMARY_USHORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_PROCESS_INFO(i32);
 pub struct CF_REGISTER_FLAGS(i32);
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
@@ -178,6 +187,7 @@ pub struct CF_SET_IN_SYNC_FLAGS(i32);
 pub struct CF_SET_PIN_FLAGS(i32);
 pub struct CF_SYNC_POLICIES(i32);
 pub struct CF_SYNC_PROVIDER_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_SYNC_REGISTRATION(i32);
 pub struct CF_SYNC_ROOT_BASIC_INFO(i32);
 pub struct CF_SYNC_ROOT_INFO_CLASS(i32);

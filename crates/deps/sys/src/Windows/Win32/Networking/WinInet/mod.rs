@@ -867,7 +867,9 @@ extern "system" {
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const ANY_CACHE_ENTRY: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct APP_CACHE_DOWNLOAD_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APP_CACHE_DOWNLOAD_LIST(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const APP_CACHE_ENTRY_TYPE_EXPLICIT: u32 = 2u32;
@@ -880,7 +882,9 @@ pub const APP_CACHE_ENTRY_TYPE_MANIFEST: u32 = 16u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const APP_CACHE_ENTRY_TYPE_MASTER: u32 = 1u32;
 pub struct APP_CACHE_FINALIZE_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APP_CACHE_GROUP_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APP_CACHE_GROUP_LIST(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const APP_CACHE_LOOKUP_NO_MASTER_ONLY: u32 = 1u32;
@@ -915,6 +919,7 @@ pub const AUTO_PROXY_FLAG_DONT_CACHE_PROXY_RESULT: u32 = 16u32;
 pub const AUTO_PROXY_FLAG_MIGRATED: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const AUTO_PROXY_FLAG_USER_SET: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUTO_PROXY_SCRIPT_BUFFER(i32);
 pub struct AutoProxyHelperFunctions(i32);
 pub struct AutoProxyHelperVtbl(i32);
@@ -1065,6 +1070,7 @@ pub const CACHE_NOTIFY_UPDATE_URL: u32 = 4u32;
 pub const CACHE_NOTIFY_URL_SET_STICKY: u32 = 16u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const CACHE_NOTIFY_URL_UNSET_STICKY: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CACHE_OPERATOR(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const COOKIE_ACCEPTED_CACHE_ENTRY: u32 = 4096u32;
@@ -1074,6 +1080,7 @@ pub const COOKIE_ALLOW: u32 = 2u32;
 pub const COOKIE_ALLOW_ALL: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const COOKIE_CACHE_ENTRY: u32 = 1048576u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct COOKIE_DLG_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const COOKIE_DONT_ALLOW: u32 = 1u32;
@@ -1101,6 +1108,7 @@ pub const COOKIE_REJECTED_CACHE_ENTRY: u32 = 32768u32;
 pub const COOKIE_STATE_LB: u32 = 0u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const COOKIE_STATE_UB: u32 = 5u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CookieDecision(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const DIALENG_OperationComplete: u32 = 65536u32;
@@ -1382,6 +1390,7 @@ pub struct FTP_FLAGS(i32);
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_ATTRIBUTE_ENUMERATOR(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526u32;
@@ -1419,6 +1428,7 @@ pub const GOPHER_ATTRIBUTE_ID_UNKNOWN: u32 = 2882325529u32;
 pub const GOPHER_ATTRIBUTE_ID_VERSION: u32 = 2882325525u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const GOPHER_ATTRIBUTE_ID_VIEW: u32 = 2882325527u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_ATTRIBUTE_TYPE(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const GOPHER_CATEGORY_ID_ABSTRACT: u32 = 2882325509u32;
@@ -1436,10 +1446,13 @@ pub const GOPHER_CATEGORY_ID_UNKNOWN: u32 = 2882325512u32;
 pub const GOPHER_CATEGORY_ID_VERONICA: u32 = 2882325510u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const GOPHER_CATEGORY_ID_VIEWS: u32 = 2882325508u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_FIND_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_FIND_DATAW(i32);
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE(i32);
@@ -1450,6 +1463,7 @@ pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_TYPE(i32);
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE(i32);
@@ -1502,6 +1516,7 @@ pub struct HTTP_POLICY_EXTENSION_VERSION(i32);
 pub const HTTP_PROTOCOL_FLAG_HTTP2: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const HTTP_PROTOCOL_MASK: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_PUSH_NOTIFICATION_STATUS(i32);
 pub struct HTTP_PUSH_TRANSPORT_SETTING(i32);
 pub struct HTTP_PUSH_WAIT_HANDLE(i32);
@@ -1778,17 +1793,24 @@ pub const INTERNET_AUTOPROXY_INIT_DOWNLOADSYNC: u32 = 2u32;
 pub const INTERNET_AUTOPROXY_INIT_ONLYQUERY: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_AUTOPROXY_INIT_QUERYSTATE: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_BUFFERSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_BUFFERSW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA(i32);
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_CONTAINER_AUTODELETE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_CONTAINER_BLOOM_FILTER: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONTAINER_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONTAINER_INFOW(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_CONTAINER_MAP_ENABLED: u32 = 16u32;
@@ -1802,7 +1824,9 @@ pub const INTERNET_CACHE_CONTAINER_RESERVED1: u32 = 4u32;
 pub const INTERNET_CACHE_CONTAINER_SHARE_READ: u32 = 256u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_CONTAINER_SHARE_READ_WRITE: u32 = 768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_ENTRY_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_ENTRY_INFOW(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_FLAG_ADD_FILENAME_ONLY: u32 = 2048u32;
@@ -1816,12 +1840,16 @@ pub const INTERNET_CACHE_FLAG_GET_STRUCT_ONLY: u32 = 4096u32;
 pub const INTERNET_CACHE_FLAG_INSTALLED_ENTRY: u32 = 512u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_GROUP_ADD: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_GROUP_INFOA(i32);
 pub struct INTERNET_CACHE_GROUP_INFOW(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_GROUP_REMOVE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_TIMESTAMPS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CALLBACK_COOKIE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CERTIFICATE_INFO(i32);
 pub struct INTERNET_CONNECTED_INFO(i32);
 pub struct INTERNET_CONNECTION(i32);
@@ -1829,7 +1857,9 @@ pub struct INTERNET_CONNECTION(i32);
 pub const INTERNET_CONNECTION_LAN: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CONNECTION_OFFLINE: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_COOKIE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_COOKIE2(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_COOKIE_ALL_COOKIES: u32 = 536870912u32;
@@ -1876,6 +1906,7 @@ pub const INTERNET_COOKIE_SAME_SITE_LAX: u32 = 2097152u32;
 pub const INTERNET_COOKIE_SAME_SITE_LEVEL_CROSS_SITE: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_COOKIE_SAME_SITE_STRICT: u32 = 1048576u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CREDENTIALS(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CUSTOMDIAL_CAN_HANGUP: u32 = 4u32;
@@ -1906,6 +1937,7 @@ pub const INTERNET_DIAL_FORCE_PROMPT: u32 = 8192u32;
 pub const INTERNET_DIAL_SHOW_OFFLINE: u32 = 16384u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_DIAL_UNATTENDED: u32 = 32768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_DOWNLOAD_MODE_HANDLE(i32);
 pub struct INTERNET_END_BROWSER_SESSION_DATA(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -2441,9 +2473,13 @@ pub const INTERNET_OPTION_WWA_MODE: u32 = 125u32;
 pub struct INTERNET_PER_CONN(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_PER_CONN_FLAGS_UI: u32 = 10u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_PER_CONN_OPTIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_PER_CONN_OPTIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_PER_CONN_OPTION_LISTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_PER_CONN_OPTION_LISTW(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_PREFETCH_ABORTED: u32 = 2u32;
@@ -2476,8 +2512,11 @@ pub const INTERNET_RFC1123_BUFSIZE: u32 = 30u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_RFC1123_FORMAT: u32 = 0u32;
 pub struct INTERNET_SCHEME(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 pub struct INTERNET_SECURITY_CONNECTION_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct INTERNET_SECURITY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_SERVER_CONNECTION_STATE(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_SERVICE_FTP: u32 = 1u32;
@@ -2615,7 +2654,9 @@ pub const ISO_FORCE_OFFLINE: u32 = 1u32;
 pub const ISO_GLOBAL: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const ISO_REGISTRY: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IncomingCookieState(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct InternetCookieHistory(i32);
 pub struct InternetCookieState(i32);
 pub struct LPINTERNET_STATUS_CALLBACK(i32);
@@ -2641,10 +2682,12 @@ pub const MaxPrivacySettings: u32 = 16384u32;
 pub const NORMAL_CACHE_ENTRY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const OTHER_USER_CACHE_ENTRY: u32 = 8388608u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct OutgoingCookieState(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
 pub struct PFN_AUTH_NOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DIAL_HANDLER(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const POST_CHECK_CACHE_ENTRY: u32 = 536870912u32;
@@ -2685,6 +2728,7 @@ pub const PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
 pub const PROXY_TYPE_DIRECT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const PROXY_TYPE_PROXY: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ProofOfPossessionCookieInfo(i32);
 pub struct ProofOfPossessionCookieInfoManager(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -2736,11 +2780,14 @@ pub const STICKY_CACHE_ENTRY: u32 = 4u32;
 pub const TRACK_OFFLINE_CACHE_ENTRY: u32 = 16u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const TRACK_ONLINE_CACHE_ENTRY: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct URLCACHE_ENTRY_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
 pub struct URL_CACHE_LIMIT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct URL_COMPONENTSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct URL_COMPONENTSW(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const WININET_API_FLAG_ASYNC: u32 = 1u32;
@@ -2748,12 +2795,17 @@ pub const WININET_API_FLAG_ASYNC: u32 = 1u32;
 pub const WININET_API_FLAG_SYNC: u32 = 4u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const WININET_API_FLAG_USE_CONTEXT: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WININET_PROXY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WININET_PROXY_INFO_LIST(i32);
 pub struct WININET_SYNC_MODE(i32);
 pub struct WPAD_CACHE_DELETE(i32);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct pfnInternetDeInitializeAutoProxyDll(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct pfnInternetGetProxyInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct pfnInternetInitializeAutoProxyDll(i32);

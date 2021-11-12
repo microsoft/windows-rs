@@ -44,6 +44,7 @@ pub const MIN_RPT: u32 = 0u32;
 pub const OE_SETTING: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Restore`*"]
 pub const RESTORE: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESTOREPOINTINFOA(i32);
 pub struct RESTOREPOINTINFOW(i32);
 pub struct RESTOREPOINTINFO_EVENT_TYPE(i32);
@@ -55,4 +56,5 @@ pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Restore`*"]
 pub const WINDOWS_UPDATE: u32 = 17u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct _RESTOREPTINFOEX(i32);

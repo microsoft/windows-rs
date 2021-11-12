@@ -72,10 +72,13 @@ pub struct DXC_CP(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Dxc`*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 pub struct DXC_OUT_KIND(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DxcArgPair(i32);
 pub struct DxcBuffer(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct DxcCreateInstance2Proc(i32);
 pub struct DxcCreateInstanceProc(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DxcDefine(i32);
 pub struct DxcShaderHash(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D_Dxc`*"]

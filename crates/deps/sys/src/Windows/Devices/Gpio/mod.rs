@@ -3,10 +3,12 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
+#[cfg(feature = "Foundation")]
 pub struct GpioChangeCount(i32);
 pub struct GpioChangeCounter(i32);
 pub struct GpioChangePolarity(i32);
 pub struct GpioChangeReader(i32);
+#[cfg(feature = "Foundation")]
 pub struct GpioChangeRecord(i32);
 pub struct GpioController(i32);
 pub struct GpioOpenStatus(i32);

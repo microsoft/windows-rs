@@ -380,9 +380,13 @@ pub const DI8DEVTYPE_REMOTE: u32 = 27u32;
 pub const DI8DEVTYPE_SCREENPOINTER: u32 = 26u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DI8DEVTYPE_SUPPLEMENTAL: u32 = 28u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONFORMATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONFORMATW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONW(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIAFTS_NEWDEVICEHIGH: u32 = 4294967295u32;
@@ -2072,7 +2076,9 @@ pub const DICD_DEFAULT: u32 = 0u32;
 pub const DICD_EDIT: u32 = 1u32;
 pub struct DICOLORSET(i32);
 pub struct DICONDITION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DICONFIGUREDEVICESPARAMSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DICONFIGUREDEVICESPARAMSW(i32);
 pub struct DICONSTANTFORCE(i32);
 pub struct DICUSTOMFORCE(i32);
@@ -2129,18 +2135,26 @@ pub const DIDC_SATURATION: u32 = 2048u32;
 pub const DIDC_STARTDELAY: u32 = 32768u32;
 pub struct DIDEVCAPS(i32);
 pub struct DIDEVCAPS_DX3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOHEADERA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOHEADERW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCEA(i32);
 pub struct DIDEVICEINSTANCEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCE_DX3A(i32);
 pub struct DIDEVICEINSTANCE_DX3W(i32);
 pub struct DIDEVICEOBJECTDATA(i32);
 pub struct DIDEVICEOBJECTDATA_DX3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCEA(i32);
 pub struct DIDEVICEOBJECTINSTANCEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A(i32);
 pub struct DIDEVICEOBJECTINSTANCE_DX3W(i32);
 pub struct DIDEVICESTATE(i32);
@@ -2313,6 +2327,7 @@ pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144u32;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072u32;
 pub struct DIEFFECT(i32);
 pub struct DIEFFECTATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIEFFECTINFOA(i32);
 pub struct DIEFFECTINFOW(i32);
 pub struct DIEFFECT_DX5(i32);
@@ -2482,6 +2497,7 @@ pub const DIFEF_INCLUDENONSTANDARD: u32 = 1u32;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16u32;
 pub struct DIFFDEVICEATTRIBUTES(i32);
 pub struct DIFFOBJECTATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIFILEEFFECT(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIGDD_PEEK: u32 = 1u32;
@@ -2571,6 +2587,7 @@ pub const DIHATSWITCH_SPACESIM_GLANCE: u32 = 117458433u32;
 pub const DIHATSWITCH_STRATEGYR_GLANCE: u32 = 184567297u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIHATSWITCH_TPS_GLANCE: u32 = 167790081u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIHIDFFINITINFO(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIJC_CALLOUT: u32 = 8u32;
@@ -3486,9 +3503,12 @@ pub const GUID_YAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2
 pub const GUID_ZAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830370, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub struct HIDD_ATTRIBUTES(i32);
 pub struct HIDD_CONFIGURATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_ARRAY_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS(i32);
 pub struct HIDP_CAPS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_DATA(i32);
 pub struct HIDP_EXTENDED_ATTRIBUTES(i32);
 pub struct HIDP_KEYBOARD_DIRECTION(i32);
@@ -3496,7 +3516,9 @@ pub struct HIDP_KEYBOARD_MODIFIER_STATE(i32);
 pub struct HIDP_LINK_COLLECTION_NODE(i32);
 pub struct HIDP_REPORT_TYPE(i32);
 pub struct HIDP_UNKNOWN_TOKEN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HID_COLLECTION_INFORMATION(i32);
 pub struct HID_DRIVER_CONFIG(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
@@ -4749,6 +4771,7 @@ pub struct IDirectInputJoyConfig(i32);
 pub struct IDirectInputJoyConfig8(i32);
 pub struct IDirectInputW(i32);
 pub struct INDICATOR_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INPUT_BUTTON_ENABLE_INFO(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580u32;
@@ -5000,18 +5023,31 @@ pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDICONFIGUREDEVICESCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICEOBJECTSCALLBACKA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICEOBJECTSCALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESBYSEMANTICSCBA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESBYSEMANTICSCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESCALLBACKA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMDEVICESCALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMEFFECTSCALLBACKA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMEFFECTSCALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIENUMEFFECTSINFILECALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDIJOYTYPECALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNSHOWJOYCPL(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MAXCPOINTSNUM: u32 = 8u32;
@@ -5080,7 +5116,9 @@ pub struct MOUSE_UNIT_ID_PARAMETER(i32);
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MOUSE_WHEEL: u32 = 1024u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HidP_GetVersionInternal(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PHIDP_INSERT_SCANCODES(i32);
 pub struct USAGE_AND_PAGE(i32);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]

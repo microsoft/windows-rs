@@ -76,9 +76,12 @@ pub const CERT_FILTER_OP_NOT_EXISTS: u32 = 2u32;
 pub const CERT_FILTER_VALID_SIGNATURE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CERT_FILTER_VALID_TIME_RANGE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECTUI_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECT_STRUCT_A(i32);
 pub struct CERT_SELECT_STRUCT_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECT_STRUCT_W(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CERT_TRUST_DO_FULL_SEARCH: u32 = 1u32;
@@ -128,11 +131,16 @@ pub const CERT_VALIDITY_PERIOD_NESTING_FAILURE: u32 = 1024u32;
 pub const CERT_VALIDITY_SIGNATURE_FAILS: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CERT_VALIDITY_UNKNOWN_CRITICAL_EXTENSION: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CERT_VERIFY_CERTIFICATE_TRUST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CERT_VIEWPROPERTIES_STRUCT_A(i32);
 pub struct CERT_VIEWPROPERTIES_STRUCT_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CERT_VIEWPROPERTIES_STRUCT_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CMFLTR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CMOID(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CM_VIEWFLAGS_MASK: u32 = 16777215u32;
@@ -156,9 +164,11 @@ pub const CRYPTDLG_REVOCATION_ONLINE: u32 = 2147483648u32;
 pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_CERT_MGR_STRUCT(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_INITDIALOG_STRUCT(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: u64 = 32u64;
@@ -173,42 +183,58 @@ pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u64 = 1u64;
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYPTUI_SELECT_LOCATION_COLUMN: u64 = 16u64;
 pub struct CRYPTUI_VIEWCERTIFICATE_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW(i32);
 pub struct CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(i32);
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO(i32);
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO(i32);
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(i32);
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO(i32);
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO(i32);
 pub struct CRYPTUI_WIZ_EXPORT_FORMAT(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_EXPORT_INFO(i32);
 pub struct CRYPTUI_WIZ_EXPORT_SUBJECT(i32);
 pub struct CRYPTUI_WIZ_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_IMPORT_SRC_INFO(i32);
 pub struct CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CRYTPDLG_FLAGS_MASK: u32 = 4278190080u32;
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const CSS_SELECTCERT_MASK: u32 = 16777215u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CTL_MODIFY_REQUEST(i32);
 pub struct CTL_MODIFY_REQUEST_OPERATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNCFILTERPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNCMFILTERPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNCMHOOKPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNTRUSTHELPER(i32);
 #[doc = "*Required features: `Win32_Security_Cryptography_UI`*"]
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;

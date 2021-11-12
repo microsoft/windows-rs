@@ -38,4 +38,5 @@ pub const ICW_USEDEFAULTS: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_InternetConnectionWizard`*"]
 pub const ICW_USE_SHELLNEXT: u32 = 1024u32;
 pub struct PFNCHECKCONNECTIONWIZARD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSETSHELLNEXT(i32);

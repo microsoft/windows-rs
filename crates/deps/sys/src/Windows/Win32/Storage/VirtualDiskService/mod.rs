@@ -62,14 +62,18 @@ pub struct VDS_ASYNC_OUTPUT_TYPE(i32);
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1u32;
 pub struct VDS_CONTROLLER_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_CONTROLLER_PROP(i32);
 pub struct VDS_CONTROLLER_STATUS(i32);
 pub struct VDS_DISK_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_DRIVE_EXTENT(i32);
 pub struct VDS_DRIVE_FLAG(i32);
 pub struct VDS_DRIVE_LETTER_NOTIFICATION(i32);
 pub struct VDS_DRIVE_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_DRIVE_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_DRIVE_PROP2(i32);
 pub struct VDS_DRIVE_STATUS(i32);
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
@@ -777,7 +781,9 @@ pub struct VDS_HBAPORT_SPEED_FLAG(i32);
 pub struct VDS_HBAPORT_STATUS(i32);
 pub struct VDS_HBAPORT_TYPE(i32);
 pub struct VDS_HEALTH(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_HINTS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_HINTS2(i32);
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_HINT_ALLOCATEHOTSPARE: i32 = 512i32;
@@ -818,6 +824,7 @@ pub struct VDS_INTERCONNECT_FLAG(i32);
 pub struct VDS_IPADDRESS(i32);
 pub struct VDS_IPADDRESS_TYPE(i32);
 pub struct VDS_ISCSI_AUTH_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP(i32);
 pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP(i32);
 pub struct VDS_ISCSI_IPSEC_FLAG(i32);
@@ -828,15 +835,18 @@ pub struct VDS_ISCSI_PORTALGROUP_PROP(i32);
 pub struct VDS_ISCSI_PORTAL_PROP(i32);
 pub struct VDS_ISCSI_PORTAL_STATUS(i32);
 pub struct VDS_ISCSI_SHARED_SECRET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_ISCSI_TARGET_PROP(i32);
 pub struct VDS_LOADBALANCE_POLICY_ENUM(i32);
 pub struct VDS_LUN_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_LUN_INFORMATION(i32);
 pub struct VDS_LUN_NOTIFICATION(i32);
 pub struct VDS_LUN_PLEX_FLAG(i32);
 pub struct VDS_LUN_PLEX_PROP(i32);
 pub struct VDS_LUN_PLEX_STATUS(i32);
 pub struct VDS_LUN_PLEX_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_LUN_PROP(i32);
 pub struct VDS_LUN_STATUS(i32);
 pub struct VDS_LUN_TYPE(i32);
@@ -904,8 +914,10 @@ pub struct VDS_PACK_NOTIFICATION(i32);
 pub struct VDS_PARTITION_NOTIFICATION(i32);
 pub struct VDS_PATH_ID(i32);
 pub struct VDS_PATH_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_PATH_POLICY(i32);
 pub struct VDS_PATH_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_POOL_ATTRIBUTES(i32);
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216i32;
@@ -963,14 +975,17 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MAX: i32 = 4096i32;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: i32 = 8192i32;
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: i32 = 8i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES(i32);
 pub struct VDS_PORTAL_GROUP_NOTIFICATION(i32);
 pub struct VDS_PORTAL_NOTIFICATION(i32);
 pub struct VDS_PORT_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_PORT_PROP(i32);
 pub struct VDS_PORT_STATUS(i32);
 pub struct VDS_PROVIDER_FLAG(i32);
 pub struct VDS_PROVIDER_LBSUPPORT_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_PROVIDER_PROP(i32);
 pub struct VDS_PROVIDER_TYPE(i32);
 pub struct VDS_RAID_TYPE(i32);
@@ -985,13 +1000,17 @@ pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR(i32);
 pub struct VDS_STORAGE_IDENTIFIER(i32);
 pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(i32);
 pub struct VDS_STORAGE_IDENTIFIER_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_STORAGE_POOL_PROP(i32);
 pub struct VDS_STORAGE_POOL_STATUS(i32);
 pub struct VDS_STORAGE_POOL_TYPE(i32);
 pub struct VDS_SUB_SYSTEM_FLAG(i32);
 pub struct VDS_SUB_SYSTEM_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_SUB_SYSTEM_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDS_SUB_SYSTEM_PROP2(i32);
 pub struct VDS_SUB_SYSTEM_STATUS(i32);
 pub struct VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(i32);

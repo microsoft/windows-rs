@@ -1213,6 +1213,7 @@ pub struct XHR_AUTH(i32);
 pub struct XHR_CERT(i32);
 pub struct XHR_CERT_ERROR_FLAG(i32);
 pub struct XHR_CERT_IGNORE_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XHR_COOKIE(i32);
 pub struct XHR_COOKIE_FLAG(i32);
 pub struct XHR_COOKIE_STATE(i32);
@@ -1229,6 +1230,7 @@ pub struct XMLEMEM_TYPE(i32);
 pub struct XMLHTTP60(i32);
 pub struct XMLHTTPRequest(i32);
 pub struct XMLSchemaCache60(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XML_ERROR(i32);
 pub struct XSLTemplate60(i32);
 pub struct __msxml6_ReferenceRemainingTypes__(i32);

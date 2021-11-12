@@ -287,9 +287,11 @@ pub const DNSSEC_PROTOCOL_NONE: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_PROTOCOL_TLS: u32 = 1u32;
 pub struct DNS_AAAA_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_ADDR(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ADDRESS_STRING_LENGTH: u32 = 65u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_ADDR_ARRAY(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32u32;
@@ -332,21 +334,28 @@ pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1u32;
 pub struct DNS_CONFIG_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_IFINDEX_LIST(i32);
 pub struct DNS_CONNECTION_NAME(i32);
 pub struct DNS_CONNECTION_NAME_LIST(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_POLICY_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
 pub struct DNS_CONNECTION_POLICY_TAG(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_PROXY_ELEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_PROXY_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_PROXY_INFO_EX(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024u32;
@@ -365,8 +374,10 @@ pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
 pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_PROXY_LIST(i32);
 pub struct DNS_CONNECTION_PROXY_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CUSTOM_SERVER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
@@ -403,20 +414,31 @@ pub const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
 pub const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_MESSAGE_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_MINFO_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_MINFO_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_MX_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_MX_DATAW(i32);
 pub struct DNS_NAME_FORMAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_NAPTR_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_NAPTR_DATAW(i32);
 pub struct DNS_NSEC3PARAM_DATA(i32);
 pub struct DNS_NSEC3_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_NSEC_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_NSEC_DATAW(i32);
 pub struct DNS_NULL_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_NXT_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_NXT_DATAW(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_IQUERY: u32 = 1u32;
@@ -436,9 +458,12 @@ pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
 pub struct DNS_PROXY_COMPLETION_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_PROXY_INFORMATION(i32);
 pub struct DNS_PROXY_INFORMATION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_PTR_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_PTR_DATAW(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1u32;
@@ -450,6 +475,7 @@ pub const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608u32;
 pub const DNS_QUERY_BYPASS_CACHE: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_CACHE_ONLY: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_QUERY_CANCEL(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152u32;
@@ -475,7 +501,9 @@ pub const DNS_QUERY_NO_NETBT: u32 = 128u32;
 pub const DNS_QUERY_NO_RECURSION: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_NO_WIRE_QUERY: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_QUERY_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_QUERY_REQUEST3(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1u32;
@@ -485,6 +513,7 @@ pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2u32;
 pub const DNS_QUERY_REQUEST_VERSION3: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_RESERVED: u32 = 4026531840u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_QUERY_RESULT(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_RESULTS_VERSION1: u32 = 1u32;
@@ -556,11 +585,14 @@ pub const DNS_RCODE_SERVFAIL: u32 = 2u32;
 pub const DNS_RCODE_YXDOMAIN: u32 = 6u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_YXRRSET: u32 = 7u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_RECORDA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_RECORDW(i32);
 pub struct DNS_RECORD_FLAGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_RRSET(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_A: u32 = 256u32;
@@ -689,18 +721,30 @@ pub const DNS_RTYPE_WKS: u32 = 2816u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_X25: u32 = 4864u32;
 pub struct DNS_SECTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_BROWSE_REQUEST(i32);
 pub struct DNS_SERVICE_CANCEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_INSTANCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_REGISTER_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_RESOLVE_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SIG_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SIG_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SOA_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SOA_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SRV_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SRV_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_TKEY_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_TKEY_DATAW(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2u32;
@@ -711,9 +755,13 @@ pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1u32;
 pub struct DNS_TLSA_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_TSIG_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_TSIG_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_TXT_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_TXT_DATAW(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_A: u32 = 1u32;
@@ -886,7 +934,9 @@ pub const DNS_VALSVR_ERROR_REFUSED: u32 = 6u32;
 pub const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_WINSR_DATAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_WINSR_DATAW(i32);
 pub struct DNS_WINS_DATA(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
@@ -902,20 +952,30 @@ pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16u32;
 pub struct IP4_ARRAY(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct IP6_ADDRESS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct IP6_ADDRESS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65u32;
 pub struct MDNS_QUERY_HANDLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MDNS_QUERY_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_QUERY_COMPLETION_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_SERVICE_BROWSE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_SERVICE_REGISTER_COMPLETE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDNS_SERVICE_RESOLVE_COMPLETE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PMDNS_QUERY_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct _DnsRecordOptA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct _DnsRecordOptW(i32);

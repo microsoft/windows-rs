@@ -3,9 +3,12 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
+#[cfg(feature = "Foundation_Collections")]
 pub struct FileExtensionVector(i32);
 pub struct FileOpenPicker(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct FilePickerFileTypesOrderedMap(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct FilePickerSelectedFilesArray(i32);
 pub struct FileSavePicker(i32);
 pub struct FolderPicker(i32);

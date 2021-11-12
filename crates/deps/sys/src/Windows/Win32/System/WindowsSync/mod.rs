@@ -17,7 +17,9 @@ pub struct IConstructReplicaKeyMap(i32);
 pub struct ICoreFragment(i32);
 pub struct ICoreFragmentInspector(i32);
 pub struct ICustomFilterInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ID_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ID_PARAMETER_PAIR(i32);
 pub struct IDataRetrieverCallback(i32);
 pub struct IEnumChangeUnitExceptions(i32);
@@ -336,6 +338,7 @@ pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYNC_FILTER_CHANGE(i32);
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
@@ -362,6 +365,7 @@ pub struct SYNC_VERSION(i32);
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SyncProviderConfigUIConfiguration(i32);
 pub struct SyncProviderConfiguration(i32);
 pub struct SyncProviderRegistration(i32);

@@ -6,77 +6,136 @@ pub struct BSSID_INFO(i32);
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const CLOCK_PRECISION: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_ADAPTER_RESET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_CONTROL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_CREATE_DISCOVERY_PROFILES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_DEINIT_ADAPTER(i32);
 pub struct DOT11EXTIHV_DEINIT_SERVICE(i32);
 pub struct DOT11EXTIHV_GET_VERSION_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXTIHV_INIT_ADAPTER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub struct DOT11EXTIHV_INIT_SERVICE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXTIHV_INIT_VIRTUAL_STATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_IS_UI_REQUEST_PENDING(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_ONEX_INDICATE_RESULT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_PERFORM_CAPABILITY_MATCH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXTIHV_PERFORM_POST_ASSOCIATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_PERFORM_PRE_ASSOCIATE(i32);
+#[cfg(feature = "Win32_System_RemoteDesktop")]
 pub struct DOT11EXTIHV_PROCESS_SESSION_CHANGE(i32);
 pub struct DOT11EXTIHV_PROCESS_UI_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_QUERY_UI_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_RECEIVE_INDICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_RECEIVE_PACKET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_SEND_PACKET_COMPLETION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXTIHV_STOP_POST_ASSOCIATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXTIHV_VALIDATE_PROFILE(i32);
 pub struct DOT11EXT_ALLOCATE_BUFFER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_APIS(i32);
 pub struct DOT11EXT_FREE_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA(i32);
 pub struct DOT11EXT_IHV_CONNECTION_PHASE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub struct DOT11EXT_IHV_HANDLERS(i32);
 pub struct DOT11EXT_IHV_INDICATION_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_IHV_PARAMS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_IHV_PROFILE_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE(i32);
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 pub struct DOT11EXT_IHV_SSID_LIST(i32);
 pub struct DOT11EXT_IHV_UI_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_NIC_SPECIFIC_EXTENSION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_ONEX_START(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_ONEX_STOP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_POST_ASSOCIATE_COMPLETION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_PRE_ASSOCIATE_COMPLETION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_PROCESS_ONEX_PACKET(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_RELEASE_VIRTUAL_STATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_REQUEST_VIRTUAL_STATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SEND_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SEND_PACKET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SEND_UI_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_AUTH_ALGORITHM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_CURRENT_PROFILE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_DEFAULT_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_DEFAULT_KEY_ID(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_ETHERTYPE_HANDLING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_EXCLUDE_UNENCRYPTED(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_KEY_MAPPING_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_VIRTUAL_STATION_APIS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11_ADAPTER(i32);
 pub struct DOT11_BSS_LIST(i32);
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub struct DOT11_EAP_RESULT(i32);
 pub struct DOT11_IHV_VERSION_INFO(i32);
 pub struct DOT11_MSONEX_RESULT(i32);
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11_MSONEX_RESULT_PARAMS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11_MSSECURITY_SETTINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PORT_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11_RSN_KCK_LENGTH: u32 = 16u32;
@@ -1089,10 +1148,13 @@ pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u32 = 1u32;
 pub struct NDIS_IPSEC_OFFLOAD_V1(i32);
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_IP_OPER_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1u32;
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_IP_OPER_STATUS(i32);
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_IP_OPER_STATUS_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_IP_OPER_STATUS_INFO_REVISION_1: u32 = 1u32;
@@ -1101,10 +1163,12 @@ pub struct NDIS_IRDA_PACKET_INFO(i32);
 pub const NDIS_ISOLATION_NAME_MAX_STRING_SIZE: u32 = 127u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_ISOLATION_PARAMETERS_REVISION_1: u32 = 1u32;
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_LINK_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_LINK_PARAMETERS_REVISION_1: u32 = 1u32;
 pub struct NDIS_LINK_SPEED(i32);
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_LINK_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_LINK_STATE_DUPLEX_AUTO_NEGOTIATED: u32 = 4u32;
@@ -1478,6 +1542,7 @@ pub const NDIS_OFFLOAD_SET_OFF: u32 = 2u32;
 pub const NDIS_OFFLOAD_SET_ON: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OFFLOAD_SUPPORTED: u32 = 1u32;
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_OPER_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OPER_STATE_REVISION_1: u32 = 1u32;
@@ -1622,7 +1687,9 @@ pub const NDIS_PNP_WAKE_UP_LINK_CHANGE: u32 = 4u32;
 pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2u32;
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_PORT(i32);
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_PORT_ARRAY(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_ARRAY_REVISION_1: u32 = 1u32;
@@ -1630,12 +1697,14 @@ pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1u32;
 pub struct NDIS_PORT_AUTHORIZATION_STATE(i32);
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_PORT_CHARACTERISTICS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1u32;
 pub struct NDIS_PORT_CONTROL_STATE(i32);
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_PORT_STATE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_STATE_REVISION_1: u32 = 1u32;
@@ -2212,9 +2281,11 @@ pub const NDIS_TCP_RECV_SEG_COALESC_OFFLOAD_REVISION_1: u32 = 1u32;
 pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NDIS_TIMESTAMP_CAPABILITIES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS(i32);
 pub struct NDIS_VAR_DATA_DESC(i32);
 pub struct NDIS_WAN_HEADER_FORMAT(i32);
@@ -2241,13 +2312,16 @@ pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_ENABLED: u32 = 1u32;
 pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 pub struct NDIS_WMI_ENUM_ADAPTER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_ENUM_ADAPTER_REVISION_1: u32 = 1u32;
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_WMI_EVENT_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_EVENT_HEADER_REVISION_1: u32 = 1u32;
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1(i32);
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_WMI_METHOD_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_METHOD_HEADER_REVISION_1: u32 = 1u32;
@@ -2271,6 +2345,7 @@ pub const NDIS_WMI_PM_ADMIN_CONFIG_REVISION_1: u32 = 1u32;
 pub const NDIS_WMI_RECEIVE_QUEUE_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_RECEIVE_QUEUE_PARAMETERS_REVISION_1: u32 = 1u32;
+#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_WMI_SET_HEADER(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_SET_HEADER_REVISION_1: u32 = 1u32;
@@ -2333,9 +2408,13 @@ pub struct OFFLOAD_CONF_ALGO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OFFLOAD_INBOUND_SA: u32 = 1u32;
 pub struct OFFLOAD_INTEGRITY_ALGO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_ADD_SA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_DELETE_SA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA(i32);
 pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -3898,6 +3977,7 @@ pub struct UDP_ENCAP_TYPE(i32);
 pub const UNSPECIFIED_NETWORK_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 314203102, data2: 5182, data3: 19469, data4: [182, 109, 35, 121, 187, 20, 25, 19] };
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 pub struct WDIAG_IHV_WLAN_ID(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;

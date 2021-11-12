@@ -34,6 +34,7 @@ pub struct SceneAlphaMode(i32);
 pub struct SceneAttributeSemantic(i32);
 pub struct SceneBoundingBox(i32);
 pub struct SceneComponent(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct SceneComponentCollection(i32);
 pub struct SceneComponentType(i32);
 pub struct SceneMaterial(i32);
@@ -44,6 +45,7 @@ pub struct SceneMeshRendererComponent(i32);
 pub struct SceneMetallicRoughnessMaterial(i32);
 pub struct SceneModelTransform(i32);
 pub struct SceneNode(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct SceneNodeCollection(i32);
 pub struct SceneObject(i32);
 pub struct ScenePbrMaterial(i32);

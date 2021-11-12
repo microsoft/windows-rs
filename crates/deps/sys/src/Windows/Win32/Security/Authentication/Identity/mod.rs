@@ -615,6 +615,7 @@ extern "system" {
     pub fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32;
 }
 pub struct ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct ACCEPT_SECURITY_CONTEXT_FN(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
@@ -624,10 +625,15 @@ pub const ACCOUNT_ADJUST_QUOTAS: i32 = 4i32;
 pub const ACCOUNT_ADJUST_SYSTEM_ACCESS: i32 = 8i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const ACCOUNT_VIEW: i32 = 1i32;
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct ACQUIRE_CREDENTIALS_HANDLE_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct ACQUIRE_CREDENTIALS_HANDLE_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct ADD_CREDENTIALS_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct ADD_CREDENTIALS_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct APPLY_CONTROL_TOKEN_FN(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: u32 = 4194304u32;
@@ -824,7 +830,9 @@ pub const Audit_System_Integrity: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub const Audit_System_Others: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864404, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
 pub const Audit_System_SecurityStateChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864400, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
 pub const Audit_System_SecuritySubsystemExtension: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864401, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct CENTRAL_ACCESS_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CENTRAL_ACCESS_POLICY_ENTRY(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: u32 = 1u32;
@@ -832,11 +840,15 @@ pub const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: u32 = 1u32;
 pub const CENTRAL_ACCESS_POLICY_STAGED_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGE_PASSWORD_FN_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHANGE_PASSWORD_FN_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLEAR_BLOCK(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const CLEAR_BLOCK_LENGTH: u32 = 8u32;
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct COMPLETE_AUTH_TOKEN_FN(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const CREDP_FLAGS_CLEAR_PASSWORD: u32 = 8u32;
@@ -857,12 +869,19 @@ pub struct CRED_FETCH(i32);
 pub const CRED_MARSHALED_TI_SIZE_SIZE: u32 = 12u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct CredFreeCredentialsFn(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct CredReadDomainCredentialsFn(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct CredReadFn(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct CredWriteFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CrediUnmarshalandDecodeStringFn(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct DECRYPT_MESSAGE_FN(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct DELETE_SECURITY_CONTEXT_FN(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const DOMAIN_NO_LM_OWF_CHANGE: i32 = 64i32;
@@ -872,11 +891,14 @@ pub struct DOMAIN_PASSWORD_PROPERTIES(i32);
 pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const ENABLE_TLS_CLIENT_EARLY_START: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct ENCRYPTED_CREDENTIALW(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct ENCRYPT_MESSAGE_FN(i32);
 pub struct ENUMERATE_SECURITY_PACKAGES_FN_A(i32);
 pub struct ENUMERATE_SECURITY_PACKAGES_FN_W(i32);
 pub struct EXPORT_SECURITY_CONTEXT_FLAGS(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct EXPORT_SECURITY_CONTEXT_FN(i32);
 pub struct EXTENDED_NAME_FORMAT(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -884,14 +906,22 @@ pub const E_RM_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const FACILITY_SL_ITF: u32 = 4u32;
 pub struct FREE_CONTEXT_BUFFER_FN(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct FREE_CREDENTIALS_HANDLE_FN(i32);
 pub struct ICcgDomainAuthCredentials(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct IMPERSONATE_SECURITY_CONTEXT_FN(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct IMPORT_SECURITY_CONTEXT_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct IMPORT_SECURITY_CONTEXT_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct INITIALIZE_SECURITY_CONTEXT_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct INITIALIZE_SECURITY_CONTEXT_FN_W(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct INIT_SECURITY_INTERFACE_A(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct INIT_SECURITY_INTERFACE_W(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const ISC_REQ_ALLOCATE_MEMORY: u32 = 256u32;
@@ -1013,6 +1043,7 @@ pub const ISC_RET_USE_SESSION_KEY: u32 = 32u32;
 pub const ISSP_LEVEL: u32 = 32u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const ISSP_MODE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1u32;
@@ -1023,20 +1054,27 @@ pub const KERBEROS_REVISION: u32 = 6u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERBEROS_VERSION: u32 = 5u32;
 pub struct KERB_ADDRESS_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_ADD_CREDENTIALS_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX(i32);
 pub struct KERB_AUTH_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA(i32);
 pub struct KERB_CERTIFICATE_HASHINFO(i32);
 pub struct KERB_CERTIFICATE_INFO(i32);
 pub struct KERB_CERTIFICATE_INFO_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CERTIFICATE_LOGON(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CERTIFICATE_S4U_LOGON(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1u32;
@@ -1046,7 +1084,9 @@ pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CHANGEPASSWORD_REQUEST(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_CHECKSUM_CRC32: u32 = 1u32;
@@ -1090,10 +1130,12 @@ pub const KERB_CHECKSUM_REAL_CRC32: i32 = -132i32;
 pub const KERB_CHECKSUM_SHA1: i32 = -131i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_CHECKSUM_SHA1_NEW: u32 = 14u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST(i32);
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST(i32);
 pub struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE(i32);
 pub struct KERB_CRYPTO_KEY(i32);
@@ -1101,6 +1143,7 @@ pub struct KERB_CRYPTO_KEY32(i32);
 pub struct KERB_CRYPTO_KEY_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_DECRYPT_REQUEST(i32);
 pub struct KERB_DECRYPT_RESPONSE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1169,41 +1212,62 @@ pub const KERB_ETYPE_RSA_PUB_MD5: u32 = 11u32;
 pub const KERB_ETYPE_RSA_PUB_SHA1: u32 = 12u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_ETYPE_RSA_SHA1_CMS: u32 = 11u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_EXTERNAL_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_EXTERNAL_TICKET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_INTERACTIVE_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_INTERACTIVE_PROFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
 pub struct KERB_LOGON_SUBMIT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_NET_ADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_NET_ADDRESSES(i32);
 pub struct KERB_PROFILE_BUFFER_TYPE(i32);
 pub struct KERB_PROTOCOL_MESSAGE_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_PURGE_ALL_TICKETS: u32 = 1u32;
 pub struct KERB_PURGE_BINDING_CACHE_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST(i32);
 pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST(i32);
 pub struct KERB_QUERY_BINDING_CACHE_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_BINDING_CACHE_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST(i32);
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_TKT_CACHE_EX_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_TKT_CACHE_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_QUERY_TKT_CACHE_RESPONSE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_REFRESH_POLICY_KDC: u32 = 2u32;
@@ -1215,8 +1279,10 @@ pub struct KERB_REFRESH_POLICY_RESPONSE(i32);
 pub const KERB_REFRESH_SCCRED_GETTGT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_REFRESH_SCCRED_RELEASE: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_REFRESH_SCCRED_REQUEST(i32);
 pub struct KERB_REQUEST_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST(i32);
 pub struct KERB_RETRIEVE_KEY_TAB_RESPONSE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1235,32 +1301,47 @@ pub const KERB_RETRIEVE_TICKET_USE_CACHE_ONLY: u32 = 2u32;
 pub const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: u32 = 16u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct KERB_RETRIEVE_TKT_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_RETRIEVE_TKT_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_S4U2PROXY_CRED(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_S4U_LOGON(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: u32 = 8u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct KERB_SETPASSWORD_EX_REQUEST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct KERB_SETPASSWORD_REQUEST(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_SETPASS_USE_CREDHANDLE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_SETPASS_USE_LOGONID: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_SMART_CARD_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_SMART_CARD_PROFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_SUBMIT_TKT_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_TICKET_CACHE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_TICKET_CACHE_INFO_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_TICKET_CACHE_INFO_EX2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_TICKET_CACHE_INFO_EX3(i32);
 pub struct KERB_TICKET_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1270,10 +1351,13 @@ pub const KERB_TICKET_FLAGS_enc_pa_rep: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_TICKET_FLAGS_name_canonicalize: u32 = 65536u32;
 pub struct KERB_TICKET_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_TICKET_PROFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_TICKET_UNLOCK_LOGON(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct KERB_TRANSFER_CRED_REQUEST(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KERB_TRANSFER_CRED_WITH_TICKETS: u32 = 1u32;
@@ -1314,19 +1398,33 @@ pub const KRB_NT_WELLKNOWN: u32 = 11u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
 pub struct KSEC_CONTEXT_TYPE(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct KSEC_LIST_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspCompleteTokenFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspDeleteContextFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspGetTokenFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspInitContextFn(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct KspInitPackageFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspMakeSignatureFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspMapHandleFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspQueryAttributesFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspSealMessageFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspSerializeAuthDataFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspSetPagingModeFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspUnsealMessageFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct KspVerifySignatureFn(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const LCRED_CRED_EXISTS: u32 = 1u32;
@@ -1365,19 +1463,27 @@ pub const LOOKUP_VIEW_LOCAL_INFORMATION: u32 = 1u32;
 pub const LSASETCAPS_RELOAD_FLAG: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const LSASETCAPS_VALID_FLAG_MASK: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_AP_POST_LOGON_USER(i32);
 pub struct LSA_AUTH_INFORMATION(i32);
 pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LSA_DISPATCH_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_ENUMERATION_INFORMATION(i32);
 pub struct LSA_FOREST_TRUST_BINARY_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_COLLISION_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD(i32);
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_RECORD(i32);
 pub struct LSA_FOREST_TRUST_RECORD_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1414,7 +1520,9 @@ pub const LSA_NB_DISABLED_ADMIN: i32 = 4i32;
 pub const LSA_NB_DISABLED_CONFLICT: i32 = 8i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const LSA_QUERY_CLIENT_PRELOGON_SESSION_ID: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_REFERENCED_DOMAIN_LIST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct LSA_SECPKG_FUNCTION_TABLE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const LSA_SECRET_MAXIMUM_COUNT: i32 = 4096i32;
@@ -1430,15 +1538,22 @@ pub const LSA_TLN_DISABLED_ADMIN: i32 = 2i32;
 pub const LSA_TLN_DISABLED_CONFLICT: i32 = 4i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const LSA_TLN_DISABLED_NEW: i32 = 1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TOKEN_INFORMATION_NULL(i32);
 pub struct LSA_TOKEN_INFORMATION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TOKEN_INFORMATION_V1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TOKEN_INFORMATION_V3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TRANSLATED_NAME(i32);
 pub struct LSA_TRANSLATED_SID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TRANSLATED_SID2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TRUST_INFORMATION(i32);
 pub struct LsaHandle(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct MAKE_SIGNATURE_FN(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MAXIMUM_CAPES_PER_CAP: u32 = 127u32;
@@ -1465,7 +1580,9 @@ pub const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: u32 = 4u32;
 pub struct MSV1_0_AV_PAIR(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_CHALLENGE_LENGTH: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSV1_0_CHANGEPASSWORD_RESPONSE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: u32 = 262144u32;
@@ -1497,14 +1614,18 @@ pub const MSV1_0_CRED_VERSION_V2: u32 = 2u32;
 pub const MSV1_0_CRED_VERSION_V3: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_DISABLE_PERSONAL_FALLBACK: u32 = 4096u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSV1_0_INTERACTIVE_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSV1_0_INTERACTIVE_PROFILE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_INTERNET_DOMAIN: u32 = 524288u32;
 pub struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_LANMAN_SESSION_KEY_LENGTH: u32 = 8u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MSV1_0_LM20_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSV1_0_LM20_LOGON_PROFILE(i32);
 pub struct MSV1_0_LOGON_SUBMIT_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1520,6 +1641,7 @@ pub struct MSV1_0_NTLM3_RESPONSE(i32);
 pub const MSV1_0_NTLM3_RESPONSE_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_OWF_PASSWORD_LENGTH: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSV1_0_PASSTHROUGH_REQUEST(i32);
 pub struct MSV1_0_PASSTHROUGH_RESPONSE(i32);
 pub struct MSV1_0_PROFILE_BUFFER_TYPE(i32);
@@ -1527,6 +1649,7 @@ pub struct MSV1_0_PROTOCOL_MESSAGE_TYPE(i32);
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_S4U2SELF: u32 = 131072u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSV1_0_S4U_LOGON(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
@@ -1552,6 +1675,7 @@ pub const MSV1_0_SUBAUTH_ACCOUNT_EXPIRY: u32 = 16u32;
 pub const MSV1_0_SUBAUTH_ACCOUNT_TYPE: u32 = 64u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_SUBAUTH_LOCKOUT: u32 = 128u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MSV1_0_SUBAUTH_LOGON(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_SUBAUTH_LOGON_HOURS: u32 = 8u32;
@@ -1572,6 +1696,7 @@ pub const MSV1_0_USER_SESSION_KEY_LENGTH: u32 = 16u32;
 pub const MSV1_0_USE_CLIENT_CHALLENGE: u32 = 128u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_USE_DOMAIN_FOR_ROUTING_ONLY: u32 = 32768u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 pub struct MSV1_0_VALIDATION_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const MSV1_0_VALIDATION_KICKOFF_TIME: u32 = 2u32;
@@ -1592,7 +1717,9 @@ pub struct MSV_SUB_AUTHENTICATION_FILTER(i32);
 pub struct MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const NEGOTIATE_ALLOW_NTLM: u32 = 268435456u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NEGOTIATE_CALLER_NAME_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NEGOTIATE_CALLER_NAME_RESPONSE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32u32;
@@ -1601,11 +1728,16 @@ pub struct NEGOTIATE_MESSAGES(i32);
 pub const NEGOTIATE_NEG_NTLM: u32 = 536870912u32;
 pub struct NEGOTIATE_PACKAGE_PREFIX(i32);
 pub struct NEGOTIATE_PACKAGE_PREFIXES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NETLOGON_GENERIC_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 pub struct NETLOGON_INTERACTIVE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NETLOGON_LOGON_IDENTITY_INFO(i32);
 pub struct NETLOGON_LOGON_INFO_CLASS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct NETLOGON_NETWORK_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 pub struct NETLOGON_SERVICE_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const NGC_DATA_FLAG_IS_CLOUD_TRUST_CRED: u32 = 8u32;
@@ -1654,89 +1786,159 @@ pub const PER_USER_AUDIT_SUCCESS_INCLUDE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const PER_USER_POLICY_UNCHANGED: u32 = 0u32;
 pub struct PKSEC_CREATE_CONTEXT_LIST(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct PKSEC_DEREFERENCE_LIST_ENTRY(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct PKSEC_INSERT_LIST_ENTRY(i32);
 pub struct PKSEC_LOCATE_PKG_BY_ID(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PKSEC_REFERENCE_LIST_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PKSEC_SERIALIZE_WINNT_AUTH_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PKU2U_CERTIFICATE_S4U_LOGON(i32);
 pub struct PKU2U_CERT_BLOB(i32);
 pub struct PKU2U_CREDUI_CONTEXT(i32);
 pub struct PKU2U_LOGON_SUBMIT_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PLSA_ADD_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_ALLOCATE_CLIENT_BUFFER(i32);
 pub struct PLSA_ALLOCATE_LSA_HEAP(i32);
 pub struct PLSA_ALLOCATE_PRIVATE_HEAP(i32);
 pub struct PLSA_ALLOCATE_SHARED_MEMORY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_CALL_PACKAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_CALL_PACKAGE_PASSTHROUGH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PLSA_AP_INITIALIZE_PACKAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_LOGON_TERMINATED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_LOGON_USER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_LOGON_USER_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_LOGON_USER_EX2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_LOGON_USER_EX3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_POST_LOGON_USER_SURROGATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AP_PRE_LOGON_USER_SURROGATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AUDIT_ACCOUNT_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AUDIT_LOGON(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_AUDIT_LOGON_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CALLBACK_FUNCTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CALL_PACKAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CALL_PACKAGEEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CALL_PACKAGE_PASSTHROUGH(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CANCEL_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CHECK_PROTECTED_USER_BY_TOKEN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CLIENT_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CLOSE_SAM_USER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CONVERT_AUTH_DATA_TO_TOKEN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_COPY_FROM_CLIENT_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_COPY_TO_CLIENT_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CRACK_SINGLE_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CREATE_LOGON_SESSION(i32);
 pub struct PLSA_CREATE_SHARED_MEMORY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct PLSA_CREATE_THREAD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CREATE_TOKEN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_CREATE_TOKEN_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PLSA_DELETE_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_DELETE_LOGON_SESSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_DELETE_SHARED_MEMORY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_DUPLICATE_HANDLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_FREE_CLIENT_BUFFER(i32);
 pub struct PLSA_FREE_LSA_HEAP(i32);
 pub struct PLSA_FREE_PRIVATE_HEAP(i32);
 pub struct PLSA_FREE_SHARED_MEMORY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_APP_MODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_AUTH_DATA_FOR_USER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_CALL_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_CLIENT_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PLSA_GET_CREDENTIALS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_EXTENDED_CALL_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_SERVICE_ACCOUNT_PASSWORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_USER_AUTH_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_GET_USER_CREDENTIALS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_IMPERSONATE_CLIENT(i32);
 pub struct PLSA_LOCATE_PKG_BY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_MAP_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_OPEN_SAM_USER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_OPEN_TOKEN_BY_LOGON_ID(i32);
 pub struct PLSA_PROTECT_MEMORY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_QUERY_CLIENT_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_REDIRECTED_LOGON_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_REDIRECTED_LOGON_INIT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_REGISTER_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct PLSA_REGISTER_NOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_SET_APP_MODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_UNLOAD_PACKAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PLSA_UPDATE_PRIMARY_CREDENTIALS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_ACCOUNT_DOMAIN_INFO(i32);
 pub struct POLICY_AUDIT_CATEGORIES_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_AUDIT_EVENTS_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_AUDIT_EVENT_FAILURE: i32 = 2i32;
@@ -1747,11 +1949,15 @@ pub const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1i32;
 pub struct POLICY_AUDIT_EVENT_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_AUDIT_FULL_QUERY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_AUDIT_FULL_SET_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_AUDIT_LOG_ADMIN: i32 = 512i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_AUDIT_LOG_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_AUDIT_SID_ARRAY(i32);
 pub struct POLICY_AUDIT_SUBCATEGORIES_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1761,6 +1967,7 @@ pub const POLICY_CREATE_PRIVILEGE: i32 = 64i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_CREATE_SECRET: i32 = 32i32;
 pub struct POLICY_DEFAULT_QUOTA_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_DNS_DOMAIN_INFO(i32);
 pub struct POLICY_DOMAIN_EFS_INFO(i32);
 pub struct POLICY_DOMAIN_INFORMATION_CLASS(i32);
@@ -1774,12 +1981,15 @@ pub const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128u32;
 pub const POLICY_LOOKUP_NAMES: i32 = 2048i32;
 pub struct POLICY_LSA_SERVER_ROLE(i32);
 pub struct POLICY_LSA_SERVER_ROLE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_MACHINE_ACCT_INFO(i32);
 pub struct POLICY_MODIFICATION_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_NOTIFICATION: i32 = 4096i32;
 pub struct POLICY_NOTIFICATION_INFORMATION_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_PD_ACCOUNT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_PRIMARY_DOMAIN_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_QOS_ALLOW_LOCAL_ROOT_CERT_STORE: u32 = 32u32;
@@ -1797,6 +2007,7 @@ pub const POLICY_QOS_OUTBOUND_INTEGRITY: u32 = 2u32;
 pub const POLICY_QOS_RAS_SERVER_ALLOWED: u32 = 64u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_QOS_SCHANNEL_REQUIRED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_REPLICA_SOURCE_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const POLICY_SERVER_ADMIN: i32 = 1024i32;
@@ -1861,21 +2072,36 @@ pub const PRIMARY_CRED_TRANSFER: u32 = 8192u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const PRIMARY_CRED_UPDATE: u32 = 4u32;
 pub struct PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSAM_INIT_NOTIFICATION_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSAM_PASSWORD_FILTER_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSAM_PASSWORD_NOTIFICATION_ROUTINE(i32);
 pub struct PctPublicKey(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CONTEXT_ATTRIBUTES_EX_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CONTEXT_ATTRIBUTES_EX_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CONTEXT_ATTRIBUTES_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CONTEXT_ATTRIBUTES_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CREDENTIALS_ATTRIBUTES_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_CREDENTIALS_ATTRIBUTES_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct QUERY_SECURITY_CONTEXT_TOKEN_FN(i32);
 pub struct QUERY_SECURITY_PACKAGE_INFO_FN_A(i32);
 pub struct QUERY_SECURITY_PACKAGE_INFO_FN_W(i32);
@@ -1885,6 +2111,7 @@ pub const RCRED_CRED_EXISTS: u32 = 1u32;
 pub const RCRED_STATUS_NOCRED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const RCRED_STATUS_UNKNOWN_ISSUER: u32 = 2u32;
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct REVERT_SECURITY_CONTEXT_FN(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const RTL_ENCRYPT_MEMORY_SIZE: u32 = 8u32;
@@ -1896,8 +2123,11 @@ pub const RTL_ENCRYPT_OPTION_FOR_SYSTEM: u32 = 4u32;
 pub const RTL_ENCRYPT_OPTION_SAME_LOGON: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SAM_DAYS_PER_WEEK: u32 = 7u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAM_REGISTER_MAPPING_ELEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAM_REGISTER_MAPPING_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SAM_REGISTER_MAPPING_TABLE(i32);
 pub struct SASL_AUTHZID_STATE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1915,6 +2145,7 @@ pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(i32);
 pub struct SCHANNEL_CERT_HASH(i32);
 pub struct SCHANNEL_CERT_HASH_STORE(i32);
 pub struct SCHANNEL_CLIENT_SIGNATURE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SCHANNEL_CRED(i32);
 pub struct SCHANNEL_CRED_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1972,6 +2203,7 @@ pub const SCH_CRED_RESTRICTED_ROOTS: u32 = 8192u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SCH_CRED_REVOCATION_CHECK_CACHE_ONLY: u32 = 16384u32;
 pub struct SCH_CRED_SECRET_CAPI(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCH_CRED_SECRET_PRIVKEY(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SCH_CRED_SNI_CREDENTIAL: u32 = 524288u32;
@@ -2074,6 +2306,7 @@ pub const SECPKGCONTEXT_CIPHERINFO_V1: u32 = 1u32;
 pub const SECPKGCONTEXT_CONNECTION_INFO_EX_V1: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_ANSI_ATTRIBUTE: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_APP_MODE_INFO(i32);
 pub struct SECPKG_ATTR(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -2194,7 +2427,9 @@ pub const SECPKG_CALL_NEGO_EXTENDER: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024u32;
 pub struct SECPKG_CALL_PACKAGE_MESSAGE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_CLEANUP_CREDENTIALS: u32 = 2u32;
@@ -2223,6 +2458,7 @@ pub const SECPKG_CALL_WOWA32: u32 = 262144u32;
 pub const SECPKG_CALL_WOWCLIENT: u32 = 64u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_CALL_WOWX86: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CLIENT_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_CLIENT_PROCESS_TERMINATED: u32 = 1u32;
@@ -2230,6 +2466,7 @@ pub const SECPKG_CLIENT_PROCESS_TERMINATED: u32 = 1u32;
 pub const SECPKG_CLIENT_THREAD_TERMINATED: u32 = 2u32;
 pub struct SECPKG_CONTEXT_THUNKS(i32);
 pub struct SECPKG_CRED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CREDENTIAL(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_CREDENTIAL_ATTRIBUTE: u32 = 0u32;
@@ -2260,10 +2497,13 @@ pub const SECPKG_CRED_DEFAULT: u32 = 4u32;
 pub const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_DLL_FUNCTIONS(i32);
 pub struct SECPKG_EVENT_NOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_EVENT_PACKAGE_CHANGE(i32);
 pub struct SECPKG_EVENT_ROLE_CHANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_EXTENDED_INFORMATION(i32);
 pub struct SECPKG_EXTENDED_INFORMATION_CLASS(i32);
 pub struct SECPKG_EXTRA_OIDS(i32);
@@ -2319,6 +2559,7 @@ pub const SECPKG_FLAG_RESTRICTED_TOKENS: u32 = 524288u32;
 pub const SECPKG_FLAG_STREAM: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_FLAG_TOKEN_ONLY: u32 = 4u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct SECPKG_FUNCTION_TABLE(i32);
 pub struct SECPKG_GSS_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -2343,7 +2584,9 @@ pub const SECPKG_INTERFACE_VERSION_7: u32 = 4194304u32;
 pub const SECPKG_INTERFACE_VERSION_8: u32 = 8388608u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_INTERFACE_VERSION_9: u32 = 16777216u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct SECPKG_KERNEL_FUNCTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct SECPKG_KERNEL_FUNCTION_TABLE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_MAX_OID_LENGTH: u32 = 32u32;
@@ -2363,12 +2606,17 @@ pub const SECPKG_NEGOTIATION_TRY_MULTICRED: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_OPTIONS_PERMANENT: u32 = 1u32;
 pub struct SECPKG_PACKAGE_CHANGE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_POST_LOGON_USER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_PRIMARY_CRED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_PRIMARY_CRED_EX(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER(i32);
 pub struct SECPKG_SERIALIZED_OID(i32);
 pub struct SECPKG_SESSIONINFO_TYPE(i32);
@@ -2387,17 +2635,23 @@ pub const SECPKG_STATE_STANDALONE: u32 = 16u32;
 pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_STATE_WORKSTATION: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_SUPPLEMENTAL_CRED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_SUPPLEMENTAL_CRED_ARRAY(i32);
 pub struct SECPKG_SUPPLIED_CREDENTIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_SURROGATE_LOGON(i32);
 pub struct SECPKG_SURROGATE_LOGON_ENTRY(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_SURROGATE_LOGON_VERSION_1: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_TARGETINFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_USER_FUNCTION_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_WOW_CLIENT_DLL(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECQOP_WRAP_NO_ENCRYPT: u32 = 2147483649u32;
@@ -2407,6 +2661,7 @@ pub const SECQOP_WRAP_OOB_DATA: u32 = 1073741824u32;
 pub const SECRET_QUERY_VALUE: i32 = 2i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECRET_SET_VALUE: i32 = 1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_LOGON_SESSION_DATA(i32);
 pub struct SECURITY_LOGON_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -2425,6 +2680,7 @@ pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_5: u32 = 5u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_USER_DATA(i32);
 pub struct SEC_APPLICATION_PROTOCOLS(i32);
 pub struct SEC_APPLICATION_PROTOCOL_LIST(i32);
@@ -2481,6 +2737,7 @@ pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_ENCRYPTED: u32 = 128u32;
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_PROTECTED: u32 = 32u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_USER_PROTECTED: u32 = 64u32;
+#[cfg(feature = "Win32_System_Rpc")]
 pub struct SEC_WINNT_AUTH_IDENTITY_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SEC_WINNT_AUTH_IDENTITY_MARSHALLED: u32 = 4u32;
@@ -2495,10 +2752,15 @@ pub struct SEND_GENERIC_TLS_EXTENSION(i32);
 pub const SESSION_TICKET_INFO_V0: u32 = 0u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SESSION_TICKET_INFO_VERSION: u32 = 0u32;
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct SET_CONTEXT_ATTRIBUTES_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct SET_CONTEXT_ATTRIBUTES_FN_W(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct SET_CREDENTIALS_ATTRIBUTES_FN_A(i32);
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct SET_CREDENTIALS_ATTRIBUTES_FN_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SE_ADT_ACCESS_REASON(i32);
 pub struct SE_ADT_CLAIMS(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -2530,6 +2792,7 @@ pub struct SLLICENSINGSTATUS(i32);
 pub struct SLREFERRALTYPE(i32);
 pub struct SL_ACTIVATION_INFO_HEADER(i32);
 pub struct SL_ACTIVATION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SL_AD_ACTIVATION_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SL_CLIENTAPI_ZONE: u32 = 61440u32;
@@ -3428,10 +3691,15 @@ pub const SP_PROT_UNI_CLIENT: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SP_PROT_UNI_SERVER: u32 = 1073741824u32;
 pub struct SR_SECURITY_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SSL_CRACK_CERTIFICATE_FN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SSL_CREDENTIAL_CERTIFICATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SSL_EMPTY_CACHE_FN_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SSL_EMPTY_CACHE_FN_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SSL_FREE_CERTIFICATE_FN(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SSL_SESSION_RECONNECT: u32 = 1u32;
@@ -3456,8 +3724,10 @@ pub struct SecPkgContext_AccessToken(i32);
 pub struct SecPkgContext_ApplicationProtocol(i32);
 pub struct SecPkgContext_AuthorityA(i32);
 pub struct SecPkgContext_AuthorityW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgContext_AuthzID(i32);
 pub struct SecPkgContext_Bindings(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgContext_CertInfo(i32);
 pub struct SecPkgContext_CertificateValidationResult(i32);
 pub struct SecPkgContext_Certificates(i32);
@@ -3474,11 +3744,14 @@ pub struct SecPkgContext_EapKeyBlock(i32);
 pub struct SecPkgContext_EapPrfInfo(i32);
 pub struct SecPkgContext_EarlyStart(i32);
 pub struct SecPkgContext_Flags(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SecPkgContext_IssuerListInfoEx(i32);
 pub struct SecPkgContext_KeyInfoA(i32);
 pub struct SecPkgContext_KeyInfoW(i32);
 pub struct SecPkgContext_KeyingMaterial(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgContext_KeyingMaterialInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgContext_KeyingMaterial_Inproc(i32);
 pub struct SecPkgContext_LastClientTokenStatus(i32);
 pub struct SecPkgContext_Lifespan(i32);
@@ -3510,12 +3783,15 @@ pub struct SecPkgContext_SrtpParameters(i32);
 pub struct SecPkgContext_StreamSizes(i32);
 pub struct SecPkgContext_SubjectAttributes(i32);
 pub struct SecPkgContext_SupportedSignatures(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgContext_Target(i32);
 pub struct SecPkgContext_TargetInformation(i32);
 pub struct SecPkgContext_TokenBinding(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgContext_UiInfo(i32);
 pub struct SecPkgContext_UserFlags(i32);
 pub struct SecPkgCred_CipherStrengths(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgCred_ClientCertPolicy(i32);
 pub struct SecPkgCred_SessionTicketKey(i32);
 pub struct SecPkgCred_SessionTicketKeys(i32);
@@ -3525,56 +3801,105 @@ pub struct SecPkgCredentials_Cert(i32);
 pub struct SecPkgCredentials_KdcProxySettingsW(i32);
 pub struct SecPkgCredentials_NamesA(i32);
 pub struct SecPkgCredentials_NamesW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgCredentials_SSIProviderA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SecPkgCredentials_SSIProviderW(i32);
 pub struct SecPkgInfoA(i32);
 pub struct SecPkgInfoW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct SecurityFunctionTableA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct SecurityFunctionTableW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpAcceptCredentialsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpAcceptLsaModeContextFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpAcquireCredentialsHandleFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpAddCredentialsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpApplyControlTokenFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpChangeAccountPasswordFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpCompleteAuthTokenFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpDeleteContextFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpDeleteCredentialsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpExchangeMetaDataFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpExportSecurityContextFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpFormatCredentialsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpFreeCredentialsHandleFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetContextTokenFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetCredUIContextFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetCredentialsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetExtendedInformationFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetInfoFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetRemoteCredGuardLogonBufferFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetRemoteCredGuardSupplementalCredsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetTbalSupplementalCredsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpGetUserInfoFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpImportSecurityContextFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpInitLsaModeContextFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpInitUserModeContextFn(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct SpInitializeFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpInstanceInitFn(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct SpLsaModeInitializeFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpMakeSignatureFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpMarshalAttributeDataFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpMarshallSupplementalCredsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpQueryContextAttributesFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpQueryCredentialsAttributesFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpQueryMetaDataFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpSaveCredentialsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpSealMessageFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpSetContextAttributesFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpSetCredentialsAttributesFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpSetExtendedInformationFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpShutdownFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpUnsealMessageFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpUpdateCredentialsFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpUserModeInitializeFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpValidateTargetInfoFn(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SpVerifySignatureFn(i32);
 pub struct SslGetExtensionsFn(i32);
 pub struct SslGetServerIdentityFn(i32);
@@ -3640,18 +3965,25 @@ pub struct TOKENBINDING_KEY_TYPES(i32);
 pub struct TOKENBINDING_RESULT_DATA(i32);
 pub struct TOKENBINDING_RESULT_LIST(i32);
 pub struct TOKENBINDING_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_CONTROLLERS_INFO(i32);
 pub struct TRUSTED_DOMAIN_AUTH_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_DOMAIN_NAME_INFO(i32);
 pub struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES(i32);
 pub struct TRUSTED_DOMAIN_TRUST_ATTRIBUTES(i32);
 pub struct TRUSTED_DOMAIN_TRUST_DIRECTION(i32);
 pub struct TRUSTED_DOMAIN_TRUST_TYPE(i32);
 pub struct TRUSTED_INFORMATION_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_PASSWORD_INFO(i32);
 pub struct TRUSTED_POSIX_OFFSET_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -3696,6 +4028,7 @@ pub const UNISP_RPC_ID: u32 = 14u32;
 pub const USER_ACCOUNT_AUTO_LOCKED: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const USER_ACCOUNT_DISABLED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct USER_ALL_INFORMATION(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const USER_ALL_PARAMETERS: u32 = 2097152u32;
@@ -3725,6 +4058,7 @@ pub const USER_PASSWORD_EXPIRED: u32 = 131072u32;
 pub const USER_PASSWORD_NOT_REQUIRED: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const USER_SERVER_TRUST_ACCOUNT: u32 = 256u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 pub struct USER_SESSION_KEY(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const USER_SMARTCARD_REQUIRED: u32 = 4096u32;
@@ -3740,8 +4074,10 @@ pub const USER_USE_AES_KEYS: u32 = 2097152u32;
 pub const USER_USE_DES_KEY_ONLY: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const USER_WORKSTATION_TRUST_ACCOUNT: u32 = 128u32;
+#[cfg(feature = "Win32_Security_Credentials")]
 pub struct VERIFY_SIGNATURE_FN(i32);
 pub const WINDOWS_SLID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1439246132, data2: 54914, data3: 19825, data4: [152, 62, 214, 236, 63, 22, 5, 159] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct X509Certificate(i32);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;

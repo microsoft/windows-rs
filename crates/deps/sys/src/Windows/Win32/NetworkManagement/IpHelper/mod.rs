@@ -558,6 +558,7 @@ pub const DNS_DOH_POLICY_DISABLE: u32 = 8u32;
 pub const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_POLICY_REQUIRED: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_DOH_SERVER_SETTINGS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2u32;
@@ -567,8 +568,11 @@ pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1u32;
 pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_ENABLE_DOH: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_INTERFACE_SETTINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_INTERFACE_SETTINGS3(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_INTERFACE_SETTINGS_EX(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1u32;
@@ -576,12 +580,16 @@ pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1u32;
 pub const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVER_PROPERTY(i32);
 pub struct DNS_SERVER_PROPERTY_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVER_PROPERTY_TYPES(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SETTINGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SETTINGS2(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128u32;
@@ -623,6 +631,7 @@ pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
 pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const FD_FLAGS_NOSYN: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FIXED_INFO_W2KSP1(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
@@ -1075,8 +1084,11 @@ pub const IF_TYPE_X25_PLE: u32 = 40u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_XBOX_WIRELESS: u32 = 281u32;
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERFACE_TIMESTAMP_CAPABILITIES(i32);
 pub struct INTERNAL_IF_OPER_STATUS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
@@ -1100,21 +1112,27 @@ pub struct IPV6_ADDRESS_EX(i32);
 pub const IPV6_GLOBAL_INFO: u32 = 4294901775u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IPV6_ROUTE_INFO: u32 = 4294901776u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_LH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_XP(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_DDNS_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP(i32);
 pub struct IP_ADAPTER_DNS_SUFFIX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH(i32);
 pub struct IP_ADAPTER_INDEX_MAP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IP_ADAPTER_INFO(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_IPV4_ENABLED: u32 = 128u32;
@@ -1124,21 +1142,28 @@ pub const IP_ADAPTER_IPV6_ENABLED: u32 = 256u32;
 pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_NO_MULTICAST: u32 = 16u32;
 pub struct IP_ADAPTER_ORDER_MAP(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_PREFIX_XP(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_RECEIVE_ONLY: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADDRESS_PREFIX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IP_ADDRESS_STRING(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADDRROW: u32 = 5u32;
@@ -1148,6 +1173,7 @@ pub const IP_ADDRTABLE: u32 = 4u32;
 pub const IP_ADDR_ADDED: u32 = 11023u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADDR_DELETED: u32 = 11019u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IP_ADDR_STRING(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BAD_DESTINATION: u32 = 11018u32;
@@ -1271,6 +1297,7 @@ pub const IP_PARAMETER_PROBLEM: u32 = 11015u32;
 pub const IP_PARAM_PROBLEM: u32 = 11015u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PENDING: u32 = 11255u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PROT_PRIORITY_INFO: u32 = 4294901766u32;
@@ -1375,7 +1402,9 @@ pub const MCAST_SCOPE: u32 = 27u32;
 pub struct MIBICMPINFO(i32);
 pub struct MIBICMPSTATS(i32);
 pub struct MIBICMPSTATS_EX_XPSP1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_ANYCASTIPADDRESS_ROW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_ANYCASTIPADDRESS_TABLE(i32);
 pub struct MIB_BEST_IF(i32);
 pub struct MIB_BOUNDARYROW(i32);
@@ -1385,6 +1414,7 @@ pub struct MIB_IFNUMBER(i32);
 pub struct MIB_IFROW(i32);
 pub struct MIB_IFSTACK_ROW(i32);
 pub struct MIB_IFSTACK_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIB_IFSTATUS(i32);
 pub struct MIB_IFTABLE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
@@ -1394,7 +1424,9 @@ pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
 pub struct MIB_IF_ENTRY_LEVEL(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct MIB_IF_ROW2(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct MIB_IF_TABLE2(i32);
 pub struct MIB_IF_TABLE_LEVEL(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
@@ -1430,15 +1462,23 @@ pub const MIB_IPADDR_DYNAMIC: u32 = 4u32;
 pub const MIB_IPADDR_PRIMARY: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPADDR_TRANSIENT: u32 = 128u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_IPDESTROW(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_IPDESTTABLE(i32);
 pub struct MIB_IPFORWARDNUMBER(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_IPFORWARDROW(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_IPFORWARDTABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPFORWARD_ROW2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPFORWARD_TABLE2(i32);
 pub struct MIB_IPFORWARD_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPINTERFACE_ROW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPINTERFACE_TABLE(i32);
 pub struct MIB_IPMCAST_BOUNDARY(i32);
 pub struct MIB_IPMCAST_BOUNDARY_TABLE(i32);
@@ -1456,33 +1496,45 @@ pub struct MIB_IPMCAST_SCOPE(i32);
 pub struct MIB_IPNETROW_LH(i32);
 pub struct MIB_IPNETROW_W2K(i32);
 pub struct MIB_IPNETTABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPNET_ROW2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPNET_TABLE2(i32);
 pub struct MIB_IPNET_TYPE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPPATH_ROW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPPATH_TABLE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
 pub struct MIB_IPSTATS_FORWARDING(i32);
 pub struct MIB_IPSTATS_LH(i32);
 pub struct MIB_IPSTATS_W2K(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES(i32);
 pub struct MIB_MCAST_LIMIT_ROW(i32);
 pub struct MIB_MFE_STATS_TABLE(i32);
 pub struct MIB_MFE_STATS_TABLE_EX_XP(i32);
 pub struct MIB_MFE_TABLE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_MULTICASTIPADDRESS_ROW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_MULTICASTIPADDRESS_TABLE(i32);
 pub struct MIB_NOTIFICATION_TYPE(i32);
 pub struct MIB_OPAQUE_INFO(i32);
 pub struct MIB_OPAQUE_QUERY(i32);
 pub struct MIB_PROXYARP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIB_ROUTESTATE(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6ROW(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6ROW2(i32);
 pub struct MIB_TCP6ROW_OWNER_MODULE(i32);
 pub struct MIB_TCP6ROW_OWNER_PID(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6TABLE(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6TABLE2(i32);
 pub struct MIB_TCP6TABLE_OWNER_MODULE(i32);
 pub struct MIB_TCP6TABLE_OWNER_PID(i32);
@@ -1499,10 +1551,12 @@ pub struct MIB_TCPTABLE2(i32);
 pub struct MIB_TCPTABLE_OWNER_MODULE(i32);
 pub struct MIB_TCPTABLE_OWNER_PID(i32);
 pub struct MIB_TCP_STATE(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_UDP6ROW(i32);
 pub struct MIB_UDP6ROW2(i32);
 pub struct MIB_UDP6ROW_OWNER_MODULE(i32);
 pub struct MIB_UDP6ROW_OWNER_PID(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_UDP6TABLE(i32);
 pub struct MIB_UDP6TABLE2(i32);
 pub struct MIB_UDP6TABLE_OWNER_MODULE(i32);
@@ -1517,7 +1571,9 @@ pub struct MIB_UDPTABLE(i32);
 pub struct MIB_UDPTABLE2(i32);
 pub struct MIB_UDPTABLE_OWNER_MODULE(i32);
 pub struct MIB_UDPTABLE_OWNER_PID(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_UNICASTIPADDRESS_ROW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_UNICASTIPADDRESS_TABLE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295u32;
@@ -1527,6 +1583,7 @@ pub const MIB_USE_CURRENT_TTL: u32 = 4294967295u32;
 pub const MIN_IF_TYPE: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIXED_NODETYPE: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NDIS_INTERFACE_INFORMATION(i32);
 pub struct NET_ADDRESS_FORMAT(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
@@ -1622,13 +1679,18 @@ pub struct PF_FILTER_STATS(i32);
 pub struct PF_INTERFACE_STATS(i32);
 pub struct PF_LATEBIND_INFO(i32);
 pub struct PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PIPFORWARD_CHANGE_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PIPINTERFACE_CHANGE_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PROXY_ARP: u32 = 22u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(i32);
 pub struct PTEREDO_PORT_CHANGE_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PUNICAST_IPADDRESS_CHANGE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ROUTE_LONGER: u32 = 32u32;
@@ -1640,29 +1702,39 @@ pub const ROUTE_SHORTER: u32 = 33u32;
 pub const ROUTE_STATE: u32 = 34u32;
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const TCP6_STATS: u32 = 38u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO(i32);
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
 pub struct TCP_BOOLEAN_OPTIONAL(i32);
 pub struct TCP_CONNECTION_OFFLOAD_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0(i32);
 pub struct TCP_ESTATS_BANDWIDTH_RW_v0(i32);
 pub struct TCP_ESTATS_DATA_ROD_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_DATA_RW_v0(i32);
 pub struct TCP_ESTATS_FINE_RTT_ROD_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0(i32);
 pub struct TCP_ESTATS_OBS_REC_ROD_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_OBS_REC_RW_v0(i32);
 pub struct TCP_ESTATS_PATH_ROD_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_PATH_RW_v0(i32);
 pub struct TCP_ESTATS_REC_ROD_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_REC_RW_v0(i32);
 pub struct TCP_ESTATS_SEND_BUFF_ROD_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0(i32);
 pub struct TCP_ESTATS_SND_CONG_ROD_v0(i32);
 pub struct TCP_ESTATS_SND_CONG_ROS_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_SND_CONG_RW_v0(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0(i32);
 pub struct TCP_ESTATS_TYPE(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
@@ -1686,9 +1758,11 @@ pub const UDP_TABLE: u32 = 16u32;
 pub struct UDP_TABLE_CLASS(i32);
 pub struct arp_send_reply(i32);
 pub struct icmp_echo_reply(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct icmp_echo_reply32(i32);
 pub struct icmpv6_echo_reply_lh(i32);
 pub struct ip_interface_name_info_w2ksp1(i32);
 pub struct ip_option_information(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct ip_option_information32(i32);
 pub struct tcp_reserve_port_range(i32);

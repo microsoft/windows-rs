@@ -213,6 +213,7 @@ pub struct NetworkOperatorTetheringOperationResult(i32);
 pub struct NetworkOperatorsFdnContract(i32);
 pub struct NetworkRegistrationState(i32);
 pub struct ProfileMediaType(i32);
+#[cfg(feature = "Foundation")]
 pub struct ProfileUsage(i32);
 pub struct ProvisionFromXmlDocumentResults(i32);
 pub struct ProvisionedProfile(i32);

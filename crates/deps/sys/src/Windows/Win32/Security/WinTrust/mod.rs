@@ -55,56 +55,100 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct CAT_MEMBERINFO(i32);
 pub struct CAT_MEMBERINFO2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CAT_NAMEVALUE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CONFIG_CI_PROV_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONFIG_CI_PROV_INFO_RESULT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CRYPT_PROVIDER_CERT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVIDER_DATA(i32);
 pub struct CRYPT_PROVIDER_DEFUSAGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVIDER_FUNCTIONS(i32);
 pub struct CRYPT_PROVIDER_PRIVDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_PROVIDER_REGDEFUSAGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CRYPT_PROVIDER_SGNR(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CRYPT_PROVIDER_SIGSTATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_PROVUI_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVUI_FUNCS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_REGISTER_ACTIONID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_TRUST_REG_ENTRY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct DRIVER_VER_INFO(i32);
 pub struct DRIVER_VER_MAJORMINOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTENT_TO_SEAL_ATTRIBUTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_ALLOCANDFILLDEFUSAGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_CPD_ADD_CERT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_CPD_ADD_PRIVDATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_CPD_ADD_SGNR(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_CPD_ADD_STORE(i32);
 pub struct PFN_CPD_MEM_ALLOC(i32);
 pub struct PFN_CPD_MEM_FREE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_FREEDEFUSAGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_CERTCHKPOLICY_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_CERTTRUST_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_CLEANUP_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_FINALPOLICY_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_INIT_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_OBJTRUST_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_SIGTRUST_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVIDER_TESTFINALPOLICY_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_PROVUI_CALL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PROVDATA_SIP(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SEALING_SIGNATURE_ATTRIBUTE(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SEALING_TIMESTAMP_ATTRIBUTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPC_FINANCIAL_CRITERIA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_IMAGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_INDIRECT_DATA_CONTENT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_LINK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_PE_IMAGE_DATA(i32);
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_SERIALIZED_OBJECT(i32);
 pub struct SPC_SIGINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_SP_AGENCY_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_SP_OPUS_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SPC_STATEMENT_TYPE(i32);
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
 pub const SPC_UUID_LENGTH: u32 = 16u32;
@@ -162,15 +206,20 @@ pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18u32;
 pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19u32;
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
 pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINTRUST_BLOB_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_CATALOG_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_CERT_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_DATA(i32);
 pub struct WINTRUST_DATA_REVOCATION_CHECKS(i32);
 pub struct WINTRUST_DATA_STATE_ACTION(i32);
 pub struct WINTRUST_DATA_UICHOICE(i32);
 pub struct WINTRUST_DATA_UICONTEXT(i32);
 pub struct WINTRUST_DATA_UNION_CHOICE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINTRUST_FILE_INFO(i32);
 pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(i32);
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
@@ -178,7 +227,9 @@ pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
 pub struct WINTRUST_POLICY_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_SGNR_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_SIGNATURE_SETTINGS(i32);
 pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(i32);
 pub struct WIN_CERTIFICATE(i32);
@@ -194,10 +245,14 @@ pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3u32;
 pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4u32;
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
 pub const WIN_CERT_TYPE_X509: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIN_SPUB_TRUSTED_PUBLISHER_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT(i32);
 pub struct WIN_TRUST_ACTDATA_SUBJECT_ONLY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_SUBJECT_FILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY(i32);
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
 pub const WSS_CERTTRUST_SUPPORT: u32 = 4u32;
@@ -217,8 +272,11 @@ pub const WSS_OUT_SEALING_STATUS_VERIFIED: u32 = 2147483648u32;
 pub const WSS_SIGTRUST_SUPPORT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
 pub const WSS_VERIFY_SEALING: u32 = 4u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO(i32);
 #[doc = "*Required features: `Win32_Security_WinTrust`*"]
 pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1u32;

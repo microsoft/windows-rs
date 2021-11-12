@@ -51,7 +51,9 @@ pub const AMDDS_YUVOVR: u32 = 8u32;
 pub struct AMExtendedSeekingCapabilities(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AMF_AUTOMATICGAIN: f64 = -1f64;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AMGETERRORTEXTPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AMGETERRORTEXTPROCW(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AMINTERLACE_1FieldPerSample: u32 = 2u32;
@@ -94,20 +96,26 @@ pub struct AMTunerSignalStrength(i32);
 pub struct AMTunerSubChannel(i32);
 pub struct AMVABUFFERINFO(i32);
 pub struct AMVABeginFrameInfo(i32);
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct AMVACompBufferInfo(i32);
 pub struct AMVAEndFrameInfo(i32);
 pub struct AMVAInternalMemInfo(i32);
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct AMVAUncompBufferInfo(i32);
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct AMVAUncompDataInfo(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AMVA_QUERYRENDERSTATUSF_READ: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AMVA_TYPEINDEX_OUTPUTFRAME: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AMVPDATAINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AMVPDIMINFO(i32);
 pub struct AMVPSIZE(i32);
 pub struct AMVP_MODE(i32);
 pub struct AMVP_SELECT_FORMAT_BY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_ALTERNATE_AUDIO(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AM_AC3_ALTERNATE_AUDIO_1: u32 = 1u32;
@@ -117,8 +125,11 @@ pub const AM_AC3_ALTERNATE_AUDIO_2: u32 = 2u32;
 pub const AM_AC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
 pub struct AM_AC3_BIT_STREAM_MODE(i32);
 pub struct AM_AC3_DIALOGUE_LEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_DOWNMIX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_ERROR_CONCEALMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_ROOM_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AM_AC3_SERVICE_COMMENTARY: u32 = 5u32;
@@ -173,6 +184,7 @@ pub struct AM_DVD_ChangeRate(i32);
 pub struct AM_DVD_GRAPH_FLAGS(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AM_DVD_NOT_COPYRIGHTED: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_DVD_RENDERSTATUS(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AM_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
@@ -222,10 +234,13 @@ pub const AM_LOADSTATUS_OPEN: u32 = 6u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AM_LOADSTATUS_OPENING: u32 = 5u32;
 pub struct AM_MEDIAEVENT_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_MEDIA_TYPE(i32);
 pub struct AM_MPEG2Level(i32);
 pub struct AM_MPEG2Profile(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_MPEGSTREAMTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_MPEGSYSTEMTYPE(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AM_MPEG_AUDIO_DUAL_LEFT: u32 = 1u32;
@@ -257,6 +272,7 @@ pub struct AM_QueryRate(i32);
 pub const AM_ReverseBlockEnd: u32 = 4u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AM_ReverseBlockStart: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AM_SAMPLE2_PROPERTIES(i32);
 pub struct AM_SAMPLE_PROPERTY_FLAGS(i32);
 pub struct AM_SEEKING_SEEKING_CAPABILITIES(i32);
@@ -294,6 +310,7 @@ pub struct AM_WST_PAGE(i32);
 pub struct AM_WST_SERVICE(i32);
 pub struct AM_WST_STATE(i32);
 pub struct AM_WST_STYLE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ANALOGVIDEOINFO(i32);
 pub struct ANALOG_AUXIN_NETWORK_TYPE(i32);
 pub struct ANALOG_FM_NETWORK_TYPE(i32);
@@ -315,6 +332,7 @@ pub const ATSC_ETM_LOCATION_NOT_PRESENT: u32 = 0u32;
 pub const ATSC_ETM_LOCATION_RESERVED: u32 = 3u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const ATSC_ETT_TID: u32 = 204u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ATSC_FILTER_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const ATSC_MGT_PID: u32 = 8187u32;
@@ -372,6 +390,7 @@ pub struct AVIINDEXENTRY(i32);
 pub struct AVIMAINHEADER(i32);
 pub struct AVIMETAINDEX(i32);
 pub struct AVIOLDINDEX(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct AVIPALCHANGE(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const AVISF_DISABLED: u32 = 1u32;
@@ -383,6 +402,7 @@ pub const AVISTDINDEX_DELTAFRAME: u32 = 2147483648u32;
 pub struct AVISTDINDEX_ENTRY(i32);
 pub struct AVISTREAMHEADER(i32);
 pub struct AVISUPERINDEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AVIStreamHeader(i32);
 pub struct AVITCDLINDEX_ENTRY(i32);
 pub struct AVITIMECODEINDEX(i32);
@@ -749,8 +769,10 @@ pub const DSATTRIB_WMDRMProtectionInfo: ::windows_sys::core::GUID = ::windows_sy
     data3: 20204,
     data4: [180, 60, 103, 161, 128, 30, 26, 155],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSHOW_STREAM_DESC(i32);
 pub struct DSMCC_ELEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSMCC_FILTER_OPTIONS(i32);
 pub struct DSMCC_SECTION(i32);
 pub struct DTFilter(i32);
@@ -777,6 +799,7 @@ pub struct DVBSLocator(i32);
 pub struct DVBSTuningSpace(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVBScramblingControlSpanningEvent(i32);
 pub struct DVBSystemType(i32);
 pub struct DVBTLocator(i32);
@@ -794,6 +817,7 @@ pub const DVB_DIT_PID: u32 = 30u32;
 pub const DVB_DIT_TID: u32 = 126u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVB_EIT_FILTER_OPTIONS(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const DVB_EIT_OTHER_TID: u32 = 79u32;
@@ -860,6 +884,7 @@ pub const DVD_AUDIO_CAPS_MPEG2: u32 = 2u32;
 pub const DVD_AUDIO_CAPS_SDDS: u32 = 16u32;
 pub struct DVD_AUDIO_FORMAT(i32);
 pub struct DVD_AUDIO_LANG_EXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVD_AudioAttributes(i32);
 pub struct DVD_CMD_FLAGS(i32);
 pub struct DVD_DECODER_CAPS(i32);
@@ -873,11 +898,15 @@ pub struct DVD_HMSF_TIMECODE(i32);
 pub struct DVD_KARAOKE_ASSIGNMENT(i32);
 pub struct DVD_KARAOKE_CONTENTS(i32);
 pub struct DVD_KARAOKE_DOWNMIX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVD_KaraokeAttributes(i32);
 pub struct DVD_MENU_ID(i32);
 pub struct DVD_MUA_Coeff(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVD_MUA_MixingInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVD_MenuAttributes(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVD_MultichannelAudioAttributes(i32);
 pub struct DVD_NavCmdType(i32);
 pub struct DVD_OPTION_FLAG(i32);
@@ -906,18 +935,24 @@ pub struct DVD_TITLE_APPMODE(i32);
 pub const DVD_TITLE_MENU: u32 = 0u32;
 pub struct DVD_TextCharSet(i32);
 pub struct DVD_TextStringType(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVD_TitleAttributes(i32);
 pub struct DVD_VIDEO_COMPRESSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVD_VideoAttributes(i32);
 pub struct DVD_WARNING(i32);
 pub struct DVINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DVR_STREAM_DESC(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const DWORD_ALLPARAMS: i32 = -1i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2SW_CALLBACKS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2TraceVideoProcessBltData(i32);
 pub const DXVA2Trace_Control: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
 pub const DXVA2Trace_DecodeDevBeginFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2681318646, data2: 17611, data3: 17975, data4: [188, 98, 44, 17, 169, 96, 143, 144] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevBeginFrameData(i32);
 pub const DXVA2Trace_DecodeDevCreated: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3034453921,
@@ -925,6 +960,7 @@ pub const DXVA2Trace_DecodeDevCreated: ::windows_sys::core::GUID = ::windows_sys
     data3: 17662,
     data4: [134, 213, 217, 122, 100, 129, 20, 255],
 };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevCreatedData(i32);
 pub const DXVA2Trace_DecodeDevDestroyed: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2235481586,
@@ -940,7 +976,9 @@ pub const DXVA2Trace_DecodeDevEndFrame: ::windows_sys::core::GUID = ::windows_sy
 };
 pub const DXVA2Trace_DecodeDevExecute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2232085324, data2: 53658, data3: 17929, data4: [179, 180, 188, 191, 14, 34, 18, 30] };
 pub const DXVA2Trace_DecodeDevGetBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1471228155, data2: 29387, data3: 16695, data4: [165, 117, 217, 31, 163, 22, 8, 151] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevGetBufferData(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDeviceData(i32);
 pub const DXVA2Trace_VideoProcessBlt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1762172096, data2: 29099, data3: 17104, data4: [149, 58, 40, 135, 191, 5, 168, 175] };
 pub const DXVA2Trace_VideoProcessDevCreated: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -949,6 +987,7 @@ pub const DXVA2Trace_VideoProcessDevCreated: ::windows_sys::core::GUID = ::windo
     data3: 19591,
     data4: [152, 248, 141, 203, 242, 218, 187, 42],
 };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_VideoProcessDevCreatedData(i32);
 pub const DXVA2Trace_VideoProcessDevDestroyed: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4185862321,
@@ -956,10 +995,13 @@ pub const DXVA2Trace_VideoProcessDevDestroyed: ::windows_sys::core::GUID = ::win
     data3: 17095,
     data4: [142, 232, 136, 189, 250, 146, 212, 226],
 };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_VideoProcessDeviceData(i32);
 pub struct DXVA2_DestinationFlags(i32);
 pub struct DXVA2_SampleFlags(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2_VIDEOPROCESSBLT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2_VIDEOSAMPLE(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const DXVA_ALPHA_BLEND_COMBINATION_BUFFER: u32 = 13u32;
@@ -1412,7 +1454,9 @@ pub struct DigitalLocator(i32);
 pub struct DisplaySizeList(i32);
 pub struct DownResEventParam(i32);
 pub struct DualMonoInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DvbParentalRatingDescriptor(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DvbParentalRatingParam(i32);
 pub struct EALocationCodeType(i32);
 pub struct ECHOSTAR_SATELLITE_TV_NETWORK_TYPE(i32);
@@ -1768,7 +1812,9 @@ pub const GUID_TIME_REFERENCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 pub const GUID_TIME_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2824420613, data2: 3139, data3: 18820, data4: [154, 99, 151, 175, 158, 2, 196, 192] };
 pub struct GuardInterval(i32);
+#[cfg(feature = "Win32_Media_Audio")]
 pub struct HEAACWAVEFORMAT(i32);
+#[cfg(feature = "Win32_Media_Audio")]
 pub struct HEAACWAVEINFO(i32);
 pub struct HierarchyAlpha(i32);
 pub struct IAMAnalogVideoDecoder(i32);
@@ -2399,6 +2445,7 @@ pub struct KSDATAFORMAT_TYPE_BDA_IP(i32);
 pub struct KSDATAFORMAT_TYPE_BDA_IP_CONTROL(i32);
 pub struct KSDATAFORMAT_TYPE_MPE(i32);
 pub struct KSDATAFORMAT_TYPE_MPEG2_SECTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S(i32);
 pub struct KSEVENTSETID_BdaCAEvent(i32);
 pub struct KSEVENTSETID_BdaDiseqCEvent(i32);
@@ -2440,33 +2487,61 @@ pub struct KSMETHOD_BDA_TUNER_SERVICE(i32);
 pub struct KSMETHOD_BDA_USERACTIVITY_SERVICE(i32);
 pub struct KSMETHOD_BDA_WMDRM(i32);
 pub struct KSMETHOD_BDA_WMDRM_TUNER(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_BUFFER(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_CAPTURETOKEN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSM_BDA_CAS_CLOSEMMIDIALOG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSM_BDA_CAS_OPENBROADCASTMMI(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_DEBUG_LEVEL(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_DRM_SETDRM(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_EVENT_COMPLETE(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GDDS_SERVICEFROMTUNEXML(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GDDS_TUNEXMLFROMIDX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSM_BDA_GPNV_GETVALUE(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_NAMEINDEX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSM_BDA_GPNV_SETVALUE(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_ISDBCAS_REQUEST(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_PIN(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_PIN_PAIR(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_CAPABILTIES(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_FILTER(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_START(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_TS_SELECTOR_SETTSID(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_TUNER_TUNEREQUEST(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_USERACTIVITY_USEREASON(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_GETPIDPROTECTION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_SETPIDPROTECTION(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_SYNCVALUE(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRM_LICENSE(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRM_RENEWLICENSE(i32);
 pub struct KSNODE_BDA_8PSK_DEMODULATOR(i32);
 pub struct KSNODE_BDA_8VSB_DEMODULATOR(i32);
@@ -2504,9 +2579,13 @@ pub struct KSPROPERTY_BDA_NULL_TRANSFORM(i32);
 pub struct KSPROPERTY_BDA_PIDFILTER(i32);
 pub struct KSPROPERTY_BDA_PIN_CONTROL(i32);
 pub struct KSPROPERTY_BDA_PIN_EVENT(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_S(i32);
 pub struct KSPROPERTY_BDA_SIGNAL_STATS(i32);
 pub struct KSPROPERTY_BDA_TOPOLOGY(i32);
@@ -2529,10 +2608,14 @@ pub struct KSPROPSETID_BdaSignalStats(i32);
 pub struct KSPROPSETID_BdaTableSection(i32);
 pub struct KSPROPSETID_BdaTopology(i32);
 pub struct KSPROPSETID_BdaVoidTransform(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_BDA_NODE_PIN(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_NODE_ESPID(i32);
 pub struct KS_BDA_FRAME_INFO(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KS_DATARANGE_BDA_ANTENNA(i32);
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KS_DATARANGE_BDA_TRANSPORT(i32);
 pub const LIBID_QuartzNetTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1453877425, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
 pub const LIBID_QuartzTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1453877424, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
@@ -2568,13 +2651,16 @@ pub struct MMSSF_GET_INFORMATION_FLAGS(i32);
 pub const MPBOOL_FALSE: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const MPBOOL_TRUE: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MPEG1VIDEOINFO(i32);
+#[cfg(feature = "Win32_Media_Audio")]
 pub struct MPEG1WAVEFORMAT(i32);
 pub struct MPEG2Component(i32);
 pub struct MPEG2ComponentType(i32);
 pub struct MPEG2StreamType(i32);
 pub struct MPEG2TuneRequest(i32);
 pub struct MPEG2TuneRequestFactory(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MPEG2VIDEOINFO(i32);
 pub struct MPEG2VIDEOINFO_FLAGS(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
@@ -2639,7 +2725,9 @@ pub const MPEG2_E_TX_STREAM_UNAVAILABLE: ::windows_sys::core::HRESULT = ::window
 pub const MPEG2_E_UNDEFINED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220988i32 as _);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const MPEG2_E_UNINITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER2(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const MPEG2_FILTER_VERSION_1_SIZE: u32 = 124u32;
@@ -2672,6 +2760,7 @@ pub const MPEG2_S_SG_INFO_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::c
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const MPEG2_S_SG_INFO_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262659i32 as _);
 pub struct MPEG2_TRANSPORT_STRIDE(i32);
+#[cfg(feature = "Win32_Media_Audio")]
 pub struct MPEGLAYER3WAVEFORMAT(i32);
 pub struct MPEGLAYER3WAVEFORMAT_FLAGS(i32);
 pub struct MPEG_BCS_DEMUX(i32);
@@ -2697,9 +2786,11 @@ pub const MPEG_PAT_TID: u32 = 0u32;
 pub const MPEG_PMT_TID: u32 = 2u32;
 pub struct MPEG_REQUEST_TYPE(i32);
 pub struct MPEG_RQST_PACKET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MPEG_SERVICE_REQUEST(i32);
 pub struct MPEG_SERVICE_RESPONSE(i32);
 pub struct MPEG_STREAM_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MPEG_STREAM_FILTER(i32);
 pub struct MPEG_TIME(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
@@ -2852,18 +2943,31 @@ pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const PBDA_PAIRING_PROTOCOL_VERSION: u32 = 3u32;
 pub struct PBDA_TAG_ATTRIBUTE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_CREATEVIDEOPROCESSDEVICE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVA2SW_DESTROYVIDEOPROCESSDEVICE(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_GETFILTERPROPERTYRANGE(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_GETPROCAMPRANGE(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_GETVIDEOPROCESSORCAPS(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETS(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATCOUNT(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVA2SW_VIDEOPROCESSBEGINFRAME(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct PDXVA2SW_VIDEOPROCESSBLT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDXVA2SW_VIDEOPROCESSENDFRAME(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct PDXVA2SW_VIDEOPROCESSSETRENDERTARGET(i32);
 pub struct PIC_SEQ_SAMPLE(i32);
 pub struct PIDListSpanningEvent(i32);
@@ -2893,8 +2997,11 @@ pub struct RATING_ATTRIBUTE(i32);
 pub struct RATING_INFO(i32);
 pub struct RATING_SYSTEM(i32);
 pub struct RECORDING_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTERPINS(i32);
 pub struct REGFILTERPINS2(i32);
 pub struct REGPINMEDIUM(i32);
@@ -2971,6 +3078,7 @@ pub const SPECIFYPAGES_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GU
 pub struct SSUPDATE_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const STDINDEXSIZE: u32 = 16384u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STREAMBUFFER_ATTRIBUTE(i32);
 pub struct STREAMBUFFER_ATTR_DATATYPE(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
@@ -3008,6 +3116,7 @@ pub struct SectionList(i32);
 pub struct SegDispidList(i32);
 pub struct SegEventidList(i32);
 pub struct SignalAndServiceStatusSpanningEvent_State(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SmartCardApplication(i32);
 pub struct SmartCardAssociationType(i32);
 pub struct SmartCardStatusType(i32);
@@ -3026,6 +3135,7 @@ pub const TIMECODE_SMPTE_BINARY_GROUP: u32 = 7u32;
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const TIMECODE_SMPTE_COLOR_FRAME: u32 = 8u32;
 pub struct TRANSPORT_PROPERTIES(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct TRUECOLORINFO(i32);
 pub struct TVAudioMode(i32);
 pub struct TransmissionMode(i32);
@@ -3033,6 +3143,7 @@ pub struct TuneRequest(i32);
 pub struct TunerInputType(i32);
 pub struct TunerMarshaler(i32);
 pub struct TuningSpace(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UDCR_TAG(i32);
 pub struct UICloseReasonType(i32);
 pub struct VALID_UOP_FLAG(i32);
@@ -3351,11 +3462,17 @@ pub const VFW_S_STREAM_OFF: ::windows_sys::core::HRESULT = ::windows_sys::core::
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const VFW_S_VIDEO_NOT_RENDERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262743i32 as _);
 pub struct VIDEOENCODER_BITRATE_MODE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VIDEOINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VIDEOINFOHEADER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VIDEOINFOHEADER2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_STREAM_CONFIG_CAPS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9AllocationInfo(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub struct VMR9AlphaBitmap(i32);
 pub struct VMR9AlphaBitmapFlags(i32);
 pub struct VMR9AspectRatioMode(i32);
@@ -3365,9 +3482,11 @@ pub struct VMR9DeinterlaceTech(i32);
 pub struct VMR9Frequency(i32);
 pub struct VMR9MixerPrefs(i32);
 pub struct VMR9Mode(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VMR9MonitorInfo(i32);
 pub struct VMR9NormalizedRect(i32);
 pub struct VMR9PresentationFlags(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9PresentationInfo(i32);
 pub struct VMR9ProcAmpControl(i32);
 pub struct VMR9ProcAmpControlFlags(i32);
@@ -3375,9 +3494,12 @@ pub struct VMR9ProcAmpControlRange(i32);
 pub struct VMR9RenderPrefs(i32);
 pub struct VMR9SurfaceAllocationFlags(i32);
 pub struct VMR9VideoDesc(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct VMR9VideoStreamInfo(i32);
 pub struct VMR9_SampleFormat(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct VMRALLOCATIONINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct VMRALPHABITMAP(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]
 pub const VMRBITMAP_DISABLE: u32 = 1u32;
@@ -3394,14 +3516,18 @@ pub struct VMRDeinterlacePrefs(i32);
 pub struct VMRDeinterlaceTech(i32);
 pub struct VMRFrequency(i32);
 pub struct VMRGUID(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VMRMONITORINFO(i32);
 pub struct VMRMixerPrefs(i32);
 pub struct VMRMode(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct VMRPRESENTATIONINFO(i32);
 pub struct VMRPresentationFlags(i32);
 pub struct VMRRenderPrefs(i32);
 pub struct VMRSurfaceAllocationFlags(i32);
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct VMRVIDEOSTREAMINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VMRVideoDesc(i32);
 pub struct VMR_ASPECT_RATIO_MODE(i32);
 #[doc = "*Required features: `Win32_Media_DirectShow`*"]

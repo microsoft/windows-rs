@@ -22,15 +22,19 @@ extern "system" {
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
 }
 pub struct AppDomainHelper(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo(i32);
 pub struct ApplicationProcessStatistics(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessSummary(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationSummary(i32);
 pub struct AutoSvcs_Error_Constants(i32);
 pub struct ByotServerEx(i32);
 pub struct CAppData(i32);
 pub struct CAppStatistics(i32);
 pub struct CCLSIDData(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CCLSIDData2(i32);
 pub struct COMAdminAccessChecksLevelOptions(i32);
 pub struct COMAdminActivationOptions(i32);
@@ -57,6 +61,7 @@ pub struct COMAdminTransactionOptions(i32);
 pub struct COMAdminTxIsolationLevelOptions(i32);
 pub struct COMEvents(i32);
 pub struct COMPLUS_APPTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMSVCSEVENTINFO(i32);
 pub struct CRMClerk(i32);
 pub struct CRMFLAGS(i32);
@@ -89,11 +94,14 @@ pub struct ClrAssemblyLocator(i32);
 pub struct CoMTSLocator(i32);
 pub struct ComServiceEvents(i32);
 pub struct ComSystemAppEventData(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ComponentHangMonitorInfo(i32);
 pub struct ComponentStatistics(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ComponentSummary(i32);
 pub struct ContextInfo(i32);
 pub struct ContextInfo2(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead(i32);
 pub struct CrmTransactionState(i32);
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
@@ -106,6 +114,7 @@ pub struct EventServer(i32);
 pub const GUID_STRING_SIZE: u32 = 40u32;
 pub struct GetAppTrackerDataFlags(i32);
 pub struct GetSecurityCallContextAppObject(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO(i32);
 pub struct IAppDomainHelper(i32);
 pub struct IAssemblyLocator(i32);

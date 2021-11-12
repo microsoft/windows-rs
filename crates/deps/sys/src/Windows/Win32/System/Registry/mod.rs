@@ -572,7 +572,9 @@ pub const SUF_NETRPLBOOT: i32 = 128i32;
 pub const SUF_NETSETUP: i32 = 32i32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const SUF_SBSCOPYOK: i32 = 256i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct VALENTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VALENTW(i32);
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
@@ -587,6 +589,8 @@ pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 pub struct provider_info(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct pvalueA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct pvalueW(i32);
 pub struct val_context(i32);

@@ -1166,6 +1166,7 @@ pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
 #[doc = "*Required features: `Win32_Media_MediaPlayer`*"]
 pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
 pub struct WMPCallbackNotification(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WMPContextMenuInfo(i32);
 pub struct WMPDeviceStatus(i32);
 pub struct WMPFolderScanState(i32);

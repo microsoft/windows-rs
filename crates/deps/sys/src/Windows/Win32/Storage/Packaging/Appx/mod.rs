@@ -183,9 +183,12 @@ pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(i32);
 pub struct APPX_CAPABILITIES(i32);
 pub struct APPX_CAPABILITY_CLASS_TYPE(i32);
 pub struct APPX_COMPRESSION_OPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct APPX_ENCRYPTED_EXEMPTIONS(i32);
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2(i32);
 pub struct APPX_FOOTPRINT_FILE_TYPE(i32);
 pub struct APPX_KEY_INFO(i32);
@@ -193,7 +196,9 @@ pub struct APPX_PACKAGE_ARCHITECTURE(i32);
 pub struct APPX_PACKAGE_ARCHITECTURE2(i32);
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(i32);
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_SETTINGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM(i32);
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(i32);
 pub struct AddPackageDependencyOptions(i32);
@@ -316,7 +321,9 @@ pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
 pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PACKAGE_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PACKAGE_INFO(i32);
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;

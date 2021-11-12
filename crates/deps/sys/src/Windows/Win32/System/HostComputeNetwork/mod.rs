@@ -117,6 +117,7 @@ extern "system" {
     pub fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 pub struct HCN_NOTIFICATIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HCN_NOTIFICATION_CALLBACK(i32);
 pub struct HCN_PORT_ACCESS(i32);
 pub struct HCN_PORT_PROTOCOL(i32);

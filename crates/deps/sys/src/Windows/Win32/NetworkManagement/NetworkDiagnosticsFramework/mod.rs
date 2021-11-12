@@ -52,17 +52,23 @@ pub const DF_IMPERSONATION: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 pub const DF_TRACELESS: u32 = 1073741824u32;
 pub struct DIAGNOSIS_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAG_SOCKADDR(i32);
 pub struct DiagnosticsInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HELPER_ATTRIBUTE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HYPOTHESIS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HelperAttributeInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HypothesisResult(i32);
 pub struct INetDiagExtensibleHelper(i32);
 pub struct INetDiagHelper(i32);
 pub struct INetDiagHelperEx(i32);
 pub struct INetDiagHelperInfo(i32);
 pub struct INetDiagHelperUtilFactory(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LIFE_TIME(i32);
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 pub const NDF_ADD_CAPTURE_TRACE: u32 = 1u32;
@@ -125,9 +131,14 @@ pub const RF_USER_CONFIRMATION: u32 = 134217728u32;
 pub const RF_VALIDATE_HELPTOPIC: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`*"]
 pub const RF_WORKAROUND: u32 = 536870912u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RepairInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RepairInfoEx(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RootCauseInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ShellCommandInfo(i32);
 pub struct UI_INFO_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UiInfo(i32);

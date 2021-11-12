@@ -269,6 +269,7 @@ pub const DRMACTSERVINFOVERSION: u32 = 0u32;
 pub struct DRMATTESTTYPE(i32);
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRMBOUNDLICENSEPARAMS(i32);
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
@@ -285,6 +286,7 @@ pub struct DRMGLOBALOPTIONS(i32);
 pub const DRMHANDLE_INVALID: u32 = 0u32;
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMHSESSION_INVALID: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRMID(i32);
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMIDVERSION: u32 = 0u32;
@@ -311,6 +313,7 @@ pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
 pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRM_ACTSERV_INFO(i32);
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
@@ -368,6 +371,7 @@ pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048u32;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512u32;
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DRM_LICENSE_ACQ_DATA(i32);
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;

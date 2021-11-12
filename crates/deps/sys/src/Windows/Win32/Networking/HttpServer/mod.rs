@@ -141,6 +141,7 @@ pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
 pub struct HTTP_AUTH_STATUS(i32);
 pub struct HTTP_BANDWIDTH_LIMIT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_BINDING_INFO(i32);
 pub struct HTTP_BYTE_RANGE(i32);
 pub struct HTTP_CACHE_POLICY(i32);
@@ -159,6 +160,7 @@ pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: u32 = 32u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: u32 = 8u32;
 pub struct HTTP_CONNECTION_LIMIT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_COOKED_URL(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
@@ -168,6 +170,7 @@ pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(i32);
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_DATA_CHUNK(i32);
 pub struct HTTP_DATA_CHUNK_TYPE(i32);
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(i32);
@@ -175,6 +178,7 @@ pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
 pub struct HTTP_ENABLED_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_ERROR_HEADERS_PARAM(i32);
 pub struct HTTP_FEATURE_ID(i32);
 pub struct HTTP_FLOWRATE_INFO(i32);
@@ -182,7 +186,9 @@ pub struct HTTP_FLOWRATE_INFO(i32);
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
 pub struct HTTP_HEADER_ID(i32);
 pub struct HTTP_INITIALIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_KNOWN_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_LISTEN_ENDPOINT_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
@@ -192,11 +198,13 @@ pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4u32;
 pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct HTTP_LOGGING_INFO(i32);
 pub struct HTTP_LOGGING_ROLLOVER_TYPE(i32);
 pub struct HTTP_LOGGING_TYPE(i32);
 pub struct HTTP_LOG_DATA(i32);
 pub struct HTTP_LOG_DATA_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_LOG_FIELDS_DATA(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_LOG_FIELD_BYTES_RECV: u32 = 8192u32;
@@ -264,6 +272,7 @@ pub const HTTP_LOG_FIELD_WIN32_STATUS: u32 = 2048u32;
 pub const HTTP_MAX_SERVER_QUEUE_LENGTH: u32 = 2147483647u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_MIN_SERVER_QUEUE_LENGTH: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_MULTIPLE_KNOWN_HEADERS(i32);
 pub struct HTTP_PERFORMANCE_PARAM(i32);
 pub struct HTTP_PERFORMANCE_PARAM_TYPE(i32);
@@ -286,6 +295,7 @@ pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_REQUEST_AUTH_INFO(i32);
 pub struct HTTP_REQUEST_AUTH_TYPE(i32);
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS(i32);
@@ -297,6 +307,7 @@ pub const HTTP_REQUEST_FLAG_HTTP3: u32 = 8u32;
 pub const HTTP_REQUEST_FLAG_IP_ROUTED: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_REQUEST_HEADERS(i32);
 pub struct HTTP_REQUEST_INFO(i32);
 pub struct HTTP_REQUEST_INFO_TYPE(i32);
@@ -322,18 +333,23 @@ pub struct HTTP_REQUEST_SIZING_TYPE(i32);
 pub struct HTTP_REQUEST_TIMING_INFO(i32);
 pub struct HTTP_REQUEST_TIMING_TYPE(i32);
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_REQUEST_V1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_REQUEST_V2(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_RESPONSE_HEADERS(i32);
 pub struct HTTP_RESPONSE_INFO(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
 pub struct HTTP_RESPONSE_INFO_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_RESPONSE_V1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_RESPONSE_V2(i32);
 pub struct HTTP_SCHEME(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
@@ -350,26 +366,38 @@ pub const HTTP_SEND_RESPONSE_FLAG_MORE_DATA: u32 = 2u32;
 pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: u32 = 64u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVER_AUTHENTICATION_INFO(i32);
 pub struct HTTP_SERVER_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_BINDING_A(i32);
 pub struct HTTP_SERVICE_BINDING_BASE(i32);
 pub struct HTTP_SERVICE_BINDING_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_BINDING_W(i32);
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(i32);
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET(i32);
 pub struct HTTP_SERVICE_CONFIG_ID(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY(i32);
 pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(i32);
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(i32);
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2: u32 = 16u32;
@@ -399,26 +427,45 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER: u32 = 4u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX(i32);
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(i32);
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_CONFIG_URLACL_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_CONFIG_URLACL_SET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SSL_CLIENT_CERT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SSL_INFO(i32);
 pub struct HTTP_SSL_PROTOCOL_INFO(i32);
 pub struct HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(i32);
@@ -426,7 +473,9 @@ pub struct HTTP_STATE_INFO(i32);
 pub struct HTTP_TIMEOUT_LIMIT_INFO(i32);
 pub struct HTTP_TLS_RESTRICTIONS_PARAM(i32);
 pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_TRANSPORT_ADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_UNKNOWN_HEADER(i32);
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;

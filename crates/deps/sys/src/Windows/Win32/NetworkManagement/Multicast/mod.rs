@@ -30,4 +30,5 @@ pub struct MCAST_CLIENT_UID(i32);
 pub struct MCAST_LEASE_REQUEST(i32);
 pub struct MCAST_LEASE_RESPONSE(i32);
 pub struct MCAST_SCOPE_CTX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MCAST_SCOPE_ENTRY(i32);

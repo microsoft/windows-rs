@@ -2,4 +2,5 @@
 #[link(name = "windows")]
 extern "system" {}
 pub struct INotificationActivationCallback(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFICATION_USER_INPUT_DATA(i32);

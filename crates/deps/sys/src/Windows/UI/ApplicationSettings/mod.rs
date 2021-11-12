@@ -27,6 +27,7 @@ pub struct IWebAccountCommandFactory(i32);
 pub struct IWebAccountInvokedArgs(i32);
 pub struct IWebAccountProviderCommand(i32);
 pub struct IWebAccountProviderCommandFactory(i32);
+#[cfg(feature = "UI_Popups")]
 pub struct SettingsCommand(i32);
 pub struct SettingsEdgeLocation(i32);
 pub struct SettingsPane(i32);

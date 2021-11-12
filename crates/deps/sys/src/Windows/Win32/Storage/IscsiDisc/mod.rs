@@ -266,12 +266,15 @@ pub const ATA_FLAGS_NO_MULTIPLE: u32 = 32u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ATA_FLAGS_USE_DMA: u32 = 16u32;
 pub struct ATA_PASS_THROUGH_DIRECT(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct ATA_PASS_THROUGH_DIRECT32(i32);
 pub struct ATA_PASS_THROUGH_EX(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct ATA_PASS_THROUGH_EX32(i32);
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK(i32);
 pub struct DUMP_DEVICE_POWERON_ROUTINE(i32);
 pub struct DUMP_DRIVER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_DRIVER_EX(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const DUMP_DRIVER_NAME_LENGTH: u32 = 15u32;
@@ -283,7 +286,9 @@ pub const DUMP_EX_FLAG_RESUME_SUPPORT: u32 = 4u32;
 pub const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_POINTERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_POINTERS_EX(i32);
 pub struct DUMP_POINTERS_VERSION(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -363,6 +368,7 @@ pub const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: u32 = 17u32;
 pub const HYBRID_FUNCTION_GET_INFO: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: u32 = 18u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION(i32);
 pub struct HYBRID_REQUEST_BLOCK(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -433,12 +439,17 @@ pub const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: u32 = 315464u32;
 pub const IOCTL_SCSI_PASS_THROUGH_EX: u32 = 315460u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const IOCTL_SCSI_RESCAN_BUS: u32 = 266268u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IO_SCSI_CAPABILITIES(i32);
 pub struct ISCSI_AUTH_TYPES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_CONNECTION_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_CONNECTION_INFOW(i32);
 pub struct ISCSI_CONNECTION_INFO_EX(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 pub struct ISCSI_DEVICE_ON_SESSIONA(i32);
+#[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONW(i32);
 pub struct ISCSI_DIGEST_TYPES(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
@@ -486,21 +497,29 @@ pub const ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: u32 = 32u32;
 pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: u32 = 64u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ISCSI_SECURITY_FLAG_VALID: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_SESSION_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_SESSION_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_SESSION_INFO_EX(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_MAPPINGA(i32);
 pub struct ISCSI_TARGET_MAPPINGW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTALA(i32);
 pub struct ISCSI_TARGET_PORTALW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTAL_GROUPA(i32);
 pub struct ISCSI_TARGET_PORTAL_GROUPW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTAL_INFOA(i32);
 pub struct ISCSI_TARGET_PORTAL_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXA(i32);
 pub struct ISCSI_TARGET_PORTAL_INFO_EXW(i32);
 pub struct ISCSI_UNIQUE_SESSION_ID(i32);
@@ -546,10 +565,14 @@ pub const MPIO_IOCTL_FLAG_USE_PATHID: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: u32 = 2u32;
 pub struct MPIO_PASS_THROUGH_PATH(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct MPIO_PASS_THROUGH_PATH32(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct MPIO_PASS_THROUGH_PATH32_EX(i32);
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX(i32);
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX(i32);
 pub struct MPIO_PASS_THROUGH_PATH_EX(i32);
@@ -602,6 +625,7 @@ pub const NRB_OUTPUT_DATA_OVERRUN: u32 = 5u32;
 pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const NRB_SUCCESS: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTSCSI_UNICODE_STRING(i32);
 pub struct NVCACHE_HINT_PAYLOAD(i32);
 pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR(i32);
@@ -616,11 +640,14 @@ pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
 pub struct NV_SEP_WRITE_CACHE_TYPE(i32);
 pub struct PDUMP_DEVICE_POWERON_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOW(i32);
 pub struct SCSI_ADAPTER_BUS_INFO(i32);
 pub struct SCSI_ADDRESS(i32);
 pub struct SCSI_BUS_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCSI_INQUIRY_DATA(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const SCSI_IOCTL_DATA_BIDIRECTIONAL: u32 = 3u32;
@@ -632,10 +659,14 @@ pub const SCSI_IOCTL_DATA_OUT: u32 = 0u32;
 pub const SCSI_IOCTL_DATA_UNSPECIFIED: u32 = 2u32;
 pub struct SCSI_LUN_LIST(i32);
 pub struct SCSI_PASS_THROUGH(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SCSI_PASS_THROUGH32(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SCSI_PASS_THROUGH32_EX(i32);
 pub struct SCSI_PASS_THROUGH_DIRECT(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SCSI_PASS_THROUGH_DIRECT32(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SCSI_PASS_THROUGH_DIRECT32_EX(i32);
 pub struct SCSI_PASS_THROUGH_DIRECT_EX(i32);
 pub struct SCSI_PASS_THROUGH_EX(i32);
@@ -666,6 +697,7 @@ pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: u32 = 2u32;
 pub struct STORAGE_FIRMWARE_DOWNLOAD_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_INFO(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255u32;
@@ -673,8 +705,11 @@ pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255u32;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_INFO_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_SLOT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2(i32);
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;

@@ -45,6 +45,7 @@ pub struct PrintManager(i32);
 pub struct PrintMediaSize(i32);
 pub struct PrintMediaType(i32);
 pub struct PrintOrientation(i32);
+#[cfg(feature = "Foundation")]
 pub struct PrintPageDescription(i32);
 pub struct PrintPageInfo(i32);
 pub struct PrintPageRange(i32);

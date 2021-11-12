@@ -23,6 +23,7 @@ pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
 pub const AURL_ENABLETELNO: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEURL: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AutoCorrectProc(i32);
 pub struct BIDIOPTIONS(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
@@ -56,16 +57,20 @@ pub const BOM_PLAINTEXT: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const BOM_UNICODEBIDI: u32 = 128u32;
 pub struct CARET_FLAGS(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CARET_INFO(i32);
 pub struct CFE_EFFECTS(i32);
 pub struct CFM_MASK(i32);
 pub struct CHANGENOTIFY(i32);
 pub struct CHANGETYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2A(i32);
 pub struct CHARFORMAT2W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMATA(i32);
 pub struct CHARFORMATW(i32);
 pub struct CHARRANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CLIPBOARDFORMAT(i32);
 pub struct COMPCOLOR(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
@@ -122,6 +127,7 @@ pub const ECO_VERTICAL: u32 = 4194304u32;
 pub const ECO_WANTRETURN: u32 = 4096u32;
 pub struct EDITSTREAM(i32);
 pub struct EDITSTREAMCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EDITWORDBREAKPROCEX(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ELLIPSIS_END: u32 = 1u32;
@@ -367,11 +373,16 @@ pub const EM_STOPGROUPTYPING: u32 = 1112u32;
 pub const EM_STREAMIN: u32 = 1097u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EM_STREAMOUT: u32 = 1098u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENCORRECTTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENDCOMPOSITIONNOTIFY(i32);
 pub struct ENDCOMPOSITIONNOTIFY_CODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENDROPFILES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENLINK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENLOWFIRTF(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_CHANGE: u32 = 1u32;
@@ -423,8 +434,11 @@ pub const ENM_SELCHANGE: u32 = 524288u32;
 pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ENM_UPDATE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENOLEOPFAILED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENPROTECTED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ENSAVECLIPBOARD(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const EN_ALIGNLTR: u32 = 1808u32;
@@ -496,10 +510,15 @@ pub const ES_SELFIME: u32 = 262144u32;
 pub const ES_SUNKEN: u32 = 16384u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const ES_VERTICAL: u32 = 4194304u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FINDTEXTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FINDTEXTEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FINDTEXTEXW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FINDTEXTW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct FORMATRANGE(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const FR_MATCHALEFHAMZA: u32 = 2147483648u32;
@@ -519,7 +538,9 @@ pub const GCMF_TOUCHMENU: u32 = 16384u32;
 pub const GCM_MOUSEMENU: u32 = 8192u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const GCM_TOUCHMENU: u32 = 16384u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GETCONTEXTMENUEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GETTEXTEX(i32);
 pub struct GETTEXTEX_FLAGS(i32);
 pub struct GETTEXTLENGTHEX(i32);
@@ -617,7 +638,9 @@ pub struct MANCODE(i32);
 pub const MAX_TABLE_CELLS: u32 = 63u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const MAX_TAB_STOPS: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSGFILTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OBJECTPOSITIONS(i32);
 pub struct OBJECTTYPE(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
@@ -709,6 +732,7 @@ pub const PFN_UCLETTER: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_UCROMAN: u32 = 6u32;
 pub struct PShutdownTextServices(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PUNCTUATION(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RECO_COPY: i32 = 2i32;
@@ -720,14 +744,18 @@ pub const RECO_DRAG: i32 = 4i32;
 pub const RECO_DROP: i32 = 1i32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const RECO_PASTE: i32 = 0i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct REOBJECT(i32);
 pub struct REOBJECT_FLAGS(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const REO_NULL: i32 = 0i32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const REO_READWRITEMASK: i32 = 2047i32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct REPASTESPECIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REQRESIZE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct RICHEDIT_IMAGE_PARAMETERS(i32);
 pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(i32);
 pub struct RICH_EDIT_GET_OBJECT_FLAGS(i32);
@@ -757,6 +785,7 @@ pub const SCF_SMARTFONT: u32 = 128u32;
 pub const SCF_USEUIRULES: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SCF_WORD: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SELCHANGE(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const SES_ALLOWBEEPS: u32 = 256u32;
@@ -892,7 +921,9 @@ pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core:
 pub struct TABLECELLPARMS(i32);
 pub struct TABLEROWPARMS(i32);
 pub struct TEXTMODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TEXTRANGEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TEXTRANGEW(i32);
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const TO_ADVANCEDLAYOUT: u32 = 8u32;
@@ -1003,6 +1034,7 @@ pub const WM_NOTIFY: u32 = 78u32;
 pub const WM_PRINTCLIENT: u32 = 792u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const WM_UNICHAR: u32 = 265u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct _grouptypingchange(i32);
 pub struct hyphresult(i32);
 pub struct tomConstants(i32);

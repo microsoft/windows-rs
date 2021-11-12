@@ -942,13 +942,18 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACTCTXA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACTCTXW(i32);
 pub struct ACTCTX_COMPATIBILITY_ELEMENT_TYPE(i32);
 pub struct ACTCTX_REQUESTED_RUN_LEVEL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 pub struct ACTCTX_SECTION_KEYED_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION(i32);
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION(i32);
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX(i32);
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION(i32);
@@ -969,7 +974,9 @@ pub struct ASM_NAME(i32);
 pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ASSEMBLY_INFO(i32);
 pub const CLSID_EvalCom2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1851660560, data2: 32851, data3: 18016, data4: [183, 149, 107, 97, 46, 41, 188, 88] };
 pub const CLSID_MsmMerge2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4182345173, data2: 10745, data3: 18243, data4: [152, 5, 153, 188, 63, 53, 182, 120] };
@@ -982,7 +989,9 @@ pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100u32;
 pub struct DELTA_HASH(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DELTA_HEADER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DELTA_INPUT(i32);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
@@ -1349,6 +1358,7 @@ pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787u32;
 pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FUSION_INSTALL_REFERENCE(i32);
 pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2955910501,
@@ -1439,7 +1449,9 @@ pub struct INSTALLOGMODE(i32);
 pub struct INSTALLSTATE(i32);
 pub struct INSTALLTYPE(i32);
 pub struct INSTALLUILEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLUI_HANDLERA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLUI_HANDLERW(i32);
 pub struct IPMApplicationInfo(i32);
 pub struct IPMApplicationInfoEnumerator(i32);
@@ -1490,7 +1502,9 @@ pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGWARN: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPDISPLAYVAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPEVALCOMCALLBACK(i32);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
@@ -1511,7 +1525,9 @@ pub struct MSIINSTALLCONTEXT(i32);
 pub struct MSIMODIFY(i32);
 pub struct MSIOPENPACKAGEFLAGS(i32);
 pub struct MSIPATCHDATATYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSIPATCHSEQUENCEINFOA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSIPATCHSEQUENCEINFOW(i32);
 pub struct MSIPATCHSTATE(i32);
 pub struct MSIRUNMODE(i32);
@@ -1528,10 +1544,15 @@ pub struct MsmMerge(i32);
 pub struct PACKMAN_RUNTIME(i32);
 pub struct PATCH_IGNORE_RANGE(i32);
 pub struct PATCH_INTERLEAVE_MAP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PATCH_OLD_FILE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PATCH_OLD_FILE_INFO_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PATCH_OLD_FILE_INFO_H(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PATCH_OLD_FILE_INFO_W(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PATCH_OPTION_DATA(i32);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
@@ -1628,30 +1649,42 @@ pub struct PM_APPLICATION_HUBTYPE(i32);
 pub struct PM_APPLICATION_INSTALL_TYPE(i32);
 pub struct PM_APPLICATION_STATE(i32);
 pub struct PM_APP_GENRE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_BSATASKID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_BWTASKID(i32);
 pub struct PM_ENUM_APP_FILTER(i32);
 pub struct PM_ENUM_BSA_FILTER(i32);
 pub struct PM_ENUM_BW_FILTER(i32);
 pub struct PM_ENUM_EXTENSION_FILTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_ENUM_FILTER(i32);
 pub struct PM_ENUM_TASK_FILTER(i32);
 pub struct PM_ENUM_TILE_FILTER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_EXTENSIONCONSUMER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_INSTALLINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_INVOCATIONINFO(i32);
 pub struct PM_LIVETILE_RECURRENCE_TYPE(i32);
 pub struct PM_LOGO_SIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_STARTAPPBLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_STARTTILEBLOB(i32);
 pub struct PM_STARTTILE_TYPE(i32);
 pub struct PM_TASK_TRANSITION(i32);
 pub struct PM_TASK_TYPE(i32);
 pub struct PM_TILE_HUBTYPE(i32);
 pub struct PM_TILE_SIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_UPDATEINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PM_UPDATEINFO_LEGACY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PPATCH_PROGRESS_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PPATCH_SYMLOAD_CALLBACK(i32);
 pub struct PROTECTED_FILE_DATA(i32);
 pub struct QUERYASMINFO_FLAGS(i32);

@@ -1263,9 +1263,11 @@ pub struct DEVICE_EVENT_EXTERNAL_REQUEST(i32);
 pub struct DEVICE_EVENT_GENERIC_DATA(i32);
 pub struct DEVICE_EVENT_MOUNT(i32);
 pub struct DEVICE_EVENT_RBC_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_A(i32);
 pub struct DEV_BROADCAST_DEVICEINTERFACE_W(i32);
 pub struct DEV_BROADCAST_DEVNODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEV_BROADCAST_HANDLE(i32);
 pub struct DEV_BROADCAST_HANDLE32(i32);
 pub struct DEV_BROADCAST_HANDLE64(i32);
@@ -1273,6 +1275,7 @@ pub struct DEV_BROADCAST_HDR(i32);
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(i32);
 pub struct DEV_BROADCAST_NET(i32);
 pub struct DEV_BROADCAST_OEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEV_BROADCAST_PORT_A(i32);
 pub struct DEV_BROADCAST_PORT_W(i32);
 pub struct DEV_BROADCAST_VOLUME(i32);
@@ -1796,6 +1799,7 @@ pub const FRAME_NONFPO: u32 = 3u32;
 pub const FRAME_TRAP: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FRAME_TSS: u32 = 2u32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct GDI_NONREMOTE(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GENERIC_ALL: u32 = 268435456u32;
@@ -2654,6 +2658,7 @@ pub const IMAGE_COMDAT_SELECT_NEWEST: u32 = 7u32;
 pub const IMAGE_COMDAT_SELECT_NODUPLICATES: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_SAME_SIZE: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_DEBUG_MISC(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_MISC_EXENAME: u32 = 1u32;
@@ -2794,6 +2799,7 @@ pub const IMAGE_HOT_PATCH_NONE: u32 = 0u32;
 pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: u32 = 409600u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_REL32: u32 = 245760u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_IMPORT_BY_NAME(i32);
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION(i32);
 pub struct IMAGE_IMPORT_DESCRIPTOR(i32);
@@ -2809,14 +2815,17 @@ pub const IMAGE_ORDINAL_FLAG: u64 = 9223372036854775808u64;
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808u64;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_OS2_HEADER(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_OS2_SIGNATURE: u32 = 17742u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_OS2_SIGNATURE_LE: u32 = 17740u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_POLICY_ENTRY(i32);
 pub struct IMAGE_POLICY_ENTRY_TYPE(i32);
 pub struct IMAGE_POLICY_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_POLICY_METADATA(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1u32;
@@ -3347,6 +3356,7 @@ pub struct IMAGE_RESOURCE_DATA_ENTRY(i32);
 pub const IMAGE_RESOURCE_DATA_IS_DIRECTORY: u32 = 2147483648u32;
 pub struct IMAGE_RESOURCE_DIRECTORY(i32);
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING(i32);
 pub struct IMAGE_RESOURCE_DIR_STRING_U(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4609,6 +4619,8 @@ pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PEXCEPTION_FILTER(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
@@ -4655,7 +4667,11 @@ pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
 pub struct PIMAGE_TLS_CALLBACK(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
@@ -4720,16 +4736,22 @@ pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: u32 = 0u32;
 pub struct POWER_IDLE_RESILIENCY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_MONITOR_INVOCATION(i32);
 pub struct POWER_MONITOR_REQUEST_REASON(i32);
 pub struct POWER_MONITOR_REQUEST_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_PLATFORM_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_REQUEST_CONTEXT_VERSION: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_CONNECT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_RIT_STATE(i32);
 pub struct POWER_SESSION_TIMEOUTS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_SESSION_WINLOGON(i32);
 pub struct POWER_SETTING_ALTITUDE(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -4997,6 +5019,7 @@ pub struct PROCESS_MITIGATION_ASLR_POLICY(i32);
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY(i32);
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY(i32);
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_MITIGATION_DEP_POLICY(i32);
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY(i32);
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY(i32);
@@ -5169,7 +5192,11 @@ pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PTERMINATION_HANDLER(i32);
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PTERMINATION_HANDLER(i32);
 pub struct PUMS_SCHEDULER_ENTRY_POINT(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5190,7 +5217,9 @@ pub struct RATE_QUOTA_LIMIT(i32);
 pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct REARRANGE_FILE_DATA(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct REARRANGE_FILE_DATA32(i32);
 pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5232,6 +5261,7 @@ pub const REG_UNLOAD_LEGAL_FLAGS: u32 = 1u32;
 pub struct RESOURCEMANAGER_BASIC_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
@@ -5606,6 +5636,7 @@ pub const SEF_AI_USE_EXTRA_PARAMS: u32 = 2048u32;
 pub const SEF_FORCE_USER_MODE: u32 = 8192u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SEMAPHORE_MODIFY_STATE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERVERSILO_BASIC_INFORMATION(i32);
 pub struct SERVERSILO_STATE(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -5718,6 +5749,7 @@ pub const SE_SIGNING_LEVEL_UNSIGNED: u32 = 1u32;
 pub const SE_SIGNING_LEVEL_WINDOWS: u32 = 12u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_WINDOWS_TCB: u32 = 14u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SE_TOKEN_USER(i32);
 pub struct SHARED_VIRTUAL_DISK_SUPPORT(i32);
 pub struct SHUFFLE_FILE_DATA(i32);
@@ -5731,6 +5763,7 @@ pub const SID_MAX_SUB_AUTHORITIES: u32 = 15u32;
 pub const SID_RECOMMENDED_SUB_AUTHORITIES: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SID_REVISION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SILOOBJECT_BASIC_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
@@ -6363,8 +6396,10 @@ pub const TAPE_DRIVE_TAPE_REMAINING: u32 = 512u32;
 pub const TAPE_DRIVE_VARIABLE_BLOCK: u32 = 2048u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_WRITE_PROTECT: u32 = 4096u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_GET_DRIVE_PARAMETERS(i32);
 pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_GET_MEDIA_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3i32;
@@ -6378,6 +6413,7 @@ pub const TAPE_QUERY_DRIVE_PARAMETERS: i32 = 0i32;
 pub const TAPE_QUERY_IO_ERROR_DATA: i32 = 3i32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_QUERY_MEDIA_CAPACITY: i32 = 1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_SET_DRIVE_PARAMETERS(i32);
 pub struct TAPE_SET_MEDIA_PARAMETERS(i32);
 pub struct TAPE_WMI_OPERATIONS(i32);
@@ -6406,7 +6442,9 @@ pub const TIME_ZONE_ID_STANDARD: u32 = 1u32;
 pub const TIME_ZONE_ID_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TLS_MINIMUM_AVAILABLE: u32 = 64u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_SID_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TOKEN_SOURCE_LENGTH: u32 = 8u32;
@@ -6431,6 +6469,7 @@ pub const TRANSACTIONMANAGER_RENAME: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTIONMANAGER_SET_INFORMATION: u32 = 2u32;
 pub struct TRANSACTION_BASIC_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TRANSACTION_BIND_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_COMMIT: u32 = 8u32;
@@ -6723,6 +6762,7 @@ pub const XSTATE_PASID: u32 = 10u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_XFD_BIT: u32 = 2u32;
 pub struct _DEV_BROADCAST_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct _DEV_BROADCAST_USERDEFINED(i32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _MM_HINT_NTA: u32 = 0u32;
@@ -6970,12 +7010,19 @@ pub const _NT_D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
 pub const _NT_RTPATCHFLAG_HASINFO: i32 = 2i32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_RTPATCHFLAG_HASSEGS: i32 = 1i32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct remoteMETAFILEPICT(i32);
 pub struct userBITMAP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct userCLIPFORMAT(i32);
 pub struct userHBITMAP(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct userHENHMETAFILE(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct userHGLOBAL(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct userHMETAFILE(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct userHMETAFILEPICT(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct userHPALETTE(i32);

@@ -1154,6 +1154,7 @@ pub struct WICBitmapEncoderCacheOption(i32);
 pub struct WICBitmapInterpolationMode(i32);
 pub struct WICBitmapLockFlags(i32);
 pub struct WICBitmapPaletteType(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WICBitmapPattern(i32);
 pub struct WICBitmapPlane(i32);
 pub struct WICBitmapPlaneDescription(i32);
@@ -1164,7 +1165,9 @@ pub struct WICComponentSigning(i32);
 pub struct WICComponentType(i32);
 pub struct WICDdsAlphaMode(i32);
 pub struct WICDdsDimension(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct WICDdsFormatInfo(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct WICDdsParameters(i32);
 pub struct WICDecodeOptions(i32);
 pub struct WICGifApplicationExtensionProperties(i32);
@@ -1174,6 +1177,7 @@ pub struct WICGifImageDescriptorProperties(i32);
 pub struct WICGifLogicalScreenDescriptorProperties(i32);
 pub struct WICHeifHdrProperties(i32);
 pub struct WICHeifProperties(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct WICImageParameters(i32);
 pub struct WICJpegChrominanceProperties(i32);
 pub struct WICJpegCommentProperties(i32);

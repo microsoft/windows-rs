@@ -18,6 +18,7 @@ pub struct CodecSubtypes(i32);
 pub struct DataCue(i32);
 pub struct FaceDetectedEventArgs(i32);
 pub struct FaceDetectionEffect(i32);
+#[cfg(feature = "Media_Effects")]
 pub struct FaceDetectionEffectDefinition(i32);
 pub struct FaceDetectionEffectFrame(i32);
 pub struct FaceDetectionMode(i32);
@@ -147,6 +148,7 @@ pub struct MediaSourceState(i32);
 pub struct MediaSourceStateChangedEventArgs(i32);
 pub struct MediaSourceStatus(i32);
 pub struct MediaStreamSample(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct MediaStreamSamplePropertySet(i32);
 pub struct MediaStreamSampleProtectionProperties(i32);
 pub struct MediaStreamSource(i32);
@@ -171,8 +173,10 @@ pub struct MseReadyState(i32);
 pub struct MseSourceBuffer(i32);
 pub struct MseSourceBufferList(i32);
 pub struct MseStreamSource(i32);
+#[cfg(feature = "Foundation")]
 pub struct MseTimeRange(i32);
 pub struct SceneAnalysisEffect(i32);
+#[cfg(feature = "Media_Effects")]
 pub struct SceneAnalysisEffectDefinition(i32);
 pub struct SceneAnalysisEffectFrame(i32);
 pub struct SceneAnalysisRecommendation(i32);
@@ -212,6 +216,7 @@ pub struct TimedTextWeight(i32);
 pub struct TimedTextWrapping(i32);
 pub struct TimedTextWritingMode(i32);
 pub struct VideoStabilizationEffect(i32);
+#[cfg(feature = "Media_Effects")]
 pub struct VideoStabilizationEffectDefinition(i32);
 pub struct VideoStabilizationEffectEnabledChangedEventArgs(i32);
 pub struct VideoStabilizationEffectEnabledChangedReason(i32);

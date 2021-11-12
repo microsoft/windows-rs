@@ -130,6 +130,7 @@ pub struct WMDMID(i32);
 pub const WMDMID_LENGTH: u32 = 128u32;
 pub struct WMDMLogger(i32);
 pub struct WMDMMessage(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WMDMMetadataView(i32);
 pub struct WMDMRIGHTS(i32);
 pub struct WMDMStorage(i32);
@@ -275,6 +276,7 @@ pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
 pub struct WMDM_FIND_SCOPE(i32);
 pub struct WMDM_FORMATCODE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_FORMAT_CAPABILITY(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
@@ -316,9 +318,13 @@ pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
 pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_CONFIG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_ENUM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_RANGE(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
@@ -465,10 +471,13 @@ pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
 pub struct WMDM_TAG_DATATYPE(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WMFILECAPABILITIES(i32);
 pub struct _BITMAPINFOHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct _VIDEOINFOHEADER(i32);
 pub struct _WAVEFORMATEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct __MACINFO(i32);
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const g_wszAudioWAVECodec: &'static str = "WMDM/AudioWAVECodec";

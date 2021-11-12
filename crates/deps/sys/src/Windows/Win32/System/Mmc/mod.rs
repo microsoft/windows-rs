@@ -10,7 +10,9 @@ pub struct CCM_COMMANDID_MASK_CONSTANTS(i32);
 pub struct CCM_INSERTIONALLOWED(i32);
 pub struct CCM_INSERTIONPOINTID(i32);
 pub struct CCM_SPECIAL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONTEXTMENUITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONTEXTMENUITEM2(i32);
 pub struct Column(i32);
 pub struct Columns(i32);
@@ -79,6 +81,7 @@ pub struct IToolbar(i32);
 pub struct IViewExtensionCallback(i32);
 pub struct IconIdentifier(i32);
 pub struct MENUBUTTONDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMCBUTTON(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMCLV_AUTO: i32 = -1i32;
@@ -111,8 +114,11 @@ pub struct MMC_CONSOLE_VERB(i32);
 pub struct MMC_CONTROL_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_EXPANDSYNC_STRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_EXT_VIEW_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_FILTERDATA(i32);
 pub struct MMC_FILTER_CHANGE_CODE(i32);
 pub struct MMC_FILTER_TYPE(i32);
@@ -124,6 +130,7 @@ pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_LISTPAD_INFO(i32);
 pub struct MMC_MENU_COMMAND_IDS(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
@@ -162,15 +169,21 @@ pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
 pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_RESTORE_VIEW(i32);
 pub struct MMC_RESULT_VIEW_STYLE(i32);
 pub struct MMC_SCOPE_ITEM_STATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct MMC_SNAPIN_PROPERTY(i32);
 pub struct MMC_SORT_DATA(i32);
 pub struct MMC_SORT_SET_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK_DISPLAY_BITMAP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK_DISPLAY_OBJECT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK_DISPLAY_SYMBOL(i32);
 pub struct MMC_TASK_DISPLAY_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
@@ -204,7 +217,9 @@ pub struct Properties(i32);
 pub struct Property(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RDCI_ScopeItem: u32 = 2147483648u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RDCOMPARE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RDITEMHDR(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RDI_IMAGE: u32 = 4u32;
@@ -218,8 +233,11 @@ pub const RDI_PARAM: u32 = 16u32;
 pub const RDI_STATE: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RDI_STR: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESULTDATAITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESULTFINDINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESULT_VIEW_TYPE_INFO(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RFI_PARTIAL: u32 = 1u32;
@@ -257,6 +275,7 @@ pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
 pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCOPEDATAITEM(i32);
 pub struct SColumnSetID(i32);
 #[doc = "*Required features: `Win32_System_Mmc`*"]
@@ -279,6 +298,7 @@ pub const SDI_PREVIOUS: u32 = 268435456u32;
 pub const SDI_STATE: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const SDI_STR: u32 = 2u32;
+#[cfg(feature = "Win32_System_Com")]
 pub struct SMMCDataObjects(i32);
 pub struct SMMCObjectTypes(i32);
 pub struct SNodeID(i32);

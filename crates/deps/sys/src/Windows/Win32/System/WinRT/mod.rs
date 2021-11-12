@@ -203,6 +203,7 @@ pub struct DISPATCHERQUEUE_THREAD_TYPE(i32);
 pub struct DispatcherQueueOptions(i32);
 pub struct EventRegistrationToken(i32);
 pub struct HSTRING_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSTRING_HEADER(i32);
 pub struct IAccountsSettingsPaneInterop(i32);
 pub struct IActivationFactory(i32);

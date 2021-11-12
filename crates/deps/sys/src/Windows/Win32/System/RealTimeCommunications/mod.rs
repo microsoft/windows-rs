@@ -611,4 +611,5 @@ pub struct RTC_WATCHER_MATCH_MODE(i32);
 pub struct RTC_WATCHER_STATE(i32);
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct TRANSPORT_SETTING(i32);

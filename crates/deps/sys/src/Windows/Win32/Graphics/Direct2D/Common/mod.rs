@@ -12,6 +12,7 @@ pub struct D2D1_FIGURE_BEGIN(i32);
 pub struct D2D1_FIGURE_END(i32);
 pub struct D2D1_FILL_MODE(i32);
 pub struct D2D1_PATH_SEGMENT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D2D1_PIXEL_FORMAT(i32);
 pub struct D2D1_TURBULENCE_NOISE(i32);
 pub struct D2D_COLOR_F(i32);

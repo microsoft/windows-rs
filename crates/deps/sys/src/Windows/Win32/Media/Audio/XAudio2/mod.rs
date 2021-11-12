@@ -379,6 +379,7 @@ pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_MAIN: f32 = -100f32;
 pub const XAUDIO2FX_REVERB_MIN_ROOM_SIZE: f32 = 0f32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2FX_REVERB_MIN_WET_DRY_MIX: f32 = 0f32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XAUDIO2FX_REVERB_PARAMETERS(i32);
 pub struct XAUDIO2FX_VOLUMEMETER_LEVELS(i32);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -391,6 +392,7 @@ pub struct XAUDIO2_BUFFER_WMA(i32);
 pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XAUDIO2_DEBUG_CONFIGURATION(i32);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
@@ -406,7 +408,9 @@ pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2f32;
 pub const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XAUDIO2_EFFECT_CHAIN(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;

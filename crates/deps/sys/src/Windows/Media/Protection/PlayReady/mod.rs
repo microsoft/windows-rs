@@ -74,7 +74,9 @@ pub struct PlayReadyContentHeader(i32);
 pub struct PlayReadyContentResolver(i32);
 pub struct PlayReadyDecryptorSetup(i32);
 pub struct PlayReadyDomain(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PlayReadyDomainIterable(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PlayReadyDomainIterator(i32);
 pub struct PlayReadyDomainJoinServiceRequest(i32);
 pub struct PlayReadyDomainLeaveServiceRequest(i32);
@@ -85,13 +87,17 @@ pub struct PlayReadyITADataGenerator(i32);
 pub struct PlayReadyIndividualizationServiceRequest(i32);
 pub struct PlayReadyLicense(i32);
 pub struct PlayReadyLicenseAcquisitionServiceRequest(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PlayReadyLicenseIterable(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PlayReadyLicenseIterator(i32);
 pub struct PlayReadyLicenseManagement(i32);
 pub struct PlayReadyLicenseSession(i32);
 pub struct PlayReadyMeteringReportServiceRequest(i32);
 pub struct PlayReadyRevocationServiceRequest(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PlayReadySecureStopIterable(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PlayReadySecureStopIterator(i32);
 pub struct PlayReadySecureStopServiceRequest(i32);
 pub struct PlayReadySoapMessage(i32);

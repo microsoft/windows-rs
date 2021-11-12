@@ -25,7 +25,9 @@ pub struct UI_COMMANDTYPE(i32);
 pub struct UI_CONTEXTAVAILABILITY(i32);
 pub struct UI_CONTROLDOCK(i32);
 pub struct UI_EVENTLOCATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UI_EVENTPARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UI_EVENTPARAMS_COMMAND(i32);
 pub struct UI_EVENTTYPE(i32);
 pub struct UI_EXECUTIONVERB(i32);

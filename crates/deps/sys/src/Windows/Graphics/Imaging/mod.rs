@@ -15,6 +15,7 @@ pub struct BitmapPixelFormat(i32);
 pub struct BitmapPlaneDescription(i32);
 pub struct BitmapProperties(i32);
 pub struct BitmapPropertiesView(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct BitmapPropertySet(i32);
 pub struct BitmapRotation(i32);
 pub struct BitmapSize(i32);
@@ -42,6 +43,7 @@ pub struct IPixelDataProvider(i32);
 pub struct ISoftwareBitmap(i32);
 pub struct ISoftwareBitmapFactory(i32);
 pub struct ISoftwareBitmapStatics(i32);
+#[cfg(feature = "Storage_Streams")]
 pub struct ImageStream(i32);
 pub struct JpegSubsamplingMode(i32);
 pub struct PixelDataProvider(i32);

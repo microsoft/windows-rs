@@ -62,6 +62,7 @@ pub struct EC_SUBSCRIPTION_PROPERTY_ID(i32);
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(i32);
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(i32);
 pub struct EC_SUBSCRIPTION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EC_VARIANT(i32);
 pub struct EC_VARIANT_TYPE(i32);
 #[doc = "*Required features: `Win32_System_EventCollector`*"]

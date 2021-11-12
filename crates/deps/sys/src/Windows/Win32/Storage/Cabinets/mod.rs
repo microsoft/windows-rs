@@ -42,17 +42,26 @@ pub const CB_MAX_DISK: i32 = 2147483647i32;
 pub const CB_MAX_DISK_NAME: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const CB_MAX_FILENAME: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CCAB(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ERF(i32);
 pub struct FCIERROR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDICABINETINFO(i32);
 pub struct FDICREATE_CPU_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT(i32);
 pub struct FDIDECRYPTTYPE(i32);
 pub struct FDIERROR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDINOTIFICATION(i32);
 pub struct FDINOTIFICATIONTYPE(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDISPILLFILE(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDISPILLFILE(i32);
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const INCLUDED_FCI: u32 = 1u32;
@@ -64,20 +73,29 @@ pub struct PFNALLOC(i32);
 pub struct PFNCLOSE(i32);
 pub struct PFNFCIALLOC(i32);
 pub struct PFNFCICLOSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFCIDELETE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFCIFILEPLACED(i32);
 pub struct PFNFCIFREE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFCIGETNEXTCABINET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFCIGETOPENINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFCIGETTEMPFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFCIOPEN(i32);
 pub struct PFNFCIREAD(i32);
 pub struct PFNFCISEEK(i32);
 pub struct PFNFCISTATUS(i32);
 pub struct PFNFCIWRITE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFDIDECRYPT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNFDINOTIFY(i32);
 pub struct PFNFREE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNOPEN(i32);
 pub struct PFNREAD(i32);
 pub struct PFNSEEK(i32);

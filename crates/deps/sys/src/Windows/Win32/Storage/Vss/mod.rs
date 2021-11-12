@@ -234,6 +234,7 @@ pub const VSS_S_ASYNC_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const VSS_S_SOME_SNAPSHOTS_NOT_IMPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271137i32 as _);
 pub struct VSS_USAGE_TYPE(i32);
 pub struct VSS_VOLUME_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct VSS_VOLUME_PROTECTION_INFO(i32);
 pub struct VSS_VOLUME_SNAPSHOT_ATTRIBUTES(i32);
 pub struct VSS_WRITERRESTORE_ENUM(i32);

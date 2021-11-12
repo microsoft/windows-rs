@@ -728,7 +728,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBGPRINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEREFERENCECONNECTION(i32);
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LAPI_MAJOR_VER1: u32 = 1u32;
@@ -744,8 +746,11 @@ pub const LBER_TRANSLATE_STRINGS: u32 = 4u32;
 pub const LBER_USE_DER: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LDAPAPIFeatureInfoA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LDAPAPIFeatureInfoW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LDAPMessage(i32);
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_ABANDON_CMD: i32 = 80i32;
@@ -763,6 +768,7 @@ pub const LDAP_AUTH_OTHERKIND: i32 = 134i32;
 pub const LDAP_AUTH_SASL: i32 = 131i32;
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_AUTH_SIMPLE: i32 = 128i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LDAP_BERVAL(i32);
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_BIND_CMD: i32 = 96i32;
@@ -954,6 +960,7 @@ pub const LDAP_OPT_VERSION: u32 = 17u32;
 pub const LDAP_POLICYHINT_APPLY_FULLPWDPOLICY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_PORT: u32 = 389u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct LDAP_REFERRAL_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_RES_ADD: i32 = 105i32;
@@ -1021,24 +1028,39 @@ pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYOFNEWCONNECTION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct QUERYCLIENTCERT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct QUERYFORCONNECTION(i32);
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct VERIFYSERVERCERT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct berelement(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldap(i32);
 pub struct ldap_version_info(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapapiinfoA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapapiinfoW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapcontrolA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapcontrolW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapmodA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapmodW(i32);
 pub struct ldapsearch(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapsortkeyA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapsortkeyW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldapvlvinfo(i32);

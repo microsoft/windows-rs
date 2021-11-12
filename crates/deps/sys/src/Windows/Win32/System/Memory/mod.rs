@@ -306,18 +306,23 @@ pub struct HeapHandle(i32);
 pub struct LOCAL_ALLOC_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Memory`*"]
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct MEMORY_BASIC_INFORMATION(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct MEMORY_BASIC_INFORMATION(i32);
 pub struct MEMORY_BASIC_INFORMATION32(i32);
 pub struct MEMORY_BASIC_INFORMATION64(i32);
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MEM_EXTENDED_PARAMETER(i32);
 pub struct MEM_EXTENDED_PARAMETER_TYPE(i32);
 pub struct OFFER_PRIORITY(i32);
 pub struct PAGE_PROTECTION_FLAGS(i32);
 pub struct PAGE_TYPE(i32);
 pub struct PBAD_MEMORY_CALLBACK_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_HEAP_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSECURE_MEMORY_CACHE_CALLBACK(i32);
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(i32);
 pub struct VIRTUAL_ALLOCATION_TYPE(i32);

@@ -288,6 +288,7 @@ pub const SENSOR_CATEGORY_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys
 pub const SENSOR_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747693993, data2: 62665, data3: 20386, data4: [175, 55, 86, 212, 113, 254, 90, 61] };
 pub const SENSOR_CATEGORY_SCANNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2952849278, data2: 62901, data3: 16911, data4: [129, 93, 2, 112, 167, 38, 242, 112] };
 pub const SENSOR_CATEGORY_UNSUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 736815098, data2: 6576, data3: 18629, data4: [161, 246, 181, 72, 13, 194, 6, 176] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct SENSOR_COLLECTION_LIST(i32);
 pub struct SENSOR_CONNECTION_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1506,6 +1507,7 @@ pub const SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: super::super::UI::Shell::Propert
     },
     pid: 16u32,
 };
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct SENSOR_PROPERTY_LIST(i32);
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
@@ -1860,6 +1862,7 @@ pub const SENSOR_TYPE_VOLTAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18771,
     data4: [152, 184, 165, 109, 138, 161, 251, 30],
 };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct SENSOR_VALUE_PAIR(i32);
 pub struct SIMPLE_DEVICE_ORIENTATION(i32);
 pub struct Sensor(i32);

@@ -38,40 +38,76 @@ pub const D3D9_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920u32;
 pub const D3D9b_SDK_VERSION: u32 = 31u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DADAPTER_DEFAULT: u32 = 0u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DADAPTER_IDENTIFIER9(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DADAPTER_IDENTIFIER9(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct D3DAES_CTR_IV(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct D3DAES_CTR_IV(i32);
 pub struct D3DAUTHENTICATEDCHANNELTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT(i32);
 pub struct D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(i32);
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT(i32);
 pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1665584212, data2: 11516, data3: 19156, data4: [130, 36, 209, 88, 55, 222, 119, 0] };
 pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -313,6 +349,7 @@ pub const D3DDEVCAPS_QUINTICRTPATCHES: i32 = 2097152i32;
 pub const D3DDEVCAPS_RTPATCHES: i32 = 4194304i32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS_RTPATCHHANDLEZERO: i32 = 8388608i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVICE_CREATION_PARAMETERS(i32);
 pub struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS(i32);
 pub struct D3DDEVINFO_D3D9CACHEUTILIZATION(i32);
@@ -320,6 +357,7 @@ pub struct D3DDEVINFO_D3D9INTERFACETIMINGS(i32);
 pub struct D3DDEVINFO_D3D9PIPELINETIMINGS(i32);
 pub struct D3DDEVINFO_D3D9STAGETIMINGS(i32);
 pub struct D3DDEVINFO_D3DVERTEXSTATS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVINFO_RESOURCEMANAGER(i32);
 pub struct D3DDEVINFO_VCACHE(i32);
 pub struct D3DDEVTYPE(i32);
@@ -386,6 +424,7 @@ pub const D3DKEYEXCHANGE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [141, 134, 211, 252, 207, 21, 62, 155],
 };
 pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT9(i32);
 pub struct D3DLIGHTTYPE(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
@@ -418,7 +457,9 @@ pub struct D3DMATERIAL9(i32);
 pub struct D3DMATERIALCOLORSOURCE(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DMAX30SHADERINSTRUCTIONS: u32 = 32768u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct D3DMEMORYPRESSURE(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct D3DMEMORYPRESSURE(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DMIN30SHADERINSTRUCTIONS: u32 = 512u32;
@@ -507,7 +548,9 @@ pub const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 2048u32;
 pub const D3DPRESENTFLAG_UNPRUNEDMODE: u32 = 64u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_VIDEO: u32 = 16u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct D3DPRESENTSTATS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct D3DPRESENTSTATS(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_BACK_BUFFERS_MAX: i32 = 3i32;
@@ -537,6 +580,7 @@ pub const D3DPRESENT_INTERVAL_THREE: i32 = 4i32;
 pub const D3DPRESENT_INTERVAL_TWO: i32 = 2i32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_LINEAR_CONTENT: i32 = 2i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DPRESENT_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_RATE_DEFAULT: u32 = 0u32;
@@ -602,10 +646,12 @@ pub const D3DPTFILTERCAPS_MINFGAUSSIANQUAD: i32 = 4096i32;
 pub const D3DPTFILTERCAPS_MINFPYRAMIDALQUAD: i32 = 2048i32;
 pub struct D3DQUERYTYPE(i32);
 pub struct D3DRANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DRASTER_STATUS(i32);
 pub struct D3DRECT(i32);
 pub struct D3DRECTPATCH_INFO(i32);
 pub struct D3DRENDERSTATETYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DRESOURCESTATS(i32);
 pub struct D3DRESOURCETYPE(i32);
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]

@@ -51,6 +51,7 @@ pub struct DataTemplate(i32);
 pub struct DataTemplateKey(i32);
 pub struct DebugSettings(i32);
 pub struct DependencyObject(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct DependencyObjectCollection(i32);
 pub struct DependencyProperty(i32);
 pub struct DependencyPropertyChangedCallback(i32);
@@ -64,6 +65,7 @@ pub struct DragStartingEventArgs(i32);
 pub struct DragUI(i32);
 pub struct DragUIOverride(i32);
 pub struct DropCompletedEventArgs(i32);
+#[cfg(feature = "Foundation")]
 pub struct Duration(i32);
 pub struct DurationHelper(i32);
 pub struct DurationType(i32);
@@ -77,6 +79,7 @@ pub struct ElementSoundPlayer(i32);
 pub struct ElementSoundPlayerState(i32);
 pub struct ElementSpatialAudioMode(i32);
 pub struct ElementTheme(i32);
+#[cfg(feature = "ApplicationModel")]
 pub struct EnteredBackgroundEventHandler(i32);
 pub struct EventTrigger(i32);
 pub struct ExceptionRoutedEventArgs(i32);
@@ -273,6 +276,7 @@ pub struct IWindowCreatedEventArgs(i32);
 pub struct IWindowStatics(i32);
 pub struct IXamlRoot(i32);
 pub struct IXamlRootChangedEventArgs(i32);
+#[cfg(feature = "ApplicationModel")]
 pub struct LeavingBackgroundEventHandler(i32);
 pub struct LineStackingStrategy(i32);
 pub struct MediaFailedRoutedEventArgs(i32);
@@ -296,6 +300,7 @@ pub struct SizeHelper(i32);
 pub struct StateTrigger(i32);
 pub struct StateTriggerBase(i32);
 pub struct Style(i32);
+#[cfg(feature = "ApplicationModel")]
 pub struct SuspendingEventHandler(i32);
 pub struct TargetPropertyPath(i32);
 pub struct TextAlignment(i32);
@@ -306,8 +311,10 @@ pub struct TextWrapping(i32);
 pub struct Thickness(i32);
 pub struct ThicknessHelper(i32);
 pub struct TriggerAction(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct TriggerActionCollection(i32);
 pub struct TriggerBase(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct TriggerCollection(i32);
 pub struct UIElement(i32);
 pub struct UIElementWeakCollection(i32);
@@ -324,10 +331,14 @@ pub struct VisualStateGroup(i32);
 pub struct VisualStateManager(i32);
 pub struct VisualTransition(i32);
 pub struct Window(i32);
+#[cfg(feature = "UI_Core")]
 pub struct WindowActivatedEventHandler(i32);
+#[cfg(feature = "UI_Core")]
 pub struct WindowClosedEventHandler(i32);
 pub struct WindowCreatedEventArgs(i32);
+#[cfg(feature = "UI_Core")]
 pub struct WindowSizeChangedEventHandler(i32);
+#[cfg(feature = "UI_Core")]
 pub struct WindowVisibilityChangedEventHandler(i32);
 pub struct XamlRoot(i32);
 pub struct XamlRootChangedEventArgs(i32);

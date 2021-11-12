@@ -30,8 +30,11 @@ pub const APOERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::
 #[doc = "*Required features: `Win32_Media_Audio_Apo`*"]
 pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073913i32 as _);
 pub struct APOInitBaseStruct(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct APOInitSystemEffects(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects3(i32);
 pub struct APO_BUFFER_FLAGS(i32);
 pub struct APO_CONNECTION_BUFFER_TYPE(i32);
@@ -40,6 +43,7 @@ pub struct APO_CONNECTION_PROPERTY(i32);
 pub struct APO_CONNECTION_PROPERTY_V2(i32);
 pub struct APO_FLAG(i32);
 pub struct APO_LOG_LEVEL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APO_NOTIFICATION(i32);
 pub struct APO_NOTIFICATION_DESCRIPTOR(i32);
 pub struct APO_NOTIFICATION_TYPE(i32);
@@ -51,8 +55,10 @@ pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 #[doc = "*Required features: `Win32_Media_Audio_Apo`*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION(i32);
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION(i32);
 pub struct AUDIO_FLOW_TYPE(i32);
 #[doc = "*Required features: `Win32_Media_Audio_Apo`*"]
@@ -63,10 +69,13 @@ pub const AUDIO_MAX_FRAMERATE: f64 = 384000f64;
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Audio_Apo`*"]
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_SYSTEMEFFECT(i32);
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION(i32);
 pub struct AUDIO_SYSTEMEFFECT_STATE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct AudioFXExtensionParams(i32);
 pub struct EAudioConstriction(i32);
 pub struct FNAPONOTIFICATIONCALLBACK(i32);

@@ -49,14 +49,17 @@ pub struct MBN_BAND_CLASS(i32);
 pub struct MBN_CELLULAR_CLASS(i32);
 pub struct MBN_COMPRESSION(i32);
 pub struct MBN_CONNECTION_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MBN_CONTEXT(i32);
 pub struct MBN_CONTEXT_CONSTANTS(i32);
 pub struct MBN_CONTEXT_TYPE(i32);
 pub struct MBN_CTRL_CAPS(i32);
 pub struct MBN_DATA_CLASS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MBN_DEVICE_SERVICE(i32);
 pub struct MBN_DEVICE_SERVICES_INTERFACE_STATE(i32);
 pub struct MBN_DEVICE_SERVICE_SESSIONS_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MBN_INTERFACE_CAPS(i32);
 pub struct MBN_INTERFACE_CAPS_CONSTANTS(i32);
 pub struct MBN_MSG_STATUS(i32);
@@ -66,7 +69,9 @@ pub struct MBN_PIN_INFO(i32);
 pub struct MBN_PIN_MODE(i32);
 pub struct MBN_PIN_STATE(i32);
 pub struct MBN_PIN_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MBN_PROVIDER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MBN_PROVIDER2(i32);
 pub struct MBN_PROVIDER_CONSTANTS(i32);
 pub struct MBN_PROVIDER_STATE(i32);

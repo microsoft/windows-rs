@@ -47,7 +47,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct TIME_ZONE_INFORMATION(i32);
 #[doc = "*Required features: `Win32_System_Time`*"]
 pub const TSF_Authenticated: u32 = 2u32;

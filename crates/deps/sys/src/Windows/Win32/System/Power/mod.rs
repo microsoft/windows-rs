@@ -293,6 +293,7 @@ pub struct BATTERY_CHARGER_STATUS(i32);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_CHARGING: u32 = 4u32;
 pub struct BATTERY_CHARGING_SOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION(i32);
 pub struct BATTERY_CHARGING_SOURCE_TYPE(i32);
 #[doc = "*Required features: `Win32_System_Power`*"]
@@ -422,7 +423,9 @@ pub const EnableVideoDimDisplay: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const EnableWakeOnRing: u32 = 8u32;
 pub struct GLOBAL_MACHINE_POWER_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GLOBAL_POWER_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GLOBAL_USER_POWER_POLICY(i32);
 pub const GUID_CLASS_INPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1293833650, data2: 61807, data3: 4559, data4: [136, 203, 0, 17, 17, 0, 0, 48] };
 pub const GUID_DEVICE_ACPI_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -562,6 +565,7 @@ pub struct POWER_DATA_ACCESSOR(i32);
 pub struct POWER_INFORMATION_LEVEL(i32);
 pub struct POWER_PLATFORM_ROLE(i32);
 pub struct POWER_PLATFORM_ROLE_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct POWER_POLICY(i32);
 pub struct POWER_REQUEST_TYPE(i32);
 pub struct POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(i32);
@@ -575,13 +579,19 @@ pub struct PROCESSOR_OBJECT_INFO(i32);
 pub struct PROCESSOR_OBJECT_INFO_EX(i32);
 pub struct PROCESSOR_POWER_POLICY(i32);
 pub struct PROCESSOR_POWER_POLICY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWRSCHEMESENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWRSCHEMESENUMPROC_V1(i32);
 pub struct SET_POWER_SETTING_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_BATTERY_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_CAPABILITIES(i32);
 pub struct SYSTEM_POWER_CONDITION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_LEVEL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_POLICY(i32);
 pub struct SYSTEM_POWER_STATE(i32);
 pub struct SYSTEM_POWER_STATUS(i32);
@@ -607,10 +617,12 @@ pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct THERMAL_EVENT(i32);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const THERMAL_EVENT_VERSION: u32 = 1u32;
 pub struct THERMAL_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct THERMAL_POLICY(i32);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
@@ -630,5 +642,6 @@ pub const UNKNOWN_RATE: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
 pub struct USB_CHARGER_PORT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct USER_POWER_POLICY(i32);
 pub struct WAKE_ALARM_INFORMATION(i32);

@@ -87,6 +87,7 @@ pub struct FILTER_INFORMATION_CLASS(i32);
 pub struct FILTER_MESSAGE_HEADER(i32);
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILTER_REPLY_HEADER(i32);
 pub struct FILTER_VOLUME_BASIC_INFORMATION(i32);
 pub struct FILTER_VOLUME_INFORMATION_CLASS(i32);

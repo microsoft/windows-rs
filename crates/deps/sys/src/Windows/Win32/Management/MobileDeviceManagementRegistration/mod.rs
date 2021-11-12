@@ -63,7 +63,9 @@ pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MANAGEMENT_REGISTRATION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MANAGEMENT_SERVICE_INFO(i32);
 #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;

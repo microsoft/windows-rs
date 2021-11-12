@@ -85,10 +85,12 @@ pub struct CompositionRoundedRectangleGeometry(i32);
 pub struct CompositionScopedBatch(i32);
 pub struct CompositionShadow(i32);
 pub struct CompositionShape(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct CompositionShapeCollection(i32);
 pub struct CompositionSpriteShape(i32);
 pub struct CompositionStretch(i32);
 pub struct CompositionStrokeCap(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct CompositionStrokeDashArray(i32);
 pub struct CompositionStrokeLineJoin(i32);
 pub struct CompositionSurfaceBrush(i32);
@@ -287,7 +289,9 @@ pub struct IVisualElement2(i32);
 pub struct IVisualFactory(i32);
 pub struct IVisualUnorderedCollection(i32);
 pub struct ImplicitAnimationCollection(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct InitialValueExpressionCollection(i32);
+#[cfg(feature = "Foundation")]
 pub struct InkTrailPoint(i32);
 pub struct InsetClip(i32);
 pub struct KeyFrameAnimation(i32);

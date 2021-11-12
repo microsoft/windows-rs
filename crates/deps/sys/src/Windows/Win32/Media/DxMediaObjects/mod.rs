@@ -75,6 +75,7 @@ pub const DMO_E_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const DMO_E_TYPE_NOT_ACCEPTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
 #[doc = "*Required features: `Win32_Media_DxMediaObjects`*"]
 pub const DMO_E_TYPE_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DMO_MEDIA_TYPE(i32);
 pub struct DMO_OUTPUT_DATA_BUFFER(i32);
 pub struct DMO_PARTIAL_MEDIATYPE(i32);

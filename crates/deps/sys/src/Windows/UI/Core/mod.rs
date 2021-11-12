@@ -24,6 +24,7 @@ pub struct CoreIndependentInputSourceController(i32);
 pub struct CoreInputDeviceTypes(i32);
 pub struct CorePhysicalKeyStatus(i32);
 pub struct CoreProcessEventsOption(i32);
+#[cfg(feature = "Foundation")]
 pub struct CoreProximityEvaluation(i32);
 pub struct CoreProximityEvaluationScore(i32);
 pub struct CoreVirtualKeyStates(i32);

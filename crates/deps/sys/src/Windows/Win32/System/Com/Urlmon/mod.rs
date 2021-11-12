@@ -209,6 +209,7 @@ pub struct BSCF(i32);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const CF_NULL: u32 = 0u32;
 pub struct CIP_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CODEBASEHOLD(i32);
 pub struct CONFIRMSAFETY(i32);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -258,6 +259,7 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIT_LOGGING_INFO(i32);
 pub struct IBindCallbackRedirect(i32);
 pub struct IBindHttpSecurity(i32);
@@ -443,12 +445,15 @@ pub struct PROTOCOLDATA(i32);
 pub struct PROTOCOLFILTERDATA(i32);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROTOCOL_ARGUMENT(i32);
 pub struct PSUACTION(i32);
 pub struct PUAF(i32);
 pub struct PUAFOUT(i32);
 pub struct QUERYOPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct REMSECURITY_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct RemBINDINFO(i32);
 pub struct RemFORMATETC(i32);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
@@ -471,6 +476,7 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOFTDISTINFO(i32);
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;

@@ -4,8 +4,10 @@ extern "system" {}
 pub struct Buffer(i32);
 pub struct ByteOrder(i32);
 pub struct DataReader(i32);
+#[cfg(feature = "Foundation")]
 pub struct DataReaderLoadOperation(i32);
 pub struct DataWriter(i32);
+#[cfg(feature = "Foundation")]
 pub struct DataWriterStoreOperation(i32);
 pub struct FileInputStream(i32);
 pub struct FileOpenDisposition(i32);

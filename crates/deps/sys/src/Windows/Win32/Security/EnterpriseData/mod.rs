@@ -40,6 +40,7 @@ extern "system" {
 }
 pub struct ENTERPRISE_DATA_POLICIES(i32);
 pub struct FILE_UNPROTECT_OPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTHREAD_NETWORK_CONTEXT(i32);
 pub struct IProtectionPolicyManagerInterop(i32);
 pub struct IProtectionPolicyManagerInterop2(i32);

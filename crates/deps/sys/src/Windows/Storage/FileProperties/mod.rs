@@ -18,6 +18,7 @@ pub struct MusicProperties(i32);
 pub struct PhotoOrientation(i32);
 pub struct PropertyPrefetchOptions(i32);
 pub struct StorageItemContentProperties(i32);
+#[cfg(feature = "Storage_Streams")]
 pub struct StorageItemThumbnail(i32);
 pub struct ThumbnailMode(i32);
 pub struct ThumbnailOptions(i32);

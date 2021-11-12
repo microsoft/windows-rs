@@ -42,6 +42,7 @@ pub struct AsyncIFtpPostprocessProvider(i32);
 pub struct AsyncIFtpPreprocessProvider(i32);
 pub struct AsyncIFtpRoleProvider(i32);
 pub struct AsyncIMSAdminBaseSinkW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX(i32);
 pub const CLSID_IImgCtx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611670, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CLSID_IisServiceControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797985, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
@@ -52,6 +53,7 @@ pub const CLSID_ScriptingContext: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub const CLSID_Server: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768687456, data2: 9696, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
 pub const CLSID_Session: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1352634144, data2: 9694, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
 pub const CLSID_WamAdmin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1634960964, data2: 61846, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONFIGURATION_ENTRY(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
@@ -101,6 +103,7 @@ pub const DWN_FORCEDITHER: u32 = 128u32;
 pub const DWN_MIRRORIMAGE: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DWN_RAWIMAGE: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXTENSION_CONTROL_BLOCK(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
@@ -129,8 +132,11 @@ pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_CUSTOM_ERROR_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_UNICODE_URL_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
@@ -141,12 +147,14 @@ pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_URL_INFO(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
 pub struct HSE_EXEC_URL_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_URL_USER_INFO(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_LOG_BUFFER_LEN: u32 = 80u32;
@@ -236,7 +244,9 @@ pub const HSE_REQ_SET_FLUSH_FLAG: u32 = 1043u32;
 pub const HSE_REQ_TRANSMIT_FILE: u32 = 1006u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_VECTOR_SEND: u32 = 1037u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_RESPONSE_VECTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_SEND_HEADER_EX_INFO(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_STATUS_ERROR: u32 = 4u32;
@@ -250,7 +260,9 @@ pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
 pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TF_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TRACE_INFO(i32);
 pub struct HSE_UNICODE_URL_MAPEX_INFO(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
@@ -275,31 +287,44 @@ pub const HSE_URL_FLAGS_SSL: u32 = 8u32;
 pub const HSE_URL_FLAGS_SSL128: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_WRITE: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_URL_MAPEX_INFO(i32);
 pub struct HSE_VECTOR_ELEMENT(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSE_VERSION_INFO(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VERSION_MINOR: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_ACCESS_DENIED(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_AUTHENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_LOG(i32);
 pub struct HTTP_FILTER_PREPROC_HEADERS(i32);
 pub struct HTTP_FILTER_RAW_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_URL_MAP(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_URL_MAP_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_CONFIGURATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_EVENT(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_EVENT_ITEM(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
@@ -405,6 +430,7 @@ pub struct IMSImpExpHelpW(i32);
 pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
 pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
 pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOGGING_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
@@ -816,6 +842,7 @@ pub const MD_CERT_NO_REVOC_CHECK: u32 = 1u32;
 pub const MD_CERT_NO_USAGE_CHECK: u32 = 65536u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CGI_RESTRICTION_LIST: u32 = 2164u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MD_CHANGE_OBJECT_W(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_ADD_OBJECT: u32 = 2u32;
@@ -1718,20 +1745,30 @@ pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_GETEXTENSIONVERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HSE_CACHE_INVALIDATION_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HSE_IO_COMPLETION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_HTTPEXTENSIONPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_TERMINATEEXTENSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WEB_CORE_ACTIVATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_WEB_CORE_SET_METADATA_DLL_ENTRY(i32);
 pub struct PFN_WEB_CORE_SHUTDOWN(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const POP3_MD_ID_BEGIN_RESERVED: u32 = 40960u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const POP3_MD_ID_END_RESERVED: u32 = 45055u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct POST_PROCESS_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRE_PROCESS_PARAMETERS(i32);
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_DENIED_APPLICATION: u32 = 8u32;

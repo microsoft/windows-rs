@@ -366,11 +366,17 @@ pub struct BINARY_BLOB_CREDENTIAL_INFO(i32);
 pub struct CERT_CREDENTIAL_INFO(i32);
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CERT_HASH_LENGTH: u32 = 20u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIALA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIALW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIAL_ATTRIBUTEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIAL_ATTRIBUTEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIAL_TARGET_INFORMATIONA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIAL_TARGET_INFORMATIONW(i32);
 pub struct CREDSPP_SUBMIT_TYPE(i32);
 pub struct CREDSSP_CRED(i32);
@@ -391,7 +397,9 @@ pub struct CREDUIWIN_FLAGS(i32);
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
 pub struct CREDUI_FLAGS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CREDUI_INFOA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CREDUI_INFOW(i32);
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
@@ -456,19 +464,28 @@ pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows_sys::core::GUID = ::wind
 pub struct KeyCredentialManagerInfo(i32);
 pub struct KeyCredentialManagerOperationErrorStates(i32);
 pub struct KeyCredentialManagerOperationType(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPOCNCHKPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPOCNCONNPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPOCNCONNPROCW(i32);
 pub struct LPOCNDSCPROC(i32);
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAW(i32);
 pub struct READER_SEL_REQUEST(i32);
 pub struct READER_SEL_REQUEST_MATCH_TYPE(i32);
@@ -537,7 +554,9 @@ pub const SCARD_PROVIDER_CSP: u32 = 2u32;
 pub const SCARD_PROVIDER_KSP: u32 = 3u32;
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCARD_READERSTATEA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCARD_READERSTATEW(i32);
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
@@ -670,4 +689,5 @@ pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = supe
 pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741718i32 as _);
 pub struct SecHandle(i32);
 pub struct SecPkgContext_ClientCreds(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO(i32);

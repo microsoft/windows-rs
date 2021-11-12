@@ -199,6 +199,7 @@ pub const GPM_PROCESS_SECURITY: u32 = 2u32;
 pub const GPM_USE_ANYDC: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_USE_PDC: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct GPOBROWSEINFO(i32);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
@@ -262,7 +263,9 @@ pub const GPO_SECTION_ROOT: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_SECTION_USER: u32 = 1u32;
 pub struct GROUP_POLICY_HINT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTW(i32);
 pub struct GROUP_POLICY_OBJECT_TYPE(i32);
 pub struct IGPEInformation(i32);
@@ -308,10 +311,13 @@ pub struct IGPMTrustee(i32);
 pub struct IGPMWMIFilter(i32);
 pub struct IGPMWMIFilterCollection(i32);
 pub struct IGroupPolicyObject(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLSPEC(i32);
 pub struct INSTALLSPECTYPE(i32);
 pub struct IRSOPInformation(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOCALMANAGEDAPPLICATION(i32);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
@@ -327,6 +333,7 @@ pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct MANAGEDAPPLICATION(i32);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
@@ -363,14 +370,19 @@ pub const NODEID_RSOPUserSWSettings: ::windows_sys::core::GUID = ::windows_sys::
 };
 pub const NODEID_User: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771704, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 pub const NODEID_UserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771708, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub struct PFNGENERATEGROUPPOLICY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct PFNPROCESSGROUPPOLICY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
 pub struct PFNPROCESSGROUPPOLICYEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFNSTATUSMESSAGECALLBACK(i32);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PI_APPLYPOLICY: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PI_NOUI: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct POLICYSETTINGSTATUSINFO(i32);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PT_MANDATORY: u32 = 4u32;
@@ -402,6 +414,7 @@ pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
 pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub struct RSOP_TARGET(i32);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;

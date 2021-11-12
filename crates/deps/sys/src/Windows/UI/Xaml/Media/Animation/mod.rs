@@ -11,6 +11,7 @@ pub struct ClockState(i32);
 pub struct ColorAnimation(i32);
 pub struct ColorAnimationUsingKeyFrames(i32);
 pub struct ColorKeyFrame(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct ColorKeyFrameCollection(i32);
 pub struct CommonNavigationTransitionInfo(i32);
 pub struct ConnectedAnimation(i32);
@@ -28,6 +29,7 @@ pub struct DiscretePointKeyFrame(i32);
 pub struct DoubleAnimation(i32);
 pub struct DoubleAnimationUsingKeyFrames(i32);
 pub struct DoubleKeyFrame(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct DoubleKeyFrameCollection(i32);
 pub struct DragItemThemeAnimation(i32);
 pub struct DragOverThemeAnimation(i32);
@@ -205,6 +207,7 @@ pub struct ITimelineStatics(i32);
 pub struct ITransition(i32);
 pub struct ITransitionFactory(i32);
 pub struct KeySpline(i32);
+#[cfg(feature = "Foundation")]
 pub struct KeyTime(i32);
 pub struct KeyTimeHelper(i32);
 pub struct LinearColorKeyFrame(i32);
@@ -214,11 +217,13 @@ pub struct NavigationThemeTransition(i32);
 pub struct NavigationTransitionInfo(i32);
 pub struct ObjectAnimationUsingKeyFrames(i32);
 pub struct ObjectKeyFrame(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct ObjectKeyFrameCollection(i32);
 pub struct PaneThemeTransition(i32);
 pub struct PointAnimation(i32);
 pub struct PointAnimationUsingKeyFrames(i32);
 pub struct PointKeyFrame(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct PointKeyFrameCollection(i32);
 pub struct PointerDownThemeAnimation(i32);
 pub struct PointerUpThemeAnimation(i32);
@@ -230,6 +235,7 @@ pub struct QuadraticEase(i32);
 pub struct QuarticEase(i32);
 pub struct QuinticEase(i32);
 pub struct ReorderThemeTransition(i32);
+#[cfg(feature = "Foundation")]
 pub struct RepeatBehavior(i32);
 pub struct RepeatBehaviorHelper(i32);
 pub struct RepeatBehaviorType(i32);
@@ -248,6 +254,8 @@ pub struct SuppressNavigationTransitionInfo(i32);
 pub struct SwipeBackThemeAnimation(i32);
 pub struct SwipeHintThemeAnimation(i32);
 pub struct Timeline(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct TimelineCollection(i32);
 pub struct Transition(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct TransitionCollection(i32);

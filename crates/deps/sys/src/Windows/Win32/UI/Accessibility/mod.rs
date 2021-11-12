@@ -750,6 +750,7 @@ pub const ExpandCollapse_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys
     data3: 17034,
     data4: [131, 76, 83, 165, 197, 47, 155, 139],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct ExtendedProperty(i32);
 pub struct FILTERKEYS(i32);
 pub const FillColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -815,7 +816,9 @@ pub const Group_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18292,
     data4: [174, 27, 221, 134, 223, 11, 59, 220],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIGHCONTRASTA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIGHCONTRASTW(i32);
 pub struct HIGHCONTRASTW_FLAGS(i32);
 pub struct HUIAEVENT(i32);
@@ -1220,11 +1223,17 @@ pub const ItemContainer_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys:
 pub const ItemStatus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1373504289, data2: 14707, data3: 17383, data4: [137, 19, 11, 8, 232, 19, 195, 127] };
 pub const ItemType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3453633357, data2: 25122, data3: 16699, data4: [166, 138, 50, 93, 209, 212, 15, 57] };
 pub const LIBID_Accessibility: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 514120688, data2: 15419, data3: 4559, data4: [129, 12, 0, 170, 0, 56, 155, 113] };
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct LPFNACCESSIBLECHILDREN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct LPFNACCESSIBLEOBJECTFROMPOINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNACCESSIBLEOBJECTFROMWINDOW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNCREATESTDACCESSIBLEOBJECT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNLRESULTFROMOBJECT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LPFNOBJECTFROMLRESULT(i32);
 pub const LabeledBy_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3854078539,
@@ -1314,6 +1323,7 @@ pub const LocalizedLandmarkType_Property_GUID: ::windows_sys::core::GUID = ::win
     data4: [191, 145, 244, 133, 190, 245, 232, 225],
 };
 pub struct MOUSEKEYS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MSAAMENUINFO(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
@@ -1642,7 +1652,9 @@ pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const SELFLAG_VALID: u32 = 31u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERIALKEYSA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SERIALKEYSW(i32);
 pub struct SERIALKEYS_FLAGS(i32);
 pub const SID_ControlElementProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4101578088, data2: 57940, data3: 19363, data4: [154, 83, 38, 165, 197, 73, 121, 70] };
@@ -1652,7 +1664,9 @@ pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 18212,
     data4: [132, 43, 199, 5, 157, 237, 185, 208],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOUNDSENTRYA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOUNDSENTRYW(i32);
 pub struct SOUNDSENTRY_FLAGS(i32);
 pub struct SOUNDSENTRY_TEXT_EFFECT(i32);
@@ -2967,10 +2981,14 @@ pub const UIA_WindowWindowVisualStatePropertyId: i32 = 30075i32;
 pub const UIA_Window_WindowClosedEventId: i32 = 20017i32;
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const UIA_Window_WindowOpenedEventId: i32 = 20016i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationEventInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationMethodInfo(i32);
 pub struct UIAutomationParameter(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationPatternInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationPropertyInfo(i32);
 pub struct UIAutomationType(i32);
 pub struct UiaAndOrCondition(i32);
@@ -2978,21 +2996,29 @@ pub struct UiaAndOrCondition(i32);
 pub const UiaAppendRuntimeId: u32 = 3u32;
 pub struct UiaAsyncContentLoadedEventArgs(i32);
 pub struct UiaCacheRequest(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct UiaChangeInfo(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct UiaChangesEventArgs(i32);
 pub struct UiaCondition(i32);
 pub struct UiaEventArgs(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct UiaEventCallback(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct UiaFindParams(i32);
 pub struct UiaNotCondition(i32);
 pub struct UiaPoint(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct UiaPropertyChangedEventArgs(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct UiaPropertyCondition(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct UiaProviderCallback(i32);
 pub struct UiaRect(i32);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const UiaRootObjectId: i32 = -25i32;
 pub struct UiaStructureChangedEventArgs(i32);
+#[cfg(feature = "Win32_System_Com")]
 pub struct UiaTextEditTextChangedEventArgs(i32);
 pub struct UiaWindowClosedEventArgs(i32);
 pub const Value_IsReadOnly_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3943239472, data2: 57932, data3: 18329, data4: [167, 5, 13, 36, 123, 192, 55, 248] };
@@ -3016,6 +3042,7 @@ pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys
     data3: 18135,
     data4: [158, 112, 78, 138, 132, 32, 212, 32],
 };
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINEVENTPROC(i32);
 pub struct WindowInteractionState(i32);
 pub struct WindowVisualState(i32);

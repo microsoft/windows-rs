@@ -11,6 +11,7 @@ pub struct AudioFrameCompletedEventArgs(i32);
 pub struct AudioFrameInputNode(i32);
 pub struct AudioFrameOutputNode(i32);
 pub struct AudioGraph(i32);
+#[cfg(feature = "Foundation")]
 pub struct AudioGraphBatchUpdater(i32);
 pub struct AudioGraphConnection(i32);
 pub struct AudioGraphCreationStatus(i32);

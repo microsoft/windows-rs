@@ -23,8 +23,11 @@ pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_s
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DTC_GET_TRANSACTION_MANAGER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DTC_GET_TRANSACTION_MANAGER_EX_A(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DTC_GET_TRANSACTION_MANAGER_EX_W(i32);
 pub struct DTC_INSTALL_CLIENT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
@@ -174,6 +177,7 @@ pub struct XACTHEURISTIC(i32);
 pub struct XACTOPT(i32);
 pub struct XACTRM(i32);
 pub struct XACTSTAT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XACTSTATS(i32);
 pub struct XACTTC(i32);
 pub struct XACTTRANSINFO(i32);
@@ -194,14 +198,18 @@ pub const XAER_PROTO: i32 = -6i32;
 pub const XAER_RMERR: i32 = -3i32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_RMFAIL: i32 = -7i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_CLOSE_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_COMMIT_EPT(i32);
 pub struct XA_COMPLETE_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_END_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_FMTID_DTC: u32 = 4478019u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_FORGET_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_HEURCOM: u32 = 7u32;
@@ -215,7 +223,9 @@ pub const XA_HEURRB: u32 = 6u32;
 pub const XA_NOMIGRATE: u32 = 9u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_OK: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_OPEN_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_PREPARE_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBBASE: u32 = 100u32;
@@ -239,10 +249,13 @@ pub const XA_RBTIMEOUT: u32 = 106u32;
 pub const XA_RBTRANSIENT: u32 = 107u32;
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RDONLY: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_RECOVER_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RETRY: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_ROLLBACK_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct XA_START_EPT(i32);
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
@@ -258,5 +271,7 @@ pub struct _DtcLu_Xln_Confirmation(i32);
 pub struct _DtcLu_Xln_Error(i32);
 pub struct _DtcLu_Xln_Response(i32);
 pub struct _ProxyConfigParams(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct xa_switch_t(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct xid_t(i32);

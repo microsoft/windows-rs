@@ -1003,6 +1003,7 @@ pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows_sys::core::HRESULT = ::windows_
 pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
+#[cfg(any(target_arch = "x86",))]
 pub struct ADDRESS(i32);
 pub struct ADDRESS64(i32);
 pub struct ADDRESS_MODE(i32);
@@ -1033,6 +1034,7 @@ pub const APPBREAKFLAG_STEPTYPE_MASK: u32 = 15728640u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const APPBREAKFLAG_STEPTYPE_SOURCE: u32 = 0u32;
 pub struct APPLICATION_NODE_EVENT_FILTER(i32);
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 pub struct ARM64_NT_CONTEXT(i32);
 pub struct ARM64_NT_NEON128(i32);
 pub struct ArrayDimension(i32);
@@ -1116,19 +1118,30 @@ pub const CHECKSUM_OPEN_FAILURE: u32 = 1u32;
 pub const CHECKSUM_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const CHECKSUM_UNICODE_FAILURE: u32 = 4u32;
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT(i32);
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT(i32);
 pub struct CPU_INFORMATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_PROCESS_DEBUG_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_THREAD_DEBUG_INFO(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2u32;
 pub struct CallingConventionKind(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DBGHELP_DATA_REPORT_STRUCT(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER32(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER64(i32);
 pub struct DBGKD_GET_VERSION32(i32);
 pub struct DBGKD_GET_VERSION64(i32);
@@ -1795,6 +1808,7 @@ pub const DEBUG_ENGOPT_PREFER_DML: u32 = 262144u32;
 pub const DEBUG_ENGOPT_PREFER_TRACE_FILES: u32 = 8388608u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_ENGOPT_SYNCHRONIZE_BREAKPOINTS: u32 = 2048u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct DEBUG_EVENT(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_EVENT_BREAKPOINT: u32 = 1u32;
@@ -2098,6 +2112,7 @@ pub const DEBUG_KNOWN_STRUCT_GET_SINGLE_LINE_OUTPUT: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_KNOWN_STRUCT_SUPPRESS_TYPE_NAME: u32 = 3u32;
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION(i32);
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS(i32);
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD(i32);
@@ -2288,12 +2303,18 @@ pub const DEBUG_PHYSICAL_DEFAULT: u32 = 0u32;
 pub const DEBUG_PHYSICAL_UNCACHED: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_PHYSICAL_WRITE_COMBINED: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALL(i32);
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_PROCESS_DETACH_ON_EXIT: u32 = 1u32;
@@ -2457,6 +2478,7 @@ pub const DEBUG_STACK_ARGUMENTS: u32 = 1u32;
 pub const DEBUG_STACK_COLUMN_NAMES: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_STACK_DML: u32 = 2048u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_STACK_FRAME_ADDRESSES: u32 = 8u32;
@@ -2464,6 +2486,7 @@ pub const DEBUG_STACK_FRAME_ADDRESSES: u32 = 8u32;
 pub const DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_STACK_FRAME_ARCH: u32 = 16384u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME_EX(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_STACK_FRAME_MEMORY_USAGE: u32 = 512u32;
@@ -2652,6 +2675,7 @@ pub const DEBUG_USER_WINDOWS_PROCESS_SERVER: u32 = 1u32;
 pub const DEBUG_USER_WINDOWS_REPT: u32 = 3u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_USER_WINDOWS_SMALL_DUMP: u32 = 1024u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_VALUE_FLOAT128: u32 = 9u32;
@@ -2693,8 +2717,13 @@ pub const DEBUG_VSOURCE_INVALID: u32 = 0u32;
 pub const DEBUG_VSOURCE_MAPPED_IMAGE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DEBUG_WAIT_DEFAULT: u32 = 0u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIGEST_FUNCTION(i32);
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT(i32);
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DMP_CONTEXT_RECORD_SIZE_32: u32 = 1200u32;
@@ -2720,7 +2749,9 @@ pub const DSLFLAG_MISMATCHED_DBG: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DSLFLAG_MISMATCHED_PDB: u32 = 1u32;
 pub struct DUMP_FILE_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_HEADER32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_HEADER64(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
@@ -2729,8 +2760,11 @@ pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
 pub struct DebugBaseEventCallbacks(i32);
 pub struct DebugBaseEventCallbacksWide(i32);
 pub struct DebugHelper(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DebugPropertyInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor64(i32);
 pub struct DefaultDebugSessionProvider(i32);
 pub struct ERRORRESUMEACTION(i32);
@@ -2760,10 +2794,15 @@ pub const EVENT_SRCSPEW: u32 = 100u32;
 pub const EVENT_SRCSPEW_END: u32 = 199u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const EVENT_SRCSPEW_START: u32 = 100u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_DEBUG_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct EXCEPTION_POINTERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_RECORD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_RECORD32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_RECORD64(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const EXIT_ON_CONTROLC: u32 = 8u32;
@@ -2779,9 +2818,11 @@ pub const EXT_API_VERSION_NUMBER: u32 = 5u32;
 pub const EXT_API_VERSION_NUMBER32: u32 = 5u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const EXT_API_VERSION_NUMBER64: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXT_FIND_FILE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXT_MATCH_PATTERN_A(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const EXT_OUTPUT_VER: u32 = 1u32;
@@ -2811,6 +2852,7 @@ pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows_sys::core::HRESULT = ::
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338174i32 as _);
 pub struct ErrorClass(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct ExtendedDebugPropertyInfo(i32);
 pub struct FACILITY_CODE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -2837,9 +2879,12 @@ pub const GETATTRTYPE_NORMAL: u32 = 0u32;
 pub struct GET_CONTEXT_EX(i32);
 pub struct GET_CURRENT_PROCESS_ADDRESS(i32);
 pub struct GET_CURRENT_THREAD_ADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GET_EXPRESSION_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GET_INPUT_LINE(i32);
 pub struct GET_PEB_ADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct GET_SET_SYMPATH(i32);
 pub struct GET_TEB_ADDRESS(i32);
 pub struct IActiveScript(i32);
@@ -3159,28 +3204,50 @@ pub struct IJsDebugStackWalker(i32);
 pub struct IJsEnumDebugProperty(i32);
 pub struct IKeyEnumerator(i32);
 pub struct IKeyStore(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_CBA_EVENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_CBA_EVENTW(i32);
 pub struct IMAGEHLP_CBA_EVENT_SEVERITY(i32);
 pub struct IMAGEHLP_CBA_READ_MEMORY(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64(i32);
 pub struct IMAGEHLP_EXTENDED_OPTIONS(i32);
 pub struct IMAGEHLP_GET_TYPE_INFO_FLAGS(i32);
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS(i32);
 pub struct IMAGEHLP_HD_TYPE(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINE64(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINEW64(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE64_EX(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct IMAGEHLP_MODULEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULEW64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULEW64_EX(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IMAGEHLP_MODULE_REGION_ADDITIONAL: u32 = 4u32;
@@ -3207,14 +3274,21 @@ pub const IMAGEHLP_RMAP_MAPPED_FLAT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS: u32 = 1073741824u32;
 pub struct IMAGEHLP_SF_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_STACK_FRAME(i32);
 pub struct IMAGEHLP_STATUS_REASON(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct IMAGEHLP_SYMBOLW(i32);
 pub struct IMAGEHLP_SYMBOLW64(i32);
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IMAGEHLP_SYMBOL_FUNCTION: u32 = 2048u32;
@@ -3234,7 +3308,10 @@ pub const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: u32 = 16u32;
 pub const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: u32 = 16384u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: u32 = 1u32;
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL_PACKAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL_SRC(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const IMAGEHLP_SYMBOL_THUNK: u32 = 8192u32;
@@ -3246,6 +3323,8 @@ pub struct IMAGE_COFF_SYMBOLS_HEADER(i32);
 pub struct IMAGE_COR20_HEADER(i32);
 pub struct IMAGE_DATA_DIRECTORY(i32);
 pub struct IMAGE_DEBUG_DIRECTORY(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct IMAGE_DEBUG_INFORMATION(i32);
 pub struct IMAGE_DEBUG_TYPE(i32);
 pub struct IMAGE_DIRECTORY_ENTRY(i32);
@@ -3339,10 +3418,14 @@ pub struct IWebAppDiagnosticsSetup(i32);
 pub struct IntrinsicKind(i32);
 pub struct JS_PROPERTY_ATTRIBUTES(i32);
 pub struct JS_PROPERTY_MEMBERS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct JsDebugPropertyInfo(i32);
 pub struct JsDebugReadMemoryFlags(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA32(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA64(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct KDHELP(i32);
 pub struct KDHELP64(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -3353,14 +3436,23 @@ pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const KD_SECONDARY_VERSION_DEFAULT: u32 = 0u32;
+#[cfg(any(target_arch = "x86_64",))]
 pub struct KNONVOLATILE_CONTEXT_POINTERS(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct KNONVOLATILE_CONTEXT_POINTERS(i32);
+#[cfg(any(target_arch = "aarch64",))]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64(i32);
 pub struct LDT_ENTRY(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LOADED_IMAGE(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LOADED_IMAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOAD_DLL_DEBUG_INFO(i32);
 pub struct LPCALL_BACK_USER_INTERRUPT_ROUTINE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LPTOP_LEVEL_EXCEPTION_FILTER(i32);
 pub struct LanguageKind(i32);
 pub struct Location(i32);
@@ -3370,14 +3462,20 @@ pub struct M128A(i32);
 pub const MAX_SYM_NAME: u32 = 2000u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const MEMORY_READ_ERROR: u32 = 1u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_CALLBACK_INPUT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_ROUTINE(i32);
 pub struct MINIDUMP_CALLBACK_TYPE(i32);
 pub struct MINIDUMP_DIRECTORY(i32);
 pub struct MINIDUMP_EXCEPTION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_EXCEPTION_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64(i32);
 pub struct MINIDUMP_EXCEPTION_STREAM(i32);
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR(i32);
@@ -3391,12 +3489,14 @@ pub struct MINIDUMP_HANDLE_OPERATION_LIST(i32);
 pub struct MINIDUMP_HEADER(i32);
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK(i32);
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_IO_CALLBACK(i32);
 pub struct MINIDUMP_LOCATION_DESCRIPTOR(i32);
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64(i32);
 pub struct MINIDUMP_MEMORY64_LIST(i32);
 pub struct MINIDUMP_MEMORY_DESCRIPTOR(i32);
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64(i32);
+#[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_MEMORY_INFO(i32);
 pub struct MINIDUMP_MEMORY_INFO_LIST(i32);
 pub struct MINIDUMP_MEMORY_LIST(i32);
@@ -3416,12 +3516,18 @@ pub const MINIDUMP_MISC4_BUILDSTRING: u32 = 256u32;
 pub const MINIDUMP_MISC5_PROCESS_COOKIE: u32 = 512u32;
 pub struct MINIDUMP_MISC_INFO(i32);
 pub struct MINIDUMP_MISC_INFO_2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_3(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_4(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_5(i32);
 pub struct MINIDUMP_MISC_INFO_FLAGS(i32);
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct MINIDUMP_MODULE_CALLBACK(i32);
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_LIST(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const MINIDUMP_PROCESS_VM_COUNTERS: u32 = 1u32;
@@ -3454,12 +3560,24 @@ pub struct MINIDUMP_SYSTEM_INFO(i32);
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1(i32);
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION(i32);
 pub struct MINIDUMP_THREAD(i32);
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK(i32);
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK(i32);
 pub struct MINIDUMP_THREAD_EX(i32);
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK(i32);
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK(i32);
 pub struct MINIDUMP_THREAD_EX_LIST(i32);
 pub struct MINIDUMP_THREAD_INFO(i32);
@@ -3513,41 +3631,71 @@ pub const OID_VBSSIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const OID_WSFSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 442566000, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
 pub struct OMAP(i32);
 pub struct OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct OUTPUT_DEBUG_STRING_INFO(i32);
 pub struct PCOGETACTIVATIONSTATE(i32);
 pub struct PCOGETCALLSTATE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDBGHELP_CREATE_USER_DUMP_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_CALL(i32);
 pub struct PDEBUG_EXTENSION_CANUNLOAD(i32);
 pub struct PDEBUG_EXTENSION_INITIALIZE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_KNOWN_STRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_KNOWN_STRUCT_EX(i32);
 pub struct PDEBUG_EXTENSION_NOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_PROVIDE_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_EXTENSION_QUERY_VALUE_NAMES(i32);
 pub struct PDEBUG_EXTENSION_UNINITIALIZE(i32);
 pub struct PDEBUG_EXTENSION_UNLOAD(i32);
 pub struct PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION(i32);
 pub struct PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMDIRTREE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMDIRTREE_CALLBACKW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMLOADED_MODULES_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMLOADED_MODULES_CALLBACK64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMLOADED_MODULES_CALLBACKW64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PENUMSOURCEFILETOKENSCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFINDFILEINPATHCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFINDFILEINPATHCALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_DEBUG_FILE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_DEBUG_FILE_CALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_EXE_FILE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFIND_EXE_FILE_CALLBACKW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFUNCTION_TABLE_ACCESS_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFUNCTION_TABLE_ACCESS_ROUTINE64(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_MODULE_BASE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PGET_MODULE_BASE_ROUTINE64(i32);
+#[cfg(any(target_arch = "aarch64",))]
 pub struct PGET_RUNTIME_FUNCTION_CALLBACK(i32);
+#[cfg(any(target_arch = "x86_64",))]
 pub struct PGET_RUNTIME_FUNCTION_CALLBACK(i32);
 pub struct PHYSICAL(i32);
 pub struct PHYSICAL_MEMORY_DESCRIPTOR32(i32);
@@ -3564,11 +3712,17 @@ pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PIMAGEHLP_STATUS_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PIMAGEHLP_STATUS_ROUTINE32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PIMAGEHLP_STATUS_ROUTINE64(i32);
 pub struct POINTER_SEARCH_PHYSICAL(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PREAD_PROCESS_MEMORY_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PREAD_PROCESS_MEMORY_ROUTINE64(i32);
 pub struct PROCESSORINFO(i32);
 pub struct PROCESSOR_ARCHITECTURE(i32);
@@ -3579,72 +3733,133 @@ pub struct PROFILER_HEAP_OBJECT(i32);
 pub struct PROFILER_HEAP_OBJECT_FLAGS(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE: u32 = 4294967295u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO(i32);
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP(i32);
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST(i32);
 pub struct PROFILER_HEAP_OBJECT_SCOPE_LIST(i32);
 pub struct PROFILER_HEAP_SUMMARY(i32);
 pub struct PROFILER_HEAP_SUMMARY_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO(i32);
 pub struct PROFILER_RELATIONSHIP_INFO(i32);
 pub struct PROFILER_SCRIPT_TYPE(i32);
 pub struct PROP_INFO_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERBYINDEXPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERBYINDEXPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERBYINDEXPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERCALLBACKPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERCLOSEPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERDELTANAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERDELTANAMEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETINDEXSTRING(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETINDEXSTRINGW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETOPTIONDATAPROC(i32);
 pub struct PSYMBOLSERVERGETOPTIONSPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETSUPPLEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETSUPPLEMENTW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERGETVERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERISSTORE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERISSTOREW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERMESSAGEPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVEROPENPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPINGPROCWEX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPROCA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSETHTTPAUTHHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSETOPTIONSPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSETOPTIONSWPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTOREFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTOREFILEW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTORESUPPLEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERSTORESUPPLEMENTW(i32);
 pub struct PSYMBOLSERVERVERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOLSERVERWEXPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_FUNCENTRY_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_FUNCENTRY_CALLBACK64(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_REGISTERED_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYMBOL_REGISTERED_CALLBACK64(i32);
 pub struct PSYM_DUMP_FIELD_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMERATESYMBOLS_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMERATESYMBOLS_CALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMLINES_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMLINES_CALLBACKW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMMODULES_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMMODULES_CALLBACK64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMMODULES_CALLBACKW64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMPROCESSES_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSOURCEFILES_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSOURCEFILES_CALLBACKW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACK64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACK64W(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSYM_ENUMSYMBOLS_CALLBACKW(i32);
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PTRANSLATE_ADDRESS_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PTRANSLATE_ADDRESS_ROUTINE64(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
@@ -3656,36 +3871,58 @@ pub const PTR_SEARCH_PHYS_PTE: u32 = 2u32;
 pub const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PVECTORED_EXCEPTION_HANDLER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWAITCHAINCALLBACK(i32);
 pub struct PWINDBG_CHECK_CONTROL_C(i32);
 pub struct PWINDBG_CHECK_VERSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_DISASM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_DISASM32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_DISASM64(i32);
 pub struct PWINDBG_EXTENSION_API_VERSION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_EXTENSION_DLL_INIT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_EXTENSION_DLL_INIT32(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_EXTENSION_DLL_INIT64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_EXTENSION_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_EXTENSION_ROUTINE32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_EXTENSION_ROUTINE64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_EXPRESSION(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_EXPRESSION32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_EXPRESSION64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_SYMBOL(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_SYMBOL32(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_GET_SYMBOL64(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct PWINDBG_GET_THREAD_CONTEXT_ROUTINE(i32);
 pub struct PWINDBG_IOCTL_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_OLDKD_EXTENSION_ROUTINE(i32);
 pub struct PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(i32);
 pub struct PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PWINDBG_OLD_EXTENSION_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PWINDBG_OUTPUT_ROUTINE(i32);
 pub struct PWINDBG_READ_PROCESS_MEMORY_ROUTINE(i32);
 pub struct PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(i32);
 pub struct PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(i32);
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct PWINDBG_SET_THREAD_CONTEXT_ROUTINE(i32);
 pub struct PWINDBG_STACKTRACE_ROUTINE(i32);
 pub struct PWINDBG_STACKTRACE_ROUTINE32(i32);
@@ -3839,7 +4076,9 @@ pub const SCRIPT_E_RECORDED: i32 = -2040119292i32;
 pub const SCRIPT_E_REPORTED: i32 = -2147352319i32;
 pub struct SCRIPT_INVOCATION_CONTEXT_TYPE(i32);
 pub struct SEARCHMEMORY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOURCEFILE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOURCEFILEW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const SOURCETEXT_ATTR_COMMENT: u32 = 2u32;
@@ -3869,6 +4108,7 @@ pub const SPLITSYM_EXTRACT_ALL: u32 = 2u32;
 pub const SPLITSYM_REMOVE_PRIVATE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const SPLITSYM_SYMBOLPATH_IS_SRC: u32 = 4u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SRCCODEINFO(i32);
 pub struct SRCCODEINFOW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -3973,8 +4213,12 @@ pub const SSRVURI_UNC_FILEPTR: u32 = 64u32;
 pub const SSRVURI_UNC_MASK: u32 = 240u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const SSRVURI_UNC_NORMAL: u32 = 16u32;
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct STACKFRAME(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STACKFRAME64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STACKFRAME_EX(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const STACK_FRAME_TYPE_IGNORE: u32 = 255u32;
@@ -3986,14 +4230,20 @@ pub const STACK_FRAME_TYPE_INLINE: u32 = 2u32;
 pub const STACK_FRAME_TYPE_RA: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const STACK_FRAME_TYPE_STACK: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct STACK_SRC_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct STACK_SYM_FRAME_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYMADDSOURCESTREAM(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYMADDSOURCESTREAMA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYMBOL_INFO(i32);
 pub struct SYMBOL_INFOW(i32);
 pub struct SYMBOL_INFO_EX(i32);
 pub struct SYMBOL_INFO_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYMBOL_INFO_PACKAGE(i32);
 pub struct SYMBOL_INFO_PACKAGEW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -4121,7 +4371,9 @@ pub const SYMSEARCH_MASKOBJS: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const SYMSEARCH_RECURSE: u32 = 2u32;
 pub struct SYMSRV_EXTENDED_OUTPUT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYMSRV_INDEX_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SYMSRV_INDEX_INFOW(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const SYMSRV_VERSION: u32 = 2u32;
@@ -4221,12 +4473,16 @@ pub const UNDNAME_NO_THISTYPE: u32 = 96u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const UNDNAME_NO_THROW_SIGNATURES: u32 = 256u32;
 pub struct UNLOAD_DLL_DEBUG_INFO(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct UNWIND_HISTORY_TABLE(i32);
+#[cfg(any(target_arch = "aarch64",))]
 pub struct UNWIND_HISTORY_TABLE_ENTRY(i32);
+#[cfg(any(target_arch = "x86_64",))]
 pub struct UNWIND_HISTORY_TABLE_ENTRY(i32);
 pub struct VER_PLATFORM(i32);
 pub struct VIRTUAL_TO_PHYSICAL(i32);
 pub struct VarArgsKind(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAITCHAIN_NODE_INFO(i32);
 pub struct WAIT_CHAIN_THREAD_OPTIONS(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -4246,12 +4502,16 @@ pub const WDBGEXTS_ADDRESS_SEG16: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WDBGEXTS_ADDRESS_SEG32: u32 = 2u32;
 pub struct WDBGEXTS_CLR_DATA_INTERFACE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WDBGEXTS_DISASSEMBLE_BUFFER(i32);
 pub struct WDBGEXTS_MODULE_IN_RANGE(i32);
 pub struct WDBGEXTS_QUERY_INTERFACE(i32);
 pub struct WDBGEXTS_THREAD_OS_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_AER_BRIDGE_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_AER_ROOTPORT_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_BAD_PAGE_LIST_LOCATION: u32 = 15u32;
@@ -4277,16 +4537,22 @@ pub const WHEA_DEVICE_DRIVER_CONFIG_MIN: u32 = 1u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V1: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_DEVICE_DRIVER_CONFIG_V2: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_DISABLE_OFFLINE: u32 = 0u32;
 pub struct WHEA_DRIVER_BUFFER_SET(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE: u32 = 8u32;
@@ -4322,6 +4588,7 @@ pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
@@ -4382,8 +4649,11 @@ pub const WHEA_RESTORE_CMCI_ATTEMPTS: u32 = 8u32;
 pub const WHEA_RESTORE_CMCI_ENABLED: u32 = 7u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_RESTORE_CMCI_ERR_LIMIT: u32 = 9u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_CMC_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_MCE_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_MC_BANK_DESCRIPTOR(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
@@ -4391,11 +4661,17 @@ pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_NMI_DESCRIPTOR(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS32(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS64(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLDKD_EXTENSION_APIS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLD_EXTENSION_APIS(i32);
 pub struct WOW64_CONTEXT(i32);
 #[doc = "*Required features: `Win32_System_Diagnostics_Debug`*"]
@@ -4421,11 +4697,15 @@ pub struct XPF_MCE_FLAGS(i32);
 pub struct XPF_MC_BANK_FLAGS(i32);
 pub struct XSAVE_AREA(i32);
 pub struct XSAVE_AREA_HEADER(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct XSAVE_FORMAT(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct XSAVE_FORMAT(i32);
 pub struct XSTATE_CONFIGURATION(i32);
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct XSTATE_CONTEXT(i32);
+#[cfg(any(target_arch = "x86",))]
 pub struct XSTATE_CONTEXT(i32);
 pub struct XSTATE_FEATURE(i32);
 pub struct _DUMP_TYPES(i32);

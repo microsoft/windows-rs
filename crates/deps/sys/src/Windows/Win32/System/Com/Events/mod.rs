@@ -5,6 +5,7 @@ pub struct CEventClass(i32);
 pub struct CEventPublisher(i32);
 pub struct CEventSubscription(i32);
 pub struct CEventSystem(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMEVENTSYSCHANGEINFO(i32);
 pub struct EOC_ChangeType(i32);
 pub struct EventObjectChange(i32);

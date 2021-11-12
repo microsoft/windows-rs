@@ -10,6 +10,7 @@ pub struct DeviceClass(i32);
 pub struct DeviceConnectionChangeTriggerDetails(i32);
 pub struct DeviceDisconnectButtonClickedEventArgs(i32);
 pub struct DeviceInformation(i32);
+#[cfg(feature = "Foundation_Collections")]
 pub struct DeviceInformationCollection(i32);
 pub struct DeviceInformationCustomPairing(i32);
 pub struct DeviceInformationKind(i32);
@@ -25,6 +26,7 @@ pub struct DevicePickerAppearance(i32);
 pub struct DevicePickerDisplayStatusOptions(i32);
 pub struct DevicePickerFilter(i32);
 pub struct DeviceSelectedEventArgs(i32);
+#[cfg(feature = "Storage_Streams")]
 pub struct DeviceThumbnail(i32);
 pub struct DeviceUnpairingResult(i32);
 pub struct DeviceUnpairingResultStatus(i32);

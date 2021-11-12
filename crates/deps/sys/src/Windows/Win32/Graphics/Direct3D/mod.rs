@@ -118,6 +118,7 @@ pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
 pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
 pub struct D3D_SHADER_INPUT_FLAGS(i32);
 pub struct D3D_SHADER_INPUT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3D_SHADER_MACRO(i32);
 pub struct D3D_SHADER_VARIABLE_CLASS(i32);
 pub struct D3D_SHADER_VARIABLE_FLAGS(i32);

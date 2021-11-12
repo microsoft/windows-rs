@@ -238,13 +238,17 @@ pub const BDIF_TX_POWER: u32 = 2147483648u32;
 pub const BDIF_VISIBLE: u32 = 128u32;
 pub struct BLUETOOTH_ADDRESS(i32);
 pub struct BLUETOOTH_AUTHENTICATE_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS(i32);
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(i32);
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_COD_PAIRS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_DEVICE_INFO(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS(i32);
 pub struct BLUETOOTH_FIND_RADIO_PARAMS(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
@@ -264,6 +268,7 @@ pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32u32;
 pub struct BLUETOOTH_IO_CAPABILITY(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
@@ -278,6 +283,7 @@ pub struct BLUETOOTH_OOB_DATA_INFO(i32);
 pub struct BLUETOOTH_PASSKEY_INFO(i32);
 pub struct BLUETOOTH_PIN_INFO(i32);
 pub struct BLUETOOTH_RADIO_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
@@ -313,6 +319,7 @@ pub const BTH_ADDR_IAC_LAST: u32 = 10390335u32;
 pub const BTH_ADDR_LIAC: u32 = 10390272u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_ADDR_STRING_SIZE: u32 = 12u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct BTH_DEVICE_INFO(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_EIR_128_UUIDS_COMPLETE_ID: u32 = 7u32;
@@ -803,9 +810,11 @@ pub struct BTH_PING_REQ(i32);
 pub struct BTH_PING_RSP(i32);
 pub struct BTH_QUERY_DEVICE(i32);
 pub struct BTH_QUERY_SERVICE(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct BTH_RADIO_IN_RANGE(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_SDP_VERSION: u32 = 1u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct BTH_SET_SERVICE(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_VID_DEFAULT_VALUE: u32 = 65535u32;
@@ -1270,9 +1279,13 @@ pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6u32;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHENTICATION_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_AUTHENTICATION_CALLBACK_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct PFN_DEVICE_CALLBACK(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const PF_BTH: u16 = 32u16;
@@ -1570,6 +1583,7 @@ pub const SDP_CONNECT_CACHE: u32 = 1u32;
 pub const SDP_DEFAULT_INQUIRY_MAX_RESPONSES: u32 = 255u32;
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SDP_DEFAULT_INQUIRY_SECONDS: u32 = 6u32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA(i32);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: u32 = 6u32;

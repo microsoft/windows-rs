@@ -103,6 +103,7 @@ pub const DWM_BB_BLURREGION: u32 = 2u32;
 pub const DWM_BB_ENABLE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DWM_BLURBEHIND(i32);
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWM_CLOAKED_APP: u32 = 1u32;
@@ -116,12 +117,14 @@ pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWM_PRESENT_PARAMETERS(i32);
 pub struct DWM_SHOWCONTACT(i32);
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
 pub struct DWM_SOURCE_FRAME_SAMPLING(i32);
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct DWM_THUMBNAIL_PROPERTIES(i32);
 pub struct DWM_TIMING_INFO(i32);
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]

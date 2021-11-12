@@ -107,5 +107,6 @@ pub struct StreamWebSocketControl(i32);
 pub struct StreamWebSocketInformation(i32);
 pub struct WebSocketClosedEventArgs(i32);
 pub struct WebSocketError(i32);
+#[cfg(feature = "ApplicationModel_Background")]
 pub struct WebSocketKeepAlive(i32);
 pub struct WebSocketServerCustomValidationRequestedEventArgs(i32);

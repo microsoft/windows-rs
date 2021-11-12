@@ -67,7 +67,9 @@ pub struct IUPnPServiceDocumentAccess(i32);
 pub struct IUPnPServiceEnumProperty(i32);
 pub struct IUPnPServices(i32);
 pub struct SW_DEVICE_CAPABILITIES(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct SW_DEVICE_CREATE_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SW_DEVICE_CREATE_INFO(i32);
 pub struct SW_DEVICE_LIFETIME(i32);
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]

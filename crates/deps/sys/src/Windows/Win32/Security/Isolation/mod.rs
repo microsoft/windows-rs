@@ -34,4 +34,5 @@ extern "system" {
 }
 pub struct IIsolatedAppLauncher(i32);
 pub struct IsolatedAppLauncher(i32);
+#[cfg(feature = "Win32_Foundation")]
 pub struct IsolatedAppLauncherTelemetryParameters(i32);
