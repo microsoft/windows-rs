@@ -28,7 +28,7 @@ fn gen_type(entry: &ElementType, gen: &Gen) -> TokenStream {
     match entry {
         ElementType::Field(def) => gen_constant(def, gen),
         ElementType::TypeDef(def) => gen_type_def(&def.clone().with_generics(), gen),
-        _ => quote! {}
+        _ => quote! {},
     }
 }
 
@@ -50,18 +50,18 @@ fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
-    quote! { 
+    quote! {
         #[repr(transparent)]
         pub struct #name(pub *mut ::core::ffi::c_void);
     }
 }
 
 fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let has_default = def.interface_impls().any(|interface|interface.is_default());
-        
+    let has_default = def.interface_impls().any(|interface| interface.is_default());
+
     if has_default {
         let name = gen_type_name(def, gen);
-        quote! { 
+        quote! {
             #[repr(transparent)]
             pub struct #name(pub *mut ::core::ffi::c_void);
         }
@@ -248,7 +248,7 @@ fn gen_sys_guid(guid: &GUID) -> TokenStream {
     let k = Literal::u8_unsuffixed(guid.10);
 
     // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
-    
+
     quote! {
         ::windows_sys::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
     }
