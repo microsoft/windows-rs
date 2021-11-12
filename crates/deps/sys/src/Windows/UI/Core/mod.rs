@@ -10,9 +10,9 @@ pub struct AcceleratorKeyEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
-    pub const Visible: AppViewBackButtonVisibility = AppViewBackButtonVisibility(0i32);
-    pub const Collapsed: AppViewBackButtonVisibility = AppViewBackButtonVisibility(1i32);
-    pub const Disabled: AppViewBackButtonVisibility = AppViewBackButtonVisibility(2i32);
+    pub const Visible: Self = Self(0i32);
+    pub const Collapsed: Self = Self(1i32);
+    pub const Disabled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AutomationProviderRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -25,15 +25,15 @@ pub struct ClosestInteractiveBoundsRequestedEventArgs(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
-    pub const Character: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(2i32);
-    pub const DeadCharacter: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(3i32);
-    pub const KeyDown: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(0i32);
-    pub const KeyUp: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(1i32);
-    pub const SystemCharacter: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(6i32);
-    pub const SystemDeadCharacter: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(7i32);
-    pub const SystemKeyDown: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(4i32);
-    pub const SystemKeyUp: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(5i32);
-    pub const UnicodeCharacter: CoreAcceleratorKeyEventType = CoreAcceleratorKeyEventType(8i32);
+    pub const Character: Self = Self(2i32);
+    pub const DeadCharacter: Self = Self(3i32);
+    pub const KeyDown: Self = Self(0i32);
+    pub const KeyUp: Self = Self(1i32);
+    pub const SystemCharacter: Self = Self(6i32);
+    pub const SystemDeadCharacter: Self = Self(7i32);
+    pub const SystemKeyDown: Self = Self(4i32);
+    pub const SystemKeyUp: Self = Self(5i32);
+    pub const UnicodeCharacter: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct CoreAcceleratorKeys(pub *mut ::core::ffi::c_void);
@@ -44,42 +44,42 @@ pub struct CoreCursor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
-    pub const Arrow: CoreCursorType = CoreCursorType(0i32);
-    pub const Cross: CoreCursorType = CoreCursorType(1i32);
-    pub const Custom: CoreCursorType = CoreCursorType(2i32);
-    pub const Hand: CoreCursorType = CoreCursorType(3i32);
-    pub const Help: CoreCursorType = CoreCursorType(4i32);
-    pub const IBeam: CoreCursorType = CoreCursorType(5i32);
-    pub const SizeAll: CoreCursorType = CoreCursorType(6i32);
-    pub const SizeNortheastSouthwest: CoreCursorType = CoreCursorType(7i32);
-    pub const SizeNorthSouth: CoreCursorType = CoreCursorType(8i32);
-    pub const SizeNorthwestSoutheast: CoreCursorType = CoreCursorType(9i32);
-    pub const SizeWestEast: CoreCursorType = CoreCursorType(10i32);
-    pub const UniversalNo: CoreCursorType = CoreCursorType(11i32);
-    pub const UpArrow: CoreCursorType = CoreCursorType(12i32);
-    pub const Wait: CoreCursorType = CoreCursorType(13i32);
-    pub const Pin: CoreCursorType = CoreCursorType(14i32);
-    pub const Person: CoreCursorType = CoreCursorType(15i32);
+    pub const Arrow: Self = Self(0i32);
+    pub const Cross: Self = Self(1i32);
+    pub const Custom: Self = Self(2i32);
+    pub const Hand: Self = Self(3i32);
+    pub const Help: Self = Self(4i32);
+    pub const IBeam: Self = Self(5i32);
+    pub const SizeAll: Self = Self(6i32);
+    pub const SizeNortheastSouthwest: Self = Self(7i32);
+    pub const SizeNorthSouth: Self = Self(8i32);
+    pub const SizeNorthwestSoutheast: Self = Self(9i32);
+    pub const SizeWestEast: Self = Self(10i32);
+    pub const UniversalNo: Self = Self(11i32);
+    pub const UpArrow: Self = Self(12i32);
+    pub const Wait: Self = Self(13i32);
+    pub const Pin: Self = Self(14i32);
+    pub const Person: Self = Self(15i32);
 }
 #[repr(transparent)]
 pub struct CoreDispatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
-    pub const Idle: CoreDispatcherPriority = CoreDispatcherPriority(-2i32);
-    pub const Low: CoreDispatcherPriority = CoreDispatcherPriority(-1i32);
-    pub const Normal: CoreDispatcherPriority = CoreDispatcherPriority(0i32);
-    pub const High: CoreDispatcherPriority = CoreDispatcherPriority(1i32);
+    pub const Idle: Self = Self(-2i32);
+    pub const Low: Self = Self(-1i32);
+    pub const Normal: Self = Self(0i32);
+    pub const High: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
-    pub const None: CoreIndependentInputFilters = CoreIndependentInputFilters(0u32);
-    pub const MouseButton: CoreIndependentInputFilters = CoreIndependentInputFilters(1u32);
-    pub const MouseWheel: CoreIndependentInputFilters = CoreIndependentInputFilters(2u32);
-    pub const MouseHover: CoreIndependentInputFilters = CoreIndependentInputFilters(4u32);
-    pub const PenWithBarrel: CoreIndependentInputFilters = CoreIndependentInputFilters(8u32);
-    pub const PenInverted: CoreIndependentInputFilters = CoreIndependentInputFilters(16u32);
+    pub const None: Self = Self(0u32);
+    pub const MouseButton: Self = Self(1u32);
+    pub const MouseWheel: Self = Self(2u32);
+    pub const MouseHover: Self = Self(4u32);
+    pub const PenWithBarrel: Self = Self(8u32);
+    pub const PenInverted: Self = Self(16u32);
 }
 #[repr(transparent)]
 pub struct CoreIndependentInputSource(pub *mut ::core::ffi::c_void);
@@ -88,20 +88,20 @@ pub struct CoreIndependentInputSourceController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
-    pub const None: CoreInputDeviceTypes = CoreInputDeviceTypes(0u32);
-    pub const Touch: CoreInputDeviceTypes = CoreInputDeviceTypes(1u32);
-    pub const Pen: CoreInputDeviceTypes = CoreInputDeviceTypes(2u32);
-    pub const Mouse: CoreInputDeviceTypes = CoreInputDeviceTypes(4u32);
+    pub const None: Self = Self(0u32);
+    pub const Touch: Self = Self(1u32);
+    pub const Pen: Self = Self(2u32);
+    pub const Mouse: Self = Self(4u32);
 }
 #[repr(C)]
 pub struct CorePhysicalKeyStatus(i32);
 #[repr(transparent)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
-    pub const ProcessOneAndAllPending: CoreProcessEventsOption = CoreProcessEventsOption(0i32);
-    pub const ProcessOneIfPresent: CoreProcessEventsOption = CoreProcessEventsOption(1i32);
-    pub const ProcessUntilQuit: CoreProcessEventsOption = CoreProcessEventsOption(2i32);
-    pub const ProcessAllIfPresent: CoreProcessEventsOption = CoreProcessEventsOption(3i32);
+    pub const ProcessOneAndAllPending: Self = Self(0i32);
+    pub const ProcessOneIfPresent: Self = Self(1i32);
+    pub const ProcessUntilQuit: Self = Self(2i32);
+    pub const ProcessAllIfPresent: Self = Self(3i32);
 }
 #[cfg(feature = "Foundation")]
 #[repr(C)]
@@ -109,32 +109,32 @@ pub struct CoreProximityEvaluation(i32);
 #[repr(transparent)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
-    pub const Closest: CoreProximityEvaluationScore = CoreProximityEvaluationScore(0i32);
-    pub const Farthest: CoreProximityEvaluationScore = CoreProximityEvaluationScore(2147483647i32);
+    pub const Closest: Self = Self(0i32);
+    pub const Farthest: Self = Self(2147483647i32);
 }
 #[repr(transparent)]
 pub struct CoreVirtualKeyStates(pub u32);
 impl CoreVirtualKeyStates {
-    pub const None: CoreVirtualKeyStates = CoreVirtualKeyStates(0u32);
-    pub const Down: CoreVirtualKeyStates = CoreVirtualKeyStates(1u32);
-    pub const Locked: CoreVirtualKeyStates = CoreVirtualKeyStates(2u32);
+    pub const None: Self = Self(0u32);
+    pub const Down: Self = Self(1u32);
+    pub const Locked: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct CoreWindow(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
-    pub const None: CoreWindowActivationMode = CoreWindowActivationMode(0i32);
-    pub const Deactivated: CoreWindowActivationMode = CoreWindowActivationMode(1i32);
-    pub const ActivatedNotForeground: CoreWindowActivationMode = CoreWindowActivationMode(2i32);
-    pub const ActivatedInForeground: CoreWindowActivationMode = CoreWindowActivationMode(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Deactivated: Self = Self(1i32);
+    pub const ActivatedNotForeground: Self = Self(2i32);
+    pub const ActivatedInForeground: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
-    pub const CodeActivated: CoreWindowActivationState = CoreWindowActivationState(0i32);
-    pub const Deactivated: CoreWindowActivationState = CoreWindowActivationState(1i32);
-    pub const PointerActivated: CoreWindowActivationState = CoreWindowActivationState(2i32);
+    pub const CodeActivated: Self = Self(0i32);
+    pub const Deactivated: Self = Self(1i32);
+    pub const PointerActivated: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CoreWindowDialog(pub *mut ::core::ffi::c_void);
@@ -145,8 +145,8 @@ pub struct CoreWindowEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
-    pub const LeftToRight: CoreWindowFlowDirection = CoreWindowFlowDirection(0i32);
-    pub const RightToLeft: CoreWindowFlowDirection = CoreWindowFlowDirection(1i32);
+    pub const LeftToRight: Self = Self(0i32);
+    pub const RightToLeft: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CoreWindowFlyout(pub *mut ::core::ffi::c_void);

@@ -12,13 +12,13 @@ pub struct DiagnosticActionResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {
-    pub const Initializing: DiagnosticActionState = DiagnosticActionState(0i32);
-    pub const Downloading: DiagnosticActionState = DiagnosticActionState(1i32);
-    pub const VerifyingTrust: DiagnosticActionState = DiagnosticActionState(2i32);
-    pub const Detecting: DiagnosticActionState = DiagnosticActionState(3i32);
-    pub const Resolving: DiagnosticActionState = DiagnosticActionState(4i32);
-    pub const VerifyingResolution: DiagnosticActionState = DiagnosticActionState(5i32);
-    pub const Executing: DiagnosticActionState = DiagnosticActionState(6i32);
+    pub const Initializing: Self = Self(0i32);
+    pub const Downloading: Self = Self(1i32);
+    pub const VerifyingTrust: Self = Self(2i32);
+    pub const Detecting: Self = Self(3i32);
+    pub const Resolving: Self = Self(4i32);
+    pub const VerifyingResolution: Self = Self(5i32);
+    pub const Executing: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct DiagnosticInvoker(pub *mut ::core::ffi::c_void);

@@ -4,9 +4,9 @@ extern "system" {}
 #[repr(transparent)]
 pub struct BluetoothEventTriggeringMode(pub i32);
 impl BluetoothEventTriggeringMode {
-    pub const Serial: BluetoothEventTriggeringMode = BluetoothEventTriggeringMode(0i32);
-    pub const Batch: BluetoothEventTriggeringMode = BluetoothEventTriggeringMode(1i32);
-    pub const KeepLatest: BluetoothEventTriggeringMode = BluetoothEventTriggeringMode(2i32);
+    pub const Serial: Self = Self(0i32);
+    pub const Batch: Self = Self(1i32);
+    pub const KeepLatest: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherTriggerDetails(pub *mut ::core::ffi::c_void);

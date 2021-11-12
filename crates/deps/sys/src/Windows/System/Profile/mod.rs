@@ -46,10 +46,10 @@ pub struct IWindowsIntegrityPolicyStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
-    pub const Security: PlatformDataCollectionLevel = PlatformDataCollectionLevel(0i32);
-    pub const Basic: PlatformDataCollectionLevel = PlatformDataCollectionLevel(1i32);
-    pub const Enhanced: PlatformDataCollectionLevel = PlatformDataCollectionLevel(2i32);
-    pub const Full: PlatformDataCollectionLevel = PlatformDataCollectionLevel(3i32);
+    pub const Security: Self = Self(0i32);
+    pub const Basic: Self = Self(1i32);
+    pub const Enhanced: Self = Self(2i32);
+    pub const Full: Self = Self(3i32);
 }
 #[repr(C)]
 pub struct ProfileHardwareTokenContract(i32);
@@ -62,23 +62,23 @@ pub struct SystemIdentificationInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
-    pub const None: SystemIdentificationSource = SystemIdentificationSource(0i32);
-    pub const Tpm: SystemIdentificationSource = SystemIdentificationSource(1i32);
-    pub const Uefi: SystemIdentificationSource = SystemIdentificationSource(2i32);
-    pub const Registry: SystemIdentificationSource = SystemIdentificationSource(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Tpm: Self = Self(1i32);
+    pub const Uefi: Self = Self(2i32);
+    pub const Registry: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
-    pub const NotStarted: SystemOutOfBoxExperienceState = SystemOutOfBoxExperienceState(0i32);
-    pub const InProgress: SystemOutOfBoxExperienceState = SystemOutOfBoxExperienceState(1i32);
-    pub const Completed: SystemOutOfBoxExperienceState = SystemOutOfBoxExperienceState(2i32);
+    pub const NotStarted: Self = Self(0i32);
+    pub const InProgress: Self = Self(1i32);
+    pub const Completed: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UnsupportedAppRequirement(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {
-    pub const Unknown: UnsupportedAppRequirementReasons = UnsupportedAppRequirementReasons(0u32);
-    pub const DeniedBySystem: UnsupportedAppRequirementReasons = UnsupportedAppRequirementReasons(1u32);
+    pub const Unknown: Self = Self(0u32);
+    pub const DeniedBySystem: Self = Self(1u32);
 }

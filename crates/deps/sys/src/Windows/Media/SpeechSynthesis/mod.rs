@@ -22,14 +22,14 @@ pub struct IVoiceInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
-    pub const Default: SpeechAppendedSilence = SpeechAppendedSilence(0i32);
-    pub const Min: SpeechAppendedSilence = SpeechAppendedSilence(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const Min: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
-    pub const Default: SpeechPunctuationSilence = SpeechPunctuationSilence(0i32);
-    pub const Min: SpeechPunctuationSilence = SpeechPunctuationSilence(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const Min: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SpeechSynthesisStream(pub *mut ::core::ffi::c_void);
@@ -40,8 +40,8 @@ pub struct SpeechSynthesizerOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
-    pub const Male: VoiceGender = VoiceGender(0i32);
-    pub const Female: VoiceGender = VoiceGender(1i32);
+    pub const Male: Self = Self(0i32);
+    pub const Female: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct VoiceInformation(pub *mut ::core::ffi::c_void);

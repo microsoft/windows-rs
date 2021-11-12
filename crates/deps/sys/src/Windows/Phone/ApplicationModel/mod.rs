@@ -4,8 +4,8 @@ extern "system" {}
 #[repr(transparent)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {
-    pub const Default: ApplicationProfileModes = ApplicationProfileModes(0u32);
-    pub const Alternate: ApplicationProfileModes = ApplicationProfileModes(1u32);
+    pub const Default: Self = Self(0u32);
+    pub const Alternate: Self = Self(1u32);
 }
 #[repr(transparent)]
 pub struct IApplicationProfileStatics(pub *mut ::core::ffi::c_void);

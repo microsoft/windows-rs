@@ -10,9 +10,9 @@ pub struct IWalletManagerSystemStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WalletItemAppAssociation(pub i32);
 impl WalletItemAppAssociation {
-    pub const None: WalletItemAppAssociation = WalletItemAppAssociation(0i32);
-    pub const AppInstalled: WalletItemAppAssociation = WalletItemAppAssociation(1i32);
-    pub const AppNotInstalled: WalletItemAppAssociation = WalletItemAppAssociation(2i32);
+    pub const None: Self = Self(0i32);
+    pub const AppInstalled: Self = Self(1i32);
+    pub const AppNotInstalled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WalletItemSystemStore(pub *mut ::core::ffi::c_void);

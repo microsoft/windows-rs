@@ -12,39 +12,39 @@ pub struct ApplicationView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
-    pub const UseVisible: ApplicationViewBoundsMode = ApplicationViewBoundsMode(0i32);
-    pub const UseCoreWindow: ApplicationViewBoundsMode = ApplicationViewBoundsMode(1i32);
+    pub const UseVisible: Self = Self(0i32);
+    pub const UseCoreWindow: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ApplicationViewConsolidatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
-    pub const Default: ApplicationViewMode = ApplicationViewMode(0i32);
-    pub const CompactOverlay: ApplicationViewMode = ApplicationViewMode(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const CompactOverlay: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
-    pub const Landscape: ApplicationViewOrientation = ApplicationViewOrientation(0i32);
-    pub const Portrait: ApplicationViewOrientation = ApplicationViewOrientation(1i32);
+    pub const Landscape: Self = Self(0i32);
+    pub const Portrait: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ApplicationViewScaling(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationViewState(pub i32);
 impl ApplicationViewState {
-    pub const FullScreenLandscape: ApplicationViewState = ApplicationViewState(0i32);
-    pub const Filled: ApplicationViewState = ApplicationViewState(1i32);
-    pub const Snapped: ApplicationViewState = ApplicationViewState(2i32);
-    pub const FullScreenPortrait: ApplicationViewState = ApplicationViewState(3i32);
+    pub const FullScreenLandscape: Self = Self(0i32);
+    pub const Filled: Self = Self(1i32);
+    pub const Snapped: Self = Self(2i32);
+    pub const FullScreenPortrait: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
-    pub const Default: ApplicationViewSwitchingOptions = ApplicationViewSwitchingOptions(0u32);
-    pub const SkipAnimation: ApplicationViewSwitchingOptions = ApplicationViewSwitchingOptions(1u32);
-    pub const ConsolidateViews: ApplicationViewSwitchingOptions = ApplicationViewSwitchingOptions(2u32);
+    pub const Default: Self = Self(0u32);
+    pub const SkipAnimation: Self = Self(1u32);
+    pub const ConsolidateViews: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct ApplicationViewTitleBar(pub *mut ::core::ffi::c_void);
@@ -53,23 +53,23 @@ pub struct ApplicationViewTransferContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
-    pub const Auto: ApplicationViewWindowingMode = ApplicationViewWindowingMode(0i32);
-    pub const PreferredLaunchViewSize: ApplicationViewWindowingMode = ApplicationViewWindowingMode(1i32);
-    pub const FullScreen: ApplicationViewWindowingMode = ApplicationViewWindowingMode(2i32);
-    pub const CompactOverlay: ApplicationViewWindowingMode = ApplicationViewWindowingMode(3i32);
-    pub const Maximized: ApplicationViewWindowingMode = ApplicationViewWindowingMode(4i32);
+    pub const Auto: Self = Self(0i32);
+    pub const PreferredLaunchViewSize: Self = Self(1i32);
+    pub const FullScreen: Self = Self(2i32);
+    pub const CompactOverlay: Self = Self(3i32);
+    pub const Maximized: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
-    pub const Standard: FullScreenSystemOverlayMode = FullScreenSystemOverlayMode(0i32);
-    pub const Minimal: FullScreenSystemOverlayMode = FullScreenSystemOverlayMode(1i32);
+    pub const Standard: Self = Self(0i32);
+    pub const Minimal: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
-    pub const LeftHanded: HandPreference = HandPreference(0i32);
-    pub const RightHanded: HandPreference = HandPreference(1i32);
+    pub const LeftHanded: Self = Self(0i32);
+    pub const RightHanded: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct IAccessibilitySettings(pub *mut ::core::ffi::c_void);
@@ -180,46 +180,46 @@ pub struct StatusBarProgressIndicator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
-    pub const Background: UIColorType = UIColorType(0i32);
-    pub const Foreground: UIColorType = UIColorType(1i32);
-    pub const AccentDark3: UIColorType = UIColorType(2i32);
-    pub const AccentDark2: UIColorType = UIColorType(3i32);
-    pub const AccentDark1: UIColorType = UIColorType(4i32);
-    pub const Accent: UIColorType = UIColorType(5i32);
-    pub const AccentLight1: UIColorType = UIColorType(6i32);
-    pub const AccentLight2: UIColorType = UIColorType(7i32);
-    pub const AccentLight3: UIColorType = UIColorType(8i32);
-    pub const Complement: UIColorType = UIColorType(9i32);
+    pub const Background: Self = Self(0i32);
+    pub const Foreground: Self = Self(1i32);
+    pub const AccentDark3: Self = Self(2i32);
+    pub const AccentDark2: Self = Self(3i32);
+    pub const AccentDark1: Self = Self(4i32);
+    pub const Accent: Self = Self(5i32);
+    pub const AccentLight1: Self = Self(6i32);
+    pub const AccentLight2: Self = Self(7i32);
+    pub const AccentLight3: Self = Self(8i32);
+    pub const Complement: Self = Self(9i32);
 }
 #[repr(transparent)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
-    pub const ActiveCaption: UIElementType = UIElementType(0i32);
-    pub const Background: UIElementType = UIElementType(1i32);
-    pub const ButtonFace: UIElementType = UIElementType(2i32);
-    pub const ButtonText: UIElementType = UIElementType(3i32);
-    pub const CaptionText: UIElementType = UIElementType(4i32);
-    pub const GrayText: UIElementType = UIElementType(5i32);
-    pub const Highlight: UIElementType = UIElementType(6i32);
-    pub const HighlightText: UIElementType = UIElementType(7i32);
-    pub const Hotlight: UIElementType = UIElementType(8i32);
-    pub const InactiveCaption: UIElementType = UIElementType(9i32);
-    pub const InactiveCaptionText: UIElementType = UIElementType(10i32);
-    pub const Window: UIElementType = UIElementType(11i32);
-    pub const WindowText: UIElementType = UIElementType(12i32);
-    pub const AccentColor: UIElementType = UIElementType(1000i32);
-    pub const TextHigh: UIElementType = UIElementType(1001i32);
-    pub const TextMedium: UIElementType = UIElementType(1002i32);
-    pub const TextLow: UIElementType = UIElementType(1003i32);
-    pub const TextContrastWithHigh: UIElementType = UIElementType(1004i32);
-    pub const NonTextHigh: UIElementType = UIElementType(1005i32);
-    pub const NonTextMediumHigh: UIElementType = UIElementType(1006i32);
-    pub const NonTextMedium: UIElementType = UIElementType(1007i32);
-    pub const NonTextMediumLow: UIElementType = UIElementType(1008i32);
-    pub const NonTextLow: UIElementType = UIElementType(1009i32);
-    pub const PageBackground: UIElementType = UIElementType(1010i32);
-    pub const PopupBackground: UIElementType = UIElementType(1011i32);
-    pub const OverlayOutsidePopup: UIElementType = UIElementType(1012i32);
+    pub const ActiveCaption: Self = Self(0i32);
+    pub const Background: Self = Self(1i32);
+    pub const ButtonFace: Self = Self(2i32);
+    pub const ButtonText: Self = Self(3i32);
+    pub const CaptionText: Self = Self(4i32);
+    pub const GrayText: Self = Self(5i32);
+    pub const Highlight: Self = Self(6i32);
+    pub const HighlightText: Self = Self(7i32);
+    pub const Hotlight: Self = Self(8i32);
+    pub const InactiveCaption: Self = Self(9i32);
+    pub const InactiveCaptionText: Self = Self(10i32);
+    pub const Window: Self = Self(11i32);
+    pub const WindowText: Self = Self(12i32);
+    pub const AccentColor: Self = Self(1000i32);
+    pub const TextHigh: Self = Self(1001i32);
+    pub const TextMedium: Self = Self(1002i32);
+    pub const TextLow: Self = Self(1003i32);
+    pub const TextContrastWithHigh: Self = Self(1004i32);
+    pub const NonTextHigh: Self = Self(1005i32);
+    pub const NonTextMediumHigh: Self = Self(1006i32);
+    pub const NonTextMedium: Self = Self(1007i32);
+    pub const NonTextMediumLow: Self = Self(1008i32);
+    pub const NonTextLow: Self = Self(1009i32);
+    pub const PageBackground: Self = Self(1010i32);
+    pub const PopupBackground: Self = Self(1011i32);
+    pub const OverlayOutsidePopup: Self = Self(1012i32);
 }
 #[repr(transparent)]
 pub struct UISettings(pub *mut ::core::ffi::c_void);
@@ -234,8 +234,8 @@ pub struct UIViewSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
-    pub const Mouse: UserInteractionMode = UserInteractionMode(0i32);
-    pub const Touch: UserInteractionMode = UserInteractionMode(1i32);
+    pub const Mouse: Self = Self(0i32);
+    pub const Touch: Self = Self(1i32);
 }
 #[repr(C)]
 pub struct ViewManagementViewScalingContract(i32);
@@ -244,11 +244,11 @@ pub struct ViewModePreferences(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {
-    pub const Default: ViewSizePreference = ViewSizePreference(0i32);
-    pub const UseLess: ViewSizePreference = ViewSizePreference(1i32);
-    pub const UseHalf: ViewSizePreference = ViewSizePreference(2i32);
-    pub const UseMore: ViewSizePreference = ViewSizePreference(3i32);
-    pub const UseMinimum: ViewSizePreference = ViewSizePreference(4i32);
-    pub const UseNone: ViewSizePreference = ViewSizePreference(5i32);
-    pub const Custom: ViewSizePreference = ViewSizePreference(6i32);
+    pub const Default: Self = Self(0i32);
+    pub const UseLess: Self = Self(1i32);
+    pub const UseHalf: Self = Self(2i32);
+    pub const UseMore: Self = Self(3i32);
+    pub const UseMinimum: Self = Self(4i32);
+    pub const UseNone: Self = Self(5i32);
+    pub const Custom: Self = Self(6i32);
 }

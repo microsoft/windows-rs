@@ -12,28 +12,28 @@ pub struct AdaptiveMediaSourceCreationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceCreationStatus(pub i32);
 impl AdaptiveMediaSourceCreationStatus {
-    pub const Success: AdaptiveMediaSourceCreationStatus = AdaptiveMediaSourceCreationStatus(0i32);
-    pub const ManifestDownloadFailure: AdaptiveMediaSourceCreationStatus = AdaptiveMediaSourceCreationStatus(1i32);
-    pub const ManifestParseFailure: AdaptiveMediaSourceCreationStatus = AdaptiveMediaSourceCreationStatus(2i32);
-    pub const UnsupportedManifestContentType: AdaptiveMediaSourceCreationStatus = AdaptiveMediaSourceCreationStatus(3i32);
-    pub const UnsupportedManifestVersion: AdaptiveMediaSourceCreationStatus = AdaptiveMediaSourceCreationStatus(4i32);
-    pub const UnsupportedManifestProfile: AdaptiveMediaSourceCreationStatus = AdaptiveMediaSourceCreationStatus(5i32);
-    pub const UnknownFailure: AdaptiveMediaSourceCreationStatus = AdaptiveMediaSourceCreationStatus(6i32);
+    pub const Success: Self = Self(0i32);
+    pub const ManifestDownloadFailure: Self = Self(1i32);
+    pub const ManifestParseFailure: Self = Self(2i32);
+    pub const UnsupportedManifestContentType: Self = Self(3i32);
+    pub const UnsupportedManifestVersion: Self = Self(4i32);
+    pub const UnsupportedManifestProfile: Self = Self(5i32);
+    pub const UnknownFailure: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnosticAvailableEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
 impl AdaptiveMediaSourceDiagnosticType {
-    pub const ManifestUnchangedUponReload: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(0i32);
-    pub const ManifestMismatchUponReload: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(1i32);
-    pub const ManifestSignaledEndOfLiveEventUponReload: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(2i32);
-    pub const MediaSegmentSkipped: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(3i32);
-    pub const ResourceNotFound: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(4i32);
-    pub const ResourceTimedOut: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(5i32);
-    pub const ResourceParsingError: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(6i32);
-    pub const BitrateDisabled: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(7i32);
-    pub const FatalMediaSourceError: AdaptiveMediaSourceDiagnosticType = AdaptiveMediaSourceDiagnosticType(8i32);
+    pub const ManifestUnchangedUponReload: Self = Self(0i32);
+    pub const ManifestMismatchUponReload: Self = Self(1i32);
+    pub const ManifestSignaledEndOfLiveEventUponReload: Self = Self(2i32);
+    pub const MediaSegmentSkipped: Self = Self(3i32);
+    pub const ResourceNotFound: Self = Self(4i32);
+    pub const ResourceTimedOut: Self = Self(5i32);
+    pub const ResourceParsingError: Self = Self(6i32);
+    pub const BitrateDisabled: Self = Self(7i32);
+    pub const FatalMediaSourceError: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnostics(pub *mut ::core::ffi::c_void);
@@ -42,13 +42,13 @@ pub struct AdaptiveMediaSourceDownloadBitrateChangedEventArgs(pub *mut ::core::f
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
 impl AdaptiveMediaSourceDownloadBitrateChangedReason {
-    pub const SufficientInboundBitsPerSecond: AdaptiveMediaSourceDownloadBitrateChangedReason = AdaptiveMediaSourceDownloadBitrateChangedReason(0i32);
-    pub const InsufficientInboundBitsPerSecond: AdaptiveMediaSourceDownloadBitrateChangedReason = AdaptiveMediaSourceDownloadBitrateChangedReason(1i32);
-    pub const LowBufferLevel: AdaptiveMediaSourceDownloadBitrateChangedReason = AdaptiveMediaSourceDownloadBitrateChangedReason(2i32);
-    pub const PositionChanged: AdaptiveMediaSourceDownloadBitrateChangedReason = AdaptiveMediaSourceDownloadBitrateChangedReason(3i32);
-    pub const TrackSelectionChanged: AdaptiveMediaSourceDownloadBitrateChangedReason = AdaptiveMediaSourceDownloadBitrateChangedReason(4i32);
-    pub const DesiredBitratesChanged: AdaptiveMediaSourceDownloadBitrateChangedReason = AdaptiveMediaSourceDownloadBitrateChangedReason(5i32);
-    pub const ErrorInPreviousBitrate: AdaptiveMediaSourceDownloadBitrateChangedReason = AdaptiveMediaSourceDownloadBitrateChangedReason(6i32);
+    pub const SufficientInboundBitsPerSecond: Self = Self(0i32);
+    pub const InsufficientInboundBitsPerSecond: Self = Self(1i32);
+    pub const LowBufferLevel: Self = Self(2i32);
+    pub const PositionChanged: Self = Self(3i32);
+    pub const TrackSelectionChanged: Self = Self(4i32);
+    pub const DesiredBitratesChanged: Self = Self(5i32);
+    pub const ErrorInPreviousBitrate: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -67,12 +67,12 @@ pub struct AdaptiveMediaSourcePlaybackBitrateChangedEventArgs(pub *mut ::core::f
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceResourceType(pub i32);
 impl AdaptiveMediaSourceResourceType {
-    pub const Manifest: AdaptiveMediaSourceResourceType = AdaptiveMediaSourceResourceType(0i32);
-    pub const InitializationSegment: AdaptiveMediaSourceResourceType = AdaptiveMediaSourceResourceType(1i32);
-    pub const MediaSegment: AdaptiveMediaSourceResourceType = AdaptiveMediaSourceResourceType(2i32);
-    pub const Key: AdaptiveMediaSourceResourceType = AdaptiveMediaSourceResourceType(3i32);
-    pub const InitializationVector: AdaptiveMediaSourceResourceType = AdaptiveMediaSourceResourceType(4i32);
-    pub const MediaSegmentIndex: AdaptiveMediaSourceResourceType = AdaptiveMediaSourceResourceType(5i32);
+    pub const Manifest: Self = Self(0i32);
+    pub const InitializationSegment: Self = Self(1i32);
+    pub const MediaSegment: Self = Self(2i32);
+    pub const Key: Self = Self(3i32);
+    pub const InitializationVector: Self = Self(4i32);
+    pub const MediaSegmentIndex: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct IAdaptiveMediaSource(pub *mut ::core::ffi::c_void);

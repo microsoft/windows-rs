@@ -16,15 +16,15 @@ pub struct PnpObjectCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
-    pub const Unknown: PnpObjectType = PnpObjectType(0i32);
-    pub const DeviceInterface: PnpObjectType = PnpObjectType(1i32);
-    pub const DeviceContainer: PnpObjectType = PnpObjectType(2i32);
-    pub const Device: PnpObjectType = PnpObjectType(3i32);
-    pub const DeviceInterfaceClass: PnpObjectType = PnpObjectType(4i32);
-    pub const AssociationEndpoint: PnpObjectType = PnpObjectType(5i32);
-    pub const AssociationEndpointContainer: PnpObjectType = PnpObjectType(6i32);
-    pub const AssociationEndpointService: PnpObjectType = PnpObjectType(7i32);
-    pub const DevicePanel: PnpObjectType = PnpObjectType(8i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const DeviceInterface: Self = Self(1i32);
+    pub const DeviceContainer: Self = Self(2i32);
+    pub const Device: Self = Self(3i32);
+    pub const DeviceInterfaceClass: Self = Self(4i32);
+    pub const AssociationEndpoint: Self = Self(5i32);
+    pub const AssociationEndpointContainer: Self = Self(6i32);
+    pub const AssociationEndpointService: Self = Self(7i32);
+    pub const DevicePanel: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct PnpObjectUpdate(pub *mut ::core::ffi::c_void);

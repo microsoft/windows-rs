@@ -22,30 +22,30 @@ pub struct MdmAlert(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
-    pub const String: MdmAlertDataType = MdmAlertDataType(0i32);
-    pub const Base64: MdmAlertDataType = MdmAlertDataType(1i32);
-    pub const Boolean: MdmAlertDataType = MdmAlertDataType(2i32);
-    pub const Integer: MdmAlertDataType = MdmAlertDataType(3i32);
+    pub const String: Self = Self(0i32);
+    pub const Base64: Self = Self(1i32);
+    pub const Boolean: Self = Self(2i32);
+    pub const Integer: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
-    pub const None: MdmAlertMark = MdmAlertMark(0i32);
-    pub const Fatal: MdmAlertMark = MdmAlertMark(1i32);
-    pub const Critical: MdmAlertMark = MdmAlertMark(2i32);
-    pub const Warning: MdmAlertMark = MdmAlertMark(3i32);
-    pub const Informational: MdmAlertMark = MdmAlertMark(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Fatal: Self = Self(1i32);
+    pub const Critical: Self = Self(2i32);
+    pub const Warning: Self = Self(3i32);
+    pub const Informational: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct MdmSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {
-    pub const NotStarted: MdmSessionState = MdmSessionState(0i32);
-    pub const Starting: MdmSessionState = MdmSessionState(1i32);
-    pub const Connecting: MdmSessionState = MdmSessionState(2i32);
-    pub const Communicating: MdmSessionState = MdmSessionState(3i32);
-    pub const AlertStatusAvailable: MdmSessionState = MdmSessionState(4i32);
-    pub const Retrying: MdmSessionState = MdmSessionState(5i32);
-    pub const Completed: MdmSessionState = MdmSessionState(6i32);
+    pub const NotStarted: Self = Self(0i32);
+    pub const Starting: Self = Self(1i32);
+    pub const Connecting: Self = Self(2i32);
+    pub const Communicating: Self = Self(3i32);
+    pub const AlertStatusAvailable: Self = Self(4i32);
+    pub const Retrying: Self = Self(5i32);
+    pub const Completed: Self = Self(6i32);
 }

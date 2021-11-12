@@ -10,11 +10,11 @@ pub struct PortableDeviceContract(i32);
 #[repr(transparent)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {
-    pub const CalendarService: ServiceDeviceType = ServiceDeviceType(0i32);
-    pub const ContactsService: ServiceDeviceType = ServiceDeviceType(1i32);
-    pub const DeviceStatusService: ServiceDeviceType = ServiceDeviceType(2i32);
-    pub const NotesService: ServiceDeviceType = ServiceDeviceType(3i32);
-    pub const RingtonesService: ServiceDeviceType = ServiceDeviceType(4i32);
-    pub const SmsService: ServiceDeviceType = ServiceDeviceType(5i32);
-    pub const TasksService: ServiceDeviceType = ServiceDeviceType(6i32);
+    pub const CalendarService: Self = Self(0i32);
+    pub const ContactsService: Self = Self(1i32);
+    pub const DeviceStatusService: Self = Self(2i32);
+    pub const NotesService: Self = Self(3i32);
+    pub const RingtonesService: Self = Self(4i32);
+    pub const SmsService: Self = Self(5i32);
+    pub const TasksService: Self = Self(6i32);
 }

@@ -14,8 +14,8 @@ pub struct HttpClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
-    pub const ResponseContentRead: HttpCompletionOption = HttpCompletionOption(0i32);
-    pub const ResponseHeadersRead: HttpCompletionOption = HttpCompletionOption(1i32);
+    pub const ResponseContentRead: Self = Self(0i32);
+    pub const ResponseHeadersRead: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct HttpCookie(pub *mut ::core::ffi::c_void);
@@ -43,16 +43,16 @@ pub struct HttpProgress(i32);
 #[repr(transparent)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
-    pub const None: HttpProgressStage = HttpProgressStage(0i32);
-    pub const DetectingProxy: HttpProgressStage = HttpProgressStage(10i32);
-    pub const ResolvingName: HttpProgressStage = HttpProgressStage(20i32);
-    pub const ConnectingToServer: HttpProgressStage = HttpProgressStage(30i32);
-    pub const NegotiatingSsl: HttpProgressStage = HttpProgressStage(40i32);
-    pub const SendingHeaders: HttpProgressStage = HttpProgressStage(50i32);
-    pub const SendingContent: HttpProgressStage = HttpProgressStage(60i32);
-    pub const WaitingForResponse: HttpProgressStage = HttpProgressStage(70i32);
-    pub const ReceivingHeaders: HttpProgressStage = HttpProgressStage(80i32);
-    pub const ReceivingContent: HttpProgressStage = HttpProgressStage(90i32);
+    pub const None: Self = Self(0i32);
+    pub const DetectingProxy: Self = Self(10i32);
+    pub const ResolvingName: Self = Self(20i32);
+    pub const ConnectingToServer: Self = Self(30i32);
+    pub const NegotiatingSsl: Self = Self(40i32);
+    pub const SendingHeaders: Self = Self(50i32);
+    pub const SendingContent: Self = Self(60i32);
+    pub const WaitingForResponse: Self = Self(70i32);
+    pub const ReceivingHeaders: Self = Self(80i32);
+    pub const ReceivingContent: Self = Self(90i32);
 }
 #[repr(transparent)]
 pub struct HttpRequestMessage(pub *mut ::core::ffi::c_void);
@@ -63,71 +63,71 @@ pub struct HttpResponseMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
-    pub const None: HttpResponseMessageSource = HttpResponseMessageSource(0i32);
-    pub const Cache: HttpResponseMessageSource = HttpResponseMessageSource(1i32);
-    pub const Network: HttpResponseMessageSource = HttpResponseMessageSource(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Cache: Self = Self(1i32);
+    pub const Network: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct HttpStatusCode(pub i32);
 impl HttpStatusCode {
-    pub const None: HttpStatusCode = HttpStatusCode(0i32);
-    pub const Continue: HttpStatusCode = HttpStatusCode(100i32);
-    pub const SwitchingProtocols: HttpStatusCode = HttpStatusCode(101i32);
-    pub const Processing: HttpStatusCode = HttpStatusCode(102i32);
-    pub const Ok: HttpStatusCode = HttpStatusCode(200i32);
-    pub const Created: HttpStatusCode = HttpStatusCode(201i32);
-    pub const Accepted: HttpStatusCode = HttpStatusCode(202i32);
-    pub const NonAuthoritativeInformation: HttpStatusCode = HttpStatusCode(203i32);
-    pub const NoContent: HttpStatusCode = HttpStatusCode(204i32);
-    pub const ResetContent: HttpStatusCode = HttpStatusCode(205i32);
-    pub const PartialContent: HttpStatusCode = HttpStatusCode(206i32);
-    pub const MultiStatus: HttpStatusCode = HttpStatusCode(207i32);
-    pub const AlreadyReported: HttpStatusCode = HttpStatusCode(208i32);
-    pub const IMUsed: HttpStatusCode = HttpStatusCode(226i32);
-    pub const MultipleChoices: HttpStatusCode = HttpStatusCode(300i32);
-    pub const MovedPermanently: HttpStatusCode = HttpStatusCode(301i32);
-    pub const Found: HttpStatusCode = HttpStatusCode(302i32);
-    pub const SeeOther: HttpStatusCode = HttpStatusCode(303i32);
-    pub const NotModified: HttpStatusCode = HttpStatusCode(304i32);
-    pub const UseProxy: HttpStatusCode = HttpStatusCode(305i32);
-    pub const TemporaryRedirect: HttpStatusCode = HttpStatusCode(307i32);
-    pub const PermanentRedirect: HttpStatusCode = HttpStatusCode(308i32);
-    pub const BadRequest: HttpStatusCode = HttpStatusCode(400i32);
-    pub const Unauthorized: HttpStatusCode = HttpStatusCode(401i32);
-    pub const PaymentRequired: HttpStatusCode = HttpStatusCode(402i32);
-    pub const Forbidden: HttpStatusCode = HttpStatusCode(403i32);
-    pub const NotFound: HttpStatusCode = HttpStatusCode(404i32);
-    pub const MethodNotAllowed: HttpStatusCode = HttpStatusCode(405i32);
-    pub const NotAcceptable: HttpStatusCode = HttpStatusCode(406i32);
-    pub const ProxyAuthenticationRequired: HttpStatusCode = HttpStatusCode(407i32);
-    pub const RequestTimeout: HttpStatusCode = HttpStatusCode(408i32);
-    pub const Conflict: HttpStatusCode = HttpStatusCode(409i32);
-    pub const Gone: HttpStatusCode = HttpStatusCode(410i32);
-    pub const LengthRequired: HttpStatusCode = HttpStatusCode(411i32);
-    pub const PreconditionFailed: HttpStatusCode = HttpStatusCode(412i32);
-    pub const RequestEntityTooLarge: HttpStatusCode = HttpStatusCode(413i32);
-    pub const RequestUriTooLong: HttpStatusCode = HttpStatusCode(414i32);
-    pub const UnsupportedMediaType: HttpStatusCode = HttpStatusCode(415i32);
-    pub const RequestedRangeNotSatisfiable: HttpStatusCode = HttpStatusCode(416i32);
-    pub const ExpectationFailed: HttpStatusCode = HttpStatusCode(417i32);
-    pub const UnprocessableEntity: HttpStatusCode = HttpStatusCode(422i32);
-    pub const Locked: HttpStatusCode = HttpStatusCode(423i32);
-    pub const FailedDependency: HttpStatusCode = HttpStatusCode(424i32);
-    pub const UpgradeRequired: HttpStatusCode = HttpStatusCode(426i32);
-    pub const PreconditionRequired: HttpStatusCode = HttpStatusCode(428i32);
-    pub const TooManyRequests: HttpStatusCode = HttpStatusCode(429i32);
-    pub const RequestHeaderFieldsTooLarge: HttpStatusCode = HttpStatusCode(431i32);
-    pub const InternalServerError: HttpStatusCode = HttpStatusCode(500i32);
-    pub const NotImplemented: HttpStatusCode = HttpStatusCode(501i32);
-    pub const BadGateway: HttpStatusCode = HttpStatusCode(502i32);
-    pub const ServiceUnavailable: HttpStatusCode = HttpStatusCode(503i32);
-    pub const GatewayTimeout: HttpStatusCode = HttpStatusCode(504i32);
-    pub const HttpVersionNotSupported: HttpStatusCode = HttpStatusCode(505i32);
-    pub const VariantAlsoNegotiates: HttpStatusCode = HttpStatusCode(506i32);
-    pub const InsufficientStorage: HttpStatusCode = HttpStatusCode(507i32);
-    pub const LoopDetected: HttpStatusCode = HttpStatusCode(508i32);
-    pub const NotExtended: HttpStatusCode = HttpStatusCode(510i32);
-    pub const NetworkAuthenticationRequired: HttpStatusCode = HttpStatusCode(511i32);
+    pub const None: Self = Self(0i32);
+    pub const Continue: Self = Self(100i32);
+    pub const SwitchingProtocols: Self = Self(101i32);
+    pub const Processing: Self = Self(102i32);
+    pub const Ok: Self = Self(200i32);
+    pub const Created: Self = Self(201i32);
+    pub const Accepted: Self = Self(202i32);
+    pub const NonAuthoritativeInformation: Self = Self(203i32);
+    pub const NoContent: Self = Self(204i32);
+    pub const ResetContent: Self = Self(205i32);
+    pub const PartialContent: Self = Self(206i32);
+    pub const MultiStatus: Self = Self(207i32);
+    pub const AlreadyReported: Self = Self(208i32);
+    pub const IMUsed: Self = Self(226i32);
+    pub const MultipleChoices: Self = Self(300i32);
+    pub const MovedPermanently: Self = Self(301i32);
+    pub const Found: Self = Self(302i32);
+    pub const SeeOther: Self = Self(303i32);
+    pub const NotModified: Self = Self(304i32);
+    pub const UseProxy: Self = Self(305i32);
+    pub const TemporaryRedirect: Self = Self(307i32);
+    pub const PermanentRedirect: Self = Self(308i32);
+    pub const BadRequest: Self = Self(400i32);
+    pub const Unauthorized: Self = Self(401i32);
+    pub const PaymentRequired: Self = Self(402i32);
+    pub const Forbidden: Self = Self(403i32);
+    pub const NotFound: Self = Self(404i32);
+    pub const MethodNotAllowed: Self = Self(405i32);
+    pub const NotAcceptable: Self = Self(406i32);
+    pub const ProxyAuthenticationRequired: Self = Self(407i32);
+    pub const RequestTimeout: Self = Self(408i32);
+    pub const Conflict: Self = Self(409i32);
+    pub const Gone: Self = Self(410i32);
+    pub const LengthRequired: Self = Self(411i32);
+    pub const PreconditionFailed: Self = Self(412i32);
+    pub const RequestEntityTooLarge: Self = Self(413i32);
+    pub const RequestUriTooLong: Self = Self(414i32);
+    pub const UnsupportedMediaType: Self = Self(415i32);
+    pub const RequestedRangeNotSatisfiable: Self = Self(416i32);
+    pub const ExpectationFailed: Self = Self(417i32);
+    pub const UnprocessableEntity: Self = Self(422i32);
+    pub const Locked: Self = Self(423i32);
+    pub const FailedDependency: Self = Self(424i32);
+    pub const UpgradeRequired: Self = Self(426i32);
+    pub const PreconditionRequired: Self = Self(428i32);
+    pub const TooManyRequests: Self = Self(429i32);
+    pub const RequestHeaderFieldsTooLarge: Self = Self(431i32);
+    pub const InternalServerError: Self = Self(500i32);
+    pub const NotImplemented: Self = Self(501i32);
+    pub const BadGateway: Self = Self(502i32);
+    pub const ServiceUnavailable: Self = Self(503i32);
+    pub const GatewayTimeout: Self = Self(504i32);
+    pub const HttpVersionNotSupported: Self = Self(505i32);
+    pub const VariantAlsoNegotiates: Self = Self(506i32);
+    pub const InsufficientStorage: Self = Self(507i32);
+    pub const LoopDetected: Self = Self(508i32);
+    pub const NotExtended: Self = Self(510i32);
+    pub const NetworkAuthenticationRequired: Self = Self(511i32);
 }
 #[repr(transparent)]
 pub struct HttpStreamContent(pub *mut ::core::ffi::c_void);
@@ -138,10 +138,10 @@ pub struct HttpTransportInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
-    pub const None: HttpVersion = HttpVersion(0i32);
-    pub const Http10: HttpVersion = HttpVersion(1i32);
-    pub const Http11: HttpVersion = HttpVersion(2i32);
-    pub const Http20: HttpVersion = HttpVersion(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Http10: Self = Self(1i32);
+    pub const Http11: Self = Self(2i32);
+    pub const Http20: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct IHttpBufferContentFactory(pub *mut ::core::ffi::c_void);

@@ -4,19 +4,19 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AutoLoadedDisplayPropertyKind(pub i32);
 impl AutoLoadedDisplayPropertyKind {
-    pub const None: AutoLoadedDisplayPropertyKind = AutoLoadedDisplayPropertyKind(0i32);
-    pub const MusicOrVideo: AutoLoadedDisplayPropertyKind = AutoLoadedDisplayPropertyKind(1i32);
-    pub const Music: AutoLoadedDisplayPropertyKind = AutoLoadedDisplayPropertyKind(2i32);
-    pub const Video: AutoLoadedDisplayPropertyKind = AutoLoadedDisplayPropertyKind(3i32);
+    pub const None: Self = Self(0i32);
+    pub const MusicOrVideo: Self = Self(1i32);
+    pub const Music: Self = Self(2i32);
+    pub const Video: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct CurrentMediaPlaybackItemChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FailedMediaStreamKind(pub i32);
 impl FailedMediaStreamKind {
-    pub const Unknown: FailedMediaStreamKind = FailedMediaStreamKind(0i32);
-    pub const Audio: FailedMediaStreamKind = FailedMediaStreamKind(1i32);
-    pub const Video: FailedMediaStreamKind = FailedMediaStreamKind(2i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Audio: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct IBackgroundMediaPlayerStatics(pub *mut ::core::ffi::c_void);
@@ -155,8 +155,8 @@ pub struct MediaBreakEndedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaBreakInsertionMethod(pub i32);
 impl MediaBreakInsertionMethod {
-    pub const Interrupt: MediaBreakInsertionMethod = MediaBreakInsertionMethod(0i32);
-    pub const Replace: MediaBreakInsertionMethod = MediaBreakInsertionMethod(1i32);
+    pub const Interrupt: Self = Self(0i32);
+    pub const Replace: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct MediaBreakManager(pub *mut ::core::ffi::c_void);
@@ -171,9 +171,9 @@ pub struct MediaBreakStartedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaCommandEnablingRule(pub i32);
 impl MediaCommandEnablingRule {
-    pub const Auto: MediaCommandEnablingRule = MediaCommandEnablingRule(0i32);
-    pub const Always: MediaCommandEnablingRule = MediaCommandEnablingRule(1i32);
-    pub const Never: MediaCommandEnablingRule = MediaCommandEnablingRule(2i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
+    pub const Never: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct MediaItemDisplayProperties(pub *mut ::core::ffi::c_void);
@@ -208,22 +208,22 @@ pub struct MediaPlaybackItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlaybackItemChangedReason(pub i32);
 impl MediaPlaybackItemChangedReason {
-    pub const InitialItem: MediaPlaybackItemChangedReason = MediaPlaybackItemChangedReason(0i32);
-    pub const EndOfStream: MediaPlaybackItemChangedReason = MediaPlaybackItemChangedReason(1i32);
-    pub const Error: MediaPlaybackItemChangedReason = MediaPlaybackItemChangedReason(2i32);
-    pub const AppRequested: MediaPlaybackItemChangedReason = MediaPlaybackItemChangedReason(3i32);
+    pub const InitialItem: Self = Self(0i32);
+    pub const EndOfStream: Self = Self(1i32);
+    pub const Error: Self = Self(2i32);
+    pub const AppRequested: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MediaPlaybackItemError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlaybackItemErrorCode(pub i32);
 impl MediaPlaybackItemErrorCode {
-    pub const None: MediaPlaybackItemErrorCode = MediaPlaybackItemErrorCode(0i32);
-    pub const Aborted: MediaPlaybackItemErrorCode = MediaPlaybackItemErrorCode(1i32);
-    pub const NetworkError: MediaPlaybackItemErrorCode = MediaPlaybackItemErrorCode(2i32);
-    pub const DecodeError: MediaPlaybackItemErrorCode = MediaPlaybackItemErrorCode(3i32);
-    pub const SourceNotSupportedError: MediaPlaybackItemErrorCode = MediaPlaybackItemErrorCode(4i32);
-    pub const EncryptionError: MediaPlaybackItemErrorCode = MediaPlaybackItemErrorCode(5i32);
+    pub const None: Self = Self(0i32);
+    pub const Aborted: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const DecodeError: Self = Self(3i32);
+    pub const SourceNotSupportedError: Self = Self(4i32);
+    pub const EncryptionError: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct MediaPlaybackItemFailedEventArgs(pub *mut ::core::ffi::c_void);
@@ -240,24 +240,24 @@ pub struct MediaPlaybackSessionOutputDegradationPolicyState(pub *mut ::core::ffi
 #[repr(transparent)]
 pub struct MediaPlaybackSessionVideoConstrictionReason(pub i32);
 impl MediaPlaybackSessionVideoConstrictionReason {
-    pub const None: MediaPlaybackSessionVideoConstrictionReason = MediaPlaybackSessionVideoConstrictionReason(0i32);
-    pub const VirtualMachine: MediaPlaybackSessionVideoConstrictionReason = MediaPlaybackSessionVideoConstrictionReason(1i32);
-    pub const UnsupportedDisplayAdapter: MediaPlaybackSessionVideoConstrictionReason = MediaPlaybackSessionVideoConstrictionReason(2i32);
-    pub const UnsignedDriver: MediaPlaybackSessionVideoConstrictionReason = MediaPlaybackSessionVideoConstrictionReason(3i32);
-    pub const FrameServerEnabled: MediaPlaybackSessionVideoConstrictionReason = MediaPlaybackSessionVideoConstrictionReason(4i32);
-    pub const OutputProtectionFailed: MediaPlaybackSessionVideoConstrictionReason = MediaPlaybackSessionVideoConstrictionReason(5i32);
-    pub const Unknown: MediaPlaybackSessionVideoConstrictionReason = MediaPlaybackSessionVideoConstrictionReason(6i32);
+    pub const None: Self = Self(0i32);
+    pub const VirtualMachine: Self = Self(1i32);
+    pub const UnsupportedDisplayAdapter: Self = Self(2i32);
+    pub const UnsignedDriver: Self = Self(3i32);
+    pub const FrameServerEnabled: Self = Self(4i32);
+    pub const OutputProtectionFailed: Self = Self(5i32);
+    pub const Unknown: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct MediaPlaybackSphericalVideoProjection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlaybackState(pub i32);
 impl MediaPlaybackState {
-    pub const None: MediaPlaybackState = MediaPlaybackState(0i32);
-    pub const Opening: MediaPlaybackState = MediaPlaybackState(1i32);
-    pub const Buffering: MediaPlaybackState = MediaPlaybackState(2i32);
-    pub const Playing: MediaPlaybackState = MediaPlaybackState(3i32);
-    pub const Paused: MediaPlaybackState = MediaPlaybackState(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Opening: Self = Self(1i32);
+    pub const Buffering: Self = Self(2i32);
+    pub const Playing: Self = Self(3i32);
+    pub const Paused: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct MediaPlaybackTimedMetadataTrackList(pub *mut ::core::ffi::c_void);
@@ -268,34 +268,34 @@ pub struct MediaPlayer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlayerAudioCategory(pub i32);
 impl MediaPlayerAudioCategory {
-    pub const Other: MediaPlayerAudioCategory = MediaPlayerAudioCategory(0i32);
-    pub const Communications: MediaPlayerAudioCategory = MediaPlayerAudioCategory(3i32);
-    pub const Alerts: MediaPlayerAudioCategory = MediaPlayerAudioCategory(4i32);
-    pub const SoundEffects: MediaPlayerAudioCategory = MediaPlayerAudioCategory(5i32);
-    pub const GameEffects: MediaPlayerAudioCategory = MediaPlayerAudioCategory(6i32);
-    pub const GameMedia: MediaPlayerAudioCategory = MediaPlayerAudioCategory(7i32);
-    pub const GameChat: MediaPlayerAudioCategory = MediaPlayerAudioCategory(8i32);
-    pub const Speech: MediaPlayerAudioCategory = MediaPlayerAudioCategory(9i32);
-    pub const Movie: MediaPlayerAudioCategory = MediaPlayerAudioCategory(10i32);
-    pub const Media: MediaPlayerAudioCategory = MediaPlayerAudioCategory(11i32);
+    pub const Other: Self = Self(0i32);
+    pub const Communications: Self = Self(3i32);
+    pub const Alerts: Self = Self(4i32);
+    pub const SoundEffects: Self = Self(5i32);
+    pub const GameEffects: Self = Self(6i32);
+    pub const GameMedia: Self = Self(7i32);
+    pub const GameChat: Self = Self(8i32);
+    pub const Speech: Self = Self(9i32);
+    pub const Movie: Self = Self(10i32);
+    pub const Media: Self = Self(11i32);
 }
 #[repr(transparent)]
 pub struct MediaPlayerAudioDeviceType(pub i32);
 impl MediaPlayerAudioDeviceType {
-    pub const Console: MediaPlayerAudioDeviceType = MediaPlayerAudioDeviceType(0i32);
-    pub const Multimedia: MediaPlayerAudioDeviceType = MediaPlayerAudioDeviceType(1i32);
-    pub const Communications: MediaPlayerAudioDeviceType = MediaPlayerAudioDeviceType(2i32);
+    pub const Console: Self = Self(0i32);
+    pub const Multimedia: Self = Self(1i32);
+    pub const Communications: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct MediaPlayerDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlayerError(pub i32);
 impl MediaPlayerError {
-    pub const Unknown: MediaPlayerError = MediaPlayerError(0i32);
-    pub const Aborted: MediaPlayerError = MediaPlayerError(1i32);
-    pub const NetworkError: MediaPlayerError = MediaPlayerError(2i32);
-    pub const DecodingError: MediaPlayerError = MediaPlayerError(3i32);
-    pub const SourceNotSupported: MediaPlayerError = MediaPlayerError(4i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Aborted: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const DecodingError: Self = Self(3i32);
+    pub const SourceNotSupported: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct MediaPlayerFailedEventArgs(pub *mut ::core::ffi::c_void);
@@ -304,12 +304,12 @@ pub struct MediaPlayerRateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlayerState(pub i32);
 impl MediaPlayerState {
-    pub const Closed: MediaPlayerState = MediaPlayerState(0i32);
-    pub const Opening: MediaPlayerState = MediaPlayerState(1i32);
-    pub const Buffering: MediaPlayerState = MediaPlayerState(2i32);
-    pub const Playing: MediaPlayerState = MediaPlayerState(3i32);
-    pub const Paused: MediaPlayerState = MediaPlayerState(4i32);
-    pub const Stopped: MediaPlayerState = MediaPlayerState(5i32);
+    pub const Closed: Self = Self(0i32);
+    pub const Opening: Self = Self(1i32);
+    pub const Buffering: Self = Self(2i32);
+    pub const Playing: Self = Self(3i32);
+    pub const Paused: Self = Self(4i32);
+    pub const Stopped: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct MediaPlayerSurface(pub *mut ::core::ffi::c_void);
@@ -322,22 +322,22 @@ pub struct PlaybackMediaMarkerSequence(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SphericalVideoProjectionMode(pub i32);
 impl SphericalVideoProjectionMode {
-    pub const Spherical: SphericalVideoProjectionMode = SphericalVideoProjectionMode(0i32);
-    pub const Flat: SphericalVideoProjectionMode = SphericalVideoProjectionMode(1i32);
+    pub const Spherical: Self = Self(0i32);
+    pub const Flat: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct StereoscopicVideoRenderMode(pub i32);
 impl StereoscopicVideoRenderMode {
-    pub const Mono: StereoscopicVideoRenderMode = StereoscopicVideoRenderMode(0i32);
-    pub const Stereo: StereoscopicVideoRenderMode = StereoscopicVideoRenderMode(1i32);
+    pub const Mono: Self = Self(0i32);
+    pub const Stereo: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct TimedMetadataPresentationModeChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TimedMetadataTrackPresentationMode(pub i32);
 impl TimedMetadataTrackPresentationMode {
-    pub const Disabled: TimedMetadataTrackPresentationMode = TimedMetadataTrackPresentationMode(0i32);
-    pub const Hidden: TimedMetadataTrackPresentationMode = TimedMetadataTrackPresentationMode(1i32);
-    pub const ApplicationPresented: TimedMetadataTrackPresentationMode = TimedMetadataTrackPresentationMode(2i32);
-    pub const PlatformPresented: TimedMetadataTrackPresentationMode = TimedMetadataTrackPresentationMode(3i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Hidden: Self = Self(1i32);
+    pub const ApplicationPresented: Self = Self(2i32);
+    pub const PlatformPresented: Self = Self(3i32);
 }

@@ -4,11 +4,11 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
-    pub const NotNormalized: AlternateNormalizationFormat = AlternateNormalizationFormat(0i32);
-    pub const Number: AlternateNormalizationFormat = AlternateNormalizationFormat(1i32);
-    pub const Currency: AlternateNormalizationFormat = AlternateNormalizationFormat(3i32);
-    pub const Date: AlternateNormalizationFormat = AlternateNormalizationFormat(4i32);
-    pub const Time: AlternateNormalizationFormat = AlternateNormalizationFormat(5i32);
+    pub const NotNormalized: Self = Self(0i32);
+    pub const Number: Self = Self(1i32);
+    pub const Currency: Self = Self(3i32);
+    pub const Date: Self = Self(4i32);
+    pub const Time: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct AlternateWordForm(pub *mut ::core::ffi::c_void);
@@ -67,9 +67,9 @@ pub struct TextPredictionGenerator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
-    pub const None: TextPredictionOptions = TextPredictionOptions(0u32);
-    pub const Predictions: TextPredictionOptions = TextPredictionOptions(1u32);
-    pub const Corrections: TextPredictionOptions = TextPredictionOptions(2u32);
+    pub const None: Self = Self(0u32);
+    pub const Predictions: Self = Self(1u32);
+    pub const Corrections: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct TextReverseConversionGenerator(pub *mut ::core::ffi::c_void);
@@ -78,44 +78,44 @@ pub struct TextSegment(i32);
 #[repr(transparent)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
-    pub const UppercaseLetter: UnicodeGeneralCategory = UnicodeGeneralCategory(0i32);
-    pub const LowercaseLetter: UnicodeGeneralCategory = UnicodeGeneralCategory(1i32);
-    pub const TitlecaseLetter: UnicodeGeneralCategory = UnicodeGeneralCategory(2i32);
-    pub const ModifierLetter: UnicodeGeneralCategory = UnicodeGeneralCategory(3i32);
-    pub const OtherLetter: UnicodeGeneralCategory = UnicodeGeneralCategory(4i32);
-    pub const NonspacingMark: UnicodeGeneralCategory = UnicodeGeneralCategory(5i32);
-    pub const SpacingCombiningMark: UnicodeGeneralCategory = UnicodeGeneralCategory(6i32);
-    pub const EnclosingMark: UnicodeGeneralCategory = UnicodeGeneralCategory(7i32);
-    pub const DecimalDigitNumber: UnicodeGeneralCategory = UnicodeGeneralCategory(8i32);
-    pub const LetterNumber: UnicodeGeneralCategory = UnicodeGeneralCategory(9i32);
-    pub const OtherNumber: UnicodeGeneralCategory = UnicodeGeneralCategory(10i32);
-    pub const SpaceSeparator: UnicodeGeneralCategory = UnicodeGeneralCategory(11i32);
-    pub const LineSeparator: UnicodeGeneralCategory = UnicodeGeneralCategory(12i32);
-    pub const ParagraphSeparator: UnicodeGeneralCategory = UnicodeGeneralCategory(13i32);
-    pub const Control: UnicodeGeneralCategory = UnicodeGeneralCategory(14i32);
-    pub const Format: UnicodeGeneralCategory = UnicodeGeneralCategory(15i32);
-    pub const Surrogate: UnicodeGeneralCategory = UnicodeGeneralCategory(16i32);
-    pub const PrivateUse: UnicodeGeneralCategory = UnicodeGeneralCategory(17i32);
-    pub const ConnectorPunctuation: UnicodeGeneralCategory = UnicodeGeneralCategory(18i32);
-    pub const DashPunctuation: UnicodeGeneralCategory = UnicodeGeneralCategory(19i32);
-    pub const OpenPunctuation: UnicodeGeneralCategory = UnicodeGeneralCategory(20i32);
-    pub const ClosePunctuation: UnicodeGeneralCategory = UnicodeGeneralCategory(21i32);
-    pub const InitialQuotePunctuation: UnicodeGeneralCategory = UnicodeGeneralCategory(22i32);
-    pub const FinalQuotePunctuation: UnicodeGeneralCategory = UnicodeGeneralCategory(23i32);
-    pub const OtherPunctuation: UnicodeGeneralCategory = UnicodeGeneralCategory(24i32);
-    pub const MathSymbol: UnicodeGeneralCategory = UnicodeGeneralCategory(25i32);
-    pub const CurrencySymbol: UnicodeGeneralCategory = UnicodeGeneralCategory(26i32);
-    pub const ModifierSymbol: UnicodeGeneralCategory = UnicodeGeneralCategory(27i32);
-    pub const OtherSymbol: UnicodeGeneralCategory = UnicodeGeneralCategory(28i32);
-    pub const NotAssigned: UnicodeGeneralCategory = UnicodeGeneralCategory(29i32);
+    pub const UppercaseLetter: Self = Self(0i32);
+    pub const LowercaseLetter: Self = Self(1i32);
+    pub const TitlecaseLetter: Self = Self(2i32);
+    pub const ModifierLetter: Self = Self(3i32);
+    pub const OtherLetter: Self = Self(4i32);
+    pub const NonspacingMark: Self = Self(5i32);
+    pub const SpacingCombiningMark: Self = Self(6i32);
+    pub const EnclosingMark: Self = Self(7i32);
+    pub const DecimalDigitNumber: Self = Self(8i32);
+    pub const LetterNumber: Self = Self(9i32);
+    pub const OtherNumber: Self = Self(10i32);
+    pub const SpaceSeparator: Self = Self(11i32);
+    pub const LineSeparator: Self = Self(12i32);
+    pub const ParagraphSeparator: Self = Self(13i32);
+    pub const Control: Self = Self(14i32);
+    pub const Format: Self = Self(15i32);
+    pub const Surrogate: Self = Self(16i32);
+    pub const PrivateUse: Self = Self(17i32);
+    pub const ConnectorPunctuation: Self = Self(18i32);
+    pub const DashPunctuation: Self = Self(19i32);
+    pub const OpenPunctuation: Self = Self(20i32);
+    pub const ClosePunctuation: Self = Self(21i32);
+    pub const InitialQuotePunctuation: Self = Self(22i32);
+    pub const FinalQuotePunctuation: Self = Self(23i32);
+    pub const OtherPunctuation: Self = Self(24i32);
+    pub const MathSymbol: Self = Self(25i32);
+    pub const CurrencySymbol: Self = Self(26i32);
+    pub const ModifierSymbol: Self = Self(27i32);
+    pub const OtherSymbol: Self = Self(28i32);
+    pub const NotAssigned: Self = Self(29i32);
 }
 #[repr(transparent)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
-    pub const None: UnicodeNumericType = UnicodeNumericType(0i32);
-    pub const Decimal: UnicodeNumericType = UnicodeNumericType(1i32);
-    pub const Digit: UnicodeNumericType = UnicodeNumericType(2i32);
-    pub const Numeric: UnicodeNumericType = UnicodeNumericType(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Decimal: Self = Self(1i32);
+    pub const Digit: Self = Self(2i32);
+    pub const Numeric: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct WordSegment(pub *mut ::core::ffi::c_void);

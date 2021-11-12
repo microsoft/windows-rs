@@ -4,9 +4,9 @@ extern "system" {}
 #[repr(transparent)]
 pub struct GameListCategory(pub i32);
 impl GameListCategory {
-    pub const Candidate: GameListCategory = GameListCategory(0i32);
-    pub const ConfirmedBySystem: GameListCategory = GameListCategory(1i32);
-    pub const ConfirmedByUser: GameListCategory = GameListCategory(2i32);
+    pub const Candidate: Self = Self(0i32);
+    pub const ConfirmedBySystem: Self = Self(1i32);
+    pub const ConfirmedByUser: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct GameListChangedEventHandler(pub *mut ::core::ffi::c_void);
@@ -15,10 +15,10 @@ pub struct GameListEntry(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
-    pub const NotLaunchable: GameListEntryLaunchableState = GameListEntryLaunchableState(0i32);
-    pub const ByLastRunningFullPath: GameListEntryLaunchableState = GameListEntryLaunchableState(1i32);
-    pub const ByUserProvidedPath: GameListEntryLaunchableState = GameListEntryLaunchableState(2i32);
-    pub const ByTile: GameListEntryLaunchableState = GameListEntryLaunchableState(3i32);
+    pub const NotLaunchable: Self = Self(0i32);
+    pub const ByLastRunningFullPath: Self = Self(1i32);
+    pub const ByUserProvidedPath: Self = Self(2i32);
+    pub const ByTile: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct GameListRemovedEventHandler(pub *mut ::core::ffi::c_void);

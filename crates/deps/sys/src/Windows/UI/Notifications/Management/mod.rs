@@ -10,7 +10,7 @@ pub struct UserNotificationListener(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {
-    pub const Unspecified: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(0i32);
-    pub const Allowed: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(1i32);
-    pub const Denied: UserNotificationListenerAccessStatus = UserNotificationListenerAccessStatus(2i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const Denied: Self = Self(2i32);
 }

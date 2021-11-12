@@ -8,12 +8,12 @@ pub struct DevicePortalConnectionClosedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {
-    pub const Unknown: DevicePortalConnectionClosedReason = DevicePortalConnectionClosedReason(0i32);
-    pub const ResourceLimitsExceeded: DevicePortalConnectionClosedReason = DevicePortalConnectionClosedReason(1i32);
-    pub const ProtocolError: DevicePortalConnectionClosedReason = DevicePortalConnectionClosedReason(2i32);
-    pub const NotAuthorized: DevicePortalConnectionClosedReason = DevicePortalConnectionClosedReason(3i32);
-    pub const UserNotPresent: DevicePortalConnectionClosedReason = DevicePortalConnectionClosedReason(4i32);
-    pub const ServiceTerminated: DevicePortalConnectionClosedReason = DevicePortalConnectionClosedReason(5i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const ResourceLimitsExceeded: Self = Self(1i32);
+    pub const ProtocolError: Self = Self(2i32);
+    pub const NotAuthorized: Self = Self(3i32);
+    pub const UserNotPresent: Self = Self(4i32);
+    pub const ServiceTerminated: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(pub *mut ::core::ffi::c_void);

@@ -60,24 +60,24 @@ pub struct SyndicationContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
-    pub const Unknown: SyndicationErrorStatus = SyndicationErrorStatus(0i32);
-    pub const MissingRequiredElement: SyndicationErrorStatus = SyndicationErrorStatus(1i32);
-    pub const MissingRequiredAttribute: SyndicationErrorStatus = SyndicationErrorStatus(2i32);
-    pub const InvalidXml: SyndicationErrorStatus = SyndicationErrorStatus(3i32);
-    pub const UnexpectedContent: SyndicationErrorStatus = SyndicationErrorStatus(4i32);
-    pub const UnsupportedFormat: SyndicationErrorStatus = SyndicationErrorStatus(5i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const MissingRequiredElement: Self = Self(1i32);
+    pub const MissingRequiredAttribute: Self = Self(2i32);
+    pub const InvalidXml: Self = Self(3i32);
+    pub const UnexpectedContent: Self = Self(4i32);
+    pub const UnsupportedFormat: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct SyndicationFeed(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
-    pub const Atom10: SyndicationFormat = SyndicationFormat(0i32);
-    pub const Rss20: SyndicationFormat = SyndicationFormat(1i32);
-    pub const Rss10: SyndicationFormat = SyndicationFormat(2i32);
-    pub const Rss092: SyndicationFormat = SyndicationFormat(3i32);
-    pub const Rss091: SyndicationFormat = SyndicationFormat(4i32);
-    pub const Atom03: SyndicationFormat = SyndicationFormat(5i32);
+    pub const Atom10: Self = Self(0i32);
+    pub const Rss20: Self = Self(1i32);
+    pub const Rss10: Self = Self(2i32);
+    pub const Rss092: Self = Self(3i32);
+    pub const Rss091: Self = Self(4i32);
+    pub const Atom03: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct SyndicationGenerator(pub *mut ::core::ffi::c_void);
@@ -94,9 +94,9 @@ pub struct SyndicationText(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
-    pub const Text: SyndicationTextType = SyndicationTextType(0i32);
-    pub const Html: SyndicationTextType = SyndicationTextType(1i32);
-    pub const Xhtml: SyndicationTextType = SyndicationTextType(2i32);
+    pub const Text: Self = Self(0i32);
+    pub const Html: Self = Self(1i32);
+    pub const Xhtml: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct TransferProgress(i32);

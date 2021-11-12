@@ -36,16 +36,16 @@ pub struct TargetedContentAction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
-    pub const NotApplicable: TargetedContentAppInstallationState = TargetedContentAppInstallationState(0i32);
-    pub const NotInstalled: TargetedContentAppInstallationState = TargetedContentAppInstallationState(1i32);
-    pub const Installed: TargetedContentAppInstallationState = TargetedContentAppInstallationState(2i32);
+    pub const NotApplicable: Self = Self(0i32);
+    pub const NotInstalled: Self = Self(1i32);
+    pub const Installed: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
-    pub const None: TargetedContentAvailability = TargetedContentAvailability(0i32);
-    pub const Partial: TargetedContentAvailability = TargetedContentAvailability(1i32);
-    pub const All: TargetedContentAvailability = TargetedContentAvailability(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Partial: Self = Self(1i32);
+    pub const All: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TargetedContentAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -64,19 +64,19 @@ pub struct TargetedContentImage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
-    pub const Impression: TargetedContentInteraction = TargetedContentInteraction(0i32);
-    pub const ClickThrough: TargetedContentInteraction = TargetedContentInteraction(1i32);
-    pub const Hover: TargetedContentInteraction = TargetedContentInteraction(2i32);
-    pub const Like: TargetedContentInteraction = TargetedContentInteraction(3i32);
-    pub const Dislike: TargetedContentInteraction = TargetedContentInteraction(4i32);
-    pub const Dismiss: TargetedContentInteraction = TargetedContentInteraction(5i32);
-    pub const Ineligible: TargetedContentInteraction = TargetedContentInteraction(6i32);
-    pub const Accept: TargetedContentInteraction = TargetedContentInteraction(7i32);
-    pub const Decline: TargetedContentInteraction = TargetedContentInteraction(8i32);
-    pub const Defer: TargetedContentInteraction = TargetedContentInteraction(9i32);
-    pub const Canceled: TargetedContentInteraction = TargetedContentInteraction(10i32);
-    pub const Conversion: TargetedContentInteraction = TargetedContentInteraction(11i32);
-    pub const Opportunity: TargetedContentInteraction = TargetedContentInteraction(12i32);
+    pub const Impression: Self = Self(0i32);
+    pub const ClickThrough: Self = Self(1i32);
+    pub const Hover: Self = Self(2i32);
+    pub const Like: Self = Self(3i32);
+    pub const Dislike: Self = Self(4i32);
+    pub const Dismiss: Self = Self(5i32);
+    pub const Ineligible: Self = Self(6i32);
+    pub const Accept: Self = Self(7i32);
+    pub const Decline: Self = Self(8i32);
+    pub const Defer: Self = Self(9i32);
+    pub const Canceled: Self = Self(10i32);
+    pub const Conversion: Self = Self(11i32);
+    pub const Opportunity: Self = Self(12i32);
 }
 #[repr(transparent)]
 pub struct TargetedContentItem(pub *mut ::core::ffi::c_void);
@@ -87,9 +87,9 @@ pub struct TargetedContentObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
-    pub const Collection: TargetedContentObjectKind = TargetedContentObjectKind(0i32);
-    pub const Item: TargetedContentObjectKind = TargetedContentObjectKind(1i32);
-    pub const Value: TargetedContentObjectKind = TargetedContentObjectKind(2i32);
+    pub const Collection: Self = Self(0i32);
+    pub const Item: Self = Self(1i32);
+    pub const Value: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TargetedContentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -102,18 +102,18 @@ pub struct TargetedContentValue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {
-    pub const String: TargetedContentValueKind = TargetedContentValueKind(0i32);
-    pub const Uri: TargetedContentValueKind = TargetedContentValueKind(1i32);
-    pub const Number: TargetedContentValueKind = TargetedContentValueKind(2i32);
-    pub const Boolean: TargetedContentValueKind = TargetedContentValueKind(3i32);
-    pub const File: TargetedContentValueKind = TargetedContentValueKind(4i32);
-    pub const ImageFile: TargetedContentValueKind = TargetedContentValueKind(5i32);
-    pub const Action: TargetedContentValueKind = TargetedContentValueKind(6i32);
-    pub const Strings: TargetedContentValueKind = TargetedContentValueKind(7i32);
-    pub const Uris: TargetedContentValueKind = TargetedContentValueKind(8i32);
-    pub const Numbers: TargetedContentValueKind = TargetedContentValueKind(9i32);
-    pub const Booleans: TargetedContentValueKind = TargetedContentValueKind(10i32);
-    pub const Files: TargetedContentValueKind = TargetedContentValueKind(11i32);
-    pub const ImageFiles: TargetedContentValueKind = TargetedContentValueKind(12i32);
-    pub const Actions: TargetedContentValueKind = TargetedContentValueKind(13i32);
+    pub const String: Self = Self(0i32);
+    pub const Uri: Self = Self(1i32);
+    pub const Number: Self = Self(2i32);
+    pub const Boolean: Self = Self(3i32);
+    pub const File: Self = Self(4i32);
+    pub const ImageFile: Self = Self(5i32);
+    pub const Action: Self = Self(6i32);
+    pub const Strings: Self = Self(7i32);
+    pub const Uris: Self = Self(8i32);
+    pub const Numbers: Self = Self(9i32);
+    pub const Booleans: Self = Self(10i32);
+    pub const Files: Self = Self(11i32);
+    pub const ImageFiles: Self = Self(12i32);
+    pub const Actions: Self = Self(13i32);
 }

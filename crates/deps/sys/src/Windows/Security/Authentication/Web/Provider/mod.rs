@@ -56,8 +56,8 @@ pub struct WebAccountClientView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
-    pub const IdOnly: WebAccountClientViewType = WebAccountClientViewType(0i32);
-    pub const IdAndProperties: WebAccountClientViewType = WebAccountClientViewType(1i32);
+    pub const IdOnly: Self = Self(0i32);
+    pub const IdAndProperties: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct WebAccountProviderAddAccountOperation(pub *mut ::core::ffi::c_void);
@@ -70,13 +70,13 @@ pub struct WebAccountProviderManageAccountOperation(pub *mut ::core::ffi::c_void
 #[repr(transparent)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
-    pub const RequestToken: WebAccountProviderOperationKind = WebAccountProviderOperationKind(0i32);
-    pub const GetTokenSilently: WebAccountProviderOperationKind = WebAccountProviderOperationKind(1i32);
-    pub const AddAccount: WebAccountProviderOperationKind = WebAccountProviderOperationKind(2i32);
-    pub const ManageAccount: WebAccountProviderOperationKind = WebAccountProviderOperationKind(3i32);
-    pub const DeleteAccount: WebAccountProviderOperationKind = WebAccountProviderOperationKind(4i32);
-    pub const RetrieveCookies: WebAccountProviderOperationKind = WebAccountProviderOperationKind(5i32);
-    pub const SignOutAccount: WebAccountProviderOperationKind = WebAccountProviderOperationKind(6i32);
+    pub const RequestToken: Self = Self(0i32);
+    pub const GetTokenSilently: Self = Self(1i32);
+    pub const AddAccount: Self = Self(2i32);
+    pub const ManageAccount: Self = Self(3i32);
+    pub const DeleteAccount: Self = Self(4i32);
+    pub const RetrieveCookies: Self = Self(5i32);
+    pub const SignOutAccount: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct WebAccountProviderRequestTokenOperation(pub *mut ::core::ffi::c_void);
@@ -89,14 +89,14 @@ pub struct WebAccountProviderTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
-    pub const PerUser: WebAccountScope = WebAccountScope(0i32);
-    pub const PerApplication: WebAccountScope = WebAccountScope(1i32);
+    pub const PerUser: Self = Self(0i32);
+    pub const PerApplication: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {
-    pub const Default: WebAccountSelectionOptions = WebAccountSelectionOptions(0u32);
-    pub const New: WebAccountSelectionOptions = WebAccountSelectionOptions(1u32);
+    pub const Default: Self = Self(0u32);
+    pub const New: Self = Self(1u32);
 }
 #[repr(transparent)]
 pub struct WebProviderTokenRequest(pub *mut ::core::ffi::c_void);

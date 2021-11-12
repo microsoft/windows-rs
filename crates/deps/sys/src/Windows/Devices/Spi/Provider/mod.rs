@@ -16,14 +16,14 @@ pub struct ProviderSpiConnectionSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
-    pub const Mode0: ProviderSpiMode = ProviderSpiMode(0i32);
-    pub const Mode1: ProviderSpiMode = ProviderSpiMode(1i32);
-    pub const Mode2: ProviderSpiMode = ProviderSpiMode(2i32);
-    pub const Mode3: ProviderSpiMode = ProviderSpiMode(3i32);
+    pub const Mode0: Self = Self(0i32);
+    pub const Mode1: Self = Self(1i32);
+    pub const Mode2: Self = Self(2i32);
+    pub const Mode3: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {
-    pub const Exclusive: ProviderSpiSharingMode = ProviderSpiSharingMode(0i32);
-    pub const Shared: ProviderSpiSharingMode = ProviderSpiSharingMode(1i32);
+    pub const Exclusive: Self = Self(0i32);
+    pub const Shared: Self = Self(1i32);
 }

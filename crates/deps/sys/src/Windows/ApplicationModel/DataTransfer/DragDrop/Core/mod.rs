@@ -10,8 +10,8 @@ pub struct CoreDragOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
-    pub const Auto: CoreDragUIContentMode = CoreDragUIContentMode(0u32);
-    pub const Deferred: CoreDragUIContentMode = CoreDragUIContentMode(1u32);
+    pub const Auto: Self = Self(0u32);
+    pub const Deferred: Self = Self(1u32);
 }
 #[repr(transparent)]
 pub struct CoreDragUIOverride(pub *mut ::core::ffi::c_void);

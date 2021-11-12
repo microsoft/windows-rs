@@ -122,10 +122,10 @@ pub struct PerceptionDepthFrameSourceWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
 impl PerceptionFrameSourceAccessStatus {
-    pub const Unspecified: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(0i32);
-    pub const Allowed: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(1i32);
-    pub const DeniedByUser: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(2i32);
-    pub const DeniedBySystem: PerceptionFrameSourceAccessStatus = PerceptionFrameSourceAccessStatus(3i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const DeniedByUser: Self = Self(2i32);
+    pub const DeniedBySystem: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertiesChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -134,12 +134,12 @@ pub struct PerceptionFrameSourcePropertyChangeResult(pub *mut ::core::ffi::c_voi
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
 impl PerceptionFrameSourcePropertyChangeStatus {
-    pub const Unknown: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(0i32);
-    pub const Accepted: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(1i32);
-    pub const LostControl: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(2i32);
-    pub const PropertyNotSupported: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(3i32);
-    pub const PropertyReadOnly: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(4i32);
-    pub const ValueOutOfRange: PerceptionFrameSourcePropertyChangeStatus = PerceptionFrameSourcePropertyChangeStatus(5i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Accepted: Self = Self(1i32);
+    pub const LostControl: Self = Self(2i32);
+    pub const PropertyNotSupported: Self = Self(3i32);
+    pub const PropertyReadOnly: Self = Self(4i32);
+    pub const ValueOutOfRange: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct PerceptionInfraredFrame(pub *mut ::core::ffi::c_void);

@@ -20,10 +20,10 @@ pub struct SimpleHapticsControllerFeedback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
-    pub const Allowed: VibrationAccessStatus = VibrationAccessStatus(0i32);
-    pub const DeniedByUser: VibrationAccessStatus = VibrationAccessStatus(1i32);
-    pub const DeniedBySystem: VibrationAccessStatus = VibrationAccessStatus(2i32);
-    pub const DeniedByEnergySaver: VibrationAccessStatus = VibrationAccessStatus(3i32);
+    pub const Allowed: Self = Self(0i32);
+    pub const DeniedByUser: Self = Self(1i32);
+    pub const DeniedBySystem: Self = Self(2i32);
+    pub const DeniedByEnergySaver: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct VibrationDevice(pub *mut ::core::ffi::c_void);

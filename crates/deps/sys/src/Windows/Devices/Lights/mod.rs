@@ -22,17 +22,17 @@ pub struct LampArray(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
-    pub const Undefined: LampArrayKind = LampArrayKind(0i32);
-    pub const Keyboard: LampArrayKind = LampArrayKind(1i32);
-    pub const Mouse: LampArrayKind = LampArrayKind(2i32);
-    pub const GameController: LampArrayKind = LampArrayKind(3i32);
-    pub const Peripheral: LampArrayKind = LampArrayKind(4i32);
-    pub const Scene: LampArrayKind = LampArrayKind(5i32);
-    pub const Notification: LampArrayKind = LampArrayKind(6i32);
-    pub const Chassis: LampArrayKind = LampArrayKind(7i32);
-    pub const Wearable: LampArrayKind = LampArrayKind(8i32);
-    pub const Furniture: LampArrayKind = LampArrayKind(9i32);
-    pub const Art: LampArrayKind = LampArrayKind(10i32);
+    pub const Undefined: Self = Self(0i32);
+    pub const Keyboard: Self = Self(1i32);
+    pub const Mouse: Self = Self(2i32);
+    pub const GameController: Self = Self(3i32);
+    pub const Peripheral: Self = Self(4i32);
+    pub const Scene: Self = Self(5i32);
+    pub const Notification: Self = Self(6i32);
+    pub const Chassis: Self = Self(7i32);
+    pub const Wearable: Self = Self(8i32);
+    pub const Furniture: Self = Self(9i32);
+    pub const Art: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct LampAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -41,11 +41,11 @@ pub struct LampInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {
-    pub const Undefined: LampPurposes = LampPurposes(0u32);
-    pub const Control: LampPurposes = LampPurposes(1u32);
-    pub const Accent: LampPurposes = LampPurposes(2u32);
-    pub const Branding: LampPurposes = LampPurposes(4u32);
-    pub const Status: LampPurposes = LampPurposes(8u32);
-    pub const Illumination: LampPurposes = LampPurposes(16u32);
-    pub const Presentation: LampPurposes = LampPurposes(32u32);
+    pub const Undefined: Self = Self(0u32);
+    pub const Control: Self = Self(1u32);
+    pub const Accent: Self = Self(2u32);
+    pub const Branding: Self = Self(4u32);
+    pub const Status: Self = Self(8u32);
+    pub const Illumination: Self = Self(16u32);
+    pub const Presentation: Self = Self(32u32);
 }

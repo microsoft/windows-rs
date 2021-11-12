@@ -68,8 +68,8 @@ pub struct UserActivitySessionHistoryItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {
-    pub const New: UserActivityState = UserActivityState(0i32);
-    pub const Published: UserActivityState = UserActivityState(1i32);
+    pub const New: Self = Self(0i32);
+    pub const Published: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct UserActivityVisualElements(pub *mut ::core::ffi::c_void);

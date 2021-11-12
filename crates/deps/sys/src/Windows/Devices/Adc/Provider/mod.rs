@@ -8,6 +8,6 @@ pub struct IAdcProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {
-    pub const SingleEnded: ProviderAdcChannelMode = ProviderAdcChannelMode(0i32);
-    pub const Differential: ProviderAdcChannelMode = ProviderAdcChannelMode(1i32);
+    pub const SingleEnded: Self = Self(0i32);
+    pub const Differential: Self = Self(1i32);
 }

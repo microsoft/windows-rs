@@ -76,8 +76,8 @@ pub struct PrintWorkflowForegroundSetupRequestedEventArgs(pub *mut ::core::ffi::
 #[repr(transparent)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
-    pub const JobFailed: PrintWorkflowJobAbortReason = PrintWorkflowJobAbortReason(0i32);
-    pub const UserCanceled: PrintWorkflowJobAbortReason = PrintWorkflowJobAbortReason(1i32);
+    pub const JobFailed: Self = Self(0i32);
+    pub const UserCanceled: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct PrintWorkflowJobActivatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -98,9 +98,9 @@ pub struct PrintWorkflowObjectModelTargetPackage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
-    pub const XpsToPdf: PrintWorkflowPdlConversionType = PrintWorkflowPdlConversionType(0i32);
-    pub const XpsToPwgr: PrintWorkflowPdlConversionType = PrintWorkflowPdlConversionType(1i32);
-    pub const XpsToPclm: PrintWorkflowPdlConversionType = PrintWorkflowPdlConversionType(2i32);
+    pub const XpsToPdf: Self = Self(0i32);
+    pub const XpsToPwgr: Self = Self(1i32);
+    pub const XpsToPclm: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConverter(pub *mut ::core::ffi::c_void);
@@ -117,19 +117,19 @@ pub struct PrintWorkflowPrinterJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
-    pub const Error: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(0i32);
-    pub const Aborted: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(1i32);
-    pub const InProgress: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(2i32);
-    pub const Completed: PrintWorkflowPrinterJobStatus = PrintWorkflowPrinterJobStatus(3i32);
+    pub const Error: Self = Self(0i32);
+    pub const Aborted: Self = Self(1i32);
+    pub const InProgress: Self = Self(2i32);
+    pub const Completed: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
-    pub const Started: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(0i32);
-    pub const Completed: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(1i32);
-    pub const Aborted: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(2i32);
-    pub const Closed: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(3i32);
-    pub const PdlDataAvailableForModification: PrintWorkflowSessionStatus = PrintWorkflowSessionStatus(4i32);
+    pub const Started: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Aborted: Self = Self(2i32);
+    pub const Closed: Self = Self(3i32);
+    pub const PdlDataAvailableForModification: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct PrintWorkflowSourceContent(pub *mut ::core::ffi::c_void);
@@ -144,9 +144,9 @@ pub struct PrintWorkflowSubmittedOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
-    pub const Succeeded: PrintWorkflowSubmittedStatus = PrintWorkflowSubmittedStatus(0i32);
-    pub const Canceled: PrintWorkflowSubmittedStatus = PrintWorkflowSubmittedStatus(1i32);
-    pub const Failed: PrintWorkflowSubmittedStatus = PrintWorkflowSubmittedStatus(2i32);
+    pub const Succeeded: Self = Self(0i32);
+    pub const Canceled: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PrintWorkflowTarget(pub *mut ::core::ffi::c_void);
@@ -157,10 +157,10 @@ pub struct PrintWorkflowUIActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
-    pub const Completed: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(0i32);
-    pub const LaunchFailed: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(1i32);
-    pub const JobFailed: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(2i32);
-    pub const UserCanceled: PrintWorkflowUICompletionStatus = PrintWorkflowUICompletionStatus(3i32);
+    pub const Completed: Self = Self(0i32);
+    pub const LaunchFailed: Self = Self(1i32);
+    pub const JobFailed: Self = Self(2i32);
+    pub const UserCanceled: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PrintWorkflowUILauncher(pub *mut ::core::ffi::c_void);

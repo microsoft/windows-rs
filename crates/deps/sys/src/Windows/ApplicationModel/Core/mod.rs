@@ -6,10 +6,10 @@ pub struct AppListEntry(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {
-    pub const RestartPending: AppRestartFailureReason = AppRestartFailureReason(0i32);
-    pub const NotInForeground: AppRestartFailureReason = AppRestartFailureReason(1i32);
-    pub const InvalidUser: AppRestartFailureReason = AppRestartFailureReason(2i32);
-    pub const Other: AppRestartFailureReason = AppRestartFailureReason(3i32);
+    pub const RestartPending: Self = Self(0i32);
+    pub const NotInForeground: Self = Self(1i32);
+    pub const InvalidUser: Self = Self(2i32);
+    pub const Other: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct CoreApplicationView(pub *mut ::core::ffi::c_void);

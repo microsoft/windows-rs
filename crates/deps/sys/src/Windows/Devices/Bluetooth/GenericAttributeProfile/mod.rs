@@ -6,36 +6,36 @@ pub struct GattCharacteristic(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
-    pub const None: GattCharacteristicProperties = GattCharacteristicProperties(0u32);
-    pub const Broadcast: GattCharacteristicProperties = GattCharacteristicProperties(1u32);
-    pub const Read: GattCharacteristicProperties = GattCharacteristicProperties(2u32);
-    pub const WriteWithoutResponse: GattCharacteristicProperties = GattCharacteristicProperties(4u32);
-    pub const Write: GattCharacteristicProperties = GattCharacteristicProperties(8u32);
-    pub const Notify: GattCharacteristicProperties = GattCharacteristicProperties(16u32);
-    pub const Indicate: GattCharacteristicProperties = GattCharacteristicProperties(32u32);
-    pub const AuthenticatedSignedWrites: GattCharacteristicProperties = GattCharacteristicProperties(64u32);
-    pub const ExtendedProperties: GattCharacteristicProperties = GattCharacteristicProperties(128u32);
-    pub const ReliableWrites: GattCharacteristicProperties = GattCharacteristicProperties(256u32);
-    pub const WritableAuxiliaries: GattCharacteristicProperties = GattCharacteristicProperties(512u32);
+    pub const None: Self = Self(0u32);
+    pub const Broadcast: Self = Self(1u32);
+    pub const Read: Self = Self(2u32);
+    pub const WriteWithoutResponse: Self = Self(4u32);
+    pub const Write: Self = Self(8u32);
+    pub const Notify: Self = Self(16u32);
+    pub const Indicate: Self = Self(32u32);
+    pub const AuthenticatedSignedWrites: Self = Self(64u32);
+    pub const ExtendedProperties: Self = Self(128u32);
+    pub const ReliableWrites: Self = Self(256u32);
+    pub const WritableAuxiliaries: Self = Self(512u32);
 }
 #[repr(transparent)]
 pub struct GattCharacteristicsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
-    pub const None: GattClientCharacteristicConfigurationDescriptorValue = GattClientCharacteristicConfigurationDescriptorValue(0i32);
-    pub const Notify: GattClientCharacteristicConfigurationDescriptorValue = GattClientCharacteristicConfigurationDescriptorValue(1i32);
-    pub const Indicate: GattClientCharacteristicConfigurationDescriptorValue = GattClientCharacteristicConfigurationDescriptorValue(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Notify: Self = Self(1i32);
+    pub const Indicate: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct GattClientNotificationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
-    pub const Success: GattCommunicationStatus = GattCommunicationStatus(0i32);
-    pub const Unreachable: GattCommunicationStatus = GattCommunicationStatus(1i32);
-    pub const ProtocolError: GattCommunicationStatus = GattCommunicationStatus(2i32);
-    pub const AccessDenied: GattCommunicationStatus = GattCommunicationStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const Unreachable: Self = Self(1i32);
+    pub const ProtocolError: Self = Self(2i32);
+    pub const AccessDenied: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct GattDescriptor(pub *mut ::core::ffi::c_void);
@@ -62,22 +62,22 @@ pub struct GattLocalService(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
-    pub const Unspecified: GattOpenStatus = GattOpenStatus(0i32);
-    pub const Success: GattOpenStatus = GattOpenStatus(1i32);
-    pub const AlreadyOpened: GattOpenStatus = GattOpenStatus(2i32);
-    pub const NotFound: GattOpenStatus = GattOpenStatus(3i32);
-    pub const SharingViolation: GattOpenStatus = GattOpenStatus(4i32);
-    pub const AccessDenied: GattOpenStatus = GattOpenStatus(5i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Success: Self = Self(1i32);
+    pub const AlreadyOpened: Self = Self(2i32);
+    pub const NotFound: Self = Self(3i32);
+    pub const SharingViolation: Self = Self(4i32);
+    pub const AccessDenied: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct GattPresentationFormat(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
-    pub const Plain: GattProtectionLevel = GattProtectionLevel(0i32);
-    pub const AuthenticationRequired: GattProtectionLevel = GattProtectionLevel(1i32);
-    pub const EncryptionRequired: GattProtectionLevel = GattProtectionLevel(2i32);
-    pub const EncryptionAndAuthenticationRequired: GattProtectionLevel = GattProtectionLevel(3i32);
+    pub const Plain: Self = Self(0i32);
+    pub const AuthenticationRequired: Self = Self(1i32);
+    pub const EncryptionRequired: Self = Self(2i32);
+    pub const EncryptionAndAuthenticationRequired: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(pub *mut ::core::ffi::c_void);
@@ -92,9 +92,9 @@ pub struct GattReliableWriteTransaction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
-    pub const Pending: GattRequestState = GattRequestState(0i32);
-    pub const Completed: GattRequestState = GattRequestState(1i32);
-    pub const Canceled: GattRequestState = GattRequestState(2i32);
+    pub const Pending: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct GattRequestStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -103,11 +103,11 @@ pub struct GattServiceProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
-    pub const Created: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(0i32);
-    pub const Stopped: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(1i32);
-    pub const Started: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(2i32);
-    pub const Aborted: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(3i32);
-    pub const StartedWithoutAllAdvertisementData: GattServiceProviderAdvertisementStatus = GattServiceProviderAdvertisementStatus(4i32);
+    pub const Created: Self = Self(0i32);
+    pub const Stopped: Self = Self(1i32);
+    pub const Started: Self = Self(2i32);
+    pub const Aborted: Self = Self(3i32);
+    pub const StartedWithoutAllAdvertisementData: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -120,18 +120,18 @@ pub struct GattSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
-    pub const Closed: GattSessionStatus = GattSessionStatus(0i32);
-    pub const Active: GattSessionStatus = GattSessionStatus(1i32);
+    pub const Closed: Self = Self(0i32);
+    pub const Active: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct GattSessionStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
-    pub const Unspecified: GattSharingMode = GattSharingMode(0i32);
-    pub const Exclusive: GattSharingMode = GattSharingMode(1i32);
-    pub const SharedReadOnly: GattSharingMode = GattSharingMode(2i32);
-    pub const SharedReadAndWrite: GattSharingMode = GattSharingMode(3i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Exclusive: Self = Self(1i32);
+    pub const SharedReadOnly: Self = Self(2i32);
+    pub const SharedReadAndWrite: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct GattSubscribedClient(pub *mut ::core::ffi::c_void);
@@ -140,8 +140,8 @@ pub struct GattValueChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
-    pub const WriteWithResponse: GattWriteOption = GattWriteOption(0i32);
-    pub const WriteWithoutResponse: GattWriteOption = GattWriteOption(1i32);
+    pub const WriteWithResponse: Self = Self(0i32);
+    pub const WriteWithoutResponse: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct GattWriteRequest(pub *mut ::core::ffi::c_void);

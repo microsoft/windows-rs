@@ -12,8 +12,8 @@ pub struct ILicenseSatisfactionResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LicenseRefreshOption(pub i32);
 impl LicenseRefreshOption {
-    pub const RunningLicenses: LicenseRefreshOption = LicenseRefreshOption(0i32);
-    pub const AllLicenses: LicenseRefreshOption = LicenseRefreshOption(1i32);
+    pub const RunningLicenses: Self = Self(0i32);
+    pub const AllLicenses: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct LicenseSatisfactionInfo(pub *mut ::core::ffi::c_void);

@@ -34,9 +34,9 @@ pub struct NavigatingCancelEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationCacheMode(pub i32);
 impl NavigationCacheMode {
-    pub const Disabled: NavigationCacheMode = NavigationCacheMode(0i32);
-    pub const Required: NavigationCacheMode = NavigationCacheMode(1i32);
-    pub const Enabled: NavigationCacheMode = NavigationCacheMode(2i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Required: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct NavigationEventArgs(pub *mut ::core::ffi::c_void);
@@ -47,10 +47,10 @@ pub struct NavigationFailedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationMode(pub i32);
 impl NavigationMode {
-    pub const New: NavigationMode = NavigationMode(0i32);
-    pub const Back: NavigationMode = NavigationMode(1i32);
-    pub const Forward: NavigationMode = NavigationMode(2i32);
-    pub const Refresh: NavigationMode = NavigationMode(3i32);
+    pub const New: Self = Self(0i32);
+    pub const Back: Self = Self(1i32);
+    pub const Forward: Self = Self(2i32);
+    pub const Refresh: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct NavigationStoppedEventHandler(pub *mut ::core::ffi::c_void);

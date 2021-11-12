@@ -10,68 +10,68 @@ pub struct Appointment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentBusyStatus(pub i32);
 impl AppointmentBusyStatus {
-    pub const Busy: AppointmentBusyStatus = AppointmentBusyStatus(0i32);
-    pub const Tentative: AppointmentBusyStatus = AppointmentBusyStatus(1i32);
-    pub const Free: AppointmentBusyStatus = AppointmentBusyStatus(2i32);
-    pub const OutOfOffice: AppointmentBusyStatus = AppointmentBusyStatus(3i32);
-    pub const WorkingElsewhere: AppointmentBusyStatus = AppointmentBusyStatus(4i32);
+    pub const Busy: Self = Self(0i32);
+    pub const Tentative: Self = Self(1i32);
+    pub const Free: Self = Self(2i32);
+    pub const OutOfOffice: Self = Self(3i32);
+    pub const WorkingElsewhere: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct AppointmentCalendar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
 impl AppointmentCalendarOtherAppReadAccess {
-    pub const SystemOnly: AppointmentCalendarOtherAppReadAccess = AppointmentCalendarOtherAppReadAccess(0i32);
-    pub const Limited: AppointmentCalendarOtherAppReadAccess = AppointmentCalendarOtherAppReadAccess(1i32);
-    pub const Full: AppointmentCalendarOtherAppReadAccess = AppointmentCalendarOtherAppReadAccess(2i32);
-    pub const None: AppointmentCalendarOtherAppReadAccess = AppointmentCalendarOtherAppReadAccess(3i32);
+    pub const SystemOnly: Self = Self(0i32);
+    pub const Limited: Self = Self(1i32);
+    pub const Full: Self = Self(2i32);
+    pub const None: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
 impl AppointmentCalendarOtherAppWriteAccess {
-    pub const None: AppointmentCalendarOtherAppWriteAccess = AppointmentCalendarOtherAppWriteAccess(0i32);
-    pub const SystemOnly: AppointmentCalendarOtherAppWriteAccess = AppointmentCalendarOtherAppWriteAccess(1i32);
-    pub const Limited: AppointmentCalendarOtherAppWriteAccess = AppointmentCalendarOtherAppWriteAccess(2i32);
+    pub const None: Self = Self(0i32);
+    pub const SystemOnly: Self = Self(1i32);
+    pub const Limited: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncStatus(pub i32);
 impl AppointmentCalendarSyncStatus {
-    pub const Idle: AppointmentCalendarSyncStatus = AppointmentCalendarSyncStatus(0i32);
-    pub const Syncing: AppointmentCalendarSyncStatus = AppointmentCalendarSyncStatus(1i32);
-    pub const UpToDate: AppointmentCalendarSyncStatus = AppointmentCalendarSyncStatus(2i32);
-    pub const AuthenticationError: AppointmentCalendarSyncStatus = AppointmentCalendarSyncStatus(3i32);
-    pub const PolicyError: AppointmentCalendarSyncStatus = AppointmentCalendarSyncStatus(4i32);
-    pub const UnknownError: AppointmentCalendarSyncStatus = AppointmentCalendarSyncStatus(5i32);
-    pub const ManualAccountRemovalRequired: AppointmentCalendarSyncStatus = AppointmentCalendarSyncStatus(6i32);
+    pub const Idle: Self = Self(0i32);
+    pub const Syncing: Self = Self(1i32);
+    pub const UpToDate: Self = Self(2i32);
+    pub const AuthenticationError: Self = Self(3i32);
+    pub const PolicyError: Self = Self(4i32);
+    pub const UnknownError: Self = Self(5i32);
+    pub const ManualAccountRemovalRequired: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct AppointmentConflictResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentConflictType(pub i32);
 impl AppointmentConflictType {
-    pub const None: AppointmentConflictType = AppointmentConflictType(0i32);
-    pub const Adjacent: AppointmentConflictType = AppointmentConflictType(1i32);
-    pub const Overlap: AppointmentConflictType = AppointmentConflictType(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Adjacent: Self = Self(1i32);
+    pub const Overlap: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AppointmentDaysOfWeek(pub u32);
 impl AppointmentDaysOfWeek {
-    pub const None: AppointmentDaysOfWeek = AppointmentDaysOfWeek(0u32);
-    pub const Sunday: AppointmentDaysOfWeek = AppointmentDaysOfWeek(1u32);
-    pub const Monday: AppointmentDaysOfWeek = AppointmentDaysOfWeek(2u32);
-    pub const Tuesday: AppointmentDaysOfWeek = AppointmentDaysOfWeek(4u32);
-    pub const Wednesday: AppointmentDaysOfWeek = AppointmentDaysOfWeek(8u32);
-    pub const Thursday: AppointmentDaysOfWeek = AppointmentDaysOfWeek(16u32);
-    pub const Friday: AppointmentDaysOfWeek = AppointmentDaysOfWeek(32u32);
-    pub const Saturday: AppointmentDaysOfWeek = AppointmentDaysOfWeek(64u32);
+    pub const None: Self = Self(0u32);
+    pub const Sunday: Self = Self(1u32);
+    pub const Monday: Self = Self(2u32);
+    pub const Tuesday: Self = Self(4u32);
+    pub const Wednesday: Self = Self(8u32);
+    pub const Thursday: Self = Self(16u32);
+    pub const Friday: Self = Self(32u32);
+    pub const Saturday: Self = Self(64u32);
 }
 #[repr(transparent)]
 pub struct AppointmentDetailsKind(pub i32);
 impl AppointmentDetailsKind {
-    pub const PlainText: AppointmentDetailsKind = AppointmentDetailsKind(0i32);
-    pub const Html: AppointmentDetailsKind = AppointmentDetailsKind(1i32);
+    pub const PlainText: Self = Self(0i32);
+    pub const Html: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AppointmentException(pub *mut ::core::ffi::c_void);
@@ -84,45 +84,45 @@ pub struct AppointmentOrganizer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentParticipantResponse(pub i32);
 impl AppointmentParticipantResponse {
-    pub const None: AppointmentParticipantResponse = AppointmentParticipantResponse(0i32);
-    pub const Tentative: AppointmentParticipantResponse = AppointmentParticipantResponse(1i32);
-    pub const Accepted: AppointmentParticipantResponse = AppointmentParticipantResponse(2i32);
-    pub const Declined: AppointmentParticipantResponse = AppointmentParticipantResponse(3i32);
-    pub const Unknown: AppointmentParticipantResponse = AppointmentParticipantResponse(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Tentative: Self = Self(1i32);
+    pub const Accepted: Self = Self(2i32);
+    pub const Declined: Self = Self(3i32);
+    pub const Unknown: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct AppointmentParticipantRole(pub i32);
 impl AppointmentParticipantRole {
-    pub const RequiredAttendee: AppointmentParticipantRole = AppointmentParticipantRole(0i32);
-    pub const OptionalAttendee: AppointmentParticipantRole = AppointmentParticipantRole(1i32);
-    pub const Resource: AppointmentParticipantRole = AppointmentParticipantRole(2i32);
+    pub const RequiredAttendee: Self = Self(0i32);
+    pub const OptionalAttendee: Self = Self(1i32);
+    pub const Resource: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AppointmentRecurrence(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentRecurrenceUnit(pub i32);
 impl AppointmentRecurrenceUnit {
-    pub const Daily: AppointmentRecurrenceUnit = AppointmentRecurrenceUnit(0i32);
-    pub const Weekly: AppointmentRecurrenceUnit = AppointmentRecurrenceUnit(1i32);
-    pub const Monthly: AppointmentRecurrenceUnit = AppointmentRecurrenceUnit(2i32);
-    pub const MonthlyOnDay: AppointmentRecurrenceUnit = AppointmentRecurrenceUnit(3i32);
-    pub const Yearly: AppointmentRecurrenceUnit = AppointmentRecurrenceUnit(4i32);
-    pub const YearlyOnDay: AppointmentRecurrenceUnit = AppointmentRecurrenceUnit(5i32);
+    pub const Daily: Self = Self(0i32);
+    pub const Weekly: Self = Self(1i32);
+    pub const Monthly: Self = Self(2i32);
+    pub const MonthlyOnDay: Self = Self(3i32);
+    pub const Yearly: Self = Self(4i32);
+    pub const YearlyOnDay: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct AppointmentSensitivity(pub i32);
 impl AppointmentSensitivity {
-    pub const Public: AppointmentSensitivity = AppointmentSensitivity(0i32);
-    pub const Private: AppointmentSensitivity = AppointmentSensitivity(1i32);
+    pub const Public: Self = Self(0i32);
+    pub const Private: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AppointmentStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentStoreAccessType(pub i32);
 impl AppointmentStoreAccessType {
-    pub const AppCalendarsReadWrite: AppointmentStoreAccessType = AppointmentStoreAccessType(0i32);
-    pub const AllCalendarsReadOnly: AppointmentStoreAccessType = AppointmentStoreAccessType(1i32);
-    pub const AllCalendarsReadWrite: AppointmentStoreAccessType = AppointmentStoreAccessType(2i32);
+    pub const AppCalendarsReadWrite: Self = Self(0i32);
+    pub const AllCalendarsReadOnly: Self = Self(1i32);
+    pub const AllCalendarsReadWrite: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AppointmentStoreChange(pub *mut ::core::ffi::c_void);
@@ -133,13 +133,13 @@ pub struct AppointmentStoreChangeTracker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentStoreChangeType(pub i32);
 impl AppointmentStoreChangeType {
-    pub const AppointmentCreated: AppointmentStoreChangeType = AppointmentStoreChangeType(0i32);
-    pub const AppointmentModified: AppointmentStoreChangeType = AppointmentStoreChangeType(1i32);
-    pub const AppointmentDeleted: AppointmentStoreChangeType = AppointmentStoreChangeType(2i32);
-    pub const ChangeTrackingLost: AppointmentStoreChangeType = AppointmentStoreChangeType(3i32);
-    pub const CalendarCreated: AppointmentStoreChangeType = AppointmentStoreChangeType(4i32);
-    pub const CalendarModified: AppointmentStoreChangeType = AppointmentStoreChangeType(5i32);
-    pub const CalendarDeleted: AppointmentStoreChangeType = AppointmentStoreChangeType(6i32);
+    pub const AppointmentCreated: Self = Self(0i32);
+    pub const AppointmentModified: Self = Self(1i32);
+    pub const AppointmentDeleted: Self = Self(2i32);
+    pub const ChangeTrackingLost: Self = Self(3i32);
+    pub const CalendarCreated: Self = Self(4i32);
+    pub const CalendarModified: Self = Self(5i32);
+    pub const CalendarDeleted: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct AppointmentStoreChangedDeferral(pub *mut ::core::ffi::c_void);
@@ -150,23 +150,23 @@ pub struct AppointmentStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct AppointmentSummaryCardView(pub i32);
 impl AppointmentSummaryCardView {
-    pub const System: AppointmentSummaryCardView = AppointmentSummaryCardView(0i32);
-    pub const App: AppointmentSummaryCardView = AppointmentSummaryCardView(1i32);
+    pub const System: Self = Self(0i32);
+    pub const App: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AppointmentWeekOfMonth(pub i32);
 impl AppointmentWeekOfMonth {
-    pub const First: AppointmentWeekOfMonth = AppointmentWeekOfMonth(0i32);
-    pub const Second: AppointmentWeekOfMonth = AppointmentWeekOfMonth(1i32);
-    pub const Third: AppointmentWeekOfMonth = AppointmentWeekOfMonth(2i32);
-    pub const Fourth: AppointmentWeekOfMonth = AppointmentWeekOfMonth(3i32);
-    pub const Last: AppointmentWeekOfMonth = AppointmentWeekOfMonth(4i32);
+    pub const First: Self = Self(0i32);
+    pub const Second: Self = Self(1i32);
+    pub const Third: Self = Self(2i32);
+    pub const Fourth: Self = Self(3i32);
+    pub const Last: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct FindAppointmentCalendarsOptions(pub u32);
 impl FindAppointmentCalendarsOptions {
-    pub const None: FindAppointmentCalendarsOptions = FindAppointmentCalendarsOptions(0u32);
-    pub const IncludeHidden: FindAppointmentCalendarsOptions = FindAppointmentCalendarsOptions(1u32);
+    pub const None: Self = Self(0u32);
+    pub const IncludeHidden: Self = Self(1u32);
 }
 #[repr(transparent)]
 pub struct FindAppointmentsOptions(pub *mut ::core::ffi::c_void);
@@ -239,7 +239,7 @@ pub struct IFindAppointmentsOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RecurrenceType(pub i32);
 impl RecurrenceType {
-    pub const Master: RecurrenceType = RecurrenceType(0i32);
-    pub const Instance: RecurrenceType = RecurrenceType(1i32);
-    pub const ExceptionInstance: RecurrenceType = RecurrenceType(2i32);
+    pub const Master: Self = Self(0i32);
+    pub const Instance: Self = Self(1i32);
+    pub const ExceptionInstance: Self = Self(2i32);
 }

@@ -16,22 +16,22 @@ pub struct CoreInputViewHidingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
-    pub const Default: CoreInputViewKind = CoreInputViewKind(0i32);
-    pub const Keyboard: CoreInputViewKind = CoreInputViewKind(1i32);
-    pub const Handwriting: CoreInputViewKind = CoreInputViewKind(2i32);
-    pub const Emoji: CoreInputViewKind = CoreInputViewKind(3i32);
-    pub const Symbols: CoreInputViewKind = CoreInputViewKind(4i32);
-    pub const Clipboard: CoreInputViewKind = CoreInputViewKind(5i32);
-    pub const Dictation: CoreInputViewKind = CoreInputViewKind(6i32);
+    pub const Default: Self = Self(0i32);
+    pub const Keyboard: Self = Self(1i32);
+    pub const Handwriting: Self = Self(2i32);
+    pub const Emoji: Self = Self(3i32);
+    pub const Symbols: Self = Self(4i32);
+    pub const Clipboard: Self = Self(5i32);
+    pub const Dictation: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct CoreInputViewOcclusion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
-    pub const Docked: CoreInputViewOcclusionKind = CoreInputViewOcclusionKind(0i32);
-    pub const Floating: CoreInputViewOcclusionKind = CoreInputViewOcclusionKind(1i32);
-    pub const Overlay: CoreInputViewOcclusionKind = CoreInputViewOcclusionKind(2i32);
+    pub const Docked: Self = Self(0i32);
+    pub const Floating: Self = Self(1i32);
+    pub const Overlay: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -42,10 +42,10 @@ pub struct CoreInputViewTransferringXYFocusEventArgs(pub *mut ::core::ffi::c_voi
 #[repr(transparent)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
-    pub const Up: CoreInputViewXYFocusTransferDirection = CoreInputViewXYFocusTransferDirection(0i32);
-    pub const Right: CoreInputViewXYFocusTransferDirection = CoreInputViewXYFocusTransferDirection(1i32);
-    pub const Down: CoreInputViewXYFocusTransferDirection = CoreInputViewXYFocusTransferDirection(2i32);
-    pub const Left: CoreInputViewXYFocusTransferDirection = CoreInputViewXYFocusTransferDirection(3i32);
+    pub const Up: Self = Self(0i32);
+    pub const Right: Self = Self(1i32);
+    pub const Down: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ICoreFrameworkInputView(pub *mut ::core::ffi::c_void);

@@ -6,11 +6,11 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
-    pub const Unspecified: AltitudeReferenceSystem = AltitudeReferenceSystem(0i32);
-    pub const Terrain: AltitudeReferenceSystem = AltitudeReferenceSystem(1i32);
-    pub const Ellipsoid: AltitudeReferenceSystem = AltitudeReferenceSystem(2i32);
-    pub const Geoid: AltitudeReferenceSystem = AltitudeReferenceSystem(3i32);
-    pub const Surface: AltitudeReferenceSystem = AltitudeReferenceSystem(4i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Terrain: Self = Self(1i32);
+    pub const Ellipsoid: Self = Self(2i32);
+    pub const Geoid: Self = Self(3i32);
+    pub const Surface: Self = Self(4i32);
 }
 #[repr(C)]
 pub struct BasicGeoposition(i32);
@@ -27,9 +27,9 @@ pub struct GeocoordinateSatelliteData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
-    pub const Unspecified: GeolocationAccessStatus = GeolocationAccessStatus(0i32);
-    pub const Allowed: GeolocationAccessStatus = GeolocationAccessStatus(1i32);
-    pub const Denied: GeolocationAccessStatus = GeolocationAccessStatus(2i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const Denied: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct Geolocator(pub *mut ::core::ffi::c_void);
@@ -42,10 +42,10 @@ pub struct Geoposition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
-    pub const Geopoint: GeoshapeType = GeoshapeType(0i32);
-    pub const Geocircle: GeoshapeType = GeoshapeType(1i32);
-    pub const Geopath: GeoshapeType = GeoshapeType(2i32);
-    pub const GeoboundingBox: GeoshapeType = GeoshapeType(3i32);
+    pub const Geopoint: Self = Self(0i32);
+    pub const Geocircle: Self = Self(1i32);
+    pub const Geopath: Self = Self(2i32);
+    pub const GeoboundingBox: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct Geovisit(pub *mut ::core::ffi::c_void);
@@ -124,31 +124,31 @@ pub struct IVenueData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
-    pub const Default: PositionAccuracy = PositionAccuracy(0i32);
-    pub const High: PositionAccuracy = PositionAccuracy(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const High: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct PositionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
-    pub const Cellular: PositionSource = PositionSource(0i32);
-    pub const Satellite: PositionSource = PositionSource(1i32);
-    pub const WiFi: PositionSource = PositionSource(2i32);
-    pub const IPAddress: PositionSource = PositionSource(3i32);
-    pub const Unknown: PositionSource = PositionSource(4i32);
-    pub const Default: PositionSource = PositionSource(5i32);
-    pub const Obfuscated: PositionSource = PositionSource(6i32);
+    pub const Cellular: Self = Self(0i32);
+    pub const Satellite: Self = Self(1i32);
+    pub const WiFi: Self = Self(2i32);
+    pub const IPAddress: Self = Self(3i32);
+    pub const Unknown: Self = Self(4i32);
+    pub const Default: Self = Self(5i32);
+    pub const Obfuscated: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
-    pub const Ready: PositionStatus = PositionStatus(0i32);
-    pub const Initializing: PositionStatus = PositionStatus(1i32);
-    pub const NoData: PositionStatus = PositionStatus(2i32);
-    pub const Disabled: PositionStatus = PositionStatus(3i32);
-    pub const NotInitialized: PositionStatus = PositionStatus(4i32);
-    pub const NotAvailable: PositionStatus = PositionStatus(5i32);
+    pub const Ready: Self = Self(0i32);
+    pub const Initializing: Self = Self(1i32);
+    pub const NoData: Self = Self(2i32);
+    pub const Disabled: Self = Self(3i32);
+    pub const NotInitialized: Self = Self(4i32);
+    pub const NotAvailable: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct StatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -157,14 +157,14 @@ pub struct VenueData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
-    pub const Venue: VisitMonitoringScope = VisitMonitoringScope(0i32);
-    pub const City: VisitMonitoringScope = VisitMonitoringScope(1i32);
+    pub const Venue: Self = Self(0i32);
+    pub const City: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {
-    pub const TrackingLost: VisitStateChange = VisitStateChange(0i32);
-    pub const Arrived: VisitStateChange = VisitStateChange(1i32);
-    pub const Departed: VisitStateChange = VisitStateChange(2i32);
-    pub const OtherMovement: VisitStateChange = VisitStateChange(3i32);
+    pub const TrackingLost: Self = Self(0i32);
+    pub const Arrived: Self = Self(1i32);
+    pub const Departed: Self = Self(2i32);
+    pub const OtherMovement: Self = Self(3i32);
 }

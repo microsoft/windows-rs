@@ -12,57 +12,57 @@ pub struct AppInstallOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppInstallState(pub i32);
 impl AppInstallState {
-    pub const Pending: AppInstallState = AppInstallState(0i32);
-    pub const Starting: AppInstallState = AppInstallState(1i32);
-    pub const AcquiringLicense: AppInstallState = AppInstallState(2i32);
-    pub const Downloading: AppInstallState = AppInstallState(3i32);
-    pub const RestoringData: AppInstallState = AppInstallState(4i32);
-    pub const Installing: AppInstallState = AppInstallState(5i32);
-    pub const Completed: AppInstallState = AppInstallState(6i32);
-    pub const Canceled: AppInstallState = AppInstallState(7i32);
-    pub const Paused: AppInstallState = AppInstallState(8i32);
-    pub const Error: AppInstallState = AppInstallState(9i32);
-    pub const PausedLowBattery: AppInstallState = AppInstallState(10i32);
-    pub const PausedWiFiRecommended: AppInstallState = AppInstallState(11i32);
-    pub const PausedWiFiRequired: AppInstallState = AppInstallState(12i32);
-    pub const ReadyToDownload: AppInstallState = AppInstallState(13i32);
+    pub const Pending: Self = Self(0i32);
+    pub const Starting: Self = Self(1i32);
+    pub const AcquiringLicense: Self = Self(2i32);
+    pub const Downloading: Self = Self(3i32);
+    pub const RestoringData: Self = Self(4i32);
+    pub const Installing: Self = Self(5i32);
+    pub const Completed: Self = Self(6i32);
+    pub const Canceled: Self = Self(7i32);
+    pub const Paused: Self = Self(8i32);
+    pub const Error: Self = Self(9i32);
+    pub const PausedLowBattery: Self = Self(10i32);
+    pub const PausedWiFiRecommended: Self = Self(11i32);
+    pub const PausedWiFiRequired: Self = Self(12i32);
+    pub const ReadyToDownload: Self = Self(13i32);
 }
 #[repr(transparent)]
 pub struct AppInstallStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppInstallType(pub i32);
 impl AppInstallType {
-    pub const Install: AppInstallType = AppInstallType(0i32);
-    pub const Update: AppInstallType = AppInstallType(1i32);
-    pub const Repair: AppInstallType = AppInstallType(2i32);
+    pub const Install: Self = Self(0i32);
+    pub const Update: Self = Self(1i32);
+    pub const Repair: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AppInstallationToastNotificationMode(pub i32);
 impl AppInstallationToastNotificationMode {
-    pub const Default: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(0i32);
-    pub const Toast: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(1i32);
-    pub const ToastWithoutPopup: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(2i32);
-    pub const NoToast: AppInstallationToastNotificationMode = AppInstallationToastNotificationMode(3i32);
+    pub const Default: Self = Self(0i32);
+    pub const Toast: Self = Self(1i32);
+    pub const ToastWithoutPopup: Self = Self(2i32);
+    pub const NoToast: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AppUpdateOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutoUpdateSetting(pub i32);
 impl AutoUpdateSetting {
-    pub const Disabled: AutoUpdateSetting = AutoUpdateSetting(0i32);
-    pub const Enabled: AutoUpdateSetting = AutoUpdateSetting(1i32);
-    pub const DisabledByPolicy: AutoUpdateSetting = AutoUpdateSetting(2i32);
-    pub const EnabledByPolicy: AutoUpdateSetting = AutoUpdateSetting(3i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
+    pub const EnabledByPolicy: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct GetEntitlementResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GetEntitlementStatus(pub i32);
 impl GetEntitlementStatus {
-    pub const Succeeded: GetEntitlementStatus = GetEntitlementStatus(0i32);
-    pub const NoStoreAccount: GetEntitlementStatus = GetEntitlementStatus(1i32);
-    pub const NetworkError: GetEntitlementStatus = GetEntitlementStatus(2i32);
-    pub const ServerError: GetEntitlementStatus = GetEntitlementStatus(3i32);
+    pub const Succeeded: Self = Self(0i32);
+    pub const NoStoreAccount: Self = Self(1i32);
+    pub const NetworkError: Self = Self(2i32);
+    pub const ServerError: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct IAppInstallItem(pub *mut ::core::ffi::c_void);

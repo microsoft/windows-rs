@@ -16,12 +16,12 @@ pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(pub *mut ::core
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    pub const Closed: GlobalSystemMediaTransportControlsSessionPlaybackStatus = GlobalSystemMediaTransportControlsSessionPlaybackStatus(0i32);
-    pub const Opened: GlobalSystemMediaTransportControlsSessionPlaybackStatus = GlobalSystemMediaTransportControlsSessionPlaybackStatus(1i32);
-    pub const Changing: GlobalSystemMediaTransportControlsSessionPlaybackStatus = GlobalSystemMediaTransportControlsSessionPlaybackStatus(2i32);
-    pub const Stopped: GlobalSystemMediaTransportControlsSessionPlaybackStatus = GlobalSystemMediaTransportControlsSessionPlaybackStatus(3i32);
-    pub const Playing: GlobalSystemMediaTransportControlsSessionPlaybackStatus = GlobalSystemMediaTransportControlsSessionPlaybackStatus(4i32);
-    pub const Paused: GlobalSystemMediaTransportControlsSessionPlaybackStatus = GlobalSystemMediaTransportControlsSessionPlaybackStatus(5i32);
+    pub const Closed: Self = Self(0i32);
+    pub const Opened: Self = Self(1i32);
+    pub const Changing: Self = Self(2i32);
+    pub const Stopped: Self = Self(3i32);
+    pub const Playing: Self = Self(4i32);
+    pub const Paused: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(pub *mut ::core::ffi::c_void);

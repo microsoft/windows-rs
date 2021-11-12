@@ -10,26 +10,26 @@ pub struct AudioEffectDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
-    pub const Other: AudioEffectType = AudioEffectType(0i32);
-    pub const AcousticEchoCancellation: AudioEffectType = AudioEffectType(1i32);
-    pub const NoiseSuppression: AudioEffectType = AudioEffectType(2i32);
-    pub const AutomaticGainControl: AudioEffectType = AudioEffectType(3i32);
-    pub const BeamForming: AudioEffectType = AudioEffectType(4i32);
-    pub const ConstantToneRemoval: AudioEffectType = AudioEffectType(5i32);
-    pub const Equalizer: AudioEffectType = AudioEffectType(6i32);
-    pub const LoudnessEqualizer: AudioEffectType = AudioEffectType(7i32);
-    pub const BassBoost: AudioEffectType = AudioEffectType(8i32);
-    pub const VirtualSurround: AudioEffectType = AudioEffectType(9i32);
-    pub const VirtualHeadphones: AudioEffectType = AudioEffectType(10i32);
-    pub const SpeakerFill: AudioEffectType = AudioEffectType(11i32);
-    pub const RoomCorrection: AudioEffectType = AudioEffectType(12i32);
-    pub const BassManagement: AudioEffectType = AudioEffectType(13i32);
-    pub const EnvironmentalEffects: AudioEffectType = AudioEffectType(14i32);
-    pub const SpeakerProtection: AudioEffectType = AudioEffectType(15i32);
-    pub const SpeakerCompensation: AudioEffectType = AudioEffectType(16i32);
-    pub const DynamicRangeCompression: AudioEffectType = AudioEffectType(17i32);
-    pub const FarFieldBeamForming: AudioEffectType = AudioEffectType(18i32);
-    pub const DeepNoiseSuppression: AudioEffectType = AudioEffectType(19i32);
+    pub const Other: Self = Self(0i32);
+    pub const AcousticEchoCancellation: Self = Self(1i32);
+    pub const NoiseSuppression: Self = Self(2i32);
+    pub const AutomaticGainControl: Self = Self(3i32);
+    pub const BeamForming: Self = Self(4i32);
+    pub const ConstantToneRemoval: Self = Self(5i32);
+    pub const Equalizer: Self = Self(6i32);
+    pub const LoudnessEqualizer: Self = Self(7i32);
+    pub const BassBoost: Self = Self(8i32);
+    pub const VirtualSurround: Self = Self(9i32);
+    pub const VirtualHeadphones: Self = Self(10i32);
+    pub const SpeakerFill: Self = Self(11i32);
+    pub const RoomCorrection: Self = Self(12i32);
+    pub const BassManagement: Self = Self(13i32);
+    pub const EnvironmentalEffects: Self = Self(14i32);
+    pub const SpeakerProtection: Self = Self(15i32);
+    pub const SpeakerCompensation: Self = Self(16i32);
+    pub const DynamicRangeCompression: Self = Self(17i32);
+    pub const FarFieldBeamForming: Self = Self(18i32);
+    pub const DeepNoiseSuppression: Self = Self(19i32);
 }
 #[repr(transparent)]
 pub struct AudioRenderEffectsManager(pub *mut ::core::ffi::c_void);
@@ -80,17 +80,17 @@ pub struct IVideoTransformSphericalProjection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
-    pub const Done: MediaEffectClosedReason = MediaEffectClosedReason(0i32);
-    pub const UnknownError: MediaEffectClosedReason = MediaEffectClosedReason(1i32);
-    pub const UnsupportedEncodingFormat: MediaEffectClosedReason = MediaEffectClosedReason(2i32);
-    pub const EffectCurrentlyUnloaded: MediaEffectClosedReason = MediaEffectClosedReason(3i32);
+    pub const Done: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const UnsupportedEncodingFormat: Self = Self(2i32);
+    pub const EffectCurrentlyUnloaded: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
-    pub const Gpu: MediaMemoryTypes = MediaMemoryTypes(0i32);
-    pub const Cpu: MediaMemoryTypes = MediaMemoryTypes(1i32);
-    pub const GpuAndCpu: MediaMemoryTypes = MediaMemoryTypes(2i32);
+    pub const Gpu: Self = Self(0i32);
+    pub const Cpu: Self = Self(1i32);
+    pub const GpuAndCpu: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ProcessAudioFrameContext(pub *mut ::core::ffi::c_void);

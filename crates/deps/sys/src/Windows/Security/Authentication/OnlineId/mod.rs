@@ -4,9 +4,9 @@ extern "system" {}
 #[repr(transparent)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
-    pub const PromptIfNeeded: CredentialPromptType = CredentialPromptType(0i32);
-    pub const RetypeCredentials: CredentialPromptType = CredentialPromptType(1i32);
-    pub const DoNotPrompt: CredentialPromptType = CredentialPromptType(2i32);
+    pub const PromptIfNeeded: Self = Self(0i32);
+    pub const RetypeCredentials: Self = Self(1i32);
+    pub const DoNotPrompt: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct IOnlineIdAuthenticator(pub *mut ::core::ffi::c_void);
@@ -41,9 +41,9 @@ pub struct OnlineIdSystemTicketResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
-    pub const Success: OnlineIdSystemTicketStatus = OnlineIdSystemTicketStatus(0i32);
-    pub const Error: OnlineIdSystemTicketStatus = OnlineIdSystemTicketStatus(1i32);
-    pub const ServiceConnectionError: OnlineIdSystemTicketStatus = OnlineIdSystemTicketStatus(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const Error: Self = Self(1i32);
+    pub const ServiceConnectionError: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SignOutUserOperation(pub *mut ::core::ffi::c_void);

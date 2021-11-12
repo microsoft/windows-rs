@@ -28,10 +28,10 @@ pub struct WiFiDirectService(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);
 impl WiFiDirectServiceAdvertisementStatus {
-    pub const Created: WiFiDirectServiceAdvertisementStatus = WiFiDirectServiceAdvertisementStatus(0i32);
-    pub const Started: WiFiDirectServiceAdvertisementStatus = WiFiDirectServiceAdvertisementStatus(1i32);
-    pub const Stopped: WiFiDirectServiceAdvertisementStatus = WiFiDirectServiceAdvertisementStatus(2i32);
-    pub const Aborted: WiFiDirectServiceAdvertisementStatus = WiFiDirectServiceAdvertisementStatus(3i32);
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const Stopped: Self = Self(2i32);
+    pub const Aborted: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertiser(pub *mut ::core::ffi::c_void);
@@ -40,24 +40,24 @@ pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(pub *mut ::core:
 #[repr(transparent)]
 pub struct WiFiDirectServiceConfigurationMethod(pub i32);
 impl WiFiDirectServiceConfigurationMethod {
-    pub const Default: WiFiDirectServiceConfigurationMethod = WiFiDirectServiceConfigurationMethod(0i32);
-    pub const PinDisplay: WiFiDirectServiceConfigurationMethod = WiFiDirectServiceConfigurationMethod(1i32);
-    pub const PinEntry: WiFiDirectServiceConfigurationMethod = WiFiDirectServiceConfigurationMethod(2i32);
+    pub const Default: Self = Self(0i32);
+    pub const PinDisplay: Self = Self(1i32);
+    pub const PinEntry: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceError(pub i32);
 impl WiFiDirectServiceError {
-    pub const Success: WiFiDirectServiceError = WiFiDirectServiceError(0i32);
-    pub const RadioNotAvailable: WiFiDirectServiceError = WiFiDirectServiceError(1i32);
-    pub const ResourceInUse: WiFiDirectServiceError = WiFiDirectServiceError(2i32);
-    pub const UnsupportedHardware: WiFiDirectServiceError = WiFiDirectServiceError(3i32);
-    pub const NoHardware: WiFiDirectServiceError = WiFiDirectServiceError(4i32);
+    pub const Success: Self = Self(0i32);
+    pub const RadioNotAvailable: Self = Self(1i32);
+    pub const ResourceInUse: Self = Self(2i32);
+    pub const UnsupportedHardware: Self = Self(3i32);
+    pub const NoHardware: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceIPProtocol(pub i32);
 impl WiFiDirectServiceIPProtocol {
-    pub const Tcp: WiFiDirectServiceIPProtocol = WiFiDirectServiceIPProtocol(6i32);
-    pub const Udp: WiFiDirectServiceIPProtocol = WiFiDirectServiceIPProtocol(17i32);
+    pub const Tcp: Self = Self(6i32);
+    pub const Udp: Self = Self(17i32);
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceProvisioningInfo(pub *mut ::core::ffi::c_void);
@@ -70,12 +70,12 @@ pub struct WiFiDirectServiceSessionDeferredEventArgs(pub *mut ::core::ffi::c_voi
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionErrorStatus(pub i32);
 impl WiFiDirectServiceSessionErrorStatus {
-    pub const Ok: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(0i32);
-    pub const Disassociated: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(1i32);
-    pub const LocalClose: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(2i32);
-    pub const RemoteClose: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(3i32);
-    pub const SystemFailure: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(4i32);
-    pub const NoResponseFromRemote: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(5i32);
+    pub const Ok: Self = Self(0i32);
+    pub const Disassociated: Self = Self(1i32);
+    pub const LocalClose: Self = Self(2i32);
+    pub const RemoteClose: Self = Self(3i32);
+    pub const SystemFailure: Self = Self(4i32);
+    pub const NoResponseFromRemote: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequest(pub *mut ::core::ffi::c_void);
@@ -84,15 +84,15 @@ pub struct WiFiDirectServiceSessionRequestedEventArgs(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionStatus(pub i32);
 impl WiFiDirectServiceSessionStatus {
-    pub const Closed: WiFiDirectServiceSessionStatus = WiFiDirectServiceSessionStatus(0i32);
-    pub const Initiated: WiFiDirectServiceSessionStatus = WiFiDirectServiceSessionStatus(1i32);
-    pub const Requested: WiFiDirectServiceSessionStatus = WiFiDirectServiceSessionStatus(2i32);
-    pub const Open: WiFiDirectServiceSessionStatus = WiFiDirectServiceSessionStatus(3i32);
+    pub const Closed: Self = Self(0i32);
+    pub const Initiated: Self = Self(1i32);
+    pub const Requested: Self = Self(2i32);
+    pub const Open: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceStatus(pub i32);
 impl WiFiDirectServiceStatus {
-    pub const Available: WiFiDirectServiceStatus = WiFiDirectServiceStatus(0i32);
-    pub const Busy: WiFiDirectServiceStatus = WiFiDirectServiceStatus(1i32);
-    pub const Custom: WiFiDirectServiceStatus = WiFiDirectServiceStatus(2i32);
+    pub const Available: Self = Self(0i32);
+    pub const Busy: Self = Self(1i32);
+    pub const Custom: Self = Self(2i32);
 }

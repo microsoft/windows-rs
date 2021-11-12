@@ -98,17 +98,17 @@ pub struct SpatialGestureRecognizer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
-    pub const None: SpatialGestureSettings = SpatialGestureSettings(0u32);
-    pub const Tap: SpatialGestureSettings = SpatialGestureSettings(1u32);
-    pub const DoubleTap: SpatialGestureSettings = SpatialGestureSettings(2u32);
-    pub const Hold: SpatialGestureSettings = SpatialGestureSettings(4u32);
-    pub const ManipulationTranslate: SpatialGestureSettings = SpatialGestureSettings(8u32);
-    pub const NavigationX: SpatialGestureSettings = SpatialGestureSettings(16u32);
-    pub const NavigationY: SpatialGestureSettings = SpatialGestureSettings(32u32);
-    pub const NavigationZ: SpatialGestureSettings = SpatialGestureSettings(64u32);
-    pub const NavigationRailsX: SpatialGestureSettings = SpatialGestureSettings(128u32);
-    pub const NavigationRailsY: SpatialGestureSettings = SpatialGestureSettings(256u32);
-    pub const NavigationRailsZ: SpatialGestureSettings = SpatialGestureSettings(512u32);
+    pub const None: Self = Self(0u32);
+    pub const Tap: Self = Self(1u32);
+    pub const DoubleTap: Self = Self(2u32);
+    pub const Hold: Self = Self(4u32);
+    pub const ManipulationTranslate: Self = Self(8u32);
+    pub const NavigationX: Self = Self(16u32);
+    pub const NavigationY: Self = Self(32u32);
+    pub const NavigationZ: Self = Self(64u32);
+    pub const NavigationRailsX: Self = Self(128u32);
+    pub const NavigationRailsY: Self = Self(256u32);
+    pub const NavigationRailsZ: Self = Self(512u32);
 }
 #[repr(transparent)]
 pub struct SpatialHoldCanceledEventArgs(pub *mut ::core::ffi::c_void);
@@ -129,12 +129,12 @@ pub struct SpatialInteractionManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
-    pub const None: SpatialInteractionPressKind = SpatialInteractionPressKind(0i32);
-    pub const Select: SpatialInteractionPressKind = SpatialInteractionPressKind(1i32);
-    pub const Menu: SpatialInteractionPressKind = SpatialInteractionPressKind(2i32);
-    pub const Grasp: SpatialInteractionPressKind = SpatialInteractionPressKind(3i32);
-    pub const Touchpad: SpatialInteractionPressKind = SpatialInteractionPressKind(4i32);
-    pub const Thumbstick: SpatialInteractionPressKind = SpatialInteractionPressKind(5i32);
+    pub const None: Self = Self(0i32);
+    pub const Select: Self = Self(1i32);
+    pub const Menu: Self = Self(2i32);
+    pub const Grasp: Self = Self(3i32);
+    pub const Touchpad: Self = Self(4i32);
+    pub const Thumbstick: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct SpatialInteractionSource(pub *mut ::core::ffi::c_void);
@@ -143,25 +143,25 @@ pub struct SpatialInteractionSourceEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
-    pub const Unspecified: SpatialInteractionSourceHandedness = SpatialInteractionSourceHandedness(0i32);
-    pub const Left: SpatialInteractionSourceHandedness = SpatialInteractionSourceHandedness(1i32);
-    pub const Right: SpatialInteractionSourceHandedness = SpatialInteractionSourceHandedness(2i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Left: Self = Self(1i32);
+    pub const Right: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
-    pub const Other: SpatialInteractionSourceKind = SpatialInteractionSourceKind(0i32);
-    pub const Hand: SpatialInteractionSourceKind = SpatialInteractionSourceKind(1i32);
-    pub const Voice: SpatialInteractionSourceKind = SpatialInteractionSourceKind(2i32);
-    pub const Controller: SpatialInteractionSourceKind = SpatialInteractionSourceKind(3i32);
+    pub const Other: Self = Self(0i32);
+    pub const Hand: Self = Self(1i32);
+    pub const Voice: Self = Self(2i32);
+    pub const Controller: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct SpatialInteractionSourceLocation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
-    pub const High: SpatialInteractionSourcePositionAccuracy = SpatialInteractionSourcePositionAccuracy(0i32);
-    pub const Approximate: SpatialInteractionSourcePositionAccuracy = SpatialInteractionSourcePositionAccuracy(1i32);
+    pub const High: Self = Self(0i32);
+    pub const Approximate: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SpatialInteractionSourceProperties(pub *mut ::core::ffi::c_void);

@@ -6,8 +6,8 @@ pub struct Buffer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
-    pub const LittleEndian: ByteOrder = ByteOrder(0i32);
-    pub const BigEndian: ByteOrder = ByteOrder(1i32);
+    pub const LittleEndian: Self = Self(0i32);
+    pub const BigEndian: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct DataReader(pub *mut ::core::ffi::c_void);
@@ -22,11 +22,11 @@ pub struct FileInputStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
-    pub const OpenExisting: FileOpenDisposition = FileOpenDisposition(0i32);
-    pub const OpenAlways: FileOpenDisposition = FileOpenDisposition(1i32);
-    pub const CreateNew: FileOpenDisposition = FileOpenDisposition(2i32);
-    pub const CreateAlways: FileOpenDisposition = FileOpenDisposition(3i32);
-    pub const TruncateExisting: FileOpenDisposition = FileOpenDisposition(4i32);
+    pub const OpenExisting: Self = Self(0i32);
+    pub const OpenAlways: Self = Self(1i32);
+    pub const CreateNew: Self = Self(2i32);
+    pub const CreateAlways: Self = Self(3i32);
+    pub const TruncateExisting: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct FileOutputStream(pub *mut ::core::ffi::c_void);
@@ -75,9 +75,9 @@ pub struct InMemoryRandomAccessStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
-    pub const None: InputStreamOptions = InputStreamOptions(0u32);
-    pub const Partial: InputStreamOptions = InputStreamOptions(1u32);
-    pub const ReadAhead: InputStreamOptions = InputStreamOptions(2u32);
+    pub const None: Self = Self(0u32);
+    pub const Partial: Self = Self(1u32);
+    pub const ReadAhead: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct InputStreamOverStream(pub *mut ::core::ffi::c_void);
@@ -90,7 +90,7 @@ pub struct RandomAccessStreamReference(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {
-    pub const Utf8: UnicodeEncoding = UnicodeEncoding(0i32);
-    pub const Utf16LE: UnicodeEncoding = UnicodeEncoding(1i32);
-    pub const Utf16BE: UnicodeEncoding = UnicodeEncoding(2i32);
+    pub const Utf8: Self = Self(0i32);
+    pub const Utf16LE: Self = Self(1i32);
+    pub const Utf16BE: Self = Self(2i32);
 }

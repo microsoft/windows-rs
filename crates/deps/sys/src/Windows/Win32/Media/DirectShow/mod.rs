@@ -4775,12 +4775,12 @@ pub struct MSVidCCAToStreamBufferSink(i32);
 #[repr(transparent)]
 pub struct MSVidCCService(pub i32);
 impl MSVidCCService {
-    pub const None: MSVidCCService = MSVidCCService(0i32);
-    pub const Caption1: MSVidCCService = MSVidCCService(1i32);
-    pub const Caption2: MSVidCCService = MSVidCCService(2i32);
-    pub const Text1: MSVidCCService = MSVidCCService(3i32);
-    pub const Text2: MSVidCCService = MSVidCCService(4i32);
-    pub const XDS: MSVidCCService = MSVidCCService(5i32);
+    pub const None: Self = Self(0i32);
+    pub const Caption1: Self = Self(1i32);
+    pub const Caption2: Self = Self(2i32);
+    pub const Text1: Self = Self(3i32);
+    pub const Text2: Self = Self(4i32);
+    pub const XDS: Self = Self(5i32);
 }
 #[repr(C)]
 pub struct MSVidCCToAR(i32);

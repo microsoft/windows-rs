@@ -10,9 +10,9 @@ extern "system" {}
 #[repr(transparent)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {
-    pub const Utf8: BinaryStringEncoding = BinaryStringEncoding(0i32);
-    pub const Utf16LE: BinaryStringEncoding = BinaryStringEncoding(1i32);
-    pub const Utf16BE: BinaryStringEncoding = BinaryStringEncoding(2i32);
+    pub const Utf8: Self = Self(0i32);
+    pub const Utf16LE: Self = Self(1i32);
+    pub const Utf16BE: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ICryptographicBufferStatics(pub *mut ::core::ffi::c_void);

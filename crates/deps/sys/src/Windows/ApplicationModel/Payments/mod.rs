@@ -72,13 +72,13 @@ pub struct PaymentCanMakePaymentResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
 impl PaymentCanMakePaymentResultStatus {
-    pub const Unknown: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(0i32);
-    pub const Yes: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(1i32);
-    pub const No: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(2i32);
-    pub const NotAllowed: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(3i32);
-    pub const UserNotSignedIn: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(4i32);
-    pub const SpecifiedPaymentMethodIdsNotSupported: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(5i32);
-    pub const NoQualifyingCardOnFile: PaymentCanMakePaymentResultStatus = PaymentCanMakePaymentResultStatus(6i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Yes: Self = Self(1i32);
+    pub const No: Self = Self(2i32);
+    pub const NotAllowed: Self = Self(3i32);
+    pub const UserNotSignedIn: Self = Self(4i32);
+    pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
+    pub const NoQualifyingCardOnFile: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct PaymentCurrencyAmount(pub *mut ::core::ffi::c_void);
@@ -97,9 +97,9 @@ pub struct PaymentMethodData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentOptionPresence(pub i32);
 impl PaymentOptionPresence {
-    pub const None: PaymentOptionPresence = PaymentOptionPresence(0i32);
-    pub const Optional: PaymentOptionPresence = PaymentOptionPresence(1i32);
-    pub const Required: PaymentOptionPresence = PaymentOptionPresence(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Optional: Self = Self(1i32);
+    pub const Required: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PaymentOptions(pub *mut ::core::ffi::c_void);
@@ -108,8 +108,8 @@ pub struct PaymentRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentRequestChangeKind(pub i32);
 impl PaymentRequestChangeKind {
-    pub const ShippingOption: PaymentRequestChangeKind = PaymentRequestChangeKind(0i32);
-    pub const ShippingAddress: PaymentRequestChangeKind = PaymentRequestChangeKind(1i32);
+    pub const ShippingOption: Self = Self(0i32);
+    pub const ShippingAddress: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct PaymentRequestChangedArgs(pub *mut ::core::ffi::c_void);
@@ -120,16 +120,16 @@ pub struct PaymentRequestChangedResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentRequestCompletionStatus(pub i32);
 impl PaymentRequestCompletionStatus {
-    pub const Succeeded: PaymentRequestCompletionStatus = PaymentRequestCompletionStatus(0i32);
-    pub const Failed: PaymentRequestCompletionStatus = PaymentRequestCompletionStatus(1i32);
-    pub const Unknown: PaymentRequestCompletionStatus = PaymentRequestCompletionStatus(2i32);
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Unknown: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PaymentRequestStatus(pub i32);
 impl PaymentRequestStatus {
-    pub const Succeeded: PaymentRequestStatus = PaymentRequestStatus(0i32);
-    pub const Failed: PaymentRequestStatus = PaymentRequestStatus(1i32);
-    pub const Canceled: PaymentRequestStatus = PaymentRequestStatus(2i32);
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PaymentRequestSubmitResult(pub *mut ::core::ffi::c_void);
@@ -140,9 +140,9 @@ pub struct PaymentShippingOption(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentShippingType(pub i32);
 impl PaymentShippingType {
-    pub const Shipping: PaymentShippingType = PaymentShippingType(0i32);
-    pub const Delivery: PaymentShippingType = PaymentShippingType(1i32);
-    pub const Pickup: PaymentShippingType = PaymentShippingType(2i32);
+    pub const Shipping: Self = Self(0i32);
+    pub const Delivery: Self = Self(1i32);
+    pub const Pickup: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PaymentToken(pub *mut ::core::ffi::c_void);

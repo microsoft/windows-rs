@@ -22,15 +22,15 @@ pub struct WebViewControlAcceleratorKeyPressedEventArgs(pub *mut ::core::ffi::c_
 #[repr(transparent)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
 impl WebViewControlAcceleratorKeyRoutingStage {
-    pub const Tunneling: WebViewControlAcceleratorKeyRoutingStage = WebViewControlAcceleratorKeyRoutingStage(0i32);
-    pub const Bubbling: WebViewControlAcceleratorKeyRoutingStage = WebViewControlAcceleratorKeyRoutingStage(1i32);
+    pub const Tunneling: Self = Self(0i32);
+    pub const Bubbling: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusReason(pub i32);
 impl WebViewControlMoveFocusReason {
-    pub const Programmatic: WebViewControlMoveFocusReason = WebViewControlMoveFocusReason(0i32);
-    pub const Next: WebViewControlMoveFocusReason = WebViewControlMoveFocusReason(1i32);
-    pub const Previous: WebViewControlMoveFocusReason = WebViewControlMoveFocusReason(2i32);
+    pub const Programmatic: Self = Self(0i32);
+    pub const Next: Self = Self(1i32);
+    pub const Previous: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -39,9 +39,9 @@ pub struct WebViewControlProcess(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewControlProcessCapabilityState(pub i32);
 impl WebViewControlProcessCapabilityState {
-    pub const Default: WebViewControlProcessCapabilityState = WebViewControlProcessCapabilityState(0i32);
-    pub const Disabled: WebViewControlProcessCapabilityState = WebViewControlProcessCapabilityState(1i32);
-    pub const Enabled: WebViewControlProcessCapabilityState = WebViewControlProcessCapabilityState(2i32);
+    pub const Default: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WebViewControlProcessOptions(pub *mut ::core::ffi::c_void);

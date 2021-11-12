@@ -24,11 +24,11 @@ pub struct JsonArray(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
-    pub const Unknown: JsonErrorStatus = JsonErrorStatus(0i32);
-    pub const InvalidJsonString: JsonErrorStatus = JsonErrorStatus(1i32);
-    pub const InvalidJsonNumber: JsonErrorStatus = JsonErrorStatus(2i32);
-    pub const JsonValueNotFound: JsonErrorStatus = JsonErrorStatus(3i32);
-    pub const ImplementationLimit: JsonErrorStatus = JsonErrorStatus(4i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const InvalidJsonString: Self = Self(1i32);
+    pub const InvalidJsonNumber: Self = Self(2i32);
+    pub const JsonValueNotFound: Self = Self(3i32);
+    pub const ImplementationLimit: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct JsonObject(pub *mut ::core::ffi::c_void);
@@ -37,10 +37,10 @@ pub struct JsonValue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {
-    pub const Null: JsonValueType = JsonValueType(0i32);
-    pub const Boolean: JsonValueType = JsonValueType(1i32);
-    pub const Number: JsonValueType = JsonValueType(2i32);
-    pub const String: JsonValueType = JsonValueType(3i32);
-    pub const Array: JsonValueType = JsonValueType(4i32);
-    pub const Object: JsonValueType = JsonValueType(5i32);
+    pub const Null: Self = Self(0i32);
+    pub const Boolean: Self = Self(1i32);
+    pub const Number: Self = Self(2i32);
+    pub const String: Self = Self(3i32);
+    pub const Array: Self = Self(4i32);
+    pub const Object: Self = Self(5i32);
 }

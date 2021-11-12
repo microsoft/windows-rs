@@ -10,29 +10,29 @@ pub struct ComponentLoadFailedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
-    pub const TrustNotRequired: GraphicsTrustStatus = GraphicsTrustStatus(0i32);
-    pub const TrustEstablished: GraphicsTrustStatus = GraphicsTrustStatus(1i32);
-    pub const EnvironmentNotSupported: GraphicsTrustStatus = GraphicsTrustStatus(2i32);
-    pub const DriverNotSupported: GraphicsTrustStatus = GraphicsTrustStatus(3i32);
-    pub const DriverSigningFailure: GraphicsTrustStatus = GraphicsTrustStatus(4i32);
-    pub const UnknownFailure: GraphicsTrustStatus = GraphicsTrustStatus(5i32);
+    pub const TrustNotRequired: Self = Self(0i32);
+    pub const TrustEstablished: Self = Self(1i32);
+    pub const EnvironmentNotSupported: Self = Self(2i32);
+    pub const DriverNotSupported: Self = Self(3i32);
+    pub const DriverSigningFailure: Self = Self(4i32);
+    pub const UnknownFailure: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
-    pub const Off: HdcpProtection = HdcpProtection(0i32);
-    pub const On: HdcpProtection = HdcpProtection(1i32);
-    pub const OnWithTypeEnforcement: HdcpProtection = HdcpProtection(2i32);
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const OnWithTypeEnforcement: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct HdcpSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
-    pub const Success: HdcpSetProtectionResult = HdcpSetProtectionResult(0i32);
-    pub const TimedOut: HdcpSetProtectionResult = HdcpSetProtectionResult(1i32);
-    pub const NotSupported: HdcpSetProtectionResult = HdcpSetProtectionResult(2i32);
-    pub const UnknownFailure: HdcpSetProtectionResult = HdcpSetProtectionResult(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const TimedOut: Self = Self(1i32);
+    pub const NotSupported: Self = Self(2i32);
+    pub const UnknownFailure: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct IComponentLoadFailedEventArgs(pub *mut ::core::ffi::c_void);
@@ -71,9 +71,9 @@ pub struct ProtectionCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
-    pub const NotSupported: ProtectionCapabilityResult = ProtectionCapabilityResult(0i32);
-    pub const Maybe: ProtectionCapabilityResult = ProtectionCapabilityResult(1i32);
-    pub const Probably: ProtectionCapabilityResult = ProtectionCapabilityResult(2i32);
+    pub const NotSupported: Self = Self(0i32);
+    pub const Maybe: Self = Self(1i32);
+    pub const Probably: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct ProtectionRenewalContract(i32);
@@ -82,11 +82,11 @@ pub struct RebootNeededEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
-    pub const NotStarted: RenewalStatus = RenewalStatus(0i32);
-    pub const UpdatesInProgress: RenewalStatus = RenewalStatus(1i32);
-    pub const UserCancelled: RenewalStatus = RenewalStatus(2i32);
-    pub const AppComponentsMayNeedUpdating: RenewalStatus = RenewalStatus(3i32);
-    pub const NoComponentsFound: RenewalStatus = RenewalStatus(4i32);
+    pub const NotStarted: Self = Self(0i32);
+    pub const UpdatesInProgress: Self = Self(1i32);
+    pub const UserCancelled: Self = Self(2i32);
+    pub const AppComponentsMayNeedUpdating: Self = Self(3i32);
+    pub const NoComponentsFound: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct RevocationAndRenewalInformation(pub *mut ::core::ffi::c_void);
@@ -95,21 +95,21 @@ pub struct RevocationAndRenewalItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
-    pub const UserModeComponentLoad: RevocationAndRenewalReasons = RevocationAndRenewalReasons(1u32);
-    pub const KernelModeComponentLoad: RevocationAndRenewalReasons = RevocationAndRenewalReasons(2u32);
-    pub const AppComponent: RevocationAndRenewalReasons = RevocationAndRenewalReasons(4u32);
-    pub const GlobalRevocationListLoadFailed: RevocationAndRenewalReasons = RevocationAndRenewalReasons(16u32);
-    pub const InvalidGlobalRevocationListSignature: RevocationAndRenewalReasons = RevocationAndRenewalReasons(32u32);
-    pub const GlobalRevocationListAbsent: RevocationAndRenewalReasons = RevocationAndRenewalReasons(4096u32);
-    pub const ComponentRevoked: RevocationAndRenewalReasons = RevocationAndRenewalReasons(8192u32);
-    pub const InvalidComponentCertificateExtendedKeyUse: RevocationAndRenewalReasons = RevocationAndRenewalReasons(16384u32);
-    pub const ComponentCertificateRevoked: RevocationAndRenewalReasons = RevocationAndRenewalReasons(32768u32);
-    pub const InvalidComponentCertificateRoot: RevocationAndRenewalReasons = RevocationAndRenewalReasons(65536u32);
-    pub const ComponentHighSecurityCertificateRevoked: RevocationAndRenewalReasons = RevocationAndRenewalReasons(131072u32);
-    pub const ComponentLowSecurityCertificateRevoked: RevocationAndRenewalReasons = RevocationAndRenewalReasons(262144u32);
-    pub const BootDriverVerificationFailed: RevocationAndRenewalReasons = RevocationAndRenewalReasons(1048576u32);
-    pub const ComponentSignedWithTestCertificate: RevocationAndRenewalReasons = RevocationAndRenewalReasons(16777216u32);
-    pub const EncryptionFailure: RevocationAndRenewalReasons = RevocationAndRenewalReasons(268435456u32);
+    pub const UserModeComponentLoad: Self = Self(1u32);
+    pub const KernelModeComponentLoad: Self = Self(2u32);
+    pub const AppComponent: Self = Self(4u32);
+    pub const GlobalRevocationListLoadFailed: Self = Self(16u32);
+    pub const InvalidGlobalRevocationListSignature: Self = Self(32u32);
+    pub const GlobalRevocationListAbsent: Self = Self(4096u32);
+    pub const ComponentRevoked: Self = Self(8192u32);
+    pub const InvalidComponentCertificateExtendedKeyUse: Self = Self(16384u32);
+    pub const ComponentCertificateRevoked: Self = Self(32768u32);
+    pub const InvalidComponentCertificateRoot: Self = Self(65536u32);
+    pub const ComponentHighSecurityCertificateRevoked: Self = Self(131072u32);
+    pub const ComponentLowSecurityCertificateRevoked: Self = Self(262144u32);
+    pub const BootDriverVerificationFailed: Self = Self(1048576u32);
+    pub const ComponentSignedWithTestCertificate: Self = Self(16777216u32);
+    pub const EncryptionFailure: Self = Self(268435456u32);
 }
 #[repr(transparent)]
 pub struct ServiceRequestedEventArgs(pub *mut ::core::ffi::c_void);

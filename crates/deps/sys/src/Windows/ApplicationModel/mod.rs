@@ -58,18 +58,18 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
-    pub const None: AddResourcePackageOptions = AddResourcePackageOptions(0u32);
-    pub const ForceTargetAppShutdown: AddResourcePackageOptions = AddResourcePackageOptions(1u32);
-    pub const ApplyUpdateIfAvailable: AddResourcePackageOptions = AddResourcePackageOptions(2u32);
+    pub const None: Self = Self(0u32);
+    pub const ForceTargetAppShutdown: Self = Self(1u32);
+    pub const ApplyUpdateIfAvailable: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct AppDisplayInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
-    pub const Unknown: AppExecutionContext = AppExecutionContext(0i32);
-    pub const Host: AppExecutionContext = AppExecutionContext(1i32);
-    pub const Guest: AppExecutionContext = AppExecutionContext(2i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Host: Self = Self(1i32);
+    pub const Guest: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AppInfo(pub *mut ::core::ffi::c_void);
@@ -78,8 +78,8 @@ pub struct AppInstallerInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
-    pub const Default: AppInstallerPolicySource = AppInstallerPolicySource(0i32);
-    pub const System: AppInstallerPolicySource = AppInstallerPolicySource(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const System: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AppInstance(pub *mut ::core::ffi::c_void);
@@ -90,10 +90,10 @@ pub struct FullTrustAppContract(i32);
 #[repr(transparent)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
-    pub const Success: FullTrustLaunchResult = FullTrustLaunchResult(0i32);
-    pub const AccessDenied: FullTrustLaunchResult = FullTrustLaunchResult(1i32);
-    pub const FileNotFound: FullTrustLaunchResult = FullTrustLaunchResult(2i32);
-    pub const Unknown: FullTrustLaunchResult = FullTrustLaunchResult(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const AccessDenied: Self = Self(1i32);
+    pub const FileNotFound: Self = Self(2i32);
+    pub const Unknown: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct FullTrustProcessLaunchResult(pub *mut ::core::ffi::c_void);
@@ -218,10 +218,10 @@ pub struct LimitedAccessFeatureRequestResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
-    pub const Unavailable: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(0i32);
-    pub const Available: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(1i32);
-    pub const AvailableWithoutToken: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(2i32);
-    pub const Unknown: LimitedAccessFeatureStatus = LimitedAccessFeatureStatus(3i32);
+    pub const Unavailable: Self = Self(0i32);
+    pub const Available: Self = Self(1i32);
+    pub const AvailableWithoutToken: Self = Self(2i32);
+    pub const Unknown: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct Package(pub *mut ::core::ffi::c_void);
@@ -242,10 +242,10 @@ pub struct PackageContentGroupStagingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
-    pub const NotStaged: PackageContentGroupState = PackageContentGroupState(0i32);
-    pub const Queued: PackageContentGroupState = PackageContentGroupState(1i32);
-    pub const Staging: PackageContentGroupState = PackageContentGroupState(2i32);
-    pub const Staged: PackageContentGroupState = PackageContentGroupState(3i32);
+    pub const NotStaged: Self = Self(0i32);
+    pub const Queued: Self = Self(1i32);
+    pub const Staging: Self = Self(2i32);
+    pub const Staged: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PackageId(pub *mut ::core::ffi::c_void);
@@ -256,11 +256,11 @@ pub struct PackageInstallingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
-    pub const None: PackageSignatureKind = PackageSignatureKind(0i32);
-    pub const Developer: PackageSignatureKind = PackageSignatureKind(1i32);
-    pub const Enterprise: PackageSignatureKind = PackageSignatureKind(2i32);
-    pub const Store: PackageSignatureKind = PackageSignatureKind(3i32);
-    pub const System: PackageSignatureKind = PackageSignatureKind(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Developer: Self = Self(1i32);
+    pub const Enterprise: Self = Self(2i32);
+    pub const Store: Self = Self(3i32);
+    pub const System: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct PackageStagingEventArgs(pub *mut ::core::ffi::c_void);
@@ -273,11 +273,11 @@ pub struct PackageUninstallingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
-    pub const Unknown: PackageUpdateAvailability = PackageUpdateAvailability(0i32);
-    pub const NoUpdates: PackageUpdateAvailability = PackageUpdateAvailability(1i32);
-    pub const Available: PackageUpdateAvailability = PackageUpdateAvailability(2i32);
-    pub const Required: PackageUpdateAvailability = PackageUpdateAvailability(3i32);
-    pub const Error: PackageUpdateAvailability = PackageUpdateAvailability(4i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const NoUpdates: Self = Self(1i32);
+    pub const Available: Self = Self(2i32);
+    pub const Required: Self = Self(3i32);
+    pub const Error: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct PackageUpdateAvailabilityResult(pub *mut ::core::ffi::c_void);
@@ -292,11 +292,11 @@ pub struct StartupTaskContract(i32);
 #[repr(transparent)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
-    pub const Disabled: StartupTaskState = StartupTaskState(0i32);
-    pub const DisabledByUser: StartupTaskState = StartupTaskState(1i32);
-    pub const Enabled: StartupTaskState = StartupTaskState(2i32);
-    pub const DisabledByPolicy: StartupTaskState = StartupTaskState(3i32);
-    pub const EnabledByPolicy: StartupTaskState = StartupTaskState(4i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const DisabledByUser: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
+    pub const DisabledByPolicy: Self = Self(3i32);
+    pub const EnabledByPolicy: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct SuspendingDeferral(pub *mut ::core::ffi::c_void);

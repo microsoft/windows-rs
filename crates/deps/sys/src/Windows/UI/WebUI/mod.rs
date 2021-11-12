@@ -62,10 +62,10 @@ pub struct NewWebUIViewCreatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintContent(pub i32);
 impl PrintContent {
-    pub const AllPages: PrintContent = PrintContent(0i32);
-    pub const CurrentPage: PrintContent = PrintContent(1i32);
-    pub const CustomPageRange: PrintContent = PrintContent(2i32);
-    pub const CurrentSelection: PrintContent = PrintContent(3i32);
+    pub const AllPages: Self = Self(0i32);
+    pub const CurrentPage: Self = Self(1i32);
+    pub const CustomPageRange: Self = Self(2i32);
+    pub const CurrentSelection: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ResumingEventHandler(pub *mut ::core::ffi::c_void);

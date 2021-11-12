@@ -16,19 +16,19 @@ pub struct ClipboardHistoryItemsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
-    pub const Success: ClipboardHistoryItemsResultStatus = ClipboardHistoryItemsResultStatus(0i32);
-    pub const AccessDenied: ClipboardHistoryItemsResultStatus = ClipboardHistoryItemsResultStatus(1i32);
-    pub const ClipboardHistoryDisabled: ClipboardHistoryItemsResultStatus = ClipboardHistoryItemsResultStatus(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const AccessDenied: Self = Self(1i32);
+    pub const ClipboardHistoryDisabled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct DataPackage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
-    pub const None: DataPackageOperation = DataPackageOperation(0u32);
-    pub const Copy: DataPackageOperation = DataPackageOperation(1u32);
-    pub const Move: DataPackageOperation = DataPackageOperation(2u32);
-    pub const Link: DataPackageOperation = DataPackageOperation(4u32);
+    pub const None: Self = Self(0u32);
+    pub const Copy: Self = Self(1u32);
+    pub const Move: Self = Self(2u32);
+    pub const Link: Self = Self(4u32);
 }
 #[repr(transparent)]
 pub struct DataPackagePropertySet(pub *mut ::core::ffi::c_void);
@@ -151,9 +151,9 @@ pub struct OperationCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
-    pub const Success: SetHistoryItemAsContentStatus = SetHistoryItemAsContentStatus(0i32);
-    pub const AccessDenied: SetHistoryItemAsContentStatus = SetHistoryItemAsContentStatus(1i32);
-    pub const ItemDeleted: SetHistoryItemAsContentStatus = SetHistoryItemAsContentStatus(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const AccessDenied: Self = Self(1i32);
+    pub const ItemDeleted: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ShareCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -172,9 +172,9 @@ pub struct ShareUIOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {
-    pub const Default: ShareUITheme = ShareUITheme(0i32);
-    pub const Light: ShareUITheme = ShareUITheme(1i32);
-    pub const Dark: ShareUITheme = ShareUITheme(2i32);
+    pub const Default: Self = Self(0i32);
+    pub const Light: Self = Self(1i32);
+    pub const Dark: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TargetApplicationChosenEventArgs(pub *mut ::core::ffi::c_void);

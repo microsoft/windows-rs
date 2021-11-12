@@ -76,9 +76,9 @@ pub struct PointerDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
-    pub const Touch: PointerDeviceType = PointerDeviceType(0i32);
-    pub const Pen: PointerDeviceType = PointerDeviceType(1i32);
-    pub const Mouse: PointerDeviceType = PointerDeviceType(2i32);
+    pub const Touch: Self = Self(0i32);
+    pub const Pen: Self = Self(1i32);
+    pub const Mouse: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct PointerDeviceUsage(i32);

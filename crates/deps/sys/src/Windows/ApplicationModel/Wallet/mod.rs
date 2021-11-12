@@ -32,50 +32,50 @@ pub struct IWalletVerbFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WalletActionKind(pub i32);
 impl WalletActionKind {
-    pub const OpenItem: WalletActionKind = WalletActionKind(0i32);
-    pub const Transaction: WalletActionKind = WalletActionKind(1i32);
-    pub const MoreTransactions: WalletActionKind = WalletActionKind(2i32);
-    pub const Message: WalletActionKind = WalletActionKind(3i32);
-    pub const Verb: WalletActionKind = WalletActionKind(4i32);
+    pub const OpenItem: Self = Self(0i32);
+    pub const Transaction: Self = Self(1i32);
+    pub const MoreTransactions: Self = Self(2i32);
+    pub const Message: Self = Self(3i32);
+    pub const Verb: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct WalletBarcode(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
-    pub const Invalid: WalletBarcodeSymbology = WalletBarcodeSymbology(0i32);
-    pub const Upca: WalletBarcodeSymbology = WalletBarcodeSymbology(1i32);
-    pub const Upce: WalletBarcodeSymbology = WalletBarcodeSymbology(2i32);
-    pub const Ean13: WalletBarcodeSymbology = WalletBarcodeSymbology(3i32);
-    pub const Ean8: WalletBarcodeSymbology = WalletBarcodeSymbology(4i32);
-    pub const Itf: WalletBarcodeSymbology = WalletBarcodeSymbology(5i32);
-    pub const Code39: WalletBarcodeSymbology = WalletBarcodeSymbology(6i32);
-    pub const Code128: WalletBarcodeSymbology = WalletBarcodeSymbology(7i32);
-    pub const Qr: WalletBarcodeSymbology = WalletBarcodeSymbology(8i32);
-    pub const Pdf417: WalletBarcodeSymbology = WalletBarcodeSymbology(9i32);
-    pub const Aztec: WalletBarcodeSymbology = WalletBarcodeSymbology(10i32);
-    pub const Custom: WalletBarcodeSymbology = WalletBarcodeSymbology(100000i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const Upca: Self = Self(1i32);
+    pub const Upce: Self = Self(2i32);
+    pub const Ean13: Self = Self(3i32);
+    pub const Ean8: Self = Self(4i32);
+    pub const Itf: Self = Self(5i32);
+    pub const Code39: Self = Self(6i32);
+    pub const Code128: Self = Self(7i32);
+    pub const Qr: Self = Self(8i32);
+    pub const Pdf417: Self = Self(9i32);
+    pub const Aztec: Self = Self(10i32);
+    pub const Custom: Self = Self(100000i32);
 }
 #[repr(C)]
 pub struct WalletContract(i32);
 #[repr(transparent)]
 pub struct WalletDetailViewPosition(pub i32);
 impl WalletDetailViewPosition {
-    pub const Hidden: WalletDetailViewPosition = WalletDetailViewPosition(0i32);
-    pub const HeaderField1: WalletDetailViewPosition = WalletDetailViewPosition(1i32);
-    pub const HeaderField2: WalletDetailViewPosition = WalletDetailViewPosition(2i32);
-    pub const PrimaryField1: WalletDetailViewPosition = WalletDetailViewPosition(3i32);
-    pub const PrimaryField2: WalletDetailViewPosition = WalletDetailViewPosition(4i32);
-    pub const SecondaryField1: WalletDetailViewPosition = WalletDetailViewPosition(5i32);
-    pub const SecondaryField2: WalletDetailViewPosition = WalletDetailViewPosition(6i32);
-    pub const SecondaryField3: WalletDetailViewPosition = WalletDetailViewPosition(7i32);
-    pub const SecondaryField4: WalletDetailViewPosition = WalletDetailViewPosition(8i32);
-    pub const SecondaryField5: WalletDetailViewPosition = WalletDetailViewPosition(9i32);
-    pub const CenterField1: WalletDetailViewPosition = WalletDetailViewPosition(10i32);
-    pub const FooterField1: WalletDetailViewPosition = WalletDetailViewPosition(11i32);
-    pub const FooterField2: WalletDetailViewPosition = WalletDetailViewPosition(12i32);
-    pub const FooterField3: WalletDetailViewPosition = WalletDetailViewPosition(13i32);
-    pub const FooterField4: WalletDetailViewPosition = WalletDetailViewPosition(14i32);
+    pub const Hidden: Self = Self(0i32);
+    pub const HeaderField1: Self = Self(1i32);
+    pub const HeaderField2: Self = Self(2i32);
+    pub const PrimaryField1: Self = Self(3i32);
+    pub const PrimaryField2: Self = Self(4i32);
+    pub const SecondaryField1: Self = Self(5i32);
+    pub const SecondaryField2: Self = Self(6i32);
+    pub const SecondaryField3: Self = Self(7i32);
+    pub const SecondaryField4: Self = Self(8i32);
+    pub const SecondaryField5: Self = Self(9i32);
+    pub const CenterField1: Self = Self(10i32);
+    pub const FooterField1: Self = Self(11i32);
+    pub const FooterField2: Self = Self(12i32);
+    pub const FooterField3: Self = Self(13i32);
+    pub const FooterField4: Self = Self(14i32);
 }
 #[repr(transparent)]
 pub struct WalletItem(pub *mut ::core::ffi::c_void);
@@ -84,13 +84,13 @@ pub struct WalletItemCustomProperty(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
-    pub const Invalid: WalletItemKind = WalletItemKind(0i32);
-    pub const Deal: WalletItemKind = WalletItemKind(1i32);
-    pub const General: WalletItemKind = WalletItemKind(2i32);
-    pub const PaymentInstrument: WalletItemKind = WalletItemKind(3i32);
-    pub const Ticket: WalletItemKind = WalletItemKind(4i32);
-    pub const BoardingPass: WalletItemKind = WalletItemKind(5i32);
-    pub const MembershipCard: WalletItemKind = WalletItemKind(6i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const Deal: Self = Self(1i32);
+    pub const General: Self = Self(2i32);
+    pub const PaymentInstrument: Self = Self(3i32);
+    pub const Ticket: Self = Self(4i32);
+    pub const BoardingPass: Self = Self(5i32);
+    pub const MembershipCard: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct WalletItemStore(pub *mut ::core::ffi::c_void);
@@ -99,9 +99,9 @@ pub struct WalletRelevantLocation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {
-    pub const Hidden: WalletSummaryViewPosition = WalletSummaryViewPosition(0i32);
-    pub const Field1: WalletSummaryViewPosition = WalletSummaryViewPosition(1i32);
-    pub const Field2: WalletSummaryViewPosition = WalletSummaryViewPosition(2i32);
+    pub const Hidden: Self = Self(0i32);
+    pub const Field1: Self = Self(1i32);
+    pub const Field2: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WalletTransaction(pub *mut ::core::ffi::c_void);

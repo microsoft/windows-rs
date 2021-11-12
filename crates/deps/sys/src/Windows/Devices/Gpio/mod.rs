@@ -11,9 +11,9 @@ pub struct GpioChangeCounter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
-    pub const Falling: GpioChangePolarity = GpioChangePolarity(0i32);
-    pub const Rising: GpioChangePolarity = GpioChangePolarity(1i32);
-    pub const Both: GpioChangePolarity = GpioChangePolarity(2i32);
+    pub const Falling: Self = Self(0i32);
+    pub const Rising: Self = Self(1i32);
+    pub const Both: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct GpioChangeReader(pub *mut ::core::ffi::c_void);
@@ -25,45 +25,45 @@ pub struct GpioController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
-    pub const PinOpened: GpioOpenStatus = GpioOpenStatus(0i32);
-    pub const PinUnavailable: GpioOpenStatus = GpioOpenStatus(1i32);
-    pub const SharingViolation: GpioOpenStatus = GpioOpenStatus(2i32);
-    pub const MuxingConflict: GpioOpenStatus = GpioOpenStatus(3i32);
-    pub const UnknownError: GpioOpenStatus = GpioOpenStatus(4i32);
+    pub const PinOpened: Self = Self(0i32);
+    pub const PinUnavailable: Self = Self(1i32);
+    pub const SharingViolation: Self = Self(2i32);
+    pub const MuxingConflict: Self = Self(3i32);
+    pub const UnknownError: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct GpioPin(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
-    pub const Input: GpioPinDriveMode = GpioPinDriveMode(0i32);
-    pub const Output: GpioPinDriveMode = GpioPinDriveMode(1i32);
-    pub const InputPullUp: GpioPinDriveMode = GpioPinDriveMode(2i32);
-    pub const InputPullDown: GpioPinDriveMode = GpioPinDriveMode(3i32);
-    pub const OutputOpenDrain: GpioPinDriveMode = GpioPinDriveMode(4i32);
-    pub const OutputOpenDrainPullUp: GpioPinDriveMode = GpioPinDriveMode(5i32);
-    pub const OutputOpenSource: GpioPinDriveMode = GpioPinDriveMode(6i32);
-    pub const OutputOpenSourcePullDown: GpioPinDriveMode = GpioPinDriveMode(7i32);
+    pub const Input: Self = Self(0i32);
+    pub const Output: Self = Self(1i32);
+    pub const InputPullUp: Self = Self(2i32);
+    pub const InputPullDown: Self = Self(3i32);
+    pub const OutputOpenDrain: Self = Self(4i32);
+    pub const OutputOpenDrainPullUp: Self = Self(5i32);
+    pub const OutputOpenSource: Self = Self(6i32);
+    pub const OutputOpenSourcePullDown: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
-    pub const FallingEdge: GpioPinEdge = GpioPinEdge(0i32);
-    pub const RisingEdge: GpioPinEdge = GpioPinEdge(1i32);
+    pub const FallingEdge: Self = Self(0i32);
+    pub const RisingEdge: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
-    pub const Low: GpioPinValue = GpioPinValue(0i32);
-    pub const High: GpioPinValue = GpioPinValue(1i32);
+    pub const Low: Self = Self(0i32);
+    pub const High: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct GpioPinValueChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {
-    pub const Exclusive: GpioSharingMode = GpioSharingMode(0i32);
-    pub const SharedReadOnly: GpioSharingMode = GpioSharingMode(1i32);
+    pub const Exclusive: Self = Self(0i32);
+    pub const SharedReadOnly: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct IGpioChangeCounter(pub *mut ::core::ffi::c_void);

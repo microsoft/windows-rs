@@ -10,18 +10,18 @@ pub struct GipFirmwareUpdateResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GipFirmwareUpdateStatus(pub i32);
 impl GipFirmwareUpdateStatus {
-    pub const Completed: GipFirmwareUpdateStatus = GipFirmwareUpdateStatus(0i32);
-    pub const UpToDate: GipFirmwareUpdateStatus = GipFirmwareUpdateStatus(1i32);
-    pub const Failed: GipFirmwareUpdateStatus = GipFirmwareUpdateStatus(2i32);
+    pub const Completed: Self = Self(0i32);
+    pub const UpToDate: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct GipGameControllerProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GipMessageClass(pub i32);
 impl GipMessageClass {
-    pub const Command: GipMessageClass = GipMessageClass(0i32);
-    pub const LowLatency: GipMessageClass = GipMessageClass(1i32);
-    pub const StandardLatency: GipMessageClass = GipMessageClass(2i32);
+    pub const Command: Self = Self(0i32);
+    pub const LowLatency: Self = Self(1i32);
+    pub const StandardLatency: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct HidGameControllerProvider(pub *mut ::core::ffi::c_void);
@@ -52,23 +52,23 @@ pub struct IXusbGameControllerProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XusbDeviceSubtype(pub i32);
 impl XusbDeviceSubtype {
-    pub const Unknown: XusbDeviceSubtype = XusbDeviceSubtype(0i32);
-    pub const Gamepad: XusbDeviceSubtype = XusbDeviceSubtype(1i32);
-    pub const ArcadePad: XusbDeviceSubtype = XusbDeviceSubtype(2i32);
-    pub const ArcadeStick: XusbDeviceSubtype = XusbDeviceSubtype(3i32);
-    pub const FlightStick: XusbDeviceSubtype = XusbDeviceSubtype(4i32);
-    pub const Wheel: XusbDeviceSubtype = XusbDeviceSubtype(5i32);
-    pub const Guitar: XusbDeviceSubtype = XusbDeviceSubtype(6i32);
-    pub const GuitarAlternate: XusbDeviceSubtype = XusbDeviceSubtype(7i32);
-    pub const GuitarBass: XusbDeviceSubtype = XusbDeviceSubtype(8i32);
-    pub const DrumKit: XusbDeviceSubtype = XusbDeviceSubtype(9i32);
-    pub const DancePad: XusbDeviceSubtype = XusbDeviceSubtype(10i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Gamepad: Self = Self(1i32);
+    pub const ArcadePad: Self = Self(2i32);
+    pub const ArcadeStick: Self = Self(3i32);
+    pub const FlightStick: Self = Self(4i32);
+    pub const Wheel: Self = Self(5i32);
+    pub const Guitar: Self = Self(6i32);
+    pub const GuitarAlternate: Self = Self(7i32);
+    pub const GuitarBass: Self = Self(8i32);
+    pub const DrumKit: Self = Self(9i32);
+    pub const DancePad: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct XusbDeviceType(pub i32);
 impl XusbDeviceType {
-    pub const Unknown: XusbDeviceType = XusbDeviceType(0i32);
-    pub const Gamepad: XusbDeviceType = XusbDeviceType(1i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Gamepad: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct XusbGameControllerProvider(pub *mut ::core::ffi::c_void);

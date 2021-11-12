@@ -14,9 +14,9 @@ pub struct AppBarButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBarClosedDisplayMode(pub i32);
 impl AppBarClosedDisplayMode {
-    pub const Compact: AppBarClosedDisplayMode = AppBarClosedDisplayMode(0i32);
-    pub const Minimal: AppBarClosedDisplayMode = AppBarClosedDisplayMode(1i32);
-    pub const Hidden: AppBarClosedDisplayMode = AppBarClosedDisplayMode(2i32);
+    pub const Compact: Self = Self(0i32);
+    pub const Minimal: Self = Self(1i32);
+    pub const Hidden: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AppBarElementContainer(pub *mut ::core::ffi::c_void);
@@ -35,9 +35,9 @@ pub struct AutoSuggestBoxTextChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutoSuggestionBoxTextChangeReason(pub i32);
 impl AutoSuggestionBoxTextChangeReason {
-    pub const UserInput: AutoSuggestionBoxTextChangeReason = AutoSuggestionBoxTextChangeReason(0i32);
-    pub const ProgrammaticChange: AutoSuggestionBoxTextChangeReason = AutoSuggestionBoxTextChangeReason(1i32);
-    pub const SuggestionChosen: AutoSuggestionBoxTextChangeReason = AutoSuggestionBoxTextChangeReason(2i32);
+    pub const UserInput: Self = Self(0i32);
+    pub const ProgrammaticChange: Self = Self(1i32);
+    pub const SuggestionChosen: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BackClickEventArgs(pub *mut ::core::ffi::c_void);
@@ -46,8 +46,8 @@ pub struct BackClickEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundSizing(pub i32);
 impl BackgroundSizing {
-    pub const InnerBorderEdge: BackgroundSizing = BackgroundSizing(0i32);
-    pub const OuterBorderEdge: BackgroundSizing = BackgroundSizing(1i32);
+    pub const InnerBorderEdge: Self = Self(0i32);
+    pub const OuterBorderEdge: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct BitmapIcon(pub *mut ::core::ffi::c_void);
@@ -72,24 +72,24 @@ pub struct CalendarViewDayItemChangingEventHandler(pub *mut ::core::ffi::c_void)
 #[repr(transparent)]
 pub struct CalendarViewDisplayMode(pub i32);
 impl CalendarViewDisplayMode {
-    pub const Month: CalendarViewDisplayMode = CalendarViewDisplayMode(0i32);
-    pub const Year: CalendarViewDisplayMode = CalendarViewDisplayMode(1i32);
-    pub const Decade: CalendarViewDisplayMode = CalendarViewDisplayMode(2i32);
+    pub const Month: Self = Self(0i32);
+    pub const Year: Self = Self(1i32);
+    pub const Decade: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CalendarViewSelectedDatesChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CalendarViewSelectionMode(pub i32);
 impl CalendarViewSelectionMode {
-    pub const None: CalendarViewSelectionMode = CalendarViewSelectionMode(0i32);
-    pub const Single: CalendarViewSelectionMode = CalendarViewSelectionMode(1i32);
-    pub const Multiple: CalendarViewSelectionMode = CalendarViewSelectionMode(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Single: Self = Self(1i32);
+    pub const Multiple: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CandidateWindowAlignment(pub i32);
 impl CandidateWindowAlignment {
-    pub const Default: CandidateWindowAlignment = CandidateWindowAlignment(0i32);
-    pub const BottomEdge: CandidateWindowAlignment = CandidateWindowAlignment(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const BottomEdge: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CandidateWindowBoundsChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -100,9 +100,9 @@ pub struct CaptureElement(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CharacterCasing(pub i32);
 impl CharacterCasing {
-    pub const Normal: CharacterCasing = CharacterCasing(0i32);
-    pub const Lower: CharacterCasing = CharacterCasing(1i32);
-    pub const Upper: CharacterCasing = CharacterCasing(2i32);
+    pub const Normal: Self = Self(0i32);
+    pub const Lower: Self = Self(1i32);
+    pub const Upper: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CheckBox(pub *mut ::core::ffi::c_void);
@@ -117,9 +117,9 @@ pub struct CleanUpVirtualizedItemEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ClickMode(pub i32);
 impl ClickMode {
-    pub const Release: ClickMode = ClickMode(0i32);
-    pub const Press: ClickMode = ClickMode(1i32);
-    pub const Hover: ClickMode = ClickMode(2i32);
+    pub const Release: Self = Self(0i32);
+    pub const Press: Self = Self(1i32);
+    pub const Hover: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ColorChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -128,26 +128,26 @@ pub struct ColorPicker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ColorPickerHsvChannel(pub i32);
 impl ColorPickerHsvChannel {
-    pub const Hue: ColorPickerHsvChannel = ColorPickerHsvChannel(0i32);
-    pub const Saturation: ColorPickerHsvChannel = ColorPickerHsvChannel(1i32);
-    pub const Value: ColorPickerHsvChannel = ColorPickerHsvChannel(2i32);
-    pub const Alpha: ColorPickerHsvChannel = ColorPickerHsvChannel(3i32);
+    pub const Hue: Self = Self(0i32);
+    pub const Saturation: Self = Self(1i32);
+    pub const Value: Self = Self(2i32);
+    pub const Alpha: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ColorSpectrumComponents(pub i32);
 impl ColorSpectrumComponents {
-    pub const HueValue: ColorSpectrumComponents = ColorSpectrumComponents(0i32);
-    pub const ValueHue: ColorSpectrumComponents = ColorSpectrumComponents(1i32);
-    pub const HueSaturation: ColorSpectrumComponents = ColorSpectrumComponents(2i32);
-    pub const SaturationHue: ColorSpectrumComponents = ColorSpectrumComponents(3i32);
-    pub const SaturationValue: ColorSpectrumComponents = ColorSpectrumComponents(4i32);
-    pub const ValueSaturation: ColorSpectrumComponents = ColorSpectrumComponents(5i32);
+    pub const HueValue: Self = Self(0i32);
+    pub const ValueHue: Self = Self(1i32);
+    pub const HueSaturation: Self = Self(2i32);
+    pub const SaturationHue: Self = Self(3i32);
+    pub const SaturationValue: Self = Self(4i32);
+    pub const ValueSaturation: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct ColorSpectrumShape(pub i32);
 impl ColorSpectrumShape {
-    pub const Box: ColorSpectrumShape = ColorSpectrumShape(0i32);
-    pub const Ring: ColorSpectrumShape = ColorSpectrumShape(1i32);
+    pub const Box: Self = Self(0i32);
+    pub const Ring: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ColumnDefinition(pub *mut ::core::ffi::c_void);
@@ -160,8 +160,8 @@ pub struct ComboBoxItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ComboBoxSelectionChangedTrigger(pub i32);
 impl ComboBoxSelectionChangedTrigger {
-    pub const Committed: ComboBoxSelectionChangedTrigger = ComboBoxSelectionChangedTrigger(0i32);
-    pub const Always: ComboBoxSelectionChangedTrigger = ComboBoxSelectionChangedTrigger(1i32);
+    pub const Committed: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ComboBoxTextSubmittedEventArgs(pub *mut ::core::ffi::c_void);
@@ -170,30 +170,30 @@ pub struct CommandBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CommandBarDefaultLabelPosition(pub i32);
 impl CommandBarDefaultLabelPosition {
-    pub const Bottom: CommandBarDefaultLabelPosition = CommandBarDefaultLabelPosition(0i32);
-    pub const Right: CommandBarDefaultLabelPosition = CommandBarDefaultLabelPosition(1i32);
-    pub const Collapsed: CommandBarDefaultLabelPosition = CommandBarDefaultLabelPosition(2i32);
+    pub const Bottom: Self = Self(0i32);
+    pub const Right: Self = Self(1i32);
+    pub const Collapsed: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CommandBarDynamicOverflowAction(pub i32);
 impl CommandBarDynamicOverflowAction {
-    pub const AddingToOverflow: CommandBarDynamicOverflowAction = CommandBarDynamicOverflowAction(0i32);
-    pub const RemovingFromOverflow: CommandBarDynamicOverflowAction = CommandBarDynamicOverflowAction(1i32);
+    pub const AddingToOverflow: Self = Self(0i32);
+    pub const RemovingFromOverflow: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CommandBarFlyout(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CommandBarLabelPosition(pub i32);
 impl CommandBarLabelPosition {
-    pub const Default: CommandBarLabelPosition = CommandBarLabelPosition(0i32);
-    pub const Collapsed: CommandBarLabelPosition = CommandBarLabelPosition(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const Collapsed: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CommandBarOverflowButtonVisibility(pub i32);
 impl CommandBarOverflowButtonVisibility {
-    pub const Auto: CommandBarOverflowButtonVisibility = CommandBarOverflowButtonVisibility(0i32);
-    pub const Visible: CommandBarOverflowButtonVisibility = CommandBarOverflowButtonVisibility(1i32);
-    pub const Collapsed: CommandBarOverflowButtonVisibility = CommandBarOverflowButtonVisibility(2i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Visible: Self = Self(1i32);
+    pub const Collapsed: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CommandBarOverflowPresenter(pub *mut ::core::ffi::c_void);
@@ -206,10 +206,10 @@ pub struct ContentDialog(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContentDialogButton(pub i32);
 impl ContentDialogButton {
-    pub const None: ContentDialogButton = ContentDialogButton(0i32);
-    pub const Primary: ContentDialogButton = ContentDialogButton(1i32);
-    pub const Secondary: ContentDialogButton = ContentDialogButton(2i32);
-    pub const Close: ContentDialogButton = ContentDialogButton(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Primary: Self = Self(1i32);
+    pub const Secondary: Self = Self(2i32);
+    pub const Close: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ContentDialogButtonClickDeferral(pub *mut ::core::ffi::c_void);
@@ -226,22 +226,22 @@ pub struct ContentDialogOpenedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContentDialogPlacement(pub i32);
 impl ContentDialogPlacement {
-    pub const Popup: ContentDialogPlacement = ContentDialogPlacement(0i32);
-    pub const InPlace: ContentDialogPlacement = ContentDialogPlacement(1i32);
+    pub const Popup: Self = Self(0i32);
+    pub const InPlace: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ContentDialogResult(pub i32);
 impl ContentDialogResult {
-    pub const None: ContentDialogResult = ContentDialogResult(0i32);
-    pub const Primary: ContentDialogResult = ContentDialogResult(1i32);
-    pub const Secondary: ContentDialogResult = ContentDialogResult(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Primary: Self = Self(1i32);
+    pub const Secondary: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContentLinkChangeKind(pub i32);
 impl ContentLinkChangeKind {
-    pub const Inserted: ContentLinkChangeKind = ContentLinkChangeKind(0i32);
-    pub const Removed: ContentLinkChangeKind = ContentLinkChangeKind(1i32);
-    pub const Edited: ContentLinkChangeKind = ContentLinkChangeKind(2i32);
+    pub const Inserted: Self = Self(0i32);
+    pub const Removed: Self = Self(1i32);
+    pub const Edited: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContentLinkChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -274,11 +274,11 @@ pub struct DatePickerValueChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisabledFormattingAccelerators(pub u32);
 impl DisabledFormattingAccelerators {
-    pub const None: DisabledFormattingAccelerators = DisabledFormattingAccelerators(0u32);
-    pub const Bold: DisabledFormattingAccelerators = DisabledFormattingAccelerators(1u32);
-    pub const Italic: DisabledFormattingAccelerators = DisabledFormattingAccelerators(2u32);
-    pub const Underline: DisabledFormattingAccelerators = DisabledFormattingAccelerators(4u32);
-    pub const All: DisabledFormattingAccelerators = DisabledFormattingAccelerators(4294967295u32);
+    pub const None: Self = Self(0u32);
+    pub const Bold: Self = Self(1u32);
+    pub const Italic: Self = Self(2u32);
+    pub const Underline: Self = Self(4u32);
+    pub const All: Self = Self(4294967295u32);
 }
 #[repr(transparent)]
 pub struct DragItemsCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -331,11 +331,11 @@ pub struct HandwritingPanelOpenedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HandwritingPanelPlacementAlignment(pub i32);
 impl HandwritingPanelPlacementAlignment {
-    pub const Auto: HandwritingPanelPlacementAlignment = HandwritingPanelPlacementAlignment(0i32);
-    pub const TopLeft: HandwritingPanelPlacementAlignment = HandwritingPanelPlacementAlignment(1i32);
-    pub const TopRight: HandwritingPanelPlacementAlignment = HandwritingPanelPlacementAlignment(2i32);
-    pub const BottomLeft: HandwritingPanelPlacementAlignment = HandwritingPanelPlacementAlignment(3i32);
-    pub const BottomRight: HandwritingPanelPlacementAlignment = HandwritingPanelPlacementAlignment(4i32);
+    pub const Auto: Self = Self(0i32);
+    pub const TopLeft: Self = Self(1i32);
+    pub const TopRight: Self = Self(2i32);
+    pub const BottomLeft: Self = Self(3i32);
+    pub const BottomRight: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct HandwritingView(pub *mut ::core::ffi::c_void);
@@ -2066,8 +2066,8 @@ pub struct Image(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IncrementalLoadingTrigger(pub i32);
 impl IncrementalLoadingTrigger {
-    pub const None: IncrementalLoadingTrigger = IncrementalLoadingTrigger(0i32);
-    pub const Edge: IncrementalLoadingTrigger = IncrementalLoadingTrigger(1i32);
+    pub const None: Self = Self(0i32);
+    pub const Edge: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct InkCanvas(pub *mut ::core::ffi::c_void);
@@ -2078,11 +2078,11 @@ pub struct InkToolbarBallpointPenButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarButtonFlyoutPlacement(pub i32);
 impl InkToolbarButtonFlyoutPlacement {
-    pub const Auto: InkToolbarButtonFlyoutPlacement = InkToolbarButtonFlyoutPlacement(0i32);
-    pub const Top: InkToolbarButtonFlyoutPlacement = InkToolbarButtonFlyoutPlacement(1i32);
-    pub const Bottom: InkToolbarButtonFlyoutPlacement = InkToolbarButtonFlyoutPlacement(2i32);
-    pub const Left: InkToolbarButtonFlyoutPlacement = InkToolbarButtonFlyoutPlacement(3i32);
-    pub const Right: InkToolbarButtonFlyoutPlacement = InkToolbarButtonFlyoutPlacement(4i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Top: Self = Self(1i32);
+    pub const Bottom: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
+    pub const Right: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct InkToolbarCustomPen(pub *mut ::core::ffi::c_void);
@@ -2099,20 +2099,20 @@ pub struct InkToolbarFlyoutItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarFlyoutItemKind(pub i32);
 impl InkToolbarFlyoutItemKind {
-    pub const Simple: InkToolbarFlyoutItemKind = InkToolbarFlyoutItemKind(0i32);
-    pub const Radio: InkToolbarFlyoutItemKind = InkToolbarFlyoutItemKind(1i32);
-    pub const Check: InkToolbarFlyoutItemKind = InkToolbarFlyoutItemKind(2i32);
-    pub const RadioCheck: InkToolbarFlyoutItemKind = InkToolbarFlyoutItemKind(3i32);
+    pub const Simple: Self = Self(0i32);
+    pub const Radio: Self = Self(1i32);
+    pub const Check: Self = Self(2i32);
+    pub const RadioCheck: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct InkToolbarHighlighterButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarInitialControls(pub i32);
 impl InkToolbarInitialControls {
-    pub const All: InkToolbarInitialControls = InkToolbarInitialControls(0i32);
-    pub const None: InkToolbarInitialControls = InkToolbarInitialControls(1i32);
-    pub const PensOnly: InkToolbarInitialControls = InkToolbarInitialControls(2i32);
-    pub const AllExceptPens: InkToolbarInitialControls = InkToolbarInitialControls(3i32);
+    pub const All: Self = Self(0i32);
+    pub const None: Self = Self(1i32);
+    pub const PensOnly: Self = Self(2i32);
+    pub const AllExceptPens: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct InkToolbarIsStencilButtonCheckedChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2121,7 +2121,7 @@ pub struct InkToolbarMenuButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarMenuKind(pub i32);
 impl InkToolbarMenuKind {
-    pub const Stencil: InkToolbarMenuKind = InkToolbarMenuKind(0i32);
+    pub const Stencil: Self = Self(0i32);
 }
 #[repr(transparent)]
 pub struct InkToolbarPenButton(pub *mut ::core::ffi::c_void);
@@ -2136,26 +2136,26 @@ pub struct InkToolbarStencilButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarStencilKind(pub i32);
 impl InkToolbarStencilKind {
-    pub const Ruler: InkToolbarStencilKind = InkToolbarStencilKind(0i32);
-    pub const Protractor: InkToolbarStencilKind = InkToolbarStencilKind(1i32);
+    pub const Ruler: Self = Self(0i32);
+    pub const Protractor: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct InkToolbarToggle(pub i32);
 impl InkToolbarToggle {
-    pub const Ruler: InkToolbarToggle = InkToolbarToggle(0i32);
-    pub const Custom: InkToolbarToggle = InkToolbarToggle(1i32);
+    pub const Ruler: Self = Self(0i32);
+    pub const Custom: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct InkToolbarToggleButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarTool(pub i32);
 impl InkToolbarTool {
-    pub const BallpointPen: InkToolbarTool = InkToolbarTool(0i32);
-    pub const Pencil: InkToolbarTool = InkToolbarTool(1i32);
-    pub const Highlighter: InkToolbarTool = InkToolbarTool(2i32);
-    pub const Eraser: InkToolbarTool = InkToolbarTool(3i32);
-    pub const CustomPen: InkToolbarTool = InkToolbarTool(4i32);
-    pub const CustomTool: InkToolbarTool = InkToolbarTool(5i32);
+    pub const BallpointPen: Self = Self(0i32);
+    pub const Pencil: Self = Self(1i32);
+    pub const Highlighter: Self = Self(2i32);
+    pub const Eraser: Self = Self(3i32);
+    pub const CustomPen: Self = Self(4i32);
+    pub const CustomTool: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct InkToolbarToolButton(pub *mut ::core::ffi::c_void);
@@ -2182,18 +2182,18 @@ pub struct ItemsStackPanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ItemsUpdatingScrollMode(pub i32);
 impl ItemsUpdatingScrollMode {
-    pub const KeepItemsInView: ItemsUpdatingScrollMode = ItemsUpdatingScrollMode(0i32);
-    pub const KeepScrollOffset: ItemsUpdatingScrollMode = ItemsUpdatingScrollMode(1i32);
-    pub const KeepLastItemInView: ItemsUpdatingScrollMode = ItemsUpdatingScrollMode(2i32);
+    pub const KeepItemsInView: Self = Self(0i32);
+    pub const KeepScrollOffset: Self = Self(1i32);
+    pub const KeepLastItemInView: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ItemsWrapGrid(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LightDismissOverlayMode(pub i32);
 impl LightDismissOverlayMode {
-    pub const Auto: LightDismissOverlayMode = LightDismissOverlayMode(0i32);
-    pub const On: LightDismissOverlayMode = LightDismissOverlayMode(1i32);
-    pub const Off: LightDismissOverlayMode = LightDismissOverlayMode(2i32);
+    pub const Auto: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Off: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ListBox(pub *mut ::core::ffi::c_void);
@@ -2206,8 +2206,8 @@ pub struct ListPickerFlyoutPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ListPickerFlyoutSelectionMode(pub i32);
 impl ListPickerFlyoutSelectionMode {
-    pub const Single: ListPickerFlyoutSelectionMode = ListPickerFlyoutSelectionMode(0i32);
-    pub const Multiple: ListPickerFlyoutSelectionMode = ListPickerFlyoutSelectionMode(1i32);
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ListView(pub *mut ::core::ffi::c_void);
@@ -2228,16 +2228,16 @@ pub struct ListViewPersistenceHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ListViewReorderMode(pub i32);
 impl ListViewReorderMode {
-    pub const Disabled: ListViewReorderMode = ListViewReorderMode(0i32);
-    pub const Enabled: ListViewReorderMode = ListViewReorderMode(1i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ListViewSelectionMode(pub i32);
 impl ListViewSelectionMode {
-    pub const None: ListViewSelectionMode = ListViewSelectionMode(0i32);
-    pub const Single: ListViewSelectionMode = ListViewSelectionMode(1i32);
-    pub const Multiple: ListViewSelectionMode = ListViewSelectionMode(2i32);
-    pub const Extended: ListViewSelectionMode = ListViewSelectionMode(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Single: Self = Self(1i32);
+    pub const Multiple: Self = Self(2i32);
+    pub const Extended: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MediaElement(pub *mut ::core::ffi::c_void);
@@ -2272,18 +2272,18 @@ pub struct NavigationView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationViewBackButtonVisible(pub i32);
 impl NavigationViewBackButtonVisible {
-    pub const Collapsed: NavigationViewBackButtonVisible = NavigationViewBackButtonVisible(0i32);
-    pub const Visible: NavigationViewBackButtonVisible = NavigationViewBackButtonVisible(1i32);
-    pub const Auto: NavigationViewBackButtonVisible = NavigationViewBackButtonVisible(2i32);
+    pub const Collapsed: Self = Self(0i32);
+    pub const Visible: Self = Self(1i32);
+    pub const Auto: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct NavigationViewBackRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationViewDisplayMode(pub i32);
 impl NavigationViewDisplayMode {
-    pub const Minimal: NavigationViewDisplayMode = NavigationViewDisplayMode(0i32);
-    pub const Compact: NavigationViewDisplayMode = NavigationViewDisplayMode(1i32);
-    pub const Expanded: NavigationViewDisplayMode = NavigationViewDisplayMode(2i32);
+    pub const Minimal: Self = Self(0i32);
+    pub const Compact: Self = Self(1i32);
+    pub const Expanded: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct NavigationViewDisplayModeChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2302,34 +2302,34 @@ pub struct NavigationViewList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationViewOverflowLabelMode(pub i32);
 impl NavigationViewOverflowLabelMode {
-    pub const MoreLabel: NavigationViewOverflowLabelMode = NavigationViewOverflowLabelMode(0i32);
-    pub const NoLabel: NavigationViewOverflowLabelMode = NavigationViewOverflowLabelMode(1i32);
+    pub const MoreLabel: Self = Self(0i32);
+    pub const NoLabel: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct NavigationViewPaneClosingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationViewPaneDisplayMode(pub i32);
 impl NavigationViewPaneDisplayMode {
-    pub const Auto: NavigationViewPaneDisplayMode = NavigationViewPaneDisplayMode(0i32);
-    pub const Left: NavigationViewPaneDisplayMode = NavigationViewPaneDisplayMode(1i32);
-    pub const Top: NavigationViewPaneDisplayMode = NavigationViewPaneDisplayMode(2i32);
-    pub const LeftCompact: NavigationViewPaneDisplayMode = NavigationViewPaneDisplayMode(3i32);
-    pub const LeftMinimal: NavigationViewPaneDisplayMode = NavigationViewPaneDisplayMode(4i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Left: Self = Self(1i32);
+    pub const Top: Self = Self(2i32);
+    pub const LeftCompact: Self = Self(3i32);
+    pub const LeftMinimal: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct NavigationViewSelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationViewSelectionFollowsFocus(pub i32);
 impl NavigationViewSelectionFollowsFocus {
-    pub const Disabled: NavigationViewSelectionFollowsFocus = NavigationViewSelectionFollowsFocus(0i32);
-    pub const Enabled: NavigationViewSelectionFollowsFocus = NavigationViewSelectionFollowsFocus(1i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct NavigationViewShoulderNavigationEnabled(pub i32);
 impl NavigationViewShoulderNavigationEnabled {
-    pub const WhenSelectionFollowsFocus: NavigationViewShoulderNavigationEnabled = NavigationViewShoulderNavigationEnabled(0i32);
-    pub const Always: NavigationViewShoulderNavigationEnabled = NavigationViewShoulderNavigationEnabled(1i32);
-    pub const Never: NavigationViewShoulderNavigationEnabled = NavigationViewShoulderNavigationEnabled(2i32);
+    pub const WhenSelectionFollowsFocus: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
+    pub const Never: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct NavigationViewTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -2340,8 +2340,8 @@ pub struct NotifyEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Orientation(pub i32);
 impl Orientation {
-    pub const Vertical: Orientation = Orientation(0i32);
-    pub const Horizontal: Orientation = Orientation(1i32);
+    pub const Vertical: Self = Self(0i32);
+    pub const Horizontal: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct Page(pub *mut ::core::ffi::c_void);
@@ -2350,15 +2350,15 @@ pub struct Panel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PanelScrollingDirection(pub i32);
 impl PanelScrollingDirection {
-    pub const None: PanelScrollingDirection = PanelScrollingDirection(0i32);
-    pub const Forward: PanelScrollingDirection = PanelScrollingDirection(1i32);
-    pub const Backward: PanelScrollingDirection = PanelScrollingDirection(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Forward: Self = Self(1i32);
+    pub const Backward: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ParallaxSourceOffsetKind(pub i32);
 impl ParallaxSourceOffsetKind {
-    pub const Absolute: ParallaxSourceOffsetKind = ParallaxSourceOffsetKind(0i32);
-    pub const Relative: ParallaxSourceOffsetKind = ParallaxSourceOffsetKind(1i32);
+    pub const Absolute: Self = Self(0i32);
+    pub const Relative: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ParallaxView(pub *mut ::core::ffi::c_void);
@@ -2369,9 +2369,9 @@ pub struct PasswordBoxPasswordChangingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PasswordRevealMode(pub i32);
 impl PasswordRevealMode {
-    pub const Peek: PasswordRevealMode = PasswordRevealMode(0i32);
-    pub const Hidden: PasswordRevealMode = PasswordRevealMode(1i32);
-    pub const Visible: PasswordRevealMode = PasswordRevealMode(2i32);
+    pub const Peek: Self = Self(0i32);
+    pub const Hidden: Self = Self(1i32);
+    pub const Visible: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PathIcon(pub *mut ::core::ffi::c_void);
@@ -2390,8 +2390,8 @@ pub struct Pivot(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PivotHeaderFocusVisualPlacement(pub i32);
 impl PivotHeaderFocusVisualPlacement {
-    pub const ItemHeaders: PivotHeaderFocusVisualPlacement = PivotHeaderFocusVisualPlacement(0i32);
-    pub const SelectedItemHeader: PivotHeaderFocusVisualPlacement = PivotHeaderFocusVisualPlacement(1i32);
+    pub const ItemHeaders: Self = Self(0i32);
+    pub const SelectedItemHeader: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct PivotItem(pub *mut ::core::ffi::c_void);
@@ -2400,10 +2400,10 @@ pub struct PivotItemEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PivotSlideInAnimationGroup(pub i32);
 impl PivotSlideInAnimationGroup {
-    pub const Default: PivotSlideInAnimationGroup = PivotSlideInAnimationGroup(0i32);
-    pub const GroupOne: PivotSlideInAnimationGroup = PivotSlideInAnimationGroup(1i32);
-    pub const GroupTwo: PivotSlideInAnimationGroup = PivotSlideInAnimationGroup(2i32);
-    pub const GroupThree: PivotSlideInAnimationGroup = PivotSlideInAnimationGroup(3i32);
+    pub const Default: Self = Self(0i32);
+    pub const GroupOne: Self = Self(1i32);
+    pub const GroupTwo: Self = Self(2i32);
+    pub const GroupThree: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ProgressBar(pub *mut ::core::ffi::c_void);
@@ -2426,10 +2426,10 @@ pub struct RefreshInteractionRatioChangedEventArgs(pub *mut ::core::ffi::c_void)
 #[repr(transparent)]
 pub struct RefreshPullDirection(pub i32);
 impl RefreshPullDirection {
-    pub const LeftToRight: RefreshPullDirection = RefreshPullDirection(0i32);
-    pub const TopToBottom: RefreshPullDirection = RefreshPullDirection(1i32);
-    pub const RightToLeft: RefreshPullDirection = RefreshPullDirection(2i32);
-    pub const BottomToTop: RefreshPullDirection = RefreshPullDirection(3i32);
+    pub const LeftToRight: Self = Self(0i32);
+    pub const TopToBottom: Self = Self(1i32);
+    pub const RightToLeft: Self = Self(2i32);
+    pub const BottomToTop: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct RefreshRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2440,28 +2440,28 @@ pub struct RefreshVisualizer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RefreshVisualizerOrientation(pub i32);
 impl RefreshVisualizerOrientation {
-    pub const Auto: RefreshVisualizerOrientation = RefreshVisualizerOrientation(0i32);
-    pub const Normal: RefreshVisualizerOrientation = RefreshVisualizerOrientation(1i32);
-    pub const Rotate90DegreesCounterclockwise: RefreshVisualizerOrientation = RefreshVisualizerOrientation(2i32);
-    pub const Rotate270DegreesCounterclockwise: RefreshVisualizerOrientation = RefreshVisualizerOrientation(3i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Normal: Self = Self(1i32);
+    pub const Rotate90DegreesCounterclockwise: Self = Self(2i32);
+    pub const Rotate270DegreesCounterclockwise: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct RefreshVisualizerState(pub i32);
 impl RefreshVisualizerState {
-    pub const Idle: RefreshVisualizerState = RefreshVisualizerState(0i32);
-    pub const Peeking: RefreshVisualizerState = RefreshVisualizerState(1i32);
-    pub const Interacting: RefreshVisualizerState = RefreshVisualizerState(2i32);
-    pub const Pending: RefreshVisualizerState = RefreshVisualizerState(3i32);
-    pub const Refreshing: RefreshVisualizerState = RefreshVisualizerState(4i32);
+    pub const Idle: Self = Self(0i32);
+    pub const Peeking: Self = Self(1i32);
+    pub const Interacting: Self = Self(2i32);
+    pub const Pending: Self = Self(3i32);
+    pub const Refreshing: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct RelativePanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RequiresPointer(pub i32);
 impl RequiresPointer {
-    pub const Never: RequiresPointer = RequiresPointer(0i32);
-    pub const WhenEngaged: RequiresPointer = RequiresPointer(1i32);
-    pub const WhenFocused: RequiresPointer = RequiresPointer(2i32);
+    pub const Never: Self = Self(0i32);
+    pub const WhenEngaged: Self = Self(1i32);
+    pub const WhenFocused: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct RichEditBox(pub *mut ::core::ffi::c_void);
@@ -2472,8 +2472,8 @@ pub struct RichEditBoxTextChangingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RichEditClipboardFormat(pub i32);
 impl RichEditClipboardFormat {
-    pub const AllFormats: RichEditClipboardFormat = RichEditClipboardFormat(0i32);
-    pub const PlainText: RichEditClipboardFormat = RichEditClipboardFormat(1i32);
+    pub const AllFormats: Self = Self(0i32);
+    pub const PlainText: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct RichTextBlock(pub *mut ::core::ffi::c_void);
@@ -2486,25 +2486,25 @@ pub struct RowDefinitionCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ScrollBarVisibility(pub i32);
 impl ScrollBarVisibility {
-    pub const Disabled: ScrollBarVisibility = ScrollBarVisibility(0i32);
-    pub const Auto: ScrollBarVisibility = ScrollBarVisibility(1i32);
-    pub const Hidden: ScrollBarVisibility = ScrollBarVisibility(2i32);
-    pub const Visible: ScrollBarVisibility = ScrollBarVisibility(3i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Auto: Self = Self(1i32);
+    pub const Hidden: Self = Self(2i32);
+    pub const Visible: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ScrollContentPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ScrollIntoViewAlignment(pub i32);
 impl ScrollIntoViewAlignment {
-    pub const Default: ScrollIntoViewAlignment = ScrollIntoViewAlignment(0i32);
-    pub const Leading: ScrollIntoViewAlignment = ScrollIntoViewAlignment(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const Leading: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ScrollMode(pub i32);
 impl ScrollMode {
-    pub const Disabled: ScrollMode = ScrollMode(0i32);
-    pub const Enabled: ScrollMode = ScrollMode(1i32);
-    pub const Auto: ScrollMode = ScrollMode(2i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
+    pub const Auto: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ScrollViewer(pub *mut ::core::ffi::c_void);
@@ -2535,9 +2535,9 @@ pub struct SelectionChangedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SelectionMode(pub i32);
 impl SelectionMode {
-    pub const Single: SelectionMode = SelectionMode(0i32);
-    pub const Multiple: SelectionMode = SelectionMode(1i32);
-    pub const Extended: SelectionMode = SelectionMode(2i32);
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
+    pub const Extended: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SemanticZoom(pub *mut ::core::ffi::c_void);
@@ -2554,11 +2554,11 @@ pub struct Slider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SnapPointsType(pub i32);
 impl SnapPointsType {
-    pub const None: SnapPointsType = SnapPointsType(0i32);
-    pub const Optional: SnapPointsType = SnapPointsType(1i32);
-    pub const Mandatory: SnapPointsType = SnapPointsType(2i32);
-    pub const OptionalSingle: SnapPointsType = SnapPointsType(3i32);
-    pub const MandatorySingle: SnapPointsType = SnapPointsType(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Optional: Self = Self(1i32);
+    pub const Mandatory: Self = Self(2i32);
+    pub const OptionalSingle: Self = Self(3i32);
+    pub const MandatorySingle: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct SplitButton(pub *mut ::core::ffi::c_void);
@@ -2571,27 +2571,27 @@ pub struct SplitView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SplitViewDisplayMode(pub i32);
 impl SplitViewDisplayMode {
-    pub const Overlay: SplitViewDisplayMode = SplitViewDisplayMode(0i32);
-    pub const Inline: SplitViewDisplayMode = SplitViewDisplayMode(1i32);
-    pub const CompactOverlay: SplitViewDisplayMode = SplitViewDisplayMode(2i32);
-    pub const CompactInline: SplitViewDisplayMode = SplitViewDisplayMode(3i32);
+    pub const Overlay: Self = Self(0i32);
+    pub const Inline: Self = Self(1i32);
+    pub const CompactOverlay: Self = Self(2i32);
+    pub const CompactInline: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct SplitViewPaneClosingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SplitViewPanePlacement(pub i32);
 impl SplitViewPanePlacement {
-    pub const Left: SplitViewPanePlacement = SplitViewPanePlacement(0i32);
-    pub const Right: SplitViewPanePlacement = SplitViewPanePlacement(1i32);
+    pub const Left: Self = Self(0i32);
+    pub const Right: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct StackPanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StretchDirection(pub i32);
 impl StretchDirection {
-    pub const UpOnly: StretchDirection = StretchDirection(0i32);
-    pub const DownOnly: StretchDirection = StretchDirection(1i32);
-    pub const Both: StretchDirection = StretchDirection(2i32);
+    pub const UpOnly: Self = Self(0i32);
+    pub const DownOnly: Self = Self(1i32);
+    pub const Both: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct StyleSelector(pub *mut ::core::ffi::c_void);
@@ -2602,9 +2602,9 @@ pub struct SwapChainPanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SwipeBehaviorOnInvoked(pub i32);
 impl SwipeBehaviorOnInvoked {
-    pub const Auto: SwipeBehaviorOnInvoked = SwipeBehaviorOnInvoked(0i32);
-    pub const Close: SwipeBehaviorOnInvoked = SwipeBehaviorOnInvoked(1i32);
-    pub const RemainOpen: SwipeBehaviorOnInvoked = SwipeBehaviorOnInvoked(2i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Close: Self = Self(1i32);
+    pub const RemainOpen: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SwipeControl(pub *mut ::core::ffi::c_void);
@@ -2617,209 +2617,209 @@ pub struct SwipeItems(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SwipeMode(pub i32);
 impl SwipeMode {
-    pub const Reveal: SwipeMode = SwipeMode(0i32);
-    pub const Execute: SwipeMode = SwipeMode(1i32);
+    pub const Reveal: Self = Self(0i32);
+    pub const Execute: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct Symbol(pub i32);
 impl Symbol {
-    pub const Previous: Symbol = Symbol(57600i32);
-    pub const Next: Symbol = Symbol(57601i32);
-    pub const Play: Symbol = Symbol(57602i32);
-    pub const Pause: Symbol = Symbol(57603i32);
-    pub const Edit: Symbol = Symbol(57604i32);
-    pub const Save: Symbol = Symbol(57605i32);
-    pub const Clear: Symbol = Symbol(57606i32);
-    pub const Delete: Symbol = Symbol(57607i32);
-    pub const Remove: Symbol = Symbol(57608i32);
-    pub const Add: Symbol = Symbol(57609i32);
-    pub const Cancel: Symbol = Symbol(57610i32);
-    pub const Accept: Symbol = Symbol(57611i32);
-    pub const More: Symbol = Symbol(57612i32);
-    pub const Redo: Symbol = Symbol(57613i32);
-    pub const Undo: Symbol = Symbol(57614i32);
-    pub const Home: Symbol = Symbol(57615i32);
-    pub const Up: Symbol = Symbol(57616i32);
-    pub const Forward: Symbol = Symbol(57617i32);
-    pub const Back: Symbol = Symbol(57618i32);
-    pub const Favorite: Symbol = Symbol(57619i32);
-    pub const Camera: Symbol = Symbol(57620i32);
-    pub const Setting: Symbol = Symbol(57621i32);
-    pub const Video: Symbol = Symbol(57622i32);
-    pub const Sync: Symbol = Symbol(57623i32);
-    pub const Download: Symbol = Symbol(57624i32);
-    pub const Mail: Symbol = Symbol(57625i32);
-    pub const Find: Symbol = Symbol(57626i32);
-    pub const Help: Symbol = Symbol(57627i32);
-    pub const Upload: Symbol = Symbol(57628i32);
-    pub const Emoji: Symbol = Symbol(57629i32);
-    pub const TwoPage: Symbol = Symbol(57630i32);
-    pub const LeaveChat: Symbol = Symbol(57631i32);
-    pub const MailForward: Symbol = Symbol(57632i32);
-    pub const Clock: Symbol = Symbol(57633i32);
-    pub const Send: Symbol = Symbol(57634i32);
-    pub const Crop: Symbol = Symbol(57635i32);
-    pub const RotateCamera: Symbol = Symbol(57636i32);
-    pub const People: Symbol = Symbol(57637i32);
-    pub const OpenPane: Symbol = Symbol(57638i32);
-    pub const ClosePane: Symbol = Symbol(57639i32);
-    pub const World: Symbol = Symbol(57640i32);
-    pub const Flag: Symbol = Symbol(57641i32);
-    pub const PreviewLink: Symbol = Symbol(57642i32);
-    pub const Globe: Symbol = Symbol(57643i32);
-    pub const Trim: Symbol = Symbol(57644i32);
-    pub const AttachCamera: Symbol = Symbol(57645i32);
-    pub const ZoomIn: Symbol = Symbol(57646i32);
-    pub const Bookmarks: Symbol = Symbol(57647i32);
-    pub const Document: Symbol = Symbol(57648i32);
-    pub const ProtectedDocument: Symbol = Symbol(57649i32);
-    pub const Page: Symbol = Symbol(57650i32);
-    pub const Bullets: Symbol = Symbol(57651i32);
-    pub const Comment: Symbol = Symbol(57652i32);
-    pub const MailFilled: Symbol = Symbol(57653i32);
-    pub const ContactInfo: Symbol = Symbol(57654i32);
-    pub const HangUp: Symbol = Symbol(57655i32);
-    pub const ViewAll: Symbol = Symbol(57656i32);
-    pub const MapPin: Symbol = Symbol(57657i32);
-    pub const Phone: Symbol = Symbol(57658i32);
-    pub const VideoChat: Symbol = Symbol(57659i32);
-    pub const Switch: Symbol = Symbol(57660i32);
-    pub const Contact: Symbol = Symbol(57661i32);
-    pub const Rename: Symbol = Symbol(57662i32);
-    pub const Pin: Symbol = Symbol(57665i32);
-    pub const MusicInfo: Symbol = Symbol(57666i32);
-    pub const Go: Symbol = Symbol(57667i32);
-    pub const Keyboard: Symbol = Symbol(57668i32);
-    pub const DockLeft: Symbol = Symbol(57669i32);
-    pub const DockRight: Symbol = Symbol(57670i32);
-    pub const DockBottom: Symbol = Symbol(57671i32);
-    pub const Remote: Symbol = Symbol(57672i32);
-    pub const Refresh: Symbol = Symbol(57673i32);
-    pub const Rotate: Symbol = Symbol(57674i32);
-    pub const Shuffle: Symbol = Symbol(57675i32);
-    pub const List: Symbol = Symbol(57676i32);
-    pub const Shop: Symbol = Symbol(57677i32);
-    pub const SelectAll: Symbol = Symbol(57678i32);
-    pub const Orientation: Symbol = Symbol(57679i32);
-    pub const Import: Symbol = Symbol(57680i32);
-    pub const ImportAll: Symbol = Symbol(57681i32);
-    pub const BrowsePhotos: Symbol = Symbol(57685i32);
-    pub const WebCam: Symbol = Symbol(57686i32);
-    pub const Pictures: Symbol = Symbol(57688i32);
-    pub const SaveLocal: Symbol = Symbol(57689i32);
-    pub const Caption: Symbol = Symbol(57690i32);
-    pub const Stop: Symbol = Symbol(57691i32);
-    pub const ShowResults: Symbol = Symbol(57692i32);
-    pub const Volume: Symbol = Symbol(57693i32);
-    pub const Repair: Symbol = Symbol(57694i32);
-    pub const Message: Symbol = Symbol(57695i32);
-    pub const Page2: Symbol = Symbol(57696i32);
-    pub const CalendarDay: Symbol = Symbol(57697i32);
-    pub const CalendarWeek: Symbol = Symbol(57698i32);
-    pub const Calendar: Symbol = Symbol(57699i32);
-    pub const Character: Symbol = Symbol(57700i32);
-    pub const MailReplyAll: Symbol = Symbol(57701i32);
-    pub const Read: Symbol = Symbol(57702i32);
-    pub const Link: Symbol = Symbol(57703i32);
-    pub const Account: Symbol = Symbol(57704i32);
-    pub const ShowBcc: Symbol = Symbol(57705i32);
-    pub const HideBcc: Symbol = Symbol(57706i32);
-    pub const Cut: Symbol = Symbol(57707i32);
-    pub const Attach: Symbol = Symbol(57708i32);
-    pub const Paste: Symbol = Symbol(57709i32);
-    pub const Filter: Symbol = Symbol(57710i32);
-    pub const Copy: Symbol = Symbol(57711i32);
-    pub const Emoji2: Symbol = Symbol(57712i32);
-    pub const Important: Symbol = Symbol(57713i32);
-    pub const MailReply: Symbol = Symbol(57714i32);
-    pub const SlideShow: Symbol = Symbol(57715i32);
-    pub const Sort: Symbol = Symbol(57716i32);
-    pub const Manage: Symbol = Symbol(57720i32);
-    pub const AllApps: Symbol = Symbol(57721i32);
-    pub const DisconnectDrive: Symbol = Symbol(57722i32);
-    pub const MapDrive: Symbol = Symbol(57723i32);
-    pub const NewWindow: Symbol = Symbol(57724i32);
-    pub const OpenWith: Symbol = Symbol(57725i32);
-    pub const ContactPresence: Symbol = Symbol(57729i32);
-    pub const Priority: Symbol = Symbol(57730i32);
-    pub const GoToToday: Symbol = Symbol(57732i32);
-    pub const Font: Symbol = Symbol(57733i32);
-    pub const FontColor: Symbol = Symbol(57734i32);
-    pub const Contact2: Symbol = Symbol(57735i32);
-    pub const Folder: Symbol = Symbol(57736i32);
-    pub const Audio: Symbol = Symbol(57737i32);
-    pub const Placeholder: Symbol = Symbol(57738i32);
-    pub const View: Symbol = Symbol(57739i32);
-    pub const SetLockScreen: Symbol = Symbol(57740i32);
-    pub const SetTile: Symbol = Symbol(57741i32);
-    pub const ClosedCaption: Symbol = Symbol(57744i32);
-    pub const StopSlideShow: Symbol = Symbol(57745i32);
-    pub const Permissions: Symbol = Symbol(57746i32);
-    pub const Highlight: Symbol = Symbol(57747i32);
-    pub const DisableUpdates: Symbol = Symbol(57748i32);
-    pub const UnFavorite: Symbol = Symbol(57749i32);
-    pub const UnPin: Symbol = Symbol(57750i32);
-    pub const OpenLocal: Symbol = Symbol(57751i32);
-    pub const Mute: Symbol = Symbol(57752i32);
-    pub const Italic: Symbol = Symbol(57753i32);
-    pub const Underline: Symbol = Symbol(57754i32);
-    pub const Bold: Symbol = Symbol(57755i32);
-    pub const MoveToFolder: Symbol = Symbol(57756i32);
-    pub const LikeDislike: Symbol = Symbol(57757i32);
-    pub const Dislike: Symbol = Symbol(57758i32);
-    pub const Like: Symbol = Symbol(57759i32);
-    pub const AlignRight: Symbol = Symbol(57760i32);
-    pub const AlignCenter: Symbol = Symbol(57761i32);
-    pub const AlignLeft: Symbol = Symbol(57762i32);
-    pub const Zoom: Symbol = Symbol(57763i32);
-    pub const ZoomOut: Symbol = Symbol(57764i32);
-    pub const OpenFile: Symbol = Symbol(57765i32);
-    pub const OtherUser: Symbol = Symbol(57766i32);
-    pub const Admin: Symbol = Symbol(57767i32);
-    pub const Street: Symbol = Symbol(57795i32);
-    pub const Map: Symbol = Symbol(57796i32);
-    pub const ClearSelection: Symbol = Symbol(57797i32);
-    pub const FontDecrease: Symbol = Symbol(57798i32);
-    pub const FontIncrease: Symbol = Symbol(57799i32);
-    pub const FontSize: Symbol = Symbol(57800i32);
-    pub const CellPhone: Symbol = Symbol(57801i32);
-    pub const ReShare: Symbol = Symbol(57802i32);
-    pub const Tag: Symbol = Symbol(57803i32);
-    pub const RepeatOne: Symbol = Symbol(57804i32);
-    pub const RepeatAll: Symbol = Symbol(57805i32);
-    pub const OutlineStar: Symbol = Symbol(57806i32);
-    pub const SolidStar: Symbol = Symbol(57807i32);
-    pub const Calculator: Symbol = Symbol(57808i32);
-    pub const Directions: Symbol = Symbol(57809i32);
-    pub const Target: Symbol = Symbol(57810i32);
-    pub const Library: Symbol = Symbol(57811i32);
-    pub const PhoneBook: Symbol = Symbol(57812i32);
-    pub const Memo: Symbol = Symbol(57813i32);
-    pub const Microphone: Symbol = Symbol(57814i32);
-    pub const PostUpdate: Symbol = Symbol(57815i32);
-    pub const BackToWindow: Symbol = Symbol(57816i32);
-    pub const FullScreen: Symbol = Symbol(57817i32);
-    pub const NewFolder: Symbol = Symbol(57818i32);
-    pub const CalendarReply: Symbol = Symbol(57819i32);
-    pub const UnSyncFolder: Symbol = Symbol(57821i32);
-    pub const ReportHacked: Symbol = Symbol(57822i32);
-    pub const SyncFolder: Symbol = Symbol(57823i32);
-    pub const BlockContact: Symbol = Symbol(57824i32);
-    pub const SwitchApps: Symbol = Symbol(57825i32);
-    pub const AddFriend: Symbol = Symbol(57826i32);
-    pub const TouchPointer: Symbol = Symbol(57827i32);
-    pub const GoToStart: Symbol = Symbol(57828i32);
-    pub const ZeroBars: Symbol = Symbol(57829i32);
-    pub const OneBar: Symbol = Symbol(57830i32);
-    pub const TwoBars: Symbol = Symbol(57831i32);
-    pub const ThreeBars: Symbol = Symbol(57832i32);
-    pub const FourBars: Symbol = Symbol(57833i32);
-    pub const Scan: Symbol = Symbol(58004i32);
-    pub const Preview: Symbol = Symbol(58005i32);
-    pub const GlobalNavigationButton: Symbol = Symbol(59136i32);
-    pub const Share: Symbol = Symbol(59181i32);
-    pub const Print: Symbol = Symbol(59209i32);
-    pub const XboxOneConsole: Symbol = Symbol(59792i32);
+    pub const Previous: Self = Self(57600i32);
+    pub const Next: Self = Self(57601i32);
+    pub const Play: Self = Self(57602i32);
+    pub const Pause: Self = Self(57603i32);
+    pub const Edit: Self = Self(57604i32);
+    pub const Save: Self = Self(57605i32);
+    pub const Clear: Self = Self(57606i32);
+    pub const Delete: Self = Self(57607i32);
+    pub const Remove: Self = Self(57608i32);
+    pub const Add: Self = Self(57609i32);
+    pub const Cancel: Self = Self(57610i32);
+    pub const Accept: Self = Self(57611i32);
+    pub const More: Self = Self(57612i32);
+    pub const Redo: Self = Self(57613i32);
+    pub const Undo: Self = Self(57614i32);
+    pub const Home: Self = Self(57615i32);
+    pub const Up: Self = Self(57616i32);
+    pub const Forward: Self = Self(57617i32);
+    pub const Back: Self = Self(57618i32);
+    pub const Favorite: Self = Self(57619i32);
+    pub const Camera: Self = Self(57620i32);
+    pub const Setting: Self = Self(57621i32);
+    pub const Video: Self = Self(57622i32);
+    pub const Sync: Self = Self(57623i32);
+    pub const Download: Self = Self(57624i32);
+    pub const Mail: Self = Self(57625i32);
+    pub const Find: Self = Self(57626i32);
+    pub const Help: Self = Self(57627i32);
+    pub const Upload: Self = Self(57628i32);
+    pub const Emoji: Self = Self(57629i32);
+    pub const TwoPage: Self = Self(57630i32);
+    pub const LeaveChat: Self = Self(57631i32);
+    pub const MailForward: Self = Self(57632i32);
+    pub const Clock: Self = Self(57633i32);
+    pub const Send: Self = Self(57634i32);
+    pub const Crop: Self = Self(57635i32);
+    pub const RotateCamera: Self = Self(57636i32);
+    pub const People: Self = Self(57637i32);
+    pub const OpenPane: Self = Self(57638i32);
+    pub const ClosePane: Self = Self(57639i32);
+    pub const World: Self = Self(57640i32);
+    pub const Flag: Self = Self(57641i32);
+    pub const PreviewLink: Self = Self(57642i32);
+    pub const Globe: Self = Self(57643i32);
+    pub const Trim: Self = Self(57644i32);
+    pub const AttachCamera: Self = Self(57645i32);
+    pub const ZoomIn: Self = Self(57646i32);
+    pub const Bookmarks: Self = Self(57647i32);
+    pub const Document: Self = Self(57648i32);
+    pub const ProtectedDocument: Self = Self(57649i32);
+    pub const Page: Self = Self(57650i32);
+    pub const Bullets: Self = Self(57651i32);
+    pub const Comment: Self = Self(57652i32);
+    pub const MailFilled: Self = Self(57653i32);
+    pub const ContactInfo: Self = Self(57654i32);
+    pub const HangUp: Self = Self(57655i32);
+    pub const ViewAll: Self = Self(57656i32);
+    pub const MapPin: Self = Self(57657i32);
+    pub const Phone: Self = Self(57658i32);
+    pub const VideoChat: Self = Self(57659i32);
+    pub const Switch: Self = Self(57660i32);
+    pub const Contact: Self = Self(57661i32);
+    pub const Rename: Self = Self(57662i32);
+    pub const Pin: Self = Self(57665i32);
+    pub const MusicInfo: Self = Self(57666i32);
+    pub const Go: Self = Self(57667i32);
+    pub const Keyboard: Self = Self(57668i32);
+    pub const DockLeft: Self = Self(57669i32);
+    pub const DockRight: Self = Self(57670i32);
+    pub const DockBottom: Self = Self(57671i32);
+    pub const Remote: Self = Self(57672i32);
+    pub const Refresh: Self = Self(57673i32);
+    pub const Rotate: Self = Self(57674i32);
+    pub const Shuffle: Self = Self(57675i32);
+    pub const List: Self = Self(57676i32);
+    pub const Shop: Self = Self(57677i32);
+    pub const SelectAll: Self = Self(57678i32);
+    pub const Orientation: Self = Self(57679i32);
+    pub const Import: Self = Self(57680i32);
+    pub const ImportAll: Self = Self(57681i32);
+    pub const BrowsePhotos: Self = Self(57685i32);
+    pub const WebCam: Self = Self(57686i32);
+    pub const Pictures: Self = Self(57688i32);
+    pub const SaveLocal: Self = Self(57689i32);
+    pub const Caption: Self = Self(57690i32);
+    pub const Stop: Self = Self(57691i32);
+    pub const ShowResults: Self = Self(57692i32);
+    pub const Volume: Self = Self(57693i32);
+    pub const Repair: Self = Self(57694i32);
+    pub const Message: Self = Self(57695i32);
+    pub const Page2: Self = Self(57696i32);
+    pub const CalendarDay: Self = Self(57697i32);
+    pub const CalendarWeek: Self = Self(57698i32);
+    pub const Calendar: Self = Self(57699i32);
+    pub const Character: Self = Self(57700i32);
+    pub const MailReplyAll: Self = Self(57701i32);
+    pub const Read: Self = Self(57702i32);
+    pub const Link: Self = Self(57703i32);
+    pub const Account: Self = Self(57704i32);
+    pub const ShowBcc: Self = Self(57705i32);
+    pub const HideBcc: Self = Self(57706i32);
+    pub const Cut: Self = Self(57707i32);
+    pub const Attach: Self = Self(57708i32);
+    pub const Paste: Self = Self(57709i32);
+    pub const Filter: Self = Self(57710i32);
+    pub const Copy: Self = Self(57711i32);
+    pub const Emoji2: Self = Self(57712i32);
+    pub const Important: Self = Self(57713i32);
+    pub const MailReply: Self = Self(57714i32);
+    pub const SlideShow: Self = Self(57715i32);
+    pub const Sort: Self = Self(57716i32);
+    pub const Manage: Self = Self(57720i32);
+    pub const AllApps: Self = Self(57721i32);
+    pub const DisconnectDrive: Self = Self(57722i32);
+    pub const MapDrive: Self = Self(57723i32);
+    pub const NewWindow: Self = Self(57724i32);
+    pub const OpenWith: Self = Self(57725i32);
+    pub const ContactPresence: Self = Self(57729i32);
+    pub const Priority: Self = Self(57730i32);
+    pub const GoToToday: Self = Self(57732i32);
+    pub const Font: Self = Self(57733i32);
+    pub const FontColor: Self = Self(57734i32);
+    pub const Contact2: Self = Self(57735i32);
+    pub const Folder: Self = Self(57736i32);
+    pub const Audio: Self = Self(57737i32);
+    pub const Placeholder: Self = Self(57738i32);
+    pub const View: Self = Self(57739i32);
+    pub const SetLockScreen: Self = Self(57740i32);
+    pub const SetTile: Self = Self(57741i32);
+    pub const ClosedCaption: Self = Self(57744i32);
+    pub const StopSlideShow: Self = Self(57745i32);
+    pub const Permissions: Self = Self(57746i32);
+    pub const Highlight: Self = Self(57747i32);
+    pub const DisableUpdates: Self = Self(57748i32);
+    pub const UnFavorite: Self = Self(57749i32);
+    pub const UnPin: Self = Self(57750i32);
+    pub const OpenLocal: Self = Self(57751i32);
+    pub const Mute: Self = Self(57752i32);
+    pub const Italic: Self = Self(57753i32);
+    pub const Underline: Self = Self(57754i32);
+    pub const Bold: Self = Self(57755i32);
+    pub const MoveToFolder: Self = Self(57756i32);
+    pub const LikeDislike: Self = Self(57757i32);
+    pub const Dislike: Self = Self(57758i32);
+    pub const Like: Self = Self(57759i32);
+    pub const AlignRight: Self = Self(57760i32);
+    pub const AlignCenter: Self = Self(57761i32);
+    pub const AlignLeft: Self = Self(57762i32);
+    pub const Zoom: Self = Self(57763i32);
+    pub const ZoomOut: Self = Self(57764i32);
+    pub const OpenFile: Self = Self(57765i32);
+    pub const OtherUser: Self = Self(57766i32);
+    pub const Admin: Self = Self(57767i32);
+    pub const Street: Self = Self(57795i32);
+    pub const Map: Self = Self(57796i32);
+    pub const ClearSelection: Self = Self(57797i32);
+    pub const FontDecrease: Self = Self(57798i32);
+    pub const FontIncrease: Self = Self(57799i32);
+    pub const FontSize: Self = Self(57800i32);
+    pub const CellPhone: Self = Self(57801i32);
+    pub const ReShare: Self = Self(57802i32);
+    pub const Tag: Self = Self(57803i32);
+    pub const RepeatOne: Self = Self(57804i32);
+    pub const RepeatAll: Self = Self(57805i32);
+    pub const OutlineStar: Self = Self(57806i32);
+    pub const SolidStar: Self = Self(57807i32);
+    pub const Calculator: Self = Self(57808i32);
+    pub const Directions: Self = Self(57809i32);
+    pub const Target: Self = Self(57810i32);
+    pub const Library: Self = Self(57811i32);
+    pub const PhoneBook: Self = Self(57812i32);
+    pub const Memo: Self = Self(57813i32);
+    pub const Microphone: Self = Self(57814i32);
+    pub const PostUpdate: Self = Self(57815i32);
+    pub const BackToWindow: Self = Self(57816i32);
+    pub const FullScreen: Self = Self(57817i32);
+    pub const NewFolder: Self = Self(57818i32);
+    pub const CalendarReply: Self = Self(57819i32);
+    pub const UnSyncFolder: Self = Self(57821i32);
+    pub const ReportHacked: Self = Self(57822i32);
+    pub const SyncFolder: Self = Self(57823i32);
+    pub const BlockContact: Self = Self(57824i32);
+    pub const SwitchApps: Self = Self(57825i32);
+    pub const AddFriend: Self = Self(57826i32);
+    pub const TouchPointer: Self = Self(57827i32);
+    pub const GoToStart: Self = Self(57828i32);
+    pub const ZeroBars: Self = Self(57829i32);
+    pub const OneBar: Self = Self(57830i32);
+    pub const TwoBars: Self = Self(57831i32);
+    pub const ThreeBars: Self = Self(57832i32);
+    pub const FourBars: Self = Self(57833i32);
+    pub const Scan: Self = Self(58004i32);
+    pub const Preview: Self = Self(58005i32);
+    pub const GlobalNavigationButton: Self = Self(59136i32);
+    pub const Share: Self = Self(59181i32);
+    pub const Print: Self = Self(59209i32);
+    pub const XboxOneConsole: Self = Self(59792i32);
 }
 #[repr(transparent)]
 pub struct SymbolIcon(pub *mut ::core::ffi::c_void);
@@ -2904,38 +2904,38 @@ pub struct TreeViewNode(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TreeViewSelectionMode(pub i32);
 impl TreeViewSelectionMode {
-    pub const None: TreeViewSelectionMode = TreeViewSelectionMode(0i32);
-    pub const Single: TreeViewSelectionMode = TreeViewSelectionMode(1i32);
-    pub const Multiple: TreeViewSelectionMode = TreeViewSelectionMode(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Single: Self = Self(1i32);
+    pub const Multiple: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TwoPaneView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TwoPaneViewMode(pub i32);
 impl TwoPaneViewMode {
-    pub const SinglePane: TwoPaneViewMode = TwoPaneViewMode(0i32);
-    pub const Wide: TwoPaneViewMode = TwoPaneViewMode(1i32);
-    pub const Tall: TwoPaneViewMode = TwoPaneViewMode(2i32);
+    pub const SinglePane: Self = Self(0i32);
+    pub const Wide: Self = Self(1i32);
+    pub const Tall: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TwoPaneViewPriority(pub i32);
 impl TwoPaneViewPriority {
-    pub const Pane1: TwoPaneViewPriority = TwoPaneViewPriority(0i32);
-    pub const Pane2: TwoPaneViewPriority = TwoPaneViewPriority(1i32);
+    pub const Pane1: Self = Self(0i32);
+    pub const Pane2: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct TwoPaneViewTallModeConfiguration(pub i32);
 impl TwoPaneViewTallModeConfiguration {
-    pub const SinglePane: TwoPaneViewTallModeConfiguration = TwoPaneViewTallModeConfiguration(0i32);
-    pub const TopBottom: TwoPaneViewTallModeConfiguration = TwoPaneViewTallModeConfiguration(1i32);
-    pub const BottomTop: TwoPaneViewTallModeConfiguration = TwoPaneViewTallModeConfiguration(2i32);
+    pub const SinglePane: Self = Self(0i32);
+    pub const TopBottom: Self = Self(1i32);
+    pub const BottomTop: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TwoPaneViewWideModeConfiguration(pub i32);
 impl TwoPaneViewWideModeConfiguration {
-    pub const SinglePane: TwoPaneViewWideModeConfiguration = TwoPaneViewWideModeConfiguration(0i32);
-    pub const LeftRight: TwoPaneViewWideModeConfiguration = TwoPaneViewWideModeConfiguration(1i32);
-    pub const RightLeft: TwoPaneViewWideModeConfiguration = TwoPaneViewWideModeConfiguration(2i32);
+    pub const SinglePane: Self = Self(0i32);
+    pub const LeftRight: Self = Self(1i32);
+    pub const RightLeft: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UIElementCollection(pub *mut ::core::ffi::c_void);
@@ -2948,8 +2948,8 @@ pub struct Viewbox(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VirtualizationMode(pub i32);
 impl VirtualizationMode {
-    pub const Standard: VirtualizationMode = VirtualizationMode(0i32);
-    pub const Recycling: VirtualizationMode = VirtualizationMode(1i32);
+    pub const Standard: Self = Self(0i32);
+    pub const Recycling: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct VirtualizingPanel(pub *mut ::core::ffi::c_void);
@@ -2968,9 +2968,9 @@ pub struct WebViewDeferredPermissionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewExecutionMode(pub i32);
 impl WebViewExecutionMode {
-    pub const SameThread: WebViewExecutionMode = WebViewExecutionMode(0i32);
-    pub const SeparateThread: WebViewExecutionMode = WebViewExecutionMode(1i32);
-    pub const SeparateProcess: WebViewExecutionMode = WebViewExecutionMode(2i32);
+    pub const SameThread: Self = Self(0i32);
+    pub const SeparateThread: Self = Self(1i32);
+    pub const SeparateProcess: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WebViewLongRunningScriptDetectedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2991,21 +2991,21 @@ pub struct WebViewPermissionRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewPermissionState(pub i32);
 impl WebViewPermissionState {
-    pub const Unknown: WebViewPermissionState = WebViewPermissionState(0i32);
-    pub const Defer: WebViewPermissionState = WebViewPermissionState(1i32);
-    pub const Allow: WebViewPermissionState = WebViewPermissionState(2i32);
-    pub const Deny: WebViewPermissionState = WebViewPermissionState(3i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Defer: Self = Self(1i32);
+    pub const Allow: Self = Self(2i32);
+    pub const Deny: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct WebViewPermissionType(pub i32);
 impl WebViewPermissionType {
-    pub const Geolocation: WebViewPermissionType = WebViewPermissionType(0i32);
-    pub const UnlimitedIndexedDBQuota: WebViewPermissionType = WebViewPermissionType(1i32);
-    pub const Media: WebViewPermissionType = WebViewPermissionType(2i32);
-    pub const PointerLock: WebViewPermissionType = WebViewPermissionType(3i32);
-    pub const WebNotifications: WebViewPermissionType = WebViewPermissionType(4i32);
-    pub const Screen: WebViewPermissionType = WebViewPermissionType(5i32);
-    pub const ImmersiveView: WebViewPermissionType = WebViewPermissionType(6i32);
+    pub const Geolocation: Self = Self(0i32);
+    pub const UnlimitedIndexedDBQuota: Self = Self(1i32);
+    pub const Media: Self = Self(2i32);
+    pub const PointerLock: Self = Self(3i32);
+    pub const WebNotifications: Self = Self(4i32);
+    pub const Screen: Self = Self(5i32);
+    pub const ImmersiveView: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct WebViewSeparateProcessLostEventArgs(pub *mut ::core::ffi::c_void);
@@ -3022,6 +3022,6 @@ pub struct WrapGrid(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ZoomMode(pub i32);
 impl ZoomMode {
-    pub const Disabled: ZoomMode = ZoomMode(0i32);
-    pub const Enabled: ZoomMode = ZoomMode(1i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
 }

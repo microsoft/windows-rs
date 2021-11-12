@@ -609,40 +609,40 @@ pub struct CameraUIControl(i32);
 #[repr(transparent)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
-    pub const PhotoOrVideo: CameraUIControlCaptureMode = CameraUIControlCaptureMode(0i32);
-    pub const Photo: CameraUIControlCaptureMode = CameraUIControlCaptureMode(1i32);
-    pub const Video: CameraUIControlCaptureMode = CameraUIControlCaptureMode(2i32);
+    pub const PhotoOrVideo: Self = Self(0i32);
+    pub const Photo: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
 impl CameraUIControlLinearSelectionMode {
-    pub const Single: CameraUIControlLinearSelectionMode = CameraUIControlLinearSelectionMode(0i32);
-    pub const Multiple: CameraUIControlLinearSelectionMode = CameraUIControlLinearSelectionMode(1i32);
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CameraUIControlMode(pub i32);
 impl CameraUIControlMode {
-    pub const Browse: CameraUIControlMode = CameraUIControlMode(0i32);
-    pub const Linear: CameraUIControlMode = CameraUIControlMode(1i32);
+    pub const Browse: Self = Self(0i32);
+    pub const Linear: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CameraUIControlPhotoFormat(pub i32);
 impl CameraUIControlPhotoFormat {
-    pub const Jpeg: CameraUIControlPhotoFormat = CameraUIControlPhotoFormat(0i32);
-    pub const Png: CameraUIControlPhotoFormat = CameraUIControlPhotoFormat(1i32);
-    pub const JpegXR: CameraUIControlPhotoFormat = CameraUIControlPhotoFormat(2i32);
+    pub const Jpeg: Self = Self(0i32);
+    pub const Png: Self = Self(1i32);
+    pub const JpegXR: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CameraUIControlVideoFormat(pub i32);
 impl CameraUIControlVideoFormat {
-    pub const Mp4: CameraUIControlVideoFormat = CameraUIControlVideoFormat(0i32);
-    pub const Wmv: CameraUIControlVideoFormat = CameraUIControlVideoFormat(1i32);
+    pub const Mp4: Self = Self(0i32);
+    pub const Wmv: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CameraUIControlViewType(pub i32);
 impl CameraUIControlViewType {
-    pub const SingleItem: CameraUIControlViewType = CameraUIControlViewType(0i32);
-    pub const ItemList: CameraUIControlViewType = CameraUIControlViewType(1i32);
+    pub const SingleItem: Self = Self(0i32);
+    pub const ItemList: Self = Self(1i32);
 }
 #[repr(C)]
 pub struct DATETIME(i32);

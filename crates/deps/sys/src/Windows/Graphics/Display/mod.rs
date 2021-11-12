@@ -8,9 +8,9 @@ pub struct AdvancedColorInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
-    pub const StandardDynamicRange: AdvancedColorKind = AdvancedColorKind(0i32);
-    pub const WideColorGamut: AdvancedColorKind = AdvancedColorKind(1i32);
-    pub const HighDynamicRange: AdvancedColorKind = AdvancedColorKind(2i32);
+    pub const StandardDynamicRange: Self = Self(0i32);
+    pub const WideColorGamut: Self = Self(1i32);
+    pub const HighDynamicRange: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BrightnessOverride(pub *mut ::core::ffi::c_void);
@@ -21,28 +21,28 @@ pub struct ColorOverrideSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
-    pub const None: DisplayBrightnessOverrideOptions = DisplayBrightnessOverrideOptions(0u32);
-    pub const UseDimmedPolicyWhenBatteryIsLow: DisplayBrightnessOverrideOptions = DisplayBrightnessOverrideOptions(1u32);
+    pub const None: Self = Self(0u32);
+    pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
 }
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
-    pub const IdleBrightness: DisplayBrightnessOverrideScenario = DisplayBrightnessOverrideScenario(0i32);
-    pub const BarcodeReadingBrightness: DisplayBrightnessOverrideScenario = DisplayBrightnessOverrideScenario(1i32);
-    pub const FullBrightness: DisplayBrightnessOverrideScenario = DisplayBrightnessOverrideScenario(2i32);
+    pub const IdleBrightness: Self = Self(0i32);
+    pub const BarcodeReadingBrightness: Self = Self(1i32);
+    pub const FullBrightness: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
-    pub const DefaultBrightness: DisplayBrightnessScenario = DisplayBrightnessScenario(0i32);
-    pub const IdleBrightness: DisplayBrightnessScenario = DisplayBrightnessScenario(1i32);
-    pub const BarcodeReadingBrightness: DisplayBrightnessScenario = DisplayBrightnessScenario(2i32);
-    pub const FullBrightness: DisplayBrightnessScenario = DisplayBrightnessScenario(3i32);
+    pub const DefaultBrightness: Self = Self(0i32);
+    pub const IdleBrightness: Self = Self(1i32);
+    pub const BarcodeReadingBrightness: Self = Self(2i32);
+    pub const FullBrightness: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
-    pub const Accurate: DisplayColorOverrideScenario = DisplayColorOverrideScenario(0i32);
+    pub const Accurate: Self = Self(0i32);
 }
 #[repr(transparent)]
 pub struct DisplayEnhancementOverride(pub *mut ::core::ffi::c_void);
@@ -55,11 +55,11 @@ pub struct DisplayInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
-    pub const None: DisplayOrientations = DisplayOrientations(0u32);
-    pub const Landscape: DisplayOrientations = DisplayOrientations(1u32);
-    pub const Portrait: DisplayOrientations = DisplayOrientations(2u32);
-    pub const LandscapeFlipped: DisplayOrientations = DisplayOrientations(4u32);
-    pub const PortraitFlipped: DisplayOrientations = DisplayOrientations(8u32);
+    pub const None: Self = Self(0u32);
+    pub const Landscape: Self = Self(1u32);
+    pub const Portrait: Self = Self(2u32);
+    pub const LandscapeFlipped: Self = Self(4u32);
+    pub const PortraitFlipped: Self = Self(8u32);
 }
 #[repr(transparent)]
 pub struct DisplayPropertiesEventHandler(pub *mut ::core::ffi::c_void);
@@ -68,8 +68,8 @@ pub struct DisplayServices(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
-    pub const Hdr10: HdrMetadataFormat = HdrMetadataFormat(0i32);
-    pub const Hdr10Plus: HdrMetadataFormat = HdrMetadataFormat(1i32);
+    pub const Hdr10: Self = Self(0i32);
+    pub const Hdr10Plus: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct IAdvancedColorInfo(pub *mut ::core::ffi::c_void);
@@ -116,21 +116,21 @@ pub struct NitRange(i32);
 #[repr(transparent)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {
-    pub const Invalid: ResolutionScale = ResolutionScale(0i32);
-    pub const Scale100Percent: ResolutionScale = ResolutionScale(100i32);
-    pub const Scale120Percent: ResolutionScale = ResolutionScale(120i32);
-    pub const Scale125Percent: ResolutionScale = ResolutionScale(125i32);
-    pub const Scale140Percent: ResolutionScale = ResolutionScale(140i32);
-    pub const Scale150Percent: ResolutionScale = ResolutionScale(150i32);
-    pub const Scale160Percent: ResolutionScale = ResolutionScale(160i32);
-    pub const Scale175Percent: ResolutionScale = ResolutionScale(175i32);
-    pub const Scale180Percent: ResolutionScale = ResolutionScale(180i32);
-    pub const Scale200Percent: ResolutionScale = ResolutionScale(200i32);
-    pub const Scale225Percent: ResolutionScale = ResolutionScale(225i32);
-    pub const Scale250Percent: ResolutionScale = ResolutionScale(250i32);
-    pub const Scale300Percent: ResolutionScale = ResolutionScale(300i32);
-    pub const Scale350Percent: ResolutionScale = ResolutionScale(350i32);
-    pub const Scale400Percent: ResolutionScale = ResolutionScale(400i32);
-    pub const Scale450Percent: ResolutionScale = ResolutionScale(450i32);
-    pub const Scale500Percent: ResolutionScale = ResolutionScale(500i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const Scale100Percent: Self = Self(100i32);
+    pub const Scale120Percent: Self = Self(120i32);
+    pub const Scale125Percent: Self = Self(125i32);
+    pub const Scale140Percent: Self = Self(140i32);
+    pub const Scale150Percent: Self = Self(150i32);
+    pub const Scale160Percent: Self = Self(160i32);
+    pub const Scale175Percent: Self = Self(175i32);
+    pub const Scale180Percent: Self = Self(180i32);
+    pub const Scale200Percent: Self = Self(200i32);
+    pub const Scale225Percent: Self = Self(225i32);
+    pub const Scale250Percent: Self = Self(250i32);
+    pub const Scale300Percent: Self = Self(300i32);
+    pub const Scale350Percent: Self = Self(350i32);
+    pub const Scale400Percent: Self = Self(400i32);
+    pub const Scale450Percent: Self = Self(450i32);
+    pub const Scale500Percent: Self = Self(500i32);
 }

@@ -36,11 +36,11 @@ pub struct PushNotificationReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {
-    pub const Toast: PushNotificationType = PushNotificationType(0i32);
-    pub const Tile: PushNotificationType = PushNotificationType(1i32);
-    pub const Badge: PushNotificationType = PushNotificationType(2i32);
-    pub const Raw: PushNotificationType = PushNotificationType(3i32);
-    pub const TileFlyout: PushNotificationType = PushNotificationType(4i32);
+    pub const Toast: Self = Self(0i32);
+    pub const Tile: Self = Self(1i32);
+    pub const Badge: Self = Self(2i32);
+    pub const Raw: Self = Self(3i32);
+    pub const TileFlyout: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct RawNotification(pub *mut ::core::ffi::c_void);

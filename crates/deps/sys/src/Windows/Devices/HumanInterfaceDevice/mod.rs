@@ -10,14 +10,14 @@ pub struct HidCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
-    pub const Physical: HidCollectionType = HidCollectionType(0i32);
-    pub const Application: HidCollectionType = HidCollectionType(1i32);
-    pub const Logical: HidCollectionType = HidCollectionType(2i32);
-    pub const Report: HidCollectionType = HidCollectionType(3i32);
-    pub const NamedArray: HidCollectionType = HidCollectionType(4i32);
-    pub const UsageSwitch: HidCollectionType = HidCollectionType(5i32);
-    pub const UsageModifier: HidCollectionType = HidCollectionType(6i32);
-    pub const Other: HidCollectionType = HidCollectionType(7i32);
+    pub const Physical: Self = Self(0i32);
+    pub const Application: Self = Self(1i32);
+    pub const Logical: Self = Self(2i32);
+    pub const Report: Self = Self(3i32);
+    pub const NamedArray: Self = Self(4i32);
+    pub const UsageSwitch: Self = Self(5i32);
+    pub const UsageModifier: Self = Self(6i32);
+    pub const Other: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct HidDevice(pub *mut ::core::ffi::c_void);
@@ -36,9 +36,9 @@ pub struct HidOutputReport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HidReportType(pub i32);
 impl HidReportType {
-    pub const Input: HidReportType = HidReportType(0i32);
-    pub const Output: HidReportType = HidReportType(1i32);
-    pub const Feature: HidReportType = HidReportType(2i32);
+    pub const Input: Self = Self(0i32);
+    pub const Output: Self = Self(1i32);
+    pub const Feature: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct IHidBooleanControl(pub *mut ::core::ffi::c_void);

@@ -3488,10 +3488,10 @@ pub struct HTTPSPolicyCallbackData(i32);
 #[repr(transparent)]
 pub struct HandleType(pub i32);
 impl HandleType {
-    pub const Asymmetric: HandleType = HandleType(1i32);
-    pub const Symmetric: HandleType = HandleType(2i32);
-    pub const Transform: HandleType = HandleType(3i32);
-    pub const Hash: HandleType = HandleType(4i32);
+    pub const Asymmetric: Self = Self(1i32);
+    pub const Symmetric: Self = Self(2i32);
+    pub const Transform: Self = Self(3i32);
+    pub const Hash: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct ICertSrvSetup(pub *mut ::core::ffi::c_void);
@@ -4125,11 +4125,11 @@ pub struct PUBLICKEYSTRUC(i32);
 #[repr(transparent)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
-    pub const None: PaddingMode = PaddingMode(1i32);
-    pub const PKCS7: PaddingMode = PaddingMode(2i32);
-    pub const Zeros: PaddingMode = PaddingMode(3i32);
-    pub const ANSIX923: PaddingMode = PaddingMode(4i32);
-    pub const ISO10126: PaddingMode = PaddingMode(5i32);
+    pub const None: Self = Self(1i32);
+    pub const PKCS7: Self = Self(2i32);
+    pub const Zeros: Self = Self(3i32);
+    pub const ANSIX923: Self = Self(4i32);
+    pub const ISO10126: Self = Self(5i32);
 }
 pub const RANDOM_PADDING: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]

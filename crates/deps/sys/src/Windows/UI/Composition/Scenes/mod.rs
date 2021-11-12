@@ -62,20 +62,20 @@ pub struct ISceneVisualStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
-    pub const Opaque: SceneAlphaMode = SceneAlphaMode(0i32);
-    pub const AlphaTest: SceneAlphaMode = SceneAlphaMode(1i32);
-    pub const Blend: SceneAlphaMode = SceneAlphaMode(2i32);
+    pub const Opaque: Self = Self(0i32);
+    pub const AlphaTest: Self = Self(1i32);
+    pub const Blend: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
-    pub const Index: SceneAttributeSemantic = SceneAttributeSemantic(0i32);
-    pub const Vertex: SceneAttributeSemantic = SceneAttributeSemantic(1i32);
-    pub const Normal: SceneAttributeSemantic = SceneAttributeSemantic(2i32);
-    pub const TexCoord0: SceneAttributeSemantic = SceneAttributeSemantic(3i32);
-    pub const TexCoord1: SceneAttributeSemantic = SceneAttributeSemantic(4i32);
-    pub const Color: SceneAttributeSemantic = SceneAttributeSemantic(5i32);
-    pub const Tangent: SceneAttributeSemantic = SceneAttributeSemantic(6i32);
+    pub const Index: Self = Self(0i32);
+    pub const Vertex: Self = Self(1i32);
+    pub const Normal: Self = Self(2i32);
+    pub const TexCoord0: Self = Self(3i32);
+    pub const TexCoord1: Self = Self(4i32);
+    pub const Color: Self = Self(5i32);
+    pub const Tangent: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct SceneBoundingBox(pub *mut ::core::ffi::c_void);
@@ -86,7 +86,7 @@ pub struct SceneComponentCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
-    pub const MeshRendererComponent: SceneComponentType = SceneComponentType(0i32);
+    pub const MeshRendererComponent: Self = Self(0i32);
 }
 #[repr(transparent)]
 pub struct SceneMaterial(pub *mut ::core::ffi::c_void);
@@ -119,7 +119,7 @@ pub struct SceneVisual(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {
-    pub const ClampToEdge: SceneWrappingMode = SceneWrappingMode(0i32);
-    pub const MirroredRepeat: SceneWrappingMode = SceneWrappingMode(1i32);
-    pub const Repeat: SceneWrappingMode = SceneWrappingMode(2i32);
+    pub const ClampToEdge: Self = Self(0i32);
+    pub const MirroredRepeat: Self = Self(1i32);
+    pub const Repeat: Self = Self(2i32);
 }

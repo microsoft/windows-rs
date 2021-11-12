@@ -4,8 +4,8 @@ extern "system" {}
 #[repr(transparent)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
-    pub const Voice: GameChatMessageOrigin = GameChatMessageOrigin(0i32);
-    pub const Text: GameChatMessageOrigin = GameChatMessageOrigin(1i32);
+    pub const Voice: Self = Self(0i32);
+    pub const Text: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct GameChatMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -18,14 +18,14 @@ pub struct GameChatOverlayMessageSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
-    pub const BottomCenter: GameChatOverlayPosition = GameChatOverlayPosition(0i32);
-    pub const BottomLeft: GameChatOverlayPosition = GameChatOverlayPosition(1i32);
-    pub const BottomRight: GameChatOverlayPosition = GameChatOverlayPosition(2i32);
-    pub const MiddleRight: GameChatOverlayPosition = GameChatOverlayPosition(3i32);
-    pub const MiddleLeft: GameChatOverlayPosition = GameChatOverlayPosition(4i32);
-    pub const TopCenter: GameChatOverlayPosition = GameChatOverlayPosition(5i32);
-    pub const TopLeft: GameChatOverlayPosition = GameChatOverlayPosition(6i32);
-    pub const TopRight: GameChatOverlayPosition = GameChatOverlayPosition(7i32);
+    pub const BottomCenter: Self = Self(0i32);
+    pub const BottomLeft: Self = Self(1i32);
+    pub const BottomRight: Self = Self(2i32);
+    pub const MiddleRight: Self = Self(3i32);
+    pub const MiddleLeft: Self = Self(4i32);
+    pub const TopCenter: Self = Self(5i32);
+    pub const TopLeft: Self = Self(6i32);
+    pub const TopRight: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct GameUIProviderActivatedEventArgs(pub *mut ::core::ffi::c_void);

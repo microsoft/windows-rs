@@ -10,8 +10,8 @@ pub struct DesignerAppView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DesignerAppViewState(pub i32);
 impl DesignerAppViewState {
-    pub const Visible: DesignerAppViewState = DesignerAppViewState(0i32);
-    pub const Hidden: DesignerAppViewState = DesignerAppViewState(1i32);
+    pub const Visible: Self = Self(0i32);
+    pub const Hidden: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct DesktopWindowXamlSource(pub *mut ::core::ffi::c_void);
@@ -76,14 +76,14 @@ pub struct WindowsXamlManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationReason(pub i32);
 impl XamlSourceFocusNavigationReason {
-    pub const Programmatic: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(0i32);
-    pub const Restore: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(1i32);
-    pub const First: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(3i32);
-    pub const Last: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(4i32);
-    pub const Left: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(7i32);
-    pub const Up: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(8i32);
-    pub const Right: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(9i32);
-    pub const Down: XamlSourceFocusNavigationReason = XamlSourceFocusNavigationReason(10i32);
+    pub const Programmatic: Self = Self(0i32);
+    pub const Restore: Self = Self(1i32);
+    pub const First: Self = Self(3i32);
+    pub const Last: Self = Self(4i32);
+    pub const Left: Self = Self(7i32);
+    pub const Up: Self = Self(8i32);
+    pub const Right: Self = Self(9i32);
+    pub const Down: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationRequest(pub *mut ::core::ffi::c_void);

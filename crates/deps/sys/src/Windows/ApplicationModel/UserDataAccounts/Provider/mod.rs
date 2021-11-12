@@ -18,15 +18,15 @@ pub struct UserDataAccountProviderAddAccountOperation(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
-    pub const AddAccount: UserDataAccountProviderOperationKind = UserDataAccountProviderOperationKind(0i32);
-    pub const Settings: UserDataAccountProviderOperationKind = UserDataAccountProviderOperationKind(1i32);
-    pub const ResolveErrors: UserDataAccountProviderOperationKind = UserDataAccountProviderOperationKind(2i32);
+    pub const AddAccount: Self = Self(0i32);
+    pub const Settings: Self = Self(1i32);
+    pub const ResolveErrors: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
-    pub const Exchange: UserDataAccountProviderPartnerAccountKind = UserDataAccountProviderPartnerAccountKind(0i32);
-    pub const PopOrImap: UserDataAccountProviderPartnerAccountKind = UserDataAccountProviderPartnerAccountKind(1i32);
+    pub const Exchange: Self = Self(0i32);
+    pub const PopOrImap: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct UserDataAccountProviderResolveErrorsOperation(pub *mut ::core::ffi::c_void);

@@ -6,10 +6,10 @@ pub struct FindAllAccountsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
-    pub const Success: FindAllWebAccountsStatus = FindAllWebAccountsStatus(0i32);
-    pub const NotAllowedByProvider: FindAllWebAccountsStatus = FindAllWebAccountsStatus(1i32);
-    pub const NotSupportedByProvider: FindAllWebAccountsStatus = FindAllWebAccountsStatus(2i32);
-    pub const ProviderError: FindAllWebAccountsStatus = FindAllWebAccountsStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const NotAllowedByProvider: Self = Self(1i32);
+    pub const NotSupportedByProvider: Self = Self(2i32);
+    pub const ProviderError: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct IFindAllAccountsResult(pub *mut ::core::ffi::c_void);
@@ -56,20 +56,20 @@ pub struct WebTokenRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
-    pub const Default: WebTokenRequestPromptType = WebTokenRequestPromptType(0i32);
-    pub const ForceAuthentication: WebTokenRequestPromptType = WebTokenRequestPromptType(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const ForceAuthentication: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct WebTokenRequestResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {
-    pub const Success: WebTokenRequestStatus = WebTokenRequestStatus(0i32);
-    pub const UserCancel: WebTokenRequestStatus = WebTokenRequestStatus(1i32);
-    pub const AccountSwitch: WebTokenRequestStatus = WebTokenRequestStatus(2i32);
-    pub const UserInteractionRequired: WebTokenRequestStatus = WebTokenRequestStatus(3i32);
-    pub const AccountProviderNotAvailable: WebTokenRequestStatus = WebTokenRequestStatus(4i32);
-    pub const ProviderError: WebTokenRequestStatus = WebTokenRequestStatus(5i32);
+    pub const Success: Self = Self(0i32);
+    pub const UserCancel: Self = Self(1i32);
+    pub const AccountSwitch: Self = Self(2i32);
+    pub const UserInteractionRequired: Self = Self(3i32);
+    pub const AccountProviderNotAvailable: Self = Self(4i32);
+    pub const ProviderError: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct WebTokenResponse(pub *mut ::core::ffi::c_void);

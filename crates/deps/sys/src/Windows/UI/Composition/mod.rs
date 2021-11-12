@@ -20,45 +20,45 @@ pub struct AnimationController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
-    pub const Default: AnimationControllerProgressBehavior = AnimationControllerProgressBehavior(0i32);
-    pub const IncludesDelayTime: AnimationControllerProgressBehavior = AnimationControllerProgressBehavior(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const IncludesDelayTime: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
-    pub const SetInitialValueAfterDelay: AnimationDelayBehavior = AnimationDelayBehavior(0i32);
-    pub const SetInitialValueBeforeDelay: AnimationDelayBehavior = AnimationDelayBehavior(1i32);
+    pub const SetInitialValueAfterDelay: Self = Self(0i32);
+    pub const SetInitialValueBeforeDelay: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
-    pub const Normal: AnimationDirection = AnimationDirection(0i32);
-    pub const Reverse: AnimationDirection = AnimationDirection(1i32);
-    pub const Alternate: AnimationDirection = AnimationDirection(2i32);
-    pub const AlternateReverse: AnimationDirection = AnimationDirection(3i32);
+    pub const Normal: Self = Self(0i32);
+    pub const Reverse: Self = Self(1i32);
+    pub const Alternate: Self = Self(2i32);
+    pub const AlternateReverse: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
-    pub const Count: AnimationIterationBehavior = AnimationIterationBehavior(0i32);
-    pub const Forever: AnimationIterationBehavior = AnimationIterationBehavior(1i32);
+    pub const Count: Self = Self(0i32);
+    pub const Forever: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AnimationPropertyAccessMode(pub i32);
 impl AnimationPropertyAccessMode {
-    pub const None: AnimationPropertyAccessMode = AnimationPropertyAccessMode(0i32);
-    pub const ReadOnly: AnimationPropertyAccessMode = AnimationPropertyAccessMode(1i32);
-    pub const WriteOnly: AnimationPropertyAccessMode = AnimationPropertyAccessMode(2i32);
-    pub const ReadWrite: AnimationPropertyAccessMode = AnimationPropertyAccessMode(3i32);
+    pub const None: Self = Self(0i32);
+    pub const ReadOnly: Self = Self(1i32);
+    pub const WriteOnly: Self = Self(2i32);
+    pub const ReadWrite: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AnimationPropertyInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
-    pub const LeaveCurrentValue: AnimationStopBehavior = AnimationStopBehavior(0i32);
-    pub const SetToInitialValue: AnimationStopBehavior = AnimationStopBehavior(1i32);
-    pub const SetToFinalValue: AnimationStopBehavior = AnimationStopBehavior(2i32);
+    pub const LeaveCurrentValue: Self = Self(0i32);
+    pub const SetToInitialValue: Self = Self(1i32);
+    pub const SetToFinalValue: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BackEasingFunction(pub *mut ::core::ffi::c_void);
@@ -85,41 +85,41 @@ pub struct CompositionBackdropBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
-    pub const Inherit: CompositionBackfaceVisibility = CompositionBackfaceVisibility(0i32);
-    pub const Visible: CompositionBackfaceVisibility = CompositionBackfaceVisibility(1i32);
-    pub const Hidden: CompositionBackfaceVisibility = CompositionBackfaceVisibility(2i32);
+    pub const Inherit: Self = Self(0i32);
+    pub const Visible: Self = Self(1i32);
+    pub const Hidden: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CompositionBatchCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
-    pub const None: CompositionBatchTypes = CompositionBatchTypes(0u32);
-    pub const Animation: CompositionBatchTypes = CompositionBatchTypes(1u32);
-    pub const Effect: CompositionBatchTypes = CompositionBatchTypes(2u32);
-    pub const InfiniteAnimation: CompositionBatchTypes = CompositionBatchTypes(4u32);
-    pub const AllAnimations: CompositionBatchTypes = CompositionBatchTypes(5u32);
+    pub const None: Self = Self(0u32);
+    pub const Animation: Self = Self(1u32);
+    pub const Effect: Self = Self(2u32);
+    pub const InfiniteAnimation: Self = Self(4u32);
+    pub const AllAnimations: Self = Self(5u32);
 }
 #[repr(transparent)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
 impl CompositionBitmapInterpolationMode {
-    pub const NearestNeighbor: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(0i32);
-    pub const Linear: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(1i32);
-    pub const MagLinearMinLinearMipLinear: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(2i32);
-    pub const MagLinearMinLinearMipNearest: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(3i32);
-    pub const MagLinearMinNearestMipLinear: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(4i32);
-    pub const MagLinearMinNearestMipNearest: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(5i32);
-    pub const MagNearestMinLinearMipLinear: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(6i32);
-    pub const MagNearestMinLinearMipNearest: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(7i32);
-    pub const MagNearestMinNearestMipLinear: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(8i32);
-    pub const MagNearestMinNearestMipNearest: CompositionBitmapInterpolationMode = CompositionBitmapInterpolationMode(9i32);
+    pub const NearestNeighbor: Self = Self(0i32);
+    pub const Linear: Self = Self(1i32);
+    pub const MagLinearMinLinearMipLinear: Self = Self(2i32);
+    pub const MagLinearMinLinearMipNearest: Self = Self(3i32);
+    pub const MagLinearMinNearestMipLinear: Self = Self(4i32);
+    pub const MagLinearMinNearestMipNearest: Self = Self(5i32);
+    pub const MagNearestMinLinearMipLinear: Self = Self(6i32);
+    pub const MagNearestMinLinearMipNearest: Self = Self(7i32);
+    pub const MagNearestMinNearestMipLinear: Self = Self(8i32);
+    pub const MagNearestMinNearestMipNearest: Self = Self(9i32);
 }
 #[repr(transparent)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
-    pub const Inherit: CompositionBorderMode = CompositionBorderMode(0i32);
-    pub const Soft: CompositionBorderMode = CompositionBorderMode(1i32);
-    pub const Hard: CompositionBorderMode = CompositionBorderMode(2i32);
+    pub const Inherit: Self = Self(0i32);
+    pub const Soft: Self = Self(1i32);
+    pub const Hard: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CompositionBrush(pub *mut ::core::ffi::c_void);
@@ -136,21 +136,21 @@ pub struct CompositionColorGradientStopCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
-    pub const Auto: CompositionColorSpace = CompositionColorSpace(0i32);
-    pub const Hsl: CompositionColorSpace = CompositionColorSpace(1i32);
-    pub const Rgb: CompositionColorSpace = CompositionColorSpace(2i32);
-    pub const HslLinear: CompositionColorSpace = CompositionColorSpace(3i32);
-    pub const RgbLinear: CompositionColorSpace = CompositionColorSpace(4i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Hsl: Self = Self(1i32);
+    pub const Rgb: Self = Self(2i32);
+    pub const HslLinear: Self = Self(3i32);
+    pub const RgbLinear: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct CompositionCommitBatch(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
-    pub const Inherit: CompositionCompositeMode = CompositionCompositeMode(0i32);
-    pub const SourceOver: CompositionCompositeMode = CompositionCompositeMode(1i32);
-    pub const DestinationInvert: CompositionCompositeMode = CompositionCompositeMode(2i32);
-    pub const MinBlend: CompositionCompositeMode = CompositionCompositeMode(3i32);
+    pub const Inherit: Self = Self(0i32);
+    pub const SourceOver: Self = Self(1i32);
+    pub const DestinationInvert: Self = Self(2i32);
+    pub const MinBlend: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct CompositionContainerShape(pub *mut ::core::ffi::c_void);
@@ -159,17 +159,17 @@ pub struct CompositionDrawingSurface(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
-    pub const Default: CompositionDropShadowSourcePolicy = CompositionDropShadowSourcePolicy(0i32);
-    pub const InheritFromVisualContent: CompositionDropShadowSourcePolicy = CompositionDropShadowSourcePolicy(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const InheritFromVisualContent: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CompositionEasingFunction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
-    pub const In: CompositionEasingFunctionMode = CompositionEasingFunctionMode(0i32);
-    pub const Out: CompositionEasingFunctionMode = CompositionEasingFunctionMode(1i32);
-    pub const InOut: CompositionEasingFunctionMode = CompositionEasingFunctionMode(2i32);
+    pub const In: Self = Self(0i32);
+    pub const Out: Self = Self(1i32);
+    pub const InOut: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CompositionEffectBrush(pub *mut ::core::ffi::c_void);
@@ -178,10 +178,10 @@ pub struct CompositionEffectFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
-    pub const Success: CompositionEffectFactoryLoadStatus = CompositionEffectFactoryLoadStatus(0i32);
-    pub const EffectTooComplex: CompositionEffectFactoryLoadStatus = CompositionEffectFactoryLoadStatus(1i32);
-    pub const Pending: CompositionEffectFactoryLoadStatus = CompositionEffectFactoryLoadStatus(2i32);
-    pub const Other: CompositionEffectFactoryLoadStatus = CompositionEffectFactoryLoadStatus(-1i32);
+    pub const Success: Self = Self(0i32);
+    pub const EffectTooComplex: Self = Self(1i32);
+    pub const Pending: Self = Self(2i32);
+    pub const Other: Self = Self(-1i32);
 }
 #[repr(transparent)]
 pub struct CompositionEffectSourceParameter(pub *mut ::core::ffi::c_void);
@@ -194,18 +194,18 @@ pub struct CompositionGeometry(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
-    pub const Succeeded: CompositionGetValueStatus = CompositionGetValueStatus(0i32);
-    pub const TypeMismatch: CompositionGetValueStatus = CompositionGetValueStatus(1i32);
-    pub const NotFound: CompositionGetValueStatus = CompositionGetValueStatus(2i32);
+    pub const Succeeded: Self = Self(0i32);
+    pub const TypeMismatch: Self = Self(1i32);
+    pub const NotFound: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CompositionGradientBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
-    pub const Clamp: CompositionGradientExtendMode = CompositionGradientExtendMode(0i32);
-    pub const Wrap: CompositionGradientExtendMode = CompositionGradientExtendMode(1i32);
-    pub const Mirror: CompositionGradientExtendMode = CompositionGradientExtendMode(2i32);
+    pub const Clamp: Self = Self(0i32);
+    pub const Wrap: Self = Self(1i32);
+    pub const Mirror: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CompositionGraphicsDevice(pub *mut ::core::ffi::c_void);
@@ -218,8 +218,8 @@ pub struct CompositionLinearGradientBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
-    pub const Absolute: CompositionMappingMode = CompositionMappingMode(0i32);
-    pub const Relative: CompositionMappingMode = CompositionMappingMode(1i32);
+    pub const Absolute: Self = Self(0i32);
+    pub const Relative: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct CompositionMaskBrush(pub *mut ::core::ffi::c_void);
@@ -264,28 +264,28 @@ pub struct CompositionSpriteShape(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
-    pub const None: CompositionStretch = CompositionStretch(0i32);
-    pub const Fill: CompositionStretch = CompositionStretch(1i32);
-    pub const Uniform: CompositionStretch = CompositionStretch(2i32);
-    pub const UniformToFill: CompositionStretch = CompositionStretch(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Fill: Self = Self(1i32);
+    pub const Uniform: Self = Self(2i32);
+    pub const UniformToFill: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
-    pub const Flat: CompositionStrokeCap = CompositionStrokeCap(0i32);
-    pub const Square: CompositionStrokeCap = CompositionStrokeCap(1i32);
-    pub const Round: CompositionStrokeCap = CompositionStrokeCap(2i32);
-    pub const Triangle: CompositionStrokeCap = CompositionStrokeCap(3i32);
+    pub const Flat: Self = Self(0i32);
+    pub const Square: Self = Self(1i32);
+    pub const Round: Self = Self(2i32);
+    pub const Triangle: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct CompositionStrokeDashArray(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
-    pub const Miter: CompositionStrokeLineJoin = CompositionStrokeLineJoin(0i32);
-    pub const Bevel: CompositionStrokeLineJoin = CompositionStrokeLineJoin(1i32);
-    pub const Round: CompositionStrokeLineJoin = CompositionStrokeLineJoin(2i32);
-    pub const MiterOrBevel: CompositionStrokeLineJoin = CompositionStrokeLineJoin(3i32);
+    pub const Miter: Self = Self(0i32);
+    pub const Bevel: Self = Self(1i32);
+    pub const Round: Self = Self(2i32);
+    pub const MiterOrBevel: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct CompositionSurfaceBrush(pub *mut ::core::ffi::c_void);

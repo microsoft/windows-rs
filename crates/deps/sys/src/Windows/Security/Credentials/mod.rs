@@ -42,16 +42,16 @@ pub struct KeyCredentialAttestationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
-    pub const Success: KeyCredentialAttestationStatus = KeyCredentialAttestationStatus(0i32);
-    pub const UnknownError: KeyCredentialAttestationStatus = KeyCredentialAttestationStatus(1i32);
-    pub const NotSupported: KeyCredentialAttestationStatus = KeyCredentialAttestationStatus(2i32);
-    pub const TemporaryFailure: KeyCredentialAttestationStatus = KeyCredentialAttestationStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const NotSupported: Self = Self(2i32);
+    pub const TemporaryFailure: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
-    pub const ReplaceExisting: KeyCredentialCreationOption = KeyCredentialCreationOption(0i32);
-    pub const FailIfExists: KeyCredentialCreationOption = KeyCredentialCreationOption(1i32);
+    pub const ReplaceExisting: Self = Self(0i32);
+    pub const FailIfExists: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct KeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
@@ -60,13 +60,13 @@ pub struct KeyCredentialRetrievalResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
-    pub const Success: KeyCredentialStatus = KeyCredentialStatus(0i32);
-    pub const UnknownError: KeyCredentialStatus = KeyCredentialStatus(1i32);
-    pub const NotFound: KeyCredentialStatus = KeyCredentialStatus(2i32);
-    pub const UserCanceled: KeyCredentialStatus = KeyCredentialStatus(3i32);
-    pub const UserPrefersPassword: KeyCredentialStatus = KeyCredentialStatus(4i32);
-    pub const CredentialAlreadyExists: KeyCredentialStatus = KeyCredentialStatus(5i32);
-    pub const SecurityDeviceLocked: KeyCredentialStatus = KeyCredentialStatus(6i32);
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const NotFound: Self = Self(2i32);
+    pub const UserCanceled: Self = Self(3i32);
+    pub const UserPrefersPassword: Self = Self(4i32);
+    pub const CredentialAlreadyExists: Self = Self(5i32);
+    pub const SecurityDeviceLocked: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct PasswordCredential(pub *mut ::core::ffi::c_void);
@@ -79,17 +79,17 @@ pub struct WebAccount(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
-    pub const Size64x64: WebAccountPictureSize = WebAccountPictureSize(64i32);
-    pub const Size208x208: WebAccountPictureSize = WebAccountPictureSize(208i32);
-    pub const Size424x424: WebAccountPictureSize = WebAccountPictureSize(424i32);
-    pub const Size1080x1080: WebAccountPictureSize = WebAccountPictureSize(1080i32);
+    pub const Size64x64: Self = Self(64i32);
+    pub const Size208x208: Self = Self(208i32);
+    pub const Size424x424: Self = Self(424i32);
+    pub const Size1080x1080: Self = Self(1080i32);
 }
 #[repr(transparent)]
 pub struct WebAccountProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {
-    pub const None: WebAccountState = WebAccountState(0i32);
-    pub const Connected: WebAccountState = WebAccountState(1i32);
-    pub const Error: WebAccountState = WebAccountState(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+    pub const Error: Self = Self(2i32);
 }

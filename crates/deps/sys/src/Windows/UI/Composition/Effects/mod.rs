@@ -10,6 +10,6 @@ pub struct SceneLightingEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {
-    pub const BlinnPhong: SceneLightingEffectReflectanceModel = SceneLightingEffectReflectanceModel(0i32);
-    pub const PhysicallyBasedBlinnPhong: SceneLightingEffectReflectanceModel = SceneLightingEffectReflectanceModel(1i32);
+    pub const BlinnPhong: Self = Self(0i32);
+    pub const PhysicallyBasedBlinnPhong: Self = Self(1i32);
 }

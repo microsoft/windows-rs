@@ -38,9 +38,9 @@ pub struct WebUICommandBarBitmapIcon(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebUICommandBarClosedDisplayMode(pub i32);
 impl WebUICommandBarClosedDisplayMode {
-    pub const Default: WebUICommandBarClosedDisplayMode = WebUICommandBarClosedDisplayMode(0i32);
-    pub const Minimal: WebUICommandBarClosedDisplayMode = WebUICommandBarClosedDisplayMode(1i32);
-    pub const Compact: WebUICommandBarClosedDisplayMode = WebUICommandBarClosedDisplayMode(2i32);
+    pub const Default: Self = Self(0i32);
+    pub const Minimal: Self = Self(1i32);
+    pub const Compact: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WebUICommandBarConfirmationButton(pub *mut ::core::ffi::c_void);

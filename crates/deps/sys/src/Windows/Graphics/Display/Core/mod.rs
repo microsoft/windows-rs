@@ -4,20 +4,20 @@ extern "system" {}
 #[repr(transparent)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
-    pub const RgbLimited: HdmiDisplayColorSpace = HdmiDisplayColorSpace(0i32);
-    pub const RgbFull: HdmiDisplayColorSpace = HdmiDisplayColorSpace(1i32);
-    pub const BT2020: HdmiDisplayColorSpace = HdmiDisplayColorSpace(2i32);
-    pub const BT709: HdmiDisplayColorSpace = HdmiDisplayColorSpace(3i32);
+    pub const RgbLimited: Self = Self(0i32);
+    pub const RgbFull: Self = Self(1i32);
+    pub const BT2020: Self = Self(2i32);
+    pub const BT709: Self = Self(3i32);
 }
 #[repr(C)]
 pub struct HdmiDisplayHdr2086Metadata(i32);
 #[repr(transparent)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
-    pub const None: HdmiDisplayHdrOption = HdmiDisplayHdrOption(0i32);
-    pub const EotfSdr: HdmiDisplayHdrOption = HdmiDisplayHdrOption(1i32);
-    pub const Eotf2084: HdmiDisplayHdrOption = HdmiDisplayHdrOption(2i32);
-    pub const DolbyVisionLowLatency: HdmiDisplayHdrOption = HdmiDisplayHdrOption(3i32);
+    pub const None: Self = Self(0i32);
+    pub const EotfSdr: Self = Self(1i32);
+    pub const Eotf2084: Self = Self(2i32);
+    pub const DolbyVisionLowLatency: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct HdmiDisplayInformation(pub *mut ::core::ffi::c_void);
@@ -26,10 +26,10 @@ pub struct HdmiDisplayMode(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
-    pub const Rgb444: HdmiDisplayPixelEncoding = HdmiDisplayPixelEncoding(0i32);
-    pub const Ycc444: HdmiDisplayPixelEncoding = HdmiDisplayPixelEncoding(1i32);
-    pub const Ycc422: HdmiDisplayPixelEncoding = HdmiDisplayPixelEncoding(2i32);
-    pub const Ycc420: HdmiDisplayPixelEncoding = HdmiDisplayPixelEncoding(3i32);
+    pub const Rgb444: Self = Self(0i32);
+    pub const Ycc444: Self = Self(1i32);
+    pub const Ycc422: Self = Self(2i32);
+    pub const Ycc420: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct IHdmiDisplayInformation(pub *mut ::core::ffi::c_void);

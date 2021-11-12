@@ -72,20 +72,20 @@ pub struct UsbConfigurationDescriptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbControlRecipient(pub i32);
 impl UsbControlRecipient {
-    pub const Device: UsbControlRecipient = UsbControlRecipient(0i32);
-    pub const SpecifiedInterface: UsbControlRecipient = UsbControlRecipient(1i32);
-    pub const Endpoint: UsbControlRecipient = UsbControlRecipient(2i32);
-    pub const Other: UsbControlRecipient = UsbControlRecipient(3i32);
-    pub const DefaultInterface: UsbControlRecipient = UsbControlRecipient(4i32);
+    pub const Device: Self = Self(0i32);
+    pub const SpecifiedInterface: Self = Self(1i32);
+    pub const Endpoint: Self = Self(2i32);
+    pub const Other: Self = Self(3i32);
+    pub const DefaultInterface: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct UsbControlRequestType(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbControlTransferType(pub i32);
 impl UsbControlTransferType {
-    pub const Standard: UsbControlTransferType = UsbControlTransferType(0i32);
-    pub const Class: UsbControlTransferType = UsbControlTransferType(1i32);
-    pub const Vendor: UsbControlTransferType = UsbControlTransferType(2i32);
+    pub const Standard: Self = Self(0i32);
+    pub const Class: Self = Self(1i32);
+    pub const Vendor: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UsbDescriptor(pub *mut ::core::ffi::c_void);
@@ -102,10 +102,10 @@ pub struct UsbEndpointDescriptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbEndpointType(pub i32);
 impl UsbEndpointType {
-    pub const Control: UsbEndpointType = UsbEndpointType(0i32);
-    pub const Isochronous: UsbEndpointType = UsbEndpointType(1i32);
-    pub const Bulk: UsbEndpointType = UsbEndpointType(2i32);
-    pub const Interrupt: UsbEndpointType = UsbEndpointType(3i32);
+    pub const Control: Self = Self(0i32);
+    pub const Isochronous: Self = Self(1i32);
+    pub const Bulk: Self = Self(2i32);
+    pub const Interrupt: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct UsbInterface(pub *mut ::core::ffi::c_void);
@@ -126,24 +126,24 @@ pub struct UsbInterruptOutPipe(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbReadOptions(pub u32);
 impl UsbReadOptions {
-    pub const None: UsbReadOptions = UsbReadOptions(0u32);
-    pub const AutoClearStall: UsbReadOptions = UsbReadOptions(1u32);
-    pub const OverrideAutomaticBufferManagement: UsbReadOptions = UsbReadOptions(2u32);
-    pub const IgnoreShortPacket: UsbReadOptions = UsbReadOptions(4u32);
-    pub const AllowPartialReads: UsbReadOptions = UsbReadOptions(8u32);
+    pub const None: Self = Self(0u32);
+    pub const AutoClearStall: Self = Self(1u32);
+    pub const OverrideAutomaticBufferManagement: Self = Self(2u32);
+    pub const IgnoreShortPacket: Self = Self(4u32);
+    pub const AllowPartialReads: Self = Self(8u32);
 }
 #[repr(transparent)]
 pub struct UsbSetupPacket(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbTransferDirection(pub i32);
 impl UsbTransferDirection {
-    pub const Out: UsbTransferDirection = UsbTransferDirection(0i32);
-    pub const In: UsbTransferDirection = UsbTransferDirection(1i32);
+    pub const Out: Self = Self(0i32);
+    pub const In: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct UsbWriteOptions(pub u32);
 impl UsbWriteOptions {
-    pub const None: UsbWriteOptions = UsbWriteOptions(0u32);
-    pub const AutoClearStall: UsbWriteOptions = UsbWriteOptions(1u32);
-    pub const ShortPacketTerminate: UsbWriteOptions = UsbWriteOptions(2u32);
+    pub const None: Self = Self(0u32);
+    pub const AutoClearStall: Self = Self(1u32);
+    pub const ShortPacketTerminate: Self = Self(2u32);
 }

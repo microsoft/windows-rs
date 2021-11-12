@@ -16,17 +16,17 @@ pub struct MessageDialog(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MessageDialogOptions(pub u32);
 impl MessageDialogOptions {
-    pub const None: MessageDialogOptions = MessageDialogOptions(0u32);
-    pub const AcceptUserInputAfterDelay: MessageDialogOptions = MessageDialogOptions(1u32);
+    pub const None: Self = Self(0u32);
+    pub const AcceptUserInputAfterDelay: Self = Self(1u32);
 }
 #[repr(transparent)]
 pub struct Placement(pub i32);
 impl Placement {
-    pub const Default: Placement = Placement(0i32);
-    pub const Above: Placement = Placement(1i32);
-    pub const Below: Placement = Placement(2i32);
-    pub const Left: Placement = Placement(3i32);
-    pub const Right: Placement = Placement(4i32);
+    pub const Default: Self = Self(0i32);
+    pub const Above: Self = Self(1i32);
+    pub const Below: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
+    pub const Right: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct PopupMenu(pub *mut ::core::ffi::c_void);

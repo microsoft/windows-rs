@@ -28,8 +28,8 @@ pub struct PaginateEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PreviewPageCountType(pub i32);
 impl PreviewPageCountType {
-    pub const Final: PreviewPageCountType = PreviewPageCountType(0i32);
-    pub const Intermediate: PreviewPageCountType = PreviewPageCountType(1i32);
+    pub const Final: Self = Self(0i32);
+    pub const Intermediate: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct PrintDocument(pub *mut ::core::ffi::c_void);

@@ -42,12 +42,12 @@ pub struct MediaOverlayLayer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {
-    pub const Fast: MediaTrimmingPreference = MediaTrimmingPreference(0i32);
-    pub const Precise: MediaTrimmingPreference = MediaTrimmingPreference(1i32);
+    pub const Fast: Self = Self(0i32);
+    pub const Precise: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {
-    pub const NearestFrame: VideoFramePrecision = VideoFramePrecision(0i32);
-    pub const NearestKeyFrame: VideoFramePrecision = VideoFramePrecision(1i32);
+    pub const NearestFrame: Self = Self(0i32);
+    pub const NearestKeyFrame: Self = Self(1i32);
 }

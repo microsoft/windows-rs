@@ -4,9 +4,9 @@ extern "system" {}
 #[repr(transparent)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
-    pub const Premultiplied: BitmapAlphaMode = BitmapAlphaMode(0i32);
-    pub const Straight: BitmapAlphaMode = BitmapAlphaMode(1i32);
-    pub const Ignore: BitmapAlphaMode = BitmapAlphaMode(2i32);
+    pub const Premultiplied: Self = Self(0i32);
+    pub const Straight: Self = Self(1i32);
+    pub const Ignore: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct BitmapBounds(i32);
@@ -15,9 +15,9 @@ pub struct BitmapBuffer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
-    pub const Read: BitmapBufferAccessMode = BitmapBufferAccessMode(0i32);
-    pub const ReadWrite: BitmapBufferAccessMode = BitmapBufferAccessMode(1i32);
-    pub const Write: BitmapBufferAccessMode = BitmapBufferAccessMode(2i32);
+    pub const Read: Self = Self(0i32);
+    pub const ReadWrite: Self = Self(1i32);
+    pub const Write: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BitmapCodecInformation(pub *mut ::core::ffi::c_void);
@@ -28,32 +28,32 @@ pub struct BitmapEncoder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
-    pub const None: BitmapFlip = BitmapFlip(0i32);
-    pub const Horizontal: BitmapFlip = BitmapFlip(1i32);
-    pub const Vertical: BitmapFlip = BitmapFlip(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Horizontal: Self = Self(1i32);
+    pub const Vertical: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BitmapFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
-    pub const NearestNeighbor: BitmapInterpolationMode = BitmapInterpolationMode(0i32);
-    pub const Linear: BitmapInterpolationMode = BitmapInterpolationMode(1i32);
-    pub const Cubic: BitmapInterpolationMode = BitmapInterpolationMode(2i32);
-    pub const Fant: BitmapInterpolationMode = BitmapInterpolationMode(3i32);
+    pub const NearestNeighbor: Self = Self(0i32);
+    pub const Linear: Self = Self(1i32);
+    pub const Cubic: Self = Self(2i32);
+    pub const Fant: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
-    pub const Unknown: BitmapPixelFormat = BitmapPixelFormat(0i32);
-    pub const Rgba16: BitmapPixelFormat = BitmapPixelFormat(12i32);
-    pub const Rgba8: BitmapPixelFormat = BitmapPixelFormat(30i32);
-    pub const Gray16: BitmapPixelFormat = BitmapPixelFormat(57i32);
-    pub const Gray8: BitmapPixelFormat = BitmapPixelFormat(62i32);
-    pub const Bgra8: BitmapPixelFormat = BitmapPixelFormat(87i32);
-    pub const Nv12: BitmapPixelFormat = BitmapPixelFormat(103i32);
-    pub const P010: BitmapPixelFormat = BitmapPixelFormat(104i32);
-    pub const Yuy2: BitmapPixelFormat = BitmapPixelFormat(107i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Rgba16: Self = Self(12i32);
+    pub const Rgba8: Self = Self(30i32);
+    pub const Gray16: Self = Self(57i32);
+    pub const Gray8: Self = Self(62i32);
+    pub const Bgra8: Self = Self(87i32);
+    pub const Nv12: Self = Self(103i32);
+    pub const P010: Self = Self(104i32);
+    pub const Yuy2: Self = Self(107i32);
 }
 #[repr(C)]
 pub struct BitmapPlaneDescription(i32);
@@ -66,10 +66,10 @@ pub struct BitmapPropertySet(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
-    pub const None: BitmapRotation = BitmapRotation(0i32);
-    pub const Clockwise90Degrees: BitmapRotation = BitmapRotation(1i32);
-    pub const Clockwise180Degrees: BitmapRotation = BitmapRotation(2i32);
-    pub const Clockwise270Degrees: BitmapRotation = BitmapRotation(3i32);
+    pub const None: Self = Self(0i32);
+    pub const Clockwise90Degrees: Self = Self(1i32);
+    pub const Clockwise180Degrees: Self = Self(2i32);
+    pub const Clockwise270Degrees: Self = Self(3i32);
 }
 #[repr(C)]
 pub struct BitmapSize(i32);
@@ -80,14 +80,14 @@ pub struct BitmapTypedValue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
-    pub const DoNotColorManage: ColorManagementMode = ColorManagementMode(0i32);
-    pub const ColorManageToSRgb: ColorManagementMode = ColorManagementMode(1i32);
+    pub const DoNotColorManage: Self = Self(0i32);
+    pub const ColorManageToSRgb: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
-    pub const IgnoreExifOrientation: ExifOrientationMode = ExifOrientationMode(0i32);
-    pub const RespectExifOrientation: ExifOrientationMode = ExifOrientationMode(1i32);
+    pub const IgnoreExifOrientation: Self = Self(0i32);
+    pub const RespectExifOrientation: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct IBitmapBuffer(pub *mut ::core::ffi::c_void);
@@ -134,35 +134,35 @@ pub struct ImageStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
-    pub const Default: JpegSubsamplingMode = JpegSubsamplingMode(0i32);
-    pub const Y4Cb2Cr0: JpegSubsamplingMode = JpegSubsamplingMode(1i32);
-    pub const Y4Cb2Cr2: JpegSubsamplingMode = JpegSubsamplingMode(2i32);
-    pub const Y4Cb4Cr4: JpegSubsamplingMode = JpegSubsamplingMode(3i32);
+    pub const Default: Self = Self(0i32);
+    pub const Y4Cb2Cr0: Self = Self(1i32);
+    pub const Y4Cb2Cr2: Self = Self(2i32);
+    pub const Y4Cb4Cr4: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PixelDataProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
-    pub const Automatic: PngFilterMode = PngFilterMode(0i32);
-    pub const None: PngFilterMode = PngFilterMode(1i32);
-    pub const Sub: PngFilterMode = PngFilterMode(2i32);
-    pub const Up: PngFilterMode = PngFilterMode(3i32);
-    pub const Average: PngFilterMode = PngFilterMode(4i32);
-    pub const Paeth: PngFilterMode = PngFilterMode(5i32);
-    pub const Adaptive: PngFilterMode = PngFilterMode(6i32);
+    pub const Automatic: Self = Self(0i32);
+    pub const None: Self = Self(1i32);
+    pub const Sub: Self = Self(2i32);
+    pub const Up: Self = Self(3i32);
+    pub const Average: Self = Self(4i32);
+    pub const Paeth: Self = Self(5i32);
+    pub const Adaptive: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct SoftwareBitmap(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {
-    pub const Automatic: TiffCompressionMode = TiffCompressionMode(0i32);
-    pub const None: TiffCompressionMode = TiffCompressionMode(1i32);
-    pub const Ccitt3: TiffCompressionMode = TiffCompressionMode(2i32);
-    pub const Ccitt4: TiffCompressionMode = TiffCompressionMode(3i32);
-    pub const Lzw: TiffCompressionMode = TiffCompressionMode(4i32);
-    pub const Rle: TiffCompressionMode = TiffCompressionMode(5i32);
-    pub const Zip: TiffCompressionMode = TiffCompressionMode(6i32);
-    pub const LzwhDifferencing: TiffCompressionMode = TiffCompressionMode(7i32);
+    pub const Automatic: Self = Self(0i32);
+    pub const None: Self = Self(1i32);
+    pub const Ccitt3: Self = Self(2i32);
+    pub const Ccitt4: Self = Self(3i32);
+    pub const Lzw: Self = Self(4i32);
+    pub const Rle: Self = Self(5i32);
+    pub const Zip: Self = Self(6i32);
+    pub const LzwhDifferencing: Self = Self(7i32);
 }

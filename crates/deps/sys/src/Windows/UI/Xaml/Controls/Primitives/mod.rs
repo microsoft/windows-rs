@@ -4,10 +4,10 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
-    pub const Left: AnimationDirection = AnimationDirection(0i32);
-    pub const Top: AnimationDirection = AnimationDirection(1i32);
-    pub const Right: AnimationDirection = AnimationDirection(2i32);
-    pub const Bottom: AnimationDirection = AnimationDirection(3i32);
+    pub const Left: Self = Self(0i32);
+    pub const Top: Self = Self(1i32);
+    pub const Right: Self = Self(2i32);
+    pub const Bottom: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -38,8 +38,8 @@ pub struct CommandBarTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ComponentResourceLocation(pub i32);
 impl ComponentResourceLocation {
-    pub const Application: ComponentResourceLocation = ComponentResourceLocation(0i32);
-    pub const Nested: ComponentResourceLocation = ComponentResourceLocation(1i32);
+    pub const Application: Self = Self(0i32);
+    pub const Nested: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct DragCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -56,10 +56,10 @@ pub struct DragStartedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EdgeTransitionLocation(pub i32);
 impl EdgeTransitionLocation {
-    pub const Left: EdgeTransitionLocation = EdgeTransitionLocation(0i32);
-    pub const Top: EdgeTransitionLocation = EdgeTransitionLocation(1i32);
-    pub const Right: EdgeTransitionLocation = EdgeTransitionLocation(2i32);
-    pub const Bottom: EdgeTransitionLocation = EdgeTransitionLocation(3i32);
+    pub const Left: Self = Self(0i32);
+    pub const Top: Self = Self(1i32);
+    pub const Right: Self = Self(2i32);
+    pub const Bottom: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct FlyoutBase(pub *mut ::core::ffi::c_void);
@@ -68,36 +68,36 @@ pub struct FlyoutBaseClosingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FlyoutPlacementMode(pub i32);
 impl FlyoutPlacementMode {
-    pub const Top: FlyoutPlacementMode = FlyoutPlacementMode(0i32);
-    pub const Bottom: FlyoutPlacementMode = FlyoutPlacementMode(1i32);
-    pub const Left: FlyoutPlacementMode = FlyoutPlacementMode(2i32);
-    pub const Right: FlyoutPlacementMode = FlyoutPlacementMode(3i32);
-    pub const Full: FlyoutPlacementMode = FlyoutPlacementMode(4i32);
-    pub const TopEdgeAlignedLeft: FlyoutPlacementMode = FlyoutPlacementMode(5i32);
-    pub const TopEdgeAlignedRight: FlyoutPlacementMode = FlyoutPlacementMode(6i32);
-    pub const BottomEdgeAlignedLeft: FlyoutPlacementMode = FlyoutPlacementMode(7i32);
-    pub const BottomEdgeAlignedRight: FlyoutPlacementMode = FlyoutPlacementMode(8i32);
-    pub const LeftEdgeAlignedTop: FlyoutPlacementMode = FlyoutPlacementMode(9i32);
-    pub const LeftEdgeAlignedBottom: FlyoutPlacementMode = FlyoutPlacementMode(10i32);
-    pub const RightEdgeAlignedTop: FlyoutPlacementMode = FlyoutPlacementMode(11i32);
-    pub const RightEdgeAlignedBottom: FlyoutPlacementMode = FlyoutPlacementMode(12i32);
-    pub const Auto: FlyoutPlacementMode = FlyoutPlacementMode(13i32);
+    pub const Top: Self = Self(0i32);
+    pub const Bottom: Self = Self(1i32);
+    pub const Left: Self = Self(2i32);
+    pub const Right: Self = Self(3i32);
+    pub const Full: Self = Self(4i32);
+    pub const TopEdgeAlignedLeft: Self = Self(5i32);
+    pub const TopEdgeAlignedRight: Self = Self(6i32);
+    pub const BottomEdgeAlignedLeft: Self = Self(7i32);
+    pub const BottomEdgeAlignedRight: Self = Self(8i32);
+    pub const LeftEdgeAlignedTop: Self = Self(9i32);
+    pub const LeftEdgeAlignedBottom: Self = Self(10i32);
+    pub const RightEdgeAlignedTop: Self = Self(11i32);
+    pub const RightEdgeAlignedBottom: Self = Self(12i32);
+    pub const Auto: Self = Self(13i32);
 }
 #[repr(transparent)]
 pub struct FlyoutShowMode(pub i32);
 impl FlyoutShowMode {
-    pub const Auto: FlyoutShowMode = FlyoutShowMode(0i32);
-    pub const Standard: FlyoutShowMode = FlyoutShowMode(1i32);
-    pub const Transient: FlyoutShowMode = FlyoutShowMode(2i32);
-    pub const TransientWithDismissOnPointerMoveAway: FlyoutShowMode = FlyoutShowMode(3i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Standard: Self = Self(1i32);
+    pub const Transient: Self = Self(2i32);
+    pub const TransientWithDismissOnPointerMoveAway: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct FlyoutShowOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GeneratorDirection(pub i32);
 impl GeneratorDirection {
-    pub const Forward: GeneratorDirection = GeneratorDirection(0i32);
-    pub const Backward: GeneratorDirection = GeneratorDirection(1i32);
+    pub const Forward: Self = Self(0i32);
+    pub const Backward: Self = Self(1i32);
 }
 #[repr(C)]
 pub struct GeneratorPosition(i32);
@@ -110,8 +110,8 @@ pub struct GridViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GroupHeaderPlacement(pub i32);
 impl GroupHeaderPlacement {
-    pub const Top: GroupHeaderPlacement = GroupHeaderPlacement(0i32);
-    pub const Left: GroupHeaderPlacement = GroupHeaderPlacement(1i32);
+    pub const Top: Self = Self(0i32);
+    pub const Left: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct IAppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -390,14 +390,14 @@ pub struct ListViewItemPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ListViewItemPresenterCheckMode(pub i32);
 impl ListViewItemPresenterCheckMode {
-    pub const Inline: ListViewItemPresenterCheckMode = ListViewItemPresenterCheckMode(0i32);
-    pub const Overlay: ListViewItemPresenterCheckMode = ListViewItemPresenterCheckMode(1i32);
+    pub const Inline: Self = Self(0i32);
+    pub const Overlay: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ListViewItemPresenterSelectionIndicatorMode(pub i32);
 impl ListViewItemPresenterSelectionIndicatorMode {
-    pub const Inline: ListViewItemPresenterSelectionIndicatorMode = ListViewItemPresenterSelectionIndicatorMode(0i32);
-    pub const Overlay: ListViewItemPresenterSelectionIndicatorMode = ListViewItemPresenterSelectionIndicatorMode(1i32);
+    pub const Inline: Self = Self(0i32);
+    pub const Overlay: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ListViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -426,30 +426,30 @@ pub struct PivotPanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlacementMode(pub i32);
 impl PlacementMode {
-    pub const Bottom: PlacementMode = PlacementMode(2i32);
-    pub const Left: PlacementMode = PlacementMode(9i32);
-    pub const Mouse: PlacementMode = PlacementMode(7i32);
-    pub const Right: PlacementMode = PlacementMode(4i32);
-    pub const Top: PlacementMode = PlacementMode(10i32);
+    pub const Bottom: Self = Self(2i32);
+    pub const Left: Self = Self(9i32);
+    pub const Mouse: Self = Self(7i32);
+    pub const Right: Self = Self(4i32);
+    pub const Top: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct Popup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PopupPlacementMode(pub i32);
 impl PopupPlacementMode {
-    pub const Auto: PopupPlacementMode = PopupPlacementMode(0i32);
-    pub const Top: PopupPlacementMode = PopupPlacementMode(1i32);
-    pub const Bottom: PopupPlacementMode = PopupPlacementMode(2i32);
-    pub const Left: PopupPlacementMode = PopupPlacementMode(3i32);
-    pub const Right: PopupPlacementMode = PopupPlacementMode(4i32);
-    pub const TopEdgeAlignedLeft: PopupPlacementMode = PopupPlacementMode(5i32);
-    pub const TopEdgeAlignedRight: PopupPlacementMode = PopupPlacementMode(6i32);
-    pub const BottomEdgeAlignedLeft: PopupPlacementMode = PopupPlacementMode(7i32);
-    pub const BottomEdgeAlignedRight: PopupPlacementMode = PopupPlacementMode(8i32);
-    pub const LeftEdgeAlignedTop: PopupPlacementMode = PopupPlacementMode(9i32);
-    pub const LeftEdgeAlignedBottom: PopupPlacementMode = PopupPlacementMode(10i32);
-    pub const RightEdgeAlignedTop: PopupPlacementMode = PopupPlacementMode(11i32);
-    pub const RightEdgeAlignedBottom: PopupPlacementMode = PopupPlacementMode(12i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Top: Self = Self(1i32);
+    pub const Bottom: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
+    pub const Right: Self = Self(4i32);
+    pub const TopEdgeAlignedLeft: Self = Self(5i32);
+    pub const TopEdgeAlignedRight: Self = Self(6i32);
+    pub const BottomEdgeAlignedLeft: Self = Self(7i32);
+    pub const BottomEdgeAlignedRight: Self = Self(8i32);
+    pub const LeftEdgeAlignedTop: Self = Self(9i32);
+    pub const LeftEdgeAlignedBottom: Self = Self(10i32);
+    pub const RightEdgeAlignedTop: Self = Self(11i32);
+    pub const RightEdgeAlignedBottom: Self = Self(12i32);
 }
 #[repr(transparent)]
 pub struct ProgressBarTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -472,22 +472,22 @@ pub struct ScrollEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ScrollEventType(pub i32);
 impl ScrollEventType {
-    pub const SmallDecrement: ScrollEventType = ScrollEventType(0i32);
-    pub const SmallIncrement: ScrollEventType = ScrollEventType(1i32);
-    pub const LargeDecrement: ScrollEventType = ScrollEventType(2i32);
-    pub const LargeIncrement: ScrollEventType = ScrollEventType(3i32);
-    pub const ThumbPosition: ScrollEventType = ScrollEventType(4i32);
-    pub const ThumbTrack: ScrollEventType = ScrollEventType(5i32);
-    pub const First: ScrollEventType = ScrollEventType(6i32);
-    pub const Last: ScrollEventType = ScrollEventType(7i32);
-    pub const EndScroll: ScrollEventType = ScrollEventType(8i32);
+    pub const SmallDecrement: Self = Self(0i32);
+    pub const SmallIncrement: Self = Self(1i32);
+    pub const LargeDecrement: Self = Self(2i32);
+    pub const LargeIncrement: Self = Self(3i32);
+    pub const ThumbPosition: Self = Self(4i32);
+    pub const ThumbTrack: Self = Self(5i32);
+    pub const First: Self = Self(6i32);
+    pub const Last: Self = Self(7i32);
+    pub const EndScroll: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct ScrollingIndicatorMode(pub i32);
 impl ScrollingIndicatorMode {
-    pub const None: ScrollingIndicatorMode = ScrollingIndicatorMode(0i32);
-    pub const TouchIndicator: ScrollingIndicatorMode = ScrollingIndicatorMode(1i32);
-    pub const MouseIndicator: ScrollingIndicatorMode = ScrollingIndicatorMode(2i32);
+    pub const None: Self = Self(0i32);
+    pub const TouchIndicator: Self = Self(1i32);
+    pub const MouseIndicator: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct Selector(pub *mut ::core::ffi::c_void);
@@ -498,15 +498,15 @@ pub struct SettingsFlyoutTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SliderSnapsTo(pub i32);
 impl SliderSnapsTo {
-    pub const StepValues: SliderSnapsTo = SliderSnapsTo(0i32);
-    pub const Ticks: SliderSnapsTo = SliderSnapsTo(1i32);
+    pub const StepValues: Self = Self(0i32);
+    pub const Ticks: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SnapPointsAlignment(pub i32);
 impl SnapPointsAlignment {
-    pub const Near: SnapPointsAlignment = SnapPointsAlignment(0i32);
-    pub const Center: SnapPointsAlignment = SnapPointsAlignment(1i32);
-    pub const Far: SnapPointsAlignment = SnapPointsAlignment(2i32);
+    pub const Near: Self = Self(0i32);
+    pub const Center: Self = Self(1i32);
+    pub const Far: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SplitViewTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -517,11 +517,11 @@ pub struct TickBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TickPlacement(pub i32);
 impl TickPlacement {
-    pub const None: TickPlacement = TickPlacement(0i32);
-    pub const TopLeft: TickPlacement = TickPlacement(1i32);
-    pub const BottomRight: TickPlacement = TickPlacement(2i32);
-    pub const Outside: TickPlacement = TickPlacement(3i32);
-    pub const Inline: TickPlacement = TickPlacement(4i32);
+    pub const None: Self = Self(0i32);
+    pub const TopLeft: Self = Self(1i32);
+    pub const BottomRight: Self = Self(2i32);
+    pub const Outside: Self = Self(3i32);
+    pub const Inline: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct ToggleButton(pub *mut ::core::ffi::c_void);

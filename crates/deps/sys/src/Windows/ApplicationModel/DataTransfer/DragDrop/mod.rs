@@ -6,11 +6,11 @@ extern "system" {}
 #[repr(transparent)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {
-    pub const None: DragDropModifiers = DragDropModifiers(0u32);
-    pub const Shift: DragDropModifiers = DragDropModifiers(1u32);
-    pub const Control: DragDropModifiers = DragDropModifiers(2u32);
-    pub const Alt: DragDropModifiers = DragDropModifiers(4u32);
-    pub const LeftButton: DragDropModifiers = DragDropModifiers(8u32);
-    pub const MiddleButton: DragDropModifiers = DragDropModifiers(16u32);
-    pub const RightButton: DragDropModifiers = DragDropModifiers(32u32);
+    pub const None: Self = Self(0u32);
+    pub const Shift: Self = Self(1u32);
+    pub const Control: Self = Self(2u32);
+    pub const Alt: Self = Self(4u32);
+    pub const LeftButton: Self = Self(8u32);
+    pub const MiddleButton: Self = Self(16u32);
+    pub const RightButton: Self = Self(32u32);
 }

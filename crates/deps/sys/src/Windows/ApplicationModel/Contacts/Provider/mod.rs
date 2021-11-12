@@ -4,9 +4,9 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AddContactResult(pub i32);
 impl AddContactResult {
-    pub const Added: AddContactResult = AddContactResult(0i32);
-    pub const AlreadyAdded: AddContactResult = AddContactResult(1i32);
-    pub const Unavailable: AddContactResult = AddContactResult(2i32);
+    pub const Added: Self = Self(0i32);
+    pub const AlreadyAdded: Self = Self(1i32);
+    pub const Unavailable: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactPickerUI(pub *mut ::core::ffi::c_void);

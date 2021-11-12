@@ -22,17 +22,17 @@ pub struct ImageScannerAutoConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
 impl ImageScannerAutoCroppingMode {
-    pub const Disabled: ImageScannerAutoCroppingMode = ImageScannerAutoCroppingMode(0i32);
-    pub const SingleRegion: ImageScannerAutoCroppingMode = ImageScannerAutoCroppingMode(1i32);
-    pub const MultipleRegion: ImageScannerAutoCroppingMode = ImageScannerAutoCroppingMode(2i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const SingleRegion: Self = Self(1i32);
+    pub const MultipleRegion: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ImageScannerColorMode(pub i32);
 impl ImageScannerColorMode {
-    pub const Color: ImageScannerColorMode = ImageScannerColorMode(0i32);
-    pub const Grayscale: ImageScannerColorMode = ImageScannerColorMode(1i32);
-    pub const Monochrome: ImageScannerColorMode = ImageScannerColorMode(2i32);
-    pub const AutoColor: ImageScannerColorMode = ImageScannerColorMode(3i32);
+    pub const Color: Self = Self(0i32);
+    pub const Grayscale: Self = Self(1i32);
+    pub const Monochrome: Self = Self(2i32);
+    pub const AutoColor: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ImageScannerFeederConfiguration(pub *mut ::core::ffi::c_void);
@@ -41,13 +41,13 @@ pub struct ImageScannerFlatbedConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageScannerFormat(pub i32);
 impl ImageScannerFormat {
-    pub const Jpeg: ImageScannerFormat = ImageScannerFormat(0i32);
-    pub const Png: ImageScannerFormat = ImageScannerFormat(1i32);
-    pub const DeviceIndependentBitmap: ImageScannerFormat = ImageScannerFormat(2i32);
-    pub const Tiff: ImageScannerFormat = ImageScannerFormat(3i32);
-    pub const Xps: ImageScannerFormat = ImageScannerFormat(4i32);
-    pub const OpenXps: ImageScannerFormat = ImageScannerFormat(5i32);
-    pub const Pdf: ImageScannerFormat = ImageScannerFormat(6i32);
+    pub const Jpeg: Self = Self(0i32);
+    pub const Png: Self = Self(1i32);
+    pub const DeviceIndependentBitmap: Self = Self(2i32);
+    pub const Tiff: Self = Self(3i32);
+    pub const Xps: Self = Self(4i32);
+    pub const OpenXps: Self = Self(5i32);
+    pub const Pdf: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct ImageScannerPreviewResult(pub *mut ::core::ffi::c_void);
@@ -58,10 +58,10 @@ pub struct ImageScannerScanResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {
-    pub const Default: ImageScannerScanSource = ImageScannerScanSource(0i32);
-    pub const Flatbed: ImageScannerScanSource = ImageScannerScanSource(1i32);
-    pub const Feeder: ImageScannerScanSource = ImageScannerScanSource(2i32);
-    pub const AutoConfigured: ImageScannerScanSource = ImageScannerScanSource(3i32);
+    pub const Default: Self = Self(0i32);
+    pub const Flatbed: Self = Self(1i32);
+    pub const Feeder: Self = Self(2i32);
+    pub const AutoConfigured: Self = Self(3i32);
 }
 #[repr(C)]
 pub struct ScannerDeviceContract(i32);

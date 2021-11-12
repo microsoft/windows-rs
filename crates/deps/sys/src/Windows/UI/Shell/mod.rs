@@ -22,7 +22,7 @@ pub struct ITaskbarManagerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
-    pub const WebProtection: SecurityAppKind = SecurityAppKind(0i32);
+    pub const WebProtection: Self = Self(0i32);
 }
 #[repr(transparent)]
 pub struct SecurityAppManager(pub *mut ::core::ffi::c_void);
@@ -31,23 +31,23 @@ pub struct SecurityAppManagerContract(i32);
 #[repr(transparent)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
-    pub const Disabled: SecurityAppState = SecurityAppState(0i32);
-    pub const Enabled: SecurityAppState = SecurityAppState(1i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
-    pub const Undetermined: SecurityAppSubstatus = SecurityAppSubstatus(0i32);
-    pub const NoActionNeeded: SecurityAppSubstatus = SecurityAppSubstatus(1i32);
-    pub const ActionRecommended: SecurityAppSubstatus = SecurityAppSubstatus(2i32);
-    pub const ActionNeeded: SecurityAppSubstatus = SecurityAppSubstatus(3i32);
+    pub const Undetermined: Self = Self(0i32);
+    pub const NoActionNeeded: Self = Self(1i32);
+    pub const ActionRecommended: Self = Self(2i32);
+    pub const ActionNeeded: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {
-    pub const None: ShareWindowCommand = ShareWindowCommand(0i32);
-    pub const StartSharing: ShareWindowCommand = ShareWindowCommand(1i32);
-    pub const StopSharing: ShareWindowCommand = ShareWindowCommand(2i32);
+    pub const None: Self = Self(0i32);
+    pub const StartSharing: Self = Self(1i32);
+    pub const StopSharing: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ShareWindowCommandEventArgs(pub *mut ::core::ffi::c_void);

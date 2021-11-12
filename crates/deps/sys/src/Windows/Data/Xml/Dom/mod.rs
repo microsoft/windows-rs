@@ -54,19 +54,19 @@ pub struct IXmlText(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NodeType(pub i32);
 impl NodeType {
-    pub const Invalid: NodeType = NodeType(0i32);
-    pub const ElementNode: NodeType = NodeType(1i32);
-    pub const AttributeNode: NodeType = NodeType(2i32);
-    pub const TextNode: NodeType = NodeType(3i32);
-    pub const DataSectionNode: NodeType = NodeType(4i32);
-    pub const EntityReferenceNode: NodeType = NodeType(5i32);
-    pub const EntityNode: NodeType = NodeType(6i32);
-    pub const ProcessingInstructionNode: NodeType = NodeType(7i32);
-    pub const CommentNode: NodeType = NodeType(8i32);
-    pub const DocumentNode: NodeType = NodeType(9i32);
-    pub const DocumentTypeNode: NodeType = NodeType(10i32);
-    pub const DocumentFragmentNode: NodeType = NodeType(11i32);
-    pub const NotationNode: NodeType = NodeType(12i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const ElementNode: Self = Self(1i32);
+    pub const AttributeNode: Self = Self(2i32);
+    pub const TextNode: Self = Self(3i32);
+    pub const DataSectionNode: Self = Self(4i32);
+    pub const EntityReferenceNode: Self = Self(5i32);
+    pub const EntityNode: Self = Self(6i32);
+    pub const ProcessingInstructionNode: Self = Self(7i32);
+    pub const CommentNode: Self = Self(8i32);
+    pub const DocumentNode: Self = Self(9i32);
+    pub const DocumentTypeNode: Self = Self(10i32);
+    pub const DocumentFragmentNode: Self = Self(11i32);
+    pub const NotationNode: Self = Self(12i32);
 }
 #[repr(transparent)]
 pub struct XmlAttribute(pub *mut ::core::ffi::c_void);

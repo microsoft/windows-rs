@@ -6,10 +6,10 @@ pub struct ActivitySensorTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
-    pub const Unspecified: AlarmAccessStatus = AlarmAccessStatus(0i32);
-    pub const AllowedWithWakeupCapability: AlarmAccessStatus = AlarmAccessStatus(1i32);
-    pub const AllowedWithoutWakeupCapability: AlarmAccessStatus = AlarmAccessStatus(2i32);
-    pub const Denied: AlarmAccessStatus = AlarmAccessStatus(3i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const AllowedWithWakeupCapability: Self = Self(1i32);
+    pub const AllowedWithoutWakeupCapability: Self = Self(2i32);
+    pub const Denied: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AppBroadcastTrigger(pub *mut ::core::ffi::c_void);
@@ -22,30 +22,30 @@ pub struct ApplicationTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
-    pub const Allowed: ApplicationTriggerResult = ApplicationTriggerResult(0i32);
-    pub const CurrentlyRunning: ApplicationTriggerResult = ApplicationTriggerResult(1i32);
-    pub const DisabledByPolicy: ApplicationTriggerResult = ApplicationTriggerResult(2i32);
-    pub const UnknownError: ApplicationTriggerResult = ApplicationTriggerResult(3i32);
+    pub const Allowed: Self = Self(0i32);
+    pub const CurrentlyRunning: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
+    pub const UnknownError: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AppointmentStoreNotificationTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
-    pub const AlwaysAllowed: BackgroundAccessRequestKind = BackgroundAccessRequestKind(0i32);
-    pub const AllowedSubjectToSystemPolicy: BackgroundAccessRequestKind = BackgroundAccessRequestKind(1i32);
+    pub const AlwaysAllowed: Self = Self(0i32);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
-    pub const Unspecified: BackgroundAccessStatus = BackgroundAccessStatus(0i32);
-    pub const AllowedWithAlwaysOnRealTimeConnectivity: BackgroundAccessStatus = BackgroundAccessStatus(1i32);
-    pub const AllowedMayUseActiveRealTimeConnectivity: BackgroundAccessStatus = BackgroundAccessStatus(2i32);
-    pub const Denied: BackgroundAccessStatus = BackgroundAccessStatus(3i32);
-    pub const AlwaysAllowed: BackgroundAccessStatus = BackgroundAccessStatus(4i32);
-    pub const AllowedSubjectToSystemPolicy: BackgroundAccessStatus = BackgroundAccessStatus(5i32);
-    pub const DeniedBySystemPolicy: BackgroundAccessStatus = BackgroundAccessStatus(6i32);
-    pub const DeniedByUser: BackgroundAccessStatus = BackgroundAccessStatus(7i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const AllowedWithAlwaysOnRealTimeConnectivity: Self = Self(1i32);
+    pub const AllowedMayUseActiveRealTimeConnectivity: Self = Self(2i32);
+    pub const Denied: Self = Self(3i32);
+    pub const AlwaysAllowed: Self = Self(4i32);
+    pub const AllowedSubjectToSystemPolicy: Self = Self(5i32);
+    pub const DeniedBySystemPolicy: Self = Self(6i32);
+    pub const DeniedByUser: Self = Self(7i32);
 }
 #[repr(C)]
 pub struct BackgroundAlarmApplicationContract(i32);
@@ -56,18 +56,18 @@ pub struct BackgroundTaskCanceledEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
-    pub const Abort: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(0i32);
-    pub const Terminating: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(1i32);
-    pub const LoggingOff: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(2i32);
-    pub const ServicingUpdate: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(3i32);
-    pub const IdleTask: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(4i32);
-    pub const Uninstall: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(5i32);
-    pub const ConditionLoss: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(6i32);
-    pub const SystemPolicy: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(7i32);
-    pub const QuietHoursEntered: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(8i32);
-    pub const ExecutionTimeExceeded: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(9i32);
-    pub const ResourceRevocation: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(10i32);
-    pub const EnergySaver: BackgroundTaskCancellationReason = BackgroundTaskCancellationReason(11i32);
+    pub const Abort: Self = Self(0i32);
+    pub const Terminating: Self = Self(1i32);
+    pub const LoggingOff: Self = Self(2i32);
+    pub const ServicingUpdate: Self = Self(3i32);
+    pub const IdleTask: Self = Self(4i32);
+    pub const Uninstall: Self = Self(5i32);
+    pub const ConditionLoss: Self = Self(6i32);
+    pub const SystemPolicy: Self = Self(7i32);
+    pub const QuietHoursEntered: Self = Self(8i32);
+    pub const ExecutionTimeExceeded: Self = Self(9i32);
+    pub const ResourceRevocation: Self = Self(10i32);
+    pub const EnergySaver: Self = Self(11i32);
 }
 #[repr(transparent)]
 pub struct BackgroundTaskCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -86,16 +86,16 @@ pub struct BackgroundTaskRegistrationGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
-    pub const All: BackgroundTaskThrottleCounter = BackgroundTaskThrottleCounter(0i32);
-    pub const Cpu: BackgroundTaskThrottleCounter = BackgroundTaskThrottleCounter(1i32);
-    pub const Network: BackgroundTaskThrottleCounter = BackgroundTaskThrottleCounter(2i32);
+    pub const All: Self = Self(0i32);
+    pub const Cpu: Self = Self(1i32);
+    pub const Network: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
-    pub const Low: BackgroundWorkCostValue = BackgroundWorkCostValue(0i32);
-    pub const Medium: BackgroundWorkCostValue = BackgroundWorkCostValue(1i32);
-    pub const High: BackgroundWorkCostValue = BackgroundWorkCostValue(2i32);
+    pub const Low: Self = Self(0i32);
+    pub const Medium: Self = Self(1i32);
+    pub const High: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherTrigger(pub *mut ::core::ffi::c_void);
@@ -122,8 +122,8 @@ pub struct CustomSystemEventTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
-    pub const Once: CustomSystemEventTriggerRecurrence = CustomSystemEventTriggerRecurrence(0i32);
-    pub const Always: CustomSystemEventTriggerRecurrence = CustomSystemEventTriggerRecurrence(1i32);
+    pub const Once: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct DeviceConnectionChangeTrigger(pub *mut ::core::ffi::c_void);
@@ -134,10 +134,10 @@ pub struct DeviceServicingTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
-    pub const Allowed: DeviceTriggerResult = DeviceTriggerResult(0i32);
-    pub const DeniedByUser: DeviceTriggerResult = DeviceTriggerResult(1i32);
-    pub const DeniedBySystem: DeviceTriggerResult = DeviceTriggerResult(2i32);
-    pub const LowBattery: DeviceTriggerResult = DeviceTriggerResult(3i32);
+    pub const Allowed: Self = Self(0i32);
+    pub const DeniedByUser: Self = Self(1i32);
+    pub const DeniedBySystem: Self = Self(2i32);
+    pub const LowBattery: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct DeviceUseTrigger(pub *mut ::core::ffi::c_void);
@@ -350,7 +350,7 @@ pub struct LocationTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
-    pub const Geofence: LocationTriggerType = LocationTriggerType(0i32);
+    pub const Geofence: Self = Self(0i32);
 }
 #[repr(transparent)]
 pub struct MaintenanceTrigger(pub *mut ::core::ffi::c_void);
@@ -359,10 +359,10 @@ pub struct MediaProcessingTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
-    pub const Allowed: MediaProcessingTriggerResult = MediaProcessingTriggerResult(0i32);
-    pub const CurrentlyRunning: MediaProcessingTriggerResult = MediaProcessingTriggerResult(1i32);
-    pub const DisabledByPolicy: MediaProcessingTriggerResult = MediaProcessingTriggerResult(2i32);
-    pub const UnknownError: MediaProcessingTriggerResult = MediaProcessingTriggerResult(3i32);
+    pub const Allowed: Self = Self(0i32);
+    pub const CurrentlyRunning: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
+    pub const UnknownError: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(pub *mut ::core::ffi::c_void);
@@ -409,37 +409,37 @@ pub struct SystemCondition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
-    pub const Invalid: SystemConditionType = SystemConditionType(0i32);
-    pub const UserPresent: SystemConditionType = SystemConditionType(1i32);
-    pub const UserNotPresent: SystemConditionType = SystemConditionType(2i32);
-    pub const InternetAvailable: SystemConditionType = SystemConditionType(3i32);
-    pub const InternetNotAvailable: SystemConditionType = SystemConditionType(4i32);
-    pub const SessionConnected: SystemConditionType = SystemConditionType(5i32);
-    pub const SessionDisconnected: SystemConditionType = SystemConditionType(6i32);
-    pub const FreeNetworkAvailable: SystemConditionType = SystemConditionType(7i32);
-    pub const BackgroundWorkCostNotHigh: SystemConditionType = SystemConditionType(8i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const UserPresent: Self = Self(1i32);
+    pub const UserNotPresent: Self = Self(2i32);
+    pub const InternetAvailable: Self = Self(3i32);
+    pub const InternetNotAvailable: Self = Self(4i32);
+    pub const SessionConnected: Self = Self(5i32);
+    pub const SessionDisconnected: Self = Self(6i32);
+    pub const FreeNetworkAvailable: Self = Self(7i32);
+    pub const BackgroundWorkCostNotHigh: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct SystemTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {
-    pub const Invalid: SystemTriggerType = SystemTriggerType(0i32);
-    pub const SmsReceived: SystemTriggerType = SystemTriggerType(1i32);
-    pub const UserPresent: SystemTriggerType = SystemTriggerType(2i32);
-    pub const UserAway: SystemTriggerType = SystemTriggerType(3i32);
-    pub const NetworkStateChange: SystemTriggerType = SystemTriggerType(4i32);
-    pub const ControlChannelReset: SystemTriggerType = SystemTriggerType(5i32);
-    pub const InternetAvailable: SystemTriggerType = SystemTriggerType(6i32);
-    pub const SessionConnected: SystemTriggerType = SystemTriggerType(7i32);
-    pub const ServicingComplete: SystemTriggerType = SystemTriggerType(8i32);
-    pub const LockScreenApplicationAdded: SystemTriggerType = SystemTriggerType(9i32);
-    pub const LockScreenApplicationRemoved: SystemTriggerType = SystemTriggerType(10i32);
-    pub const TimeZoneChange: SystemTriggerType = SystemTriggerType(11i32);
-    pub const OnlineIdConnectedStateChange: SystemTriggerType = SystemTriggerType(12i32);
-    pub const BackgroundWorkCostChange: SystemTriggerType = SystemTriggerType(13i32);
-    pub const PowerStateChange: SystemTriggerType = SystemTriggerType(14i32);
-    pub const DefaultSignInAccountChange: SystemTriggerType = SystemTriggerType(15i32);
+    pub const Invalid: Self = Self(0i32);
+    pub const SmsReceived: Self = Self(1i32);
+    pub const UserPresent: Self = Self(2i32);
+    pub const UserAway: Self = Self(3i32);
+    pub const NetworkStateChange: Self = Self(4i32);
+    pub const ControlChannelReset: Self = Self(5i32);
+    pub const InternetAvailable: Self = Self(6i32);
+    pub const SessionConnected: Self = Self(7i32);
+    pub const ServicingComplete: Self = Self(8i32);
+    pub const LockScreenApplicationAdded: Self = Self(9i32);
+    pub const LockScreenApplicationRemoved: Self = Self(10i32);
+    pub const TimeZoneChange: Self = Self(11i32);
+    pub const OnlineIdConnectedStateChange: Self = Self(12i32);
+    pub const BackgroundWorkCostChange: Self = Self(13i32);
+    pub const PowerStateChange: Self = Self(14i32);
+    pub const DefaultSignInAccountChange: Self = Self(15i32);
 }
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTrigger(pub *mut ::core::ffi::c_void);

@@ -4,10 +4,10 @@ extern "system" {}
 #[repr(transparent)]
 pub struct CollectionChange(pub i32);
 impl CollectionChange {
-    pub const Reset: CollectionChange = CollectionChange(0i32);
-    pub const ItemInserted: CollectionChange = CollectionChange(1i32);
-    pub const ItemRemoved: CollectionChange = CollectionChange(2i32);
-    pub const ItemChanged: CollectionChange = CollectionChange(3i32);
+    pub const Reset: Self = Self(0i32);
+    pub const ItemInserted: Self = Self(1i32);
+    pub const ItemRemoved: Self = Self(2i32);
+    pub const ItemChanged: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct IIterable<T>(pub *mut ::core::ffi::c_void);

@@ -30,25 +30,25 @@ pub struct MusicProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
-    pub const Unspecified: PhotoOrientation = PhotoOrientation(0i32);
-    pub const Normal: PhotoOrientation = PhotoOrientation(1i32);
-    pub const FlipHorizontal: PhotoOrientation = PhotoOrientation(2i32);
-    pub const Rotate180: PhotoOrientation = PhotoOrientation(3i32);
-    pub const FlipVertical: PhotoOrientation = PhotoOrientation(4i32);
-    pub const Transpose: PhotoOrientation = PhotoOrientation(5i32);
-    pub const Rotate270: PhotoOrientation = PhotoOrientation(6i32);
-    pub const Transverse: PhotoOrientation = PhotoOrientation(7i32);
-    pub const Rotate90: PhotoOrientation = PhotoOrientation(8i32);
+    pub const Unspecified: Self = Self(0i32);
+    pub const Normal: Self = Self(1i32);
+    pub const FlipHorizontal: Self = Self(2i32);
+    pub const Rotate180: Self = Self(3i32);
+    pub const FlipVertical: Self = Self(4i32);
+    pub const Transpose: Self = Self(5i32);
+    pub const Rotate270: Self = Self(6i32);
+    pub const Transverse: Self = Self(7i32);
+    pub const Rotate90: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
-    pub const None: PropertyPrefetchOptions = PropertyPrefetchOptions(0u32);
-    pub const MusicProperties: PropertyPrefetchOptions = PropertyPrefetchOptions(1u32);
-    pub const VideoProperties: PropertyPrefetchOptions = PropertyPrefetchOptions(2u32);
-    pub const ImageProperties: PropertyPrefetchOptions = PropertyPrefetchOptions(4u32);
-    pub const DocumentProperties: PropertyPrefetchOptions = PropertyPrefetchOptions(8u32);
-    pub const BasicProperties: PropertyPrefetchOptions = PropertyPrefetchOptions(16u32);
+    pub const None: Self = Self(0u32);
+    pub const MusicProperties: Self = Self(1u32);
+    pub const VideoProperties: Self = Self(2u32);
+    pub const ImageProperties: Self = Self(4u32);
+    pub const DocumentProperties: Self = Self(8u32);
+    pub const BasicProperties: Self = Self(16u32);
 }
 #[repr(transparent)]
 pub struct StorageItemContentProperties(pub *mut ::core::ffi::c_void);
@@ -57,34 +57,34 @@ pub struct StorageItemThumbnail(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
-    pub const PicturesView: ThumbnailMode = ThumbnailMode(0i32);
-    pub const VideosView: ThumbnailMode = ThumbnailMode(1i32);
-    pub const MusicView: ThumbnailMode = ThumbnailMode(2i32);
-    pub const DocumentsView: ThumbnailMode = ThumbnailMode(3i32);
-    pub const ListView: ThumbnailMode = ThumbnailMode(4i32);
-    pub const SingleItem: ThumbnailMode = ThumbnailMode(5i32);
+    pub const PicturesView: Self = Self(0i32);
+    pub const VideosView: Self = Self(1i32);
+    pub const MusicView: Self = Self(2i32);
+    pub const DocumentsView: Self = Self(3i32);
+    pub const ListView: Self = Self(4i32);
+    pub const SingleItem: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
-    pub const None: ThumbnailOptions = ThumbnailOptions(0u32);
-    pub const ReturnOnlyIfCached: ThumbnailOptions = ThumbnailOptions(1u32);
-    pub const ResizeThumbnail: ThumbnailOptions = ThumbnailOptions(2u32);
-    pub const UseCurrentScale: ThumbnailOptions = ThumbnailOptions(4u32);
+    pub const None: Self = Self(0u32);
+    pub const ReturnOnlyIfCached: Self = Self(1u32);
+    pub const ResizeThumbnail: Self = Self(2u32);
+    pub const UseCurrentScale: Self = Self(4u32);
 }
 #[repr(transparent)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
-    pub const Image: ThumbnailType = ThumbnailType(0i32);
-    pub const Icon: ThumbnailType = ThumbnailType(1i32);
+    pub const Image: Self = Self(0i32);
+    pub const Icon: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {
-    pub const Normal: VideoOrientation = VideoOrientation(0i32);
-    pub const Rotate90: VideoOrientation = VideoOrientation(90i32);
-    pub const Rotate180: VideoOrientation = VideoOrientation(180i32);
-    pub const Rotate270: VideoOrientation = VideoOrientation(270i32);
+    pub const Normal: Self = Self(0i32);
+    pub const Rotate90: Self = Self(90i32);
+    pub const Rotate180: Self = Self(180i32);
+    pub const Rotate270: Self = Self(270i32);
 }
 #[repr(transparent)]
 pub struct VideoProperties(pub *mut ::core::ffi::c_void);

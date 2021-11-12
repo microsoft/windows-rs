@@ -4,9 +4,9 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AccountPictureKind(pub i32);
 impl AccountPictureKind {
-    pub const SmallImage: AccountPictureKind = AccountPictureKind(0i32);
-    pub const LargeImage: AccountPictureKind = AccountPictureKind(1i32);
-    pub const Video: AccountPictureKind = AccountPictureKind(2i32);
+    pub const SmallImage: Self = Self(0i32);
+    pub const LargeImage: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AdvertisingManagerForUser(pub *mut ::core::ffi::c_void);
@@ -57,19 +57,19 @@ pub struct IUserProfilePersonalizationSettingsStatics(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct SetAccountPictureResult(pub i32);
 impl SetAccountPictureResult {
-    pub const Success: SetAccountPictureResult = SetAccountPictureResult(0i32);
-    pub const ChangeDisabled: SetAccountPictureResult = SetAccountPictureResult(1i32);
-    pub const LargeOrDynamicError: SetAccountPictureResult = SetAccountPictureResult(2i32);
-    pub const VideoFrameSizeError: SetAccountPictureResult = SetAccountPictureResult(3i32);
-    pub const FileSizeError: SetAccountPictureResult = SetAccountPictureResult(4i32);
-    pub const Failure: SetAccountPictureResult = SetAccountPictureResult(5i32);
+    pub const Success: Self = Self(0i32);
+    pub const ChangeDisabled: Self = Self(1i32);
+    pub const LargeOrDynamicError: Self = Self(2i32);
+    pub const VideoFrameSizeError: Self = Self(3i32);
+    pub const FileSizeError: Self = Self(4i32);
+    pub const Failure: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {
-    pub const Success: SetImageFeedResult = SetImageFeedResult(0i32);
-    pub const ChangeDisabled: SetImageFeedResult = SetImageFeedResult(1i32);
-    pub const UserCanceled: SetImageFeedResult = SetImageFeedResult(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const ChangeDisabled: Self = Self(1i32);
+    pub const UserCanceled: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct UserProfileContract(i32);

@@ -24,14 +24,14 @@ pub struct LocalLocationFinderResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {
-    pub const Success: LocalLocationFinderStatus = LocalLocationFinderStatus(0i32);
-    pub const UnknownError: LocalLocationFinderStatus = LocalLocationFinderStatus(1i32);
-    pub const InvalidCredentials: LocalLocationFinderStatus = LocalLocationFinderStatus(2i32);
-    pub const InvalidCategory: LocalLocationFinderStatus = LocalLocationFinderStatus(3i32);
-    pub const InvalidSearchTerm: LocalLocationFinderStatus = LocalLocationFinderStatus(4i32);
-    pub const InvalidSearchArea: LocalLocationFinderStatus = LocalLocationFinderStatus(5i32);
-    pub const NetworkFailure: LocalLocationFinderStatus = LocalLocationFinderStatus(6i32);
-    pub const NotSupported: LocalLocationFinderStatus = LocalLocationFinderStatus(7i32);
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const InvalidCredentials: Self = Self(2i32);
+    pub const InvalidCategory: Self = Self(3i32);
+    pub const InvalidSearchTerm: Self = Self(4i32);
+    pub const InvalidSearchArea: Self = Self(5i32);
+    pub const NetworkFailure: Self = Self(6i32);
+    pub const NotSupported: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct LocalLocationHoursOfOperationItem(pub *mut ::core::ffi::c_void);

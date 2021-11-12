@@ -22,8 +22,8 @@ pub struct PdfPageRenderOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {
-    pub const Normal: PdfPageRotation = PdfPageRotation(0i32);
-    pub const Rotate90: PdfPageRotation = PdfPageRotation(1i32);
-    pub const Rotate180: PdfPageRotation = PdfPageRotation(2i32);
-    pub const Rotate270: PdfPageRotation = PdfPageRotation(3i32);
+    pub const Normal: Self = Self(0i32);
+    pub const Rotate90: Self = Self(1i32);
+    pub const Rotate180: Self = Self(2i32);
+    pub const Rotate270: Self = Self(3i32);
 }

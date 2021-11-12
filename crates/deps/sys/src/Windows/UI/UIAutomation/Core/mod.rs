@@ -10,11 +10,11 @@ pub struct AutomationRemoteOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutomationRemoteOperationStatus(pub i32);
 impl AutomationRemoteOperationStatus {
-    pub const Success: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(0i32);
-    pub const MalformedBytecode: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(1i32);
-    pub const InstructionLimitExceeded: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(2i32);
-    pub const UnhandledException: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(3i32);
-    pub const ExecutionFailure: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(4i32);
+    pub const Success: Self = Self(0i32);
+    pub const MalformedBytecode: Self = Self(1i32);
+    pub const InstructionLimitExceeded: Self = Self(2i32);
+    pub const UnhandledException: Self = Self(3i32);
+    pub const ExecutionFailure: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct CoreAutomationRemoteOperation(pub *mut ::core::ffi::c_void);

@@ -12,9 +12,9 @@ pub struct BindingExpressionBase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BindingMode(pub i32);
 impl BindingMode {
-    pub const OneWay: BindingMode = BindingMode(1i32);
-    pub const OneTime: BindingMode = BindingMode(2i32);
-    pub const TwoWay: BindingMode = BindingMode(3i32);
+    pub const OneWay: Self = Self(1i32);
+    pub const OneTime: Self = Self(2i32);
+    pub const TwoWay: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct BindingOperations(pub *mut ::core::ffi::c_void);
@@ -99,15 +99,15 @@ pub struct RelativeSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RelativeSourceMode(pub i32);
 impl RelativeSourceMode {
-    pub const None: RelativeSourceMode = RelativeSourceMode(0i32);
-    pub const TemplatedParent: RelativeSourceMode = RelativeSourceMode(1i32);
-    pub const Self_: RelativeSourceMode = RelativeSourceMode(2i32);
+    pub const None: Self = Self(0i32);
+    pub const TemplatedParent: Self = Self(1i32);
+    pub const Self_: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UpdateSourceTrigger(pub i32);
 impl UpdateSourceTrigger {
-    pub const Default: UpdateSourceTrigger = UpdateSourceTrigger(0i32);
-    pub const PropertyChanged: UpdateSourceTrigger = UpdateSourceTrigger(1i32);
-    pub const Explicit: UpdateSourceTrigger = UpdateSourceTrigger(2i32);
-    pub const LostFocus: UpdateSourceTrigger = UpdateSourceTrigger(3i32);
+    pub const Default: Self = Self(0i32);
+    pub const PropertyChanged: Self = Self(1i32);
+    pub const Explicit: Self = Self(2i32);
+    pub const LostFocus: Self = Self(3i32);
 }

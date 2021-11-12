@@ -10,9 +10,9 @@ pub struct ContactChangeRecord(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
-    pub const Created: ContactChangeType = ContactChangeType(0i32);
-    pub const Modified: ContactChangeType = ContactChangeType(1i32);
-    pub const Deleted: ContactChangeType = ContactChangeType(2i32);
+    pub const Created: Self = Self(0i32);
+    pub const Modified: Self = Self(1i32);
+    pub const Deleted: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactInformation(pub *mut ::core::ffi::c_void);
@@ -23,23 +23,23 @@ pub struct ContactQueryResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactQueryResultOrdering(pub i32);
 impl ContactQueryResultOrdering {
-    pub const SystemDefault: ContactQueryResultOrdering = ContactQueryResultOrdering(0i32);
-    pub const GivenNameFamilyName: ContactQueryResultOrdering = ContactQueryResultOrdering(1i32);
-    pub const FamilyNameGivenName: ContactQueryResultOrdering = ContactQueryResultOrdering(2i32);
+    pub const SystemDefault: Self = Self(0i32);
+    pub const GivenNameFamilyName: Self = Self(1i32);
+    pub const FamilyNameGivenName: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactStoreApplicationAccessMode(pub i32);
 impl ContactStoreApplicationAccessMode {
-    pub const LimitedReadOnly: ContactStoreApplicationAccessMode = ContactStoreApplicationAccessMode(0i32);
-    pub const ReadOnly: ContactStoreApplicationAccessMode = ContactStoreApplicationAccessMode(1i32);
+    pub const LimitedReadOnly: Self = Self(0i32);
+    pub const ReadOnly: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ContactStoreSystemAccessMode(pub i32);
 impl ContactStoreSystemAccessMode {
-    pub const ReadOnly: ContactStoreSystemAccessMode = ContactStoreSystemAccessMode(0i32);
-    pub const ReadWrite: ContactStoreSystemAccessMode = ContactStoreSystemAccessMode(1i32);
+    pub const ReadOnly: Self = Self(0i32);
+    pub const ReadWrite: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct IContactAddress(pub *mut ::core::ffi::c_void);
@@ -72,6 +72,6 @@ pub struct StoredContact(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VCardFormat(pub i32);
 impl VCardFormat {
-    pub const Version2_1: VCardFormat = VCardFormat(0i32);
-    pub const Version3: VCardFormat = VCardFormat(1i32);
+    pub const Version2_1: Self = Self(0i32);
+    pub const Version3: Self = Self(1i32);
 }

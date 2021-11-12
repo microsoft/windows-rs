@@ -14,7 +14,7 @@ pub struct PlatformTelemetryRegistrationSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);
 impl PlatformTelemetryRegistrationStatus {
-    pub const Success: PlatformTelemetryRegistrationStatus = PlatformTelemetryRegistrationStatus(0i32);
-    pub const SettingsOutOfRange: PlatformTelemetryRegistrationStatus = PlatformTelemetryRegistrationStatus(1i32);
-    pub const UnknownFailure: PlatformTelemetryRegistrationStatus = PlatformTelemetryRegistrationStatus(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const SettingsOutOfRange: Self = Self(1i32);
+    pub const UnknownFailure: Self = Self(2i32);
 }

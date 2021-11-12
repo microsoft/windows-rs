@@ -44,22 +44,22 @@ pub struct LampArrayCustomEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
-    pub const ClearState: LampArrayEffectCompletionBehavior = LampArrayEffectCompletionBehavior(0i32);
-    pub const KeepState: LampArrayEffectCompletionBehavior = LampArrayEffectCompletionBehavior(1i32);
+    pub const ClearState: Self = Self(0i32);
+    pub const KeepState: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct LampArrayEffectPlaylist(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
-    pub const Sequential: LampArrayEffectStartMode = LampArrayEffectStartMode(0i32);
-    pub const Simultaneous: LampArrayEffectStartMode = LampArrayEffectStartMode(1i32);
+    pub const Sequential: Self = Self(0i32);
+    pub const Simultaneous: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {
-    pub const Occurrences: LampArrayRepetitionMode = LampArrayRepetitionMode(0i32);
-    pub const Forever: LampArrayRepetitionMode = LampArrayRepetitionMode(1i32);
+    pub const Occurrences: Self = Self(0i32);
+    pub const Forever: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct LampArraySolidEffect(pub *mut ::core::ffi::c_void);

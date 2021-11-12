@@ -30,43 +30,43 @@ pub struct ApplicationDataContainerSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
-    pub const Always: ApplicationDataCreateDisposition = ApplicationDataCreateDisposition(0i32);
-    pub const Existing: ApplicationDataCreateDisposition = ApplicationDataCreateDisposition(1i32);
+    pub const Always: Self = Self(0i32);
+    pub const Existing: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
-    pub const Local: ApplicationDataLocality = ApplicationDataLocality(0i32);
-    pub const Roaming: ApplicationDataLocality = ApplicationDataLocality(1i32);
-    pub const Temporary: ApplicationDataLocality = ApplicationDataLocality(2i32);
-    pub const LocalCache: ApplicationDataLocality = ApplicationDataLocality(3i32);
-    pub const SharedLocal: ApplicationDataLocality = ApplicationDataLocality(4i32);
+    pub const Local: Self = Self(0i32);
+    pub const Roaming: Self = Self(1i32);
+    pub const Temporary: Self = Self(2i32);
+    pub const LocalCache: Self = Self(3i32);
+    pub const SharedLocal: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct ApplicationDataSetVersionHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
-    pub const GenerateUniqueName: CreationCollisionOption = CreationCollisionOption(0i32);
-    pub const ReplaceExisting: CreationCollisionOption = CreationCollisionOption(1i32);
-    pub const FailIfExists: CreationCollisionOption = CreationCollisionOption(2i32);
-    pub const OpenIfExists: CreationCollisionOption = CreationCollisionOption(3i32);
+    pub const GenerateUniqueName: Self = Self(0i32);
+    pub const ReplaceExisting: Self = Self(1i32);
+    pub const FailIfExists: Self = Self(2i32);
+    pub const OpenIfExists: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
-    pub const Read: FileAccessMode = FileAccessMode(0i32);
-    pub const ReadWrite: FileAccessMode = FileAccessMode(1i32);
+    pub const Read: Self = Self(0i32);
+    pub const ReadWrite: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
-    pub const Normal: FileAttributes = FileAttributes(0u32);
-    pub const ReadOnly: FileAttributes = FileAttributes(1u32);
-    pub const Directory: FileAttributes = FileAttributes(16u32);
-    pub const Archive: FileAttributes = FileAttributes(32u32);
-    pub const Temporary: FileAttributes = FileAttributes(256u32);
-    pub const LocallyIncomplete: FileAttributes = FileAttributes(512u32);
+    pub const Normal: Self = Self(0u32);
+    pub const ReadOnly: Self = Self(1u32);
+    pub const Directory: Self = Self(16u32);
+    pub const Archive: Self = Self(32u32);
+    pub const Temporary: Self = Self(256u32);
+    pub const LocallyIncomplete: Self = Self(512u32);
 }
 #[repr(transparent)]
 pub struct IAppDataPaths(pub *mut ::core::ffi::c_void);
@@ -203,48 +203,48 @@ pub struct IUserDataPathsStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
-    pub const AppCaptures: KnownFolderId = KnownFolderId(0i32);
-    pub const CameraRoll: KnownFolderId = KnownFolderId(1i32);
-    pub const DocumentsLibrary: KnownFolderId = KnownFolderId(2i32);
-    pub const HomeGroup: KnownFolderId = KnownFolderId(3i32);
-    pub const MediaServerDevices: KnownFolderId = KnownFolderId(4i32);
-    pub const MusicLibrary: KnownFolderId = KnownFolderId(5i32);
-    pub const Objects3D: KnownFolderId = KnownFolderId(6i32);
-    pub const PicturesLibrary: KnownFolderId = KnownFolderId(7i32);
-    pub const Playlists: KnownFolderId = KnownFolderId(8i32);
-    pub const RecordedCalls: KnownFolderId = KnownFolderId(9i32);
-    pub const RemovableDevices: KnownFolderId = KnownFolderId(10i32);
-    pub const SavedPictures: KnownFolderId = KnownFolderId(11i32);
-    pub const Screenshots: KnownFolderId = KnownFolderId(12i32);
-    pub const VideosLibrary: KnownFolderId = KnownFolderId(13i32);
-    pub const AllAppMods: KnownFolderId = KnownFolderId(14i32);
-    pub const CurrentAppMods: KnownFolderId = KnownFolderId(15i32);
-    pub const DownloadsFolder: KnownFolderId = KnownFolderId(16i32);
+    pub const AppCaptures: Self = Self(0i32);
+    pub const CameraRoll: Self = Self(1i32);
+    pub const DocumentsLibrary: Self = Self(2i32);
+    pub const HomeGroup: Self = Self(3i32);
+    pub const MediaServerDevices: Self = Self(4i32);
+    pub const MusicLibrary: Self = Self(5i32);
+    pub const Objects3D: Self = Self(6i32);
+    pub const PicturesLibrary: Self = Self(7i32);
+    pub const Playlists: Self = Self(8i32);
+    pub const RecordedCalls: Self = Self(9i32);
+    pub const RemovableDevices: Self = Self(10i32);
+    pub const SavedPictures: Self = Self(11i32);
+    pub const Screenshots: Self = Self(12i32);
+    pub const VideosLibrary: Self = Self(13i32);
+    pub const AllAppMods: Self = Self(14i32);
+    pub const CurrentAppMods: Self = Self(15i32);
+    pub const DownloadsFolder: Self = Self(16i32);
 }
 #[repr(transparent)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
-    pub const DeniedBySystem: KnownFoldersAccessStatus = KnownFoldersAccessStatus(0i32);
-    pub const NotDeclaredByApp: KnownFoldersAccessStatus = KnownFoldersAccessStatus(1i32);
-    pub const DeniedByUser: KnownFoldersAccessStatus = KnownFoldersAccessStatus(2i32);
-    pub const UserPromptRequired: KnownFoldersAccessStatus = KnownFoldersAccessStatus(3i32);
-    pub const Allowed: KnownFoldersAccessStatus = KnownFoldersAccessStatus(4i32);
-    pub const AllowedPerAppFolder: KnownFoldersAccessStatus = KnownFoldersAccessStatus(5i32);
+    pub const DeniedBySystem: Self = Self(0i32);
+    pub const NotDeclaredByApp: Self = Self(1i32);
+    pub const DeniedByUser: Self = Self(2i32);
+    pub const UserPromptRequired: Self = Self(3i32);
+    pub const Allowed: Self = Self(4i32);
+    pub const AllowedPerAppFolder: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
-    pub const Music: KnownLibraryId = KnownLibraryId(0i32);
-    pub const Pictures: KnownLibraryId = KnownLibraryId(1i32);
-    pub const Videos: KnownLibraryId = KnownLibraryId(2i32);
-    pub const Documents: KnownLibraryId = KnownLibraryId(3i32);
+    pub const Music: Self = Self(0i32);
+    pub const Pictures: Self = Self(1i32);
+    pub const Videos: Self = Self(2i32);
+    pub const Documents: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
-    pub const GenerateUniqueName: NameCollisionOption = NameCollisionOption(0i32);
-    pub const ReplaceExisting: NameCollisionOption = NameCollisionOption(1i32);
-    pub const FailIfExists: NameCollisionOption = NameCollisionOption(2i32);
+    pub const GenerateUniqueName: Self = Self(0i32);
+    pub const ReplaceExisting: Self = Self(1i32);
+    pub const FailIfExists: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SetVersionDeferral(pub *mut ::core::ffi::c_void);
@@ -253,8 +253,8 @@ pub struct SetVersionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
-    pub const Default: StorageDeleteOption = StorageDeleteOption(0i32);
-    pub const PermanentDelete: StorageDeleteOption = StorageDeleteOption(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const PermanentDelete: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct StorageFile(pub *mut ::core::ffi::c_void);
@@ -263,9 +263,9 @@ pub struct StorageFolder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
-    pub const None: StorageItemTypes = StorageItemTypes(0u32);
-    pub const File: StorageItemTypes = StorageItemTypes(1u32);
-    pub const Folder: StorageItemTypes = StorageItemTypes(2u32);
+    pub const None: Self = Self(0u32);
+    pub const File: Self = Self(1u32);
+    pub const Folder: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct StorageLibrary(pub *mut ::core::ffi::c_void);
@@ -280,25 +280,25 @@ pub struct StorageLibraryChangeTrackerOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
-    pub const Created: StorageLibraryChangeType = StorageLibraryChangeType(0i32);
-    pub const Deleted: StorageLibraryChangeType = StorageLibraryChangeType(1i32);
-    pub const MovedOrRenamed: StorageLibraryChangeType = StorageLibraryChangeType(2i32);
-    pub const ContentsChanged: StorageLibraryChangeType = StorageLibraryChangeType(3i32);
-    pub const MovedOutOfLibrary: StorageLibraryChangeType = StorageLibraryChangeType(4i32);
-    pub const MovedIntoLibrary: StorageLibraryChangeType = StorageLibraryChangeType(5i32);
-    pub const ContentsReplaced: StorageLibraryChangeType = StorageLibraryChangeType(6i32);
-    pub const IndexingStatusChanged: StorageLibraryChangeType = StorageLibraryChangeType(7i32);
-    pub const EncryptionChanged: StorageLibraryChangeType = StorageLibraryChangeType(8i32);
-    pub const ChangeTrackingLost: StorageLibraryChangeType = StorageLibraryChangeType(9i32);
+    pub const Created: Self = Self(0i32);
+    pub const Deleted: Self = Self(1i32);
+    pub const MovedOrRenamed: Self = Self(2i32);
+    pub const ContentsChanged: Self = Self(3i32);
+    pub const MovedOutOfLibrary: Self = Self(4i32);
+    pub const MovedIntoLibrary: Self = Self(5i32);
+    pub const ContentsReplaced: Self = Self(6i32);
+    pub const IndexingStatusChanged: Self = Self(7i32);
+    pub const EncryptionChanged: Self = Self(8i32);
+    pub const ChangeTrackingLost: Self = Self(9i32);
 }
 #[repr(transparent)]
 pub struct StorageLibraryLastChangeId(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
-    pub const None: StorageOpenOptions = StorageOpenOptions(0u32);
-    pub const AllowOnlyReaders: StorageOpenOptions = StorageOpenOptions(1u32);
-    pub const AllowReadersAndWriters: StorageOpenOptions = StorageOpenOptions(2u32);
+    pub const None: Self = Self(0u32);
+    pub const AllowOnlyReaders: Self = Self(1u32);
+    pub const AllowReadersAndWriters: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct StorageProvider(pub *mut ::core::ffi::c_void);
@@ -311,9 +311,9 @@ pub struct StreamedFileDataRequestedHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
-    pub const Failed: StreamedFileFailureMode = StreamedFileFailureMode(0i32);
-    pub const CurrentlyUnavailable: StreamedFileFailureMode = StreamedFileFailureMode(1i32);
-    pub const Incomplete: StreamedFileFailureMode = StreamedFileFailureMode(2i32);
+    pub const Failed: Self = Self(0i32);
+    pub const CurrentlyUnavailable: Self = Self(1i32);
+    pub const Incomplete: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SystemAudioProperties(pub *mut ::core::ffi::c_void);

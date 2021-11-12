@@ -46,20 +46,20 @@ pub struct PlayToConnection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayToConnectionError(pub i32);
 impl PlayToConnectionError {
-    pub const None: PlayToConnectionError = PlayToConnectionError(0i32);
-    pub const DeviceNotResponding: PlayToConnectionError = PlayToConnectionError(1i32);
-    pub const DeviceError: PlayToConnectionError = PlayToConnectionError(2i32);
-    pub const DeviceLocked: PlayToConnectionError = PlayToConnectionError(3i32);
-    pub const ProtectedPlaybackFailed: PlayToConnectionError = PlayToConnectionError(4i32);
+    pub const None: Self = Self(0i32);
+    pub const DeviceNotResponding: Self = Self(1i32);
+    pub const DeviceError: Self = Self(2i32);
+    pub const DeviceLocked: Self = Self(3i32);
+    pub const ProtectedPlaybackFailed: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct PlayToConnectionErrorEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayToConnectionState(pub i32);
 impl PlayToConnectionState {
-    pub const Disconnected: PlayToConnectionState = PlayToConnectionState(0i32);
-    pub const Connected: PlayToConnectionState = PlayToConnectionState(1i32);
-    pub const Rendering: PlayToConnectionState = PlayToConnectionState(2i32);
+    pub const Disconnected: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+    pub const Rendering: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PlayToConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_void);

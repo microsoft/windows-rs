@@ -18,9 +18,9 @@ pub struct IndexedResourceQualifier(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
-    pub const String: IndexedResourceType = IndexedResourceType(0i32);
-    pub const Path: IndexedResourceType = IndexedResourceType(1i32);
-    pub const EmbeddedData: IndexedResourceType = IndexedResourceType(2i32);
+    pub const String: Self = Self(0i32);
+    pub const Path: Self = Self(1i32);
+    pub const EmbeddedData: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ResourceIndexer(pub *mut ::core::ffi::c_void);

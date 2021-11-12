@@ -10,8 +10,8 @@ pub struct AppRecordingResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {
-    pub const None: AppRecordingSaveScreenshotOption = AppRecordingSaveScreenshotOption(0i32);
-    pub const HdrContentVisible: AppRecordingSaveScreenshotOption = AppRecordingSaveScreenshotOption(1i32);
+    pub const None: Self = Self(0i32);
+    pub const HdrContentVisible: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotResult(pub *mut ::core::ffi::c_void);

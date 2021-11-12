@@ -14,9 +14,9 @@ pub struct ContactAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
-    pub const Home: ContactAddressKind = ContactAddressKind(0i32);
-    pub const Work: ContactAddressKind = ContactAddressKind(1i32);
-    pub const Other: ContactAddressKind = ContactAddressKind(2i32);
+    pub const Home: Self = Self(0i32);
+    pub const Work: Self = Self(1i32);
+    pub const Other: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactAnnotation(pub *mut ::core::ffi::c_void);
@@ -25,51 +25,51 @@ pub struct ContactAnnotationList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
-    pub const None: ContactAnnotationOperations = ContactAnnotationOperations(0u32);
-    pub const ContactProfile: ContactAnnotationOperations = ContactAnnotationOperations(1u32);
-    pub const Message: ContactAnnotationOperations = ContactAnnotationOperations(2u32);
-    pub const AudioCall: ContactAnnotationOperations = ContactAnnotationOperations(4u32);
-    pub const VideoCall: ContactAnnotationOperations = ContactAnnotationOperations(8u32);
-    pub const SocialFeeds: ContactAnnotationOperations = ContactAnnotationOperations(16u32);
-    pub const Share: ContactAnnotationOperations = ContactAnnotationOperations(32u32);
+    pub const None: Self = Self(0u32);
+    pub const ContactProfile: Self = Self(1u32);
+    pub const Message: Self = Self(2u32);
+    pub const AudioCall: Self = Self(4u32);
+    pub const VideoCall: Self = Self(8u32);
+    pub const SocialFeeds: Self = Self(16u32);
+    pub const Share: Self = Self(32u32);
 }
 #[repr(transparent)]
 pub struct ContactAnnotationStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
-    pub const AppAnnotationsReadWrite: ContactAnnotationStoreAccessType = ContactAnnotationStoreAccessType(0i32);
-    pub const AllAnnotationsReadWrite: ContactAnnotationStoreAccessType = ContactAnnotationStoreAccessType(1i32);
+    pub const AppAnnotationsReadWrite: Self = Self(0i32);
+    pub const AllAnnotationsReadWrite: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ContactBatch(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
-    pub const Success: ContactBatchStatus = ContactBatchStatus(0i32);
-    pub const ServerSearchSyncManagerError: ContactBatchStatus = ContactBatchStatus(1i32);
-    pub const ServerSearchUnknownError: ContactBatchStatus = ContactBatchStatus(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const ServerSearchSyncManagerError: Self = Self(1i32);
+    pub const ServerSearchUnknownError: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactCardDelayedDataLoader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
-    pub const Default: ContactCardHeaderKind = ContactCardHeaderKind(0i32);
-    pub const Basic: ContactCardHeaderKind = ContactCardHeaderKind(1i32);
-    pub const Enterprise: ContactCardHeaderKind = ContactCardHeaderKind(2i32);
+    pub const Default: Self = Self(0i32);
+    pub const Basic: Self = Self(1i32);
+    pub const Enterprise: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactCardOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
-    pub const Default: ContactCardTabKind = ContactCardTabKind(0i32);
-    pub const Email: ContactCardTabKind = ContactCardTabKind(1i32);
-    pub const Messaging: ContactCardTabKind = ContactCardTabKind(2i32);
-    pub const Phone: ContactCardTabKind = ContactCardTabKind(3i32);
-    pub const Video: ContactCardTabKind = ContactCardTabKind(4i32);
-    pub const OrganizationalHierarchy: ContactCardTabKind = ContactCardTabKind(5i32);
+    pub const Default: Self = Self(0i32);
+    pub const Email: Self = Self(1i32);
+    pub const Messaging: Self = Self(2i32);
+    pub const Phone: Self = Self(3i32);
+    pub const Video: Self = Self(4i32);
+    pub const OrganizationalHierarchy: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct ContactChange(pub *mut ::core::ffi::c_void);
@@ -80,10 +80,10 @@ pub struct ContactChangeTracker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
-    pub const Created: ContactChangeType = ContactChangeType(0i32);
-    pub const Modified: ContactChangeType = ContactChangeType(1i32);
-    pub const Deleted: ContactChangeType = ContactChangeType(2i32);
-    pub const ChangeTrackingLost: ContactChangeType = ContactChangeType(3i32);
+    pub const Created: Self = Self(0i32);
+    pub const Modified: Self = Self(1i32);
+    pub const Deleted: Self = Self(2i32);
+    pub const ChangeTrackingLost: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ContactChangedDeferral(pub *mut ::core::ffi::c_void);
@@ -96,47 +96,47 @@ pub struct ContactDate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
-    pub const Birthday: ContactDateKind = ContactDateKind(0i32);
-    pub const Anniversary: ContactDateKind = ContactDateKind(1i32);
-    pub const Other: ContactDateKind = ContactDateKind(2i32);
+    pub const Birthday: Self = Self(0i32);
+    pub const Anniversary: Self = Self(1i32);
+    pub const Other: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactEmail(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
-    pub const Personal: ContactEmailKind = ContactEmailKind(0i32);
-    pub const Work: ContactEmailKind = ContactEmailKind(1i32);
-    pub const Other: ContactEmailKind = ContactEmailKind(2i32);
+    pub const Personal: Self = Self(0i32);
+    pub const Work: Self = Self(1i32);
+    pub const Other: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactField(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
-    pub const None: ContactFieldCategory = ContactFieldCategory(0i32);
-    pub const Home: ContactFieldCategory = ContactFieldCategory(1i32);
-    pub const Work: ContactFieldCategory = ContactFieldCategory(2i32);
-    pub const Mobile: ContactFieldCategory = ContactFieldCategory(3i32);
-    pub const Other: ContactFieldCategory = ContactFieldCategory(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Home: Self = Self(1i32);
+    pub const Work: Self = Self(2i32);
+    pub const Mobile: Self = Self(3i32);
+    pub const Other: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct ContactFieldFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
-    pub const Email: ContactFieldType = ContactFieldType(0i32);
-    pub const PhoneNumber: ContactFieldType = ContactFieldType(1i32);
-    pub const Location: ContactFieldType = ContactFieldType(2i32);
-    pub const InstantMessage: ContactFieldType = ContactFieldType(3i32);
-    pub const Custom: ContactFieldType = ContactFieldType(4i32);
-    pub const ConnectedServiceAccount: ContactFieldType = ContactFieldType(5i32);
-    pub const ImportantDate: ContactFieldType = ContactFieldType(6i32);
-    pub const Address: ContactFieldType = ContactFieldType(7i32);
-    pub const SignificantOther: ContactFieldType = ContactFieldType(8i32);
-    pub const Notes: ContactFieldType = ContactFieldType(9i32);
-    pub const Website: ContactFieldType = ContactFieldType(10i32);
-    pub const JobInfo: ContactFieldType = ContactFieldType(11i32);
+    pub const Email: Self = Self(0i32);
+    pub const PhoneNumber: Self = Self(1i32);
+    pub const Location: Self = Self(2i32);
+    pub const InstantMessage: Self = Self(3i32);
+    pub const Custom: Self = Self(4i32);
+    pub const ConnectedServiceAccount: Self = Self(5i32);
+    pub const ImportantDate: Self = Self(6i32);
+    pub const Address: Self = Self(7i32);
+    pub const SignificantOther: Self = Self(8i32);
+    pub const Notes: Self = Self(9i32);
+    pub const Website: Self = Self(10i32);
+    pub const JobInfo: Self = Self(11i32);
 }
 #[repr(transparent)]
 pub struct ContactGroup(pub *mut ::core::ffi::c_void);
@@ -153,17 +153,17 @@ pub struct ContactListLimitedWriteOperations(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
-    pub const SystemOnly: ContactListOtherAppReadAccess = ContactListOtherAppReadAccess(0i32);
-    pub const Limited: ContactListOtherAppReadAccess = ContactListOtherAppReadAccess(1i32);
-    pub const Full: ContactListOtherAppReadAccess = ContactListOtherAppReadAccess(2i32);
-    pub const None: ContactListOtherAppReadAccess = ContactListOtherAppReadAccess(3i32);
+    pub const SystemOnly: Self = Self(0i32);
+    pub const Limited: Self = Self(1i32);
+    pub const Full: Self = Self(2i32);
+    pub const None: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
-    pub const None: ContactListOtherAppWriteAccess = ContactListOtherAppWriteAccess(0i32);
-    pub const SystemOnly: ContactListOtherAppWriteAccess = ContactListOtherAppWriteAccess(1i32);
-    pub const Limited: ContactListOtherAppWriteAccess = ContactListOtherAppWriteAccess(2i32);
+    pub const None: Self = Self(0i32);
+    pub const SystemOnly: Self = Self(1i32);
+    pub const Limited: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactListSyncConstraints(pub *mut ::core::ffi::c_void);
@@ -172,13 +172,13 @@ pub struct ContactListSyncManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
-    pub const Idle: ContactListSyncStatus = ContactListSyncStatus(0i32);
-    pub const Syncing: ContactListSyncStatus = ContactListSyncStatus(1i32);
-    pub const UpToDate: ContactListSyncStatus = ContactListSyncStatus(2i32);
-    pub const AuthenticationError: ContactListSyncStatus = ContactListSyncStatus(3i32);
-    pub const PolicyError: ContactListSyncStatus = ContactListSyncStatus(4i32);
-    pub const UnknownError: ContactListSyncStatus = ContactListSyncStatus(5i32);
-    pub const ManualAccountRemovalRequired: ContactListSyncStatus = ContactListSyncStatus(6i32);
+    pub const Idle: Self = Self(0i32);
+    pub const Syncing: Self = Self(1i32);
+    pub const UpToDate: Self = Self(2i32);
+    pub const AuthenticationError: Self = Self(3i32);
+    pub const PolicyError: Self = Self(4i32);
+    pub const UnknownError: Self = Self(5i32);
+    pub const ManualAccountRemovalRequired: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct ContactLocationField(pub *mut ::core::ffi::c_void);
@@ -189,18 +189,18 @@ pub struct ContactMatchReason(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
-    pub const Name: ContactMatchReasonKind = ContactMatchReasonKind(0i32);
-    pub const EmailAddress: ContactMatchReasonKind = ContactMatchReasonKind(1i32);
-    pub const PhoneNumber: ContactMatchReasonKind = ContactMatchReasonKind(2i32);
-    pub const JobInfo: ContactMatchReasonKind = ContactMatchReasonKind(3i32);
-    pub const YomiName: ContactMatchReasonKind = ContactMatchReasonKind(4i32);
-    pub const Other: ContactMatchReasonKind = ContactMatchReasonKind(5i32);
+    pub const Name: Self = Self(0i32);
+    pub const EmailAddress: Self = Self(1i32);
+    pub const PhoneNumber: Self = Self(2i32);
+    pub const JobInfo: Self = Self(3i32);
+    pub const YomiName: Self = Self(4i32);
+    pub const Other: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
-    pub const FirstNameLastName: ContactNameOrder = ContactNameOrder(0i32);
-    pub const LastNameFirstName: ContactNameOrder = ContactNameOrder(1i32);
+    pub const FirstNameLastName: Self = Self(0i32);
+    pub const LastNameFirstName: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ContactPanel(pub *mut ::core::ffi::c_void);
@@ -213,43 +213,43 @@ pub struct ContactPhone(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
-    pub const Home: ContactPhoneKind = ContactPhoneKind(0i32);
-    pub const Mobile: ContactPhoneKind = ContactPhoneKind(1i32);
-    pub const Work: ContactPhoneKind = ContactPhoneKind(2i32);
-    pub const Other: ContactPhoneKind = ContactPhoneKind(3i32);
-    pub const Pager: ContactPhoneKind = ContactPhoneKind(4i32);
-    pub const BusinessFax: ContactPhoneKind = ContactPhoneKind(5i32);
-    pub const HomeFax: ContactPhoneKind = ContactPhoneKind(6i32);
-    pub const Company: ContactPhoneKind = ContactPhoneKind(7i32);
-    pub const Assistant: ContactPhoneKind = ContactPhoneKind(8i32);
-    pub const Radio: ContactPhoneKind = ContactPhoneKind(9i32);
+    pub const Home: Self = Self(0i32);
+    pub const Mobile: Self = Self(1i32);
+    pub const Work: Self = Self(2i32);
+    pub const Other: Self = Self(3i32);
+    pub const Pager: Self = Self(4i32);
+    pub const BusinessFax: Self = Self(5i32);
+    pub const HomeFax: Self = Self(6i32);
+    pub const Company: Self = Self(7i32);
+    pub const Assistant: Self = Self(8i32);
+    pub const Radio: Self = Self(9i32);
 }
 #[repr(transparent)]
 pub struct ContactPicker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
-    pub const None: ContactQueryDesiredFields = ContactQueryDesiredFields(0u32);
-    pub const PhoneNumber: ContactQueryDesiredFields = ContactQueryDesiredFields(1u32);
-    pub const EmailAddress: ContactQueryDesiredFields = ContactQueryDesiredFields(2u32);
-    pub const PostalAddress: ContactQueryDesiredFields = ContactQueryDesiredFields(4u32);
+    pub const None: Self = Self(0u32);
+    pub const PhoneNumber: Self = Self(1u32);
+    pub const EmailAddress: Self = Self(2u32);
+    pub const PostalAddress: Self = Self(4u32);
 }
 #[repr(transparent)]
 pub struct ContactQueryOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
-    pub const None: ContactQuerySearchFields = ContactQuerySearchFields(0u32);
-    pub const Name: ContactQuerySearchFields = ContactQuerySearchFields(1u32);
-    pub const Email: ContactQuerySearchFields = ContactQuerySearchFields(2u32);
-    pub const Phone: ContactQuerySearchFields = ContactQuerySearchFields(4u32);
-    pub const All: ContactQuerySearchFields = ContactQuerySearchFields(4294967295u32);
+    pub const None: Self = Self(0u32);
+    pub const Name: Self = Self(1u32);
+    pub const Email: Self = Self(2u32);
+    pub const Phone: Self = Self(4u32);
+    pub const All: Self = Self(4294967295u32);
 }
 #[repr(transparent)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
-    pub const Local: ContactQuerySearchScope = ContactQuerySearchScope(0i32);
-    pub const Server: ContactQuerySearchScope = ContactQuerySearchScope(1i32);
+    pub const Local: Self = Self(0i32);
+    pub const Server: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ContactQueryTextSearch(pub *mut ::core::ffi::c_void);
@@ -258,18 +258,18 @@ pub struct ContactReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
-    pub const Other: ContactRelationship = ContactRelationship(0i32);
-    pub const Spouse: ContactRelationship = ContactRelationship(1i32);
-    pub const Partner: ContactRelationship = ContactRelationship(2i32);
-    pub const Sibling: ContactRelationship = ContactRelationship(3i32);
-    pub const Parent: ContactRelationship = ContactRelationship(4i32);
-    pub const Child: ContactRelationship = ContactRelationship(5i32);
+    pub const Other: Self = Self(0i32);
+    pub const Spouse: Self = Self(1i32);
+    pub const Partner: Self = Self(2i32);
+    pub const Sibling: Self = Self(3i32);
+    pub const Parent: Self = Self(4i32);
+    pub const Child: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
-    pub const Contacts: ContactSelectionMode = ContactSelectionMode(0i32);
-    pub const Fields: ContactSelectionMode = ContactSelectionMode(1i32);
+    pub const Contacts: Self = Self(0i32);
+    pub const Fields: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ContactSignificantOther(pub *mut ::core::ffi::c_void);
@@ -278,9 +278,9 @@ pub struct ContactStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
-    pub const AppContactsReadWrite: ContactStoreAccessType = ContactStoreAccessType(0i32);
-    pub const AllContactsReadOnly: ContactStoreAccessType = ContactStoreAccessType(1i32);
-    pub const AllContactsReadWrite: ContactStoreAccessType = ContactStoreAccessType(2i32);
+    pub const AppContactsReadWrite: Self = Self(0i32);
+    pub const AllContactsReadOnly: Self = Self(1i32);
+    pub const AllContactsReadWrite: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ContactStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -445,6 +445,6 @@ pub struct PinnedContactManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {
-    pub const StartMenu: PinnedContactSurface = PinnedContactSurface(0i32);
-    pub const Taskbar: PinnedContactSurface = PinnedContactSurface(1i32);
+    pub const StartMenu: Self = Self(0i32);
+    pub const Taskbar: Self = Self(1i32);
 }

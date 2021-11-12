@@ -32,26 +32,26 @@ pub struct UserDataAccount(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
-    pub const Email: UserDataAccountContentKinds = UserDataAccountContentKinds(1u32);
-    pub const Contact: UserDataAccountContentKinds = UserDataAccountContentKinds(2u32);
-    pub const Appointment: UserDataAccountContentKinds = UserDataAccountContentKinds(4u32);
+    pub const Email: Self = Self(1u32);
+    pub const Contact: Self = Self(2u32);
+    pub const Appointment: Self = Self(4u32);
 }
 #[repr(transparent)]
 pub struct UserDataAccountManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
-    pub const SystemOnly: UserDataAccountOtherAppReadAccess = UserDataAccountOtherAppReadAccess(0i32);
-    pub const Full: UserDataAccountOtherAppReadAccess = UserDataAccountOtherAppReadAccess(1i32);
-    pub const None: UserDataAccountOtherAppReadAccess = UserDataAccountOtherAppReadAccess(2i32);
+    pub const SystemOnly: Self = Self(0i32);
+    pub const Full: Self = Self(1i32);
+    pub const None: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UserDataAccountStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {
-    pub const AllAccountsReadOnly: UserDataAccountStoreAccessType = UserDataAccountStoreAccessType(0i32);
-    pub const AppAccountsReadWrite: UserDataAccountStoreAccessType = UserDataAccountStoreAccessType(1i32);
+    pub const AllAccountsReadOnly: Self = Self(0i32);
+    pub const AppAccountsReadWrite: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct UserDataAccountStoreChangedEventArgs(pub *mut ::core::ffi::c_void);

@@ -4,8 +4,8 @@ extern "system" {}
 #[repr(transparent)]
 pub struct BitmapCreateOptions(pub u32);
 impl BitmapCreateOptions {
-    pub const None: BitmapCreateOptions = BitmapCreateOptions(0u32);
-    pub const IgnoreImageCache: BitmapCreateOptions = BitmapCreateOptions(8u32);
+    pub const None: Self = Self(0u32);
+    pub const IgnoreImageCache: Self = Self(8u32);
 }
 #[repr(transparent)]
 pub struct BitmapImage(pub *mut ::core::ffi::c_void);
@@ -14,8 +14,8 @@ pub struct BitmapSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DecodePixelType(pub i32);
 impl DecodePixelType {
-    pub const Physical: DecodePixelType = DecodePixelType(0i32);
-    pub const Logical: DecodePixelType = DecodePixelType(1i32);
+    pub const Physical: Self = Self(0i32);
+    pub const Logical: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct DownloadProgressEventArgs(pub *mut ::core::ffi::c_void);
@@ -90,10 +90,10 @@ pub struct SvgImageSourceFailedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SvgImageSourceLoadStatus(pub i32);
 impl SvgImageSourceLoadStatus {
-    pub const Success: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(0i32);
-    pub const NetworkError: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(1i32);
-    pub const InvalidFormat: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(2i32);
-    pub const Other: SvgImageSourceLoadStatus = SvgImageSourceLoadStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const NetworkError: Self = Self(1i32);
+    pub const InvalidFormat: Self = Self(2i32);
+    pub const Other: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct SvgImageSourceOpenedEventArgs(pub *mut ::core::ffi::c_void);

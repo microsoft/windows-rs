@@ -32,13 +32,13 @@ pub struct PrintSupportSettingsUISession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {
-    pub const JobPrintTicket: SettingsLaunchKind = SettingsLaunchKind(0i32);
-    pub const UserDefaultPrintTicket: SettingsLaunchKind = SettingsLaunchKind(1i32);
+    pub const JobPrintTicket: Self = Self(0i32);
+    pub const UserDefaultPrintTicket: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {
-    pub const Resolved: WorkflowPrintTicketValidationStatus = WorkflowPrintTicketValidationStatus(0i32);
-    pub const Conflicting: WorkflowPrintTicketValidationStatus = WorkflowPrintTicketValidationStatus(1i32);
-    pub const Invalid: WorkflowPrintTicketValidationStatus = WorkflowPrintTicketValidationStatus(2i32);
+    pub const Resolved: Self = Self(0i32);
+    pub const Conflicting: Self = Self(1i32);
+    pub const Invalid: Self = Self(2i32);
 }

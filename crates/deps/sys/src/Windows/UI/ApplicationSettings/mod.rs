@@ -58,8 +58,8 @@ pub struct SettingsCommand(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SettingsEdgeLocation(pub i32);
 impl SettingsEdgeLocation {
-    pub const Right: SettingsEdgeLocation = SettingsEdgeLocation(0i32);
-    pub const Left: SettingsEdgeLocation = SettingsEdgeLocation(1i32);
+    pub const Right: Self = Self(0i32);
+    pub const Left: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SettingsPane(pub *mut ::core::ffi::c_void);
@@ -70,21 +70,21 @@ pub struct SettingsPaneCommandsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
-    pub const None: SupportedWebAccountActions = SupportedWebAccountActions(0u32);
-    pub const Reconnect: SupportedWebAccountActions = SupportedWebAccountActions(1u32);
-    pub const Remove: SupportedWebAccountActions = SupportedWebAccountActions(2u32);
-    pub const ViewDetails: SupportedWebAccountActions = SupportedWebAccountActions(4u32);
-    pub const Manage: SupportedWebAccountActions = SupportedWebAccountActions(8u32);
-    pub const More: SupportedWebAccountActions = SupportedWebAccountActions(16u32);
+    pub const None: Self = Self(0u32);
+    pub const Reconnect: Self = Self(1u32);
+    pub const Remove: Self = Self(2u32);
+    pub const ViewDetails: Self = Self(4u32);
+    pub const Manage: Self = Self(8u32);
+    pub const More: Self = Self(16u32);
 }
 #[repr(transparent)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {
-    pub const Reconnect: WebAccountAction = WebAccountAction(0i32);
-    pub const Remove: WebAccountAction = WebAccountAction(1i32);
-    pub const ViewDetails: WebAccountAction = WebAccountAction(2i32);
-    pub const Manage: WebAccountAction = WebAccountAction(3i32);
-    pub const More: WebAccountAction = WebAccountAction(4i32);
+    pub const Reconnect: Self = Self(0i32);
+    pub const Remove: Self = Self(1i32);
+    pub const ViewDetails: Self = Self(2i32);
+    pub const Manage: Self = Self(3i32);
+    pub const More: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct WebAccountCommand(pub *mut ::core::ffi::c_void);

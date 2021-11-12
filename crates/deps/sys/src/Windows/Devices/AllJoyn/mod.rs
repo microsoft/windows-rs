@@ -12,23 +12,23 @@ pub struct AllJoynAuthenticationCompleteEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynAuthenticationMechanism(pub i32);
 impl AllJoynAuthenticationMechanism {
-    pub const None: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(0i32);
-    pub const SrpAnonymous: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(1i32);
-    pub const SrpLogon: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(2i32);
-    pub const EcdheNull: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(3i32);
-    pub const EcdhePsk: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(4i32);
-    pub const EcdheEcdsa: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(5i32);
-    pub const EcdheSpeke: AllJoynAuthenticationMechanism = AllJoynAuthenticationMechanism(6i32);
+    pub const None: Self = Self(0i32);
+    pub const SrpAnonymous: Self = Self(1i32);
+    pub const SrpLogon: Self = Self(2i32);
+    pub const EcdheNull: Self = Self(3i32);
+    pub const EcdhePsk: Self = Self(4i32);
+    pub const EcdheEcdsa: Self = Self(5i32);
+    pub const EcdheSpeke: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct AllJoynBusAttachment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentState(pub i32);
 impl AllJoynBusAttachmentState {
-    pub const Disconnected: AllJoynBusAttachmentState = AllJoynBusAttachmentState(0i32);
-    pub const Connecting: AllJoynBusAttachmentState = AllJoynBusAttachmentState(1i32);
-    pub const Connected: AllJoynBusAttachmentState = AllJoynBusAttachmentState(2i32);
-    pub const Disconnecting: AllJoynBusAttachmentState = AllJoynBusAttachmentState(3i32);
+    pub const Disconnected: Self = Self(0i32);
+    pub const Connecting: Self = Self(1i32);
+    pub const Connected: Self = Self(2i32);
+    pub const Disconnecting: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -59,12 +59,12 @@ pub struct AllJoynSessionLostEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynSessionLostReason(pub i32);
 impl AllJoynSessionLostReason {
-    pub const None: AllJoynSessionLostReason = AllJoynSessionLostReason(0i32);
-    pub const ProducerLeftSession: AllJoynSessionLostReason = AllJoynSessionLostReason(1i32);
-    pub const ProducerClosedAbruptly: AllJoynSessionLostReason = AllJoynSessionLostReason(2i32);
-    pub const RemovedByProducer: AllJoynSessionLostReason = AllJoynSessionLostReason(3i32);
-    pub const LinkTimeout: AllJoynSessionLostReason = AllJoynSessionLostReason(4i32);
-    pub const Other: AllJoynSessionLostReason = AllJoynSessionLostReason(5i32);
+    pub const None: Self = Self(0i32);
+    pub const ProducerLeftSession: Self = Self(1i32);
+    pub const ProducerClosedAbruptly: Self = Self(2i32);
+    pub const RemovedByProducer: Self = Self(3i32);
+    pub const LinkTimeout: Self = Self(4i32);
+    pub const Other: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct AllJoynSessionMemberAddedEventArgs(pub *mut ::core::ffi::c_void);
@@ -73,10 +73,10 @@ pub struct AllJoynSessionMemberRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynTrafficType(pub i32);
 impl AllJoynTrafficType {
-    pub const Unknown: AllJoynTrafficType = AllJoynTrafficType(0i32);
-    pub const Messages: AllJoynTrafficType = AllJoynTrafficType(1i32);
-    pub const RawUnreliable: AllJoynTrafficType = AllJoynTrafficType(2i32);
-    pub const RawReliable: AllJoynTrafficType = AllJoynTrafficType(4i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Messages: Self = Self(1i32);
+    pub const RawUnreliable: Self = Self(2i32);
+    pub const RawReliable: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct AllJoynWatcherStoppedEventArgs(pub *mut ::core::ffi::c_void);

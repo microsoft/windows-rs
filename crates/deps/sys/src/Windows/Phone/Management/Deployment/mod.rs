@@ -8,17 +8,17 @@ pub struct EnterpriseEnrollmentResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EnterpriseEnrollmentStatus(pub i32);
 impl EnterpriseEnrollmentStatus {
-    pub const Success: EnterpriseEnrollmentStatus = EnterpriseEnrollmentStatus(0i32);
-    pub const CancelledByUser: EnterpriseEnrollmentStatus = EnterpriseEnrollmentStatus(1i32);
-    pub const UnknownFailure: EnterpriseEnrollmentStatus = EnterpriseEnrollmentStatus(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const CancelledByUser: Self = Self(1i32);
+    pub const UnknownFailure: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {
-    pub const Enrolled: EnterpriseStatus = EnterpriseStatus(0i32);
-    pub const Disabled: EnterpriseStatus = EnterpriseStatus(1i32);
-    pub const Revoked: EnterpriseStatus = EnterpriseStatus(2i32);
-    pub const Expired: EnterpriseStatus = EnterpriseStatus(3i32);
+    pub const Enrolled: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+    pub const Revoked: Self = Self(2i32);
+    pub const Expired: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct IEnterprise(pub *mut ::core::ffi::c_void);

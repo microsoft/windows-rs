@@ -10,9 +10,9 @@ pub struct IWorkplaceSettingsStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
-    pub const Disallowed: MessagingSyncPolicy = MessagingSyncPolicy(0i32);
-    pub const Allowed: MessagingSyncPolicy = MessagingSyncPolicy(1i32);
-    pub const Required: MessagingSyncPolicy = MessagingSyncPolicy(2i32);
+    pub const Disallowed: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const Required: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct WorkplaceSettingsContract(i32);

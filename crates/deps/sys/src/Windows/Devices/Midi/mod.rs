@@ -74,26 +74,26 @@ pub struct MidiMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {
-    pub const None: MidiMessageType = MidiMessageType(0i32);
-    pub const NoteOff: MidiMessageType = MidiMessageType(128i32);
-    pub const NoteOn: MidiMessageType = MidiMessageType(144i32);
-    pub const PolyphonicKeyPressure: MidiMessageType = MidiMessageType(160i32);
-    pub const ControlChange: MidiMessageType = MidiMessageType(176i32);
-    pub const ProgramChange: MidiMessageType = MidiMessageType(192i32);
-    pub const ChannelPressure: MidiMessageType = MidiMessageType(208i32);
-    pub const PitchBendChange: MidiMessageType = MidiMessageType(224i32);
-    pub const SystemExclusive: MidiMessageType = MidiMessageType(240i32);
-    pub const MidiTimeCode: MidiMessageType = MidiMessageType(241i32);
-    pub const SongPositionPointer: MidiMessageType = MidiMessageType(242i32);
-    pub const SongSelect: MidiMessageType = MidiMessageType(243i32);
-    pub const TuneRequest: MidiMessageType = MidiMessageType(246i32);
-    pub const EndSystemExclusive: MidiMessageType = MidiMessageType(247i32);
-    pub const TimingClock: MidiMessageType = MidiMessageType(248i32);
-    pub const Start: MidiMessageType = MidiMessageType(250i32);
-    pub const Continue: MidiMessageType = MidiMessageType(251i32);
-    pub const Stop: MidiMessageType = MidiMessageType(252i32);
-    pub const ActiveSensing: MidiMessageType = MidiMessageType(254i32);
-    pub const SystemReset: MidiMessageType = MidiMessageType(255i32);
+    pub const None: Self = Self(0i32);
+    pub const NoteOff: Self = Self(128i32);
+    pub const NoteOn: Self = Self(144i32);
+    pub const PolyphonicKeyPressure: Self = Self(160i32);
+    pub const ControlChange: Self = Self(176i32);
+    pub const ProgramChange: Self = Self(192i32);
+    pub const ChannelPressure: Self = Self(208i32);
+    pub const PitchBendChange: Self = Self(224i32);
+    pub const SystemExclusive: Self = Self(240i32);
+    pub const MidiTimeCode: Self = Self(241i32);
+    pub const SongPositionPointer: Self = Self(242i32);
+    pub const SongSelect: Self = Self(243i32);
+    pub const TuneRequest: Self = Self(246i32);
+    pub const EndSystemExclusive: Self = Self(247i32);
+    pub const TimingClock: Self = Self(248i32);
+    pub const Start: Self = Self(250i32);
+    pub const Continue: Self = Self(251i32);
+    pub const Stop: Self = Self(252i32);
+    pub const ActiveSensing: Self = Self(254i32);
+    pub const SystemReset: Self = Self(255i32);
 }
 #[repr(transparent)]
 pub struct MidiNoteOffMessage(pub *mut ::core::ffi::c_void);

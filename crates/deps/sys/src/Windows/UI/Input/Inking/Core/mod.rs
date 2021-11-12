@@ -10,9 +10,9 @@ pub struct CoreInkPresenterHost(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {
-    pub const Inking: CoreWetStrokeDisposition = CoreWetStrokeDisposition(0i32);
-    pub const Completed: CoreWetStrokeDisposition = CoreWetStrokeDisposition(1i32);
-    pub const Canceled: CoreWetStrokeDisposition = CoreWetStrokeDisposition(2i32);
+    pub const Inking: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CoreWetStrokeUpdateEventArgs(pub *mut ::core::ffi::c_void);

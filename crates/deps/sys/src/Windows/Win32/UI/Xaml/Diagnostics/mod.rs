@@ -50,14 +50,14 @@ pub struct IXamlDiagnostics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MetadataBit(pub i32);
 impl MetadataBit {
-    pub const None: MetadataBit = MetadataBit(0i32);
-    pub const IsValueHandle: MetadataBit = MetadataBit(1i32);
-    pub const IsPropertyReadOnly: MetadataBit = MetadataBit(2i32);
-    pub const IsValueCollection: MetadataBit = MetadataBit(4i32);
-    pub const IsValueCollectionReadOnly: MetadataBit = MetadataBit(8i32);
-    pub const IsValueBindingExpression: MetadataBit = MetadataBit(16i32);
-    pub const IsValueNull: MetadataBit = MetadataBit(32i32);
-    pub const IsValueHandleAndEvaluatedValue: MetadataBit = MetadataBit(64i32);
+    pub const None: Self = Self(0i32);
+    pub const IsValueHandle: Self = Self(1i32);
+    pub const IsPropertyReadOnly: Self = Self(2i32);
+    pub const IsValueCollection: Self = Self(4i32);
+    pub const IsValueCollectionReadOnly: Self = Self(8i32);
+    pub const IsValueBindingExpression: Self = Self(16i32);
+    pub const IsValueNull: Self = Self(32i32);
+    pub const IsValueHandleAndEvaluatedValue: Self = Self(64i32);
 }
 #[repr(C)]
 pub struct ParentChildRelation(i32);

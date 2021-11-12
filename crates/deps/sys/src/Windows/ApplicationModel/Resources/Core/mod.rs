@@ -36,9 +36,9 @@ pub struct ResourceCandidate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
-    pub const String: ResourceCandidateKind = ResourceCandidateKind(0i32);
-    pub const File: ResourceCandidateKind = ResourceCandidateKind(1i32);
-    pub const EmbeddedData: ResourceCandidateKind = ResourceCandidateKind(2i32);
+    pub const String: Self = Self(0i32);
+    pub const File: Self = Self(1i32);
+    pub const EmbeddedData: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ResourceCandidateVectorView(pub *mut ::core::ffi::c_void);
@@ -67,8 +67,8 @@ pub struct ResourceQualifierObservableMap(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
-    pub const None: ResourceQualifierPersistence = ResourceQualifierPersistence(0i32);
-    pub const LocalMachine: ResourceQualifierPersistence = ResourceQualifierPersistence(1i32);
+    pub const None: Self = Self(0i32);
+    pub const LocalMachine: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct ResourceQualifierVectorView(pub *mut ::core::ffi::c_void);

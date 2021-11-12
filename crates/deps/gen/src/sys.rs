@@ -74,20 +74,23 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
     let underlying_type = def.underlying_type();
     let underlying_type = gen_name(&underlying_type, gen);
+    let is_scoped = def.is_scoped();
 
     let fields = def.fields().filter_map(|field| {
         if field.is_literal() {
             let field_name = to_ident(field.name());
+            let constant = field.constant().unwrap();
+            let value = gen_constant_value(&constant.value());
 
-            if let Some(constant) = field.constant() {
-                let value = gen_constant_value(&constant.value());
-
-                Some(quote! {
-                    pub const #field_name: #name = #name(#value);
-                })
+            Some(if is_scoped {
+                quote! {
+                    pub const #field_name: Self = Self(#value);
+                }
             } else {
-                panic!("no constant");
-            }
+                quote! {
+                    pub const #field_name: #name = #name(#value);
+                }
+            })
         } else {
             None
         }

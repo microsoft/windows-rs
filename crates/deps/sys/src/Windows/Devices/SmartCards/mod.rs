@@ -116,17 +116,17 @@ pub struct SmartCard(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
-    pub const Denied: SmartCardActivationPolicyChangeResult = SmartCardActivationPolicyChangeResult(0i32);
-    pub const Allowed: SmartCardActivationPolicyChangeResult = SmartCardActivationPolicyChangeResult(1i32);
+    pub const Denied: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
-    pub const Disabled: SmartCardAppletIdGroupActivationPolicy = SmartCardAppletIdGroupActivationPolicy(0i32);
-    pub const ForegroundOverride: SmartCardAppletIdGroupActivationPolicy = SmartCardAppletIdGroupActivationPolicy(1i32);
-    pub const Enabled: SmartCardAppletIdGroupActivationPolicy = SmartCardAppletIdGroupActivationPolicy(2i32);
+    pub const Disabled: Self = Self(0i32);
+    pub const ForegroundOverride: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupRegistration(pub *mut ::core::ffi::c_void);
@@ -135,9 +135,9 @@ pub struct SmartCardAutomaticResponseApdu(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
-    pub const None: SmartCardAutomaticResponseStatus = SmartCardAutomaticResponseStatus(0i32);
-    pub const Success: SmartCardAutomaticResponseStatus = SmartCardAutomaticResponseStatus(1i32);
-    pub const UnknownError: SmartCardAutomaticResponseStatus = SmartCardAutomaticResponseStatus(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Success: Self = Self(1i32);
+    pub const UnknownError: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct SmartCardBackgroundTriggerContract(i32);
@@ -148,35 +148,35 @@ pub struct SmartCardConnection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
-    pub const None: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(0i32);
-    pub const CbcMac: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(1i32);
-    pub const Cvc3Umd: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(2i32);
-    pub const DecimalizedMsd: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(3i32);
-    pub const Cvc3MD: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(4i32);
-    pub const Sha1: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(5i32);
-    pub const SignedDynamicApplicationData: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(6i32);
-    pub const RsaPkcs1: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(7i32);
-    pub const Sha256Hmac: SmartCardCryptogramAlgorithm = SmartCardCryptogramAlgorithm(8i32);
+    pub const None: Self = Self(0i32);
+    pub const CbcMac: Self = Self(1i32);
+    pub const Cvc3Umd: Self = Self(2i32);
+    pub const DecimalizedMsd: Self = Self(3i32);
+    pub const Cvc3MD: Self = Self(4i32);
+    pub const Sha1: Self = Self(5i32);
+    pub const SignedDynamicApplicationData: Self = Self(6i32);
+    pub const RsaPkcs1: Self = Self(7i32);
+    pub const Sha256Hmac: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramGenerator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
-    pub const Success: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(0i32);
-    pub const AuthorizationFailed: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(1i32);
-    pub const AuthorizationCanceled: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(2i32);
-    pub const AuthorizationRequired: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(3i32);
-    pub const CryptogramMaterialPackageStorageKeyExists: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(4i32);
-    pub const NoCryptogramMaterialPackageStorageKey: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(5i32);
-    pub const NoCryptogramMaterialPackage: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(6i32);
-    pub const UnsupportedCryptogramMaterialPackage: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(7i32);
-    pub const UnknownCryptogramMaterialName: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(8i32);
-    pub const InvalidCryptogramMaterialUsage: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(9i32);
-    pub const ApduResponseNotSent: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(10i32);
-    pub const OtherError: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(11i32);
-    pub const ValidationFailed: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(12i32);
-    pub const NotSupported: SmartCardCryptogramGeneratorOperationStatus = SmartCardCryptogramGeneratorOperationStatus(13i32);
+    pub const Success: Self = Self(0i32);
+    pub const AuthorizationFailed: Self = Self(1i32);
+    pub const AuthorizationCanceled: Self = Self(2i32);
+    pub const AuthorizationRequired: Self = Self(3i32);
+    pub const CryptogramMaterialPackageStorageKeyExists: Self = Self(4i32);
+    pub const NoCryptogramMaterialPackageStorageKey: Self = Self(5i32);
+    pub const NoCryptogramMaterialPackage: Self = Self(6i32);
+    pub const UnsupportedCryptogramMaterialPackage: Self = Self(7i32);
+    pub const UnknownCryptogramMaterialName: Self = Self(8i32);
+    pub const InvalidCryptogramMaterialUsage: Self = Self(9i32);
+    pub const ApduResponseNotSent: Self = Self(10i32);
+    pub const OtherError: Self = Self(11i32);
+    pub const ValidationFailed: Self = Self(12i32);
+    pub const NotSupported: Self = Self(13i32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(pub *mut ::core::ffi::c_void);
@@ -191,53 +191,53 @@ pub struct SmartCardCryptogramMaterialPackageCharacteristics(pub *mut ::core::ff
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    pub const None: SmartCardCryptogramMaterialPackageConfirmationResponseFormat = SmartCardCryptogramMaterialPackageConfirmationResponseFormat(0i32);
-    pub const VisaHmac: SmartCardCryptogramMaterialPackageConfirmationResponseFormat = SmartCardCryptogramMaterialPackageConfirmationResponseFormat(1i32);
+    pub const None: Self = Self(0i32);
+    pub const VisaHmac: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageFormat {
-    pub const None: SmartCardCryptogramMaterialPackageFormat = SmartCardCryptogramMaterialPackageFormat(0i32);
-    pub const JweRsaPki: SmartCardCryptogramMaterialPackageFormat = SmartCardCryptogramMaterialPackageFormat(1i32);
+    pub const None: Self = Self(0i32);
+    pub const JweRsaPki: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPossessionProof(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
-    pub const None: SmartCardCryptogramMaterialProtectionMethod = SmartCardCryptogramMaterialProtectionMethod(0i32);
-    pub const WhiteBoxing: SmartCardCryptogramMaterialProtectionMethod = SmartCardCryptogramMaterialProtectionMethod(1i32);
+    pub const None: Self = Self(0i32);
+    pub const WhiteBoxing: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
 impl SmartCardCryptogramMaterialType {
-    pub const None: SmartCardCryptogramMaterialType = SmartCardCryptogramMaterialType(0i32);
-    pub const StaticDataAuthentication: SmartCardCryptogramMaterialType = SmartCardCryptogramMaterialType(1i32);
-    pub const TripleDes112: SmartCardCryptogramMaterialType = SmartCardCryptogramMaterialType(2i32);
-    pub const Aes: SmartCardCryptogramMaterialType = SmartCardCryptogramMaterialType(3i32);
-    pub const RsaPkcs1: SmartCardCryptogramMaterialType = SmartCardCryptogramMaterialType(4i32);
+    pub const None: Self = Self(0i32);
+    pub const StaticDataAuthentication: Self = Self(1i32);
+    pub const TripleDes112: Self = Self(2i32);
+    pub const Aes: Self = Self(3i32);
+    pub const RsaPkcs1: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
 impl SmartCardCryptogramPlacementOptions {
-    pub const None: SmartCardCryptogramPlacementOptions = SmartCardCryptogramPlacementOptions(0u32);
-    pub const UnitsAreInNibbles: SmartCardCryptogramPlacementOptions = SmartCardCryptogramPlacementOptions(1u32);
-    pub const ChainOutput: SmartCardCryptogramPlacementOptions = SmartCardCryptogramPlacementOptions(2u32);
+    pub const None: Self = Self(0u32);
+    pub const UnitsAreInNibbles: Self = Self(1u32);
+    pub const ChainOutput: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementStep(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
-    pub const None: SmartCardCryptogramStorageKeyAlgorithm = SmartCardCryptogramStorageKeyAlgorithm(0i32);
-    pub const Rsa2048: SmartCardCryptogramStorageKeyAlgorithm = SmartCardCryptogramStorageKeyAlgorithm(1i32);
+    pub const None: Self = Self(0i32);
+    pub const Rsa2048: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
 impl SmartCardCryptogramStorageKeyCapabilities {
-    pub const None: SmartCardCryptogramStorageKeyCapabilities = SmartCardCryptogramStorageKeyCapabilities(0u32);
-    pub const HardwareProtection: SmartCardCryptogramStorageKeyCapabilities = SmartCardCryptogramStorageKeyCapabilities(1u32);
-    pub const UnlockPrompt: SmartCardCryptogramStorageKeyCapabilities = SmartCardCryptogramStorageKeyCapabilities(2u32);
+    pub const None: Self = Self(0u32);
+    pub const HardwareProtection: Self = Self(1u32);
+    pub const UnlockPrompt: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(pub *mut ::core::ffi::c_void);
@@ -246,27 +246,27 @@ pub struct SmartCardCryptogramStorageKeyInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
-    pub const NoAttestation: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(0i32);
-    pub const SoftwareKeyWithoutTpm: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(1i32);
-    pub const SoftwareKeyWithTpm: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(2i32);
-    pub const TpmKeyUnknownAttestationStatus: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(3i32);
-    pub const TpmKeyWithoutAttestationCapability: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(4i32);
-    pub const TpmKeyWithTemporaryAttestationFailure: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(5i32);
-    pub const TpmKeyWithLongTermAttestationFailure: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(6i32);
-    pub const TpmKeyWithAttestation: SmartCardCryptographicKeyAttestationStatus = SmartCardCryptographicKeyAttestationStatus(7i32);
+    pub const NoAttestation: Self = Self(0i32);
+    pub const SoftwareKeyWithoutTpm: Self = Self(1i32);
+    pub const SoftwareKeyWithTpm: Self = Self(2i32);
+    pub const TpmKeyUnknownAttestationStatus: Self = Self(3i32);
+    pub const TpmKeyWithoutAttestationCapability: Self = Self(4i32);
+    pub const TpmKeyWithTemporaryAttestationFailure: Self = Self(5i32);
+    pub const TpmKeyWithLongTermAttestationFailure: Self = Self(6i32);
+    pub const TpmKeyWithAttestation: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct SmartCardEmulationCategory(pub i32);
 impl SmartCardEmulationCategory {
-    pub const Other: SmartCardEmulationCategory = SmartCardEmulationCategory(0i32);
-    pub const Payment: SmartCardEmulationCategory = SmartCardEmulationCategory(1i32);
+    pub const Other: Self = Self(0i32);
+    pub const Payment: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardEmulationType(pub i32);
 impl SmartCardEmulationType {
-    pub const Host: SmartCardEmulationType = SmartCardEmulationType(0i32);
-    pub const Uicc: SmartCardEmulationType = SmartCardEmulationType(1i32);
-    pub const EmbeddedSE: SmartCardEmulationType = SmartCardEmulationType(2i32);
+    pub const Host: Self = Self(0i32);
+    pub const Uicc: Self = Self(1i32);
+    pub const EmbeddedSE: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SmartCardEmulator(pub *mut ::core::ffi::c_void);
@@ -277,39 +277,39 @@ pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(pub *mut ::core::ffi:
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
-    pub const ConnectionLost: SmartCardEmulatorConnectionDeactivatedReason = SmartCardEmulatorConnectionDeactivatedReason(0i32);
-    pub const ConnectionRedirected: SmartCardEmulatorConnectionDeactivatedReason = SmartCardEmulatorConnectionDeactivatedReason(1i32);
+    pub const ConnectionLost: Self = Self(0i32);
+    pub const ConnectionRedirected: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
-    pub const Unknown: SmartCardEmulatorConnectionSource = SmartCardEmulatorConnectionSource(0i32);
-    pub const NfcReader: SmartCardEmulatorConnectionSource = SmartCardEmulatorConnectionSource(1i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const NfcReader: Self = Self(1i32);
 }
 #[repr(C)]
 pub struct SmartCardEmulatorContract(i32);
 #[repr(transparent)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {
-    pub const Never: SmartCardEmulatorEnablementPolicy = SmartCardEmulatorEnablementPolicy(0i32);
-    pub const Always: SmartCardEmulatorEnablementPolicy = SmartCardEmulatorEnablementPolicy(1i32);
-    pub const ScreenOn: SmartCardEmulatorEnablementPolicy = SmartCardEmulatorEnablementPolicy(2i32);
-    pub const ScreenUnlocked: SmartCardEmulatorEnablementPolicy = SmartCardEmulatorEnablementPolicy(3i32);
+    pub const Never: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
+    pub const ScreenOn: Self = Self(2i32);
+    pub const ScreenUnlocked: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct SmartCardLaunchBehavior(pub i32);
 impl SmartCardLaunchBehavior {
-    pub const Default: SmartCardLaunchBehavior = SmartCardLaunchBehavior(0i32);
-    pub const AboveLock: SmartCardLaunchBehavior = SmartCardLaunchBehavior(1i32);
+    pub const Default: Self = Self(0i32);
+    pub const AboveLock: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
 impl SmartCardPinCharacterPolicyOption {
-    pub const Allow: SmartCardPinCharacterPolicyOption = SmartCardPinCharacterPolicyOption(0i32);
-    pub const RequireAtLeastOne: SmartCardPinCharacterPolicyOption = SmartCardPinCharacterPolicyOption(1i32);
-    pub const Disallow: SmartCardPinCharacterPolicyOption = SmartCardPinCharacterPolicyOption(2i32);
+    pub const Allow: Self = Self(0i32);
+    pub const RequireAtLeastOne: Self = Self(1i32);
+    pub const Disallow: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SmartCardPinPolicy(pub *mut ::core::ffi::c_void);
@@ -326,45 +326,45 @@ pub struct SmartCardReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
-    pub const Any: SmartCardReaderKind = SmartCardReaderKind(0i32);
-    pub const Generic: SmartCardReaderKind = SmartCardReaderKind(1i32);
-    pub const Tpm: SmartCardReaderKind = SmartCardReaderKind(2i32);
-    pub const Nfc: SmartCardReaderKind = SmartCardReaderKind(3i32);
-    pub const Uicc: SmartCardReaderKind = SmartCardReaderKind(4i32);
-    pub const EmbeddedSE: SmartCardReaderKind = SmartCardReaderKind(5i32);
+    pub const Any: Self = Self(0i32);
+    pub const Generic: Self = Self(1i32);
+    pub const Tpm: Self = Self(2i32);
+    pub const Nfc: Self = Self(3i32);
+    pub const Uicc: Self = Self(4i32);
+    pub const EmbeddedSE: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct SmartCardReaderStatus(pub i32);
 impl SmartCardReaderStatus {
-    pub const Disconnected: SmartCardReaderStatus = SmartCardReaderStatus(0i32);
-    pub const Ready: SmartCardReaderStatus = SmartCardReaderStatus(1i32);
-    pub const Exclusive: SmartCardReaderStatus = SmartCardReaderStatus(2i32);
+    pub const Disconnected: Self = Self(0i32);
+    pub const Ready: Self = Self(1i32);
+    pub const Exclusive: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SmartCardStatus(pub i32);
 impl SmartCardStatus {
-    pub const Disconnected: SmartCardStatus = SmartCardStatus(0i32);
-    pub const Ready: SmartCardStatus = SmartCardStatus(1i32);
-    pub const Shared: SmartCardStatus = SmartCardStatus(2i32);
-    pub const Exclusive: SmartCardStatus = SmartCardStatus(3i32);
-    pub const Unresponsive: SmartCardStatus = SmartCardStatus(4i32);
+    pub const Disconnected: Self = Self(0i32);
+    pub const Ready: Self = Self(1i32);
+    pub const Shared: Self = Self(2i32);
+    pub const Exclusive: Self = Self(3i32);
+    pub const Unresponsive: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct SmartCardTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {
-    pub const EmulatorTransaction: SmartCardTriggerType = SmartCardTriggerType(0i32);
-    pub const EmulatorNearFieldEntry: SmartCardTriggerType = SmartCardTriggerType(1i32);
-    pub const EmulatorNearFieldExit: SmartCardTriggerType = SmartCardTriggerType(2i32);
-    pub const EmulatorHostApplicationActivated: SmartCardTriggerType = SmartCardTriggerType(3i32);
-    pub const EmulatorAppletIdGroupRegistrationChanged: SmartCardTriggerType = SmartCardTriggerType(4i32);
-    pub const ReaderCardAdded: SmartCardTriggerType = SmartCardTriggerType(5i32);
+    pub const EmulatorTransaction: Self = Self(0i32);
+    pub const EmulatorNearFieldEntry: Self = Self(1i32);
+    pub const EmulatorNearFieldExit: Self = Self(2i32);
+    pub const EmulatorHostApplicationActivated: Self = Self(3i32);
+    pub const EmulatorAppletIdGroupRegistrationChanged: Self = Self(4i32);
+    pub const ReaderCardAdded: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
 impl SmartCardUnlockPromptingBehavior {
-    pub const AllowUnlockPrompt: SmartCardUnlockPromptingBehavior = SmartCardUnlockPromptingBehavior(0i32);
-    pub const RequireUnlockPrompt: SmartCardUnlockPromptingBehavior = SmartCardUnlockPromptingBehavior(1i32);
-    pub const PreventUnlockPrompt: SmartCardUnlockPromptingBehavior = SmartCardUnlockPromptingBehavior(2i32);
+    pub const AllowUnlockPrompt: Self = Self(0i32);
+    pub const RequireUnlockPrompt: Self = Self(1i32);
+    pub const PreventUnlockPrompt: Self = Self(2i32);
 }

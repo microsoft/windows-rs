@@ -18,11 +18,11 @@ pub struct BarcodeScannerReport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
-    pub const Online: BarcodeScannerStatus = BarcodeScannerStatus(0i32);
-    pub const Off: BarcodeScannerStatus = BarcodeScannerStatus(1i32);
-    pub const Offline: BarcodeScannerStatus = BarcodeScannerStatus(2i32);
-    pub const OffOrOffline: BarcodeScannerStatus = BarcodeScannerStatus(3i32);
-    pub const Extended: BarcodeScannerStatus = BarcodeScannerStatus(4i32);
+    pub const Online: Self = Self(0i32);
+    pub const Off: Self = Self(1i32);
+    pub const Offline: Self = Self(2i32);
+    pub const OffOrOffline: Self = Self(3i32);
+    pub const Extended: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -31,9 +31,9 @@ pub struct BarcodeSymbologyAttributes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
-    pub const AnyLength: BarcodeSymbologyDecodeLengthKind = BarcodeSymbologyDecodeLengthKind(0i32);
-    pub const Discrete: BarcodeSymbologyDecodeLengthKind = BarcodeSymbologyDecodeLengthKind(1i32);
-    pub const Range: BarcodeSymbologyDecodeLengthKind = BarcodeSymbologyDecodeLengthKind(2i32);
+    pub const AnyLength: Self = Self(0i32);
+    pub const Discrete: Self = Self(1i32);
+    pub const Range: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CashDrawer(pub *mut ::core::ffi::c_void);
@@ -52,11 +52,11 @@ pub struct CashDrawerStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
-    pub const Online: CashDrawerStatusKind = CashDrawerStatusKind(0i32);
-    pub const Off: CashDrawerStatusKind = CashDrawerStatusKind(1i32);
-    pub const Offline: CashDrawerStatusKind = CashDrawerStatusKind(2i32);
-    pub const OffOrOffline: CashDrawerStatusKind = CashDrawerStatusKind(3i32);
-    pub const Extended: CashDrawerStatusKind = CashDrawerStatusKind(4i32);
+    pub const Online: Self = Self(0i32);
+    pub const Off: Self = Self(1i32);
+    pub const Offline: Self = Self(2i32);
+    pub const OffOrOffline: Self = Self(3i32);
+    pub const Extended: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct CashDrawerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -311,54 +311,54 @@ pub struct LineDisplayCursorAttributes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
-    pub const None: LineDisplayCursorType = LineDisplayCursorType(0i32);
-    pub const Block: LineDisplayCursorType = LineDisplayCursorType(1i32);
-    pub const HalfBlock: LineDisplayCursorType = LineDisplayCursorType(2i32);
-    pub const Underline: LineDisplayCursorType = LineDisplayCursorType(3i32);
-    pub const Reverse: LineDisplayCursorType = LineDisplayCursorType(4i32);
-    pub const Other: LineDisplayCursorType = LineDisplayCursorType(5i32);
+    pub const None: Self = Self(0i32);
+    pub const Block: Self = Self(1i32);
+    pub const HalfBlock: Self = Self(2i32);
+    pub const Underline: Self = Self(3i32);
+    pub const Reverse: Self = Self(4i32);
+    pub const Other: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayCustomGlyphs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
-    pub const Off: LineDisplayDescriptorState = LineDisplayDescriptorState(0i32);
-    pub const On: LineDisplayDescriptorState = LineDisplayDescriptorState(1i32);
-    pub const Blink: LineDisplayDescriptorState = LineDisplayDescriptorState(2i32);
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Blink: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
-    pub const Left: LineDisplayHorizontalAlignment = LineDisplayHorizontalAlignment(0i32);
-    pub const Center: LineDisplayHorizontalAlignment = LineDisplayHorizontalAlignment(1i32);
-    pub const Right: LineDisplayHorizontalAlignment = LineDisplayHorizontalAlignment(2i32);
+    pub const Left: Self = Self(0i32);
+    pub const Center: Self = Self(1i32);
+    pub const Right: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayMarquee(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
-    pub const None: LineDisplayMarqueeFormat = LineDisplayMarqueeFormat(0i32);
-    pub const Walk: LineDisplayMarqueeFormat = LineDisplayMarqueeFormat(1i32);
-    pub const Place: LineDisplayMarqueeFormat = LineDisplayMarqueeFormat(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Walk: Self = Self(1i32);
+    pub const Place: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
-    pub const Unknown: LineDisplayPowerStatus = LineDisplayPowerStatus(0i32);
-    pub const Online: LineDisplayPowerStatus = LineDisplayPowerStatus(1i32);
-    pub const Off: LineDisplayPowerStatus = LineDisplayPowerStatus(2i32);
-    pub const Offline: LineDisplayPowerStatus = LineDisplayPowerStatus(3i32);
-    pub const OffOrOffline: LineDisplayPowerStatus = LineDisplayPowerStatus(4i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Online: Self = Self(1i32);
+    pub const Off: Self = Self(2i32);
+    pub const Offline: Self = Self(3i32);
+    pub const OffOrOffline: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
-    pub const Up: LineDisplayScrollDirection = LineDisplayScrollDirection(0i32);
-    pub const Down: LineDisplayScrollDirection = LineDisplayScrollDirection(1i32);
-    pub const Left: LineDisplayScrollDirection = LineDisplayScrollDirection(2i32);
-    pub const Right: LineDisplayScrollDirection = LineDisplayScrollDirection(3i32);
+    pub const Up: Self = Self(0i32);
+    pub const Down: Self = Self(1i32);
+    pub const Left: Self = Self(2i32);
+    pub const Right: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayStatisticsCategorySelector(pub *mut ::core::ffi::c_void);
@@ -369,24 +369,24 @@ pub struct LineDisplayStoredBitmap(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
-    pub const Normal: LineDisplayTextAttribute = LineDisplayTextAttribute(0i32);
-    pub const Blink: LineDisplayTextAttribute = LineDisplayTextAttribute(1i32);
-    pub const Reverse: LineDisplayTextAttribute = LineDisplayTextAttribute(2i32);
-    pub const ReverseBlink: LineDisplayTextAttribute = LineDisplayTextAttribute(3i32);
+    pub const Normal: Self = Self(0i32);
+    pub const Blink: Self = Self(1i32);
+    pub const Reverse: Self = Self(2i32);
+    pub const ReverseBlink: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
-    pub const NotSupported: LineDisplayTextAttributeGranularity = LineDisplayTextAttributeGranularity(0i32);
-    pub const EntireDisplay: LineDisplayTextAttributeGranularity = LineDisplayTextAttributeGranularity(1i32);
-    pub const PerCharacter: LineDisplayTextAttributeGranularity = LineDisplayTextAttributeGranularity(2i32);
+    pub const NotSupported: Self = Self(0i32);
+    pub const EntireDisplay: Self = Self(1i32);
+    pub const PerCharacter: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
-    pub const Top: LineDisplayVerticalAlignment = LineDisplayVerticalAlignment(0i32);
-    pub const Center: LineDisplayVerticalAlignment = LineDisplayVerticalAlignment(1i32);
-    pub const Bottom: LineDisplayVerticalAlignment = LineDisplayVerticalAlignment(2i32);
+    pub const Top: Self = Self(0i32);
+    pub const Center: Self = Self(1i32);
+    pub const Bottom: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct LineDisplayWindow(pub *mut ::core::ffi::c_void);
@@ -397,15 +397,15 @@ pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(pub *mut ::core::f
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
-    pub const NotSupported: MagneticStripeReaderAuthenticationLevel = MagneticStripeReaderAuthenticationLevel(0i32);
-    pub const Optional: MagneticStripeReaderAuthenticationLevel = MagneticStripeReaderAuthenticationLevel(1i32);
-    pub const Required: MagneticStripeReaderAuthenticationLevel = MagneticStripeReaderAuthenticationLevel(2i32);
+    pub const NotSupported: Self = Self(0i32);
+    pub const Optional: Self = Self(1i32);
+    pub const Required: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
-    pub const None: MagneticStripeReaderAuthenticationProtocol = MagneticStripeReaderAuthenticationProtocol(0i32);
-    pub const ChallengeResponse: MagneticStripeReaderAuthenticationProtocol = MagneticStripeReaderAuthenticationProtocol(1i32);
+    pub const None: Self = Self(0i32);
+    pub const ChallengeResponse: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -416,17 +416,17 @@ pub struct MagneticStripeReaderErrorOccurredEventArgs(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
-    pub const CardLevel: MagneticStripeReaderErrorReportingType = MagneticStripeReaderErrorReportingType(0i32);
-    pub const TrackLevel: MagneticStripeReaderErrorReportingType = MagneticStripeReaderErrorReportingType(1i32);
+    pub const CardLevel: Self = Self(0i32);
+    pub const TrackLevel: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderReport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
-    pub const Unauthenticated: MagneticStripeReaderStatus = MagneticStripeReaderStatus(0i32);
-    pub const Authenticated: MagneticStripeReaderStatus = MagneticStripeReaderStatus(1i32);
-    pub const Extended: MagneticStripeReaderStatus = MagneticStripeReaderStatus(2i32);
+    pub const Unauthenticated: Self = Self(0i32);
+    pub const Authenticated: Self = Self(1i32);
+    pub const Extended: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -435,167 +435,167 @@ pub struct MagneticStripeReaderTrackData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
-    pub const None: MagneticStripeReaderTrackErrorType = MagneticStripeReaderTrackErrorType(0i32);
-    pub const StartSentinelError: MagneticStripeReaderTrackErrorType = MagneticStripeReaderTrackErrorType(1i32);
-    pub const EndSentinelError: MagneticStripeReaderTrackErrorType = MagneticStripeReaderTrackErrorType(2i32);
-    pub const ParityError: MagneticStripeReaderTrackErrorType = MagneticStripeReaderTrackErrorType(3i32);
-    pub const LrcError: MagneticStripeReaderTrackErrorType = MagneticStripeReaderTrackErrorType(4i32);
-    pub const Unknown: MagneticStripeReaderTrackErrorType = MagneticStripeReaderTrackErrorType(-1i32);
+    pub const None: Self = Self(0i32);
+    pub const StartSentinelError: Self = Self(1i32);
+    pub const EndSentinelError: Self = Self(2i32);
+    pub const ParityError: Self = Self(3i32);
+    pub const LrcError: Self = Self(4i32);
+    pub const Unknown: Self = Self(-1i32);
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
-    pub const None: MagneticStripeReaderTrackIds = MagneticStripeReaderTrackIds(0i32);
-    pub const Track1: MagneticStripeReaderTrackIds = MagneticStripeReaderTrackIds(1i32);
-    pub const Track2: MagneticStripeReaderTrackIds = MagneticStripeReaderTrackIds(2i32);
-    pub const Track3: MagneticStripeReaderTrackIds = MagneticStripeReaderTrackIds(4i32);
-    pub const Track4: MagneticStripeReaderTrackIds = MagneticStripeReaderTrackIds(8i32);
+    pub const None: Self = Self(0i32);
+    pub const Track1: Self = Self(1i32);
+    pub const Track2: Self = Self(2i32);
+    pub const Track3: Self = Self(4i32);
+    pub const Track4: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
-    pub const Local: PosConnectionTypes = PosConnectionTypes(1u32);
-    pub const IP: PosConnectionTypes = PosConnectionTypes(2u32);
-    pub const Bluetooth: PosConnectionTypes = PosConnectionTypes(4u32);
-    pub const All: PosConnectionTypes = PosConnectionTypes(4294967295u32);
+    pub const Local: Self = Self(1u32);
+    pub const IP: Self = Self(2u32);
+    pub const Bluetooth: Self = Self(4u32);
+    pub const All: Self = Self(4294967295u32);
 }
 #[repr(transparent)]
 pub struct PosPrinter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
-    pub const Left: PosPrinterAlignment = PosPrinterAlignment(0i32);
-    pub const Center: PosPrinterAlignment = PosPrinterAlignment(1i32);
-    pub const Right: PosPrinterAlignment = PosPrinterAlignment(2i32);
+    pub const Left: Self = Self(0i32);
+    pub const Center: Self = Self(1i32);
+    pub const Right: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
-    pub const None: PosPrinterBarcodeTextPosition = PosPrinterBarcodeTextPosition(0i32);
-    pub const Above: PosPrinterBarcodeTextPosition = PosPrinterBarcodeTextPosition(1i32);
-    pub const Below: PosPrinterBarcodeTextPosition = PosPrinterBarcodeTextPosition(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Above: Self = Self(1i32);
+    pub const Below: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
-    pub const None: PosPrinterCartridgeSensors = PosPrinterCartridgeSensors(0u32);
-    pub const Removed: PosPrinterCartridgeSensors = PosPrinterCartridgeSensors(1u32);
-    pub const Empty: PosPrinterCartridgeSensors = PosPrinterCartridgeSensors(2u32);
-    pub const HeadCleaning: PosPrinterCartridgeSensors = PosPrinterCartridgeSensors(4u32);
-    pub const NearEnd: PosPrinterCartridgeSensors = PosPrinterCartridgeSensors(8u32);
+    pub const None: Self = Self(0u32);
+    pub const Removed: Self = Self(1u32);
+    pub const Empty: Self = Self(2u32);
+    pub const HeadCleaning: Self = Self(4u32);
+    pub const NearEnd: Self = Self(8u32);
 }
 #[repr(transparent)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
-    pub const None: PosPrinterColorCapabilities = PosPrinterColorCapabilities(0u32);
-    pub const Primary: PosPrinterColorCapabilities = PosPrinterColorCapabilities(1u32);
-    pub const Custom1: PosPrinterColorCapabilities = PosPrinterColorCapabilities(2u32);
-    pub const Custom2: PosPrinterColorCapabilities = PosPrinterColorCapabilities(4u32);
-    pub const Custom3: PosPrinterColorCapabilities = PosPrinterColorCapabilities(8u32);
-    pub const Custom4: PosPrinterColorCapabilities = PosPrinterColorCapabilities(16u32);
-    pub const Custom5: PosPrinterColorCapabilities = PosPrinterColorCapabilities(32u32);
-    pub const Custom6: PosPrinterColorCapabilities = PosPrinterColorCapabilities(64u32);
-    pub const Cyan: PosPrinterColorCapabilities = PosPrinterColorCapabilities(128u32);
-    pub const Magenta: PosPrinterColorCapabilities = PosPrinterColorCapabilities(256u32);
-    pub const Yellow: PosPrinterColorCapabilities = PosPrinterColorCapabilities(512u32);
-    pub const Full: PosPrinterColorCapabilities = PosPrinterColorCapabilities(1024u32);
+    pub const None: Self = Self(0u32);
+    pub const Primary: Self = Self(1u32);
+    pub const Custom1: Self = Self(2u32);
+    pub const Custom2: Self = Self(4u32);
+    pub const Custom3: Self = Self(8u32);
+    pub const Custom4: Self = Self(16u32);
+    pub const Custom5: Self = Self(32u32);
+    pub const Custom6: Self = Self(64u32);
+    pub const Cyan: Self = Self(128u32);
+    pub const Magenta: Self = Self(256u32);
+    pub const Yellow: Self = Self(512u32);
+    pub const Full: Self = Self(1024u32);
 }
 #[repr(transparent)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
-    pub const Unknown: PosPrinterColorCartridge = PosPrinterColorCartridge(0i32);
-    pub const Primary: PosPrinterColorCartridge = PosPrinterColorCartridge(1i32);
-    pub const Custom1: PosPrinterColorCartridge = PosPrinterColorCartridge(2i32);
-    pub const Custom2: PosPrinterColorCartridge = PosPrinterColorCartridge(3i32);
-    pub const Custom3: PosPrinterColorCartridge = PosPrinterColorCartridge(4i32);
-    pub const Custom4: PosPrinterColorCartridge = PosPrinterColorCartridge(5i32);
-    pub const Custom5: PosPrinterColorCartridge = PosPrinterColorCartridge(6i32);
-    pub const Custom6: PosPrinterColorCartridge = PosPrinterColorCartridge(7i32);
-    pub const Cyan: PosPrinterColorCartridge = PosPrinterColorCartridge(8i32);
-    pub const Magenta: PosPrinterColorCartridge = PosPrinterColorCartridge(9i32);
-    pub const Yellow: PosPrinterColorCartridge = PosPrinterColorCartridge(10i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Primary: Self = Self(1i32);
+    pub const Custom1: Self = Self(2i32);
+    pub const Custom2: Self = Self(3i32);
+    pub const Custom3: Self = Self(4i32);
+    pub const Custom4: Self = Self(5i32);
+    pub const Custom5: Self = Self(6i32);
+    pub const Custom6: Self = Self(7i32);
+    pub const Cyan: Self = Self(8i32);
+    pub const Magenta: Self = Self(9i32);
+    pub const Yellow: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterFontProperty(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
-    pub const Horizontal: PosPrinterLineDirection = PosPrinterLineDirection(0i32);
-    pub const Vertical: PosPrinterLineDirection = PosPrinterLineDirection(1i32);
+    pub const Horizontal: Self = Self(0i32);
+    pub const Vertical: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
-    pub const SingleSolid: PosPrinterLineStyle = PosPrinterLineStyle(0i32);
-    pub const DoubleSolid: PosPrinterLineStyle = PosPrinterLineStyle(1i32);
-    pub const Broken: PosPrinterLineStyle = PosPrinterLineStyle(2i32);
-    pub const Chain: PosPrinterLineStyle = PosPrinterLineStyle(3i32);
+    pub const SingleSolid: Self = Self(0i32);
+    pub const DoubleSolid: Self = Self(1i32);
+    pub const Broken: Self = Self(2i32);
+    pub const Chain: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
-    pub const Dots: PosPrinterMapMode = PosPrinterMapMode(0i32);
-    pub const Twips: PosPrinterMapMode = PosPrinterMapMode(1i32);
-    pub const English: PosPrinterMapMode = PosPrinterMapMode(2i32);
-    pub const Metric: PosPrinterMapMode = PosPrinterMapMode(3i32);
+    pub const Dots: Self = Self(0i32);
+    pub const Twips: Self = Self(1i32);
+    pub const English: Self = Self(2i32);
+    pub const Metric: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
-    pub const None: PosPrinterMarkFeedCapabilities = PosPrinterMarkFeedCapabilities(0u32);
-    pub const ToTakeUp: PosPrinterMarkFeedCapabilities = PosPrinterMarkFeedCapabilities(1u32);
-    pub const ToCutter: PosPrinterMarkFeedCapabilities = PosPrinterMarkFeedCapabilities(2u32);
-    pub const ToCurrentTopOfForm: PosPrinterMarkFeedCapabilities = PosPrinterMarkFeedCapabilities(4u32);
-    pub const ToNextTopOfForm: PosPrinterMarkFeedCapabilities = PosPrinterMarkFeedCapabilities(8u32);
+    pub const None: Self = Self(0u32);
+    pub const ToTakeUp: Self = Self(1u32);
+    pub const ToCutter: Self = Self(2u32);
+    pub const ToCurrentTopOfForm: Self = Self(4u32);
+    pub const ToNextTopOfForm: Self = Self(8u32);
 }
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
-    pub const ToTakeUp: PosPrinterMarkFeedKind = PosPrinterMarkFeedKind(0i32);
-    pub const ToCutter: PosPrinterMarkFeedKind = PosPrinterMarkFeedKind(1i32);
-    pub const ToCurrentTopOfForm: PosPrinterMarkFeedKind = PosPrinterMarkFeedKind(2i32);
-    pub const ToNextTopOfForm: PosPrinterMarkFeedKind = PosPrinterMarkFeedKind(3i32);
+    pub const ToTakeUp: Self = Self(0i32);
+    pub const ToCutter: Self = Self(1i32);
+    pub const ToCurrentTopOfForm: Self = Self(2i32);
+    pub const ToNextTopOfForm: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterPrintOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
-    pub const Unknown: PosPrinterPrintSide = PosPrinterPrintSide(0i32);
-    pub const Side1: PosPrinterPrintSide = PosPrinterPrintSide(1i32);
-    pub const Side2: PosPrinterPrintSide = PosPrinterPrintSide(2i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Side1: Self = Self(1i32);
+    pub const Side2: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
-    pub const Normal: PosPrinterRotation = PosPrinterRotation(0i32);
-    pub const Right90: PosPrinterRotation = PosPrinterRotation(1i32);
-    pub const Left90: PosPrinterRotation = PosPrinterRotation(2i32);
-    pub const Rotate180: PosPrinterRotation = PosPrinterRotation(3i32);
+    pub const Normal: Self = Self(0i32);
+    pub const Right90: Self = Self(1i32);
+    pub const Left90: Self = Self(2i32);
+    pub const Rotate180: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
-    pub const None: PosPrinterRuledLineCapabilities = PosPrinterRuledLineCapabilities(0u32);
-    pub const Horizontal: PosPrinterRuledLineCapabilities = PosPrinterRuledLineCapabilities(1u32);
-    pub const Vertical: PosPrinterRuledLineCapabilities = PosPrinterRuledLineCapabilities(2u32);
+    pub const None: Self = Self(0u32);
+    pub const Horizontal: Self = Self(1u32);
+    pub const Vertical: Self = Self(2u32);
 }
 #[repr(transparent)]
 pub struct PosPrinterStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
-    pub const Online: PosPrinterStatusKind = PosPrinterStatusKind(0i32);
-    pub const Off: PosPrinterStatusKind = PosPrinterStatusKind(1i32);
-    pub const Offline: PosPrinterStatusKind = PosPrinterStatusKind(2i32);
-    pub const OffOrOffline: PosPrinterStatusKind = PosPrinterStatusKind(3i32);
-    pub const Extended: PosPrinterStatusKind = PosPrinterStatusKind(4i32);
+    pub const Online: Self = Self(0i32);
+    pub const Off: Self = Self(1i32);
+    pub const Offline: Self = Self(2i32);
+    pub const OffOrOffline: Self = Self(3i32);
+    pub const Extended: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct PosPrinterStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -614,40 +614,40 @@ pub struct UnifiedPosErrorData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
-    pub const UnknownErrorReason: UnifiedPosErrorReason = UnifiedPosErrorReason(0i32);
-    pub const NoService: UnifiedPosErrorReason = UnifiedPosErrorReason(1i32);
-    pub const Disabled: UnifiedPosErrorReason = UnifiedPosErrorReason(2i32);
-    pub const Illegal: UnifiedPosErrorReason = UnifiedPosErrorReason(3i32);
-    pub const NoHardware: UnifiedPosErrorReason = UnifiedPosErrorReason(4i32);
-    pub const Closed: UnifiedPosErrorReason = UnifiedPosErrorReason(5i32);
-    pub const Offline: UnifiedPosErrorReason = UnifiedPosErrorReason(6i32);
-    pub const Failure: UnifiedPosErrorReason = UnifiedPosErrorReason(7i32);
-    pub const Timeout: UnifiedPosErrorReason = UnifiedPosErrorReason(8i32);
-    pub const Busy: UnifiedPosErrorReason = UnifiedPosErrorReason(9i32);
-    pub const Extended: UnifiedPosErrorReason = UnifiedPosErrorReason(10i32);
+    pub const UnknownErrorReason: Self = Self(0i32);
+    pub const NoService: Self = Self(1i32);
+    pub const Disabled: Self = Self(2i32);
+    pub const Illegal: Self = Self(3i32);
+    pub const NoHardware: Self = Self(4i32);
+    pub const Closed: Self = Self(5i32);
+    pub const Offline: Self = Self(6i32);
+    pub const Failure: Self = Self(7i32);
+    pub const Timeout: Self = Self(8i32);
+    pub const Busy: Self = Self(9i32);
+    pub const Extended: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
-    pub const UnknownErrorSeverity: UnifiedPosErrorSeverity = UnifiedPosErrorSeverity(0i32);
-    pub const Warning: UnifiedPosErrorSeverity = UnifiedPosErrorSeverity(1i32);
-    pub const Recoverable: UnifiedPosErrorSeverity = UnifiedPosErrorSeverity(2i32);
-    pub const Unrecoverable: UnifiedPosErrorSeverity = UnifiedPosErrorSeverity(3i32);
-    pub const AssistanceRequired: UnifiedPosErrorSeverity = UnifiedPosErrorSeverity(4i32);
-    pub const Fatal: UnifiedPosErrorSeverity = UnifiedPosErrorSeverity(5i32);
+    pub const UnknownErrorSeverity: Self = Self(0i32);
+    pub const Warning: Self = Self(1i32);
+    pub const Recoverable: Self = Self(2i32);
+    pub const Unrecoverable: Self = Self(3i32);
+    pub const AssistanceRequired: Self = Self(4i32);
+    pub const Fatal: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
-    pub const UnknownHealthCheckLevel: UnifiedPosHealthCheckLevel = UnifiedPosHealthCheckLevel(0i32);
-    pub const POSInternal: UnifiedPosHealthCheckLevel = UnifiedPosHealthCheckLevel(1i32);
-    pub const External: UnifiedPosHealthCheckLevel = UnifiedPosHealthCheckLevel(2i32);
-    pub const Interactive: UnifiedPosHealthCheckLevel = UnifiedPosHealthCheckLevel(3i32);
+    pub const UnknownHealthCheckLevel: Self = Self(0i32);
+    pub const POSInternal: Self = Self(1i32);
+    pub const External: Self = Self(2i32);
+    pub const Interactive: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {
-    pub const UnknownPowerReportingType: UnifiedPosPowerReportingType = UnifiedPosPowerReportingType(0i32);
-    pub const Standard: UnifiedPosPowerReportingType = UnifiedPosPowerReportingType(1i32);
-    pub const Advanced: UnifiedPosPowerReportingType = UnifiedPosPowerReportingType(2i32);
+    pub const UnknownPowerReportingType: Self = Self(0i32);
+    pub const Standard: Self = Self(1i32);
+    pub const Advanced: Self = Self(2i32);
 }

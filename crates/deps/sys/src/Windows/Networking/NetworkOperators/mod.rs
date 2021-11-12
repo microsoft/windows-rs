@@ -4,23 +4,23 @@ extern "system" {}
 #[repr(transparent)]
 pub struct DataClasses(pub u32);
 impl DataClasses {
-    pub const None: DataClasses = DataClasses(0u32);
-    pub const Gprs: DataClasses = DataClasses(1u32);
-    pub const Edge: DataClasses = DataClasses(2u32);
-    pub const Umts: DataClasses = DataClasses(4u32);
-    pub const Hsdpa: DataClasses = DataClasses(8u32);
-    pub const Hsupa: DataClasses = DataClasses(16u32);
-    pub const LteAdvanced: DataClasses = DataClasses(32u32);
-    pub const NewRadioNonStandalone: DataClasses = DataClasses(64u32);
-    pub const NewRadioStandalone: DataClasses = DataClasses(128u32);
-    pub const Cdma1xRtt: DataClasses = DataClasses(65536u32);
-    pub const Cdma1xEvdo: DataClasses = DataClasses(131072u32);
-    pub const Cdma1xEvdoRevA: DataClasses = DataClasses(262144u32);
-    pub const Cdma1xEvdv: DataClasses = DataClasses(524288u32);
-    pub const Cdma3xRtt: DataClasses = DataClasses(1048576u32);
-    pub const Cdma1xEvdoRevB: DataClasses = DataClasses(2097152u32);
-    pub const CdmaUmb: DataClasses = DataClasses(4194304u32);
-    pub const Custom: DataClasses = DataClasses(2147483648u32);
+    pub const None: Self = Self(0u32);
+    pub const Gprs: Self = Self(1u32);
+    pub const Edge: Self = Self(2u32);
+    pub const Umts: Self = Self(4u32);
+    pub const Hsdpa: Self = Self(8u32);
+    pub const Hsupa: Self = Self(16u32);
+    pub const LteAdvanced: Self = Self(32u32);
+    pub const NewRadioNonStandalone: Self = Self(64u32);
+    pub const NewRadioStandalone: Self = Self(128u32);
+    pub const Cdma1xRtt: Self = Self(65536u32);
+    pub const Cdma1xEvdo: Self = Self(131072u32);
+    pub const Cdma1xEvdoRevA: Self = Self(262144u32);
+    pub const Cdma1xEvdv: Self = Self(524288u32);
+    pub const Cdma3xRtt: Self = Self(1048576u32);
+    pub const Cdma1xEvdoRevB: Self = Self(2097152u32);
+    pub const CdmaUmb: Self = Self(4194304u32);
+    pub const Custom: Self = Self(2147483648u32);
 }
 #[repr(transparent)]
 pub struct ESim(pub *mut ::core::ffi::c_void);
@@ -29,9 +29,9 @@ pub struct ESimAddedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
-    pub const OnEntry: ESimAuthenticationPreference = ESimAuthenticationPreference(0i32);
-    pub const OnAction: ESimAuthenticationPreference = ESimAuthenticationPreference(1i32);
-    pub const Never: ESimAuthenticationPreference = ESimAuthenticationPreference(2i32);
+    pub const OnEntry: Self = Self(0i32);
+    pub const OnAction: Self = Self(1i32);
+    pub const Never: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ESimDiscoverEvent(pub *mut ::core::ffi::c_void);
@@ -40,9 +40,9 @@ pub struct ESimDiscoverResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
-    pub const None: ESimDiscoverResultKind = ESimDiscoverResultKind(0i32);
-    pub const Events: ESimDiscoverResultKind = ESimDiscoverResultKind(1i32);
-    pub const ProfileMetadata: ESimDiscoverResultKind = ESimDiscoverResultKind(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Events: Self = Self(1i32);
+    pub const ProfileMetadata: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ESimDownloadProfileMetadataResult(pub *mut ::core::ffi::c_void);
@@ -51,35 +51,35 @@ pub struct ESimOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
-    pub const Success: ESimOperationStatus = ESimOperationStatus(0i32);
-    pub const NotAuthorized: ESimOperationStatus = ESimOperationStatus(1i32);
-    pub const NotFound: ESimOperationStatus = ESimOperationStatus(2i32);
-    pub const PolicyViolation: ESimOperationStatus = ESimOperationStatus(3i32);
-    pub const InsufficientSpaceOnCard: ESimOperationStatus = ESimOperationStatus(4i32);
-    pub const ServerFailure: ESimOperationStatus = ESimOperationStatus(5i32);
-    pub const ServerNotReachable: ESimOperationStatus = ESimOperationStatus(6i32);
-    pub const TimeoutWaitingForUserConsent: ESimOperationStatus = ESimOperationStatus(7i32);
-    pub const IncorrectConfirmationCode: ESimOperationStatus = ESimOperationStatus(8i32);
-    pub const ConfirmationCodeMaxRetriesExceeded: ESimOperationStatus = ESimOperationStatus(9i32);
-    pub const CardRemoved: ESimOperationStatus = ESimOperationStatus(10i32);
-    pub const CardBusy: ESimOperationStatus = ESimOperationStatus(11i32);
-    pub const Other: ESimOperationStatus = ESimOperationStatus(12i32);
-    pub const CardGeneralFailure: ESimOperationStatus = ESimOperationStatus(13i32);
-    pub const ConfirmationCodeMissing: ESimOperationStatus = ESimOperationStatus(14i32);
-    pub const InvalidMatchingId: ESimOperationStatus = ESimOperationStatus(15i32);
-    pub const NoEligibleProfileForThisDevice: ESimOperationStatus = ESimOperationStatus(16i32);
-    pub const OperationAborted: ESimOperationStatus = ESimOperationStatus(17i32);
-    pub const EidMismatch: ESimOperationStatus = ESimOperationStatus(18i32);
-    pub const ProfileNotAvailableForNewBinding: ESimOperationStatus = ESimOperationStatus(19i32);
-    pub const ProfileNotReleasedByOperator: ESimOperationStatus = ESimOperationStatus(20i32);
-    pub const OperationProhibitedByProfileClass: ESimOperationStatus = ESimOperationStatus(21i32);
-    pub const ProfileNotPresent: ESimOperationStatus = ESimOperationStatus(22i32);
-    pub const NoCorrespondingRequest: ESimOperationStatus = ESimOperationStatus(23i32);
-    pub const TimeoutWaitingForResponse: ESimOperationStatus = ESimOperationStatus(24i32);
-    pub const IccidAlreadyExists: ESimOperationStatus = ESimOperationStatus(25i32);
-    pub const ProfileProcessingError: ESimOperationStatus = ESimOperationStatus(26i32);
-    pub const ServerNotTrusted: ESimOperationStatus = ESimOperationStatus(27i32);
-    pub const ProfileDownloadMaxRetriesExceeded: ESimOperationStatus = ESimOperationStatus(28i32);
+    pub const Success: Self = Self(0i32);
+    pub const NotAuthorized: Self = Self(1i32);
+    pub const NotFound: Self = Self(2i32);
+    pub const PolicyViolation: Self = Self(3i32);
+    pub const InsufficientSpaceOnCard: Self = Self(4i32);
+    pub const ServerFailure: Self = Self(5i32);
+    pub const ServerNotReachable: Self = Self(6i32);
+    pub const TimeoutWaitingForUserConsent: Self = Self(7i32);
+    pub const IncorrectConfirmationCode: Self = Self(8i32);
+    pub const ConfirmationCodeMaxRetriesExceeded: Self = Self(9i32);
+    pub const CardRemoved: Self = Self(10i32);
+    pub const CardBusy: Self = Self(11i32);
+    pub const Other: Self = Self(12i32);
+    pub const CardGeneralFailure: Self = Self(13i32);
+    pub const ConfirmationCodeMissing: Self = Self(14i32);
+    pub const InvalidMatchingId: Self = Self(15i32);
+    pub const NoEligibleProfileForThisDevice: Self = Self(16i32);
+    pub const OperationAborted: Self = Self(17i32);
+    pub const EidMismatch: Self = Self(18i32);
+    pub const ProfileNotAvailableForNewBinding: Self = Self(19i32);
+    pub const ProfileNotReleasedByOperator: Self = Self(20i32);
+    pub const OperationProhibitedByProfileClass: Self = Self(21i32);
+    pub const ProfileNotPresent: Self = Self(22i32);
+    pub const NoCorrespondingRequest: Self = Self(23i32);
+    pub const TimeoutWaitingForResponse: Self = Self(24i32);
+    pub const IccidAlreadyExists: Self = Self(25i32);
+    pub const ProfileProcessingError: Self = Self(26i32);
+    pub const ServerNotTrusted: Self = Self(27i32);
+    pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
 }
 #[repr(transparent)]
 pub struct ESimPolicy(pub *mut ::core::ffi::c_void);
@@ -88,9 +88,9 @@ pub struct ESimProfile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
-    pub const Operational: ESimProfileClass = ESimProfileClass(0i32);
-    pub const Test: ESimProfileClass = ESimProfileClass(1i32);
-    pub const Provisioning: ESimProfileClass = ESimProfileClass(2i32);
+    pub const Operational: Self = Self(0i32);
+    pub const Test: Self = Self(1i32);
+    pub const Provisioning: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct ESimProfileInstallProgress(i32);
@@ -99,24 +99,24 @@ pub struct ESimProfileMetadata(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
-    pub const Unknown: ESimProfileMetadataState = ESimProfileMetadataState(0i32);
-    pub const WaitingForInstall: ESimProfileMetadataState = ESimProfileMetadataState(1i32);
-    pub const Downloading: ESimProfileMetadataState = ESimProfileMetadataState(2i32);
-    pub const Installing: ESimProfileMetadataState = ESimProfileMetadataState(3i32);
-    pub const Expired: ESimProfileMetadataState = ESimProfileMetadataState(4i32);
-    pub const RejectingDownload: ESimProfileMetadataState = ESimProfileMetadataState(5i32);
-    pub const NoLongerAvailable: ESimProfileMetadataState = ESimProfileMetadataState(6i32);
-    pub const DeniedByPolicy: ESimProfileMetadataState = ESimProfileMetadataState(7i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const WaitingForInstall: Self = Self(1i32);
+    pub const Downloading: Self = Self(2i32);
+    pub const Installing: Self = Self(3i32);
+    pub const Expired: Self = Self(4i32);
+    pub const RejectingDownload: Self = Self(5i32);
+    pub const NoLongerAvailable: Self = Self(6i32);
+    pub const DeniedByPolicy: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct ESimProfilePolicy(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
-    pub const Unknown: ESimProfileState = ESimProfileState(0i32);
-    pub const Disabled: ESimProfileState = ESimProfileState(1i32);
-    pub const Enabled: ESimProfileState = ESimProfileState(2i32);
-    pub const Deleted: ESimProfileState = ESimProfileState(3i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
+    pub const Deleted: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ESimRemovedEventArgs(pub *mut ::core::ffi::c_void);
@@ -125,10 +125,10 @@ pub struct ESimServiceInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimState(pub i32);
 impl ESimState {
-    pub const Unknown: ESimState = ESimState(0i32);
-    pub const Idle: ESimState = ESimState(1i32);
-    pub const Removed: ESimState = ESimState(2i32);
-    pub const Busy: ESimState = ESimState(3i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Idle: Self = Self(1i32);
+    pub const Removed: Self = Self(2i32);
+    pub const Busy: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct ESimUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -137,11 +137,11 @@ pub struct ESimWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
-    pub const Created: ESimWatcherStatus = ESimWatcherStatus(0i32);
-    pub const Started: ESimWatcherStatus = ESimWatcherStatus(1i32);
-    pub const EnumerationCompleted: ESimWatcherStatus = ESimWatcherStatus(2i32);
-    pub const Stopping: ESimWatcherStatus = ESimWatcherStatus(3i32);
-    pub const Stopped: ESimWatcherStatus = ESimWatcherStatus(4i32);
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct HotspotAuthenticationContext(pub *mut ::core::ffi::c_void);
@@ -150,13 +150,13 @@ pub struct HotspotAuthenticationEventDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HotspotAuthenticationResponseCode(pub i32);
 impl HotspotAuthenticationResponseCode {
-    pub const NoError: HotspotAuthenticationResponseCode = HotspotAuthenticationResponseCode(0i32);
-    pub const LoginSucceeded: HotspotAuthenticationResponseCode = HotspotAuthenticationResponseCode(50i32);
-    pub const LoginFailed: HotspotAuthenticationResponseCode = HotspotAuthenticationResponseCode(100i32);
-    pub const RadiusServerError: HotspotAuthenticationResponseCode = HotspotAuthenticationResponseCode(102i32);
-    pub const NetworkAdministratorError: HotspotAuthenticationResponseCode = HotspotAuthenticationResponseCode(105i32);
-    pub const LoginAborted: HotspotAuthenticationResponseCode = HotspotAuthenticationResponseCode(151i32);
-    pub const AccessGatewayInternalError: HotspotAuthenticationResponseCode = HotspotAuthenticationResponseCode(255i32);
+    pub const NoError: Self = Self(0i32);
+    pub const LoginSucceeded: Self = Self(50i32);
+    pub const LoginFailed: Self = Self(100i32);
+    pub const RadiusServerError: Self = Self(102i32);
+    pub const NetworkAdministratorError: Self = Self(105i32);
+    pub const LoginAborted: Self = Self(151i32);
+    pub const AccessGatewayInternalError: Self = Self(255i32);
 }
 #[repr(transparent)]
 pub struct HotspotCredentialsAuthenticationResult(pub *mut ::core::ffi::c_void);
@@ -393,11 +393,11 @@ pub struct MobileBroadbandAccountWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandAccountWatcherStatus(pub i32);
 impl MobileBroadbandAccountWatcherStatus {
-    pub const Created: MobileBroadbandAccountWatcherStatus = MobileBroadbandAccountWatcherStatus(0i32);
-    pub const Started: MobileBroadbandAccountWatcherStatus = MobileBroadbandAccountWatcherStatus(1i32);
-    pub const EnumerationCompleted: MobileBroadbandAccountWatcherStatus = MobileBroadbandAccountWatcherStatus(2i32);
-    pub const Stopped: MobileBroadbandAccountWatcherStatus = MobileBroadbandAccountWatcherStatus(3i32);
-    pub const Aborted: MobileBroadbandAccountWatcherStatus = MobileBroadbandAccountWatcherStatus(4i32);
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopped: Self = Self(3i32);
+    pub const Aborted: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandAntennaSar(pub *mut ::core::ffi::c_void);
@@ -436,10 +436,10 @@ pub struct MobileBroadbandDeviceServiceTriggerDetails(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
-    pub const Unknown: MobileBroadbandDeviceType = MobileBroadbandDeviceType(0i32);
-    pub const Embedded: MobileBroadbandDeviceType = MobileBroadbandDeviceType(1i32);
-    pub const Removable: MobileBroadbandDeviceType = MobileBroadbandDeviceType(2i32);
-    pub const Remote: MobileBroadbandDeviceType = MobileBroadbandDeviceType(3i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Embedded: Self = Self(1i32);
+    pub const Removable: Self = Self(2i32);
+    pub const Remote: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandModem(pub *mut ::core::ffi::c_void);
@@ -450,10 +450,10 @@ pub struct MobileBroadbandModemIsolation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
-    pub const Success: MobileBroadbandModemStatus = MobileBroadbandModemStatus(0i32);
-    pub const OtherFailure: MobileBroadbandModemStatus = MobileBroadbandModemStatus(1i32);
-    pub const Busy: MobileBroadbandModemStatus = MobileBroadbandModemStatus(2i32);
-    pub const NoDeviceSupport: MobileBroadbandModemStatus = MobileBroadbandModemStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const OtherFailure: Self = Self(1i32);
+    pub const Busy: Self = Self(2i32);
+    pub const NoDeviceSupport: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandNetwork(pub *mut ::core::ffi::c_void);
@@ -470,17 +470,17 @@ pub struct MobileBroadbandPin(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
-    pub const Unknown: MobileBroadbandPinFormat = MobileBroadbandPinFormat(0i32);
-    pub const Numeric: MobileBroadbandPinFormat = MobileBroadbandPinFormat(1i32);
-    pub const Alphanumeric: MobileBroadbandPinFormat = MobileBroadbandPinFormat(2i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Numeric: Self = Self(1i32);
+    pub const Alphanumeric: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
-    pub const Unknown: MobileBroadbandPinLockState = MobileBroadbandPinLockState(0i32);
-    pub const Unlocked: MobileBroadbandPinLockState = MobileBroadbandPinLockState(1i32);
-    pub const PinRequired: MobileBroadbandPinLockState = MobileBroadbandPinLockState(2i32);
-    pub const PinUnblockKeyRequired: MobileBroadbandPinLockState = MobileBroadbandPinLockState(3i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Unlocked: Self = Self(1i32);
+    pub const PinRequired: Self = Self(2i32);
+    pub const PinUnblockKeyRequired: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChange(pub *mut ::core::ffi::c_void);
@@ -493,23 +493,23 @@ pub struct MobileBroadbandPinOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
-    pub const None: MobileBroadbandPinType = MobileBroadbandPinType(0i32);
-    pub const Custom: MobileBroadbandPinType = MobileBroadbandPinType(1i32);
-    pub const Pin1: MobileBroadbandPinType = MobileBroadbandPinType(2i32);
-    pub const Pin2: MobileBroadbandPinType = MobileBroadbandPinType(3i32);
-    pub const SimPin: MobileBroadbandPinType = MobileBroadbandPinType(4i32);
-    pub const FirstSimPin: MobileBroadbandPinType = MobileBroadbandPinType(5i32);
-    pub const NetworkPin: MobileBroadbandPinType = MobileBroadbandPinType(6i32);
-    pub const NetworkSubsetPin: MobileBroadbandPinType = MobileBroadbandPinType(7i32);
-    pub const ServiceProviderPin: MobileBroadbandPinType = MobileBroadbandPinType(8i32);
-    pub const CorporatePin: MobileBroadbandPinType = MobileBroadbandPinType(9i32);
-    pub const SubsidyLock: MobileBroadbandPinType = MobileBroadbandPinType(10i32);
+    pub const None: Self = Self(0i32);
+    pub const Custom: Self = Self(1i32);
+    pub const Pin1: Self = Self(2i32);
+    pub const Pin2: Self = Self(3i32);
+    pub const SimPin: Self = Self(4i32);
+    pub const FirstSimPin: Self = Self(5i32);
+    pub const NetworkPin: Self = Self(6i32);
+    pub const NetworkSubsetPin: Self = Self(7i32);
+    pub const ServiceProviderPin: Self = Self(8i32);
+    pub const CorporatePin: Self = Self(9i32);
+    pub const SubsidyLock: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
-    pub const Off: MobileBroadbandRadioState = MobileBroadbandRadioState(0i32);
-    pub const On: MobileBroadbandRadioState = MobileBroadbandRadioState(1i32);
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChange(pub *mut ::core::ffi::c_void);
@@ -526,16 +526,16 @@ pub struct MobileBroadbandSlotManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
-    pub const Unmanaged: MobileBroadbandSlotState = MobileBroadbandSlotState(0i32);
-    pub const Unknown: MobileBroadbandSlotState = MobileBroadbandSlotState(1i32);
-    pub const OffEmpty: MobileBroadbandSlotState = MobileBroadbandSlotState(2i32);
-    pub const Off: MobileBroadbandSlotState = MobileBroadbandSlotState(3i32);
-    pub const Empty: MobileBroadbandSlotState = MobileBroadbandSlotState(4i32);
-    pub const NotReady: MobileBroadbandSlotState = MobileBroadbandSlotState(5i32);
-    pub const Active: MobileBroadbandSlotState = MobileBroadbandSlotState(6i32);
-    pub const Error: MobileBroadbandSlotState = MobileBroadbandSlotState(7i32);
-    pub const ActiveEsim: MobileBroadbandSlotState = MobileBroadbandSlotState(8i32);
-    pub const ActiveEsimNoProfile: MobileBroadbandSlotState = MobileBroadbandSlotState(9i32);
+    pub const Unmanaged: Self = Self(0i32);
+    pub const Unknown: Self = Self(1i32);
+    pub const OffEmpty: Self = Self(2i32);
+    pub const Off: Self = Self(3i32);
+    pub const Empty: Self = Self(4i32);
+    pub const NotReady: Self = Self(5i32);
+    pub const Active: Self = Self(6i32);
+    pub const Error: Self = Self(7i32);
+    pub const ActiveEsim: Self = Self(8i32);
+    pub const ActiveEsimNoProfile: Self = Self(9i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandTransmissionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -546,10 +546,10 @@ pub struct MobileBroadbandUiccApp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
-    pub const Success: MobileBroadbandUiccAppOperationStatus = MobileBroadbandUiccAppOperationStatus(0i32);
-    pub const InvalidUiccFilePath: MobileBroadbandUiccAppOperationStatus = MobileBroadbandUiccAppOperationStatus(1i32);
-    pub const AccessConditionNotHeld: MobileBroadbandUiccAppOperationStatus = MobileBroadbandUiccAppOperationStatus(2i32);
-    pub const UiccBusy: MobileBroadbandUiccAppOperationStatus = MobileBroadbandUiccAppOperationStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const InvalidUiccFilePath: Self = Self(1i32);
+    pub const AccessConditionNotHeld: Self = Self(2i32);
+    pub const UiccBusy: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppReadRecordResult(pub *mut ::core::ffi::c_void);
@@ -560,38 +560,38 @@ pub struct MobileBroadbandUiccAppsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
-    pub const DeviceNotReady: NetworkDeviceStatus = NetworkDeviceStatus(0i32);
-    pub const DeviceReady: NetworkDeviceStatus = NetworkDeviceStatus(1i32);
-    pub const SimNotInserted: NetworkDeviceStatus = NetworkDeviceStatus(2i32);
-    pub const BadSim: NetworkDeviceStatus = NetworkDeviceStatus(3i32);
-    pub const DeviceHardwareFailure: NetworkDeviceStatus = NetworkDeviceStatus(4i32);
-    pub const AccountNotActivated: NetworkDeviceStatus = NetworkDeviceStatus(5i32);
-    pub const DeviceLocked: NetworkDeviceStatus = NetworkDeviceStatus(6i32);
-    pub const DeviceBlocked: NetworkDeviceStatus = NetworkDeviceStatus(7i32);
+    pub const DeviceNotReady: Self = Self(0i32);
+    pub const DeviceReady: Self = Self(1i32);
+    pub const SimNotInserted: Self = Self(2i32);
+    pub const BadSim: Self = Self(3i32);
+    pub const DeviceHardwareFailure: Self = Self(4i32);
+    pub const AccountNotActivated: Self = Self(5i32);
+    pub const DeviceLocked: Self = Self(6i32);
+    pub const DeviceBlocked: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
-    pub const DataUsageProgress: NetworkOperatorDataUsageNotificationKind = NetworkOperatorDataUsageNotificationKind(0i32);
+    pub const DataUsageProgress: Self = Self(0i32);
 }
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
-    pub const Gsm: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(0i32);
-    pub const Cdma: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(1i32);
-    pub const Ussd: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(2i32);
-    pub const DataPlanThresholdReached: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(3i32);
-    pub const DataPlanReset: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(4i32);
-    pub const DataPlanDeleted: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(5i32);
-    pub const ProfileConnected: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(6i32);
-    pub const ProfileDisconnected: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(7i32);
-    pub const RegisteredRoaming: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(8i32);
-    pub const RegisteredHome: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(9i32);
-    pub const TetheringEntitlementCheck: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(10i32);
-    pub const TetheringOperationalStateChanged: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(11i32);
-    pub const TetheringNumberOfClientsChanged: NetworkOperatorEventMessageType = NetworkOperatorEventMessageType(12i32);
+    pub const Gsm: Self = Self(0i32);
+    pub const Cdma: Self = Self(1i32);
+    pub const Ussd: Self = Self(2i32);
+    pub const DataPlanThresholdReached: Self = Self(3i32);
+    pub const DataPlanReset: Self = Self(4i32);
+    pub const DataPlanDeleted: Self = Self(5i32);
+    pub const ProfileConnected: Self = Self(6i32);
+    pub const ProfileDisconnected: Self = Self(7i32);
+    pub const RegisteredRoaming: Self = Self(8i32);
+    pub const RegisteredHome: Self = Self(9i32);
+    pub const TetheringEntitlementCheck: Self = Self(10i32);
+    pub const TetheringOperationalStateChanged: Self = Self(11i32);
+    pub const TetheringNumberOfClientsChanged: Self = Self(12i32);
 }
 #[repr(transparent)]
 pub struct NetworkOperatorNotificationEventDetails(pub *mut ::core::ffi::c_void);
@@ -608,19 +608,19 @@ pub struct NetworkOperatorsFdnContract(i32);
 #[repr(transparent)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
-    pub const None: NetworkRegistrationState = NetworkRegistrationState(0i32);
-    pub const Deregistered: NetworkRegistrationState = NetworkRegistrationState(1i32);
-    pub const Searching: NetworkRegistrationState = NetworkRegistrationState(2i32);
-    pub const Home: NetworkRegistrationState = NetworkRegistrationState(3i32);
-    pub const Roaming: NetworkRegistrationState = NetworkRegistrationState(4i32);
-    pub const Partner: NetworkRegistrationState = NetworkRegistrationState(5i32);
-    pub const Denied: NetworkRegistrationState = NetworkRegistrationState(6i32);
+    pub const None: Self = Self(0i32);
+    pub const Deregistered: Self = Self(1i32);
+    pub const Searching: Self = Self(2i32);
+    pub const Home: Self = Self(3i32);
+    pub const Roaming: Self = Self(4i32);
+    pub const Partner: Self = Self(5i32);
+    pub const Denied: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
-    pub const Wlan: ProfileMediaType = ProfileMediaType(0i32);
-    pub const Wwan: ProfileMediaType = ProfileMediaType(1i32);
+    pub const Wlan: Self = Self(0i32);
+    pub const Wwan: Self = Self(1i32);
 }
 #[cfg(feature = "Foundation")]
 #[repr(C)]
@@ -634,74 +634,74 @@ pub struct ProvisioningAgent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TetheringCapability(pub i32);
 impl TetheringCapability {
-    pub const Enabled: TetheringCapability = TetheringCapability(0i32);
-    pub const DisabledByGroupPolicy: TetheringCapability = TetheringCapability(1i32);
-    pub const DisabledByHardwareLimitation: TetheringCapability = TetheringCapability(2i32);
-    pub const DisabledByOperator: TetheringCapability = TetheringCapability(3i32);
-    pub const DisabledBySku: TetheringCapability = TetheringCapability(4i32);
-    pub const DisabledByRequiredAppNotInstalled: TetheringCapability = TetheringCapability(5i32);
-    pub const DisabledDueToUnknownCause: TetheringCapability = TetheringCapability(6i32);
-    pub const DisabledBySystemCapability: TetheringCapability = TetheringCapability(7i32);
+    pub const Enabled: Self = Self(0i32);
+    pub const DisabledByGroupPolicy: Self = Self(1i32);
+    pub const DisabledByHardwareLimitation: Self = Self(2i32);
+    pub const DisabledByOperator: Self = Self(3i32);
+    pub const DisabledBySku: Self = Self(4i32);
+    pub const DisabledByRequiredAppNotInstalled: Self = Self(5i32);
+    pub const DisabledDueToUnknownCause: Self = Self(6i32);
+    pub const DisabledBySystemCapability: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
-    pub const Success: TetheringOperationStatus = TetheringOperationStatus(0i32);
-    pub const Unknown: TetheringOperationStatus = TetheringOperationStatus(1i32);
-    pub const MobileBroadbandDeviceOff: TetheringOperationStatus = TetheringOperationStatus(2i32);
-    pub const WiFiDeviceOff: TetheringOperationStatus = TetheringOperationStatus(3i32);
-    pub const EntitlementCheckTimeout: TetheringOperationStatus = TetheringOperationStatus(4i32);
-    pub const EntitlementCheckFailure: TetheringOperationStatus = TetheringOperationStatus(5i32);
-    pub const OperationInProgress: TetheringOperationStatus = TetheringOperationStatus(6i32);
-    pub const BluetoothDeviceOff: TetheringOperationStatus = TetheringOperationStatus(7i32);
-    pub const NetworkLimitedConnectivity: TetheringOperationStatus = TetheringOperationStatus(8i32);
+    pub const Success: Self = Self(0i32);
+    pub const Unknown: Self = Self(1i32);
+    pub const MobileBroadbandDeviceOff: Self = Self(2i32);
+    pub const WiFiDeviceOff: Self = Self(3i32);
+    pub const EntitlementCheckTimeout: Self = Self(4i32);
+    pub const EntitlementCheckFailure: Self = Self(5i32);
+    pub const OperationInProgress: Self = Self(6i32);
+    pub const BluetoothDeviceOff: Self = Self(7i32);
+    pub const NetworkLimitedConnectivity: Self = Self(8i32);
 }
 #[repr(transparent)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
-    pub const Unknown: TetheringOperationalState = TetheringOperationalState(0i32);
-    pub const On: TetheringOperationalState = TetheringOperationalState(1i32);
-    pub const Off: TetheringOperationalState = TetheringOperationalState(2i32);
-    pub const InTransition: TetheringOperationalState = TetheringOperationalState(3i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Off: Self = Self(2i32);
+    pub const InTransition: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
-    pub const Auto: TetheringWiFiBand = TetheringWiFiBand(0i32);
-    pub const TwoPointFourGigahertz: TetheringWiFiBand = TetheringWiFiBand(1i32);
-    pub const FiveGigahertz: TetheringWiFiBand = TetheringWiFiBand(2i32);
+    pub const Auto: Self = Self(0i32);
+    pub const TwoPointFourGigahertz: Self = Self(1i32);
+    pub const FiveGigahertz: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UiccAccessCondition(pub i32);
 impl UiccAccessCondition {
-    pub const AlwaysAllowed: UiccAccessCondition = UiccAccessCondition(0i32);
-    pub const Pin1: UiccAccessCondition = UiccAccessCondition(1i32);
-    pub const Pin2: UiccAccessCondition = UiccAccessCondition(2i32);
-    pub const Pin3: UiccAccessCondition = UiccAccessCondition(3i32);
-    pub const Pin4: UiccAccessCondition = UiccAccessCondition(4i32);
-    pub const Administrative5: UiccAccessCondition = UiccAccessCondition(5i32);
-    pub const Administrative6: UiccAccessCondition = UiccAccessCondition(6i32);
-    pub const NeverAllowed: UiccAccessCondition = UiccAccessCondition(7i32);
+    pub const AlwaysAllowed: Self = Self(0i32);
+    pub const Pin1: Self = Self(1i32);
+    pub const Pin2: Self = Self(2i32);
+    pub const Pin3: Self = Self(3i32);
+    pub const Pin4: Self = Self(4i32);
+    pub const Administrative5: Self = Self(5i32);
+    pub const Administrative6: Self = Self(6i32);
+    pub const NeverAllowed: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
-    pub const Unknown: UiccAppKind = UiccAppKind(0i32);
-    pub const MF: UiccAppKind = UiccAppKind(1i32);
-    pub const MFSim: UiccAppKind = UiccAppKind(2i32);
-    pub const MFRuim: UiccAppKind = UiccAppKind(3i32);
-    pub const USim: UiccAppKind = UiccAppKind(4i32);
-    pub const CSim: UiccAppKind = UiccAppKind(5i32);
-    pub const ISim: UiccAppKind = UiccAppKind(6i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const MF: Self = Self(1i32);
+    pub const MFSim: Self = Self(2i32);
+    pub const MFRuim: Self = Self(3i32);
+    pub const USim: Self = Self(4i32);
+    pub const CSim: Self = Self(5i32);
+    pub const ISim: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
-    pub const Unknown: UiccAppRecordKind = UiccAppRecordKind(0i32);
-    pub const Transparent: UiccAppRecordKind = UiccAppRecordKind(1i32);
-    pub const RecordOriented: UiccAppRecordKind = UiccAppRecordKind(2i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Transparent: Self = Self(1i32);
+    pub const RecordOriented: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct UssdMessage(pub *mut ::core::ffi::c_void);
@@ -710,12 +710,12 @@ pub struct UssdReply(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
-    pub const NoActionRequired: UssdResultCode = UssdResultCode(0i32);
-    pub const ActionRequired: UssdResultCode = UssdResultCode(1i32);
-    pub const Terminated: UssdResultCode = UssdResultCode(2i32);
-    pub const OtherLocalClient: UssdResultCode = UssdResultCode(3i32);
-    pub const OperationNotSupported: UssdResultCode = UssdResultCode(4i32);
-    pub const NetworkTimeout: UssdResultCode = UssdResultCode(5i32);
+    pub const NoActionRequired: Self = Self(0i32);
+    pub const ActionRequired: Self = Self(1i32);
+    pub const Terminated: Self = Self(2i32);
+    pub const OtherLocalClient: Self = Self(3i32);
+    pub const OperationNotSupported: Self = Self(4i32);
+    pub const NetworkTimeout: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct UssdSession(pub *mut ::core::ffi::c_void);

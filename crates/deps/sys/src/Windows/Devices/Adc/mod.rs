@@ -8,8 +8,8 @@ pub struct AdcChannel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
-    pub const SingleEnded: AdcChannelMode = AdcChannelMode(0i32);
-    pub const Differential: AdcChannelMode = AdcChannelMode(1i32);
+    pub const SingleEnded: Self = Self(0i32);
+    pub const Differential: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AdcController(pub *mut ::core::ffi::c_void);

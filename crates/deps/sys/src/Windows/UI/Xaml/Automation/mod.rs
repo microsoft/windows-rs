@@ -12,93 +12,93 @@ pub struct AnnotationPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AnnotationType(pub i32);
 impl AnnotationType {
-    pub const Unknown: AnnotationType = AnnotationType(60000i32);
-    pub const SpellingError: AnnotationType = AnnotationType(60001i32);
-    pub const GrammarError: AnnotationType = AnnotationType(60002i32);
-    pub const Comment: AnnotationType = AnnotationType(60003i32);
-    pub const FormulaError: AnnotationType = AnnotationType(60004i32);
-    pub const TrackChanges: AnnotationType = AnnotationType(60005i32);
-    pub const Header: AnnotationType = AnnotationType(60006i32);
-    pub const Footer: AnnotationType = AnnotationType(60007i32);
-    pub const Highlighted: AnnotationType = AnnotationType(60008i32);
-    pub const Endnote: AnnotationType = AnnotationType(60009i32);
-    pub const Footnote: AnnotationType = AnnotationType(60010i32);
-    pub const InsertionChange: AnnotationType = AnnotationType(60011i32);
-    pub const DeletionChange: AnnotationType = AnnotationType(60012i32);
-    pub const MoveChange: AnnotationType = AnnotationType(60013i32);
-    pub const FormatChange: AnnotationType = AnnotationType(60014i32);
-    pub const UnsyncedChange: AnnotationType = AnnotationType(60015i32);
-    pub const EditingLockedChange: AnnotationType = AnnotationType(60016i32);
-    pub const ExternalChange: AnnotationType = AnnotationType(60017i32);
-    pub const ConflictingChange: AnnotationType = AnnotationType(60018i32);
-    pub const Author: AnnotationType = AnnotationType(60019i32);
-    pub const AdvancedProofingIssue: AnnotationType = AnnotationType(60020i32);
-    pub const DataValidationError: AnnotationType = AnnotationType(60021i32);
-    pub const CircularReferenceError: AnnotationType = AnnotationType(60022i32);
+    pub const Unknown: Self = Self(60000i32);
+    pub const SpellingError: Self = Self(60001i32);
+    pub const GrammarError: Self = Self(60002i32);
+    pub const Comment: Self = Self(60003i32);
+    pub const FormulaError: Self = Self(60004i32);
+    pub const TrackChanges: Self = Self(60005i32);
+    pub const Header: Self = Self(60006i32);
+    pub const Footer: Self = Self(60007i32);
+    pub const Highlighted: Self = Self(60008i32);
+    pub const Endnote: Self = Self(60009i32);
+    pub const Footnote: Self = Self(60010i32);
+    pub const InsertionChange: Self = Self(60011i32);
+    pub const DeletionChange: Self = Self(60012i32);
+    pub const MoveChange: Self = Self(60013i32);
+    pub const FormatChange: Self = Self(60014i32);
+    pub const UnsyncedChange: Self = Self(60015i32);
+    pub const EditingLockedChange: Self = Self(60016i32);
+    pub const ExternalChange: Self = Self(60017i32);
+    pub const ConflictingChange: Self = Self(60018i32);
+    pub const Author: Self = Self(60019i32);
+    pub const AdvancedProofingIssue: Self = Self(60020i32);
+    pub const DataValidationError: Self = Self(60021i32);
+    pub const CircularReferenceError: Self = Self(60022i32);
 }
 #[repr(transparent)]
 pub struct AutomationActiveEnd(pub i32);
 impl AutomationActiveEnd {
-    pub const None: AutomationActiveEnd = AutomationActiveEnd(0i32);
-    pub const Start: AutomationActiveEnd = AutomationActiveEnd(1i32);
-    pub const End: AutomationActiveEnd = AutomationActiveEnd(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Start: Self = Self(1i32);
+    pub const End: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AutomationAnimationStyle(pub i32);
 impl AutomationAnimationStyle {
-    pub const None: AutomationAnimationStyle = AutomationAnimationStyle(0i32);
-    pub const LasVegasLights: AutomationAnimationStyle = AutomationAnimationStyle(1i32);
-    pub const BlinkingBackground: AutomationAnimationStyle = AutomationAnimationStyle(2i32);
-    pub const SparkleText: AutomationAnimationStyle = AutomationAnimationStyle(3i32);
-    pub const MarchingBlackAnts: AutomationAnimationStyle = AutomationAnimationStyle(4i32);
-    pub const MarchingRedAnts: AutomationAnimationStyle = AutomationAnimationStyle(5i32);
-    pub const Shimmer: AutomationAnimationStyle = AutomationAnimationStyle(6i32);
-    pub const Other: AutomationAnimationStyle = AutomationAnimationStyle(7i32);
+    pub const None: Self = Self(0i32);
+    pub const LasVegasLights: Self = Self(1i32);
+    pub const BlinkingBackground: Self = Self(2i32);
+    pub const SparkleText: Self = Self(3i32);
+    pub const MarchingBlackAnts: Self = Self(4i32);
+    pub const MarchingRedAnts: Self = Self(5i32);
+    pub const Shimmer: Self = Self(6i32);
+    pub const Other: Self = Self(7i32);
 }
 #[repr(transparent)]
 pub struct AutomationAnnotation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutomationBulletStyle(pub i32);
 impl AutomationBulletStyle {
-    pub const None: AutomationBulletStyle = AutomationBulletStyle(0i32);
-    pub const HollowRoundBullet: AutomationBulletStyle = AutomationBulletStyle(1i32);
-    pub const FilledRoundBullet: AutomationBulletStyle = AutomationBulletStyle(2i32);
-    pub const HollowSquareBullet: AutomationBulletStyle = AutomationBulletStyle(3i32);
-    pub const FilledSquareBullet: AutomationBulletStyle = AutomationBulletStyle(4i32);
-    pub const DashBullet: AutomationBulletStyle = AutomationBulletStyle(5i32);
-    pub const Other: AutomationBulletStyle = AutomationBulletStyle(6i32);
+    pub const None: Self = Self(0i32);
+    pub const HollowRoundBullet: Self = Self(1i32);
+    pub const FilledRoundBullet: Self = Self(2i32);
+    pub const HollowSquareBullet: Self = Self(3i32);
+    pub const FilledSquareBullet: Self = Self(4i32);
+    pub const DashBullet: Self = Self(5i32);
+    pub const Other: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct AutomationCaretBidiMode(pub i32);
 impl AutomationCaretBidiMode {
-    pub const LTR: AutomationCaretBidiMode = AutomationCaretBidiMode(0i32);
-    pub const RTL: AutomationCaretBidiMode = AutomationCaretBidiMode(1i32);
+    pub const LTR: Self = Self(0i32);
+    pub const RTL: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct AutomationCaretPosition(pub i32);
 impl AutomationCaretPosition {
-    pub const Unknown: AutomationCaretPosition = AutomationCaretPosition(0i32);
-    pub const EndOfLine: AutomationCaretPosition = AutomationCaretPosition(1i32);
-    pub const BeginningOfLine: AutomationCaretPosition = AutomationCaretPosition(2i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const EndOfLine: Self = Self(1i32);
+    pub const BeginningOfLine: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct AutomationElementIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutomationFlowDirections(pub i32);
 impl AutomationFlowDirections {
-    pub const Default: AutomationFlowDirections = AutomationFlowDirections(0i32);
-    pub const RightToLeft: AutomationFlowDirections = AutomationFlowDirections(1i32);
-    pub const BottomToTop: AutomationFlowDirections = AutomationFlowDirections(2i32);
-    pub const Vertical: AutomationFlowDirections = AutomationFlowDirections(3i32);
+    pub const Default: Self = Self(0i32);
+    pub const RightToLeft: Self = Self(1i32);
+    pub const BottomToTop: Self = Self(2i32);
+    pub const Vertical: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct AutomationOutlineStyles(pub i32);
 impl AutomationOutlineStyles {
-    pub const None: AutomationOutlineStyles = AutomationOutlineStyles(0i32);
-    pub const Outline: AutomationOutlineStyles = AutomationOutlineStyles(1i32);
-    pub const Shadow: AutomationOutlineStyles = AutomationOutlineStyles(2i32);
-    pub const Engraved: AutomationOutlineStyles = AutomationOutlineStyles(3i32);
-    pub const Embossed: AutomationOutlineStyles = AutomationOutlineStyles(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Outline: Self = Self(1i32);
+    pub const Shadow: Self = Self(2i32);
+    pub const Engraved: Self = Self(3i32);
+    pub const Embossed: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct AutomationProperties(pub *mut ::core::ffi::c_void);
@@ -107,64 +107,64 @@ pub struct AutomationProperty(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutomationStyleId(pub i32);
 impl AutomationStyleId {
-    pub const Heading1: AutomationStyleId = AutomationStyleId(70001i32);
-    pub const Heading2: AutomationStyleId = AutomationStyleId(70002i32);
-    pub const Heading3: AutomationStyleId = AutomationStyleId(70003i32);
-    pub const Heading4: AutomationStyleId = AutomationStyleId(70004i32);
-    pub const Heading5: AutomationStyleId = AutomationStyleId(70005i32);
-    pub const Heading6: AutomationStyleId = AutomationStyleId(70006i32);
-    pub const Heading7: AutomationStyleId = AutomationStyleId(70007i32);
-    pub const Heading8: AutomationStyleId = AutomationStyleId(70008i32);
-    pub const Heading9: AutomationStyleId = AutomationStyleId(70009i32);
-    pub const Title: AutomationStyleId = AutomationStyleId(70010i32);
-    pub const Subtitle: AutomationStyleId = AutomationStyleId(70011i32);
-    pub const Normal: AutomationStyleId = AutomationStyleId(70012i32);
-    pub const Emphasis: AutomationStyleId = AutomationStyleId(70013i32);
-    pub const Quote: AutomationStyleId = AutomationStyleId(70014i32);
-    pub const BulletedList: AutomationStyleId = AutomationStyleId(70015i32);
+    pub const Heading1: Self = Self(70001i32);
+    pub const Heading2: Self = Self(70002i32);
+    pub const Heading3: Self = Self(70003i32);
+    pub const Heading4: Self = Self(70004i32);
+    pub const Heading5: Self = Self(70005i32);
+    pub const Heading6: Self = Self(70006i32);
+    pub const Heading7: Self = Self(70007i32);
+    pub const Heading8: Self = Self(70008i32);
+    pub const Heading9: Self = Self(70009i32);
+    pub const Title: Self = Self(70010i32);
+    pub const Subtitle: Self = Self(70011i32);
+    pub const Normal: Self = Self(70012i32);
+    pub const Emphasis: Self = Self(70013i32);
+    pub const Quote: Self = Self(70014i32);
+    pub const BulletedList: Self = Self(70015i32);
 }
 #[repr(transparent)]
 pub struct AutomationTextDecorationLineStyle(pub i32);
 impl AutomationTextDecorationLineStyle {
-    pub const None: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(0i32);
-    pub const Single: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(1i32);
-    pub const WordsOnly: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(2i32);
-    pub const Double: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(3i32);
-    pub const Dot: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(4i32);
-    pub const Dash: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(5i32);
-    pub const DashDot: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(6i32);
-    pub const DashDotDot: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(7i32);
-    pub const Wavy: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(8i32);
-    pub const ThickSingle: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(9i32);
-    pub const DoubleWavy: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(10i32);
-    pub const ThickWavy: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(11i32);
-    pub const LongDash: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(12i32);
-    pub const ThickDash: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(13i32);
-    pub const ThickDashDot: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(14i32);
-    pub const ThickDashDotDot: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(15i32);
-    pub const ThickDot: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(16i32);
-    pub const ThickLongDash: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(17i32);
-    pub const Other: AutomationTextDecorationLineStyle = AutomationTextDecorationLineStyle(18i32);
+    pub const None: Self = Self(0i32);
+    pub const Single: Self = Self(1i32);
+    pub const WordsOnly: Self = Self(2i32);
+    pub const Double: Self = Self(3i32);
+    pub const Dot: Self = Self(4i32);
+    pub const Dash: Self = Self(5i32);
+    pub const DashDot: Self = Self(6i32);
+    pub const DashDotDot: Self = Self(7i32);
+    pub const Wavy: Self = Self(8i32);
+    pub const ThickSingle: Self = Self(9i32);
+    pub const DoubleWavy: Self = Self(10i32);
+    pub const ThickWavy: Self = Self(11i32);
+    pub const LongDash: Self = Self(12i32);
+    pub const ThickDash: Self = Self(13i32);
+    pub const ThickDashDot: Self = Self(14i32);
+    pub const ThickDashDotDot: Self = Self(15i32);
+    pub const ThickDot: Self = Self(16i32);
+    pub const ThickLongDash: Self = Self(17i32);
+    pub const Other: Self = Self(18i32);
 }
 #[repr(transparent)]
 pub struct AutomationTextEditChangeType(pub i32);
 impl AutomationTextEditChangeType {
-    pub const None: AutomationTextEditChangeType = AutomationTextEditChangeType(0i32);
-    pub const AutoCorrect: AutomationTextEditChangeType = AutomationTextEditChangeType(1i32);
-    pub const Composition: AutomationTextEditChangeType = AutomationTextEditChangeType(2i32);
-    pub const CompositionFinalized: AutomationTextEditChangeType = AutomationTextEditChangeType(3i32);
+    pub const None: Self = Self(0i32);
+    pub const AutoCorrect: Self = Self(1i32);
+    pub const Composition: Self = Self(2i32);
+    pub const CompositionFinalized: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct DockPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DockPosition(pub i32);
 impl DockPosition {
-    pub const Top: DockPosition = DockPosition(0i32);
-    pub const Left: DockPosition = DockPosition(1i32);
-    pub const Bottom: DockPosition = DockPosition(2i32);
-    pub const Right: DockPosition = DockPosition(3i32);
-    pub const Fill: DockPosition = DockPosition(4i32);
-    pub const None: DockPosition = DockPosition(5i32);
+    pub const Top: Self = Self(0i32);
+    pub const Left: Self = Self(1i32);
+    pub const Bottom: Self = Self(2i32);
+    pub const Right: Self = Self(3i32);
+    pub const Fill: Self = Self(4i32);
+    pub const None: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct DragPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -175,10 +175,10 @@ pub struct ExpandCollapsePatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ExpandCollapseState(pub i32);
 impl ExpandCollapseState {
-    pub const Collapsed: ExpandCollapseState = ExpandCollapseState(0i32);
-    pub const Expanded: ExpandCollapseState = ExpandCollapseState(1i32);
-    pub const PartiallyExpanded: ExpandCollapseState = ExpandCollapseState(2i32);
-    pub const LeafNode: ExpandCollapseState = ExpandCollapseState(3i32);
+    pub const Collapsed: Self = Self(0i32);
+    pub const Expanded: Self = Self(1i32);
+    pub const PartiallyExpanded: Self = Self(2i32);
+    pub const LeafNode: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct GridItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -321,18 +321,18 @@ pub struct RangeValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RowOrColumnMajor(pub i32);
 impl RowOrColumnMajor {
-    pub const RowMajor: RowOrColumnMajor = RowOrColumnMajor(0i32);
-    pub const ColumnMajor: RowOrColumnMajor = RowOrColumnMajor(1i32);
-    pub const Indeterminate: RowOrColumnMajor = RowOrColumnMajor(2i32);
+    pub const RowMajor: Self = Self(0i32);
+    pub const ColumnMajor: Self = Self(1i32);
+    pub const Indeterminate: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ScrollAmount(pub i32);
 impl ScrollAmount {
-    pub const LargeDecrement: ScrollAmount = ScrollAmount(0i32);
-    pub const SmallDecrement: ScrollAmount = ScrollAmount(1i32);
-    pub const NoAmount: ScrollAmount = ScrollAmount(2i32);
-    pub const LargeIncrement: ScrollAmount = ScrollAmount(3i32);
-    pub const SmallIncrement: ScrollAmount = ScrollAmount(4i32);
+    pub const LargeDecrement: Self = Self(0i32);
+    pub const SmallDecrement: Self = Self(1i32);
+    pub const NoAmount: Self = Self(2i32);
+    pub const LargeIncrement: Self = Self(3i32);
+    pub const SmallIncrement: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct ScrollPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -347,19 +347,19 @@ pub struct StylesPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SupportedTextSelection(pub i32);
 impl SupportedTextSelection {
-    pub const None: SupportedTextSelection = SupportedTextSelection(0i32);
-    pub const Single: SupportedTextSelection = SupportedTextSelection(1i32);
-    pub const Multiple: SupportedTextSelection = SupportedTextSelection(2i32);
+    pub const None: Self = Self(0i32);
+    pub const Single: Self = Self(1i32);
+    pub const Multiple: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct SynchronizedInputType(pub i32);
 impl SynchronizedInputType {
-    pub const KeyUp: SynchronizedInputType = SynchronizedInputType(1i32);
-    pub const KeyDown: SynchronizedInputType = SynchronizedInputType(2i32);
-    pub const LeftMouseUp: SynchronizedInputType = SynchronizedInputType(4i32);
-    pub const LeftMouseDown: SynchronizedInputType = SynchronizedInputType(8i32);
-    pub const RightMouseUp: SynchronizedInputType = SynchronizedInputType(16i32);
-    pub const RightMouseDown: SynchronizedInputType = SynchronizedInputType(32i32);
+    pub const KeyUp: Self = Self(1i32);
+    pub const KeyDown: Self = Self(2i32);
+    pub const LeftMouseUp: Self = Self(4i32);
+    pub const LeftMouseDown: Self = Self(8i32);
+    pub const RightMouseUp: Self = Self(16i32);
+    pub const RightMouseDown: Self = Self(32i32);
 }
 #[repr(transparent)]
 pub struct TableItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -370,9 +370,9 @@ pub struct TogglePatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ToggleState(pub i32);
 impl ToggleState {
-    pub const Off: ToggleState = ToggleState(0i32);
-    pub const On: ToggleState = ToggleState(1i32);
-    pub const Indeterminate: ToggleState = ToggleState(2i32);
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Indeterminate: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TransformPattern2Identifiers(pub *mut ::core::ffi::c_void);
@@ -383,27 +383,27 @@ pub struct ValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WindowInteractionState(pub i32);
 impl WindowInteractionState {
-    pub const Running: WindowInteractionState = WindowInteractionState(0i32);
-    pub const Closing: WindowInteractionState = WindowInteractionState(1i32);
-    pub const ReadyForUserInteraction: WindowInteractionState = WindowInteractionState(2i32);
-    pub const BlockedByModalWindow: WindowInteractionState = WindowInteractionState(3i32);
-    pub const NotResponding: WindowInteractionState = WindowInteractionState(4i32);
+    pub const Running: Self = Self(0i32);
+    pub const Closing: Self = Self(1i32);
+    pub const ReadyForUserInteraction: Self = Self(2i32);
+    pub const BlockedByModalWindow: Self = Self(3i32);
+    pub const NotResponding: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct WindowPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WindowVisualState(pub i32);
 impl WindowVisualState {
-    pub const Normal: WindowVisualState = WindowVisualState(0i32);
-    pub const Maximized: WindowVisualState = WindowVisualState(1i32);
-    pub const Minimized: WindowVisualState = WindowVisualState(2i32);
+    pub const Normal: Self = Self(0i32);
+    pub const Maximized: Self = Self(1i32);
+    pub const Minimized: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct ZoomUnit(pub i32);
 impl ZoomUnit {
-    pub const NoAmount: ZoomUnit = ZoomUnit(0i32);
-    pub const LargeDecrement: ZoomUnit = ZoomUnit(1i32);
-    pub const SmallDecrement: ZoomUnit = ZoomUnit(2i32);
-    pub const LargeIncrement: ZoomUnit = ZoomUnit(3i32);
-    pub const SmallIncrement: ZoomUnit = ZoomUnit(4i32);
+    pub const NoAmount: Self = Self(0i32);
+    pub const LargeDecrement: Self = Self(1i32);
+    pub const SmallDecrement: Self = Self(2i32);
+    pub const LargeIncrement: Self = Self(3i32);
+    pub const SmallIncrement: Self = Self(4i32);
 }

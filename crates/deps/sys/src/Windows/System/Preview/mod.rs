@@ -4,12 +4,12 @@ extern "system" {}
 #[repr(transparent)]
 pub struct HingeState(pub i32);
 impl HingeState {
-    pub const Unknown: HingeState = HingeState(0i32);
-    pub const Closed: HingeState = HingeState(1i32);
-    pub const Concave: HingeState = HingeState(2i32);
-    pub const Flat: HingeState = HingeState(3i32);
-    pub const Convex: HingeState = HingeState(4i32);
-    pub const Full: HingeState = HingeState(5i32);
+    pub const Unknown: Self = Self(0i32);
+    pub const Closed: Self = Self(1i32);
+    pub const Concave: Self = Self(2i32);
+    pub const Flat: Self = Self(3i32);
+    pub const Convex: Self = Self(4i32);
+    pub const Full: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct ITwoPanelHingedDevicePosturePreview(pub *mut ::core::ffi::c_void);

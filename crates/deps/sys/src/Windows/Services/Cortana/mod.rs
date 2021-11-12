@@ -8,24 +8,24 @@ pub struct CortanaActionableInsightsOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
 impl CortanaPermission {
-    pub const BrowsingHistory: CortanaPermission = CortanaPermission(0i32);
-    pub const Calendar: CortanaPermission = CortanaPermission(1i32);
-    pub const CallHistory: CortanaPermission = CortanaPermission(2i32);
-    pub const Contacts: CortanaPermission = CortanaPermission(3i32);
-    pub const Email: CortanaPermission = CortanaPermission(4i32);
-    pub const InputPersonalization: CortanaPermission = CortanaPermission(5i32);
-    pub const Location: CortanaPermission = CortanaPermission(6i32);
-    pub const Messaging: CortanaPermission = CortanaPermission(7i32);
-    pub const Microphone: CortanaPermission = CortanaPermission(8i32);
-    pub const Personalization: CortanaPermission = CortanaPermission(9i32);
-    pub const PhoneCall: CortanaPermission = CortanaPermission(10i32);
+    pub const BrowsingHistory: Self = Self(0i32);
+    pub const Calendar: Self = Self(1i32);
+    pub const CallHistory: Self = Self(2i32);
+    pub const Contacts: Self = Self(3i32);
+    pub const Email: Self = Self(4i32);
+    pub const InputPersonalization: Self = Self(5i32);
+    pub const Location: Self = Self(6i32);
+    pub const Messaging: Self = Self(7i32);
+    pub const Microphone: Self = Self(8i32);
+    pub const Personalization: Self = Self(9i32);
+    pub const PhoneCall: Self = Self(10i32);
 }
 #[repr(transparent)]
 pub struct CortanaPermissionsChangeResult(pub i32);
 impl CortanaPermissionsChangeResult {
-    pub const Success: CortanaPermissionsChangeResult = CortanaPermissionsChangeResult(0i32);
-    pub const Unavailable: CortanaPermissionsChangeResult = CortanaPermissionsChangeResult(1i32);
-    pub const DisabledByPolicy: CortanaPermissionsChangeResult = CortanaPermissionsChangeResult(2i32);
+    pub const Success: Self = Self(0i32);
+    pub const Unavailable: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct CortanaPermissionsManager(pub *mut ::core::ffi::c_void);

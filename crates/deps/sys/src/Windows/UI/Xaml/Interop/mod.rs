@@ -22,11 +22,11 @@ pub struct INotifyCollectionChangedEventArgsFactory(pub *mut ::core::ffi::c_void
 #[repr(transparent)]
 pub struct NotifyCollectionChangedAction(pub i32);
 impl NotifyCollectionChangedAction {
-    pub const Add: NotifyCollectionChangedAction = NotifyCollectionChangedAction(0i32);
-    pub const Remove: NotifyCollectionChangedAction = NotifyCollectionChangedAction(1i32);
-    pub const Replace: NotifyCollectionChangedAction = NotifyCollectionChangedAction(2i32);
-    pub const Move: NotifyCollectionChangedAction = NotifyCollectionChangedAction(3i32);
-    pub const Reset: NotifyCollectionChangedAction = NotifyCollectionChangedAction(4i32);
+    pub const Add: Self = Self(0i32);
+    pub const Remove: Self = Self(1i32);
+    pub const Replace: Self = Self(2i32);
+    pub const Move: Self = Self(3i32);
+    pub const Reset: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -35,9 +35,9 @@ pub struct NotifyCollectionChangedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TypeKind(pub i32);
 impl TypeKind {
-    pub const Primitive: TypeKind = TypeKind(0i32);
-    pub const Metadata: TypeKind = TypeKind(1i32);
-    pub const Custom: TypeKind = TypeKind(2i32);
+    pub const Primitive: Self = Self(0i32);
+    pub const Metadata: Self = Self(1i32);
+    pub const Custom: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct TypeName(i32);

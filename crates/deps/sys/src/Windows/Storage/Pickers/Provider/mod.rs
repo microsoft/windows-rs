@@ -4,10 +4,10 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AddFileResult(pub i32);
 impl AddFileResult {
-    pub const Added: AddFileResult = AddFileResult(0i32);
-    pub const AlreadyAdded: AddFileResult = AddFileResult(1i32);
-    pub const NotAllowed: AddFileResult = AddFileResult(2i32);
-    pub const Unavailable: AddFileResult = AddFileResult(3i32);
+    pub const Added: Self = Self(0i32);
+    pub const AlreadyAdded: Self = Self(1i32);
+    pub const NotAllowed: Self = Self(2i32);
+    pub const Unavailable: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct FileOpenPickerUI(pub *mut ::core::ffi::c_void);
@@ -18,8 +18,8 @@ pub struct FileSavePickerUI(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FileSelectionMode(pub i32);
 impl FileSelectionMode {
-    pub const Single: FileSelectionMode = FileSelectionMode(0i32);
-    pub const Multiple: FileSelectionMode = FileSelectionMode(1i32);
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct IFileOpenPickerUI(pub *mut ::core::ffi::c_void);
@@ -48,9 +48,9 @@ pub struct PickerClosingOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SetFileNameResult(pub i32);
 impl SetFileNameResult {
-    pub const Succeeded: SetFileNameResult = SetFileNameResult(0i32);
-    pub const NotAllowed: SetFileNameResult = SetFileNameResult(1i32);
-    pub const Unavailable: SetFileNameResult = SetFileNameResult(2i32);
+    pub const Succeeded: Self = Self(0i32);
+    pub const NotAllowed: Self = Self(1i32);
+    pub const Unavailable: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct TargetFileRequest(pub *mut ::core::ffi::c_void);

@@ -10,9 +10,9 @@ pub struct Playlist(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlaylistFormat(pub i32);
 impl PlaylistFormat {
-    pub const WindowsMedia: PlaylistFormat = PlaylistFormat(0i32);
-    pub const Zune: PlaylistFormat = PlaylistFormat(1i32);
-    pub const M3u: PlaylistFormat = PlaylistFormat(2i32);
+    pub const WindowsMedia: Self = Self(0i32);
+    pub const Zune: Self = Self(1i32);
+    pub const M3u: Self = Self(2i32);
 }
 #[repr(C)]
 pub struct PlaylistsContract(i32);

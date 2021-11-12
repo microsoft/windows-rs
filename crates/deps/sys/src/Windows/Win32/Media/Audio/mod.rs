@@ -611,12 +611,12 @@ pub const Full: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(2i32);
 #[repr(transparent)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
-    pub const Unknown_Connector: ConnectorType = ConnectorType(0i32);
-    pub const Physical_Internal: ConnectorType = ConnectorType(1i32);
-    pub const Physical_External: ConnectorType = ConnectorType(2i32);
-    pub const Software_IO: ConnectorType = ConnectorType(3i32);
-    pub const Software_Fixed: ConnectorType = ConnectorType(4i32);
-    pub const Network: ConnectorType = ConnectorType(5i32);
+    pub const Unknown_Connector: Self = Self(0i32);
+    pub const Physical_Internal: Self = Self(1i32);
+    pub const Physical_External: Self = Self(2i32);
+    pub const Software_IO: Self = Self(3i32);
+    pub const Software_Fixed: Self = Self(4i32);
+    pub const Network: Self = Self(5i32);
 }
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
 pub const DEVICE_STATE_ACTIVE: u32 = 1u32;

@@ -8,8 +8,8 @@ pub struct Direct3D11CaptureFramePool(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GraphicsCaptureAccessKind(pub i32);
 impl GraphicsCaptureAccessKind {
-    pub const Borderless: GraphicsCaptureAccessKind = GraphicsCaptureAccessKind(0i32);
-    pub const Programmatic: GraphicsCaptureAccessKind = GraphicsCaptureAccessKind(1i32);
+    pub const Borderless: Self = Self(0i32);
+    pub const Programmatic: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct GraphicsCaptureItem(pub *mut ::core::ffi::c_void);

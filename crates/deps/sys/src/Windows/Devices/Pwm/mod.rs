@@ -20,6 +20,6 @@ pub struct PwmPin(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
-    pub const ActiveHigh: PwmPulsePolarity = PwmPulsePolarity(0i32);
-    pub const ActiveLow: PwmPulsePolarity = PwmPulsePolarity(1i32);
+    pub const ActiveHigh: Self = Self(0i32);
+    pub const ActiveLow: Self = Self(1i32);
 }

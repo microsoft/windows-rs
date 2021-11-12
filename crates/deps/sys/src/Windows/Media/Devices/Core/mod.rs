@@ -24,9 +24,9 @@ pub struct FrameFlashControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {
-    pub const Disable: FrameFlashMode = FrameFlashMode(0i32);
-    pub const Enable: FrameFlashMode = FrameFlashMode(1i32);
-    pub const Global: FrameFlashMode = FrameFlashMode(2i32);
+    pub const Disable: Self = Self(0i32);
+    pub const Enable: Self = Self(1i32);
+    pub const Global: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct FrameFocusCapabilities(pub *mut ::core::ffi::c_void);

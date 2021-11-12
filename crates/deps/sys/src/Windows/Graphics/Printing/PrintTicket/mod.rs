@@ -24,17 +24,17 @@ pub struct PrintTicketFeature(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
-    pub const PickOne: PrintTicketFeatureSelectionType = PrintTicketFeatureSelectionType(0i32);
-    pub const PickMany: PrintTicketFeatureSelectionType = PrintTicketFeatureSelectionType(1i32);
+    pub const PickOne: Self = Self(0i32);
+    pub const PickMany: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct PrintTicketOption(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
-    pub const Integer: PrintTicketParameterDataType = PrintTicketParameterDataType(0i32);
-    pub const NumericString: PrintTicketParameterDataType = PrintTicketParameterDataType(1i32);
-    pub const String: PrintTicketParameterDataType = PrintTicketParameterDataType(2i32);
+    pub const Integer: Self = Self(0i32);
+    pub const NumericString: Self = Self(1i32);
+    pub const String: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct PrintTicketParameterDefinition(pub *mut ::core::ffi::c_void);
@@ -45,9 +45,9 @@ pub struct PrintTicketValue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
-    pub const Integer: PrintTicketValueType = PrintTicketValueType(0i32);
-    pub const String: PrintTicketValueType = PrintTicketValueType(1i32);
-    pub const Unknown: PrintTicketValueType = PrintTicketValueType(2i32);
+    pub const Integer: Self = Self(0i32);
+    pub const String: Self = Self(1i32);
+    pub const Unknown: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct WorkflowPrintTicket(pub *mut ::core::ffi::c_void);

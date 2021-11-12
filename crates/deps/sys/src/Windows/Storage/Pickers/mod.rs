@@ -48,20 +48,20 @@ pub struct IFolderPickerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
-    pub const DocumentsLibrary: PickerLocationId = PickerLocationId(0i32);
-    pub const ComputerFolder: PickerLocationId = PickerLocationId(1i32);
-    pub const Desktop: PickerLocationId = PickerLocationId(2i32);
-    pub const Downloads: PickerLocationId = PickerLocationId(3i32);
-    pub const HomeGroup: PickerLocationId = PickerLocationId(4i32);
-    pub const MusicLibrary: PickerLocationId = PickerLocationId(5i32);
-    pub const PicturesLibrary: PickerLocationId = PickerLocationId(6i32);
-    pub const VideosLibrary: PickerLocationId = PickerLocationId(7i32);
-    pub const Objects3D: PickerLocationId = PickerLocationId(8i32);
-    pub const Unspecified: PickerLocationId = PickerLocationId(9i32);
+    pub const DocumentsLibrary: Self = Self(0i32);
+    pub const ComputerFolder: Self = Self(1i32);
+    pub const Desktop: Self = Self(2i32);
+    pub const Downloads: Self = Self(3i32);
+    pub const HomeGroup: Self = Self(4i32);
+    pub const MusicLibrary: Self = Self(5i32);
+    pub const PicturesLibrary: Self = Self(6i32);
+    pub const VideosLibrary: Self = Self(7i32);
+    pub const Objects3D: Self = Self(8i32);
+    pub const Unspecified: Self = Self(9i32);
 }
 #[repr(transparent)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {
-    pub const List: PickerViewMode = PickerViewMode(0i32);
-    pub const Thumbnail: PickerViewMode = PickerViewMode(1i32);
+    pub const List: Self = Self(0i32);
+    pub const Thumbnail: Self = Self(1i32);
 }

@@ -156,8 +156,8 @@ pub struct LineBreak(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LogicalDirection(pub i32);
 impl LogicalDirection {
-    pub const Backward: LogicalDirection = LogicalDirection(0i32);
-    pub const Forward: LogicalDirection = LogicalDirection(1i32);
+    pub const Backward: Self = Self(0i32);
+    pub const Forward: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct Paragraph(pub *mut ::core::ffi::c_void);
@@ -184,6 +184,6 @@ pub struct Underline(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UnderlineStyle(pub i32);
 impl UnderlineStyle {
-    pub const None: UnderlineStyle = UnderlineStyle(0i32);
-    pub const Single: UnderlineStyle = UnderlineStyle(1i32);
+    pub const None: Self = Self(0i32);
+    pub const Single: Self = Self(1i32);
 }

@@ -16,26 +16,26 @@ pub struct OfflineMapPackageQueryResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
-    pub const Success: OfflineMapPackageQueryStatus = OfflineMapPackageQueryStatus(0i32);
-    pub const UnknownError: OfflineMapPackageQueryStatus = OfflineMapPackageQueryStatus(1i32);
-    pub const InvalidCredentials: OfflineMapPackageQueryStatus = OfflineMapPackageQueryStatus(2i32);
-    pub const NetworkFailure: OfflineMapPackageQueryStatus = OfflineMapPackageQueryStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const InvalidCredentials: Self = Self(2i32);
+    pub const NetworkFailure: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {
-    pub const Success: OfflineMapPackageStartDownloadStatus = OfflineMapPackageStartDownloadStatus(0i32);
-    pub const UnknownError: OfflineMapPackageStartDownloadStatus = OfflineMapPackageStartDownloadStatus(1i32);
-    pub const InvalidCredentials: OfflineMapPackageStartDownloadStatus = OfflineMapPackageStartDownloadStatus(2i32);
-    pub const DeniedWithoutCapability: OfflineMapPackageStartDownloadStatus = OfflineMapPackageStartDownloadStatus(3i32);
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const InvalidCredentials: Self = Self(2i32);
+    pub const DeniedWithoutCapability: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {
-    pub const NotDownloaded: OfflineMapPackageStatus = OfflineMapPackageStatus(0i32);
-    pub const Downloading: OfflineMapPackageStatus = OfflineMapPackageStatus(1i32);
-    pub const Downloaded: OfflineMapPackageStatus = OfflineMapPackageStatus(2i32);
-    pub const Deleting: OfflineMapPackageStatus = OfflineMapPackageStatus(3i32);
+    pub const NotDownloaded: Self = Self(0i32);
+    pub const Downloading: Self = Self(1i32);
+    pub const Downloaded: Self = Self(2i32);
+    pub const Deleting: Self = Self(3i32);
 }

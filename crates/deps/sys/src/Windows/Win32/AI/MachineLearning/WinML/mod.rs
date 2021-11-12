@@ -45,21 +45,21 @@ pub struct MLOperatorAttributeNameValue(i32);
 #[repr(transparent)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
-    pub const Undefined: MLOperatorAttributeType = MLOperatorAttributeType(0u32);
-    pub const Float: MLOperatorAttributeType = MLOperatorAttributeType(2u32);
-    pub const Int: MLOperatorAttributeType = MLOperatorAttributeType(3u32);
-    pub const String: MLOperatorAttributeType = MLOperatorAttributeType(4u32);
-    pub const FloatArray: MLOperatorAttributeType = MLOperatorAttributeType(7u32);
-    pub const IntArray: MLOperatorAttributeType = MLOperatorAttributeType(8u32);
-    pub const StringArray: MLOperatorAttributeType = MLOperatorAttributeType(9u32);
+    pub const Undefined: Self = Self(0u32);
+    pub const Float: Self = Self(2u32);
+    pub const Int: Self = Self(3u32);
+    pub const String: Self = Self(4u32);
+    pub const FloatArray: Self = Self(7u32);
+    pub const IntArray: Self = Self(8u32);
+    pub const StringArray: Self = Self(9u32);
 }
 #[repr(C)]
 pub struct MLOperatorEdgeDescription(i32);
 #[repr(transparent)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
-    pub const Undefined: MLOperatorEdgeType = MLOperatorEdgeType(0u32);
-    pub const Tensor: MLOperatorEdgeType = MLOperatorEdgeType(1u32);
+    pub const Undefined: Self = Self(0u32);
+    pub const Tensor: Self = Self(1u32);
 }
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
@@ -67,9 +67,9 @@ pub struct MLOperatorEdgeTypeConstraint(i32);
 #[repr(transparent)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
-    pub const Undefined: MLOperatorExecutionType = MLOperatorExecutionType(0u32);
-    pub const Cpu: MLOperatorExecutionType = MLOperatorExecutionType(1u32);
-    pub const D3D12: MLOperatorExecutionType = MLOperatorExecutionType(2u32);
+    pub const Undefined: Self = Self(0u32);
+    pub const Cpu: Self = Self(1u32);
+    pub const D3D12: Self = Self(2u32);
 }
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
@@ -77,15 +77,15 @@ pub struct MLOperatorKernelDescription(i32);
 #[repr(transparent)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
-    pub const None: MLOperatorKernelOptions = MLOperatorKernelOptions(0u32);
-    pub const AllowDynamicInputShapes: MLOperatorKernelOptions = MLOperatorKernelOptions(1u32);
+    pub const None: Self = Self(0u32);
+    pub const AllowDynamicInputShapes: Self = Self(1u32);
 }
 #[repr(transparent)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
-    pub const Single: MLOperatorParameterOptions = MLOperatorParameterOptions(0u32);
-    pub const Optional: MLOperatorParameterOptions = MLOperatorParameterOptions(1u32);
-    pub const Variadic: MLOperatorParameterOptions = MLOperatorParameterOptions(2u32);
+    pub const Single: Self = Self(0u32);
+    pub const Optional: Self = Self(1u32);
+    pub const Variadic: Self = Self(2u32);
 }
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
@@ -96,8 +96,8 @@ pub struct MLOperatorSchemaEdgeDescription(i32);
 #[repr(transparent)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
-    pub const EdgeDescription: MLOperatorSchemaEdgeTypeFormat = MLOperatorSchemaEdgeTypeFormat(0i32);
-    pub const Label: MLOperatorSchemaEdgeTypeFormat = MLOperatorSchemaEdgeTypeFormat(1i32);
+    pub const EdgeDescription: Self = Self(0i32);
+    pub const Label: Self = Self(1i32);
 }
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
@@ -105,22 +105,22 @@ pub struct MLOperatorSetId(i32);
 #[repr(transparent)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
-    pub const Undefined: MLOperatorTensorDataType = MLOperatorTensorDataType(0u32);
-    pub const Float: MLOperatorTensorDataType = MLOperatorTensorDataType(1u32);
-    pub const UInt8: MLOperatorTensorDataType = MLOperatorTensorDataType(2u32);
-    pub const Int8: MLOperatorTensorDataType = MLOperatorTensorDataType(3u32);
-    pub const UInt16: MLOperatorTensorDataType = MLOperatorTensorDataType(4u32);
-    pub const Int16: MLOperatorTensorDataType = MLOperatorTensorDataType(5u32);
-    pub const Int32: MLOperatorTensorDataType = MLOperatorTensorDataType(6u32);
-    pub const Int64: MLOperatorTensorDataType = MLOperatorTensorDataType(7u32);
-    pub const String: MLOperatorTensorDataType = MLOperatorTensorDataType(8u32);
-    pub const Bool: MLOperatorTensorDataType = MLOperatorTensorDataType(9u32);
-    pub const Float16: MLOperatorTensorDataType = MLOperatorTensorDataType(10u32);
-    pub const Double: MLOperatorTensorDataType = MLOperatorTensorDataType(11u32);
-    pub const UInt32: MLOperatorTensorDataType = MLOperatorTensorDataType(12u32);
-    pub const UInt64: MLOperatorTensorDataType = MLOperatorTensorDataType(13u32);
-    pub const Complex64: MLOperatorTensorDataType = MLOperatorTensorDataType(14u32);
-    pub const Complex128: MLOperatorTensorDataType = MLOperatorTensorDataType(15u32);
+    pub const Undefined: Self = Self(0u32);
+    pub const Float: Self = Self(1u32);
+    pub const UInt8: Self = Self(2u32);
+    pub const Int8: Self = Self(3u32);
+    pub const UInt16: Self = Self(4u32);
+    pub const Int16: Self = Self(5u32);
+    pub const Int32: Self = Self(6u32);
+    pub const Int64: Self = Self(7u32);
+    pub const String: Self = Self(8u32);
+    pub const Bool: Self = Self(9u32);
+    pub const Float16: Self = Self(10u32);
+    pub const Double: Self = Self(11u32);
+    pub const UInt32: Self = Self(12u32);
+    pub const UInt64: Self = Self(13u32);
+    pub const Complex64: Self = Self(14u32);
+    pub const Complex128: Self = Self(15u32);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 #[repr(C)]

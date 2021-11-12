@@ -2408,19 +2408,19 @@ pub struct SECURITY_LOGON_SESSION_DATA(i32);
 #[repr(transparent)]
 pub struct SECURITY_LOGON_TYPE(pub i32);
 impl SECURITY_LOGON_TYPE {
-    pub const UndefinedLogonType: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(0i32);
-    pub const Interactive: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(2i32);
-    pub const Network: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(3i32);
-    pub const Batch: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(4i32);
-    pub const Service: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(5i32);
-    pub const Proxy: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(6i32);
-    pub const Unlock: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(7i32);
-    pub const NetworkCleartext: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(8i32);
-    pub const NewCredentials: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(9i32);
-    pub const RemoteInteractive: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(10i32);
-    pub const CachedInteractive: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(11i32);
-    pub const CachedRemoteInteractive: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(12i32);
-    pub const CachedUnlock: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(13i32);
+    pub const UndefinedLogonType: Self = Self(0i32);
+    pub const Interactive: Self = Self(2i32);
+    pub const Network: Self = Self(3i32);
+    pub const Batch: Self = Self(4i32);
+    pub const Service: Self = Self(5i32);
+    pub const Proxy: Self = Self(6i32);
+    pub const Unlock: Self = Self(7i32);
+    pub const NetworkCleartext: Self = Self(8i32);
+    pub const NewCredentials: Self = Self(9i32);
+    pub const RemoteInteractive: Self = Self(10i32);
+    pub const CachedInteractive: Self = Self(11i32);
+    pub const CachedRemoteInteractive: Self = Self(12i32);
+    pub const CachedUnlock: Self = Self(13i32);
 }
 pub const SECURITY_NATIVE_DREP: u32 = 16u32;
 pub const SECURITY_NETWORK_DREP: u32 = 0u32;

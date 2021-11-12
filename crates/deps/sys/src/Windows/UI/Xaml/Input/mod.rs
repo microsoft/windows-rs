@@ -26,12 +26,12 @@ pub struct FindNextElementOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FocusInputDeviceKind(pub i32);
 impl FocusInputDeviceKind {
-    pub const None: FocusInputDeviceKind = FocusInputDeviceKind(0i32);
-    pub const Mouse: FocusInputDeviceKind = FocusInputDeviceKind(1i32);
-    pub const Touch: FocusInputDeviceKind = FocusInputDeviceKind(2i32);
-    pub const Pen: FocusInputDeviceKind = FocusInputDeviceKind(3i32);
-    pub const Keyboard: FocusInputDeviceKind = FocusInputDeviceKind(4i32);
-    pub const GameController: FocusInputDeviceKind = FocusInputDeviceKind(5i32);
+    pub const None: Self = Self(0i32);
+    pub const Mouse: Self = Self(1i32);
+    pub const Touch: Self = Self(2i32);
+    pub const Pen: Self = Self(3i32);
+    pub const Keyboard: Self = Self(4i32);
+    pub const GameController: Self = Self(5i32);
 }
 #[repr(transparent)]
 pub struct FocusManager(pub *mut ::core::ffi::c_void);
@@ -44,13 +44,13 @@ pub struct FocusMovementResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FocusNavigationDirection(pub i32);
 impl FocusNavigationDirection {
-    pub const Next: FocusNavigationDirection = FocusNavigationDirection(0i32);
-    pub const Previous: FocusNavigationDirection = FocusNavigationDirection(1i32);
-    pub const Up: FocusNavigationDirection = FocusNavigationDirection(2i32);
-    pub const Down: FocusNavigationDirection = FocusNavigationDirection(3i32);
-    pub const Left: FocusNavigationDirection = FocusNavigationDirection(4i32);
-    pub const Right: FocusNavigationDirection = FocusNavigationDirection(5i32);
-    pub const None: FocusNavigationDirection = FocusNavigationDirection(6i32);
+    pub const Next: Self = Self(0i32);
+    pub const Previous: Self = Self(1i32);
+    pub const Up: Self = Self(2i32);
+    pub const Down: Self = Self(3i32);
+    pub const Left: Self = Self(4i32);
+    pub const Right: Self = Self(5i32);
+    pub const None: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct GettingFocusEventArgs(pub *mut ::core::ffi::c_void);
@@ -205,50 +205,50 @@ pub struct InputScopeName(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InputScopeNameValue(pub i32);
 impl InputScopeNameValue {
-    pub const Default: InputScopeNameValue = InputScopeNameValue(0i32);
-    pub const Url: InputScopeNameValue = InputScopeNameValue(1i32);
-    pub const EmailSmtpAddress: InputScopeNameValue = InputScopeNameValue(5i32);
-    pub const PersonalFullName: InputScopeNameValue = InputScopeNameValue(7i32);
-    pub const CurrencyAmountAndSymbol: InputScopeNameValue = InputScopeNameValue(20i32);
-    pub const CurrencyAmount: InputScopeNameValue = InputScopeNameValue(21i32);
-    pub const DateMonthNumber: InputScopeNameValue = InputScopeNameValue(23i32);
-    pub const DateDayNumber: InputScopeNameValue = InputScopeNameValue(24i32);
-    pub const DateYear: InputScopeNameValue = InputScopeNameValue(25i32);
-    pub const Digits: InputScopeNameValue = InputScopeNameValue(28i32);
-    pub const Number: InputScopeNameValue = InputScopeNameValue(29i32);
-    pub const Password: InputScopeNameValue = InputScopeNameValue(31i32);
-    pub const TelephoneNumber: InputScopeNameValue = InputScopeNameValue(32i32);
-    pub const TelephoneCountryCode: InputScopeNameValue = InputScopeNameValue(33i32);
-    pub const TelephoneAreaCode: InputScopeNameValue = InputScopeNameValue(34i32);
-    pub const TelephoneLocalNumber: InputScopeNameValue = InputScopeNameValue(35i32);
-    pub const TimeHour: InputScopeNameValue = InputScopeNameValue(37i32);
-    pub const TimeMinutesOrSeconds: InputScopeNameValue = InputScopeNameValue(38i32);
-    pub const NumberFullWidth: InputScopeNameValue = InputScopeNameValue(39i32);
-    pub const AlphanumericHalfWidth: InputScopeNameValue = InputScopeNameValue(40i32);
-    pub const AlphanumericFullWidth: InputScopeNameValue = InputScopeNameValue(41i32);
-    pub const Hiragana: InputScopeNameValue = InputScopeNameValue(44i32);
-    pub const KatakanaHalfWidth: InputScopeNameValue = InputScopeNameValue(45i32);
-    pub const KatakanaFullWidth: InputScopeNameValue = InputScopeNameValue(46i32);
-    pub const Hanja: InputScopeNameValue = InputScopeNameValue(47i32);
-    pub const HangulHalfWidth: InputScopeNameValue = InputScopeNameValue(48i32);
-    pub const HangulFullWidth: InputScopeNameValue = InputScopeNameValue(49i32);
-    pub const Search: InputScopeNameValue = InputScopeNameValue(50i32);
-    pub const Formula: InputScopeNameValue = InputScopeNameValue(51i32);
-    pub const SearchIncremental: InputScopeNameValue = InputScopeNameValue(52i32);
-    pub const ChineseHalfWidth: InputScopeNameValue = InputScopeNameValue(53i32);
-    pub const ChineseFullWidth: InputScopeNameValue = InputScopeNameValue(54i32);
-    pub const NativeScript: InputScopeNameValue = InputScopeNameValue(55i32);
-    pub const Text: InputScopeNameValue = InputScopeNameValue(57i32);
-    pub const Chat: InputScopeNameValue = InputScopeNameValue(58i32);
-    pub const NameOrPhoneNumber: InputScopeNameValue = InputScopeNameValue(59i32);
-    pub const EmailNameOrAddress: InputScopeNameValue = InputScopeNameValue(60i32);
-    pub const Private: InputScopeNameValue = InputScopeNameValue(61i32);
-    pub const Maps: InputScopeNameValue = InputScopeNameValue(62i32);
-    pub const NumericPassword: InputScopeNameValue = InputScopeNameValue(63i32);
-    pub const NumericPin: InputScopeNameValue = InputScopeNameValue(64i32);
-    pub const AlphanumericPin: InputScopeNameValue = InputScopeNameValue(65i32);
-    pub const FormulaNumber: InputScopeNameValue = InputScopeNameValue(67i32);
-    pub const ChatWithoutEmoji: InputScopeNameValue = InputScopeNameValue(68i32);
+    pub const Default: Self = Self(0i32);
+    pub const Url: Self = Self(1i32);
+    pub const EmailSmtpAddress: Self = Self(5i32);
+    pub const PersonalFullName: Self = Self(7i32);
+    pub const CurrencyAmountAndSymbol: Self = Self(20i32);
+    pub const CurrencyAmount: Self = Self(21i32);
+    pub const DateMonthNumber: Self = Self(23i32);
+    pub const DateDayNumber: Self = Self(24i32);
+    pub const DateYear: Self = Self(25i32);
+    pub const Digits: Self = Self(28i32);
+    pub const Number: Self = Self(29i32);
+    pub const Password: Self = Self(31i32);
+    pub const TelephoneNumber: Self = Self(32i32);
+    pub const TelephoneCountryCode: Self = Self(33i32);
+    pub const TelephoneAreaCode: Self = Self(34i32);
+    pub const TelephoneLocalNumber: Self = Self(35i32);
+    pub const TimeHour: Self = Self(37i32);
+    pub const TimeMinutesOrSeconds: Self = Self(38i32);
+    pub const NumberFullWidth: Self = Self(39i32);
+    pub const AlphanumericHalfWidth: Self = Self(40i32);
+    pub const AlphanumericFullWidth: Self = Self(41i32);
+    pub const Hiragana: Self = Self(44i32);
+    pub const KatakanaHalfWidth: Self = Self(45i32);
+    pub const KatakanaFullWidth: Self = Self(46i32);
+    pub const Hanja: Self = Self(47i32);
+    pub const HangulHalfWidth: Self = Self(48i32);
+    pub const HangulFullWidth: Self = Self(49i32);
+    pub const Search: Self = Self(50i32);
+    pub const Formula: Self = Self(51i32);
+    pub const SearchIncremental: Self = Self(52i32);
+    pub const ChineseHalfWidth: Self = Self(53i32);
+    pub const ChineseFullWidth: Self = Self(54i32);
+    pub const NativeScript: Self = Self(55i32);
+    pub const Text: Self = Self(57i32);
+    pub const Chat: Self = Self(58i32);
+    pub const NameOrPhoneNumber: Self = Self(59i32);
+    pub const EmailNameOrAddress: Self = Self(60i32);
+    pub const Private: Self = Self(61i32);
+    pub const Maps: Self = Self(62i32);
+    pub const NumericPassword: Self = Self(63i32);
+    pub const NumericPin: Self = Self(64i32);
+    pub const AlphanumericPin: Self = Self(65i32);
+    pub const FormulaNumber: Self = Self(67i32);
+    pub const ChatWithoutEmoji: Self = Self(68i32);
 }
 #[repr(transparent)]
 pub struct KeyEventHandler(pub *mut ::core::ffi::c_void);
@@ -257,13 +257,13 @@ pub struct KeyRoutedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyTipPlacementMode(pub i32);
 impl KeyTipPlacementMode {
-    pub const Auto: KeyTipPlacementMode = KeyTipPlacementMode(0i32);
-    pub const Bottom: KeyTipPlacementMode = KeyTipPlacementMode(1i32);
-    pub const Top: KeyTipPlacementMode = KeyTipPlacementMode(2i32);
-    pub const Left: KeyTipPlacementMode = KeyTipPlacementMode(3i32);
-    pub const Right: KeyTipPlacementMode = KeyTipPlacementMode(4i32);
-    pub const Center: KeyTipPlacementMode = KeyTipPlacementMode(5i32);
-    pub const Hidden: KeyTipPlacementMode = KeyTipPlacementMode(6i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Bottom: Self = Self(1i32);
+    pub const Top: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
+    pub const Right: Self = Self(4i32);
+    pub const Center: Self = Self(5i32);
+    pub const Hidden: Self = Self(6i32);
 }
 #[repr(transparent)]
 pub struct KeyboardAccelerator(pub *mut ::core::ffi::c_void);
@@ -272,15 +272,15 @@ pub struct KeyboardAcceleratorInvokedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyboardAcceleratorPlacementMode(pub i32);
 impl KeyboardAcceleratorPlacementMode {
-    pub const Auto: KeyboardAcceleratorPlacementMode = KeyboardAcceleratorPlacementMode(0i32);
-    pub const Hidden: KeyboardAcceleratorPlacementMode = KeyboardAcceleratorPlacementMode(1i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Hidden: Self = Self(1i32);
 }
 #[repr(transparent)]
 pub struct KeyboardNavigationMode(pub i32);
 impl KeyboardNavigationMode {
-    pub const Local: KeyboardNavigationMode = KeyboardNavigationMode(0i32);
-    pub const Cycle: KeyboardNavigationMode = KeyboardNavigationMode(1i32);
-    pub const Once: KeyboardNavigationMode = KeyboardNavigationMode(2i32);
+    pub const Local: Self = Self(0i32);
+    pub const Cycle: Self = Self(1i32);
+    pub const Once: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct LosingFocusEventArgs(pub *mut ::core::ffi::c_void);
@@ -299,18 +299,18 @@ pub struct ManipulationInertiaStartingRoutedEventArgs(pub *mut ::core::ffi::c_vo
 #[repr(transparent)]
 pub struct ManipulationModes(pub u32);
 impl ManipulationModes {
-    pub const None: ManipulationModes = ManipulationModes(0u32);
-    pub const TranslateX: ManipulationModes = ManipulationModes(1u32);
-    pub const TranslateY: ManipulationModes = ManipulationModes(2u32);
-    pub const TranslateRailsX: ManipulationModes = ManipulationModes(4u32);
-    pub const TranslateRailsY: ManipulationModes = ManipulationModes(8u32);
-    pub const Rotate: ManipulationModes = ManipulationModes(16u32);
-    pub const Scale: ManipulationModes = ManipulationModes(32u32);
-    pub const TranslateInertia: ManipulationModes = ManipulationModes(64u32);
-    pub const RotateInertia: ManipulationModes = ManipulationModes(128u32);
-    pub const ScaleInertia: ManipulationModes = ManipulationModes(256u32);
-    pub const All: ManipulationModes = ManipulationModes(65535u32);
-    pub const System: ManipulationModes = ManipulationModes(65536u32);
+    pub const None: Self = Self(0u32);
+    pub const TranslateX: Self = Self(1u32);
+    pub const TranslateY: Self = Self(2u32);
+    pub const TranslateRailsX: Self = Self(4u32);
+    pub const TranslateRailsY: Self = Self(8u32);
+    pub const Rotate: Self = Self(16u32);
+    pub const Scale: Self = Self(32u32);
+    pub const TranslateInertia: Self = Self(64u32);
+    pub const RotateInertia: Self = Self(128u32);
+    pub const ScaleInertia: Self = Self(256u32);
+    pub const All: Self = Self(65535u32);
+    pub const System: Self = Self(65536u32);
 }
 #[repr(transparent)]
 pub struct ManipulationPivot(pub *mut ::core::ffi::c_void);
@@ -341,23 +341,23 @@ pub struct StandardUICommand(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StandardUICommandKind(pub i32);
 impl StandardUICommandKind {
-    pub const None: StandardUICommandKind = StandardUICommandKind(0i32);
-    pub const Cut: StandardUICommandKind = StandardUICommandKind(1i32);
-    pub const Copy: StandardUICommandKind = StandardUICommandKind(2i32);
-    pub const Paste: StandardUICommandKind = StandardUICommandKind(3i32);
-    pub const SelectAll: StandardUICommandKind = StandardUICommandKind(4i32);
-    pub const Delete: StandardUICommandKind = StandardUICommandKind(5i32);
-    pub const Share: StandardUICommandKind = StandardUICommandKind(6i32);
-    pub const Save: StandardUICommandKind = StandardUICommandKind(7i32);
-    pub const Open: StandardUICommandKind = StandardUICommandKind(8i32);
-    pub const Close: StandardUICommandKind = StandardUICommandKind(9i32);
-    pub const Pause: StandardUICommandKind = StandardUICommandKind(10i32);
-    pub const Play: StandardUICommandKind = StandardUICommandKind(11i32);
-    pub const Stop: StandardUICommandKind = StandardUICommandKind(12i32);
-    pub const Forward: StandardUICommandKind = StandardUICommandKind(13i32);
-    pub const Backward: StandardUICommandKind = StandardUICommandKind(14i32);
-    pub const Undo: StandardUICommandKind = StandardUICommandKind(15i32);
-    pub const Redo: StandardUICommandKind = StandardUICommandKind(16i32);
+    pub const None: Self = Self(0i32);
+    pub const Cut: Self = Self(1i32);
+    pub const Copy: Self = Self(2i32);
+    pub const Paste: Self = Self(3i32);
+    pub const SelectAll: Self = Self(4i32);
+    pub const Delete: Self = Self(5i32);
+    pub const Share: Self = Self(6i32);
+    pub const Save: Self = Self(7i32);
+    pub const Open: Self = Self(8i32);
+    pub const Close: Self = Self(9i32);
+    pub const Pause: Self = Self(10i32);
+    pub const Play: Self = Self(11i32);
+    pub const Stop: Self = Self(12i32);
+    pub const Forward: Self = Self(13i32);
+    pub const Backward: Self = Self(14i32);
+    pub const Undo: Self = Self(15i32);
+    pub const Redo: Self = Self(16i32);
 }
 #[repr(transparent)]
 pub struct TappedEventHandler(pub *mut ::core::ffi::c_void);
@@ -366,26 +366,26 @@ pub struct TappedRoutedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XYFocusKeyboardNavigationMode(pub i32);
 impl XYFocusKeyboardNavigationMode {
-    pub const Auto: XYFocusKeyboardNavigationMode = XYFocusKeyboardNavigationMode(0i32);
-    pub const Enabled: XYFocusKeyboardNavigationMode = XYFocusKeyboardNavigationMode(1i32);
-    pub const Disabled: XYFocusKeyboardNavigationMode = XYFocusKeyboardNavigationMode(2i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
+    pub const Disabled: Self = Self(2i32);
 }
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategy(pub i32);
 impl XYFocusNavigationStrategy {
-    pub const Auto: XYFocusNavigationStrategy = XYFocusNavigationStrategy(0i32);
-    pub const Projection: XYFocusNavigationStrategy = XYFocusNavigationStrategy(1i32);
-    pub const NavigationDirectionDistance: XYFocusNavigationStrategy = XYFocusNavigationStrategy(2i32);
-    pub const RectilinearDistance: XYFocusNavigationStrategy = XYFocusNavigationStrategy(3i32);
+    pub const Auto: Self = Self(0i32);
+    pub const Projection: Self = Self(1i32);
+    pub const NavigationDirectionDistance: Self = Self(2i32);
+    pub const RectilinearDistance: Self = Self(3i32);
 }
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategyOverride(pub i32);
 impl XYFocusNavigationStrategyOverride {
-    pub const None: XYFocusNavigationStrategyOverride = XYFocusNavigationStrategyOverride(0i32);
-    pub const Auto: XYFocusNavigationStrategyOverride = XYFocusNavigationStrategyOverride(1i32);
-    pub const Projection: XYFocusNavigationStrategyOverride = XYFocusNavigationStrategyOverride(2i32);
-    pub const NavigationDirectionDistance: XYFocusNavigationStrategyOverride = XYFocusNavigationStrategyOverride(3i32);
-    pub const RectilinearDistance: XYFocusNavigationStrategyOverride = XYFocusNavigationStrategyOverride(4i32);
+    pub const None: Self = Self(0i32);
+    pub const Auto: Self = Self(1i32);
+    pub const Projection: Self = Self(2i32);
+    pub const NavigationDirectionDistance: Self = Self(3i32);
+    pub const RectilinearDistance: Self = Self(4i32);
 }
 #[repr(transparent)]
 pub struct XamlUICommand(pub *mut ::core::ffi::c_void);
