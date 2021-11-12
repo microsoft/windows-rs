@@ -500,24 +500,60 @@ pub const IDTB_TOC_PREV: u32 = 224u32;
 pub const IDTB_ZOOM: u32 = 222u32;
 #[repr(transparent)]
 pub struct IITDatabase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITDatabase {}
+impl ::core::clone::Clone for IITDatabase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITGroup(pub u8);
 #[repr(transparent)]
 pub struct IITPropList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITPropList {}
+impl ::core::clone::Clone for IITPropList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITQuery(pub u8);
 #[repr(transparent)]
 pub struct IITResultSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITResultSet {}
+impl ::core::clone::Clone for IITResultSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITStopWordList(pub u8);
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 #[repr(transparent)]
 pub struct IITWordWheel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITWordWheel {}
+impl ::core::clone::Clone for IITWordWheel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStemSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStemSink {}
+impl ::core::clone::Clone for IStemSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStemmerConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStemmerConfig {}
+impl ::core::clone::Clone for IStemmerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ITWW_CBKEY_MAX: u32 = 1024u32;
 pub const ITWW_OPEN_NOCONNECT: u32 = 1u32;
 pub const IT_EXCLUSIVE: i32 = 1i32;
@@ -525,6 +561,12 @@ pub const IT_HIDDEN: i32 = 2i32;
 pub const IT_INCLUSIVE: i32 = 0i32;
 #[repr(transparent)]
 pub struct IWordBreakerConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWordBreakerConfig {}
+impl ::core::clone::Clone for IWordBreakerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_COLUMNS: u32 = 256u32;
 pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
 #[repr(transparent)]

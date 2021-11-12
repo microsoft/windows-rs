@@ -458,28 +458,82 @@ impl ::core::clone::Clone for FRAMING_PROP {
 pub const GUID_NULL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 #[repr(transparent)]
 pub struct IKsAggregateControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsAggregateControl {}
+impl ::core::clone::Clone for IKsAggregateControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IKsAllocator(pub u8);
 #[repr(C)]
 pub struct IKsAllocatorEx(pub u8);
 #[repr(transparent)]
 pub struct IKsControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsControl {}
+impl ::core::clone::Clone for IKsControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsFormatSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsFormatSupport {}
+impl ::core::clone::Clone for IKsFormatSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsJackContainerId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsJackContainerId {}
+impl ::core::clone::Clone for IKsJackContainerId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsJackDescription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsJackDescription {}
+impl ::core::clone::Clone for IKsJackDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsJackDescription2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsJackDescription2 {}
+impl ::core::clone::Clone for IKsJackDescription2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsJackSinkInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsJackSinkInformation {}
+impl ::core::clone::Clone for IKsJackSinkInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IKsPin(pub u8);
 #[repr(transparent)]
 pub struct IKsPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsPropertySet {}
+impl ::core::clone::Clone for IKsPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsTopology(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsTopology {}
+impl ::core::clone::Clone for IKsTopology {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     pub Size: u32,

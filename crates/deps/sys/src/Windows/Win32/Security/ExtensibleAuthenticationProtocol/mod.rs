@@ -1081,16 +1081,52 @@ pub const GUID_EapHost_Repair_User_GetNewCert: ::windows_sys::core::GUID = ::win
 pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2517826663, data2: 24912, data3: 16905, data4: [168, 94, 168, 216, 0, 0, 0, 27] };
 #[repr(transparent)]
 pub struct IAccountingProviderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccountingProviderConfig {}
+impl ::core::clone::Clone for IAccountingProviderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAuthenticationProviderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAuthenticationProviderConfig {}
+impl ::core::clone::Clone for IAuthenticationProviderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEAPProviderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEAPProviderConfig {}
+impl ::core::clone::Clone for IEAPProviderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEAPProviderConfig2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEAPProviderConfig2 {}
+impl ::core::clone::Clone for IEAPProviderConfig2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEAPProviderConfig3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEAPProviderConfig3 {}
+impl ::core::clone::Clone for IEAPProviderConfig3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRouterProtocolConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRouterProtocolConfig {}
+impl ::core::clone::Clone for IRouterProtocolConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISOLATION_STATE(pub i32);
 pub const ISOLATION_STATE_UNKNOWN: ISOLATION_STATE = ISOLATION_STATE(0i32);

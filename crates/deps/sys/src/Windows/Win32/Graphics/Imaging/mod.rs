@@ -1083,106 +1083,412 @@ pub const GUID_WICPixelFormatDontCare: ::windows_sys::core::GUID = ::windows_sys
 };
 #[repr(transparent)]
 pub struct IWICBitmap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmap {}
+impl ::core::clone::Clone for IWICBitmap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapClipper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapClipper {}
+impl ::core::clone::Clone for IWICBitmapClipper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapCodecInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapCodecInfo {}
+impl ::core::clone::Clone for IWICBitmapCodecInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapCodecProgressNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapCodecProgressNotification {}
+impl ::core::clone::Clone for IWICBitmapCodecProgressNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapDecoder {}
+impl ::core::clone::Clone for IWICBitmapDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapDecoderInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapDecoderInfo {}
+impl ::core::clone::Clone for IWICBitmapDecoderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapEncoder {}
+impl ::core::clone::Clone for IWICBitmapEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapEncoderInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapEncoderInfo {}
+impl ::core::clone::Clone for IWICBitmapEncoderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapFlipRotator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapFlipRotator {}
+impl ::core::clone::Clone for IWICBitmapFlipRotator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapFrameDecode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapFrameDecode {}
+impl ::core::clone::Clone for IWICBitmapFrameDecode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapFrameEncode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapFrameEncode {}
+impl ::core::clone::Clone for IWICBitmapFrameEncode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapLock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapLock {}
+impl ::core::clone::Clone for IWICBitmapLock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapScaler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapScaler {}
+impl ::core::clone::Clone for IWICBitmapScaler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapSource {}
+impl ::core::clone::Clone for IWICBitmapSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICBitmapSourceTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICBitmapSourceTransform {}
+impl ::core::clone::Clone for IWICBitmapSourceTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICColorContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICColorContext {}
+impl ::core::clone::Clone for IWICColorContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICColorTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICColorTransform {}
+impl ::core::clone::Clone for IWICColorTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICComponentFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICComponentFactory {}
+impl ::core::clone::Clone for IWICComponentFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICComponentInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICComponentInfo {}
+impl ::core::clone::Clone for IWICComponentInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICDdsDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICDdsDecoder {}
+impl ::core::clone::Clone for IWICDdsDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICDdsEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICDdsEncoder {}
+impl ::core::clone::Clone for IWICDdsEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICDdsFrameDecode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICDdsFrameDecode {}
+impl ::core::clone::Clone for IWICDdsFrameDecode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICDevelopRaw(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICDevelopRaw {}
+impl ::core::clone::Clone for IWICDevelopRaw {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICDevelopRawNotificationCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICDevelopRawNotificationCallback {}
+impl ::core::clone::Clone for IWICDevelopRawNotificationCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICEnumMetadataItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICEnumMetadataItem {}
+impl ::core::clone::Clone for IWICEnumMetadataItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICFastMetadataEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICFastMetadataEncoder {}
+impl ::core::clone::Clone for IWICFastMetadataEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICFormatConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICFormatConverter {}
+impl ::core::clone::Clone for IWICFormatConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICFormatConverterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICFormatConverterInfo {}
+impl ::core::clone::Clone for IWICFormatConverterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICImagingFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICImagingFactory {}
+impl ::core::clone::Clone for IWICImagingFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICJpegFrameDecode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICJpegFrameDecode {}
+impl ::core::clone::Clone for IWICJpegFrameDecode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICJpegFrameEncode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICJpegFrameEncode {}
+impl ::core::clone::Clone for IWICJpegFrameEncode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataBlockReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataBlockReader {}
+impl ::core::clone::Clone for IWICMetadataBlockReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataBlockWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataBlockWriter {}
+impl ::core::clone::Clone for IWICMetadataBlockWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataHandlerInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataHandlerInfo {}
+impl ::core::clone::Clone for IWICMetadataHandlerInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataQueryReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataQueryReader {}
+impl ::core::clone::Clone for IWICMetadataQueryReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataQueryWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataQueryWriter {}
+impl ::core::clone::Clone for IWICMetadataQueryWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataReader {}
+impl ::core::clone::Clone for IWICMetadataReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataReaderInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataReaderInfo {}
+impl ::core::clone::Clone for IWICMetadataReaderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataWriter {}
+impl ::core::clone::Clone for IWICMetadataWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICMetadataWriterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICMetadataWriterInfo {}
+impl ::core::clone::Clone for IWICMetadataWriterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICPalette(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICPalette {}
+impl ::core::clone::Clone for IWICPalette {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICPersistStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICPersistStream {}
+impl ::core::clone::Clone for IWICPersistStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICPixelFormatInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICPixelFormatInfo {}
+impl ::core::clone::Clone for IWICPixelFormatInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICPixelFormatInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICPixelFormatInfo2 {}
+impl ::core::clone::Clone for IWICPixelFormatInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICPlanarBitmapFrameEncode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICPlanarBitmapFrameEncode {}
+impl ::core::clone::Clone for IWICPlanarBitmapFrameEncode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICPlanarBitmapSourceTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICPlanarBitmapSourceTransform {}
+impl ::core::clone::Clone for IWICPlanarBitmapSourceTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICPlanarFormatConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICPlanarFormatConverter {}
+impl ::core::clone::Clone for IWICPlanarFormatConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICProgressCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICProgressCallback {}
+impl ::core::clone::Clone for IWICProgressCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICProgressiveLevelControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICProgressiveLevelControl {}
+impl ::core::clone::Clone for IWICProgressiveLevelControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICStream {}
+impl ::core::clone::Clone for IWICStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWICStreamProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWICStreamProvider {}
+impl ::core::clone::Clone for IWICStreamProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFNProgressNotification = unsafe extern "system" fn(pvdata: *const ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct WIC8BIMIptcDigestProperties(pub u32);

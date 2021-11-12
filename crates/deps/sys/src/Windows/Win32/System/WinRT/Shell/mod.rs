@@ -14,3 +14,9 @@ impl ::core::clone::Clone for CreateProcessMethod {
 }
 #[repr(transparent)]
 pub struct IDDEInitializer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDDEInitializer {}
+impl ::core::clone::Clone for IDDEInitializer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

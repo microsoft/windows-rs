@@ -3,88 +3,340 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IDummyMBNUCMExt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDummyMBNUCMExt {}
+impl ::core::clone::Clone for IDummyMBNUCMExt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnection {}
+impl ::core::clone::Clone for IMbnConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionContext {}
+impl ::core::clone::Clone for IMbnConnectionContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionContextEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionContextEvents {}
+impl ::core::clone::Clone for IMbnConnectionContextEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionEvents {}
+impl ::core::clone::Clone for IMbnConnectionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionManager {}
+impl ::core::clone::Clone for IMbnConnectionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionManagerEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionManagerEvents {}
+impl ::core::clone::Clone for IMbnConnectionManagerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionProfile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionProfile {}
+impl ::core::clone::Clone for IMbnConnectionProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionProfileEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionProfileEvents {}
+impl ::core::clone::Clone for IMbnConnectionProfileEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionProfileManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionProfileManager {}
+impl ::core::clone::Clone for IMbnConnectionProfileManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnConnectionProfileManagerEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnConnectionProfileManagerEvents {}
+impl ::core::clone::Clone for IMbnConnectionProfileManagerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnDeviceService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnDeviceService {}
+impl ::core::clone::Clone for IMbnDeviceService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnDeviceServiceStateEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnDeviceServiceStateEvents {}
+impl ::core::clone::Clone for IMbnDeviceServiceStateEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnDeviceServicesContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnDeviceServicesContext {}
+impl ::core::clone::Clone for IMbnDeviceServicesContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnDeviceServicesEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnDeviceServicesEvents {}
+impl ::core::clone::Clone for IMbnDeviceServicesEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnDeviceServicesManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnDeviceServicesManager {}
+impl ::core::clone::Clone for IMbnDeviceServicesManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnInterface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnInterface {}
+impl ::core::clone::Clone for IMbnInterface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnInterfaceEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnInterfaceEvents {}
+impl ::core::clone::Clone for IMbnInterfaceEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnInterfaceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnInterfaceManager {}
+impl ::core::clone::Clone for IMbnInterfaceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnInterfaceManagerEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnInterfaceManagerEvents {}
+impl ::core::clone::Clone for IMbnInterfaceManagerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnMultiCarrier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnMultiCarrier {}
+impl ::core::clone::Clone for IMbnMultiCarrier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnMultiCarrierEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnMultiCarrierEvents {}
+impl ::core::clone::Clone for IMbnMultiCarrierEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnPin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnPin {}
+impl ::core::clone::Clone for IMbnPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnPinEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnPinEvents {}
+impl ::core::clone::Clone for IMbnPinEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnPinManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnPinManager {}
+impl ::core::clone::Clone for IMbnPinManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnPinManagerEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnPinManagerEvents {}
+impl ::core::clone::Clone for IMbnPinManagerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnRadio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnRadio {}
+impl ::core::clone::Clone for IMbnRadio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnRadioEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnRadioEvents {}
+impl ::core::clone::Clone for IMbnRadioEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnRegistration {}
+impl ::core::clone::Clone for IMbnRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnRegistrationEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnRegistrationEvents {}
+impl ::core::clone::Clone for IMbnRegistrationEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnServiceActivation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnServiceActivation {}
+impl ::core::clone::Clone for IMbnServiceActivation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnServiceActivationEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnServiceActivationEvents {}
+impl ::core::clone::Clone for IMbnServiceActivationEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSignal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSignal {}
+impl ::core::clone::Clone for IMbnSignal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSignalEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSignalEvents {}
+impl ::core::clone::Clone for IMbnSignalEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSms(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSms {}
+impl ::core::clone::Clone for IMbnSms {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSmsConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSmsConfiguration {}
+impl ::core::clone::Clone for IMbnSmsConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSmsEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSmsEvents {}
+impl ::core::clone::Clone for IMbnSmsEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSmsReadMsgPdu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSmsReadMsgPdu {}
+impl ::core::clone::Clone for IMbnSmsReadMsgPdu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSmsReadMsgTextCdma(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSmsReadMsgTextCdma {}
+impl ::core::clone::Clone for IMbnSmsReadMsgTextCdma {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnSubscriberInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnSubscriberInformation {}
+impl ::core::clone::Clone for IMbnSubscriberInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnVendorSpecificEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnVendorSpecificEvents {}
+impl ::core::clone::Clone for IMbnVendorSpecificEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMbnVendorSpecificOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMbnVendorSpecificOperation {}
+impl ::core::clone::Clone for IMbnVendorSpecificOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_ACTIVATION_STATE(pub i32);
 pub const MBN_ACTIVATION_STATE_NONE: MBN_ACTIVATION_STATE = MBN_ACTIVATION_STATE(0i32);

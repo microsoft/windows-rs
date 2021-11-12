@@ -11,6 +11,12 @@ pub mod Spatial;
 extern "system" {}
 #[repr(transparent)]
 pub struct AttachableInputObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AttachableInputObject {}
+impl ::core::clone::Clone for AttachableInputObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CrossSlideThresholds {
     pub SelectionStart: f32,
@@ -26,6 +32,12 @@ impl ::core::clone::Clone for CrossSlideThresholds {
 }
 #[repr(transparent)]
 pub struct CrossSlidingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CrossSlidingEventArgs {}
+impl ::core::clone::Clone for CrossSlidingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CrossSlidingState(pub i32);
 impl CrossSlidingState {
@@ -45,6 +57,12 @@ impl ::core::clone::Clone for CrossSlidingState {
 }
 #[repr(transparent)]
 pub struct DraggingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DraggingEventArgs {}
+impl ::core::clone::Clone for DraggingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DraggingState(pub i32);
 impl DraggingState {
@@ -60,8 +78,20 @@ impl ::core::clone::Clone for DraggingState {
 }
 #[repr(transparent)]
 pub struct EdgeGesture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EdgeGesture {}
+impl ::core::clone::Clone for EdgeGesture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EdgeGestureEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EdgeGestureEventArgs {}
+impl ::core::clone::Clone for EdgeGestureEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EdgeGestureKind(pub i32);
 impl EdgeGestureKind {
@@ -91,6 +121,12 @@ impl ::core::clone::Clone for GazeInputAccessStatus {
 }
 #[repr(transparent)]
 pub struct GestureRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GestureRecognizer {}
+impl ::core::clone::Clone for GestureRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GestureSettings(pub u32);
 impl GestureSettings {
@@ -121,6 +157,12 @@ impl ::core::clone::Clone for GestureSettings {
 }
 #[repr(transparent)]
 pub struct HoldingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HoldingEventArgs {}
+impl ::core::clone::Clone for HoldingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HoldingState(pub i32);
 impl HoldingState {
@@ -136,144 +178,564 @@ impl ::core::clone::Clone for HoldingState {
 }
 #[repr(transparent)]
 pub struct IAttachableInputObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAttachableInputObject {}
+impl ::core::clone::Clone for IAttachableInputObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAttachableInputObjectFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAttachableInputObjectFactory {}
+impl ::core::clone::Clone for IAttachableInputObjectFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrossSlidingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrossSlidingEventArgs {}
+impl ::core::clone::Clone for ICrossSlidingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrossSlidingEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrossSlidingEventArgs2 {}
+impl ::core::clone::Clone for ICrossSlidingEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDraggingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDraggingEventArgs {}
+impl ::core::clone::Clone for IDraggingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDraggingEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDraggingEventArgs2 {}
+impl ::core::clone::Clone for IDraggingEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEdgeGesture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEdgeGesture {}
+impl ::core::clone::Clone for IEdgeGesture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEdgeGestureEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEdgeGestureEventArgs {}
+impl ::core::clone::Clone for IEdgeGestureEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEdgeGestureStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEdgeGestureStatics {}
+impl ::core::clone::Clone for IEdgeGestureStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGestureRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGestureRecognizer {}
+impl ::core::clone::Clone for IGestureRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGestureRecognizer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGestureRecognizer2 {}
+impl ::core::clone::Clone for IGestureRecognizer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHoldingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHoldingEventArgs {}
+impl ::core::clone::Clone for IHoldingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHoldingEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHoldingEventArgs2 {}
+impl ::core::clone::Clone for IHoldingEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputActivationListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputActivationListener {}
+impl ::core::clone::Clone for IInputActivationListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputActivationListenerActivationChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputActivationListenerActivationChangedEventArgs {}
+impl ::core::clone::Clone for IInputActivationListenerActivationChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKeyboardDeliveryInterceptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKeyboardDeliveryInterceptor {}
+impl ::core::clone::Clone for IKeyboardDeliveryInterceptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKeyboardDeliveryInterceptorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKeyboardDeliveryInterceptorStatics {}
+impl ::core::clone::Clone for IKeyboardDeliveryInterceptorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationCompletedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationCompletedEventArgs {}
+impl ::core::clone::Clone for IManipulationCompletedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationCompletedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationCompletedEventArgs2 {}
+impl ::core::clone::Clone for IManipulationCompletedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationInertiaStartingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationInertiaStartingEventArgs {}
+impl ::core::clone::Clone for IManipulationInertiaStartingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationInertiaStartingEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationInertiaStartingEventArgs2 {}
+impl ::core::clone::Clone for IManipulationInertiaStartingEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationStartedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationStartedEventArgs {}
+impl ::core::clone::Clone for IManipulationStartedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationStartedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationStartedEventArgs2 {}
+impl ::core::clone::Clone for IManipulationStartedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationUpdatedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationUpdatedEventArgs {}
+impl ::core::clone::Clone for IManipulationUpdatedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationUpdatedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationUpdatedEventArgs2 {}
+impl ::core::clone::Clone for IManipulationUpdatedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMouseWheelParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMouseWheelParameters {}
+impl ::core::clone::Clone for IMouseWheelParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerPoint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerPoint {}
+impl ::core::clone::Clone for IPointerPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerPointProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerPointProperties {}
+impl ::core::clone::Clone for IPointerPointProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerPointProperties2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerPointProperties2 {}
+impl ::core::clone::Clone for IPointerPointProperties2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerPointStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerPointStatics {}
+impl ::core::clone::Clone for IPointerPointStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerPointTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerPointTransform {}
+impl ::core::clone::Clone for IPointerPointTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerVisualizationSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerVisualizationSettings {}
+impl ::core::clone::Clone for IPointerVisualizationSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerVisualizationSettingsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerVisualizationSettingsStatics {}
+impl ::core::clone::Clone for IPointerVisualizationSettingsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialController {}
+impl ::core::clone::Clone for IRadialController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialController2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialController2 {}
+impl ::core::clone::Clone for IRadialController2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerButtonClickedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerButtonClickedEventArgs {}
+impl ::core::clone::Clone for IRadialControllerButtonClickedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerButtonClickedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerButtonClickedEventArgs2 {}
+impl ::core::clone::Clone for IRadialControllerButtonClickedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerButtonHoldingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerButtonHoldingEventArgs {}
+impl ::core::clone::Clone for IRadialControllerButtonHoldingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerButtonPressedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerButtonPressedEventArgs {}
+impl ::core::clone::Clone for IRadialControllerButtonPressedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerButtonReleasedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerButtonReleasedEventArgs {}
+impl ::core::clone::Clone for IRadialControllerButtonReleasedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerConfiguration {}
+impl ::core::clone::Clone for IRadialControllerConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerConfiguration2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerConfiguration2 {}
+impl ::core::clone::Clone for IRadialControllerConfiguration2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerConfigurationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerConfigurationStatics {}
+impl ::core::clone::Clone for IRadialControllerConfigurationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerConfigurationStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerConfigurationStatics2 {}
+impl ::core::clone::Clone for IRadialControllerConfigurationStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerControlAcquiredEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerControlAcquiredEventArgs {}
+impl ::core::clone::Clone for IRadialControllerControlAcquiredEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerControlAcquiredEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerControlAcquiredEventArgs2 {}
+impl ::core::clone::Clone for IRadialControllerControlAcquiredEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerMenu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerMenu {}
+impl ::core::clone::Clone for IRadialControllerMenu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerMenuItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerMenuItem {}
+impl ::core::clone::Clone for IRadialControllerMenuItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerMenuItemStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerMenuItemStatics {}
+impl ::core::clone::Clone for IRadialControllerMenuItemStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerMenuItemStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerMenuItemStatics2 {}
+impl ::core::clone::Clone for IRadialControllerMenuItemStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerRotationChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerRotationChangedEventArgs {}
+impl ::core::clone::Clone for IRadialControllerRotationChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerRotationChangedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerRotationChangedEventArgs2 {}
+impl ::core::clone::Clone for IRadialControllerRotationChangedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerScreenContact(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerScreenContact {}
+impl ::core::clone::Clone for IRadialControllerScreenContact {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerScreenContactContinuedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerScreenContactContinuedEventArgs {}
+impl ::core::clone::Clone for IRadialControllerScreenContactContinuedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerScreenContactContinuedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerScreenContactContinuedEventArgs2 {}
+impl ::core::clone::Clone for IRadialControllerScreenContactContinuedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerScreenContactEndedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerScreenContactEndedEventArgs {}
+impl ::core::clone::Clone for IRadialControllerScreenContactEndedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerScreenContactStartedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerScreenContactStartedEventArgs {}
+impl ::core::clone::Clone for IRadialControllerScreenContactStartedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerScreenContactStartedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerScreenContactStartedEventArgs2 {}
+impl ::core::clone::Clone for IRadialControllerScreenContactStartedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRadialControllerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRadialControllerStatics {}
+impl ::core::clone::Clone for IRadialControllerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRightTappedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRightTappedEventArgs {}
+impl ::core::clone::Clone for IRightTappedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRightTappedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRightTappedEventArgs2 {}
+impl ::core::clone::Clone for IRightTappedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemButtonEventController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemButtonEventController {}
+impl ::core::clone::Clone for ISystemButtonEventController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemButtonEventControllerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemButtonEventControllerStatics {}
+impl ::core::clone::Clone for ISystemButtonEventControllerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemFunctionButtonEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemFunctionButtonEventArgs {}
+impl ::core::clone::Clone for ISystemFunctionButtonEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemFunctionLockChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemFunctionLockChangedEventArgs {}
+impl ::core::clone::Clone for ISystemFunctionLockChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemFunctionLockIndicatorChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemFunctionLockIndicatorChangedEventArgs {}
+impl ::core::clone::Clone for ISystemFunctionLockIndicatorChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITappedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITappedEventArgs {}
+impl ::core::clone::Clone for ITappedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITappedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITappedEventArgs2 {}
+impl ::core::clone::Clone for ITappedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InputActivationListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InputActivationListener {}
+impl ::core::clone::Clone for InputActivationListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InputActivationListenerActivationChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InputActivationListenerActivationChangedEventArgs {}
+impl ::core::clone::Clone for InputActivationListenerActivationChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
@@ -290,8 +752,20 @@ impl ::core::clone::Clone for InputActivationState {
 }
 #[repr(transparent)]
 pub struct KeyboardDeliveryInterceptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for KeyboardDeliveryInterceptor {}
+impl ::core::clone::Clone for KeyboardDeliveryInterceptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManipulationCompletedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ManipulationCompletedEventArgs {}
+impl ::core::clone::Clone for ManipulationCompletedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationDelta {
@@ -310,10 +784,28 @@ impl ::core::clone::Clone for ManipulationDelta {
 }
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ManipulationInertiaStartingEventArgs {}
+impl ::core::clone::Clone for ManipulationInertiaStartingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManipulationStartedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ManipulationStartedEventArgs {}
+impl ::core::clone::Clone for ManipulationStartedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManipulationUpdatedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ManipulationUpdatedEventArgs {}
+impl ::core::clone::Clone for ManipulationUpdatedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationVelocities {
@@ -331,10 +823,28 @@ impl ::core::clone::Clone for ManipulationVelocities {
 }
 #[repr(transparent)]
 pub struct MouseWheelParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MouseWheelParameters {}
+impl ::core::clone::Clone for MouseWheelParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PointerPoint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PointerPoint {}
+impl ::core::clone::Clone for PointerPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PointerPointProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PointerPointProperties {}
+impl ::core::clone::Clone for PointerPointProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PointerUpdateKind(pub i32);
 impl PointerUpdateKind {
@@ -358,24 +868,84 @@ impl ::core::clone::Clone for PointerUpdateKind {
 }
 #[repr(transparent)]
 pub struct PointerVisualizationSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PointerVisualizationSettings {}
+impl ::core::clone::Clone for PointerVisualizationSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialController {}
+impl ::core::clone::Clone for RadialController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerButtonClickedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerButtonClickedEventArgs {}
+impl ::core::clone::Clone for RadialControllerButtonClickedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerButtonHoldingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerButtonHoldingEventArgs {}
+impl ::core::clone::Clone for RadialControllerButtonHoldingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerButtonPressedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerButtonPressedEventArgs {}
+impl ::core::clone::Clone for RadialControllerButtonPressedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerButtonReleasedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerButtonReleasedEventArgs {}
+impl ::core::clone::Clone for RadialControllerButtonReleasedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerConfiguration {}
+impl ::core::clone::Clone for RadialControllerConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerControlAcquiredEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerControlAcquiredEventArgs {}
+impl ::core::clone::Clone for RadialControllerControlAcquiredEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerMenu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerMenu {}
+impl ::core::clone::Clone for RadialControllerMenu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerMenuItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerMenuItem {}
+impl ::core::clone::Clone for RadialControllerMenuItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
@@ -397,14 +967,44 @@ impl ::core::clone::Clone for RadialControllerMenuKnownIcon {
 }
 #[repr(transparent)]
 pub struct RadialControllerRotationChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerRotationChangedEventArgs {}
+impl ::core::clone::Clone for RadialControllerRotationChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerScreenContact(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerScreenContact {}
+impl ::core::clone::Clone for RadialControllerScreenContact {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerScreenContactContinuedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerScreenContactContinuedEventArgs {}
+impl ::core::clone::Clone for RadialControllerScreenContactContinuedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerScreenContactEndedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerScreenContactEndedEventArgs {}
+impl ::core::clone::Clone for RadialControllerScreenContactEndedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerScreenContactStartedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RadialControllerScreenContactStartedEventArgs {}
+impl ::core::clone::Clone for RadialControllerScreenContactStartedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {
@@ -422,13 +1022,49 @@ impl ::core::clone::Clone for RadialControllerSystemMenuItemKind {
 }
 #[repr(transparent)]
 pub struct RightTappedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RightTappedEventArgs {}
+impl ::core::clone::Clone for RightTappedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemButtonEventController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SystemButtonEventController {}
+impl ::core::clone::Clone for SystemButtonEventController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemFunctionButtonEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SystemFunctionButtonEventArgs {}
+impl ::core::clone::Clone for SystemFunctionButtonEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemFunctionLockChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SystemFunctionLockChangedEventArgs {}
+impl ::core::clone::Clone for SystemFunctionLockChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemFunctionLockIndicatorChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SystemFunctionLockIndicatorChangedEventArgs {}
+impl ::core::clone::Clone for SystemFunctionLockIndicatorChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TappedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TappedEventArgs {}
+impl ::core::clone::Clone for TappedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

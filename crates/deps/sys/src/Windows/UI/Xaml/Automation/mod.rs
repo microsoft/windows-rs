@@ -9,6 +9,12 @@ pub mod Text;
 extern "system" {}
 #[repr(transparent)]
 pub struct AnnotationPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AnnotationPatternIdentifiers {}
+impl ::core::clone::Clone for AnnotationPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AnnotationType(pub i32);
 impl AnnotationType {
@@ -75,6 +81,12 @@ impl ::core::clone::Clone for AutomationAnimationStyle {
 }
 #[repr(transparent)]
 pub struct AutomationAnnotation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AutomationAnnotation {}
+impl ::core::clone::Clone for AutomationAnnotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationBulletStyle(pub i32);
 impl AutomationBulletStyle {
@@ -119,6 +131,12 @@ impl ::core::clone::Clone for AutomationCaretPosition {
 }
 #[repr(transparent)]
 pub struct AutomationElementIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AutomationElementIdentifiers {}
+impl ::core::clone::Clone for AutomationElementIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationFlowDirections(pub i32);
 impl AutomationFlowDirections {
@@ -150,8 +168,20 @@ impl ::core::clone::Clone for AutomationOutlineStyles {
 }
 #[repr(transparent)]
 pub struct AutomationProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AutomationProperties {}
+impl ::core::clone::Clone for AutomationProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AutomationProperty {}
+impl ::core::clone::Clone for AutomationProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationStyleId(pub i32);
 impl AutomationStyleId {
@@ -222,6 +252,12 @@ impl ::core::clone::Clone for AutomationTextEditChangeType {
 }
 #[repr(transparent)]
 pub struct DockPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DockPatternIdentifiers {}
+impl ::core::clone::Clone for DockPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DockPosition(pub i32);
 impl DockPosition {
@@ -240,10 +276,28 @@ impl ::core::clone::Clone for DockPosition {
 }
 #[repr(transparent)]
 pub struct DragPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DragPatternIdentifiers {}
+impl ::core::clone::Clone for DragPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DropTargetPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DropTargetPatternIdentifiers {}
+impl ::core::clone::Clone for DropTargetPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExpandCollapsePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ExpandCollapsePatternIdentifiers {}
+impl ::core::clone::Clone for ExpandCollapsePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExpandCollapseState(pub i32);
 impl ExpandCollapseState {
@@ -260,142 +314,556 @@ impl ::core::clone::Clone for ExpandCollapseState {
 }
 #[repr(transparent)]
 pub struct GridItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GridItemPatternIdentifiers {}
+impl ::core::clone::Clone for GridItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GridPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GridPatternIdentifiers {}
+impl ::core::clone::Clone for GridPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnnotationPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnnotationPatternIdentifiers {}
+impl ::core::clone::Clone for IAnnotationPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnnotationPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnnotationPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IAnnotationPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationAnnotation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationAnnotation {}
+impl ::core::clone::Clone for IAutomationAnnotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationAnnotationFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationAnnotationFactory {}
+impl ::core::clone::Clone for IAutomationAnnotationFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationAnnotationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationAnnotationStatics {}
+impl ::core::clone::Clone for IAutomationAnnotationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiers {}
+impl ::core::clone::Clone for IAutomationElementIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics2 {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics3 {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics4 {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics5 {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics6 {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics7 {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationElementIdentifiersStatics8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationElementIdentifiersStatics8 {}
+impl ::core::clone::Clone for IAutomationElementIdentifiersStatics8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationProperties {}
+impl ::core::clone::Clone for IAutomationProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics2 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics3 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics4 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics5 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics6 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics7 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics8 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationPropertiesStatics9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationPropertiesStatics9 {}
+impl ::core::clone::Clone for IAutomationPropertiesStatics9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAutomationProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAutomationProperty {}
+impl ::core::clone::Clone for IAutomationProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDockPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDockPatternIdentifiers {}
+impl ::core::clone::Clone for IDockPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDockPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDockPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IDockPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDragPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDragPatternIdentifiers {}
+impl ::core::clone::Clone for IDragPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDragPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDragPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IDragPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDropTargetPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDropTargetPatternIdentifiers {}
+impl ::core::clone::Clone for IDropTargetPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDropTargetPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDropTargetPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IDropTargetPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExpandCollapsePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExpandCollapsePatternIdentifiers {}
+impl ::core::clone::Clone for IExpandCollapsePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExpandCollapsePatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExpandCollapsePatternIdentifiersStatics {}
+impl ::core::clone::Clone for IExpandCollapsePatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGridItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGridItemPatternIdentifiers {}
+impl ::core::clone::Clone for IGridItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGridItemPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGridItemPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IGridItemPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGridPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGridPatternIdentifiers {}
+impl ::core::clone::Clone for IGridPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGridPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGridPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IGridPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultipleViewPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultipleViewPatternIdentifiers {}
+impl ::core::clone::Clone for IMultipleViewPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultipleViewPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultipleViewPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IMultipleViewPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRangeValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRangeValuePatternIdentifiers {}
+impl ::core::clone::Clone for IRangeValuePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRangeValuePatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRangeValuePatternIdentifiersStatics {}
+impl ::core::clone::Clone for IRangeValuePatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScrollPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScrollPatternIdentifiers {}
+impl ::core::clone::Clone for IScrollPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScrollPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScrollPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IScrollPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectionItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectionItemPatternIdentifiers {}
+impl ::core::clone::Clone for ISelectionItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectionItemPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectionItemPatternIdentifiersStatics {}
+impl ::core::clone::Clone for ISelectionItemPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectionPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectionPatternIdentifiers {}
+impl ::core::clone::Clone for ISelectionPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectionPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectionPatternIdentifiersStatics {}
+impl ::core::clone::Clone for ISelectionPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpreadsheetItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpreadsheetItemPatternIdentifiers {}
+impl ::core::clone::Clone for ISpreadsheetItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpreadsheetItemPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpreadsheetItemPatternIdentifiersStatics {}
+impl ::core::clone::Clone for ISpreadsheetItemPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylesPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylesPatternIdentifiers {}
+impl ::core::clone::Clone for IStylesPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylesPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylesPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IStylesPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableItemPatternIdentifiers {}
+impl ::core::clone::Clone for ITableItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableItemPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableItemPatternIdentifiersStatics {}
+impl ::core::clone::Clone for ITableItemPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITablePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITablePatternIdentifiers {}
+impl ::core::clone::Clone for ITablePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITablePatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITablePatternIdentifiersStatics {}
+impl ::core::clone::Clone for ITablePatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITogglePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITogglePatternIdentifiers {}
+impl ::core::clone::Clone for ITogglePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITogglePatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITogglePatternIdentifiersStatics {}
+impl ::core::clone::Clone for ITogglePatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransformPattern2Identifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransformPattern2Identifiers {}
+impl ::core::clone::Clone for ITransformPattern2Identifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransformPattern2IdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransformPattern2IdentifiersStatics {}
+impl ::core::clone::Clone for ITransformPattern2IdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransformPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransformPatternIdentifiers {}
+impl ::core::clone::Clone for ITransformPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransformPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransformPatternIdentifiersStatics {}
+impl ::core::clone::Clone for ITransformPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IValuePatternIdentifiers {}
+impl ::core::clone::Clone for IValuePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValuePatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IValuePatternIdentifiersStatics {}
+impl ::core::clone::Clone for IValuePatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowPatternIdentifiers {}
+impl ::core::clone::Clone for IWindowPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowPatternIdentifiersStatics {}
+impl ::core::clone::Clone for IWindowPatternIdentifiersStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MultipleViewPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MultipleViewPatternIdentifiers {}
+impl ::core::clone::Clone for MultipleViewPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RangeValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RangeValuePatternIdentifiers {}
+impl ::core::clone::Clone for RangeValuePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RowOrColumnMajor(pub i32);
 impl RowOrColumnMajor {
@@ -426,14 +894,44 @@ impl ::core::clone::Clone for ScrollAmount {
 }
 #[repr(transparent)]
 pub struct ScrollPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ScrollPatternIdentifiers {}
+impl ::core::clone::Clone for ScrollPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SelectionItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SelectionItemPatternIdentifiers {}
+impl ::core::clone::Clone for SelectionItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SelectionPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SelectionPatternIdentifiers {}
+impl ::core::clone::Clone for SelectionPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpreadsheetItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SpreadsheetItemPatternIdentifiers {}
+impl ::core::clone::Clone for SpreadsheetItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StylesPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StylesPatternIdentifiers {}
+impl ::core::clone::Clone for StylesPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SupportedTextSelection(pub i32);
 impl SupportedTextSelection {
@@ -465,10 +963,28 @@ impl ::core::clone::Clone for SynchronizedInputType {
 }
 #[repr(transparent)]
 pub struct TableItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TableItemPatternIdentifiers {}
+impl ::core::clone::Clone for TableItemPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TablePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TablePatternIdentifiers {}
+impl ::core::clone::Clone for TablePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TogglePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TogglePatternIdentifiers {}
+impl ::core::clone::Clone for TogglePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ToggleState(pub i32);
 impl ToggleState {
@@ -484,10 +1000,28 @@ impl ::core::clone::Clone for ToggleState {
 }
 #[repr(transparent)]
 pub struct TransformPattern2Identifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TransformPattern2Identifiers {}
+impl ::core::clone::Clone for TransformPattern2Identifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TransformPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TransformPatternIdentifiers {}
+impl ::core::clone::Clone for TransformPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ValuePatternIdentifiers {}
+impl ::core::clone::Clone for ValuePatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WindowInteractionState(pub i32);
 impl WindowInteractionState {
@@ -505,6 +1039,12 @@ impl ::core::clone::Clone for WindowInteractionState {
 }
 #[repr(transparent)]
 pub struct WindowPatternIdentifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WindowPatternIdentifiers {}
+impl ::core::clone::Clone for WindowPatternIdentifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WindowVisualState(pub i32);
 impl WindowVisualState {

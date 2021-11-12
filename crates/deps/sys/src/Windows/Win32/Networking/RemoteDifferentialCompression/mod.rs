@@ -25,38 +25,140 @@ impl ::core::clone::Clone for GeneratorParametersType {
 }
 #[repr(transparent)]
 pub struct IFindSimilarResults(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFindSimilarResults {}
+impl ::core::clone::Clone for IFindSimilarResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcComparator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcComparator {}
+impl ::core::clone::Clone for IRdcComparator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcFileReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcFileReader {}
+impl ::core::clone::Clone for IRdcFileReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcFileWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcFileWriter {}
+impl ::core::clone::Clone for IRdcFileWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcGenerator {}
+impl ::core::clone::Clone for IRdcGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcGeneratorFilterMaxParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcGeneratorFilterMaxParameters {}
+impl ::core::clone::Clone for IRdcGeneratorFilterMaxParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcGeneratorParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcGeneratorParameters {}
+impl ::core::clone::Clone for IRdcGeneratorParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcLibrary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcLibrary {}
+impl ::core::clone::Clone for IRdcLibrary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcSignatureReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcSignatureReader {}
+impl ::core::clone::Clone for IRdcSignatureReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRdcSimilarityGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRdcSimilarityGenerator {}
+impl ::core::clone::Clone for IRdcSimilarityGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimilarity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimilarity {}
+impl ::core::clone::Clone for ISimilarity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimilarityFileIdTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimilarityFileIdTable {}
+impl ::core::clone::Clone for ISimilarityFileIdTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimilarityReportProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimilarityReportProgress {}
+impl ::core::clone::Clone for ISimilarityReportProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimilarityTableDumpState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimilarityTableDumpState {}
+impl ::core::clone::Clone for ISimilarityTableDumpState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimilarityTraitsMappedView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimilarityTraitsMappedView {}
+impl ::core::clone::Clone for ISimilarityTraitsMappedView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimilarityTraitsMapping(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimilarityTraitsMapping {}
+impl ::core::clone::Clone for ISimilarityTraitsMapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimilarityTraitsTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimilarityTraitsTable {}
+impl ::core::clone::Clone for ISimilarityTraitsTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSRDC_DEFAULT_COMPAREBUFFER: u32 = 3200000u32;
 pub const MSRDC_DEFAULT_HASHWINDOWSIZE_1: u32 = 48u32;
 pub const MSRDC_DEFAULT_HASHWINDOWSIZE_N: u32 = 2u32;

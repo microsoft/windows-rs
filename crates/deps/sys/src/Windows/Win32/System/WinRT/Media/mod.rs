@@ -10,9 +10,33 @@ pub const CLSID_VideoFrameNativeFactory: ::windows_sys::core::GUID = ::windows_s
 };
 #[repr(transparent)]
 pub struct IAudioFrameNative(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioFrameNative {}
+impl ::core::clone::Clone for IAudioFrameNative {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioFrameNativeFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioFrameNativeFactory {}
+impl ::core::clone::Clone for IAudioFrameNativeFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoFrameNative(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoFrameNative {}
+impl ::core::clone::Clone for IVideoFrameNative {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoFrameNativeFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoFrameNativeFactory {}
+impl ::core::clone::Clone for IVideoFrameNativeFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

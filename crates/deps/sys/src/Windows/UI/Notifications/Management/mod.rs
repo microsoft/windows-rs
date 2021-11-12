@@ -3,10 +3,28 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IUserNotificationListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserNotificationListener {}
+impl ::core::clone::Clone for IUserNotificationListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserNotificationListenerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserNotificationListenerStatics {}
+impl ::core::clone::Clone for IUserNotificationListenerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserNotificationListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserNotificationListener {}
+impl ::core::clone::Clone for UserNotificationListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {

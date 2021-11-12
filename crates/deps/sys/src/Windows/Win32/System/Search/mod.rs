@@ -3487,10 +3487,28 @@ pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
 pub const DataLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 570871218, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
 #[repr(transparent)]
 pub struct DataSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DataSource {}
+impl ::core::clone::Clone for DataSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DataSourceListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DataSourceListener {}
+impl ::core::clone::Clone for DataSourceListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DataSourceObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DataSourceObject {}
+impl ::core::clone::Clone for DataSourceObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EBindInfoOptions(pub i32);
 pub const BIO_BINDER: EBindInfoOptions = EBindInfoOptions(1i32);
@@ -4038,82 +4056,316 @@ impl ::core::clone::Clone for HITRANGE {
 }
 #[repr(transparent)]
 pub struct IAccessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessor {}
+impl ::core::clone::Clone for IAccessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAlterIndex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlterIndex {}
+impl ::core::clone::Clone for IAlterIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAlterTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlterTable {}
+impl ::core::clone::Clone for IAlterTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindResource {}
+impl ::core::clone::Clone for IBindResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChapteredRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChapteredRowset {}
+impl ::core::clone::Clone for IChapteredRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnMapper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnMapper {}
+impl ::core::clone::Clone for IColumnMapper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnMapperCreator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnMapperCreator {}
+impl ::core::clone::Clone for IColumnMapperCreator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnsInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnsInfo {}
+impl ::core::clone::Clone for IColumnsInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnsInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnsInfo2 {}
+impl ::core::clone::Clone for IColumnsInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnsRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnsRowset {}
+impl ::core::clone::Clone for IColumnsRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommand {}
+impl ::core::clone::Clone for ICommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandCost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandCost {}
+impl ::core::clone::Clone for ICommandCost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandPersist(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandPersist {}
+impl ::core::clone::Clone for ICommandPersist {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandPrepare(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandPrepare {}
+impl ::core::clone::Clone for ICommandPrepare {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandProperties {}
+impl ::core::clone::Clone for ICommandProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandStream {}
+impl ::core::clone::Clone for ICommandStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandText(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandText {}
+impl ::core::clone::Clone for ICommandText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandValidate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandValidate {}
+impl ::core::clone::Clone for ICommandValidate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandWithParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandWithParameters {}
+impl ::core::clone::Clone for ICommandWithParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICondition {}
+impl ::core::clone::Clone for ICondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICondition2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICondition2 {}
+impl ::core::clone::Clone for ICondition2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionFactory {}
+impl ::core::clone::Clone for IConditionFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionFactory2 {}
+impl ::core::clone::Clone for IConditionFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionGenerator {}
+impl ::core::clone::Clone for IConditionGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConvertType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConvertType {}
+impl ::core::clone::Clone for IConvertType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateRow {}
+impl ::core::clone::Clone for ICreateRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBAsynchNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBAsynchNotify {}
+impl ::core::clone::Clone for IDBAsynchNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBAsynchStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBAsynchStatus {}
+impl ::core::clone::Clone for IDBAsynchStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBBinderProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBBinderProperties {}
+impl ::core::clone::Clone for IDBBinderProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBCreateCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBCreateCommand {}
+impl ::core::clone::Clone for IDBCreateCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBCreateSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBCreateSession {}
+impl ::core::clone::Clone for IDBCreateSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBDataSourceAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBDataSourceAdmin {}
+impl ::core::clone::Clone for IDBDataSourceAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBInfo {}
+impl ::core::clone::Clone for IDBInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBInitialize {}
+impl ::core::clone::Clone for IDBInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBPromptInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBPromptInitialize {}
+impl ::core::clone::Clone for IDBPromptInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBProperties {}
+impl ::core::clone::Clone for IDBProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBSchemaCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBSchemaCommand {}
+impl ::core::clone::Clone for IDBSchemaCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBSchemaRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBSchemaRowset {}
+impl ::core::clone::Clone for IDBSchemaRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDCInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDCInfo {}
+impl ::core::clone::Clone for IDCInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
 pub const IDENTIFIER_SDK_MASK: u32 = 4026531840u32;
 pub const IDS_MON_BUILTIN_PROPERTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(264511i32 as _);
@@ -4174,50 +4426,188 @@ pub const IDX_S_SEARCH_SERVER_ALREADY_EXISTS: i32 = 266517i32;
 pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
 #[repr(transparent)]
 pub struct IDataConvert(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataConvert {}
+impl ::core::clone::Clone for IDataConvert {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataInitialize {}
+impl ::core::clone::Clone for IDataInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataSourceLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataSourceLocator {}
+impl ::core::clone::Clone for IDataSourceLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEntity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEntity {}
+impl ::core::clone::Clone for IEntity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumItemProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumItemProperties {}
+impl ::core::clone::Clone for IEnumItemProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSearchRoots(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSearchRoots {}
+impl ::core::clone::Clone for IEnumSearchRoots {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSearchScopeRules(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSearchScopeRules {}
+impl ::core::clone::Clone for IEnumSearchScopeRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSubscription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSubscription {}
+impl ::core::clone::Clone for IEnumSubscription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IErrorLookup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IErrorLookup {}
+impl ::core::clone::Clone for IErrorLookup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IErrorRecords(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IErrorRecords {}
+impl ::core::clone::Clone for IErrorRecords {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetDataSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetDataSource {}
+impl ::core::clone::Clone for IGetDataSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetRow {}
+impl ::core::clone::Clone for IGetRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetSession {}
+impl ::core::clone::Clone for IGetSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetSourceRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetSourceRow {}
+impl ::core::clone::Clone for IGetSourceRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIndexDefinition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIndexDefinition {}
+impl ::core::clone::Clone for IIndexDefinition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInterval(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInterval {}
+impl ::core::clone::Clone for IInterval {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoadFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoadFilter {}
+impl ::core::clone::Clone for ILoadFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoadFilterWithPrivateComActivation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoadFilterWithPrivateComActivation {}
+impl ::core::clone::Clone for ILoadFilterWithPrivateComActivation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDDataset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDDataset {}
+impl ::core::clone::Clone for IMDDataset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDFind(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDFind {}
+impl ::core::clone::Clone for IMDFind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDRangeRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDRangeRowset {}
+impl ::core::clone::Clone for IMDRangeRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMetaData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMetaData {}
+impl ::core::clone::Clone for IMetaData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultipleResults(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultipleResults {}
+impl ::core::clone::Clone for IMultipleResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INCREMENTAL_ACCESS_INFO {
@@ -4256,176 +4646,686 @@ impl ::core::clone::Clone for INTERVAL_LIMIT_KIND {
 }
 #[repr(transparent)]
 pub struct INamedEntity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INamedEntity {}
+impl ::core::clone::Clone for INamedEntity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INamedEntityCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INamedEntityCollector {}
+impl ::core::clone::Clone for INamedEntityCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectAccessControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectAccessControl {}
+impl ::core::clone::Clone for IObjectAccessControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpLockStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpLockStatus {}
+impl ::core::clone::Clone for IOpLockStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpenRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpenRowset {}
+impl ::core::clone::Clone for IOpenRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IParentRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IParentRowset {}
+impl ::core::clone::Clone for IParentRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtocolHandlerSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtocolHandlerSite {}
+impl ::core::clone::Clone for IProtocolHandlerSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProvideMoniker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProvideMoniker {}
+impl ::core::clone::Clone for IProvideMoniker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryParser {}
+impl ::core::clone::Clone for IQueryParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryParserManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryParserManager {}
+impl ::core::clone::Clone for IQueryParserManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQuerySolution(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQuerySolution {}
+impl ::core::clone::Clone for IQuerySolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReadData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReadData {}
+impl ::core::clone::Clone for IReadData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegisterProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegisterProvider {}
+impl ::core::clone::Clone for IRegisterProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRelationship(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRelationship {}
+impl ::core::clone::Clone for IRelationship {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRichChunk(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRichChunk {}
+impl ::core::clone::Clone for IRichChunk {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRow {}
+impl ::core::clone::Clone for IRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowChange {}
+impl ::core::clone::Clone for IRowChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowPosition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowPosition {}
+impl ::core::clone::Clone for IRowPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowPositionChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowPositionChange {}
+impl ::core::clone::Clone for IRowPositionChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowSchemaChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowSchemaChange {}
+impl ::core::clone::Clone for IRowSchemaChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowset {}
+impl ::core::clone::Clone for IRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetAsynch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetAsynch {}
+impl ::core::clone::Clone for IRowsetAsynch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetBookmark(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetBookmark {}
+impl ::core::clone::Clone for IRowsetBookmark {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetChange {}
+impl ::core::clone::Clone for IRowsetChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetChangeExtInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetChangeExtInfo {}
+impl ::core::clone::Clone for IRowsetChangeExtInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetChapterMember(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetChapterMember {}
+impl ::core::clone::Clone for IRowsetChapterMember {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetCopyRows(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetCopyRows {}
+impl ::core::clone::Clone for IRowsetCopyRows {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetCurrentIndex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetCurrentIndex {}
+impl ::core::clone::Clone for IRowsetCurrentIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetEvents {}
+impl ::core::clone::Clone for IRowsetEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IRowsetExactScroll(pub u8);
 #[repr(transparent)]
 pub struct IRowsetFastLoad(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetFastLoad {}
+impl ::core::clone::Clone for IRowsetFastLoad {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetFind(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetFind {}
+impl ::core::clone::Clone for IRowsetFind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetIdentity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetIdentity {}
+impl ::core::clone::Clone for IRowsetIdentity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetIndex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetIndex {}
+impl ::core::clone::Clone for IRowsetIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetInfo {}
+impl ::core::clone::Clone for IRowsetInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetKeys(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetKeys {}
+impl ::core::clone::Clone for IRowsetKeys {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetLocate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetLocate {}
+impl ::core::clone::Clone for IRowsetLocate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetNewRowAfter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetNewRowAfter {}
+impl ::core::clone::Clone for IRowsetNewRowAfter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetNextRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetNextRowset {}
+impl ::core::clone::Clone for IRowsetNextRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetNotify {}
+impl ::core::clone::Clone for IRowsetNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetPrioritization(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetPrioritization {}
+impl ::core::clone::Clone for IRowsetPrioritization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetQueryStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetQueryStatus {}
+impl ::core::clone::Clone for IRowsetQueryStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetRefresh(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetRefresh {}
+impl ::core::clone::Clone for IRowsetRefresh {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetResynch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetResynch {}
+impl ::core::clone::Clone for IRowsetResynch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetScroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetScroll {}
+impl ::core::clone::Clone for IRowsetScroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetUpdate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetUpdate {}
+impl ::core::clone::Clone for IRowsetUpdate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetView {}
+impl ::core::clone::Clone for IRowsetView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWatchAll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWatchAll {}
+impl ::core::clone::Clone for IRowsetWatchAll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWatchNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWatchNotify {}
+impl ::core::clone::Clone for IRowsetWatchNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWatchRegion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWatchRegion {}
+impl ::core::clone::Clone for IRowsetWatchRegion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWithParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWithParameters {}
+impl ::core::clone::Clone for IRowsetWithParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLErrorInfo {}
+impl ::core::clone::Clone for ISQLErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLGetDiagField(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLGetDiagField {}
+impl ::core::clone::Clone for ISQLGetDiagField {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLRequestDiagFields(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLRequestDiagFields {}
+impl ::core::clone::Clone for ISQLRequestDiagFields {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLServerErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLServerErrorInfo {}
+impl ::core::clone::Clone for ISQLServerErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISchemaLocalizerSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISchemaLocalizerSupport {}
+impl ::core::clone::Clone for ISchemaLocalizerSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISchemaLock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISchemaLock {}
+impl ::core::clone::Clone for ISchemaLock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISchemaProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISchemaProvider {}
+impl ::core::clone::Clone for ISchemaProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScopedOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScopedOperations {}
+impl ::core::clone::Clone for IScopedOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCatalogManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCatalogManager {}
+impl ::core::clone::Clone for ISearchCatalogManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCatalogManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCatalogManager2 {}
+impl ::core::clone::Clone for ISearchCatalogManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCrawlScopeManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCrawlScopeManager {}
+impl ::core::clone::Clone for ISearchCrawlScopeManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCrawlScopeManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCrawlScopeManager2 {}
+impl ::core::clone::Clone for ISearchCrawlScopeManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchItemsChangedSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchItemsChangedSink {}
+impl ::core::clone::Clone for ISearchItemsChangedSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchLanguageSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchLanguageSupport {}
+impl ::core::clone::Clone for ISearchLanguageSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchManager {}
+impl ::core::clone::Clone for ISearchManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchManager2 {}
+impl ::core::clone::Clone for ISearchManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchNotifyInlineSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchNotifyInlineSite {}
+impl ::core::clone::Clone for ISearchNotifyInlineSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchPersistentItemsChangedSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchPersistentItemsChangedSink {}
+impl ::core::clone::Clone for ISearchPersistentItemsChangedSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchProtocol(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchProtocol {}
+impl ::core::clone::Clone for ISearchProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchProtocol2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchProtocol2 {}
+impl ::core::clone::Clone for ISearchProtocol2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchProtocolThreadContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchProtocolThreadContext {}
+impl ::core::clone::Clone for ISearchProtocolThreadContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchQueryHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchQueryHelper {}
+impl ::core::clone::Clone for ISearchQueryHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchQueryHits(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchQueryHits {}
+impl ::core::clone::Clone for ISearchQueryHits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchRoot(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchRoot {}
+impl ::core::clone::Clone for ISearchRoot {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchScopeRule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchScopeRule {}
+impl ::core::clone::Clone for ISearchScopeRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchViewChangedSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchViewChangedSink {}
+impl ::core::clone::Clone for ISearchViewChangedSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityInfo {}
+impl ::core::clone::Clone for ISecurityInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IService {}
+impl ::core::clone::Clone for IService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISessionProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISessionProperties {}
+impl ::core::clone::Clone for ISessionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimpleCommandCreator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimpleCommandCreator {}
+impl ::core::clone::Clone for ISimpleCommandCreator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISourcesRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISourcesRowset {}
+impl ::core::clone::Clone for ISourcesRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStemmer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStemmer {}
+impl ::core::clone::Clone for IStemmer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISubscriptionItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISubscriptionItem {}
+impl ::core::clone::Clone for ISubscriptionItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISubscriptionMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISubscriptionMgr {}
+impl ::core::clone::Clone for ISubscriptionMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISubscriptionMgr2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISubscriptionMgr2 {}
+impl ::core::clone::Clone for ISubscriptionMgr2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct ITEMPROP {
@@ -4459,50 +5359,188 @@ impl ::core::clone::Clone for ITEM_INFO {
 }
 #[repr(transparent)]
 pub struct ITableCreation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableCreation {}
+impl ::core::clone::Clone for ITableCreation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableDefinition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableDefinition {}
+impl ::core::clone::Clone for ITableDefinition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableDefinitionWithConstraints(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableDefinitionWithConstraints {}
+impl ::core::clone::Clone for ITableDefinitionWithConstraints {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableRename(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableRename {}
+impl ::core::clone::Clone for ITableRename {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITokenCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITokenCollection {}
+impl ::core::clone::Clone for ITokenCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionJoin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionJoin {}
+impl ::core::clone::Clone for ITransactionJoin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionLocal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionLocal {}
+impl ::core::clone::Clone for ITransactionLocal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionObject {}
+impl ::core::clone::Clone for ITransactionObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITrusteeAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITrusteeAdmin {}
+impl ::core::clone::Clone for ITrusteeAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITrusteeGroupAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITrusteeGroupAdmin {}
+impl ::core::clone::Clone for ITrusteeGroupAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUMS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUMS {}
+impl ::core::clone::Clone for IUMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUMSInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUMSInitialize {}
+impl ::core::clone::Clone for IUMSInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor {}
+impl ::core::clone::Clone for IUrlAccessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor2 {}
+impl ::core::clone::Clone for IUrlAccessor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor3 {}
+impl ::core::clone::Clone for IUrlAccessor3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor4 {}
+impl ::core::clone::Clone for IUrlAccessor4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewChapter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewChapter {}
+impl ::core::clone::Clone for IViewChapter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewFilter {}
+impl ::core::clone::Clone for IViewFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewRowset {}
+impl ::core::clone::Clone for IViewRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewSort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewSort {}
+impl ::core::clone::Clone for IViewSort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWordBreaker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWordBreaker {}
+impl ::core::clone::Clone for IWordBreaker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWordFormSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWordFormSink {}
+impl ::core::clone::Clone for IWordFormSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWordSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWordSink {}
+impl ::core::clone::Clone for IWordSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Interval: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3646363423,
     data2: 19449,
@@ -5041,8 +6079,20 @@ pub const ODBC_VS_FLAG_UNICODE_ARG: i32 = 1i32;
 pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2i32;
 #[repr(transparent)]
 pub struct OLEDBSimpleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for OLEDBSimpleProvider {}
+impl ::core::clone::Clone for OLEDBSimpleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLEDBSimpleProviderListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for OLEDBSimpleProviderListener {}
+impl ::core::clone::Clone for OLEDBSimpleProviderListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLEDBVER: u32 = 624u32;
 pub const OLEDB_BINDER_CUSTOM_ERROR: i32 = -2147212032i32;
 #[repr(transparent)]

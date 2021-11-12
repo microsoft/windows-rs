@@ -1179,28 +1179,100 @@ impl ::core::clone::Clone for GNSS_V2UPL_NI_INFO {
 pub const GUID_DEVINTERFACE_GNSS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859235812, data2: 394, data3: 18025, data4: [132, 197, 189, 5, 243, 189, 54, 139] };
 #[repr(transparent)]
 pub struct ICivicAddressReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICivicAddressReport {}
+impl ::core::clone::Clone for ICivicAddressReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICivicAddressReportFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICivicAddressReportFactory {}
+impl ::core::clone::Clone for ICivicAddressReportFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDefaultLocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDefaultLocation {}
+impl ::core::clone::Clone for IDefaultLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispCivicAddressReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispCivicAddressReport {}
+impl ::core::clone::Clone for IDispCivicAddressReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispLatLongReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispLatLongReport {}
+impl ::core::clone::Clone for IDispLatLongReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILatLongReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILatLongReport {}
+impl ::core::clone::Clone for ILatLongReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILatLongReportFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILatLongReportFactory {}
+impl ::core::clone::Clone for ILatLongReportFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocation {}
+impl ::core::clone::Clone for ILocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationEvents {}
+impl ::core::clone::Clone for ILocationEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationPower(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationPower {}
+impl ::core::clone::Clone for ILocationPower {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationReport {}
+impl ::core::clone::Clone for ILocationReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationReportFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationReportFactory {}
+impl ::core::clone::Clone for ILocationReportFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_GNSS_CONFIG_SUPL_CERT: u32 = 2228488u32;
 pub const IOCTL_GNSS_CREATE_GEOFENCE: u32 = 2228544u32;
 pub const IOCTL_GNSS_DELETE_GEOFENCE: u32 = 2228548u32;
@@ -1256,5 +1328,17 @@ pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
 #[repr(transparent)]
 pub struct _ICivicAddressReportFactoryEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ICivicAddressReportFactoryEvents {}
+impl ::core::clone::Clone for _ICivicAddressReportFactoryEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ILatLongReportFactoryEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ILatLongReportFactoryEvents {}
+impl ::core::clone::Clone for _ILatLongReportFactoryEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

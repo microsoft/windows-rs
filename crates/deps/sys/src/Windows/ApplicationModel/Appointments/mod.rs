@@ -7,6 +7,12 @@ pub mod DataProvider;
 extern "system" {}
 #[repr(transparent)]
 pub struct Appointment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Appointment {}
+impl ::core::clone::Clone for Appointment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentBusyStatus(pub i32);
 impl AppointmentBusyStatus {
@@ -24,6 +30,12 @@ impl ::core::clone::Clone for AppointmentBusyStatus {
 }
 #[repr(transparent)]
 pub struct AppointmentCalendar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentCalendar {}
+impl ::core::clone::Clone for AppointmentCalendar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
 impl AppointmentCalendarOtherAppReadAccess {
@@ -53,6 +65,12 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppWriteAccess {
 }
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentCalendarSyncManager {}
+impl ::core::clone::Clone for AppointmentCalendarSyncManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncStatus(pub i32);
 impl AppointmentCalendarSyncStatus {
@@ -72,6 +90,12 @@ impl ::core::clone::Clone for AppointmentCalendarSyncStatus {
 }
 #[repr(transparent)]
 pub struct AppointmentConflictResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentConflictResult {}
+impl ::core::clone::Clone for AppointmentConflictResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentConflictType(pub i32);
 impl AppointmentConflictType {
@@ -117,12 +141,36 @@ impl ::core::clone::Clone for AppointmentDetailsKind {
 }
 #[repr(transparent)]
 pub struct AppointmentException(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentException {}
+impl ::core::clone::Clone for AppointmentException {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentInvitee(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentInvitee {}
+impl ::core::clone::Clone for AppointmentInvitee {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentManagerForUser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentManagerForUser {}
+impl ::core::clone::Clone for AppointmentManagerForUser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentOrganizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentOrganizer {}
+impl ::core::clone::Clone for AppointmentOrganizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentParticipantResponse(pub i32);
 impl AppointmentParticipantResponse {
@@ -153,6 +201,12 @@ impl ::core::clone::Clone for AppointmentParticipantRole {
 }
 #[repr(transparent)]
 pub struct AppointmentRecurrence(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentRecurrence {}
+impl ::core::clone::Clone for AppointmentRecurrence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentRecurrenceUnit(pub i32);
 impl AppointmentRecurrenceUnit {
@@ -183,6 +237,12 @@ impl ::core::clone::Clone for AppointmentSensitivity {
 }
 #[repr(transparent)]
 pub struct AppointmentStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentStore {}
+impl ::core::clone::Clone for AppointmentStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreAccessType(pub i32);
 impl AppointmentStoreAccessType {
@@ -198,10 +258,28 @@ impl ::core::clone::Clone for AppointmentStoreAccessType {
 }
 #[repr(transparent)]
 pub struct AppointmentStoreChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentStoreChange {}
+impl ::core::clone::Clone for AppointmentStoreChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreChangeReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentStoreChangeReader {}
+impl ::core::clone::Clone for AppointmentStoreChangeReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreChangeTracker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentStoreChangeTracker {}
+impl ::core::clone::Clone for AppointmentStoreChangeTracker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreChangeType(pub i32);
 impl AppointmentStoreChangeType {
@@ -221,10 +299,28 @@ impl ::core::clone::Clone for AppointmentStoreChangeType {
 }
 #[repr(transparent)]
 pub struct AppointmentStoreChangedDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentStoreChangedDeferral {}
+impl ::core::clone::Clone for AppointmentStoreChangedDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentStoreChangedEventArgs {}
+impl ::core::clone::Clone for AppointmentStoreChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppointmentStoreNotificationTriggerDetails {}
+impl ::core::clone::Clone for AppointmentStoreNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentSummaryCardView(pub i32);
 impl AppointmentSummaryCardView {
@@ -266,72 +362,276 @@ impl ::core::clone::Clone for FindAppointmentCalendarsOptions {
 }
 #[repr(transparent)]
 pub struct FindAppointmentsOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for FindAppointmentsOptions {}
+impl ::core::clone::Clone for FindAppointmentsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointment {}
+impl ::core::clone::Clone for IAppointment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointment2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointment2 {}
+impl ::core::clone::Clone for IAppointment2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointment3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointment3 {}
+impl ::core::clone::Clone for IAppointment3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentCalendar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentCalendar {}
+impl ::core::clone::Clone for IAppointmentCalendar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentCalendar2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentCalendar2 {}
+impl ::core::clone::Clone for IAppointmentCalendar2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentCalendar3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentCalendar3 {}
+impl ::core::clone::Clone for IAppointmentCalendar3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentCalendarSyncManager {}
+impl ::core::clone::Clone for IAppointmentCalendarSyncManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentCalendarSyncManager2 {}
+impl ::core::clone::Clone for IAppointmentCalendarSyncManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentConflictResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentConflictResult {}
+impl ::core::clone::Clone for IAppointmentConflictResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentException(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentException {}
+impl ::core::clone::Clone for IAppointmentException {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentInvitee(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentInvitee {}
+impl ::core::clone::Clone for IAppointmentInvitee {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentManagerForUser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentManagerForUser {}
+impl ::core::clone::Clone for IAppointmentManagerForUser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentManagerStatics {}
+impl ::core::clone::Clone for IAppointmentManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentManagerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentManagerStatics2 {}
+impl ::core::clone::Clone for IAppointmentManagerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentManagerStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentManagerStatics3 {}
+impl ::core::clone::Clone for IAppointmentManagerStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentParticipant(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentParticipant {}
+impl ::core::clone::Clone for IAppointmentParticipant {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentPropertiesStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentPropertiesStatics {}
+impl ::core::clone::Clone for IAppointmentPropertiesStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentPropertiesStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentPropertiesStatics2 {}
+impl ::core::clone::Clone for IAppointmentPropertiesStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentRecurrence(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentRecurrence {}
+impl ::core::clone::Clone for IAppointmentRecurrence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentRecurrence2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentRecurrence2 {}
+impl ::core::clone::Clone for IAppointmentRecurrence2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentRecurrence3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentRecurrence3 {}
+impl ::core::clone::Clone for IAppointmentRecurrence3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStore {}
+impl ::core::clone::Clone for IAppointmentStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStore2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStore2 {}
+impl ::core::clone::Clone for IAppointmentStore2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStore3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStore3 {}
+impl ::core::clone::Clone for IAppointmentStore3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreChange {}
+impl ::core::clone::Clone for IAppointmentStoreChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreChange2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreChange2 {}
+impl ::core::clone::Clone for IAppointmentStoreChange2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreChangeReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreChangeReader {}
+impl ::core::clone::Clone for IAppointmentStoreChangeReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreChangeTracker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreChangeTracker {}
+impl ::core::clone::Clone for IAppointmentStoreChangeTracker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreChangeTracker2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreChangeTracker2 {}
+impl ::core::clone::Clone for IAppointmentStoreChangeTracker2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreChangedDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreChangedDeferral {}
+impl ::core::clone::Clone for IAppointmentStoreChangedDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreChangedEventArgs {}
+impl ::core::clone::Clone for IAppointmentStoreChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppointmentStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppointmentStoreNotificationTriggerDetails {}
+impl ::core::clone::Clone for IAppointmentStoreNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFindAppointmentsOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFindAppointmentsOptions {}
+impl ::core::clone::Clone for IFindAppointmentsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RecurrenceType(pub i32);
 impl RecurrenceType {

@@ -19,6 +19,12 @@ impl ::core::clone::Clone for GpioChangeCount {
 }
 #[repr(transparent)]
 pub struct GpioChangeCounter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GpioChangeCounter {}
+impl ::core::clone::Clone for GpioChangeCounter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
@@ -34,6 +40,12 @@ impl ::core::clone::Clone for GpioChangePolarity {
 }
 #[repr(transparent)]
 pub struct GpioChangeReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GpioChangeReader {}
+impl ::core::clone::Clone for GpioChangeReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeRecord {
@@ -50,6 +62,12 @@ impl ::core::clone::Clone for GpioChangeRecord {
 }
 #[repr(transparent)]
 pub struct GpioController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GpioController {}
+impl ::core::clone::Clone for GpioController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
@@ -67,6 +85,12 @@ impl ::core::clone::Clone for GpioOpenStatus {
 }
 #[repr(transparent)]
 pub struct GpioPin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GpioPin {}
+impl ::core::clone::Clone for GpioPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
@@ -111,6 +135,12 @@ impl ::core::clone::Clone for GpioPinValue {
 }
 #[repr(transparent)]
 pub struct GpioPinValueChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GpioPinValueChangedEventArgs {}
+impl ::core::clone::Clone for GpioPinValueChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {
@@ -125,19 +155,73 @@ impl ::core::clone::Clone for GpioSharingMode {
 }
 #[repr(transparent)]
 pub struct IGpioChangeCounter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioChangeCounter {}
+impl ::core::clone::Clone for IGpioChangeCounter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioChangeCounterFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioChangeCounterFactory {}
+impl ::core::clone::Clone for IGpioChangeCounterFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioChangeReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioChangeReader {}
+impl ::core::clone::Clone for IGpioChangeReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioChangeReaderFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioChangeReaderFactory {}
+impl ::core::clone::Clone for IGpioChangeReaderFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioController {}
+impl ::core::clone::Clone for IGpioController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioControllerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioControllerStatics {}
+impl ::core::clone::Clone for IGpioControllerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioControllerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioControllerStatics2 {}
+impl ::core::clone::Clone for IGpioControllerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioPin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioPin {}
+impl ::core::clone::Clone for IGpioPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpioPinValueChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpioPinValueChangedEventArgs {}
+impl ::core::clone::Clone for IGpioPinValueChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

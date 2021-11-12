@@ -3,6 +3,12 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IWaaSAssessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWaaSAssessor {}
+impl ::core::clone::Clone for IWaaSAssessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OSUpdateAssessment {

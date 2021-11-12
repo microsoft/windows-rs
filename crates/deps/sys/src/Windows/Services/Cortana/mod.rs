@@ -3,8 +3,20 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct CortanaActionableInsights(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CortanaActionableInsights {}
+impl ::core::clone::Clone for CortanaActionableInsights {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CortanaActionableInsightsOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CortanaActionableInsightsOptions {}
+impl ::core::clone::Clone for CortanaActionableInsightsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
 impl CortanaPermission {
@@ -41,19 +53,73 @@ impl ::core::clone::Clone for CortanaPermissionsChangeResult {
 }
 #[repr(transparent)]
 pub struct CortanaPermissionsManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CortanaPermissionsManager {}
+impl ::core::clone::Clone for CortanaPermissionsManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CortanaSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CortanaSettings {}
+impl ::core::clone::Clone for CortanaSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaActionableInsights(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaActionableInsights {}
+impl ::core::clone::Clone for ICortanaActionableInsights {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaActionableInsightsOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaActionableInsightsOptions {}
+impl ::core::clone::Clone for ICortanaActionableInsightsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaActionableInsightsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaActionableInsightsStatics {}
+impl ::core::clone::Clone for ICortanaActionableInsightsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaPermissionsManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaPermissionsManager {}
+impl ::core::clone::Clone for ICortanaPermissionsManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaPermissionsManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaPermissionsManagerStatics {}
+impl ::core::clone::Clone for ICortanaPermissionsManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaSettings {}
+impl ::core::clone::Clone for ICortanaSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaSettingsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaSettingsStatics {}
+impl ::core::clone::Clone for ICortanaSettingsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

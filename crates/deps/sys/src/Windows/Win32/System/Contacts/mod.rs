@@ -49,33 +49,129 @@ pub const Contact: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
 pub const ContactManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1902495915, data2: 44936, data3: 17085, data4: [134, 253, 83, 16, 180, 40, 90, 2] };
 #[repr(transparent)]
 pub struct IContact(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContact {}
+impl ::core::clone::Clone for IContact {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationAggregate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationAggregate {}
+impl ::core::clone::Clone for IContactAggregationAggregate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationAggregateCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationAggregateCollection {}
+impl ::core::clone::Clone for IContactAggregationAggregateCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationContact(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationContact {}
+impl ::core::clone::Clone for IContactAggregationContact {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationContactCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationContactCollection {}
+impl ::core::clone::Clone for IContactAggregationContactCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationGroup {}
+impl ::core::clone::Clone for IContactAggregationGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationGroupCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationGroupCollection {}
+impl ::core::clone::Clone for IContactAggregationGroupCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationLink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationLink {}
+impl ::core::clone::Clone for IContactAggregationLink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationLinkCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationLinkCollection {}
+impl ::core::clone::Clone for IContactAggregationLinkCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationManager {}
+impl ::core::clone::Clone for IContactAggregationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationServerPerson(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationServerPerson {}
+impl ::core::clone::Clone for IContactAggregationServerPerson {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactAggregationServerPersonCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactAggregationServerPersonCollection {}
+impl ::core::clone::Clone for IContactAggregationServerPersonCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactCollection {}
+impl ::core::clone::Clone for IContactCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactManager {}
+impl ::core::clone::Clone for IContactManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactProperties {}
+impl ::core::clone::Clone for IContactProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactPropertyCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactPropertyCollection {}
+impl ::core::clone::Clone for IContactPropertyCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

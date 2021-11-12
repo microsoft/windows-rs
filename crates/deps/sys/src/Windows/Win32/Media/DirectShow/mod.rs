@@ -6026,570 +6026,2268 @@ impl ::core::clone::Clone for HierarchyAlpha {
 }
 #[repr(transparent)]
 pub struct IAMAnalogVideoDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAnalogVideoDecoder {}
+impl ::core::clone::Clone for IAMAnalogVideoDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAnalogVideoEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAnalogVideoEncoder {}
+impl ::core::clone::Clone for IAMAnalogVideoEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAsyncReaderTimestampScaling(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAsyncReaderTimestampScaling {}
+impl ::core::clone::Clone for IAMAsyncReaderTimestampScaling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAudioInputMixer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAudioInputMixer {}
+impl ::core::clone::Clone for IAMAudioInputMixer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAudioRendererStats(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAudioRendererStats {}
+impl ::core::clone::Clone for IAMAudioRendererStats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMBufferNegotiation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMBufferNegotiation {}
+impl ::core::clone::Clone for IAMBufferNegotiation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCameraControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCameraControl {}
+impl ::core::clone::Clone for IAMCameraControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCertifiedOutputProtection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCertifiedOutputProtection {}
+impl ::core::clone::Clone for IAMCertifiedOutputProtection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMChannelInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMChannelInfo {}
+impl ::core::clone::Clone for IAMChannelInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMClockAdjust(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMClockAdjust {}
+impl ::core::clone::Clone for IAMClockAdjust {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMClockSlave(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMClockSlave {}
+impl ::core::clone::Clone for IAMClockSlave {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCollection {}
+impl ::core::clone::Clone for IAMCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCopyCaptureFileProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCopyCaptureFileProgress {}
+impl ::core::clone::Clone for IAMCopyCaptureFileProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCrossbar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCrossbar {}
+impl ::core::clone::Clone for IAMCrossbar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDecoderCaps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDecoderCaps {}
+impl ::core::clone::Clone for IAMDecoderCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDevMemoryAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDevMemoryAllocator {}
+impl ::core::clone::Clone for IAMDevMemoryAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDevMemoryControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDevMemoryControl {}
+impl ::core::clone::Clone for IAMDevMemoryControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDeviceRemoval(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDeviceRemoval {}
+impl ::core::clone::Clone for IAMDeviceRemoval {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDirectSound(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDirectSound {}
+impl ::core::clone::Clone for IAMDirectSound {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDroppedFrames(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDroppedFrames {}
+impl ::core::clone::Clone for IAMDroppedFrames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtDevice {}
+impl ::core::clone::Clone for IAMExtDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtTransport {}
+impl ::core::clone::Clone for IAMExtTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtendedErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtendedErrorInfo {}
+impl ::core::clone::Clone for IAMExtendedErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtendedSeeking(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtendedSeeking {}
+impl ::core::clone::Clone for IAMExtendedSeeking {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMFilterGraphCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMFilterGraphCallback {}
+impl ::core::clone::Clone for IAMFilterGraphCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMFilterMiscFlags(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMFilterMiscFlags {}
+impl ::core::clone::Clone for IAMFilterMiscFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMGraphBuilderCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMGraphBuilderCallback {}
+impl ::core::clone::Clone for IAMGraphBuilderCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMGraphStreams(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMGraphStreams {}
+impl ::core::clone::Clone for IAMGraphStreams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMLatency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMLatency {}
+impl ::core::clone::Clone for IAMLatency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMLine21Decoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMLine21Decoder {}
+impl ::core::clone::Clone for IAMLine21Decoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaContent {}
+impl ::core::clone::Clone for IAMMediaContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaContent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaContent2 {}
+impl ::core::clone::Clone for IAMMediaContent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaStream {}
+impl ::core::clone::Clone for IAMMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaTypeSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaTypeSample {}
+impl ::core::clone::Clone for IAMMediaTypeSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaTypeStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaTypeStream {}
+impl ::core::clone::Clone for IAMMediaTypeStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMultiMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMultiMediaStream {}
+impl ::core::clone::Clone for IAMMultiMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetShowConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetShowConfig {}
+impl ::core::clone::Clone for IAMNetShowConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetShowExProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetShowExProps {}
+impl ::core::clone::Clone for IAMNetShowExProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetShowPreroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetShowPreroll {}
+impl ::core::clone::Clone for IAMNetShowPreroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetworkStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetworkStatus {}
+impl ::core::clone::Clone for IAMNetworkStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMOpenProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMOpenProgress {}
+impl ::core::clone::Clone for IAMOpenProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMOverlayFX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMOverlayFX {}
+impl ::core::clone::Clone for IAMOverlayFX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMParse(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMParse {}
+impl ::core::clone::Clone for IAMParse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPhysicalPinInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPhysicalPinInfo {}
+impl ::core::clone::Clone for IAMPhysicalPinInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPlayList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPlayList {}
+impl ::core::clone::Clone for IAMPlayList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPlayListItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPlayListItem {}
+impl ::core::clone::Clone for IAMPlayListItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPluginControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPluginControl {}
+impl ::core::clone::Clone for IAMPluginControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPushSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPushSource {}
+impl ::core::clone::Clone for IAMPushSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMRebuild(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMRebuild {}
+impl ::core::clone::Clone for IAMRebuild {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMResourceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMResourceControl {}
+impl ::core::clone::Clone for IAMResourceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStats(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStats {}
+impl ::core::clone::Clone for IAMStats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStreamConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStreamConfig {}
+impl ::core::clone::Clone for IAMStreamConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStreamControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStreamControl {}
+impl ::core::clone::Clone for IAMStreamControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStreamSelect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStreamSelect {}
+impl ::core::clone::Clone for IAMStreamSelect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTVAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTVAudio {}
+impl ::core::clone::Clone for IAMTVAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTVAudioNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTVAudioNotification {}
+impl ::core::clone::Clone for IAMTVAudioNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTVTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTVTuner {}
+impl ::core::clone::Clone for IAMTVTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTimecodeDisplay(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTimecodeDisplay {}
+impl ::core::clone::Clone for IAMTimecodeDisplay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTimecodeGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTimecodeGenerator {}
+impl ::core::clone::Clone for IAMTimecodeGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTimecodeReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTimecodeReader {}
+impl ::core::clone::Clone for IAMTimecodeReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTuner {}
+impl ::core::clone::Clone for IAMTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTunerNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTunerNotification {}
+impl ::core::clone::Clone for IAMTunerNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVfwCaptureDialogs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVfwCaptureDialogs {}
+impl ::core::clone::Clone for IAMVfwCaptureDialogs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVfwCompressDialogs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVfwCompressDialogs {}
+impl ::core::clone::Clone for IAMVfwCompressDialogs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoAccelerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoAccelerator {}
+impl ::core::clone::Clone for IAMVideoAccelerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoAcceleratorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoAcceleratorNotify {}
+impl ::core::clone::Clone for IAMVideoAcceleratorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoCompression(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoCompression {}
+impl ::core::clone::Clone for IAMVideoCompression {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoControl {}
+impl ::core::clone::Clone for IAMVideoControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoDecimationProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoDecimationProperties {}
+impl ::core::clone::Clone for IAMVideoDecimationProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoProcAmp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoProcAmp {}
+impl ::core::clone::Clone for IAMVideoProcAmp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMWstDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMWstDecoder {}
+impl ::core::clone::Clone for IAMWstDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMovieSetup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMovieSetup {}
+impl ::core::clone::Clone for IAMovieSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCChannelTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCChannelTuneRequest {}
+impl ::core::clone::Clone for IATSCChannelTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCComponentType {}
+impl ::core::clone::Clone for IATSCComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCLocator {}
+impl ::core::clone::Clone for IATSCLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCLocator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCLocator2 {}
+impl ::core::clone::Clone for IATSCLocator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCTuningSpace {}
+impl ::core::clone::Clone for IATSCTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_EIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_EIT {}
+impl ::core::clone::Clone for IATSC_EIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_ETT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_ETT {}
+impl ::core::clone::Clone for IATSC_ETT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_MGT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_MGT {}
+impl ::core::clone::Clone for IATSC_MGT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_STT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_STT {}
+impl ::core::clone::Clone for IATSC_STT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_VCT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_VCT {}
+impl ::core::clone::Clone for IATSC_VCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogAudioComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogAudioComponentType {}
+impl ::core::clone::Clone for IAnalogAudioComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogLocator {}
+impl ::core::clone::Clone for IAnalogLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogRadioTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogRadioTuningSpace {}
+impl ::core::clone::Clone for IAnalogRadioTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogRadioTuningSpace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogRadioTuningSpace2 {}
+impl ::core::clone::Clone for IAnalogRadioTuningSpace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogTVTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogTVTuningSpace {}
+impl ::core::clone::Clone for IAnalogTVTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAsyncReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAsyncReader {}
+impl ::core::clone::Clone for IAsyncReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAtscContentAdvisoryDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAtscContentAdvisoryDescriptor {}
+impl ::core::clone::Clone for IAtscContentAdvisoryDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAtscPsipParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAtscPsipParser {}
+impl ::core::clone::Clone for IAtscPsipParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAttributeGet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAttributeGet {}
+impl ::core::clone::Clone for IAttributeGet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAttributeSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAttributeSet {}
+impl ::core::clone::Clone for IAttributeSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioData {}
+impl ::core::clone::Clone for IAudioData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioMediaStream {}
+impl ::core::clone::Clone for IAudioMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioStreamSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioStreamSample {}
+impl ::core::clone::Clone for IAudioStreamSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAuxInTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAuxInTuningSpace {}
+impl ::core::clone::Clone for IAuxInTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAuxInTuningSpace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAuxInTuningSpace2 {}
+impl ::core::clone::Clone for IAuxInTuningSpace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDAComparable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDAComparable {}
+impl ::core::clone::Clone for IBDAComparable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDACreateTuneRequestEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDACreateTuneRequestEx {}
+impl ::core::clone::Clone for IBDACreateTuneRequestEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_AUX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_AUX {}
+impl ::core::clone::Clone for IBDA_AUX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_AutoDemodulate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_AutoDemodulate {}
+impl ::core::clone::Clone for IBDA_AutoDemodulate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_AutoDemodulateEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_AutoDemodulateEx {}
+impl ::core::clone::Clone for IBDA_AutoDemodulateEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_ConditionalAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_ConditionalAccess {}
+impl ::core::clone::Clone for IBDA_ConditionalAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_ConditionalAccessEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_ConditionalAccessEx {}
+impl ::core::clone::Clone for IBDA_ConditionalAccessEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRIDRMService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRIDRMService {}
+impl ::core::clone::Clone for IBDA_DRIDRMService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRIWMDRMSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRIWMDRMSession {}
+impl ::core::clone::Clone for IBDA_DRIWMDRMSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRM {}
+impl ::core::clone::Clone for IBDA_DRM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRMService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRMService {}
+impl ::core::clone::Clone for IBDA_DRMService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DeviceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DeviceControl {}
+impl ::core::clone::Clone for IBDA_DeviceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DiagnosticProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DiagnosticProperties {}
+impl ::core::clone::Clone for IBDA_DiagnosticProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DigitalDemodulator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DigitalDemodulator {}
+impl ::core::clone::Clone for IBDA_DigitalDemodulator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DigitalDemodulator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DigitalDemodulator2 {}
+impl ::core::clone::Clone for IBDA_DigitalDemodulator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DigitalDemodulator3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DigitalDemodulator3 {}
+impl ::core::clone::Clone for IBDA_DigitalDemodulator3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DiseqCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DiseqCommand {}
+impl ::core::clone::Clone for IBDA_DiseqCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_EasMessage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_EasMessage {}
+impl ::core::clone::Clone for IBDA_EasMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_Encoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_Encoder {}
+impl ::core::clone::Clone for IBDA_Encoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_EthernetFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_EthernetFilter {}
+impl ::core::clone::Clone for IBDA_EthernetFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_EventingService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_EventingService {}
+impl ::core::clone::Clone for IBDA_EventingService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_FDC(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_FDC {}
+impl ::core::clone::Clone for IBDA_FDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_FrequencyFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_FrequencyFilter {}
+impl ::core::clone::Clone for IBDA_FrequencyFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_GuideDataDeliveryService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_GuideDataDeliveryService {}
+impl ::core::clone::Clone for IBDA_GuideDataDeliveryService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPSinkControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPSinkControl {}
+impl ::core::clone::Clone for IBDA_IPSinkControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPSinkInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPSinkInfo {}
+impl ::core::clone::Clone for IBDA_IPSinkInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPV4Filter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPV4Filter {}
+impl ::core::clone::Clone for IBDA_IPV4Filter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPV6Filter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPV6Filter {}
+impl ::core::clone::Clone for IBDA_IPV6Filter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_ISDBConditionalAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_ISDBConditionalAccess {}
+impl ::core::clone::Clone for IBDA_ISDBConditionalAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_LNBInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_LNBInfo {}
+impl ::core::clone::Clone for IBDA_LNBInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_MUX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_MUX {}
+impl ::core::clone::Clone for IBDA_MUX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_NameValueService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_NameValueService {}
+impl ::core::clone::Clone for IBDA_NameValueService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_NetworkProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_NetworkProvider {}
+impl ::core::clone::Clone for IBDA_NetworkProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_NullTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_NullTransform {}
+impl ::core::clone::Clone for IBDA_NullTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_PinControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_PinControl {}
+impl ::core::clone::Clone for IBDA_PinControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_SignalProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_SignalProperties {}
+impl ::core::clone::Clone for IBDA_SignalProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_SignalStatistics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_SignalStatistics {}
+impl ::core::clone::Clone for IBDA_SignalStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_TIF_REGISTRATION(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_TIF_REGISTRATION {}
+impl ::core::clone::Clone for IBDA_TIF_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_Topology(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_Topology {}
+impl ::core::clone::Clone for IBDA_Topology {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_TransportStreamInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_TransportStreamInfo {}
+impl ::core::clone::Clone for IBDA_TransportStreamInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_TransportStreamSelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_TransportStreamSelector {}
+impl ::core::clone::Clone for IBDA_TransportStreamSelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_UserActivityService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_UserActivityService {}
+impl ::core::clone::Clone for IBDA_UserActivityService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_VoidTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_VoidTransform {}
+impl ::core::clone::Clone for IBDA_VoidTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_WMDRMSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_WMDRMSession {}
+impl ::core::clone::Clone for IBDA_WMDRMSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_WMDRMTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_WMDRMTuner {}
+impl ::core::clone::Clone for IBDA_WMDRMTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBPCSatelliteTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBPCSatelliteTuner {}
+impl ::core::clone::Clone for IBPCSatelliteTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBaseFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBaseFilter {}
+impl ::core::clone::Clone for IBaseFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBaseVideoMixer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBaseVideoMixer {}
+impl ::core::clone::Clone for IBaseVideoMixer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBasicAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBasicAudio {}
+impl ::core::clone::Clone for IBasicAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBasicVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBasicVideo {}
+impl ::core::clone::Clone for IBasicVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBasicVideo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBasicVideo2 {}
+impl ::core::clone::Clone for IBasicVideo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBroadcastEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBroadcastEvent {}
+impl ::core::clone::Clone for IBroadcastEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBroadcastEventEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBroadcastEventEx {}
+impl ::core::clone::Clone for IBroadcastEventEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBufferingTime(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBufferingTime {}
+impl ::core::clone::Clone for IBufferingTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICAT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICAT {}
+impl ::core::clone::Clone for ICAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICCSubStreamFiltering(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICCSubStreamFiltering {}
+impl ::core::clone::Clone for ICCSubStreamFiltering {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICameraControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICameraControl {}
+impl ::core::clone::Clone for ICameraControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICaptionServiceDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICaptionServiceDescriptor {}
+impl ::core::clone::Clone for ICaptionServiceDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICaptureGraphBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICaptureGraphBuilder {}
+impl ::core::clone::Clone for ICaptureGraphBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICaptureGraphBuilder2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICaptureGraphBuilder2 {}
+impl ::core::clone::Clone for ICaptureGraphBuilder2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChannelIDTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChannelIDTuneRequest {}
+impl ::core::clone::Clone for IChannelIDTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChannelTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChannelTuneRequest {}
+impl ::core::clone::Clone for IChannelTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponent {}
+impl ::core::clone::Clone for IComponent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentType {}
+impl ::core::clone::Clone for IComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentTypes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentTypes {}
+impl ::core::clone::Clone for IComponentTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponents {}
+impl ::core::clone::Clone for IComponents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentsOld(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentsOld {}
+impl ::core::clone::Clone for IComponentsOld {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigAsfWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigAsfWriter {}
+impl ::core::clone::Clone for IConfigAsfWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigAsfWriter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigAsfWriter2 {}
+impl ::core::clone::Clone for IConfigAsfWriter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigAviMux(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigAviMux {}
+impl ::core::clone::Clone for IConfigAviMux {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigInterleaving(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigInterleaving {}
+impl ::core::clone::Clone for IConfigInterleaving {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateDevEnum(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateDevEnum {}
+impl ::core::clone::Clone for ICreateDevEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreatePropBagOnRegKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreatePropBagOnRegKey {}
+impl ::core::clone::Clone for ICreatePropBagOnRegKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDDrawExclModeVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDDrawExclModeVideo {}
+impl ::core::clone::Clone for IDDrawExclModeVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDDrawExclModeVideoCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDDrawExclModeVideoCallback {}
+impl ::core::clone::Clone for IDDrawExclModeVideoCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMOWrapperFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMOWrapperFilter {}
+impl ::core::clone::Clone for IDMOWrapperFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDShowPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDShowPlugin {}
+impl ::core::clone::Clone for IDShowPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilter {}
+impl ::core::clone::Clone for IDTFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilter2 {}
+impl ::core::clone::Clone for IDTFilter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilter3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilter3 {}
+impl ::core::clone::Clone for IDTFilter3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilterConfig {}
+impl ::core::clone::Clone for IDTFilterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilterEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilterEvents {}
+impl ::core::clone::Clone for IDTFilterEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilterLicenseRenewal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilterLicenseRenewal {}
+impl ::core::clone::Clone for IDTFilterLicenseRenewal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBCLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBCLocator {}
+impl ::core::clone::Clone for IDVBCLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBSLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBSLocator {}
+impl ::core::clone::Clone for IDVBSLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBSLocator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBSLocator2 {}
+impl ::core::clone::Clone for IDVBSLocator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBSTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBSTuningSpace {}
+impl ::core::clone::Clone for IDVBSTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTLocator {}
+impl ::core::clone::Clone for IDVBTLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTLocator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTLocator2 {}
+impl ::core::clone::Clone for IDVBTLocator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTuneRequest {}
+impl ::core::clone::Clone for IDVBTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTuningSpace {}
+impl ::core::clone::Clone for IDVBTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTuningSpace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTuningSpace2 {}
+impl ::core::clone::Clone for IDVBTuningSpace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_BAT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_BAT {}
+impl ::core::clone::Clone for IDVB_BAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_DIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_DIT {}
+impl ::core::clone::Clone for IDVB_DIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_EIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_EIT {}
+impl ::core::clone::Clone for IDVB_EIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_EIT2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_EIT2 {}
+impl ::core::clone::Clone for IDVB_EIT2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_NIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_NIT {}
+impl ::core::clone::Clone for IDVB_NIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_RST(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_RST {}
+impl ::core::clone::Clone for IDVB_RST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_SDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_SDT {}
+impl ::core::clone::Clone for IDVB_SDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_SIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_SIT {}
+impl ::core::clone::Clone for IDVB_SIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_ST(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_ST {}
+impl ::core::clone::Clone for IDVB_ST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_TDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_TDT {}
+impl ::core::clone::Clone for IDVB_TDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_TOT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_TOT {}
+impl ::core::clone::Clone for IDVB_TOT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVEnc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVEnc {}
+impl ::core::clone::Clone for IDVEnc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVRGB219(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVRGB219 {}
+impl ::core::clone::Clone for IDVRGB219 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVSplitter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVSplitter {}
+impl ::core::clone::Clone for IDVSplitter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDecimateVideoImage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDecimateVideoImage {}
+impl ::core::clone::Clone for IDecimateVideoImage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeferredCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeferredCommand {}
+impl ::core::clone::Clone for IDeferredCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalCableLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalCableLocator {}
+impl ::core::clone::Clone for IDigitalCableLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalCableTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalCableTuneRequest {}
+impl ::core::clone::Clone for IDigitalCableTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalCableTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalCableTuningSpace {}
+impl ::core::clone::Clone for IDigitalCableTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalLocator {}
+impl ::core::clone::Clone for IDigitalLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawMediaSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawMediaSample {}
+impl ::core::clone::Clone for IDirectDrawMediaSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawMediaSampleAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawMediaSampleAllocator {}
+impl ::core::clone::Clone for IDirectDrawMediaSampleAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawMediaStream {}
+impl ::core::clone::Clone for IDirectDrawMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawStreamSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawStreamSample {}
+impl ::core::clone::Clone for IDirectDrawStreamSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawVideo {}
+impl ::core::clone::Clone for IDirectDrawVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDistributorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDistributorNotify {}
+impl ::core::clone::Clone for IDistributorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDrawVideoImage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDrawVideoImage {}
+impl ::core::clone::Clone for IDrawVideoImage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbCableDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbCableDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbCableDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbComponentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbComponentDescriptor {}
+impl ::core::clone::Clone for IDvbComponentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbContentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbContentDescriptor {}
+impl ::core::clone::Clone for IDvbContentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbContentIdentifierDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbContentIdentifierDescriptor {}
+impl ::core::clone::Clone for IDvbContentIdentifierDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbDataBroadcastDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbDataBroadcastDescriptor {}
+impl ::core::clone::Clone for IDvbDataBroadcastDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbDataBroadcastIDDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbDataBroadcastIDDescriptor {}
+impl ::core::clone::Clone for IDvbDataBroadcastIDDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbDefaultAuthorityDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbDefaultAuthorityDescriptor {}
+impl ::core::clone::Clone for IDvbDefaultAuthorityDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbExtendedEventDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbExtendedEventDescriptor {}
+impl ::core::clone::Clone for IDvbExtendedEventDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbFrequencyListDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbFrequencyListDescriptor {}
+impl ::core::clone::Clone for IDvbFrequencyListDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbHDSimulcastLogicalChannelDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbHDSimulcastLogicalChannelDescriptor {}
+impl ::core::clone::Clone for IDvbHDSimulcastLogicalChannelDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLinkageDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLinkageDescriptor {}
+impl ::core::clone::Clone for IDvbLinkageDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLogicalChannel2Descriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLogicalChannel2Descriptor {}
+impl ::core::clone::Clone for IDvbLogicalChannel2Descriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLogicalChannelDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLogicalChannelDescriptor {}
+impl ::core::clone::Clone for IDvbLogicalChannelDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLogicalChannelDescriptor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLogicalChannelDescriptor2 {}
+impl ::core::clone::Clone for IDvbLogicalChannelDescriptor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbMultilingualServiceNameDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbMultilingualServiceNameDescriptor {}
+impl ::core::clone::Clone for IDvbMultilingualServiceNameDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbNetworkNameDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbNetworkNameDescriptor {}
+impl ::core::clone::Clone for IDvbNetworkNameDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbParentalRatingDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbParentalRatingDescriptor {}
+impl ::core::clone::Clone for IDvbParentalRatingDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbPrivateDataSpecifierDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbPrivateDataSpecifierDescriptor {}
+impl ::core::clone::Clone for IDvbPrivateDataSpecifierDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSatelliteDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSatelliteDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbSatelliteDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceAttributeDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceAttributeDescriptor {}
+impl ::core::clone::Clone for IDvbServiceAttributeDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceDescriptor {}
+impl ::core::clone::Clone for IDvbServiceDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceDescriptor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceDescriptor2 {}
+impl ::core::clone::Clone for IDvbServiceDescriptor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceListDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceListDescriptor {}
+impl ::core::clone::Clone for IDvbServiceListDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbShortEventDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbShortEventDescriptor {}
+impl ::core::clone::Clone for IDvbShortEventDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSiParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSiParser {}
+impl ::core::clone::Clone for IDvbSiParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSiParser2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSiParser2 {}
+impl ::core::clone::Clone for IDvbSiParser2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSubtitlingDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSubtitlingDescriptor {}
+impl ::core::clone::Clone for IDvbSubtitlingDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbTeletextDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbTeletextDescriptor {}
+impl ::core::clone::Clone for IDvbTeletextDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbTerrestrial2DeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbTerrestrial2DeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbTerrestrial2DeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbTerrestrialDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbTerrestrialDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbTerrestrialDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdCmd(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdCmd {}
+impl ::core::clone::Clone for IDvdCmd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdControl {}
+impl ::core::clone::Clone for IDvdControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdControl2 {}
+impl ::core::clone::Clone for IDvdControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdGraphBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdGraphBuilder {}
+impl ::core::clone::Clone for IDvdGraphBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdInfo {}
+impl ::core::clone::Clone for IDvdInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdInfo2 {}
+impl ::core::clone::Clone for IDvdInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdState {}
+impl ::core::clone::Clone for IDvdState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESCloseMmiEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESCloseMmiEvent {}
+impl ::core::clone::Clone for IESCloseMmiEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEvent {}
+impl ::core::clone::Clone for IESEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEventFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEventFactory {}
+impl ::core::clone::Clone for IESEventFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEventService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEventService {}
+impl ::core::clone::Clone for IESEventService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEventServiceConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEventServiceConfiguration {}
+impl ::core::clone::Clone for IESEventServiceConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEvents {}
+impl ::core::clone::Clone for IESEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESFileExpiryDateEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESFileExpiryDateEvent {}
+impl ::core::clone::Clone for IESFileExpiryDateEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESIsdbCasResponseEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESIsdbCasResponseEvent {}
+impl ::core::clone::Clone for IESIsdbCasResponseEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESLicenseRenewalResultEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESLicenseRenewalResultEvent {}
+impl ::core::clone::Clone for IESLicenseRenewalResultEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESOpenMmiEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESOpenMmiEvent {}
+impl ::core::clone::Clone for IESOpenMmiEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESRequestTunerEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESRequestTunerEvent {}
+impl ::core::clone::Clone for IESRequestTunerEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESValueUpdatedEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESValueUpdatedEvent {}
+impl ::core::clone::Clone for IESValueUpdatedEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IETFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IETFilter {}
+impl ::core::clone::Clone for IETFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IETFilterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IETFilterConfig {}
+impl ::core::clone::Clone for IETFilterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IETFilterEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IETFilterEvents {}
+impl ::core::clone::Clone for IETFilterEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEncoderAPI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEncoderAPI {}
+impl ::core::clone::Clone for IEncoderAPI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumComponentTypes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumComponentTypes {}
+impl ::core::clone::Clone for IEnumComponentTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumComponents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumComponents {}
+impl ::core::clone::Clone for IEnumComponents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumFilters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumFilters {}
+impl ::core::clone::Clone for IEnumFilters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumGuideDataProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumGuideDataProperties {}
+impl ::core::clone::Clone for IEnumGuideDataProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumMSVidGraphSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumMSVidGraphSegment {}
+impl ::core::clone::Clone for IEnumMSVidGraphSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumMediaTypes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumMediaTypes {}
+impl ::core::clone::Clone for IEnumMediaTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumPIDMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumPIDMap {}
+impl ::core::clone::Clone for IEnumPIDMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumPins(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumPins {}
+impl ::core::clone::Clone for IEnumPins {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRegFilters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRegFilters {}
+impl ::core::clone::Clone for IEnumRegFilters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumStreamBufferRecordingAttrib(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumStreamBufferRecordingAttrib {}
+impl ::core::clone::Clone for IEnumStreamBufferRecordingAttrib {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumStreamIdMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumStreamIdMap {}
+impl ::core::clone::Clone for IEnumStreamIdMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumTuneRequests(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumTuneRequests {}
+impl ::core::clone::Clone for IEnumTuneRequests {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumTuningSpaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumTuningSpaces {}
+impl ::core::clone::Clone for IEnumTuningSpaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEvalRat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEvalRat {}
+impl ::core::clone::Clone for IEvalRat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFILTERMAPPER_MERIT(pub i32);
 pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(8388608i32);
@@ -6606,412 +8304,1636 @@ impl ::core::clone::Clone for IFILTERMAPPER_MERIT {
 }
 #[repr(transparent)]
 pub struct IFileSinkFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSinkFilter {}
+impl ::core::clone::Clone for IFileSinkFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSinkFilter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSinkFilter2 {}
+impl ::core::clone::Clone for IFileSinkFilter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSourceFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSourceFilter {}
+impl ::core::clone::Clone for IFileSourceFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterChain(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterChain {}
+impl ::core::clone::Clone for IFilterChain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterGraph(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterGraph {}
+impl ::core::clone::Clone for IFilterGraph {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterGraph2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterGraph2 {}
+impl ::core::clone::Clone for IFilterGraph2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterGraph3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterGraph3 {}
+impl ::core::clone::Clone for IFilterGraph3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterInfo {}
+impl ::core::clone::Clone for IFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterMapper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterMapper {}
+impl ::core::clone::Clone for IFilterMapper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterMapper2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterMapper2 {}
+impl ::core::clone::Clone for IFilterMapper2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterMapper3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterMapper3 {}
+impl ::core::clone::Clone for IFilterMapper3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFrequencyMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFrequencyMap {}
+impl ::core::clone::Clone for IFrequencyMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFullScreenVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFullScreenVideo {}
+impl ::core::clone::Clone for IFullScreenVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFullScreenVideoEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFullScreenVideoEx {}
+impl ::core::clone::Clone for IFullScreenVideoEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGenericDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGenericDescriptor {}
+impl ::core::clone::Clone for IGenericDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGenericDescriptor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGenericDescriptor2 {}
+impl ::core::clone::Clone for IGenericDescriptor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetCapabilitiesKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetCapabilitiesKey {}
+impl ::core::clone::Clone for IGetCapabilitiesKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpnvsCommonBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpnvsCommonBase {}
+impl ::core::clone::Clone for IGpnvsCommonBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphBuilder {}
+impl ::core::clone::Clone for IGraphBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphConfig {}
+impl ::core::clone::Clone for IGraphConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphConfigCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphConfigCallback {}
+impl ::core::clone::Clone for IGraphConfigCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphVersion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphVersion {}
+impl ::core::clone::Clone for IGraphVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideData {}
+impl ::core::clone::Clone for IGuideData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideDataEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideDataEvent {}
+impl ::core::clone::Clone for IGuideDataEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideDataLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideDataLoader {}
+impl ::core::clone::Clone for IGuideDataLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideDataProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideDataProperty {}
+impl ::core::clone::Clone for IGuideDataProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIPDVDec(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIPDVDec {}
+impl ::core::clone::Clone for IIPDVDec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDBSLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDBSLocator {}
+impl ::core::clone::Clone for IISDBSLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_BIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_BIT {}
+impl ::core::clone::Clone for IISDB_BIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_CDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_CDT {}
+impl ::core::clone::Clone for IISDB_CDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_EMM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_EMM {}
+impl ::core::clone::Clone for IISDB_EMM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_LDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_LDT {}
+impl ::core::clone::Clone for IISDB_LDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_NBIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_NBIT {}
+impl ::core::clone::Clone for IISDB_NBIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_SDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_SDT {}
+impl ::core::clone::Clone for IISDB_SDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_SDTT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_SDTT {}
+impl ::core::clone::Clone for IISDB_SDTT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbAudioComponentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbAudioComponentDescriptor {}
+impl ::core::clone::Clone for IIsdbAudioComponentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbCAContractInformationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbCAContractInformationDescriptor {}
+impl ::core::clone::Clone for IIsdbCAContractInformationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbCADescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbCADescriptor {}
+impl ::core::clone::Clone for IIsdbCADescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbCAServiceDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbCAServiceDescriptor {}
+impl ::core::clone::Clone for IIsdbCAServiceDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbComponentGroupDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbComponentGroupDescriptor {}
+impl ::core::clone::Clone for IIsdbComponentGroupDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbDataContentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbDataContentDescriptor {}
+impl ::core::clone::Clone for IIsdbDataContentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbDigitalCopyControlDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbDigitalCopyControlDescriptor {}
+impl ::core::clone::Clone for IIsdbDigitalCopyControlDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbDownloadContentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbDownloadContentDescriptor {}
+impl ::core::clone::Clone for IIsdbDownloadContentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbEmergencyInformationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbEmergencyInformationDescriptor {}
+impl ::core::clone::Clone for IIsdbEmergencyInformationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbEventGroupDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbEventGroupDescriptor {}
+impl ::core::clone::Clone for IIsdbEventGroupDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbHierarchicalTransmissionDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbHierarchicalTransmissionDescriptor {}
+impl ::core::clone::Clone for IIsdbHierarchicalTransmissionDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbLogoTransmissionDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbLogoTransmissionDescriptor {}
+impl ::core::clone::Clone for IIsdbLogoTransmissionDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbSIParameterDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbSIParameterDescriptor {}
+impl ::core::clone::Clone for IIsdbSIParameterDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbSeriesDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbSeriesDescriptor {}
+impl ::core::clone::Clone for IIsdbSeriesDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbSiParser2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbSiParser2 {}
+impl ::core::clone::Clone for IIsdbSiParser2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbTSInformationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbTSInformationDescriptor {}
+impl ::core::clone::Clone for IIsdbTSInformationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbTerrestrialDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbTerrestrialDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IIsdbTerrestrialDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsNodeControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsNodeControl {}
+impl ::core::clone::Clone for IKsNodeControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsTopologyInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsTopologyInfo {}
+impl ::core::clone::Clone for IKsTopologyInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILanguageComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILanguageComponentType {}
+impl ::core::clone::Clone for ILanguageComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocator {}
+impl ::core::clone::Clone for ILocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2Component(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2Component {}
+impl ::core::clone::Clone for IMPEG2Component {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2ComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2ComponentType {}
+impl ::core::clone::Clone for IMPEG2ComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2PIDMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2PIDMap {}
+impl ::core::clone::Clone for IMPEG2PIDMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2StreamIdMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2StreamIdMap {}
+impl ::core::clone::Clone for IMPEG2StreamIdMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2TuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2TuneRequest {}
+impl ::core::clone::Clone for IMPEG2TuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2TuneRequestFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2TuneRequestFactory {}
+impl ::core::clone::Clone for IMPEG2TuneRequestFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2TuneRequestSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2TuneRequestSupport {}
+impl ::core::clone::Clone for IMPEG2TuneRequestSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2_TIF_CONTROL(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2_TIF_CONTROL {}
+impl ::core::clone::Clone for IMPEG2_TIF_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSEventBinder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSEventBinder {}
+impl ::core::clone::Clone for IMSEventBinder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAnalogTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAnalogTuner {}
+impl ::core::clone::Clone for IMSVidAnalogTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAnalogTuner2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAnalogTuner2 {}
+impl ::core::clone::Clone for IMSVidAnalogTuner2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAnalogTunerEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAnalogTunerEvent {}
+impl ::core::clone::Clone for IMSVidAnalogTunerEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRenderer {}
+impl ::core::clone::Clone for IMSVidAudioRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRendererDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRendererDevices {}
+impl ::core::clone::Clone for IMSVidAudioRendererDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRendererEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRendererEvent {}
+impl ::core::clone::Clone for IMSVidAudioRendererEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRendererEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRendererEvent2 {}
+impl ::core::clone::Clone for IMSVidAudioRendererEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidClosedCaptioning(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidClosedCaptioning {}
+impl ::core::clone::Clone for IMSVidClosedCaptioning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidClosedCaptioning2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidClosedCaptioning2 {}
+impl ::core::clone::Clone for IMSVidClosedCaptioning2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidClosedCaptioning3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidClosedCaptioning3 {}
+impl ::core::clone::Clone for IMSVidClosedCaptioning3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidCompositionSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidCompositionSegment {}
+impl ::core::clone::Clone for IMSVidCompositionSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidCtl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidCtl {}
+impl ::core::clone::Clone for IMSVidCtl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDataServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDataServices {}
+impl ::core::clone::Clone for IMSVidDataServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDataServicesEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDataServicesEvent {}
+impl ::core::clone::Clone for IMSVidDataServicesEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDevice {}
+impl ::core::clone::Clone for IMSVidDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDevice2 {}
+impl ::core::clone::Clone for IMSVidDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDeviceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDeviceEvent {}
+impl ::core::clone::Clone for IMSVidDeviceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidEVR(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidEVR {}
+impl ::core::clone::Clone for IMSVidEVR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidEVREvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidEVREvent {}
+impl ::core::clone::Clone for IMSVidEVREvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidEncoder {}
+impl ::core::clone::Clone for IMSVidEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFeature(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFeature {}
+impl ::core::clone::Clone for IMSVidFeature {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFeatureEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFeatureEvent {}
+impl ::core::clone::Clone for IMSVidFeatureEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFeatures(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFeatures {}
+impl ::core::clone::Clone for IMSVidFeatures {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFilePlayback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFilePlayback {}
+impl ::core::clone::Clone for IMSVidFilePlayback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFilePlayback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFilePlayback2 {}
+impl ::core::clone::Clone for IMSVidFilePlayback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFilePlaybackEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFilePlaybackEvent {}
+impl ::core::clone::Clone for IMSVidFilePlaybackEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGenericSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGenericSink {}
+impl ::core::clone::Clone for IMSVidGenericSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGenericSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGenericSink2 {}
+impl ::core::clone::Clone for IMSVidGenericSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGraphSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGraphSegment {}
+impl ::core::clone::Clone for IMSVidGraphSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGraphSegmentContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGraphSegmentContainer {}
+impl ::core::clone::Clone for IMSVidGraphSegmentContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGraphSegmentUserInput(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGraphSegmentUserInput {}
+impl ::core::clone::Clone for IMSVidGraphSegmentUserInput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidInputDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidInputDevice {}
+impl ::core::clone::Clone for IMSVidInputDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidInputDeviceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidInputDeviceEvent {}
+impl ::core::clone::Clone for IMSVidInputDeviceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidInputDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidInputDevices {}
+impl ::core::clone::Clone for IMSVidInputDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidOutputDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidOutputDevice {}
+impl ::core::clone::Clone for IMSVidOutputDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidOutputDeviceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidOutputDeviceEvent {}
+impl ::core::clone::Clone for IMSVidOutputDeviceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidOutputDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidOutputDevices {}
+impl ::core::clone::Clone for IMSVidOutputDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidPlayback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidPlayback {}
+impl ::core::clone::Clone for IMSVidPlayback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidPlaybackEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidPlaybackEvent {}
+impl ::core::clone::Clone for IMSVidPlaybackEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidRect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidRect {}
+impl ::core::clone::Clone for IMSVidRect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferRecordingControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferRecordingControl {}
+impl ::core::clone::Clone for IMSVidStreamBufferRecordingControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSink {}
+impl ::core::clone::Clone for IMSVidStreamBufferSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSink2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSink3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSink3 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSink3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent3 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent4 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSource {}
+impl ::core::clone::Clone for IMSVidStreamBufferSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSource2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSource2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSource2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSourceEvent {}
+impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSourceEvent2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSourceEvent3 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferV2SourceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferV2SourceEvent {}
+impl ::core::clone::Clone for IMSVidStreamBufferV2SourceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidTuner {}
+impl ::core::clone::Clone for IMSVidTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidTunerEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidTunerEvent {}
+impl ::core::clone::Clone for IMSVidTunerEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVMR9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVMR9 {}
+impl ::core::clone::Clone for IMSVidVMR9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVRGraphSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVRGraphSegment {}
+impl ::core::clone::Clone for IMSVidVRGraphSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoInputDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoInputDevice {}
+impl ::core::clone::Clone for IMSVidVideoInputDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRenderer {}
+impl ::core::clone::Clone for IMSVidVideoRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRenderer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRenderer2 {}
+impl ::core::clone::Clone for IMSVidVideoRenderer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRendererDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRendererDevices {}
+impl ::core::clone::Clone for IMSVidVideoRendererDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRendererEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRendererEvent {}
+impl ::core::clone::Clone for IMSVidVideoRendererEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRendererEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRendererEvent2 {}
+impl ::core::clone::Clone for IMSVidVideoRendererEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVD(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVD {}
+impl ::core::clone::Clone for IMSVidWebDVD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVD2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVD2 {}
+impl ::core::clone::Clone for IMSVidWebDVD2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVDAdm(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVDAdm {}
+impl ::core::clone::Clone for IMSVidWebDVDAdm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVDEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVDEvent {}
+impl ::core::clone::Clone for IMSVidWebDVDEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidXDS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidXDS {}
+impl ::core::clone::Clone for IMSVidXDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidXDSEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidXDSEvent {}
+impl ::core::clone::Clone for IMSVidXDSEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMceBurnerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMceBurnerControl {}
+impl ::core::clone::Clone for IMceBurnerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaControl {}
+impl ::core::clone::Clone for IMediaControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaEvent {}
+impl ::core::clone::Clone for IMediaEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaEventEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaEventEx {}
+impl ::core::clone::Clone for IMediaEventEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaEventSink {}
+impl ::core::clone::Clone for IMediaEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaFilter {}
+impl ::core::clone::Clone for IMediaFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaParamInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaParamInfo {}
+impl ::core::clone::Clone for IMediaParamInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaParams(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaParams {}
+impl ::core::clone::Clone for IMediaParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaPosition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaPosition {}
+impl ::core::clone::Clone for IMediaPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaPropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaPropertyBag {}
+impl ::core::clone::Clone for IMediaPropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSample {}
+impl ::core::clone::Clone for IMediaSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSample2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSample2 {}
+impl ::core::clone::Clone for IMediaSample2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSample2Config(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSample2Config {}
+impl ::core::clone::Clone for IMediaSample2Config {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSeeking(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSeeking {}
+impl ::core::clone::Clone for IMediaSeeking {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaStream {}
+impl ::core::clone::Clone for IMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaStreamFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaStreamFilter {}
+impl ::core::clone::Clone for IMediaStreamFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaTypeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaTypeInfo {}
+impl ::core::clone::Clone for IMediaTypeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemAllocator {}
+impl ::core::clone::Clone for IMemAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemAllocatorCallbackTemp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemAllocatorCallbackTemp {}
+impl ::core::clone::Clone for IMemAllocatorCallbackTemp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemAllocatorNotifyCallbackTemp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemAllocatorNotifyCallbackTemp {}
+impl ::core::clone::Clone for IMemAllocatorNotifyCallbackTemp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemInputPin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemInputPin {}
+impl ::core::clone::Clone for IMemInputPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemoryData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemoryData {}
+impl ::core::clone::Clone for IMemoryData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerOCX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerOCX {}
+impl ::core::clone::Clone for IMixerOCX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerOCXNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerOCXNotify {}
+impl ::core::clone::Clone for IMixerOCXNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerPinConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerPinConfig {}
+impl ::core::clone::Clone for IMixerPinConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerPinConfig2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerPinConfig2 {}
+impl ::core::clone::Clone for IMixerPinConfig2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2Data(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2Data {}
+impl ::core::clone::Clone for IMpeg2Data {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2Demultiplexer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2Demultiplexer {}
+impl ::core::clone::Clone for IMpeg2Demultiplexer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2Stream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2Stream {}
+impl ::core::clone::Clone for IMpeg2Stream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2TableFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2TableFilter {}
+impl ::core::clone::Clone for IMpeg2TableFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpegAudioDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpegAudioDecoder {}
+impl ::core::clone::Clone for IMpegAudioDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiMediaStream {}
+impl ::core::clone::Clone for IMultiMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOverlay(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOverlay {}
+impl ::core::clone::Clone for IOverlay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOverlayNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOverlayNotify {}
+impl ::core::clone::Clone for IOverlayNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOverlayNotify2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOverlayNotify2 {}
+impl ::core::clone::Clone for IOverlayNotify2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPAT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPAT {}
+impl ::core::clone::Clone for IPAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDAAttributesDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDAAttributesDescriptor {}
+impl ::core::clone::Clone for IPBDAAttributesDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDAEntitlementDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDAEntitlementDescriptor {}
+impl ::core::clone::Clone for IPBDAEntitlementDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDASiParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDASiParser {}
+impl ::core::clone::Clone for IPBDASiParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDA_EIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDA_EIT {}
+impl ::core::clone::Clone for IPBDA_EIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDA_Services(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDA_Services {}
+impl ::core::clone::Clone for IPBDA_Services {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMT {}
+impl ::core::clone::Clone for IPMT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPSITables(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPSITables {}
+impl ::core::clone::Clone for IPSITables {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPTFilterLicenseRenewal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPTFilterLicenseRenewal {}
+impl ::core::clone::Clone for IPTFilterLicenseRenewal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistMediaPropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistMediaPropertyBag {}
+impl ::core::clone::Clone for IPersistMediaPropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistTuneXml(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistTuneXml {}
+impl ::core::clone::Clone for IPersistTuneXml {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistTuneXmlUtility(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistTuneXmlUtility {}
+impl ::core::clone::Clone for IPersistTuneXmlUtility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistTuneXmlUtility2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistTuneXmlUtility2 {}
+impl ::core::clone::Clone for IPersistTuneXmlUtility2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPin {}
+impl ::core::clone::Clone for IPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPinConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPinConnection {}
+impl ::core::clone::Clone for IPinConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPinFlowControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPinFlowControl {}
+impl ::core::clone::Clone for IPinFlowControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPinInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPinInfo {}
+impl ::core::clone::Clone for IPinInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQualProp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQualProp {}
+impl ::core::clone::Clone for IQualProp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQualityControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQualityControl {}
+impl ::core::clone::Clone for IQualityControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueueCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueueCommand {}
+impl ::core::clone::Clone for IQueueCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegFilterInfo {}
+impl ::core::clone::Clone for IRegFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegisterServiceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegisterServiceProvider {}
+impl ::core::clone::Clone for IRegisterServiceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegisterTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegisterTuner {}
+impl ::core::clone::Clone for IRegisterTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceConsumer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceConsumer {}
+impl ::core::clone::Clone for IResourceConsumer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManager {}
+impl ::core::clone::Clone for IResourceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2Crossbar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2Crossbar {}
+impl ::core::clone::Clone for ISBE2Crossbar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2EnumStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2EnumStream {}
+impl ::core::clone::Clone for ISBE2EnumStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2FileScan(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2FileScan {}
+impl ::core::clone::Clone for ISBE2FileScan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2GlobalEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2GlobalEvent {}
+impl ::core::clone::Clone for ISBE2GlobalEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2GlobalEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2GlobalEvent2 {}
+impl ::core::clone::Clone for ISBE2GlobalEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2MediaTypeProfile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2MediaTypeProfile {}
+impl ::core::clone::Clone for ISBE2MediaTypeProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2SpanningEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2SpanningEvent {}
+impl ::core::clone::Clone for ISBE2SpanningEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2StreamMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2StreamMap {}
+impl ::core::clone::Clone for ISBE2StreamMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCTE_EAS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCTE_EAS {}
+impl ::core::clone::Clone for ISCTE_EAS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISDBCAS_REQUEST_ID(pub i32);
 pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56i32);
@@ -7064,166 +9986,652 @@ pub const ISDB_T_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::
 };
 #[repr(transparent)]
 pub struct ISIInbandEPG(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISIInbandEPG {}
+impl ::core::clone::Clone for ISIInbandEPG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISIInbandEPGEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISIInbandEPGEvent {}
+impl ::core::clone::Clone for ISIInbandEPGEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScanningTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScanningTuner {}
+impl ::core::clone::Clone for IScanningTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScanningTunerEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScanningTunerEx {}
+impl ::core::clone::Clone for IScanningTunerEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISectionList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISectionList {}
+impl ::core::clone::Clone for ISectionList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISeekingPassThru(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISeekingPassThru {}
+impl ::core::clone::Clone for ISeekingPassThru {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelector {}
+impl ::core::clone::Clone for ISelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceLocationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceLocationDescriptor {}
+impl ::core::clone::Clone for IServiceLocationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpecifyParticularPages(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpecifyParticularPages {}
+impl ::core::clone::Clone for ISpecifyParticularPages {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferConfigure(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferConfigure {}
+impl ::core::clone::Clone for IStreamBufferConfigure {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferConfigure2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferConfigure2 {}
+impl ::core::clone::Clone for IStreamBufferConfigure2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferConfigure3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferConfigure3 {}
+impl ::core::clone::Clone for IStreamBufferConfigure3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferDataCounters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferDataCounters {}
+impl ::core::clone::Clone for IStreamBufferDataCounters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferInitialize {}
+impl ::core::clone::Clone for IStreamBufferInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferMediaSeeking(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferMediaSeeking {}
+impl ::core::clone::Clone for IStreamBufferMediaSeeking {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferMediaSeeking2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferMediaSeeking2 {}
+impl ::core::clone::Clone for IStreamBufferMediaSeeking2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferRecComp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferRecComp {}
+impl ::core::clone::Clone for IStreamBufferRecComp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferRecordControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferRecordControl {}
+impl ::core::clone::Clone for IStreamBufferRecordControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferRecordingAttribute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferRecordingAttribute {}
+impl ::core::clone::Clone for IStreamBufferRecordingAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSink {}
+impl ::core::clone::Clone for IStreamBufferSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSink2 {}
+impl ::core::clone::Clone for IStreamBufferSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSink3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSink3 {}
+impl ::core::clone::Clone for IStreamBufferSink3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSource {}
+impl ::core::clone::Clone for IStreamBufferSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBuilder {}
+impl ::core::clone::Clone for IStreamBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSample {}
+impl ::core::clone::Clone for IStreamSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSDT {}
+impl ::core::clone::Clone for ITSDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuneRequest {}
+impl ::core::clone::Clone for ITuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuneRequestInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuneRequestInfo {}
+impl ::core::clone::Clone for ITuneRequestInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuneRequestInfoEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuneRequestInfoEx {}
+impl ::core::clone::Clone for ITuneRequestInfoEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuner {}
+impl ::core::clone::Clone for ITuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITunerCap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITunerCap {}
+impl ::core::clone::Clone for ITunerCap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITunerCapEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITunerCapEx {}
+impl ::core::clone::Clone for ITunerCapEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuningSpace {}
+impl ::core::clone::Clone for ITuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuningSpaceContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuningSpaceContainer {}
+impl ::core::clone::Clone for ITuningSpaceContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuningSpaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuningSpaces {}
+impl ::core::clone::Clone for ITuningSpaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRAspectRatioControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRAspectRatioControl {}
+impl ::core::clone::Clone for IVMRAspectRatioControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRAspectRatioControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRAspectRatioControl9 {}
+impl ::core::clone::Clone for IVMRAspectRatioControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRDeinterlaceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRDeinterlaceControl {}
+impl ::core::clone::Clone for IVMRDeinterlaceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRDeinterlaceControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRDeinterlaceControl9 {}
+impl ::core::clone::Clone for IVMRDeinterlaceControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRFilterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRFilterConfig {}
+impl ::core::clone::Clone for IVMRFilterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRFilterConfig9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRFilterConfig9 {}
+impl ::core::clone::Clone for IVMRFilterConfig9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImageCompositor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImageCompositor {}
+impl ::core::clone::Clone for IVMRImageCompositor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImageCompositor9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImageCompositor9 {}
+impl ::core::clone::Clone for IVMRImageCompositor9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenter {}
+impl ::core::clone::Clone for IVMRImagePresenter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenter9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenter9 {}
+impl ::core::clone::Clone for IVMRImagePresenter9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenterConfig {}
+impl ::core::clone::Clone for IVMRImagePresenterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenterConfig9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenterConfig9 {}
+impl ::core::clone::Clone for IVMRImagePresenterConfig9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenterExclModeConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenterExclModeConfig {}
+impl ::core::clone::Clone for IVMRImagePresenterExclModeConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerBitmap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerBitmap {}
+impl ::core::clone::Clone for IVMRMixerBitmap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerBitmap9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerBitmap9 {}
+impl ::core::clone::Clone for IVMRMixerBitmap9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerControl {}
+impl ::core::clone::Clone for IVMRMixerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerControl9 {}
+impl ::core::clone::Clone for IVMRMixerControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMonitorConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMonitorConfig {}
+impl ::core::clone::Clone for IVMRMonitorConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMonitorConfig9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMonitorConfig9 {}
+impl ::core::clone::Clone for IVMRMonitorConfig9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurface {}
+impl ::core::clone::Clone for IVMRSurface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurface9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurface9 {}
+impl ::core::clone::Clone for IVMRSurface9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocator {}
+impl ::core::clone::Clone for IVMRSurfaceAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocator9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocator9 {}
+impl ::core::clone::Clone for IVMRSurfaceAllocator9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocatorEx9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocatorEx9 {}
+impl ::core::clone::Clone for IVMRSurfaceAllocatorEx9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocatorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocatorNotify {}
+impl ::core::clone::Clone for IVMRSurfaceAllocatorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocatorNotify9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocatorNotify9 {}
+impl ::core::clone::Clone for IVMRSurfaceAllocatorNotify9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRVideoStreamControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRVideoStreamControl {}
+impl ::core::clone::Clone for IVMRVideoStreamControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRVideoStreamControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRVideoStreamControl9 {}
+impl ::core::clone::Clone for IVMRVideoStreamControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRWindowlessControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRWindowlessControl {}
+impl ::core::clone::Clone for IVMRWindowlessControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRWindowlessControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRWindowlessControl9 {}
+impl ::core::clone::Clone for IVMRWindowlessControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPBaseConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPBaseConfig {}
+impl ::core::clone::Clone for IVPBaseConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPBaseNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPBaseNotify {}
+impl ::core::clone::Clone for IVPBaseNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPConfig {}
+impl ::core::clone::Clone for IVPConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPManager {}
+impl ::core::clone::Clone for IVPManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPNotify {}
+impl ::core::clone::Clone for IVPNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPNotify2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPNotify2 {}
+impl ::core::clone::Clone for IVPNotify2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPVBIConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPVBIConfig {}
+impl ::core::clone::Clone for IVPVBIConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPVBINotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPVBINotify {}
+impl ::core::clone::Clone for IVPVBINotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoEncoder {}
+impl ::core::clone::Clone for IVideoEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoFrameStep(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoFrameStep {}
+impl ::core::clone::Clone for IVideoFrameStep {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoProcAmp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoProcAmp {}
+impl ::core::clone::Clone for IVideoProcAmp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoWindow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoWindow {}
+impl ::core::clone::Clone for IVideoWindow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSCodec(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSCodec {}
+impl ::core::clone::Clone for IXDSCodec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSCodecConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSCodecConfig {}
+impl ::core::clone::Clone for IXDSCodecConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSCodecEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSCodecEvents {}
+impl ::core::clone::Clone for IXDSCodecEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSToRat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSToRat {}
+impl ::core::clone::Clone for IXDSToRat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InterleavingMode(pub i32);
 pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0i32);
@@ -12414,6 +15822,12 @@ impl ::core::clone::Clone for _DVRESOLUTION {
 }
 #[repr(transparent)]
 pub struct _IMSVidCtlEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IMSVidCtlEvents {}
+impl ::core::clone::Clone for _IMSVidCtlEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _REM_FILTER_FLAGS(pub i32);
 pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = _REM_FILTER_FLAGS(1i32);

@@ -3,28 +3,100 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorAuthentication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorAuthentication {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorAuthentication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorAuthenticationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorAuthenticationResult {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorAuthenticationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorAuthenticationStageInfo {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorAuthenticationStageInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorAuthenticationStatics {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorAuthenticationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorInfo {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorInfo2 {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorRegistration {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorRegistrationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorRegistrationResult {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorRegistrationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorRegistrationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecondaryAuthenticationFactorRegistrationStatics {}
+impl ::core::clone::Clone for ISecondaryAuthenticationFactorRegistrationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthentication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthentication {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthentication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationMessage {
@@ -66,6 +138,12 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationMessage
 }
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationResult {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationScenario {
@@ -99,8 +177,20 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStage {
 }
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationStageInfo {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStageInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationStatus {
@@ -199,10 +289,28 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorFinishAuthenticationS
 }
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SecondaryAuthenticationFactorInfo {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SecondaryAuthenticationFactorRegistration {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SecondaryAuthenticationFactorRegistrationResult {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorRegistrationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(pub i32);
 impl SecondaryAuthenticationFactorRegistrationStatus {

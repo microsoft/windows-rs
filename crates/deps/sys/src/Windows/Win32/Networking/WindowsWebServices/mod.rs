@@ -309,6 +309,12 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IContentPrefetcherTaskTrigger(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContentPrefetcherTaskTrigger {}
+impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;

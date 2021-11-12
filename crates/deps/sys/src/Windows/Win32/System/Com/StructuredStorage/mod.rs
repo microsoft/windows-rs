@@ -360,32 +360,116 @@ impl ::core::clone::Clone for CLIPDATA {
 pub const CWCSTORAGENAME: u32 = 32u32;
 #[repr(transparent)]
 pub struct IDirectWriterLock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectWriterLock {}
+impl ::core::clone::Clone for IDirectWriterLock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSTATPROPSETSTG(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSTATPROPSETSTG {}
+impl ::core::clone::Clone for IEnumSTATPROPSETSTG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSTATPROPSTG(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSTATPROPSTG {}
+impl ::core::clone::Clone for IEnumSTATPROPSTG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSTATSTG(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSTATSTG {}
+impl ::core::clone::Clone for IEnumSTATSTG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFillLockBytes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFillLockBytes {}
+impl ::core::clone::Clone for IFillLockBytes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILayoutStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILayoutStorage {}
+impl ::core::clone::Clone for ILayoutStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILockBytes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILockBytes {}
+impl ::core::clone::Clone for ILockBytes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistStorage {}
+impl ::core::clone::Clone for IPersistStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyBag {}
+impl ::core::clone::Clone for IPropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyBag2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyBag2 {}
+impl ::core::clone::Clone for IPropertyBag2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertySetStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertySetStorage {}
+impl ::core::clone::Clone for IPropertySetStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyStorage {}
+impl ::core::clone::Clone for IPropertyStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRootStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRootStorage {}
+impl ::core::clone::Clone for IRootStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorage {}
+impl ::core::clone::Clone for IStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LOCKTYPE(pub i32);
 pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);

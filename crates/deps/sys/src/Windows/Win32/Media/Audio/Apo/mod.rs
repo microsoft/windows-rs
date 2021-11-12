@@ -409,36 +409,132 @@ impl ::core::clone::Clone for EAudioConstriction {
 pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct IApoAcousticEchoCancellation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IApoAcousticEchoCancellation {}
+impl ::core::clone::Clone for IApoAcousticEchoCancellation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IApoAuxiliaryInputConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IApoAuxiliaryInputConfiguration {}
+impl ::core::clone::Clone for IApoAuxiliaryInputConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IApoAuxiliaryInputRT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IApoAuxiliaryInputRT {}
+impl ::core::clone::Clone for IApoAuxiliaryInputRT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioDeviceModulesClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioDeviceModulesClient {}
+impl ::core::clone::Clone for IAudioDeviceModulesClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioMediaType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioMediaType {}
+impl ::core::clone::Clone for IAudioMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioProcessingObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioProcessingObject {}
+impl ::core::clone::Clone for IAudioProcessingObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioProcessingObjectConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioProcessingObjectConfiguration {}
+impl ::core::clone::Clone for IAudioProcessingObjectConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioProcessingObjectLoggingService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioProcessingObjectLoggingService {}
+impl ::core::clone::Clone for IAudioProcessingObjectLoggingService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioProcessingObjectNotifications(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioProcessingObjectNotifications {}
+impl ::core::clone::Clone for IAudioProcessingObjectNotifications {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioProcessingObjectRT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioProcessingObjectRT {}
+impl ::core::clone::Clone for IAudioProcessingObjectRT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioProcessingObjectRTQueueService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioProcessingObjectRTQueueService {}
+impl ::core::clone::Clone for IAudioProcessingObjectRTQueueService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioProcessingObjectVBR(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioProcessingObjectVBR {}
+impl ::core::clone::Clone for IAudioProcessingObjectVBR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSystemEffects(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSystemEffects {}
+impl ::core::clone::Clone for IAudioSystemEffects {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSystemEffects2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSystemEffects2 {}
+impl ::core::clone::Clone for IAudioSystemEffects2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSystemEffects3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSystemEffects3 {}
+impl ::core::clone::Clone for IAudioSystemEffects3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSystemEffectsCustomFormats(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSystemEffectsCustomFormats {}
+impl ::core::clone::Clone for IAudioSystemEffectsCustomFormats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] },

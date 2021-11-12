@@ -3,16 +3,52 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IPhoneCallBlockedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallBlockedTriggerDetails {}
+impl ::core::clone::Clone for IPhoneCallBlockedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallOriginDataRequestTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallOriginDataRequestTriggerDetails {}
+impl ::core::clone::Clone for IPhoneCallOriginDataRequestTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneIncomingCallDismissedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneIncomingCallDismissedTriggerDetails {}
+impl ::core::clone::Clone for IPhoneIncomingCallDismissedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneIncomingCallNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneIncomingCallNotificationTriggerDetails {}
+impl ::core::clone::Clone for IPhoneIncomingCallNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineChangedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineChangedTriggerDetails {}
+impl ::core::clone::Clone for IPhoneLineChangedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneNewVoicemailMessageTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneNewVoicemailMessageTriggerDetails {}
+impl ::core::clone::Clone for IPhoneNewVoicemailMessageTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
@@ -28,8 +64,20 @@ impl ::core::clone::Clone for PhoneCallBlockedReason {
 }
 #[repr(transparent)]
 pub struct PhoneCallBlockedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallBlockedTriggerDetails {}
+impl ::core::clone::Clone for PhoneCallBlockedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallOriginDataRequestTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallOriginDataRequestTriggerDetails {}
+impl ::core::clone::Clone for PhoneCallOriginDataRequestTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 impl PhoneIncomingCallDismissedReason {
@@ -46,8 +94,20 @@ impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
 }
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneIncomingCallDismissedTriggerDetails {}
+impl ::core::clone::Clone for PhoneIncomingCallDismissedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneIncomingCallNotificationTriggerDetails {}
+impl ::core::clone::Clone for PhoneIncomingCallNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
@@ -63,6 +123,12 @@ impl ::core::clone::Clone for PhoneLineChangeKind {
 }
 #[repr(transparent)]
 pub struct PhoneLineChangedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineChangedTriggerDetails {}
+impl ::core::clone::Clone for PhoneLineChangedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
@@ -85,6 +151,12 @@ impl ::core::clone::Clone for PhoneLineProperties {
 }
 #[repr(transparent)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneNewVoicemailMessageTriggerDetails {}
+impl ::core::clone::Clone for PhoneNewVoicemailMessageTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {

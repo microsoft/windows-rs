@@ -575,8 +575,20 @@ pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
 pub const FR_WRAPAROUND: u32 = 1048576u32;
 #[repr(transparent)]
 pub struct IPrintDialogCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintDialogCallback {}
+impl ::core::clone::Clone for IPrintDialogCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintDialogServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintDialogServices {}
+impl ::core::clone::Clone for IPrintDialogServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCCHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]

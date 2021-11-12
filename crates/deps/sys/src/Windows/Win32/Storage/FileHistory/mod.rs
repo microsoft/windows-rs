@@ -163,9 +163,33 @@ pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { d
 pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1299353141, data2: 5882, data3: 17184, data4: [158, 139, 191, 215, 16, 10, 136, 70] };
 #[repr(transparent)]
 pub struct IFhConfigMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhConfigMgr {}
+impl ::core::clone::Clone for IFhConfigMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFhReassociation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhReassociation {}
+impl ::core::clone::Clone for IFhReassociation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFhScopeIterator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhScopeIterator {}
+impl ::core::clone::Clone for IFhScopeIterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFhTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhTarget {}
+impl ::core::clone::Clone for IFhTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

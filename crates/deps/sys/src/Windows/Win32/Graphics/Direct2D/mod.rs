@@ -3156,226 +3156,892 @@ impl ::core::clone::Clone for D2D1_YCBCR_PROP {
 pub const FACILITY_D2D: u32 = 2201u32;
 #[repr(transparent)]
 pub struct ID2D1AnalysisTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1AnalysisTransform {}
+impl ::core::clone::Clone for ID2D1AnalysisTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Bitmap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Bitmap {}
+impl ::core::clone::Clone for ID2D1Bitmap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Bitmap1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Bitmap1 {}
+impl ::core::clone::Clone for ID2D1Bitmap1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1BitmapBrush(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1BitmapBrush {}
+impl ::core::clone::Clone for ID2D1BitmapBrush {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1BitmapBrush1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1BitmapBrush1 {}
+impl ::core::clone::Clone for ID2D1BitmapBrush1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1BitmapRenderTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1BitmapRenderTarget {}
+impl ::core::clone::Clone for ID2D1BitmapRenderTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1BlendTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1BlendTransform {}
+impl ::core::clone::Clone for ID2D1BlendTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1BorderTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1BorderTransform {}
+impl ::core::clone::Clone for ID2D1BorderTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1BoundsAdjustmentTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1BoundsAdjustmentTransform {}
+impl ::core::clone::Clone for ID2D1BoundsAdjustmentTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Brush(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Brush {}
+impl ::core::clone::Clone for ID2D1Brush {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ColorContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ColorContext {}
+impl ::core::clone::Clone for ID2D1ColorContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ColorContext1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ColorContext1 {}
+impl ::core::clone::Clone for ID2D1ColorContext1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1CommandList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1CommandList {}
+impl ::core::clone::Clone for ID2D1CommandList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1CommandSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1CommandSink {}
+impl ::core::clone::Clone for ID2D1CommandSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1CommandSink1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1CommandSink1 {}
+impl ::core::clone::Clone for ID2D1CommandSink1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1CommandSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1CommandSink2 {}
+impl ::core::clone::Clone for ID2D1CommandSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1CommandSink3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1CommandSink3 {}
+impl ::core::clone::Clone for ID2D1CommandSink3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1CommandSink4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1CommandSink4 {}
+impl ::core::clone::Clone for ID2D1CommandSink4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1CommandSink5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1CommandSink5 {}
+impl ::core::clone::Clone for ID2D1CommandSink5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ComputeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ComputeInfo {}
+impl ::core::clone::Clone for ID2D1ComputeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ComputeTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ComputeTransform {}
+impl ::core::clone::Clone for ID2D1ComputeTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ConcreteTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ConcreteTransform {}
+impl ::core::clone::Clone for ID2D1ConcreteTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DCRenderTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DCRenderTarget {}
+impl ::core::clone::Clone for ID2D1DCRenderTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Device(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Device {}
+impl ::core::clone::Clone for ID2D1Device {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Device1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Device1 {}
+impl ::core::clone::Clone for ID2D1Device1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Device2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Device2 {}
+impl ::core::clone::Clone for ID2D1Device2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Device3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Device3 {}
+impl ::core::clone::Clone for ID2D1Device3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Device4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Device4 {}
+impl ::core::clone::Clone for ID2D1Device4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Device5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Device5 {}
+impl ::core::clone::Clone for ID2D1Device5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Device6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Device6 {}
+impl ::core::clone::Clone for ID2D1Device6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DeviceContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DeviceContext {}
+impl ::core::clone::Clone for ID2D1DeviceContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DeviceContext1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DeviceContext1 {}
+impl ::core::clone::Clone for ID2D1DeviceContext1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DeviceContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DeviceContext2 {}
+impl ::core::clone::Clone for ID2D1DeviceContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DeviceContext3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DeviceContext3 {}
+impl ::core::clone::Clone for ID2D1DeviceContext3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DeviceContext4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DeviceContext4 {}
+impl ::core::clone::Clone for ID2D1DeviceContext4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DeviceContext5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DeviceContext5 {}
+impl ::core::clone::Clone for ID2D1DeviceContext5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DeviceContext6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DeviceContext6 {}
+impl ::core::clone::Clone for ID2D1DeviceContext6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DrawInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DrawInfo {}
+impl ::core::clone::Clone for ID2D1DrawInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DrawTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DrawTransform {}
+impl ::core::clone::Clone for ID2D1DrawTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DrawingStateBlock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DrawingStateBlock {}
+impl ::core::clone::Clone for ID2D1DrawingStateBlock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1DrawingStateBlock1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1DrawingStateBlock1 {}
+impl ::core::clone::Clone for ID2D1DrawingStateBlock1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Effect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Effect {}
+impl ::core::clone::Clone for ID2D1Effect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1EffectContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1EffectContext {}
+impl ::core::clone::Clone for ID2D1EffectContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1EffectContext1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1EffectContext1 {}
+impl ::core::clone::Clone for ID2D1EffectContext1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1EffectContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1EffectContext2 {}
+impl ::core::clone::Clone for ID2D1EffectContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1EffectImpl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1EffectImpl {}
+impl ::core::clone::Clone for ID2D1EffectImpl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1EllipseGeometry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1EllipseGeometry {}
+impl ::core::clone::Clone for ID2D1EllipseGeometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory {}
+impl ::core::clone::Clone for ID2D1Factory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory1 {}
+impl ::core::clone::Clone for ID2D1Factory1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory2 {}
+impl ::core::clone::Clone for ID2D1Factory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory3 {}
+impl ::core::clone::Clone for ID2D1Factory3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory4 {}
+impl ::core::clone::Clone for ID2D1Factory4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory5 {}
+impl ::core::clone::Clone for ID2D1Factory5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory6 {}
+impl ::core::clone::Clone for ID2D1Factory6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Factory7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Factory7 {}
+impl ::core::clone::Clone for ID2D1Factory7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GdiInteropRenderTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GdiInteropRenderTarget {}
+impl ::core::clone::Clone for ID2D1GdiInteropRenderTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GdiMetafile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GdiMetafile {}
+impl ::core::clone::Clone for ID2D1GdiMetafile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GdiMetafile1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GdiMetafile1 {}
+impl ::core::clone::Clone for ID2D1GdiMetafile1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GdiMetafileSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GdiMetafileSink {}
+impl ::core::clone::Clone for ID2D1GdiMetafileSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GdiMetafileSink1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GdiMetafileSink1 {}
+impl ::core::clone::Clone for ID2D1GdiMetafileSink1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Geometry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Geometry {}
+impl ::core::clone::Clone for ID2D1Geometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GeometryGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GeometryGroup {}
+impl ::core::clone::Clone for ID2D1GeometryGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GeometryRealization(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GeometryRealization {}
+impl ::core::clone::Clone for ID2D1GeometryRealization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GeometrySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GeometrySink {}
+impl ::core::clone::Clone for ID2D1GeometrySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GradientMesh(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GradientMesh {}
+impl ::core::clone::Clone for ID2D1GradientMesh {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GradientStopCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GradientStopCollection {}
+impl ::core::clone::Clone for ID2D1GradientStopCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1GradientStopCollection1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1GradientStopCollection1 {}
+impl ::core::clone::Clone for ID2D1GradientStopCollection1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1HwndRenderTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1HwndRenderTarget {}
+impl ::core::clone::Clone for ID2D1HwndRenderTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Image(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Image {}
+impl ::core::clone::Clone for ID2D1Image {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ImageBrush(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ImageBrush {}
+impl ::core::clone::Clone for ID2D1ImageBrush {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ImageSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ImageSource {}
+impl ::core::clone::Clone for ID2D1ImageSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ImageSourceFromWic(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ImageSourceFromWic {}
+impl ::core::clone::Clone for ID2D1ImageSourceFromWic {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Ink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Ink {}
+impl ::core::clone::Clone for ID2D1Ink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1InkStyle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1InkStyle {}
+impl ::core::clone::Clone for ID2D1InkStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Layer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Layer {}
+impl ::core::clone::Clone for ID2D1Layer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1LinearGradientBrush(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1LinearGradientBrush {}
+impl ::core::clone::Clone for ID2D1LinearGradientBrush {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1LookupTable3D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1LookupTable3D {}
+impl ::core::clone::Clone for ID2D1LookupTable3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Mesh(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Mesh {}
+impl ::core::clone::Clone for ID2D1Mesh {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Multithread(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Multithread {}
+impl ::core::clone::Clone for ID2D1Multithread {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1OffsetTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1OffsetTransform {}
+impl ::core::clone::Clone for ID2D1OffsetTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1PathGeometry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1PathGeometry {}
+impl ::core::clone::Clone for ID2D1PathGeometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1PathGeometry1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1PathGeometry1 {}
+impl ::core::clone::Clone for ID2D1PathGeometry1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1PrintControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1PrintControl {}
+impl ::core::clone::Clone for ID2D1PrintControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Properties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Properties {}
+impl ::core::clone::Clone for ID2D1Properties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1RadialGradientBrush(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1RadialGradientBrush {}
+impl ::core::clone::Clone for ID2D1RadialGradientBrush {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1RectangleGeometry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1RectangleGeometry {}
+impl ::core::clone::Clone for ID2D1RectangleGeometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1RenderInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1RenderInfo {}
+impl ::core::clone::Clone for ID2D1RenderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1RenderTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1RenderTarget {}
+impl ::core::clone::Clone for ID2D1RenderTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Resource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Resource {}
+impl ::core::clone::Clone for ID2D1Resource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1ResourceTexture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1ResourceTexture {}
+impl ::core::clone::Clone for ID2D1ResourceTexture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1RoundedRectangleGeometry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1RoundedRectangleGeometry {}
+impl ::core::clone::Clone for ID2D1RoundedRectangleGeometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SolidColorBrush(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SolidColorBrush {}
+impl ::core::clone::Clone for ID2D1SolidColorBrush {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SourceTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SourceTransform {}
+impl ::core::clone::Clone for ID2D1SourceTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SpriteBatch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SpriteBatch {}
+impl ::core::clone::Clone for ID2D1SpriteBatch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1StrokeStyle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1StrokeStyle {}
+impl ::core::clone::Clone for ID2D1StrokeStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1StrokeStyle1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1StrokeStyle1 {}
+impl ::core::clone::Clone for ID2D1StrokeStyle1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgAttribute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgAttribute {}
+impl ::core::clone::Clone for ID2D1SvgAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgDocument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgDocument {}
+impl ::core::clone::Clone for ID2D1SvgDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgElement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgElement {}
+impl ::core::clone::Clone for ID2D1SvgElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgGlyphStyle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgGlyphStyle {}
+impl ::core::clone::Clone for ID2D1SvgGlyphStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgPaint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgPaint {}
+impl ::core::clone::Clone for ID2D1SvgPaint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgPathData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgPathData {}
+impl ::core::clone::Clone for ID2D1SvgPathData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgPointCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgPointCollection {}
+impl ::core::clone::Clone for ID2D1SvgPointCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SvgStrokeDashArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SvgStrokeDashArray {}
+impl ::core::clone::Clone for ID2D1SvgStrokeDashArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1TessellationSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1TessellationSink {}
+impl ::core::clone::Clone for ID2D1TessellationSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1Transform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1Transform {}
+impl ::core::clone::Clone for ID2D1Transform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1TransformGraph(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1TransformGraph {}
+impl ::core::clone::Clone for ID2D1TransformGraph {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1TransformNode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1TransformNode {}
+impl ::core::clone::Clone for ID2D1TransformNode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1TransformedGeometry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1TransformedGeometry {}
+impl ::core::clone::Clone for ID2D1TransformedGeometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1TransformedImageSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1TransformedImageSource {}
+impl ::core::clone::Clone for ID2D1TransformedImageSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1VertexBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1VertexBuffer {}
+impl ::core::clone::Clone for ID2D1VertexBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix4x3F {

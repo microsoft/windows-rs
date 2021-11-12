@@ -3,66 +3,252 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IOpcCertificateEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcCertificateEnumerator {}
+impl ::core::clone::Clone for IOpcCertificateEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcCertificateSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcCertificateSet {}
+impl ::core::clone::Clone for IOpcCertificateSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcDigitalSignature(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcDigitalSignature {}
+impl ::core::clone::Clone for IOpcDigitalSignature {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcDigitalSignatureEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcDigitalSignatureEnumerator {}
+impl ::core::clone::Clone for IOpcDigitalSignatureEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcDigitalSignatureManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcDigitalSignatureManager {}
+impl ::core::clone::Clone for IOpcDigitalSignatureManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcFactory {}
+impl ::core::clone::Clone for IOpcFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcPackage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcPackage {}
+impl ::core::clone::Clone for IOpcPackage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcPart(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcPart {}
+impl ::core::clone::Clone for IOpcPart {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcPartEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcPartEnumerator {}
+impl ::core::clone::Clone for IOpcPartEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcPartSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcPartSet {}
+impl ::core::clone::Clone for IOpcPartSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcPartUri(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcPartUri {}
+impl ::core::clone::Clone for IOpcPartUri {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcRelationship(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcRelationship {}
+impl ::core::clone::Clone for IOpcRelationship {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcRelationshipEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcRelationshipEnumerator {}
+impl ::core::clone::Clone for IOpcRelationshipEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcRelationshipSelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcRelationshipSelector {}
+impl ::core::clone::Clone for IOpcRelationshipSelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcRelationshipSelectorEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcRelationshipSelectorEnumerator {}
+impl ::core::clone::Clone for IOpcRelationshipSelectorEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcRelationshipSelectorSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcRelationshipSelectorSet {}
+impl ::core::clone::Clone for IOpcRelationshipSelectorSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcRelationshipSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcRelationshipSet {}
+impl ::core::clone::Clone for IOpcRelationshipSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureCustomObject {}
+impl ::core::clone::Clone for IOpcSignatureCustomObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObjectEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureCustomObjectEnumerator {}
+impl ::core::clone::Clone for IOpcSignatureCustomObjectEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObjectSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureCustomObjectSet {}
+impl ::core::clone::Clone for IOpcSignatureCustomObjectSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignaturePartReference(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignaturePartReference {}
+impl ::core::clone::Clone for IOpcSignaturePartReference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignaturePartReferenceEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignaturePartReferenceEnumerator {}
+impl ::core::clone::Clone for IOpcSignaturePartReferenceEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignaturePartReferenceSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignaturePartReferenceSet {}
+impl ::core::clone::Clone for IOpcSignaturePartReferenceSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureReference(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureReference {}
+impl ::core::clone::Clone for IOpcSignatureReference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureReferenceEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureReferenceEnumerator {}
+impl ::core::clone::Clone for IOpcSignatureReferenceEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureReferenceSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureReferenceSet {}
+impl ::core::clone::Clone for IOpcSignatureReferenceSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReference(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureRelationshipReference {}
+impl ::core::clone::Clone for IOpcSignatureRelationshipReference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureRelationshipReferenceEnumerator {}
+impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSignatureRelationshipReferenceSet {}
+impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcSigningOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcSigningOptions {}
+impl ::core::clone::Clone for IOpcSigningOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpcUri(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpcUri {}
+impl ::core::clone::Clone for IOpcUri {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_CANONICALIZATION_METHOD(pub i32);
 pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(0i32);

@@ -2376,10 +2376,28 @@ pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_sys::core::GUID = ::windows_
 pub const GUID_DEVINTERFACE_USBPRINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 685215661, data2: 23058, data3: 4561, data4: [174, 91, 0, 0, 248, 3, 168, 194] };
 #[repr(transparent)]
 pub struct IAsyncGetSendNotificationCookie(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAsyncGetSendNotificationCookie {}
+impl ::core::clone::Clone for IAsyncGetSendNotificationCookie {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAsyncGetSrvReferralCookie(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAsyncGetSrvReferralCookie {}
+impl ::core::clone::Clone for IAsyncGetSrvReferralCookie {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBidiAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBidiAsyncNotifyChannel {}
+impl ::core::clone::Clone for IBidiAsyncNotifyChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IBidiRequest {
     pub lpVtbl: *mut IBidiRequestVtbl,
@@ -3249,22 +3267,76 @@ impl ::core::clone::Clone for IPartThumbnailVtbl {
 }
 #[repr(transparent)]
 pub struct IPrintAsyncCookie(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncCookie {}
+impl ::core::clone::Clone for IPrintAsyncCookie {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncNewChannelCookie(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncNewChannelCookie {}
+impl ::core::clone::Clone for IPrintAsyncNewChannelCookie {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncNotify {}
+impl ::core::clone::Clone for IPrintAsyncNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncNotifyCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncNotifyCallback {}
+impl ::core::clone::Clone for IPrintAsyncNotifyCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncNotifyChannel {}
+impl ::core::clone::Clone for IPrintAsyncNotifyChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncNotifyDataObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncNotifyDataObject {}
+impl ::core::clone::Clone for IPrintAsyncNotifyDataObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncNotifyRegistration {}
+impl ::core::clone::Clone for IPrintAsyncNotifyRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncNotifyServerReferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintAsyncNotifyServerReferral {}
+impl ::core::clone::Clone for IPrintAsyncNotifyServerReferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintBidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintBidiAsyncNotifyRegistration {}
+impl ::core::clone::Clone for IPrintBidiAsyncNotifyRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IPrintClassObjectFactory {
     pub lpVtbl: *mut IPrintClassObjectFactoryVtbl,
@@ -3290,28 +3362,100 @@ impl ::core::clone::Clone for IPrintClassObjectFactoryVtbl {
 }
 #[repr(transparent)]
 pub struct IPrintCoreHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintCoreHelper {}
+impl ::core::clone::Clone for IPrintCoreHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintCoreHelperPS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintCoreHelperPS {}
+impl ::core::clone::Clone for IPrintCoreHelperPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintCoreHelperUni(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintCoreHelperUni {}
+impl ::core::clone::Clone for IPrintCoreHelperUni {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintCoreHelperUni2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintCoreHelperUni2 {}
+impl ::core::clone::Clone for IPrintCoreHelperUni2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintCoreUI2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintCoreUI2 {}
+impl ::core::clone::Clone for IPrintCoreUI2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintJob(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintJob {}
+impl ::core::clone::Clone for IPrintJob {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintJobCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintJobCollection {}
+impl ::core::clone::Clone for IPrintJobCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintOemCommon(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintOemCommon {}
+impl ::core::clone::Clone for IPrintOemCommon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintOemDriverUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintOemDriverUI {}
+impl ::core::clone::Clone for IPrintOemDriverUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintOemUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintOemUI {}
+impl ::core::clone::Clone for IPrintOemUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintOemUI2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintOemUI2 {}
+impl ::core::clone::Clone for IPrintOemUI2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintOemUIMXDC(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintOemUIMXDC {}
+impl ::core::clone::Clone for IPrintOemUIMXDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IPrintPipelineFilter {
     pub lpVtbl: *mut IPrintPipelineFilterVtbl,
@@ -3411,6 +3555,12 @@ impl ::core::clone::Clone for IPrintPipelinePropertyBagVtbl {
 }
 #[repr(transparent)]
 pub struct IPrintPreviewDxgiPackageTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintPreviewDxgiPackageTarget {}
+impl ::core::clone::Clone for IPrintPreviewDxgiPackageTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IPrintReadStream {
     pub lpVtbl: *mut IPrintReadStreamVtbl,
@@ -3460,42 +3610,156 @@ impl ::core::clone::Clone for IPrintReadStreamVtbl {
 }
 #[repr(transparent)]
 pub struct IPrintSchemaAsyncOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaAsyncOperation {}
+impl ::core::clone::Clone for IPrintSchemaAsyncOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaAsyncOperationEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaAsyncOperationEvent {}
+impl ::core::clone::Clone for IPrintSchemaAsyncOperationEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaCapabilities {}
+impl ::core::clone::Clone for IPrintSchemaCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaCapabilities2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaCapabilities2 {}
+impl ::core::clone::Clone for IPrintSchemaCapabilities2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaDisplayableElement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaDisplayableElement {}
+impl ::core::clone::Clone for IPrintSchemaDisplayableElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaElement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaElement {}
+impl ::core::clone::Clone for IPrintSchemaElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaFeature(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaFeature {}
+impl ::core::clone::Clone for IPrintSchemaFeature {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaNUpOption(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaNUpOption {}
+impl ::core::clone::Clone for IPrintSchemaNUpOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaOption(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaOption {}
+impl ::core::clone::Clone for IPrintSchemaOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaOptionCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaOptionCollection {}
+impl ::core::clone::Clone for IPrintSchemaOptionCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaPageImageableSize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaPageImageableSize {}
+impl ::core::clone::Clone for IPrintSchemaPageImageableSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaPageMediaSizeOption(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaPageMediaSizeOption {}
+impl ::core::clone::Clone for IPrintSchemaPageMediaSizeOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaParameterDefinition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaParameterDefinition {}
+impl ::core::clone::Clone for IPrintSchemaParameterDefinition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaParameterInitializer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaParameterInitializer {}
+impl ::core::clone::Clone for IPrintSchemaParameterInitializer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaTicket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaTicket {}
+impl ::core::clone::Clone for IPrintSchemaTicket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaTicket2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintSchemaTicket2 {}
+impl ::core::clone::Clone for IPrintSchemaTicket2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintTicketProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintTicketProvider {}
+impl ::core::clone::Clone for IPrintTicketProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintTicketProvider2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintTicketProvider2 {}
+impl ::core::clone::Clone for IPrintTicketProvider2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintUnidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintUnidiAsyncNotifyRegistration {}
+impl ::core::clone::Clone for IPrintUnidiAsyncNotifyRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IPrintWriteStream {
     pub lpVtbl: *mut IPrintWriteStreamVtbl,
@@ -3545,42 +3809,156 @@ impl ::core::clone::Clone for IPrintWriteStreamVtbl {
 }
 #[repr(transparent)]
 pub struct IPrinterBidiSetRequestCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterBidiSetRequestCallback {}
+impl ::core::clone::Clone for IPrinterBidiSetRequestCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterExtensionAsyncOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterExtensionAsyncOperation {}
+impl ::core::clone::Clone for IPrinterExtensionAsyncOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterExtensionContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterExtensionContext {}
+impl ::core::clone::Clone for IPrinterExtensionContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterExtensionContextCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterExtensionContextCollection {}
+impl ::core::clone::Clone for IPrinterExtensionContextCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterExtensionEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterExtensionEvent {}
+impl ::core::clone::Clone for IPrinterExtensionEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterExtensionEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterExtensionEventArgs {}
+impl ::core::clone::Clone for IPrinterExtensionEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterExtensionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterExtensionManager {}
+impl ::core::clone::Clone for IPrinterExtensionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterExtensionRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterExtensionRequest {}
+impl ::core::clone::Clone for IPrinterExtensionRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterPropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterPropertyBag {}
+impl ::core::clone::Clone for IPrinterPropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterQueue {}
+impl ::core::clone::Clone for IPrinterQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterQueue2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterQueue2 {}
+impl ::core::clone::Clone for IPrinterQueue2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterQueueEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterQueueEvent {}
+impl ::core::clone::Clone for IPrinterQueueEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterQueueView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterQueueView {}
+impl ::core::clone::Clone for IPrinterQueueView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterQueueViewEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterQueueViewEvent {}
+impl ::core::clone::Clone for IPrinterQueueViewEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterScriptContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterScriptContext {}
+impl ::core::clone::Clone for IPrinterScriptContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterScriptablePropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterScriptablePropertyBag {}
+impl ::core::clone::Clone for IPrinterScriptablePropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterScriptablePropertyBag2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterScriptablePropertyBag2 {}
+impl ::core::clone::Clone for IPrinterScriptablePropertyBag2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterScriptableSequentialStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterScriptableSequentialStream {}
+impl ::core::clone::Clone for IPrinterScriptableSequentialStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterScriptableStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrinterScriptableStream {}
+impl ::core::clone::Clone for IPrinterScriptableStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IXpsDocument {
     pub lpVtbl: *mut IXpsDocumentVtbl,
@@ -3685,14 +4063,44 @@ impl ::core::clone::Clone for IXpsPartIteratorVtbl {
 }
 #[repr(transparent)]
 pub struct IXpsRasterizationFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXpsRasterizationFactory {}
+impl ::core::clone::Clone for IXpsRasterizationFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXpsRasterizationFactory1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXpsRasterizationFactory1 {}
+impl ::core::clone::Clone for IXpsRasterizationFactory1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXpsRasterizationFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXpsRasterizationFactory2 {}
+impl ::core::clone::Clone for IXpsRasterizationFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXpsRasterizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXpsRasterizer {}
+impl ::core::clone::Clone for IXpsRasterizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXpsRasterizerNotificationCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXpsRasterizerNotificationCallback {}
+impl ::core::clone::Clone for IXpsRasterizerNotificationCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
 pub const JOB_ACCESS_READ: u32 = 32u32;
 pub const JOB_CONTROL_CANCEL: u32 = 3u32;

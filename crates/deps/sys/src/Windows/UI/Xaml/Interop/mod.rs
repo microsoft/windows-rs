@@ -3,22 +3,76 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct BindableVectorChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for BindableVectorChangedEventHandler {}
+impl ::core::clone::Clone for BindableVectorChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindableIterable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindableIterable {}
+impl ::core::clone::Clone for IBindableIterable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindableIterator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindableIterator {}
+impl ::core::clone::Clone for IBindableIterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindableObservableVector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindableObservableVector {}
+impl ::core::clone::Clone for IBindableObservableVector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindableVector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindableVector {}
+impl ::core::clone::Clone for IBindableVector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindableVectorView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindableVectorView {}
+impl ::core::clone::Clone for IBindableVectorView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INotifyCollectionChanged(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INotifyCollectionChanged {}
+impl ::core::clone::Clone for INotifyCollectionChanged {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INotifyCollectionChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INotifyCollectionChangedEventArgs {}
+impl ::core::clone::Clone for INotifyCollectionChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INotifyCollectionChangedEventArgsFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INotifyCollectionChangedEventArgsFactory {}
+impl ::core::clone::Clone for INotifyCollectionChangedEventArgsFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NotifyCollectionChangedAction(pub i32);
 impl NotifyCollectionChangedAction {
@@ -36,8 +90,20 @@ impl ::core::clone::Clone for NotifyCollectionChangedAction {
 }
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for NotifyCollectionChangedEventArgs {}
+impl ::core::clone::Clone for NotifyCollectionChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for NotifyCollectionChangedEventHandler {}
+impl ::core::clone::Clone for NotifyCollectionChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TypeKind(pub i32);
 impl TypeKind {

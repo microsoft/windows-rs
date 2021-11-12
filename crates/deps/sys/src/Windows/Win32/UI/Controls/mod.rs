@@ -1812,8 +1812,20 @@ pub const IDC_MANAGE_LINK: u32 = 1592u32;
 pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
 #[repr(transparent)]
 pub struct IImageList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImageList {}
+impl ::core::clone::Clone for IImageList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImageList2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImageList2 {}
+impl ::core::clone::Clone for IImageList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ILDI_PURGE: u32 = 1u32;
 pub const ILDI_QUERYACCESS: u32 = 8u32;
 pub const ILDI_RESETACCESS: u32 = 4u32;

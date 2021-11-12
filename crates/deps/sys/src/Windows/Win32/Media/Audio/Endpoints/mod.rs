@@ -55,23 +55,89 @@ impl ::core::clone::Clone for EndpointConnectorType {
 }
 #[repr(transparent)]
 pub struct IAudioEndpointFormatControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointFormatControl {}
+impl ::core::clone::Clone for IAudioEndpointFormatControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointLastBufferControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointLastBufferControl {}
+impl ::core::clone::Clone for IAudioEndpointLastBufferControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointOffloadStreamMeter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointOffloadStreamMeter {}
+impl ::core::clone::Clone for IAudioEndpointOffloadStreamMeter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointOffloadStreamMute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointOffloadStreamMute {}
+impl ::core::clone::Clone for IAudioEndpointOffloadStreamMute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointOffloadStreamVolume(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointOffloadStreamVolume {}
+impl ::core::clone::Clone for IAudioEndpointOffloadStreamVolume {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointVolume(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointVolume {}
+impl ::core::clone::Clone for IAudioEndpointVolume {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointVolumeCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointVolumeCallback {}
+impl ::core::clone::Clone for IAudioEndpointVolumeCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointVolumeEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointVolumeEx {}
+impl ::core::clone::Clone for IAudioEndpointVolumeEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioLfxControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioLfxControl {}
+impl ::core::clone::Clone for IAudioLfxControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioMeterInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioMeterInformation {}
+impl ::core::clone::Clone for IAudioMeterInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHardwareAudioEngineBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHardwareAudioEngineBase {}
+impl ::core::clone::Clone for IHardwareAudioEngineBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

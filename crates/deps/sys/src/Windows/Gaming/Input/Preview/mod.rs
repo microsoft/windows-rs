@@ -3,3 +3,9 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IGameControllerProviderInfoStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGameControllerProviderInfoStatics {}
+impl ::core::clone::Clone for IGameControllerProviderInfoStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

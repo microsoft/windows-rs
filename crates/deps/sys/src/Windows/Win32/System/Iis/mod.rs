@@ -22,20 +22,68 @@ pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 pub const ASP_MD_UT_APP: u32 = 101u32;
 #[repr(transparent)]
 pub struct AsyncIFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpAuthenticationProvider {}
+impl ::core::clone::Clone for AsyncIFtpAuthenticationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpAuthorizationProvider {}
+impl ::core::clone::Clone for AsyncIFtpAuthorizationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpHomeDirectoryProvider {}
+impl ::core::clone::Clone for AsyncIFtpHomeDirectoryProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpLogProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpLogProvider {}
+impl ::core::clone::Clone for AsyncIFtpLogProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpPostprocessProvider {}
+impl ::core::clone::Clone for AsyncIFtpPostprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpPreprocessProvider {}
+impl ::core::clone::Clone for AsyncIFtpPreprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpRoleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpRoleProvider {}
+impl ::core::clone::Clone for AsyncIFtpRoleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIMSAdminBaseSinkW {}
+impl ::core::clone::Clone for AsyncIMSAdminBaseSinkW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX {
@@ -737,22 +785,76 @@ impl ::core::clone::Clone for HTTP_TRACE_TYPE {
 }
 #[repr(transparent)]
 pub struct IADMEXT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADMEXT {}
+impl ::core::clone::Clone for IADMEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpAuthenticationProvider {}
+impl ::core::clone::Clone for IFtpAuthenticationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpAuthorizationProvider {}
+impl ::core::clone::Clone for IFtpAuthorizationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpHomeDirectoryProvider {}
+impl ::core::clone::Clone for IFtpHomeDirectoryProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpLogProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpLogProvider {}
+impl ::core::clone::Clone for IFtpLogProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpPostprocessProvider {}
+impl ::core::clone::Clone for IFtpPostprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpPreprocessProvider {}
+impl ::core::clone::Clone for IFtpPreprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpProviderConstruct(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpProviderConstruct {}
+impl ::core::clone::Clone for IFtpProviderConstruct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpRoleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpRoleProvider {}
+impl ::core::clone::Clone for IFtpRoleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
 pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
 pub const IIS_MD_APP_BASE: u32 = 9100u32;
@@ -796,14 +898,44 @@ pub const IMGTRANS_MASK: u32 = 536870912u32;
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
 #[repr(transparent)]
 pub struct IMSAdminBase2W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBase2W {}
+impl ::core::clone::Clone for IMSAdminBase2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSAdminBase3W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBase3W {}
+impl ::core::clone::Clone for IMSAdminBase3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBaseSinkW {}
+impl ::core::clone::Clone for IMSAdminBaseSinkW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSAdminBaseW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBaseW {}
+impl ::core::clone::Clone for IMSAdminBaseW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSImpExpHelpW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSImpExpHelpW {}
+impl ::core::clone::Clone for IMSImpExpHelpW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
 pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
 pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };

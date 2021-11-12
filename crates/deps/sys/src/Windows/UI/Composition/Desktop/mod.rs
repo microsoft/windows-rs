@@ -3,5 +3,17 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct DesktopWindowTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DesktopWindowTarget {}
+impl ::core::clone::Clone for DesktopWindowTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDesktopWindowTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDesktopWindowTarget {}
+impl ::core::clone::Clone for IDesktopWindowTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

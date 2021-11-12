@@ -201,13 +201,49 @@ impl ::core::clone::Clone for DedupStreamEntry {
 }
 #[repr(transparent)]
 pub struct IDedupBackupSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupBackupSupport {}
+impl ::core::clone::Clone for IDedupBackupSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupChunkLibrary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupChunkLibrary {}
+impl ::core::clone::Clone for IDedupChunkLibrary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupDataPort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupDataPort {}
+impl ::core::clone::Clone for IDedupDataPort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupDataPortManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupDataPortManager {}
+impl ::core::clone::Clone for IDedupDataPortManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupIterateChunksHash32(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupIterateChunksHash32 {}
+impl ::core::clone::Clone for IDedupIterateChunksHash32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupReadFileCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupReadFileCallback {}
+impl ::core::clone::Clone for IDedupReadFileCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

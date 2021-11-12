@@ -3,12 +3,36 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ITpmVirtualSmartCardManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITpmVirtualSmartCardManager {}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITpmVirtualSmartCardManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITpmVirtualSmartCardManager2 {}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITpmVirtualSmartCardManager3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITpmVirtualSmartCardManager3 {}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManager3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITpmVirtualSmartCardManagerStatusCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITpmVirtualSmartCardManagerStatusCallback {}
+impl ::core::clone::Clone for ITpmVirtualSmartCardManagerStatusCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RemoteTpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355377832, data2: 28892, data3: 19545, data4: [139, 42, 50, 170, 60, 160, 220, 172] };
 #[repr(transparent)]
 pub struct TPMVSCMGR_ERROR(pub i32);

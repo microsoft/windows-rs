@@ -3,3 +3,9 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ISoundLevelBrokerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISoundLevelBrokerStatics {}
+impl ::core::clone::Clone for ISoundLevelBrokerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

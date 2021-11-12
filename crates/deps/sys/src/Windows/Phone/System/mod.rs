@@ -9,5 +9,17 @@ pub mod UserProfile;
 extern "system" {}
 #[repr(transparent)]
 pub struct ISystemProtectionStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemProtectionStatics {}
+impl ::core::clone::Clone for ISystemProtectionStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemProtectionUnlockStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemProtectionUnlockStatics {}
+impl ::core::clone::Clone for ISystemProtectionUnlockStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

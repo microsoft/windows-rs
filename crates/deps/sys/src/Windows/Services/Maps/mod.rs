@@ -9,76 +9,292 @@ pub mod OfflineMaps;
 extern "system" {}
 #[repr(transparent)]
 pub struct EnhancedWaypoint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EnhancedWaypoint {}
+impl ::core::clone::Clone for EnhancedWaypoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnhancedWaypoint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnhancedWaypoint {}
+impl ::core::clone::Clone for IEnhancedWaypoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnhancedWaypointFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnhancedWaypointFactory {}
+impl ::core::clone::Clone for IEnhancedWaypointFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManeuverWarning(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManeuverWarning {}
+impl ::core::clone::Clone for IManeuverWarning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapAddress {}
+impl ::core::clone::Clone for IMapAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapAddress2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapAddress2 {}
+impl ::core::clone::Clone for IMapAddress2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapLocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapLocation {}
+impl ::core::clone::Clone for IMapLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapLocationFinderResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapLocationFinderResult {}
+impl ::core::clone::Clone for IMapLocationFinderResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapLocationFinderStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapLocationFinderStatics {}
+impl ::core::clone::Clone for IMapLocationFinderStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapLocationFinderStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapLocationFinderStatics2 {}
+impl ::core::clone::Clone for IMapLocationFinderStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapManagerStatics {}
+impl ::core::clone::Clone for IMapManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRoute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRoute {}
+impl ::core::clone::Clone for IMapRoute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRoute2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRoute2 {}
+impl ::core::clone::Clone for IMapRoute2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRoute3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRoute3 {}
+impl ::core::clone::Clone for IMapRoute3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRoute4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRoute4 {}
+impl ::core::clone::Clone for IMapRoute4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteDrivingOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteDrivingOptions {}
+impl ::core::clone::Clone for IMapRouteDrivingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteDrivingOptions2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteDrivingOptions2 {}
+impl ::core::clone::Clone for IMapRouteDrivingOptions2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteFinderResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteFinderResult {}
+impl ::core::clone::Clone for IMapRouteFinderResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteFinderResult2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteFinderResult2 {}
+impl ::core::clone::Clone for IMapRouteFinderResult2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteFinderStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteFinderStatics {}
+impl ::core::clone::Clone for IMapRouteFinderStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteFinderStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteFinderStatics2 {}
+impl ::core::clone::Clone for IMapRouteFinderStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteFinderStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteFinderStatics3 {}
+impl ::core::clone::Clone for IMapRouteFinderStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteLeg(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteLeg {}
+impl ::core::clone::Clone for IMapRouteLeg {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteLeg2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteLeg2 {}
+impl ::core::clone::Clone for IMapRouteLeg2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteManeuver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteManeuver {}
+impl ::core::clone::Clone for IMapRouteManeuver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteManeuver2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteManeuver2 {}
+impl ::core::clone::Clone for IMapRouteManeuver2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapRouteManeuver3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapRouteManeuver3 {}
+impl ::core::clone::Clone for IMapRouteManeuver3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapServiceStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapServiceStatics {}
+impl ::core::clone::Clone for IMapServiceStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapServiceStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapServiceStatics2 {}
+impl ::core::clone::Clone for IMapServiceStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapServiceStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapServiceStatics3 {}
+impl ::core::clone::Clone for IMapServiceStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMapServiceStatics4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMapServiceStatics4 {}
+impl ::core::clone::Clone for IMapServiceStatics4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlaceInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlaceInfo {}
+impl ::core::clone::Clone for IPlaceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlaceInfoCreateOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlaceInfoCreateOptions {}
+impl ::core::clone::Clone for IPlaceInfoCreateOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlaceInfoStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlaceInfoStatics {}
+impl ::core::clone::Clone for IPlaceInfoStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlaceInfoStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlaceInfoStatics2 {}
+impl ::core::clone::Clone for IPlaceInfoStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManeuverWarning(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ManeuverWarning {}
+impl ::core::clone::Clone for ManeuverWarning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
@@ -142,8 +358,20 @@ impl ::core::clone::Clone for ManeuverWarningSeverity {
 }
 #[repr(transparent)]
 pub struct MapAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapAddress {}
+impl ::core::clone::Clone for MapAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapLocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapLocation {}
+impl ::core::clone::Clone for MapLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
@@ -158,6 +386,12 @@ impl ::core::clone::Clone for MapLocationDesiredAccuracy {
 }
 #[repr(transparent)]
 pub struct MapLocationFinderResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapLocationFinderResult {}
+impl ::core::clone::Clone for MapLocationFinderResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
@@ -190,10 +424,28 @@ impl ::core::clone::Clone for MapManeuverNotices {
 }
 #[repr(transparent)]
 pub struct MapRoute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapRoute {}
+impl ::core::clone::Clone for MapRoute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapRouteDrivingOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapRouteDrivingOptions {}
+impl ::core::clone::Clone for MapRouteDrivingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapRouteFinderResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapRouteFinderResult {}
+impl ::core::clone::Clone for MapRouteFinderResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
@@ -216,8 +468,20 @@ impl ::core::clone::Clone for MapRouteFinderStatus {
 }
 #[repr(transparent)]
 pub struct MapRouteLeg(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapRouteLeg {}
+impl ::core::clone::Clone for MapRouteLeg {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapRouteManeuver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MapRouteManeuver {}
+impl ::core::clone::Clone for MapRouteManeuver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
@@ -298,8 +562,20 @@ impl ::core::clone::Clone for MapServiceDataUsagePreference {
 }
 #[repr(transparent)]
 pub struct PlaceInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PlaceInfo {}
+impl ::core::clone::Clone for PlaceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PlaceInfoCreateOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PlaceInfoCreateOptions {}
+impl ::core::clone::Clone for PlaceInfoCreateOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {

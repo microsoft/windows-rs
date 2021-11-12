@@ -86,3 +86,9 @@ impl ::core::clone::Clone for ClosedCaptionStyle {
 }
 #[repr(transparent)]
 pub struct IClosedCaptionPropertiesStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IClosedCaptionPropertiesStatics {}
+impl ::core::clone::Clone for IClosedCaptionPropertiesStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -3,8 +3,20 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IAdcControllerProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAdcControllerProvider {}
+impl ::core::clone::Clone for IAdcControllerProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAdcProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAdcProvider {}
+impl ::core::clone::Clone for IAdcProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {

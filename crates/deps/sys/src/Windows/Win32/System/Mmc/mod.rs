@@ -4,6 +4,12 @@ extern "system" {}
 pub const AUTO_WIDTH: i32 = -1i32;
 #[repr(transparent)]
 pub struct AppEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppEvents {}
+impl ::core::clone::Clone for AppEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AppEventsDHTMLConnector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2917549131, data2: 51487, data3: 20023, data4: [146, 164, 91, 180, 48, 163, 51, 64] };
 pub const Application: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1236433178,
@@ -107,11 +113,29 @@ impl ::core::clone::Clone for CONTEXTMENUITEM2 {
 }
 #[repr(transparent)]
 pub struct Column(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Column {}
+impl ::core::clone::Clone for Column {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Columns(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Columns {}
+impl ::core::clone::Clone for Columns {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ConsolePower: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4029174644, data2: 57329, data3: 4563, data4: [180, 51, 0, 192, 79, 142, 205, 120] };
 #[repr(transparent)]
 pub struct ContextMenu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContextMenu {}
+impl ::core::clone::Clone for ContextMenu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DATA_OBJECT_TYPES(pub i32);
 pub const CCT_SCOPE: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32768i32);
@@ -126,112 +150,424 @@ impl ::core::clone::Clone for DATA_OBJECT_TYPES {
 }
 #[repr(transparent)]
 pub struct Document(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Document {}
+impl ::core::clone::Clone for Document {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Extension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Extension {}
+impl ::core::clone::Clone for Extension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Extensions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Extensions {}
+impl ::core::clone::Clone for Extensions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Frame(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Frame {}
+impl ::core::clone::Clone for Frame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HDI_HIDDEN: u32 = 1u32;
 pub const HIDE_COLUMN: i32 = -4i32;
 #[repr(transparent)]
 pub struct IColumnData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnData {}
+impl ::core::clone::Clone for IColumnData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponent {}
+impl ::core::clone::Clone for IComponent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponent2 {}
+impl ::core::clone::Clone for IComponent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentData {}
+impl ::core::clone::Clone for IComponentData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentData2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentData2 {}
+impl ::core::clone::Clone for IComponentData2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsole(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsole {}
+impl ::core::clone::Clone for IConsole {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsole2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsole2 {}
+impl ::core::clone::Clone for IConsole2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsole3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsole3 {}
+impl ::core::clone::Clone for IConsole3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsoleNameSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsoleNameSpace {}
+impl ::core::clone::Clone for IConsoleNameSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsoleNameSpace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsoleNameSpace2 {}
+impl ::core::clone::Clone for IConsoleNameSpace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsolePower(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsolePower {}
+impl ::core::clone::Clone for IConsolePower {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsolePowerSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsolePowerSink {}
+impl ::core::clone::Clone for IConsolePowerSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConsoleVerb(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConsoleVerb {}
+impl ::core::clone::Clone for IConsoleVerb {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContextMenuCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContextMenuCallback {}
+impl ::core::clone::Clone for IContextMenuCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContextMenuCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContextMenuCallback2 {}
+impl ::core::clone::Clone for IContextMenuCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContextMenuProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContextMenuProvider {}
+impl ::core::clone::Clone for IContextMenuProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlbar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlbar {}
+impl ::core::clone::Clone for IControlbar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDisplayHelp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDisplayHelp {}
+impl ::core::clone::Clone for IDisplayHelp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumTASK(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumTASK {}
+impl ::core::clone::Clone for IEnumTASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendContextMenu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendContextMenu {}
+impl ::core::clone::Clone for IExtendContextMenu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendControlbar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendControlbar {}
+impl ::core::clone::Clone for IExtendControlbar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendPropertySheet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendPropertySheet {}
+impl ::core::clone::Clone for IExtendPropertySheet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendPropertySheet2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendPropertySheet2 {}
+impl ::core::clone::Clone for IExtendPropertySheet2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendTaskPad(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendTaskPad {}
+impl ::core::clone::Clone for IExtendTaskPad {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendView {}
+impl ::core::clone::Clone for IExtendView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHeaderCtrl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHeaderCtrl {}
+impl ::core::clone::Clone for IHeaderCtrl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHeaderCtrl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHeaderCtrl2 {}
+impl ::core::clone::Clone for IHeaderCtrl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImageList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImageList {}
+impl ::core::clone::Clone for IImageList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ILSIF_LEAVE_LARGE_ICON: u32 = 1073741824u32;
 pub const ILSIF_LEAVE_SMALL_ICON: u32 = 536870912u32;
 #[repr(transparent)]
 pub struct IMMCVersionInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMMCVersionInfo {}
+impl ::core::clone::Clone for IMMCVersionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMenuButton(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMenuButton {}
+impl ::core::clone::Clone for IMenuButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageView {}
+impl ::core::clone::Clone for IMessageView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INodeProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INodeProperties {}
+impl ::core::clone::Clone for INodeProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertySheetCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertySheetCallback {}
+impl ::core::clone::Clone for IPropertySheetCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertySheetProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertySheetProvider {}
+impl ::core::clone::Clone for IPropertySheetProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRequiredExtensions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRequiredExtensions {}
+impl ::core::clone::Clone for IRequiredExtensions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResultData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResultData {}
+impl ::core::clone::Clone for IResultData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResultData2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResultData2 {}
+impl ::core::clone::Clone for IResultData2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResultDataCompare(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResultDataCompare {}
+impl ::core::clone::Clone for IResultDataCompare {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResultDataCompareEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResultDataCompareEx {}
+impl ::core::clone::Clone for IResultDataCompareEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResultOwnerData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResultOwnerData {}
+impl ::core::clone::Clone for IResultOwnerData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISnapinAbout(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISnapinAbout {}
+impl ::core::clone::Clone for ISnapinAbout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISnapinHelp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISnapinHelp {}
+impl ::core::clone::Clone for ISnapinHelp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISnapinHelp2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISnapinHelp2 {}
+impl ::core::clone::Clone for ISnapinHelp2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISnapinProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISnapinProperties {}
+impl ::core::clone::Clone for ISnapinProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISnapinPropertiesCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISnapinPropertiesCallback {}
+impl ::core::clone::Clone for ISnapinPropertiesCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStringTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStringTable {}
+impl ::core::clone::Clone for IStringTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IToolbar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IToolbar {}
+impl ::core::clone::Clone for IToolbar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewExtensionCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewExtensionCallback {}
+impl ::core::clone::Clone for IViewExtensionCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IconIdentifier(pub i32);
 pub const Icon_None: IconIdentifier = IconIdentifier(0i32);
@@ -760,14 +1096,44 @@ impl ::core::clone::Clone for MMC_VISIBLE_COLUMNS {
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
 #[repr(transparent)]
 pub struct MenuItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MenuItem {}
+impl ::core::clone::Clone for MenuItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Node(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Node {}
+impl ::core::clone::Clone for Node {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Nodes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Nodes {}
+impl ::core::clone::Clone for Nodes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Properties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Properties {}
+impl ::core::clone::Clone for Properties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Property(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Property {}
+impl ::core::clone::Clone for Property {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RDCI_ScopeItem: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1019,18 +1385,60 @@ pub const SPECIAL_DOBJ_MAX: u32 = 0u32;
 pub const SPECIAL_DOBJ_MIN: i32 = -10i32;
 #[repr(transparent)]
 pub struct ScopeNamespace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ScopeNamespace {}
+impl ::core::clone::Clone for ScopeNamespace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SnapIn(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SnapIn {}
+impl ::core::clone::Clone for SnapIn {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SnapIns(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SnapIns {}
+impl ::core::clone::Clone for SnapIns {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct View(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for View {}
+impl ::core::clone::Clone for View {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Views(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Views {}
+impl ::core::clone::Clone for Views {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _AppEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _AppEvents {}
+impl ::core::clone::Clone for _AppEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _Application(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _Application {}
+impl ::core::clone::Clone for _Application {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ColumnSortOrder(pub i32);
 pub const SortOrder_Ascending: _ColumnSortOrder = _ColumnSortOrder(0i32);
@@ -1055,6 +1463,12 @@ impl ::core::clone::Clone for _DocumentMode {
 }
 #[repr(transparent)]
 pub struct _EventConnector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _EventConnector {}
+impl ::core::clone::Clone for _EventConnector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ExportListOptions(pub i32);
 pub const ExportListOptions_Default: _ExportListOptions = _ExportListOptions(0i32);

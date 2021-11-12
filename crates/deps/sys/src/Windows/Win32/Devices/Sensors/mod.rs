@@ -259,18 +259,60 @@ impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
 }
 #[repr(transparent)]
 pub struct ILocationPermissions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationPermissions {}
+impl ::core::clone::Clone for ILocationPermissions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISensor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISensor {}
+impl ::core::clone::Clone for ISensor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISensorCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISensorCollection {}
+impl ::core::clone::Clone for ISensorCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISensorDataReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISensorDataReport {}
+impl ::core::clone::Clone for ISensorDataReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISensorEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISensorEvents {}
+impl ::core::clone::Clone for ISensorEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISensorManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISensorManager {}
+impl ::core::clone::Clone for ISensorManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISensorManagerEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISensorManagerEvents {}
+impl ::core::clone::Clone for ISensorManagerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LOCATION_DESIRED_ACCURACY(pub i32);
 pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);

@@ -3907,44 +3907,164 @@ impl ::core::clone::Clone for HID_XFER_PACKET {
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[repr(transparent)]
 pub struct IDirectInput2A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput2A {}
+impl ::core::clone::Clone for IDirectInput2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput2W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput2W {}
+impl ::core::clone::Clone for IDirectInput2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput7A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput7A {}
+impl ::core::clone::Clone for IDirectInput7A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput7W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput7W {}
+impl ::core::clone::Clone for IDirectInput7W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput8A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput8A {}
+impl ::core::clone::Clone for IDirectInput8A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput8W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput8W {}
+impl ::core::clone::Clone for IDirectInput8W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputA {}
+impl ::core::clone::Clone for IDirectInputA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice2A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice2A {}
+impl ::core::clone::Clone for IDirectInputDevice2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice2W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice2W {}
+impl ::core::clone::Clone for IDirectInputDevice2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice7A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice7A {}
+impl ::core::clone::Clone for IDirectInputDevice7A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice7W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice7W {}
+impl ::core::clone::Clone for IDirectInputDevice7W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice8A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice8A {}
+impl ::core::clone::Clone for IDirectInputDevice8A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice8W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice8W {}
+impl ::core::clone::Clone for IDirectInputDevice8W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDeviceA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDeviceA {}
+impl ::core::clone::Clone for IDirectInputDeviceA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDeviceW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDeviceW {}
+impl ::core::clone::Clone for IDirectInputDeviceW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputEffect {}
+impl ::core::clone::Clone for IDirectInputEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputEffectDriver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputEffectDriver {}
+impl ::core::clone::Clone for IDirectInputEffectDriver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputJoyConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputJoyConfig {}
+impl ::core::clone::Clone for IDirectInputJoyConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputJoyConfig8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputJoyConfig8 {}
+impl ::core::clone::Clone for IDirectInputJoyConfig8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputW {}
+impl ::core::clone::Clone for IDirectInputW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INDICATOR_LIST {
     pub MakeCode: u16,

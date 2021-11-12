@@ -3,5 +3,17 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IGraphicsEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphicsEffect {}
+impl ::core::clone::Clone for IGraphicsEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphicsEffectSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphicsEffectSource {}
+impl ::core::clone::Clone for IGraphicsEffectSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

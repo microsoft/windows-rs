@@ -3,10 +3,28 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IMdmAllowPolicyStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMdmAllowPolicyStatics {}
+impl ::core::clone::Clone for IMdmAllowPolicyStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMdmPolicyStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMdmPolicyStatics2 {}
+impl ::core::clone::Clone for IMdmPolicyStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkplaceSettingsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkplaceSettingsStatics {}
+impl ::core::clone::Clone for IWorkplaceSettingsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {

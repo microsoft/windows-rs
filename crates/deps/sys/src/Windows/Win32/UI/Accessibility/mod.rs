@@ -1055,278 +1055,1094 @@ pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID =
 pub const Hyperlink_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2320892460, data2: 45069, data3: 19733, data4: [143, 240, 91, 107, 38, 110, 94, 2] };
 #[repr(transparent)]
 pub struct IAccIdentity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccIdentity {}
+impl ::core::clone::Clone for IAccIdentity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccPropServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccPropServer {}
+impl ::core::clone::Clone for IAccPropServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccPropServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccPropServices {}
+impl ::core::clone::Clone for IAccPropServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessible(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessible {}
+impl ::core::clone::Clone for IAccessible {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessibleEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessibleEx {}
+impl ::core::clone::Clone for IAccessibleEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessibleHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessibleHandler {}
+impl ::core::clone::Clone for IAccessibleHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessibleHostingElementProviders(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessibleHostingElementProviders {}
+impl ::core::clone::Clone for IAccessibleHostingElementProviders {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessibleWindowlessSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessibleWindowlessSite {}
+impl ::core::clone::Clone for IAccessibleWindowlessSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnnotationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnnotationProvider {}
+impl ::core::clone::Clone for IAnnotationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICustomNavigationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICustomNavigationProvider {}
+impl ::core::clone::Clone for ICustomNavigationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDockProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDockProvider {}
+impl ::core::clone::Clone for IDockProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDragProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDragProvider {}
+impl ::core::clone::Clone for IDragProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDropTargetProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDropTargetProvider {}
+impl ::core::clone::Clone for IDropTargetProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExpandCollapseProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExpandCollapseProvider {}
+impl ::core::clone::Clone for IExpandCollapseProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGridItemProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGridItemProvider {}
+impl ::core::clone::Clone for IGridItemProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGridProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGridProvider {}
+impl ::core::clone::Clone for IGridProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IIS_ControlAccessible: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 952533670, data2: 38705, data3: 17394, data4: [159, 174, 233, 1, 230, 65, 177, 1] };
 pub const IIS_IsOleaccProxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2418448378, data2: 32996, data3: 17760, data4: [128, 42, 161, 63, 34, 166, 71, 9] };
 #[repr(transparent)]
 pub struct IInvokeProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInvokeProvider {}
+impl ::core::clone::Clone for IInvokeProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IItemContainerProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IItemContainerProvider {}
+impl ::core::clone::Clone for IItemContainerProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILegacyIAccessibleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILegacyIAccessibleProvider {}
+impl ::core::clone::Clone for ILegacyIAccessibleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultipleViewProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultipleViewProvider {}
+impl ::core::clone::Clone for IMultipleViewProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectModelProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectModelProvider {}
+impl ::core::clone::Clone for IObjectModelProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProxyProviderWinEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProxyProviderWinEventHandler {}
+impl ::core::clone::Clone for IProxyProviderWinEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProxyProviderWinEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProxyProviderWinEventSink {}
+impl ::core::clone::Clone for IProxyProviderWinEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRangeValueProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRangeValueProvider {}
+impl ::core::clone::Clone for IRangeValueProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderAdviseEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderAdviseEvents {}
+impl ::core::clone::Clone for IRawElementProviderAdviseEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderFragment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderFragment {}
+impl ::core::clone::Clone for IRawElementProviderFragment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderFragmentRoot(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderFragmentRoot {}
+impl ::core::clone::Clone for IRawElementProviderFragmentRoot {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderHostingAccessibles(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderHostingAccessibles {}
+impl ::core::clone::Clone for IRawElementProviderHostingAccessibles {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderHwndOverride(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderHwndOverride {}
+impl ::core::clone::Clone for IRawElementProviderHwndOverride {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderSimple(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderSimple {}
+impl ::core::clone::Clone for IRawElementProviderSimple {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderSimple2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderSimple2 {}
+impl ::core::clone::Clone for IRawElementProviderSimple2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderSimple3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderSimple3 {}
+impl ::core::clone::Clone for IRawElementProviderSimple3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawElementProviderWindowlessSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawElementProviderWindowlessSite {}
+impl ::core::clone::Clone for IRawElementProviderWindowlessSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRichEditUiaInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRichEditUiaInformation {}
+impl ::core::clone::Clone for IRichEditUiaInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRicheditWindowlessAccessibility(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRicheditWindowlessAccessibility {}
+impl ::core::clone::Clone for IRicheditWindowlessAccessibility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScrollItemProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScrollItemProvider {}
+impl ::core::clone::Clone for IScrollItemProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScrollProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScrollProvider {}
+impl ::core::clone::Clone for IScrollProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectionItemProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectionItemProvider {}
+impl ::core::clone::Clone for ISelectionItemProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectionProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectionProvider {}
+impl ::core::clone::Clone for ISelectionProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectionProvider2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectionProvider2 {}
+impl ::core::clone::Clone for ISelectionProvider2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpreadsheetItemProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpreadsheetItemProvider {}
+impl ::core::clone::Clone for ISpreadsheetItemProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpreadsheetProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpreadsheetProvider {}
+impl ::core::clone::Clone for ISpreadsheetProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylesProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylesProvider {}
+impl ::core::clone::Clone for IStylesProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISynchronizedInputProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISynchronizedInputProvider {}
+impl ::core::clone::Clone for ISynchronizedInputProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableItemProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableItemProvider {}
+impl ::core::clone::Clone for ITableItemProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableProvider {}
+impl ::core::clone::Clone for ITableProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextChildProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextChildProvider {}
+impl ::core::clone::Clone for ITextChildProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextEditProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextEditProvider {}
+impl ::core::clone::Clone for ITextEditProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextProvider {}
+impl ::core::clone::Clone for ITextProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextProvider2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextProvider2 {}
+impl ::core::clone::Clone for ITextProvider2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextRangeProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextRangeProvider {}
+impl ::core::clone::Clone for ITextRangeProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextRangeProvider2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextRangeProvider2 {}
+impl ::core::clone::Clone for ITextRangeProvider2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IToggleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IToggleProvider {}
+impl ::core::clone::Clone for IToggleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransformProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransformProvider {}
+impl ::core::clone::Clone for ITransformProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransformProvider2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransformProvider2 {}
+impl ::core::clone::Clone for ITransformProvider2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomation {}
+impl ::core::clone::Clone for IUIAutomation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomation2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomation2 {}
+impl ::core::clone::Clone for IUIAutomation2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomation3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomation3 {}
+impl ::core::clone::Clone for IUIAutomation3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomation4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomation4 {}
+impl ::core::clone::Clone for IUIAutomation4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomation5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomation5 {}
+impl ::core::clone::Clone for IUIAutomation5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomation6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomation6 {}
+impl ::core::clone::Clone for IUIAutomation6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationActiveTextPositionChangedEventHandler {}
+impl ::core::clone::Clone for IUIAutomationActiveTextPositionChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationAndCondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationAndCondition {}
+impl ::core::clone::Clone for IUIAutomationAndCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationAnnotationPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationAnnotationPattern {}
+impl ::core::clone::Clone for IUIAutomationAnnotationPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationBoolCondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationBoolCondition {}
+impl ::core::clone::Clone for IUIAutomationBoolCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationCacheRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationCacheRequest {}
+impl ::core::clone::Clone for IUIAutomationCacheRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationChangesEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationChangesEventHandler {}
+impl ::core::clone::Clone for IUIAutomationChangesEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationCondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationCondition {}
+impl ::core::clone::Clone for IUIAutomationCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationCustomNavigationPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationCustomNavigationPattern {}
+impl ::core::clone::Clone for IUIAutomationCustomNavigationPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationDockPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationDockPattern {}
+impl ::core::clone::Clone for IUIAutomationDockPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationDragPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationDragPattern {}
+impl ::core::clone::Clone for IUIAutomationDragPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationDropTargetPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationDropTargetPattern {}
+impl ::core::clone::Clone for IUIAutomationDropTargetPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement {}
+impl ::core::clone::Clone for IUIAutomationElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement2 {}
+impl ::core::clone::Clone for IUIAutomationElement2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement3 {}
+impl ::core::clone::Clone for IUIAutomationElement3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement4 {}
+impl ::core::clone::Clone for IUIAutomationElement4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement5 {}
+impl ::core::clone::Clone for IUIAutomationElement5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement6 {}
+impl ::core::clone::Clone for IUIAutomationElement6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement7 {}
+impl ::core::clone::Clone for IUIAutomationElement7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement8 {}
+impl ::core::clone::Clone for IUIAutomationElement8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElement9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElement9 {}
+impl ::core::clone::Clone for IUIAutomationElement9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationElementArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationElementArray {}
+impl ::core::clone::Clone for IUIAutomationElementArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationEventHandler {}
+impl ::core::clone::Clone for IUIAutomationEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationEventHandlerGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationEventHandlerGroup {}
+impl ::core::clone::Clone for IUIAutomationEventHandlerGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationExpandCollapsePattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationExpandCollapsePattern {}
+impl ::core::clone::Clone for IUIAutomationExpandCollapsePattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationFocusChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationFocusChangedEventHandler {}
+impl ::core::clone::Clone for IUIAutomationFocusChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationGridItemPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationGridItemPattern {}
+impl ::core::clone::Clone for IUIAutomationGridItemPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationGridPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationGridPattern {}
+impl ::core::clone::Clone for IUIAutomationGridPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationInvokePattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationInvokePattern {}
+impl ::core::clone::Clone for IUIAutomationInvokePattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationItemContainerPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationItemContainerPattern {}
+impl ::core::clone::Clone for IUIAutomationItemContainerPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationLegacyIAccessiblePattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationLegacyIAccessiblePattern {}
+impl ::core::clone::Clone for IUIAutomationLegacyIAccessiblePattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationMultipleViewPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationMultipleViewPattern {}
+impl ::core::clone::Clone for IUIAutomationMultipleViewPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationNotCondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationNotCondition {}
+impl ::core::clone::Clone for IUIAutomationNotCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationNotificationEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationNotificationEventHandler {}
+impl ::core::clone::Clone for IUIAutomationNotificationEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationObjectModelPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationObjectModelPattern {}
+impl ::core::clone::Clone for IUIAutomationObjectModelPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationOrCondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationOrCondition {}
+impl ::core::clone::Clone for IUIAutomationOrCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationPatternHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationPatternHandler {}
+impl ::core::clone::Clone for IUIAutomationPatternHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationPatternInstance(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationPatternInstance {}
+impl ::core::clone::Clone for IUIAutomationPatternInstance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationPropertyChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationPropertyChangedEventHandler {}
+impl ::core::clone::Clone for IUIAutomationPropertyChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationPropertyCondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationPropertyCondition {}
+impl ::core::clone::Clone for IUIAutomationPropertyCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationProxyFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationProxyFactory {}
+impl ::core::clone::Clone for IUIAutomationProxyFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationProxyFactoryEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationProxyFactoryEntry {}
+impl ::core::clone::Clone for IUIAutomationProxyFactoryEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationProxyFactoryMapping(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationProxyFactoryMapping {}
+impl ::core::clone::Clone for IUIAutomationProxyFactoryMapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationRangeValuePattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationRangeValuePattern {}
+impl ::core::clone::Clone for IUIAutomationRangeValuePattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationRegistrar {}
+impl ::core::clone::Clone for IUIAutomationRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationScrollItemPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationScrollItemPattern {}
+impl ::core::clone::Clone for IUIAutomationScrollItemPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationScrollPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationScrollPattern {}
+impl ::core::clone::Clone for IUIAutomationScrollPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationSelectionItemPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationSelectionItemPattern {}
+impl ::core::clone::Clone for IUIAutomationSelectionItemPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationSelectionPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationSelectionPattern {}
+impl ::core::clone::Clone for IUIAutomationSelectionPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationSelectionPattern2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationSelectionPattern2 {}
+impl ::core::clone::Clone for IUIAutomationSelectionPattern2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationSpreadsheetItemPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationSpreadsheetItemPattern {}
+impl ::core::clone::Clone for IUIAutomationSpreadsheetItemPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationSpreadsheetPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationSpreadsheetPattern {}
+impl ::core::clone::Clone for IUIAutomationSpreadsheetPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationStructureChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationStructureChangedEventHandler {}
+impl ::core::clone::Clone for IUIAutomationStructureChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationStylesPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationStylesPattern {}
+impl ::core::clone::Clone for IUIAutomationStylesPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationSynchronizedInputPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationSynchronizedInputPattern {}
+impl ::core::clone::Clone for IUIAutomationSynchronizedInputPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTableItemPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTableItemPattern {}
+impl ::core::clone::Clone for IUIAutomationTableItemPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTablePattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTablePattern {}
+impl ::core::clone::Clone for IUIAutomationTablePattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextChildPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextChildPattern {}
+impl ::core::clone::Clone for IUIAutomationTextChildPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextEditPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextEditPattern {}
+impl ::core::clone::Clone for IUIAutomationTextEditPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextEditTextChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextEditTextChangedEventHandler {}
+impl ::core::clone::Clone for IUIAutomationTextEditTextChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextPattern {}
+impl ::core::clone::Clone for IUIAutomationTextPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextPattern2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextPattern2 {}
+impl ::core::clone::Clone for IUIAutomationTextPattern2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextRange {}
+impl ::core::clone::Clone for IUIAutomationTextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextRange2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextRange2 {}
+impl ::core::clone::Clone for IUIAutomationTextRange2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextRange3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextRange3 {}
+impl ::core::clone::Clone for IUIAutomationTextRange3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTextRangeArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTextRangeArray {}
+impl ::core::clone::Clone for IUIAutomationTextRangeArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTogglePattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTogglePattern {}
+impl ::core::clone::Clone for IUIAutomationTogglePattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTransformPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTransformPattern {}
+impl ::core::clone::Clone for IUIAutomationTransformPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTransformPattern2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTransformPattern2 {}
+impl ::core::clone::Clone for IUIAutomationTransformPattern2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationTreeWalker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationTreeWalker {}
+impl ::core::clone::Clone for IUIAutomationTreeWalker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationValuePattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationValuePattern {}
+impl ::core::clone::Clone for IUIAutomationValuePattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationVirtualizedItemPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationVirtualizedItemPattern {}
+impl ::core::clone::Clone for IUIAutomationVirtualizedItemPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIAutomationWindowPattern(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIAutomationWindowPattern {}
+impl ::core::clone::Clone for IUIAutomationWindowPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValueProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IValueProvider {}
+impl ::core::clone::Clone for IValueProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVirtualizedItemProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVirtualizedItemProvider {}
+impl ::core::clone::Clone for IVirtualizedItemProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowProvider {}
+impl ::core::clone::Clone for IWindowProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Image_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 758593252, data2: 27414, data3: 19543, data4: [169, 98, 249, 50, 96, 167, 82, 67] };
 pub const InputDiscarded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2134295399,

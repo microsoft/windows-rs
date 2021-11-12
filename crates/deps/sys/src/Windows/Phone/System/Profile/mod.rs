@@ -3,3 +3,9 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IRetailModeStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRetailModeStatics {}
+impl ::core::clone::Clone for IRetailModeStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

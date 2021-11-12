@@ -3,3 +3,9 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IChannelCredentials(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChannelCredentials {}
+impl ::core::clone::Clone for IChannelCredentials {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

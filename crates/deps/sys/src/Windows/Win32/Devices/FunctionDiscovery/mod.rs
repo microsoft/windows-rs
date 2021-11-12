@@ -55,38 +55,140 @@ pub const FunctionDiscovery: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const FunctionInstanceCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3129052389, data2: 46431, data3: 17471, data4: [173, 57, 47, 232, 155, 230, 25, 31] };
 #[repr(transparent)]
 pub struct IFunctionDiscovery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionDiscovery {}
+impl ::core::clone::Clone for IFunctionDiscovery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionDiscoveryNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionDiscoveryNotification {}
+impl ::core::clone::Clone for IFunctionDiscoveryNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionDiscoveryProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionDiscoveryProvider {}
+impl ::core::clone::Clone for IFunctionDiscoveryProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionDiscoveryProviderFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionDiscoveryProviderFactory {}
+impl ::core::clone::Clone for IFunctionDiscoveryProviderFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionDiscoveryProviderQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionDiscoveryProviderQuery {}
+impl ::core::clone::Clone for IFunctionDiscoveryProviderQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionDiscoveryServiceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionDiscoveryServiceProvider {}
+impl ::core::clone::Clone for IFunctionDiscoveryServiceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionInstance(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionInstance {}
+impl ::core::clone::Clone for IFunctionInstance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionInstanceCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionInstanceCollection {}
+impl ::core::clone::Clone for IFunctionInstanceCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionInstanceCollectionQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionInstanceCollectionQuery {}
+impl ::core::clone::Clone for IFunctionInstanceCollectionQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFunctionInstanceQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFunctionInstanceQuery {}
+impl ::core::clone::Clone for IFunctionInstanceQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPNPXAssociation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPNPXAssociation {}
+impl ::core::clone::Clone for IPNPXAssociation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPNPXDeviceAssociation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPNPXDeviceAssociation {}
+impl ::core::clone::Clone for IPNPXDeviceAssociation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyStoreCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyStoreCollection {}
+impl ::core::clone::Clone for IPropertyStoreCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProviderProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProviderProperties {}
+impl ::core::clone::Clone for IProviderProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProviderPropertyConstraintCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProviderPropertyConstraintCollection {}
+impl ::core::clone::Clone for IProviderPropertyConstraintCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProviderPublishing(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProviderPublishing {}
+impl ::core::clone::Clone for IProviderPublishing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProviderQueryConstraintCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProviderQueryConstraintCollection {}
+impl ::core::clone::Clone for IProviderQueryConstraintCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

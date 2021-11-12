@@ -45,10 +45,28 @@ impl ::core::clone::Clone for HTASK {
 }
 #[repr(transparent)]
 pub struct IReferenceClock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReferenceClock {}
+impl ::core::clone::Clone for IReferenceClock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReferenceClock2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReferenceClock2 {}
+impl ::core::clone::Clone for IReferenceClock2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReferenceClockTimerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReferenceClockTimerControl {}
+impl ::core::clone::Clone for IReferenceClockTimerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const JOYERR_BASE: u32 = 160u32;
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);

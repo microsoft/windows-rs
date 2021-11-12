@@ -63,66 +63,252 @@ impl ::core::clone::Clone for DeviceDiscoveryMechanism {
 }
 #[repr(transparent)]
 pub struct IWSDAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDAddress {}
+impl ::core::clone::Clone for IWSDAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDAsyncCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDAsyncCallback {}
+impl ::core::clone::Clone for IWSDAsyncCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDAsyncResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDAsyncResult {}
+impl ::core::clone::Clone for IWSDAsyncResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDAttachment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDAttachment {}
+impl ::core::clone::Clone for IWSDAttachment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDDeviceHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDDeviceHost {}
+impl ::core::clone::Clone for IWSDDeviceHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDDeviceHostNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDDeviceHostNotify {}
+impl ::core::clone::Clone for IWSDDeviceHostNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDDeviceProxy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDDeviceProxy {}
+impl ::core::clone::Clone for IWSDDeviceProxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDEndpointProxy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDEndpointProxy {}
+impl ::core::clone::Clone for IWSDEndpointProxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDEventingStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDEventingStatus {}
+impl ::core::clone::Clone for IWSDEventingStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDHttpAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDHttpAddress {}
+impl ::core::clone::Clone for IWSDHttpAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDHttpAuthParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDHttpAuthParameters {}
+impl ::core::clone::Clone for IWSDHttpAuthParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDHttpMessageParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDHttpMessageParameters {}
+impl ::core::clone::Clone for IWSDHttpMessageParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDInboundAttachment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDInboundAttachment {}
+impl ::core::clone::Clone for IWSDInboundAttachment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDMessageParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDMessageParameters {}
+impl ::core::clone::Clone for IWSDMessageParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDMetadataExchange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDMetadataExchange {}
+impl ::core::clone::Clone for IWSDMetadataExchange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDOutboundAttachment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDOutboundAttachment {}
+impl ::core::clone::Clone for IWSDOutboundAttachment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDSSLClientCertificate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDSSLClientCertificate {}
+impl ::core::clone::Clone for IWSDSSLClientCertificate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDScopeMatchingRule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDScopeMatchingRule {}
+impl ::core::clone::Clone for IWSDScopeMatchingRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDServiceMessaging(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDServiceMessaging {}
+impl ::core::clone::Clone for IWSDServiceMessaging {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDServiceProxy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDServiceProxy {}
+impl ::core::clone::Clone for IWSDServiceProxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDServiceProxyEventing(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDServiceProxyEventing {}
+impl ::core::clone::Clone for IWSDServiceProxyEventing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDSignatureProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDSignatureProperty {}
+impl ::core::clone::Clone for IWSDSignatureProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDTransportAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDTransportAddress {}
+impl ::core::clone::Clone for IWSDTransportAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDUdpAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDUdpAddress {}
+impl ::core::clone::Clone for IWSDUdpAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDUdpMessageParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDUdpMessageParameters {}
+impl ::core::clone::Clone for IWSDUdpMessageParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDXMLContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDXMLContext {}
+impl ::core::clone::Clone for IWSDXMLContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDiscoveredService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDiscoveredService {}
+impl ::core::clone::Clone for IWSDiscoveredService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDiscoveryProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDiscoveryProvider {}
+impl ::core::clone::Clone for IWSDiscoveryProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDiscoveryProviderNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDiscoveryProviderNotify {}
+impl ::core::clone::Clone for IWSDiscoveryProviderNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDiscoveryPublisher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDiscoveryPublisher {}
+impl ::core::clone::Clone for IWSDiscoveryPublisher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDiscoveryPublisherNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSDiscoveryPublisherNotify {}
+impl ::core::clone::Clone for IWSDiscoveryPublisherNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows_sys::core::IUnknown, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT;
 #[repr(C)]

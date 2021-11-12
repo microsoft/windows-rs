@@ -57,6 +57,12 @@ impl ::core::clone::Clone for CausalityTraceLevel {
 }
 #[repr(transparent)]
 pub struct ErrorDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ErrorDetails {}
+impl ::core::clone::Clone for ErrorDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ErrorOptions(pub u32);
 impl ErrorOptions {
@@ -74,60 +80,228 @@ impl ::core::clone::Clone for ErrorOptions {
 }
 #[repr(transparent)]
 pub struct FileLoggingSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for FileLoggingSession {}
+impl ::core::clone::Clone for FileLoggingSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAsyncCausalityTracerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAsyncCausalityTracerStatics {}
+impl ::core::clone::Clone for IAsyncCausalityTracerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IErrorDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IErrorDetails {}
+impl ::core::clone::Clone for IErrorDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IErrorDetailsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IErrorDetailsStatics {}
+impl ::core::clone::Clone for IErrorDetailsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IErrorReportingSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IErrorReportingSettings {}
+impl ::core::clone::Clone for IErrorReportingSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileLoggingSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileLoggingSession {}
+impl ::core::clone::Clone for IFileLoggingSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileLoggingSessionFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileLoggingSessionFactory {}
+impl ::core::clone::Clone for IFileLoggingSessionFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILogFileGeneratedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILogFileGeneratedEventArgs {}
+impl ::core::clone::Clone for ILogFileGeneratedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingActivity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingActivity {}
+impl ::core::clone::Clone for ILoggingActivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingActivity2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingActivity2 {}
+impl ::core::clone::Clone for ILoggingActivity2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingActivityFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingActivityFactory {}
+impl ::core::clone::Clone for ILoggingActivityFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingChannel {}
+impl ::core::clone::Clone for ILoggingChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingChannel2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingChannel2 {}
+impl ::core::clone::Clone for ILoggingChannel2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingChannelFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingChannelFactory {}
+impl ::core::clone::Clone for ILoggingChannelFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingChannelFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingChannelFactory2 {}
+impl ::core::clone::Clone for ILoggingChannelFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingChannelOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingChannelOptions {}
+impl ::core::clone::Clone for ILoggingChannelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingChannelOptionsFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingChannelOptionsFactory {}
+impl ::core::clone::Clone for ILoggingChannelOptionsFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingFields(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingFields {}
+impl ::core::clone::Clone for ILoggingFields {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingOptions {}
+impl ::core::clone::Clone for ILoggingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingOptionsFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingOptionsFactory {}
+impl ::core::clone::Clone for ILoggingOptionsFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingSession {}
+impl ::core::clone::Clone for ILoggingSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingSessionFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingSessionFactory {}
+impl ::core::clone::Clone for ILoggingSessionFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoggingTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoggingTarget {}
+impl ::core::clone::Clone for ILoggingTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITracingStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITracingStatusChangedEventArgs {}
+impl ::core::clone::Clone for ITracingStatusChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LogFileGeneratedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LogFileGeneratedEventArgs {}
+impl ::core::clone::Clone for LogFileGeneratedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingActivity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LoggingActivity {}
+impl ::core::clone::Clone for LoggingActivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LoggingChannel {}
+impl ::core::clone::Clone for LoggingChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingChannelOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LoggingChannelOptions {}
+impl ::core::clone::Clone for LoggingChannelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingFieldFormat(pub i32);
 impl LoggingFieldFormat {
@@ -159,6 +333,12 @@ impl ::core::clone::Clone for LoggingFieldFormat {
 }
 #[repr(transparent)]
 pub struct LoggingFields(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LoggingFields {}
+impl ::core::clone::Clone for LoggingFields {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingLevel(pub i32);
 impl LoggingLevel {
@@ -193,9 +373,33 @@ impl ::core::clone::Clone for LoggingOpcode {
 }
 #[repr(transparent)]
 pub struct LoggingOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LoggingOptions {}
+impl ::core::clone::Clone for LoggingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LoggingSession {}
+impl ::core::clone::Clone for LoggingSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RuntimeBrokerErrorSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RuntimeBrokerErrorSettings {}
+impl ::core::clone::Clone for RuntimeBrokerErrorSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TracingStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TracingStatusChangedEventArgs {}
+impl ::core::clone::Clone for TracingStatusChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

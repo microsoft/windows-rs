@@ -3,3 +3,9 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ICoreFrameworkInputViewInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICoreFrameworkInputViewInterop {}
+impl ::core::clone::Clone for ICoreFrameworkInputViewInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

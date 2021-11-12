@@ -207,54 +207,204 @@ pub const FACILITY_WDSMCSERVER: u32 = 289u32;
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
 #[repr(transparent)]
 pub struct IWdsTransportCacheable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportCacheable {}
+impl ::core::clone::Clone for IWdsTransportCacheable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportClient {}
+impl ::core::clone::Clone for IWdsTransportClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportCollection {}
+impl ::core::clone::Clone for IWdsTransportCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportConfigurationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportConfigurationManager {}
+impl ::core::clone::Clone for IWdsTransportConfigurationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportConfigurationManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportConfigurationManager2 {}
+impl ::core::clone::Clone for IWdsTransportConfigurationManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportContent {}
+impl ::core::clone::Clone for IWdsTransportContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportContentProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportContentProvider {}
+impl ::core::clone::Clone for IWdsTransportContentProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportDiagnosticsPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportDiagnosticsPolicy {}
+impl ::core::clone::Clone for IWdsTransportDiagnosticsPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportManager {}
+impl ::core::clone::Clone for IWdsTransportManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportMulticastSessionPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportMulticastSessionPolicy {}
+impl ::core::clone::Clone for IWdsTransportMulticastSessionPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespace {}
+impl ::core::clone::Clone for IWdsTransportNamespace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceAutoCast(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceAutoCast {}
+impl ::core::clone::Clone for IWdsTransportNamespaceAutoCast {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceManager {}
+impl ::core::clone::Clone for IWdsTransportNamespaceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCast(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCast {}
+impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCast {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStart(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCastAutoStart {}
+impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastAutoStart {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastManualStart(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCastManualStart {}
+impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastManualStart {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServer {}
+impl ::core::clone::Clone for IWdsTransportServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServer2 {}
+impl ::core::clone::Clone for IWdsTransportServer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServicePolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServicePolicy {}
+impl ::core::clone::Clone for IWdsTransportServicePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServicePolicy2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServicePolicy2 {}
+impl ::core::clone::Clone for IWdsTransportServicePolicy2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportSession {}
+impl ::core::clone::Clone for IWdsTransportSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportSetupManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportSetupManager {}
+impl ::core::clone::Clone for IWdsTransportSetupManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportSetupManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportSetupManager2 {}
+impl ::core::clone::Clone for IWdsTransportSetupManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportTftpClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportTftpClient {}
+impl ::core::clone::Clone for IWdsTransportTftpClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportTftpManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportTftpManager {}
+impl ::core::clone::Clone for IWdsTransportTftpManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
 #[repr(transparent)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);

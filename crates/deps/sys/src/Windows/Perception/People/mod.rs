@@ -3,6 +3,12 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct EyesPose(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EyesPose {}
+impl ::core::clone::Clone for EyesPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
@@ -41,6 +47,12 @@ impl ::core::clone::Clone for HandJointKind {
 }
 #[repr(transparent)]
 pub struct HandMeshObserver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HandMeshObserver {}
+impl ::core::clone::Clone for HandMeshObserver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct HandMeshVertex {
@@ -57,22 +69,76 @@ impl ::core::clone::Clone for HandMeshVertex {
 }
 #[repr(transparent)]
 pub struct HandMeshVertexState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HandMeshVertexState {}
+impl ::core::clone::Clone for HandMeshVertexState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandPose(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HandPose {}
+impl ::core::clone::Clone for HandPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HeadPose(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HeadPose {}
+impl ::core::clone::Clone for HeadPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEyesPose(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEyesPose {}
+impl ::core::clone::Clone for IEyesPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEyesPoseStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEyesPoseStatics {}
+impl ::core::clone::Clone for IEyesPoseStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHandMeshObserver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHandMeshObserver {}
+impl ::core::clone::Clone for IHandMeshObserver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHandMeshVertexState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHandMeshVertexState {}
+impl ::core::clone::Clone for IHandMeshVertexState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHandPose(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHandPose {}
+impl ::core::clone::Clone for IHandPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHeadPose(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHeadPose {}
+impl ::core::clone::Clone for IHeadPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct JointPose {

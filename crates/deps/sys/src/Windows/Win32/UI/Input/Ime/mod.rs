@@ -488,27 +488,93 @@ pub const IACE_DEFAULT: u32 = 16u32;
 pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
 #[repr(transparent)]
 pub struct IActiveIME(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIME {}
+impl ::core::clone::Clone for IActiveIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIME2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIME2 {}
+impl ::core::clone::Clone for IActiveIME2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMApp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMApp {}
+impl ::core::clone::Clone for IActiveIMMApp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMIME(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMIME {}
+impl ::core::clone::Clone for IActiveIMMIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMMessagePumpOwner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMMessagePumpOwner {}
+impl ::core::clone::Clone for IActiveIMMMessagePumpOwner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMRegistrar {}
+impl ::core::clone::Clone for IActiveIMMRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumInputContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumInputContext {}
+impl ::core::clone::Clone for IEnumInputContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRegisterWordA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRegisterWordA {}
+impl ::core::clone::Clone for IEnumRegisterWordA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRegisterWordW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRegisterWordW {}
+impl ::core::clone::Clone for IEnumRegisterWordW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291840i32 as _);
 #[repr(transparent)]
 pub struct IFEClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFEClassFactory {}
+impl ::core::clone::Clone for IFEClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFECommon(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFECommon {}
+impl ::core::clone::Clone for IFECommon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192063i32 as _);
 pub const IFED_E_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192064i32 as _);
 pub const IFED_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192057i32 as _);
@@ -567,8 +633,20 @@ pub const IFED_TYPE_REVERSE: u32 = 8u32;
 pub const IFED_TYPE_SPEECH: u32 = 4u32;
 #[repr(transparent)]
 pub struct IFEDictionary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFEDictionary {}
+impl ::core::clone::Clone for IFEDictionary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFELanguage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFELanguage {}
+impl ::core::clone::Clone for IFELanguage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IGIMIF_RIGHTMENU: u32 = 1u32;
 pub const IGIMII_CMODE: u32 = 1u32;
 pub const IGIMII_CONFIGURE: u32 = 4u32;
@@ -579,12 +657,36 @@ pub const IGIMII_SMODE: u32 = 2u32;
 pub const IGIMII_TOOLS: u32 = 8u32;
 #[repr(transparent)]
 pub struct IImePad(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImePad {}
+impl ::core::clone::Clone for IImePad {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImePadApplet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImePadApplet {}
+impl ::core::clone::Clone for IImePadApplet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImePlugInDictDictionaryList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImePlugInDictDictionaryList {}
+impl ::core::clone::Clone for IImePlugInDictDictionaryList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImeSpecifyApplets(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImeSpecifyApplets {}
+impl ::core::clone::Clone for IImeSpecifyApplets {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;

@@ -1205,14 +1205,44 @@ impl ::core::clone::Clone for HVIDEO {
 }
 #[repr(transparent)]
 pub struct IAVIEditStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIEditStream {}
+impl ::core::clone::Clone for IAVIEditStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIFile {}
+impl ::core::clone::Clone for IAVIFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIPersistFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIPersistFile {}
+impl ::core::clone::Clone for IAVIPersistFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIStream {}
+impl ::core::clone::Clone for IAVIStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIStreaming(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIStreaming {}
+impl ::core::clone::Clone for IAVIStreaming {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICCOMPRESS {
@@ -1638,6 +1668,12 @@ pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
 #[repr(transparent)]
 pub struct IGetFrame(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetFrame {}
+impl ::core::clone::Clone for IGetFrame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct IMAADPCMWAVEFORMAT {

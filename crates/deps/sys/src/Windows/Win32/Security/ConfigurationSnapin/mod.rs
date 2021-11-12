@@ -3,8 +3,20 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ISceSvcAttachmentData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISceSvcAttachmentData {}
+impl ::core::clone::Clone for ISceSvcAttachmentData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISceSvcAttachmentPersistInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISceSvcAttachmentPersistInfo {}
+impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32;
 pub type PFSCE_LOG_INFO = unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
 #[cfg(feature = "Win32_Foundation")]

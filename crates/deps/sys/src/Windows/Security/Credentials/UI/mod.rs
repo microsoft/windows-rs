@@ -20,8 +20,20 @@ impl ::core::clone::Clone for AuthenticationProtocol {
 }
 #[repr(transparent)]
 pub struct CredentialPickerOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CredentialPickerOptions {}
+impl ::core::clone::Clone for CredentialPickerOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CredentialPickerResults(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CredentialPickerResults {}
+impl ::core::clone::Clone for CredentialPickerResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
@@ -37,12 +49,36 @@ impl ::core::clone::Clone for CredentialSaveOption {
 }
 #[repr(transparent)]
 pub struct ICredentialPickerOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICredentialPickerOptions {}
+impl ::core::clone::Clone for ICredentialPickerOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICredentialPickerResults(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICredentialPickerResults {}
+impl ::core::clone::Clone for ICredentialPickerResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICredentialPickerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICredentialPickerStatics {}
+impl ::core::clone::Clone for ICredentialPickerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserConsentVerifierStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserConsentVerifierStatics {}
+impl ::core::clone::Clone for IUserConsentVerifierStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {

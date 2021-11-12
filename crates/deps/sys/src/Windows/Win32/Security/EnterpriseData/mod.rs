@@ -63,10 +63,28 @@ impl ::core::clone::Clone for HTHREAD_NETWORK_CONTEXT {
 }
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtectionPolicyManagerInterop {}
+impl ::core::clone::Clone for IProtectionPolicyManagerInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtectionPolicyManagerInterop2 {}
+impl ::core::clone::Clone for IProtectionPolicyManagerInterop2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtectionPolicyManagerInterop3 {}
+impl ::core::clone::Clone for IProtectionPolicyManagerInterop3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SRPHOSTING_TYPE(pub i32);
 pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);

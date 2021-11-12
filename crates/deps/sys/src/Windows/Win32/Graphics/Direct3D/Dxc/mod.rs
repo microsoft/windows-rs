@@ -162,53 +162,209 @@ pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
 #[repr(transparent)]
 pub struct IDxcAssembler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcAssembler {}
+impl ::core::clone::Clone for IDxcAssembler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcBlob(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcBlob {}
+impl ::core::clone::Clone for IDxcBlob {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcBlobEncoding(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcBlobEncoding {}
+impl ::core::clone::Clone for IDxcBlobEncoding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcBlobUtf16(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcBlobUtf16 {}
+impl ::core::clone::Clone for IDxcBlobUtf16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcBlobUtf8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcBlobUtf8 {}
+impl ::core::clone::Clone for IDxcBlobUtf8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcCompiler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcCompiler {}
+impl ::core::clone::Clone for IDxcCompiler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcCompiler2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcCompiler2 {}
+impl ::core::clone::Clone for IDxcCompiler2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcCompiler3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcCompiler3 {}
+impl ::core::clone::Clone for IDxcCompiler3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcCompilerArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcCompilerArgs {}
+impl ::core::clone::Clone for IDxcCompilerArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcContainerBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcContainerBuilder {}
+impl ::core::clone::Clone for IDxcContainerBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcContainerReflection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcContainerReflection {}
+impl ::core::clone::Clone for IDxcContainerReflection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcExtraOutputs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcExtraOutputs {}
+impl ::core::clone::Clone for IDxcExtraOutputs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcIncludeHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcIncludeHandler {}
+impl ::core::clone::Clone for IDxcIncludeHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcLibrary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcLibrary {}
+impl ::core::clone::Clone for IDxcLibrary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcLinker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcLinker {}
+impl ::core::clone::Clone for IDxcLinker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcOperationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcOperationResult {}
+impl ::core::clone::Clone for IDxcOperationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcOptimizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcOptimizer {}
+impl ::core::clone::Clone for IDxcOptimizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcOptimizerPass(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcOptimizerPass {}
+impl ::core::clone::Clone for IDxcOptimizerPass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcPdbUtils(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcPdbUtils {}
+impl ::core::clone::Clone for IDxcPdbUtils {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcResult {}
+impl ::core::clone::Clone for IDxcResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcUtils(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcUtils {}
+impl ::core::clone::Clone for IDxcUtils {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcValidator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcValidator {}
+impl ::core::clone::Clone for IDxcValidator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcValidator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcValidator2 {}
+impl ::core::clone::Clone for IDxcValidator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcVersionInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcVersionInfo {}
+impl ::core::clone::Clone for IDxcVersionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcVersionInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcVersionInfo2 {}
+impl ::core::clone::Clone for IDxcVersionInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDxcVersionInfo3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDxcVersionInfo3 {}
+impl ::core::clone::Clone for IDxcVersionInfo3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

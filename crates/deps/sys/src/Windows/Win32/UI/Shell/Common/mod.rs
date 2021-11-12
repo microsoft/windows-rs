@@ -42,8 +42,20 @@ impl ::core::clone::Clone for DEVICE_SCALE_FACTOR {
 }
 #[repr(transparent)]
 pub struct IObjectArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectArray {}
+impl ::core::clone::Clone for IObjectArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectCollection {}
+impl ::core::clone::Clone for IObjectCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,

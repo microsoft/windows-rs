@@ -16,11 +16,41 @@ impl ::core::clone::Clone for AddContactResult {
 }
 #[repr(transparent)]
 pub struct ContactPickerUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContactPickerUI {}
+impl ::core::clone::Clone for ContactPickerUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactRemovedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContactRemovedEventArgs {}
+impl ::core::clone::Clone for ContactRemovedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactPickerUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactPickerUI {}
+impl ::core::clone::Clone for IContactPickerUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactPickerUI2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactPickerUI2 {}
+impl ::core::clone::Clone for IContactPickerUI2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContactRemovedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContactRemovedEventArgs {}
+impl ::core::clone::Clone for IContactRemovedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -55,6 +55,12 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     quote! {
         #[repr(transparent)]
         pub struct #name(pub *mut ::core::ffi::c_void);
+        impl ::core::marker::Copy for #name {}
+        impl ::core::clone::Clone for #name {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
     }
 }
 
@@ -62,11 +68,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let has_default = def.interface_impls().any(|interface| interface.is_default());
 
     if has_default {
-        let name = gen_type_name(def, gen);
-        quote! {
-            #[repr(transparent)]
-            pub struct #name(pub *mut ::core::ffi::c_void);
-        }
+        gen_interface(def, gen)
     } else {
         quote! {}
     }

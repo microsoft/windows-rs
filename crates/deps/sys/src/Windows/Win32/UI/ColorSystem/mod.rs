@@ -745,8 +745,20 @@ impl ::core::clone::Clone for ICM_COMMAND {
 }
 #[repr(transparent)]
 pub struct IDeviceModelPlugIn(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceModelPlugIn {}
+impl ::core::clone::Clone for IDeviceModelPlugIn {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGamutMapModelPlugIn(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGamutMapModelPlugIn {}
+impl ::core::clone::Clone for IGamutMapModelPlugIn {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INDEX_DONT_CARE: u32 = 0u32;
 pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
 pub const INTENT_PERCEPTUAL: u32 = 0u32;

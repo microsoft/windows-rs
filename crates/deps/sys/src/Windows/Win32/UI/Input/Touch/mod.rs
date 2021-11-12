@@ -106,8 +106,20 @@ impl ::core::clone::Clone for HTOUCHINPUT {
 }
 #[repr(transparent)]
 pub struct IInertiaProcessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInertiaProcessor {}
+impl ::core::clone::Clone for IInertiaProcessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManipulationProcessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManipulationProcessor {}
+impl ::core::clone::Clone for IManipulationProcessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2880598151,
     data2: 19680,
@@ -195,3 +207,9 @@ impl ::core::clone::Clone for TOUCHINPUTMASKF_MASK {
 }
 #[repr(transparent)]
 pub struct _IManipulationEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IManipulationEvents {}
+impl ::core::clone::Clone for _IManipulationEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

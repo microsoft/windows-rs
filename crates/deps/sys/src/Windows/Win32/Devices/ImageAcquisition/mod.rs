@@ -160,14 +160,44 @@ pub const FRONT_ONLY: u32 = 32u32;
 pub const GUID_DEVINTERFACE_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
 #[repr(transparent)]
 pub struct IEnumWIA_DEV_CAPS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumWIA_DEV_CAPS {}
+impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumWIA_DEV_INFO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumWIA_DEV_INFO {}
+impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumWIA_FORMAT_INFO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumWIA_FORMAT_INFO {}
+impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumWiaItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumWiaItem {}
+impl ::core::clone::Clone for IEnumWiaItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumWiaItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumWiaItem2 {}
+impl ::core::clone::Clone for IEnumWiaItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMPRINTER: u32 = 65536u32;
 pub const IMPRINTER_READY: u32 = 4096u32;
 pub const IT_MSG_DATA: u32 = 2u32;
@@ -183,56 +213,212 @@ pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
 pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
 #[repr(transparent)]
 pub struct IWiaAppErrorHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaAppErrorHandler {}
+impl ::core::clone::Clone for IWiaAppErrorHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaDataCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaDataCallback {}
+impl ::core::clone::Clone for IWiaDataCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaDataTransfer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaDataTransfer {}
+impl ::core::clone::Clone for IWiaDataTransfer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaDevMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaDevMgr {}
+impl ::core::clone::Clone for IWiaDevMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaDevMgr2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaDevMgr2 {}
+impl ::core::clone::Clone for IWiaDevMgr2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaDrvItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaDrvItem {}
+impl ::core::clone::Clone for IWiaDrvItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaErrorHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaErrorHandler {}
+impl ::core::clone::Clone for IWiaErrorHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaEventCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaEventCallback {}
+impl ::core::clone::Clone for IWiaEventCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaImageFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaImageFilter {}
+impl ::core::clone::Clone for IWiaImageFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaItem {}
+impl ::core::clone::Clone for IWiaItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaItem2 {}
+impl ::core::clone::Clone for IWiaItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaItemExtras(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaItemExtras {}
+impl ::core::clone::Clone for IWiaItemExtras {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaLog(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaLog {}
+impl ::core::clone::Clone for IWiaLog {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaLogEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaLogEx {}
+impl ::core::clone::Clone for IWiaLogEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaMiniDrv(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaMiniDrv {}
+impl ::core::clone::Clone for IWiaMiniDrv {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaMiniDrvCallBack(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaMiniDrvCallBack {}
+impl ::core::clone::Clone for IWiaMiniDrvCallBack {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaMiniDrvTransferCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaMiniDrvTransferCallback {}
+impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaNotifyDevMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaNotifyDevMgr {}
+impl ::core::clone::Clone for IWiaNotifyDevMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaPreview(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaPreview {}
+impl ::core::clone::Clone for IWiaPreview {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaPropertyStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaPropertyStorage {}
+impl ::core::clone::Clone for IWiaPropertyStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaSegmentationFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaSegmentationFilter {}
+impl ::core::clone::Clone for IWiaSegmentationFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaTransfer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaTransfer {}
+impl ::core::clone::Clone for IWiaTransfer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaTransferCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaTransferCallback {}
+impl ::core::clone::Clone for IWiaTransferCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaUIExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaUIExtension {}
+impl ::core::clone::Clone for IWiaUIExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaUIExtension2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaUIExtension2 {}
+impl ::core::clone::Clone for IWiaUIExtension2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiaVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiaVideo {}
+impl ::core::clone::Clone for IWiaVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LAMP_ERR: u32 = 2048u32;
 pub const LANDSCAPE: u32 = 1u32;
 pub const LANSCAPE: u32 = 1u32;

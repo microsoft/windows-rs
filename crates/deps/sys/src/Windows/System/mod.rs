@@ -27,12 +27,36 @@ pub mod UserProfile;
 extern "system" {}
 #[repr(transparent)]
 pub struct AppActivationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppActivationResult {}
+impl ::core::clone::Clone for AppActivationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppDiagnosticInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppDiagnosticInfo {}
+impl ::core::clone::Clone for AppDiagnosticInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppDiagnosticInfoWatcher {}
+impl ::core::clone::Clone for AppDiagnosticInfoWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppDiagnosticInfoWatcherEventArgs {}
+impl ::core::clone::Clone for AppDiagnosticInfoWatcherEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
@@ -51,8 +75,20 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
 }
 #[repr(transparent)]
 pub struct AppExecutionStateChangeResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppExecutionStateChangeResult {}
+impl ::core::clone::Clone for AppExecutionStateChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppMemoryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppMemoryReport {}
+impl ::core::clone::Clone for AppMemoryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
@@ -69,8 +105,20 @@ impl ::core::clone::Clone for AppMemoryUsageLevel {
 }
 #[repr(transparent)]
 pub struct AppMemoryUsageLimitChangingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppMemoryUsageLimitChangingEventArgs {}
+impl ::core::clone::Clone for AppMemoryUsageLimitChangingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupBackgroundTaskReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppResourceGroupBackgroundTaskReport {}
+impl ::core::clone::Clone for AppResourceGroupBackgroundTaskReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
@@ -101,12 +149,36 @@ impl ::core::clone::Clone for AppResourceGroupExecutionState {
 }
 #[repr(transparent)]
 pub struct AppResourceGroupInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppResourceGroupInfo {}
+impl ::core::clone::Clone for AppResourceGroupInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppResourceGroupInfoWatcher {}
+impl ::core::clone::Clone for AppResourceGroupInfoWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppResourceGroupInfoWatcherEventArgs {}
+impl ::core::clone::Clone for AppResourceGroupInfoWatcherEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+impl ::core::clone::Clone for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
@@ -125,14 +197,44 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcherStatus {
 }
 #[repr(transparent)]
 pub struct AppResourceGroupMemoryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppResourceGroupMemoryReport {}
+impl ::core::clone::Clone for AppResourceGroupMemoryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupStateReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppResourceGroupStateReport {}
+impl ::core::clone::Clone for AppResourceGroupStateReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppUriHandlerHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppUriHandlerHost {}
+impl ::core::clone::Clone for AppUriHandlerHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppUriHandlerRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppUriHandlerRegistration {}
+impl ::core::clone::Clone for AppUriHandlerRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppUriHandlerRegistrationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppUriHandlerRegistrationManager {}
+impl ::core::clone::Clone for AppUriHandlerRegistrationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
@@ -162,10 +264,28 @@ impl ::core::clone::Clone for DiagnosticAccessStatus {
 }
 #[repr(transparent)]
 pub struct DispatcherQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DispatcherQueue {}
+impl ::core::clone::Clone for DispatcherQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DispatcherQueueController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DispatcherQueueController {}
+impl ::core::clone::Clone for DispatcherQueueController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DispatcherQueueHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DispatcherQueueHandler {}
+impl ::core::clone::Clone for DispatcherQueueHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
@@ -181,170 +301,668 @@ impl ::core::clone::Clone for DispatcherQueuePriority {
 }
 #[repr(transparent)]
 pub struct DispatcherQueueShutdownStartingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DispatcherQueueShutdownStartingEventArgs {}
+impl ::core::clone::Clone for DispatcherQueueShutdownStartingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DispatcherQueueTimer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DispatcherQueueTimer {}
+impl ::core::clone::Clone for DispatcherQueueTimer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FolderLauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for FolderLauncherOptions {}
+impl ::core::clone::Clone for FolderLauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppActivationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppActivationResult {}
+impl ::core::clone::Clone for IAppActivationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDiagnosticInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDiagnosticInfo {}
+impl ::core::clone::Clone for IAppDiagnosticInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDiagnosticInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDiagnosticInfo2 {}
+impl ::core::clone::Clone for IAppDiagnosticInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDiagnosticInfo3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDiagnosticInfo3 {}
+impl ::core::clone::Clone for IAppDiagnosticInfo3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDiagnosticInfoStatics {}
+impl ::core::clone::Clone for IAppDiagnosticInfoStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDiagnosticInfoStatics2 {}
+impl ::core::clone::Clone for IAppDiagnosticInfoStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDiagnosticInfoWatcher {}
+impl ::core::clone::Clone for IAppDiagnosticInfoWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDiagnosticInfoWatcherEventArgs {}
+impl ::core::clone::Clone for IAppDiagnosticInfoWatcherEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppExecutionStateChangeResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppExecutionStateChangeResult {}
+impl ::core::clone::Clone for IAppExecutionStateChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppMemoryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppMemoryReport {}
+impl ::core::clone::Clone for IAppMemoryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppMemoryReport2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppMemoryReport2 {}
+impl ::core::clone::Clone for IAppMemoryReport2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppMemoryUsageLimitChangingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppMemoryUsageLimitChangingEventArgs {}
+impl ::core::clone::Clone for IAppMemoryUsageLimitChangingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupBackgroundTaskReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupBackgroundTaskReport {}
+impl ::core::clone::Clone for IAppResourceGroupBackgroundTaskReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupInfo {}
+impl ::core::clone::Clone for IAppResourceGroupInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupInfo2 {}
+impl ::core::clone::Clone for IAppResourceGroupInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupInfoWatcher {}
+impl ::core::clone::Clone for IAppResourceGroupInfoWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupInfoWatcherEventArgs {}
+impl ::core::clone::Clone for IAppResourceGroupInfoWatcherEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+impl ::core::clone::Clone for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupMemoryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupMemoryReport {}
+impl ::core::clone::Clone for IAppResourceGroupMemoryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppResourceGroupStateReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppResourceGroupStateReport {}
+impl ::core::clone::Clone for IAppResourceGroupStateReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerHost {}
+impl ::core::clone::Clone for IAppUriHandlerHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerHost2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerHost2 {}
+impl ::core::clone::Clone for IAppUriHandlerHost2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerHostFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerHostFactory {}
+impl ::core::clone::Clone for IAppUriHandlerHostFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerRegistration {}
+impl ::core::clone::Clone for IAppUriHandlerRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistration2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerRegistration2 {}
+impl ::core::clone::Clone for IAppUriHandlerRegistration2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerRegistrationManager {}
+impl ::core::clone::Clone for IAppUriHandlerRegistrationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerRegistrationManager2 {}
+impl ::core::clone::Clone for IAppUriHandlerRegistrationManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerRegistrationManagerStatics {}
+impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManagerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppUriHandlerRegistrationManagerStatics2 {}
+impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDateTimeSettingsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDateTimeSettingsStatics {}
+impl ::core::clone::Clone for IDateTimeSettingsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatcherQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatcherQueue {}
+impl ::core::clone::Clone for IDispatcherQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatcherQueue2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatcherQueue2 {}
+impl ::core::clone::Clone for IDispatcherQueue2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatcherQueueController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatcherQueueController {}
+impl ::core::clone::Clone for IDispatcherQueueController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatcherQueueControllerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatcherQueueControllerStatics {}
+impl ::core::clone::Clone for IDispatcherQueueControllerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatcherQueueShutdownStartingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatcherQueueShutdownStartingEventArgs {}
+impl ::core::clone::Clone for IDispatcherQueueShutdownStartingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatcherQueueStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatcherQueueStatics {}
+impl ::core::clone::Clone for IDispatcherQueueStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatcherQueueTimer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatcherQueueTimer {}
+impl ::core::clone::Clone for IDispatcherQueueTimer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFolderLauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFolderLauncherOptions {}
+impl ::core::clone::Clone for IFolderLauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKnownUserPropertiesStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKnownUserPropertiesStatics {}
+impl ::core::clone::Clone for IKnownUserPropertiesStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKnownUserPropertiesStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKnownUserPropertiesStatics2 {}
+impl ::core::clone::Clone for IKnownUserPropertiesStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILaunchUriResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILaunchUriResult {}
+impl ::core::clone::Clone for ILaunchUriResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherOptions {}
+impl ::core::clone::Clone for ILauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherOptions2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherOptions2 {}
+impl ::core::clone::Clone for ILauncherOptions2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherOptions3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherOptions3 {}
+impl ::core::clone::Clone for ILauncherOptions3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherOptions4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherOptions4 {}
+impl ::core::clone::Clone for ILauncherOptions4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherStatics {}
+impl ::core::clone::Clone for ILauncherStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherStatics2 {}
+impl ::core::clone::Clone for ILauncherStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherStatics3 {}
+impl ::core::clone::Clone for ILauncherStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherStatics4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherStatics4 {}
+impl ::core::clone::Clone for ILauncherStatics4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherStatics5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherStatics5 {}
+impl ::core::clone::Clone for ILauncherStatics5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherUIOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherUIOptions {}
+impl ::core::clone::Clone for ILauncherUIOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILauncherViewOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILauncherViewOptions {}
+impl ::core::clone::Clone for ILauncherViewOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemoryManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemoryManagerStatics {}
+impl ::core::clone::Clone for IMemoryManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemoryManagerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemoryManagerStatics2 {}
+impl ::core::clone::Clone for IMemoryManagerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemoryManagerStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemoryManagerStatics3 {}
+impl ::core::clone::Clone for IMemoryManagerStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemoryManagerStatics4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemoryManagerStatics4 {}
+impl ::core::clone::Clone for IMemoryManagerStatics4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProcessLauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProcessLauncherOptions {}
+impl ::core::clone::Clone for IProcessLauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProcessLauncherResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProcessLauncherResult {}
+impl ::core::clone::Clone for IProcessLauncherResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProcessLauncherStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProcessLauncherStatics {}
+impl ::core::clone::Clone for IProcessLauncherStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProcessMemoryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProcessMemoryReport {}
+impl ::core::clone::Clone for IProcessMemoryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtocolForResultsOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtocolForResultsOperation {}
+impl ::core::clone::Clone for IProtocolForResultsOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteLauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteLauncherOptions {}
+impl ::core::clone::Clone for IRemoteLauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteLauncherStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteLauncherStatics {}
+impl ::core::clone::Clone for IRemoteLauncherStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IShutdownManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IShutdownManagerStatics {}
+impl ::core::clone::Clone for IShutdownManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IShutdownManagerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IShutdownManagerStatics2 {}
+impl ::core::clone::Clone for IShutdownManagerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITimeZoneSettingsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITimeZoneSettingsStatics {}
+impl ::core::clone::Clone for ITimeZoneSettingsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITimeZoneSettingsStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITimeZoneSettingsStatics2 {}
+impl ::core::clone::Clone for ITimeZoneSettingsStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUser {}
+impl ::core::clone::Clone for IUser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUser2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUser2 {}
+impl ::core::clone::Clone for IUser2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserAuthenticationStatusChangeDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserAuthenticationStatusChangeDeferral {}
+impl ::core::clone::Clone for IUserAuthenticationStatusChangeDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserAuthenticationStatusChangingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserAuthenticationStatusChangingEventArgs {}
+impl ::core::clone::Clone for IUserAuthenticationStatusChangingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserChangedEventArgs {}
+impl ::core::clone::Clone for IUserChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserChangedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserChangedEventArgs2 {}
+impl ::core::clone::Clone for IUserChangedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDeviceAssociationChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDeviceAssociationChangedEventArgs {}
+impl ::core::clone::Clone for IUserDeviceAssociationChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDeviceAssociationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDeviceAssociationStatics {}
+impl ::core::clone::Clone for IUserDeviceAssociationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserPicker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserPicker {}
+impl ::core::clone::Clone for IUserPicker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserPickerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserPickerStatics {}
+impl ::core::clone::Clone for IUserPickerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserStatics {}
+impl ::core::clone::Clone for IUserStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserStatics2 {}
+impl ::core::clone::Clone for IUserStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserWatcher {}
+impl ::core::clone::Clone for IUserWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LaunchFileStatus(pub i32);
 impl LaunchFileStatus {
@@ -389,6 +1007,12 @@ impl ::core::clone::Clone for LaunchQuerySupportType {
 }
 #[repr(transparent)]
 pub struct LaunchUriResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LaunchUriResult {}
+impl ::core::clone::Clone for LaunchUriResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
@@ -405,8 +1029,20 @@ impl ::core::clone::Clone for LaunchUriStatus {
 }
 #[repr(transparent)]
 pub struct LauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LauncherOptions {}
+impl ::core::clone::Clone for LauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LauncherUIOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LauncherUIOptions {}
+impl ::core::clone::Clone for LauncherUIOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PowerState(pub i32);
 impl PowerState {
@@ -421,10 +1057,28 @@ impl ::core::clone::Clone for PowerState {
 }
 #[repr(transparent)]
 pub struct ProcessLauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ProcessLauncherOptions {}
+impl ::core::clone::Clone for ProcessLauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProcessLauncherResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ProcessLauncherResult {}
+impl ::core::clone::Clone for ProcessLauncherResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProcessMemoryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ProcessMemoryReport {}
+impl ::core::clone::Clone for ProcessMemoryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
@@ -444,6 +1098,12 @@ impl ::core::clone::Clone for ProcessorArchitecture {
 }
 #[repr(transparent)]
 pub struct ProtocolForResultsOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ProtocolForResultsOperation {}
+impl ::core::clone::Clone for ProtocolForResultsOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
@@ -464,6 +1124,12 @@ impl ::core::clone::Clone for RemoteLaunchUriStatus {
 }
 #[repr(transparent)]
 pub struct RemoteLauncherOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RemoteLauncherOptions {}
+impl ::core::clone::Clone for RemoteLauncherOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
@@ -478,6 +1144,12 @@ impl ::core::clone::Clone for ShutdownKind {
 }
 #[repr(transparent)]
 pub struct User(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for User {}
+impl ::core::clone::Clone for User {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
@@ -521,14 +1193,44 @@ impl ::core::clone::Clone for UserAuthenticationStatus {
 }
 #[repr(transparent)]
 pub struct UserAuthenticationStatusChangeDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserAuthenticationStatusChangeDeferral {}
+impl ::core::clone::Clone for UserAuthenticationStatusChangeDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserAuthenticationStatusChangingEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserAuthenticationStatusChangingEventArgs {}
+impl ::core::clone::Clone for UserAuthenticationStatusChangingEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserChangedEventArgs {}
+impl ::core::clone::Clone for UserChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDeviceAssociationChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserDeviceAssociationChangedEventArgs {}
+impl ::core::clone::Clone for UserDeviceAssociationChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserPicker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserPicker {}
+impl ::core::clone::Clone for UserPicker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
@@ -560,6 +1262,12 @@ impl ::core::clone::Clone for UserType {
 }
 #[repr(transparent)]
 pub struct UserWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserWatcher {}
+impl ::core::clone::Clone for UserWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {

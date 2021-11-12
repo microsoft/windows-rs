@@ -4596,24 +4596,84 @@ pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows_sys::core::GUID = ::win
 };
 #[repr(transparent)]
 pub struct IDot11AdHocInterface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDot11AdHocInterface {}
+impl ::core::clone::Clone for IDot11AdHocInterface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDot11AdHocInterfaceNotificationSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDot11AdHocInterfaceNotificationSink {}
+impl ::core::clone::Clone for IDot11AdHocInterfaceNotificationSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDot11AdHocManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDot11AdHocManager {}
+impl ::core::clone::Clone for IDot11AdHocManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDot11AdHocManagerNotificationSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDot11AdHocManagerNotificationSink {}
+impl ::core::clone::Clone for IDot11AdHocManagerNotificationSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDot11AdHocNetwork(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDot11AdHocNetwork {}
+impl ::core::clone::Clone for IDot11AdHocNetwork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDot11AdHocNetworkNotificationSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDot11AdHocNetworkNotificationSink {}
+impl ::core::clone::Clone for IDot11AdHocNetworkNotificationSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDot11AdHocSecuritySettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDot11AdHocSecuritySettings {}
+impl ::core::clone::Clone for IDot11AdHocSecuritySettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumDot11AdHocInterfaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumDot11AdHocInterfaces {}
+impl ::core::clone::Clone for IEnumDot11AdHocInterfaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumDot11AdHocNetworks(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumDot11AdHocNetworks {}
+impl ::core::clone::Clone for IEnumDot11AdHocNetworks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumDot11AdHocSecuritySettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumDot11AdHocSecuritySettings {}
+impl ::core::clone::Clone for IEnumDot11AdHocSecuritySettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;
 pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: u32 = 0u32;
 #[repr(C)]

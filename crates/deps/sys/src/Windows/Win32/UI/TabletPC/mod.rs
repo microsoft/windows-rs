@@ -1302,6 +1302,12 @@ impl ::core::clone::Clone for HRECOWORDLIST {
 pub const HandwrittenTextInsertion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2668056290, data2: 59113, data3: 19850, data4: [160, 71, 235, 91, 92, 60, 85, 218] };
 #[repr(transparent)]
 pub struct IDynamicRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDynamicRenderer {}
+impl ::core::clone::Clone for IDynamicRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IECN_GESTURE: u32 = 2050u32;
 pub const IECN_RECOGNITIONRESULT: u32 = 2051u32;
 pub const IECN_STROKE: u32 = 2049u32;
@@ -1354,92 +1360,356 @@ impl ::core::clone::Clone for IEC_STROKEINFO {
 pub const IEC__BASE: u32 = 1536u32;
 #[repr(transparent)]
 pub struct IGestureRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGestureRecognizer {}
+impl ::core::clone::Clone for IGestureRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHandwrittenTextInsertion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHandwrittenTextInsertion {}
+impl ::core::clone::Clone for IHandwrittenTextInsertion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInk(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInk {}
+impl ::core::clone::Clone for IInk {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCollector {}
+impl ::core::clone::Clone for IInkCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursor {}
+impl ::core::clone::Clone for IInkCursor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursorButton(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursorButton {}
+impl ::core::clone::Clone for IInkCursorButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursorButtons(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursorButtons {}
+impl ::core::clone::Clone for IInkCursorButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursors(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursors {}
+impl ::core::clone::Clone for IInkCursors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCustomStrokes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCustomStrokes {}
+impl ::core::clone::Clone for IInkCustomStrokes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDisp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDisp {}
+impl ::core::clone::Clone for IInkDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivider {}
+impl ::core::clone::Clone for IInkDivider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivisionResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivisionResult {}
+impl ::core::clone::Clone for IInkDivisionResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivisionUnit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivisionUnit {}
+impl ::core::clone::Clone for IInkDivisionUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivisionUnits(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivisionUnits {}
+impl ::core::clone::Clone for IInkDivisionUnits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDrawingAttributes {}
+impl ::core::clone::Clone for IInkDrawingAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkEdit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkEdit {}
+impl ::core::clone::Clone for IInkEdit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkExtendedProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkExtendedProperties {}
+impl ::core::clone::Clone for IInkExtendedProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkExtendedProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkExtendedProperty {}
+impl ::core::clone::Clone for IInkExtendedProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkGesture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkGesture {}
+impl ::core::clone::Clone for IInkGesture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkLineInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkLineInfo {}
+impl ::core::clone::Clone for IInkLineInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkOverlay(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkOverlay {}
+impl ::core::clone::Clone for IInkOverlay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkPicture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkPicture {}
+impl ::core::clone::Clone for IInkPicture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognitionAlternate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognitionAlternate {}
+impl ::core::clone::Clone for IInkRecognitionAlternate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognitionAlternates(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognitionAlternates {}
+impl ::core::clone::Clone for IInkRecognitionAlternates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognitionResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognitionResult {}
+impl ::core::clone::Clone for IInkRecognitionResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizer {}
+impl ::core::clone::Clone for IInkRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizer2 {}
+impl ::core::clone::Clone for IInkRecognizer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizerContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizerContext {}
+impl ::core::clone::Clone for IInkRecognizerContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizerContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizerContext2 {}
+impl ::core::clone::Clone for IInkRecognizerContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizerGuide(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizerGuide {}
+impl ::core::clone::Clone for IInkRecognizerGuide {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizers {}
+impl ::core::clone::Clone for IInkRecognizers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRectangle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRectangle {}
+impl ::core::clone::Clone for IInkRectangle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRenderer {}
+impl ::core::clone::Clone for IInkRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkStrokeDisp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkStrokeDisp {}
+impl ::core::clone::Clone for IInkStrokeDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkStrokes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkStrokes {}
+impl ::core::clone::Clone for IInkStrokes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablet {}
+impl ::core::clone::Clone for IInkTablet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablet2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablet2 {}
+impl ::core::clone::Clone for IInkTablet2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablet3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablet3 {}
+impl ::core::clone::Clone for IInkTablet3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablets(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablets {}
+impl ::core::clone::Clone for IInkTablets {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTransform {}
+impl ::core::clone::Clone for IInkTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkWordList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkWordList {}
+impl ::core::clone::Clone for IInkWordList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkWordList2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkWordList2 {}
+impl ::core::clone::Clone for IInkWordList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputPanelWindowHandle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputPanelWindowHandle {}
+impl ::core::clone::Clone for IInputPanelWindowHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMathInputControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMathInputControl {}
+impl ::core::clone::Clone for IMathInputControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INKMETRIC {
     pub iHeight: i32,
@@ -1459,34 +1729,124 @@ pub const IP_INVERTED: u32 = 2u32;
 pub const IP_MARGIN: u32 = 4u32;
 #[repr(transparent)]
 pub struct IPenInputPanel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPenInputPanel {}
+impl ::core::clone::Clone for IPenInputPanel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylus {}
+impl ::core::clone::Clone for IRealTimeStylus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylus2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylus2 {}
+impl ::core::clone::Clone for IRealTimeStylus2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylus3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylus3 {}
+impl ::core::clone::Clone for IRealTimeStylus3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylusSynchronization(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylusSynchronization {}
+impl ::core::clone::Clone for IRealTimeStylusSynchronization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISketchInk(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISketchInk {}
+impl ::core::clone::Clone for ISketchInk {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStrokeBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStrokeBuilder {}
+impl ::core::clone::Clone for IStrokeBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylusAsyncPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylusAsyncPlugin {}
+impl ::core::clone::Clone for IStylusAsyncPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylusPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylusPlugin {}
+impl ::core::clone::Clone for IStylusPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylusSyncPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylusSyncPlugin {}
+impl ::core::clone::Clone for IStylusSyncPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextInputPanel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextInputPanel {}
+impl ::core::clone::Clone for ITextInputPanel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextInputPanelEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextInputPanelEventSink {}
+impl ::core::clone::Clone for ITextInputPanelEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextInputPanelRunInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextInputPanelRunInfo {}
+impl ::core::clone::Clone for ITextInputPanelRunInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITipAutoCompleteClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITipAutoCompleteClient {}
+impl ::core::clone::Clone for ITipAutoCompleteClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITipAutoCompleteProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITipAutoCompleteProvider {}
+impl ::core::clone::Clone for ITipAutoCompleteProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InPlaceDirection(pub i32);
 pub const InPlaceDirection_Auto: InPlaceDirection = InPlaceDirection(0i32);
@@ -2685,22 +3045,76 @@ pub const WM_TABLET_MAXOFFSET: u32 = 32u32;
 pub const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716u32;
 #[repr(transparent)]
 pub struct _IInkCollectorEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkCollectorEvents {}
+impl ::core::clone::Clone for _IInkCollectorEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkEditEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkEditEvents {}
+impl ::core::clone::Clone for _IInkEditEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkEvents {}
+impl ::core::clone::Clone for _IInkEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkOverlayEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkOverlayEvents {}
+impl ::core::clone::Clone for _IInkOverlayEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkPictureEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkPictureEvents {}
+impl ::core::clone::Clone for _IInkPictureEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkRecognitionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkRecognitionEvents {}
+impl ::core::clone::Clone for _IInkRecognitionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkStrokesEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkStrokesEvents {}
+impl ::core::clone::Clone for _IInkStrokesEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IMathInputControlEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IMathInputControlEvents {}
+impl ::core::clone::Clone for _IMathInputControlEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IPenInputPanelEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IPenInputPanelEvents {}
+impl ::core::clone::Clone for _IPenInputPanelEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct enumGetCandidateFlags(pub i32);
 pub const TCF_ALLOW_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(1i32);

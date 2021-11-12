@@ -1253,95 +1253,377 @@ pub const DXGI_USAGE_SHARED: u32 = 128u32;
 pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024u32;
 #[repr(transparent)]
 pub struct IDXGIAdapter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIAdapter {}
+impl ::core::clone::Clone for IDXGIAdapter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIAdapter1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIAdapter1 {}
+impl ::core::clone::Clone for IDXGIAdapter1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIAdapter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIAdapter2 {}
+impl ::core::clone::Clone for IDXGIAdapter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIAdapter3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIAdapter3 {}
+impl ::core::clone::Clone for IDXGIAdapter3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIAdapter4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIAdapter4 {}
+impl ::core::clone::Clone for IDXGIAdapter4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDebug(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDebug {}
+impl ::core::clone::Clone for IDXGIDebug {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDebug1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDebug1 {}
+impl ::core::clone::Clone for IDXGIDebug1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDecodeSwapChain(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDecodeSwapChain {}
+impl ::core::clone::Clone for IDXGIDecodeSwapChain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDevice {}
+impl ::core::clone::Clone for IDXGIDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDevice1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDevice1 {}
+impl ::core::clone::Clone for IDXGIDevice1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDevice2 {}
+impl ::core::clone::Clone for IDXGIDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDevice3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDevice3 {}
+impl ::core::clone::Clone for IDXGIDevice3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDevice4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDevice4 {}
+impl ::core::clone::Clone for IDXGIDevice4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDeviceSubObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDeviceSubObject {}
+impl ::core::clone::Clone for IDXGIDeviceSubObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIDisplayControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIDisplayControl {}
+impl ::core::clone::Clone for IDXGIDisplayControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory {}
+impl ::core::clone::Clone for IDXGIFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory1 {}
+impl ::core::clone::Clone for IDXGIFactory1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory2 {}
+impl ::core::clone::Clone for IDXGIFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory3 {}
+impl ::core::clone::Clone for IDXGIFactory3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory4 {}
+impl ::core::clone::Clone for IDXGIFactory4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory5 {}
+impl ::core::clone::Clone for IDXGIFactory5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory6 {}
+impl ::core::clone::Clone for IDXGIFactory6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactory7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactory7 {}
+impl ::core::clone::Clone for IDXGIFactory7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIFactoryMedia(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIFactoryMedia {}
+impl ::core::clone::Clone for IDXGIFactoryMedia {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIInfoQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIInfoQueue {}
+impl ::core::clone::Clone for IDXGIInfoQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIKeyedMutex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIKeyedMutex {}
+impl ::core::clone::Clone for IDXGIKeyedMutex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIObject {}
+impl ::core::clone::Clone for IDXGIObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutput(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutput {}
+impl ::core::clone::Clone for IDXGIOutput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutput1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutput1 {}
+impl ::core::clone::Clone for IDXGIOutput1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutput2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutput2 {}
+impl ::core::clone::Clone for IDXGIOutput2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutput3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutput3 {}
+impl ::core::clone::Clone for IDXGIOutput3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutput4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutput4 {}
+impl ::core::clone::Clone for IDXGIOutput4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutput5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutput5 {}
+impl ::core::clone::Clone for IDXGIOutput5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutput6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutput6 {}
+impl ::core::clone::Clone for IDXGIOutput6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIOutputDuplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIOutputDuplication {}
+impl ::core::clone::Clone for IDXGIOutputDuplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIResource {}
+impl ::core::clone::Clone for IDXGIResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGIResource1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGIResource1 {}
+impl ::core::clone::Clone for IDXGIResource1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISurface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISurface {}
+impl ::core::clone::Clone for IDXGISurface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISurface1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISurface1 {}
+impl ::core::clone::Clone for IDXGISurface1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISurface2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISurface2 {}
+impl ::core::clone::Clone for IDXGISurface2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISwapChain(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISwapChain {}
+impl ::core::clone::Clone for IDXGISwapChain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISwapChain1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISwapChain1 {}
+impl ::core::clone::Clone for IDXGISwapChain1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISwapChain2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISwapChain2 {}
+impl ::core::clone::Clone for IDXGISwapChain2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISwapChain3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISwapChain3 {}
+impl ::core::clone::Clone for IDXGISwapChain3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISwapChain4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISwapChain4 {}
+impl ::core::clone::Clone for IDXGISwapChain4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGISwapChainMedia(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGISwapChainMedia {}
+impl ::core::clone::Clone for IDXGISwapChainMedia {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXGraphicsAnalysis(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXGraphicsAnalysis {}
+impl ::core::clone::Clone for IDXGraphicsAnalysis {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -857,30 +857,108 @@ pub const GUID_DMUS_PROP_XG_Capable: ::windows_sys::core::GUID = ::windows_sys::
 pub const GUID_DMUS_PROP_XG_Hardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 #[repr(transparent)]
 pub struct IDirectMusic(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusic {}
+impl ::core::clone::Clone for IDirectMusic {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusic8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusic8 {}
+impl ::core::clone::Clone for IDirectMusic8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicBuffer {}
+impl ::core::clone::Clone for IDirectMusicBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicCollection {}
+impl ::core::clone::Clone for IDirectMusicCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicDownload(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicDownload {}
+impl ::core::clone::Clone for IDirectMusicDownload {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicDownloadedInstrument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicDownloadedInstrument {}
+impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicInstrument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicInstrument {}
+impl ::core::clone::Clone for IDirectMusicInstrument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicPort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicPort {}
+impl ::core::clone::Clone for IDirectMusicPort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicPortDownload(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicPortDownload {}
+impl ::core::clone::Clone for IDirectMusicPortDownload {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicSynth(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicSynth {}
+impl ::core::clone::Clone for IDirectMusicSynth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicSynth8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicSynth8 {}
+impl ::core::clone::Clone for IDirectMusicSynth8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicSynthSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicSynthSink {}
+impl ::core::clone::Clone for IDirectMusicSynthSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectMusicThru(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectMusicThru {}
+impl ::core::clone::Clone for IDirectMusicThru {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INSTHEADER {
     pub cRegions: u32,

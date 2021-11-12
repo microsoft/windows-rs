@@ -1290,16 +1290,52 @@ impl ::core::clone::Clone for HW_PROFILE_INFOW {
 }
 #[repr(transparent)]
 pub struct ICameraUIControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICameraUIControl {}
+impl ::core::clone::Clone for ICameraUIControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICameraUIControlEventCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICameraUIControlEventCallback {}
+impl ::core::clone::Clone for ICameraUIControlEventCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IClipServiceNotificationHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IClipServiceNotificationHelper {}
+impl ::core::clone::Clone for IClipServiceNotificationHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContainerActivationHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContainerActivationHelper {}
+impl ::core::clone::Clone for IContainerActivationHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDefaultBrowserSyncSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDefaultBrowserSyncSettings {}
+impl ::core::clone::Clone for IDefaultBrowserSyncSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeleteBrowsingHistory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeleteBrowsingHistory {}
+impl ::core::clone::Clone for IDeleteBrowsingHistory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IE4_BACKNEW: u32 = 2u32;
 pub const IE4_EXTRAINCREFCNT: u32 = 2048u32;
 pub const IE4_FRDOALL: u32 = 256u32;
@@ -1323,8 +1359,20 @@ pub const IE_NOPEN: i32 = -3i32;
 pub const IE_OPEN: i32 = -2i32;
 #[repr(transparent)]
 pub struct IEditionUpgradeBroker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEditionUpgradeBroker {}
+impl ::core::clone::Clone for IEditionUpgradeBroker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEditionUpgradeHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEditionUpgradeHelper {}
+impl ::core::clone::Clone for IEditionUpgradeHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IF_GENERIC: u32 = 512u32;
 pub const IF_MIB: u32 = 514u32;
 pub const IGNORE: u32 = 0u32;
@@ -1562,6 +1610,12 @@ pub const IR_STRINGSTART: u32 = 256u32;
 pub const IR_UNDETERMINE: u32 = 368u32;
 #[repr(transparent)]
 pub struct IWindowsLockModeHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsLockModeHelper {}
+impl ::core::clone::Clone for IWindowsLockModeHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JAVA_TRUST {

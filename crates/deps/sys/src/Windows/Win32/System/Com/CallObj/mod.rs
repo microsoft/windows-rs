@@ -111,15 +111,57 @@ impl ::core::clone::Clone for CALLFRAME_WALK {
 }
 #[repr(transparent)]
 pub struct ICallFrame(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallFrame {}
+impl ::core::clone::Clone for ICallFrame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallFrameEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallFrameEvents {}
+impl ::core::clone::Clone for ICallFrameEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallFrameWalker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallFrameWalker {}
+impl ::core::clone::Clone for ICallFrameWalker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallIndirect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallIndirect {}
+impl ::core::clone::Clone for ICallIndirect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallInterceptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallInterceptor {}
+impl ::core::clone::Clone for ICallInterceptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallUnmarshal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallUnmarshal {}
+impl ::core::clone::Clone for ICallUnmarshal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInterfaceRelated(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInterfaceRelated {}
+impl ::core::clone::Clone for IInterfaceRelated {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

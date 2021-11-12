@@ -3,28 +3,100 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IEnumNetworkConnections(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNetworkConnections {}
+impl ::core::clone::Clone for IEnumNetworkConnections {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumNetworks(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNetworks {}
+impl ::core::clone::Clone for IEnumNetworks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetwork(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetwork {}
+impl ::core::clone::Clone for INetwork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkConnection {}
+impl ::core::clone::Clone for INetworkConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkConnectionCost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkConnectionCost {}
+impl ::core::clone::Clone for INetworkConnectionCost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkConnectionCostEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkConnectionCostEvents {}
+impl ::core::clone::Clone for INetworkConnectionCostEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkConnectionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkConnectionEvents {}
+impl ::core::clone::Clone for INetworkConnectionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkCostManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkCostManager {}
+impl ::core::clone::Clone for INetworkCostManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkCostManagerEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkCostManagerEvents {}
+impl ::core::clone::Clone for INetworkCostManagerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkEvents {}
+impl ::core::clone::Clone for INetworkEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkListManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkListManager {}
+impl ::core::clone::Clone for INetworkListManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetworkListManagerEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetworkListManagerEvents {}
+impl ::core::clone::Clone for INetworkListManagerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NLM_CONNECTION_COST(pub i32);
 pub const NLM_CONNECTION_COST_UNKNOWN: NLM_CONNECTION_COST = NLM_CONNECTION_COST(0i32);

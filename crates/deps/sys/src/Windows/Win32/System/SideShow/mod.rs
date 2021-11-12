@@ -58,26 +58,92 @@ impl ::core::clone::Clone for EVENT_DATA_HEADER {
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355358737, data2: 65209, data3: 19200, data4: [144, 244, 211, 41, 71, 174, 22, 129] };
 #[repr(transparent)]
 pub struct ISideShowBulkCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowBulkCapabilities {}
+impl ::core::clone::Clone for ISideShowBulkCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowCapabilities {}
+impl ::core::clone::Clone for ISideShowCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowCapabilitiesCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowCapabilitiesCollection {}
+impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowContent {}
+impl ::core::clone::Clone for ISideShowContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowContentManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowContentManager {}
+impl ::core::clone::Clone for ISideShowContentManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowEvents {}
+impl ::core::clone::Clone for ISideShowEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowKeyCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowKeyCollection {}
+impl ::core::clone::Clone for ISideShowKeyCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowNotification {}
+impl ::core::clone::Clone for ISideShowNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowNotificationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowNotificationManager {}
+impl ::core::clone::Clone for ISideShowNotificationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowPropVariantCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowPropVariantCollection {}
+impl ::core::clone::Clone for ISideShowPropVariantCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowSession {}
+impl ::core::clone::Clone for ISideShowSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 pub struct NEW_EVENT_DATA_AVAILABLE {
     pub cbNewEventDataAvailable: u32,

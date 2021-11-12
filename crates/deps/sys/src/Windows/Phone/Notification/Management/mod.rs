@@ -29,10 +29,28 @@ impl ::core::clone::Clone for AccessoryNotificationType {
 }
 #[repr(transparent)]
 pub struct AlarmNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AlarmNotificationTriggerDetails {}
+impl ::core::clone::Clone for AlarmNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppNotificationInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AppNotificationInfo {}
+impl ::core::clone::Clone for AppNotificationInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BinaryId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for BinaryId {}
+impl ::core::clone::Clone for BinaryId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CalendarChangedEvent(pub i32);
 impl CalendarChangedEvent {
@@ -52,76 +70,292 @@ impl ::core::clone::Clone for CalendarChangedEvent {
 }
 #[repr(transparent)]
 pub struct CalendarChangedNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CalendarChangedNotificationTriggerDetails {}
+impl ::core::clone::Clone for CalendarChangedNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CortanaTileNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CortanaTileNotificationTriggerDetails {}
+impl ::core::clone::Clone for CortanaTileNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EmailAccountInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EmailAccountInfo {}
+impl ::core::clone::Clone for EmailAccountInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EmailFolderInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EmailFolderInfo {}
+impl ::core::clone::Clone for EmailFolderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EmailNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EmailNotificationTriggerDetails {}
+impl ::core::clone::Clone for EmailNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EmailReadNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EmailReadNotificationTriggerDetails {}
+impl ::core::clone::Clone for EmailReadNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessoryManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessoryManager {}
+impl ::core::clone::Clone for IAccessoryManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessoryManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessoryManager2 {}
+impl ::core::clone::Clone for IAccessoryManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessoryManager3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessoryManager3 {}
+impl ::core::clone::Clone for IAccessoryManager3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccessoryNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessoryNotificationTriggerDetails {}
+impl ::core::clone::Clone for IAccessoryNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAlarmNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlarmNotificationTriggerDetails {}
+impl ::core::clone::Clone for IAlarmNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAlarmNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlarmNotificationTriggerDetails2 {}
+impl ::core::clone::Clone for IAlarmNotificationTriggerDetails2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppNotificationInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppNotificationInfo {}
+impl ::core::clone::Clone for IAppNotificationInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBinaryId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBinaryId {}
+impl ::core::clone::Clone for IBinaryId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICalendarChangedNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICalendarChangedNotificationTriggerDetails {}
+impl ::core::clone::Clone for ICalendarChangedNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICortanaTileNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICortanaTileNotificationTriggerDetails {}
+impl ::core::clone::Clone for ICortanaTileNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEmailAccountInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEmailAccountInfo {}
+impl ::core::clone::Clone for IEmailAccountInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEmailFolderInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEmailFolderInfo {}
+impl ::core::clone::Clone for IEmailFolderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEmailNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEmailNotificationTriggerDetails {}
+impl ::core::clone::Clone for IEmailNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEmailNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEmailNotificationTriggerDetails2 {}
+impl ::core::clone::Clone for IEmailNotificationTriggerDetails2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEmailReadNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEmailReadNotificationTriggerDetails {}
+impl ::core::clone::Clone for IEmailReadNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaControlsTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaControlsTriggerDetails {}
+impl ::core::clone::Clone for IMediaControlsTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaMetadata(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaMetadata {}
+impl ::core::clone::Clone for IMediaMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallDetails {}
+impl ::core::clone::Clone for IPhoneCallDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineDetails {}
+impl ::core::clone::Clone for IPhoneLineDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineDetails2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineDetails2 {}
+impl ::core::clone::Clone for IPhoneLineDetails2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneNotificationTriggerDetails {}
+impl ::core::clone::Clone for IPhoneNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReminderNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReminderNotificationTriggerDetails {}
+impl ::core::clone::Clone for IReminderNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReminderNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReminderNotificationTriggerDetails2 {}
+impl ::core::clone::Clone for IReminderNotificationTriggerDetails2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeedDialEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeedDialEntry {}
+impl ::core::clone::Clone for ISpeedDialEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextResponse(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextResponse {}
+impl ::core::clone::Clone for ITextResponse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IToastNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IToastNotificationTriggerDetails {}
+impl ::core::clone::Clone for IToastNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IToastNotificationTriggerDetails2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IToastNotificationTriggerDetails2 {}
+impl ::core::clone::Clone for IToastNotificationTriggerDetails2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVolumeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVolumeInfo {}
+impl ::core::clone::Clone for IVolumeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaControlsTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MediaControlsTriggerDetails {}
+impl ::core::clone::Clone for MediaControlsTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaMetadata(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MediaMetadata {}
+impl ::core::clone::Clone for MediaMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallAudioEndpoint(pub i32);
 impl PhoneCallAudioEndpoint {
@@ -137,6 +371,12 @@ impl ::core::clone::Clone for PhoneCallAudioEndpoint {
 }
 #[repr(transparent)]
 pub struct PhoneCallDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallDetails {}
+impl ::core::clone::Clone for PhoneCallDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
@@ -178,6 +418,12 @@ impl ::core::clone::Clone for PhoneCallTransport {
 }
 #[repr(transparent)]
 pub struct PhoneLineDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineDetails {}
+impl ::core::clone::Clone for PhoneLineDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineRegistrationState(pub i32);
 impl PhoneLineRegistrationState {
@@ -205,6 +451,12 @@ impl ::core::clone::Clone for PhoneMediaType {
 }
 #[repr(transparent)]
 pub struct PhoneNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneNotificationTriggerDetails {}
+impl ::core::clone::Clone for PhoneNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneNotificationType(pub i32);
 impl PhoneNotificationType {
@@ -278,6 +530,12 @@ impl ::core::clone::Clone for PlaybackStatus {
 }
 #[repr(transparent)]
 pub struct ReminderNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ReminderNotificationTriggerDetails {}
+impl ::core::clone::Clone for ReminderNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ReminderState(pub i32);
 impl ReminderState {
@@ -293,10 +551,28 @@ impl ::core::clone::Clone for ReminderState {
 }
 #[repr(transparent)]
 pub struct SpeedDialEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SpeedDialEntry {}
+impl ::core::clone::Clone for SpeedDialEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextResponse(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for TextResponse {}
+impl ::core::clone::Clone for TextResponse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ToastNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ToastNotificationTriggerDetails {}
+impl ::core::clone::Clone for ToastNotificationTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VibrateState(pub i32);
 impl VibrateState {
@@ -313,3 +589,9 @@ impl ::core::clone::Clone for VibrateState {
 }
 #[repr(transparent)]
 pub struct VolumeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for VolumeInfo {}
+impl ::core::clone::Clone for VolumeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

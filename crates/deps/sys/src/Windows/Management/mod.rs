@@ -13,12 +13,36 @@ pub mod Workplace;
 extern "system" {}
 #[repr(transparent)]
 pub struct IMdmAlert(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMdmAlert {}
+impl ::core::clone::Clone for IMdmAlert {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMdmSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMdmSession {}
+impl ::core::clone::Clone for IMdmSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMdmSessionManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMdmSessionManagerStatics {}
+impl ::core::clone::Clone for IMdmSessionManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MdmAlert(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MdmAlert {}
+impl ::core::clone::Clone for MdmAlert {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
@@ -50,6 +74,12 @@ impl ::core::clone::Clone for MdmAlertMark {
 }
 #[repr(transparent)]
 pub struct MdmSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MdmSession {}
+impl ::core::clone::Clone for MdmSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {

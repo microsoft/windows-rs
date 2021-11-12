@@ -18,6 +18,12 @@ impl ::core::clone::Clone for BandwidthStatistics {
 }
 #[repr(transparent)]
 pub struct ControlChannelTrigger(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ControlChannelTrigger {}
+impl ::core::clone::Clone for ControlChannelTrigger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
@@ -63,142 +69,556 @@ impl ::core::clone::Clone for ControlChannelTriggerStatus {
 }
 #[repr(transparent)]
 pub struct DatagramSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DatagramSocket {}
+impl ::core::clone::Clone for DatagramSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DatagramSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DatagramSocketControl {}
+impl ::core::clone::Clone for DatagramSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DatagramSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DatagramSocketInformation {}
+impl ::core::clone::Clone for DatagramSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DatagramSocketMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DatagramSocketMessageReceivedEventArgs {}
+impl ::core::clone::Clone for DatagramSocketMessageReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlChannelTrigger(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlChannelTrigger {}
+impl ::core::clone::Clone for IControlChannelTrigger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlChannelTrigger2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlChannelTrigger2 {}
+impl ::core::clone::Clone for IControlChannelTrigger2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlChannelTriggerEventDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlChannelTriggerEventDetails {}
+impl ::core::clone::Clone for IControlChannelTriggerEventDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlChannelTriggerFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlChannelTriggerFactory {}
+impl ::core::clone::Clone for IControlChannelTriggerFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlChannelTriggerResetEventDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlChannelTriggerResetEventDetails {}
+impl ::core::clone::Clone for IControlChannelTriggerResetEventDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocket {}
+impl ::core::clone::Clone for IDatagramSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocket2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocket2 {}
+impl ::core::clone::Clone for IDatagramSocket2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocket3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocket3 {}
+impl ::core::clone::Clone for IDatagramSocket3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocketControl {}
+impl ::core::clone::Clone for IDatagramSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocketControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocketControl2 {}
+impl ::core::clone::Clone for IDatagramSocketControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocketControl3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocketControl3 {}
+impl ::core::clone::Clone for IDatagramSocketControl3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocketInformation {}
+impl ::core::clone::Clone for IDatagramSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocketMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocketMessageReceivedEventArgs {}
+impl ::core::clone::Clone for IDatagramSocketMessageReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDatagramSocketStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDatagramSocketStatics {}
+impl ::core::clone::Clone for IDatagramSocketStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageWebSocket {}
+impl ::core::clone::Clone for IMessageWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageWebSocket2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageWebSocket2 {}
+impl ::core::clone::Clone for IMessageWebSocket2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageWebSocket3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageWebSocket3 {}
+impl ::core::clone::Clone for IMessageWebSocket3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageWebSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageWebSocketControl {}
+impl ::core::clone::Clone for IMessageWebSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageWebSocketControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageWebSocketControl2 {}
+impl ::core::clone::Clone for IMessageWebSocketControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageWebSocketMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageWebSocketMessageReceivedEventArgs {}
+impl ::core::clone::Clone for IMessageWebSocketMessageReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageWebSocketMessageReceivedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageWebSocketMessageReceivedEventArgs2 {}
+impl ::core::clone::Clone for IMessageWebSocketMessageReceivedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServerMessageWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServerMessageWebSocket {}
+impl ::core::clone::Clone for IServerMessageWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServerMessageWebSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServerMessageWebSocketControl {}
+impl ::core::clone::Clone for IServerMessageWebSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServerMessageWebSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServerMessageWebSocketInformation {}
+impl ::core::clone::Clone for IServerMessageWebSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServerStreamWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServerStreamWebSocket {}
+impl ::core::clone::Clone for IServerStreamWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServerStreamWebSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServerStreamWebSocketInformation {}
+impl ::core::clone::Clone for IServerStreamWebSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISocketActivityContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISocketActivityContext {}
+impl ::core::clone::Clone for ISocketActivityContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISocketActivityContextFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISocketActivityContextFactory {}
+impl ::core::clone::Clone for ISocketActivityContextFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISocketActivityInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISocketActivityInformation {}
+impl ::core::clone::Clone for ISocketActivityInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISocketActivityInformationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISocketActivityInformationStatics {}
+impl ::core::clone::Clone for ISocketActivityInformationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISocketActivityTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISocketActivityTriggerDetails {}
+impl ::core::clone::Clone for ISocketActivityTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISocketErrorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISocketErrorStatics {}
+impl ::core::clone::Clone for ISocketErrorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocket {}
+impl ::core::clone::Clone for IStreamSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocket2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocket2 {}
+impl ::core::clone::Clone for IStreamSocket2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocket3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocket3 {}
+impl ::core::clone::Clone for IStreamSocket3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketControl {}
+impl ::core::clone::Clone for IStreamSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketControl2 {}
+impl ::core::clone::Clone for IStreamSocketControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketControl3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketControl3 {}
+impl ::core::clone::Clone for IStreamSocketControl3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketControl4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketControl4 {}
+impl ::core::clone::Clone for IStreamSocketControl4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketInformation {}
+impl ::core::clone::Clone for IStreamSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketInformation2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketInformation2 {}
+impl ::core::clone::Clone for IStreamSocketInformation2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketListener {}
+impl ::core::clone::Clone for IStreamSocketListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketListener2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketListener2 {}
+impl ::core::clone::Clone for IStreamSocketListener2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketListener3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketListener3 {}
+impl ::core::clone::Clone for IStreamSocketListener3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketListenerConnectionReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketListenerConnectionReceivedEventArgs {}
+impl ::core::clone::Clone for IStreamSocketListenerConnectionReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketListenerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketListenerControl {}
+impl ::core::clone::Clone for IStreamSocketListenerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketListenerControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketListenerControl2 {}
+impl ::core::clone::Clone for IStreamSocketListenerControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketListenerInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketListenerInformation {}
+impl ::core::clone::Clone for IStreamSocketListenerInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSocketStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSocketStatics {}
+impl ::core::clone::Clone for IStreamSocketStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamWebSocket {}
+impl ::core::clone::Clone for IStreamWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamWebSocket2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamWebSocket2 {}
+impl ::core::clone::Clone for IStreamWebSocket2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamWebSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamWebSocketControl {}
+impl ::core::clone::Clone for IStreamWebSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamWebSocketControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamWebSocketControl2 {}
+impl ::core::clone::Clone for IStreamWebSocketControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocket {}
+impl ::core::clone::Clone for IWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocketClosedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocketClosedEventArgs {}
+impl ::core::clone::Clone for IWebSocketClosedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocketControl {}
+impl ::core::clone::Clone for IWebSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocketControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocketControl2 {}
+impl ::core::clone::Clone for IWebSocketControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocketErrorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocketErrorStatics {}
+impl ::core::clone::Clone for IWebSocketErrorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocketInformation {}
+impl ::core::clone::Clone for IWebSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocketInformation2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocketInformation2 {}
+impl ::core::clone::Clone for IWebSocketInformation2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebSocketServerCustomValidationRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebSocketServerCustomValidationRequestedEventArgs {}
+impl ::core::clone::Clone for IWebSocketServerCustomValidationRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MessageWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MessageWebSocket {}
+impl ::core::clone::Clone for MessageWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MessageWebSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MessageWebSocketControl {}
+impl ::core::clone::Clone for MessageWebSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MessageWebSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MessageWebSocketInformation {}
+impl ::core::clone::Clone for MessageWebSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MessageWebSocketMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MessageWebSocketMessageReceivedEventArgs {}
+impl ::core::clone::Clone for MessageWebSocketMessageReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
@@ -226,14 +646,44 @@ impl ::core::clone::Clone for RoundTripTimeStatistics {
 }
 #[repr(transparent)]
 pub struct ServerMessageWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ServerMessageWebSocket {}
+impl ::core::clone::Clone for ServerMessageWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ServerMessageWebSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ServerMessageWebSocketControl {}
+impl ::core::clone::Clone for ServerMessageWebSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ServerMessageWebSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ServerMessageWebSocketInformation {}
+impl ::core::clone::Clone for ServerMessageWebSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ServerStreamWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ServerStreamWebSocket {}
+impl ::core::clone::Clone for ServerStreamWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ServerStreamWebSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ServerStreamWebSocketInformation {}
+impl ::core::clone::Clone for ServerStreamWebSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
@@ -248,8 +698,20 @@ impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
 }
 #[repr(transparent)]
 pub struct SocketActivityContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SocketActivityContext {}
+impl ::core::clone::Clone for SocketActivityContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketActivityInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SocketActivityInformation {}
+impl ::core::clone::Clone for SocketActivityInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
@@ -266,6 +728,12 @@ impl ::core::clone::Clone for SocketActivityKind {
 }
 #[repr(transparent)]
 pub struct SocketActivityTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SocketActivityTriggerDetails {}
+impl ::core::clone::Clone for SocketActivityTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
@@ -381,27 +849,105 @@ impl ::core::clone::Clone for SocketSslErrorSeverity {
 }
 #[repr(transparent)]
 pub struct StreamSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamSocket {}
+impl ::core::clone::Clone for StreamSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamSocketControl {}
+impl ::core::clone::Clone for StreamSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamSocketInformation {}
+impl ::core::clone::Clone for StreamSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamSocketListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamSocketListener {}
+impl ::core::clone::Clone for StreamSocketListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamSocketListenerConnectionReceivedEventArgs {}
+impl ::core::clone::Clone for StreamSocketListenerConnectionReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamSocketListenerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamSocketListenerControl {}
+impl ::core::clone::Clone for StreamSocketListenerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamSocketListenerInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamSocketListenerInformation {}
+impl ::core::clone::Clone for StreamSocketListenerInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamWebSocket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamWebSocket {}
+impl ::core::clone::Clone for StreamWebSocket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamWebSocketControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamWebSocketControl {}
+impl ::core::clone::Clone for StreamWebSocketControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreamWebSocketInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StreamWebSocketInformation {}
+impl ::core::clone::Clone for StreamWebSocketInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebSocketClosedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WebSocketClosedEventArgs {}
+impl ::core::clone::Clone for WebSocketClosedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebSocketKeepAlive(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WebSocketKeepAlive {}
+impl ::core::clone::Clone for WebSocketKeepAlive {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WebSocketServerCustomValidationRequestedEventArgs {}
+impl ::core::clone::Clone for WebSocketServerCustomValidationRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

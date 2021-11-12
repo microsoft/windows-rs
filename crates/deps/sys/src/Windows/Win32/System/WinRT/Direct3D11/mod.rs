@@ -8,3 +8,9 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IDirect3DDxgiInterfaceAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DDxgiInterfaceAccess {}
+impl ::core::clone::Clone for IDirect3DDxgiInterfaceAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

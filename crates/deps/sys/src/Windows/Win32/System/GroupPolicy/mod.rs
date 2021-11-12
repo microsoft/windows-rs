@@ -554,90 +554,348 @@ impl ::core::clone::Clone for GROUP_POLICY_OBJECT_TYPE {
 }
 #[repr(transparent)]
 pub struct IGPEInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPEInformation {}
+impl ::core::clone::Clone for IGPEInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPM {}
+impl ::core::clone::Clone for IGPM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPM2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPM2 {}
+impl ::core::clone::Clone for IGPM2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMAsyncCancel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMAsyncCancel {}
+impl ::core::clone::Clone for IGPMAsyncCancel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMAsyncProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMAsyncProgress {}
+impl ::core::clone::Clone for IGPMAsyncProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackup {}
+impl ::core::clone::Clone for IGPMBackup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackupCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackupCollection {}
+impl ::core::clone::Clone for IGPMBackupCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackupDir(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackupDir {}
+impl ::core::clone::Clone for IGPMBackupDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackupDirEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackupDirEx {}
+impl ::core::clone::Clone for IGPMBackupDirEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMCSECollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMCSECollection {}
+impl ::core::clone::Clone for IGPMCSECollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMClientSideExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMClientSideExtension {}
+impl ::core::clone::Clone for IGPMClientSideExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMConstants(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMConstants {}
+impl ::core::clone::Clone for IGPMConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMConstants2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMConstants2 {}
+impl ::core::clone::Clone for IGPMConstants2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMDomain(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMDomain {}
+impl ::core::clone::Clone for IGPMDomain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMDomain2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMDomain2 {}
+impl ::core::clone::Clone for IGPMDomain2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMDomain3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMDomain3 {}
+impl ::core::clone::Clone for IGPMDomain3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPO {}
+impl ::core::clone::Clone for IGPMGPO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPO2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPO2 {}
+impl ::core::clone::Clone for IGPMGPO2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPO3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPO3 {}
+impl ::core::clone::Clone for IGPMGPO3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPOCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPOCollection {}
+impl ::core::clone::Clone for IGPMGPOCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPOLink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPOLink {}
+impl ::core::clone::Clone for IGPMGPOLink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPOLinksCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPOLinksCollection {}
+impl ::core::clone::Clone for IGPMGPOLinksCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMMapEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMMapEntry {}
+impl ::core::clone::Clone for IGPMMapEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMMapEntryCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMMapEntryCollection {}
+impl ::core::clone::Clone for IGPMMapEntryCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMMigrationTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMMigrationTable {}
+impl ::core::clone::Clone for IGPMMigrationTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMPermission(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMPermission {}
+impl ::core::clone::Clone for IGPMPermission {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMRSOP(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMRSOP {}
+impl ::core::clone::Clone for IGPMRSOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMResult {}
+impl ::core::clone::Clone for IGPMResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSOM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSOM {}
+impl ::core::clone::Clone for IGPMSOM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSOMCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSOMCollection {}
+impl ::core::clone::Clone for IGPMSOMCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSearchCriteria(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSearchCriteria {}
+impl ::core::clone::Clone for IGPMSearchCriteria {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSecurityInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSecurityInfo {}
+impl ::core::clone::Clone for IGPMSecurityInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSitesContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSitesContainer {}
+impl ::core::clone::Clone for IGPMSitesContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPO {}
+impl ::core::clone::Clone for IGPMStarterGPO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPOBackup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPOBackup {}
+impl ::core::clone::Clone for IGPMStarterGPOBackup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPOBackupCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPOBackupCollection {}
+impl ::core::clone::Clone for IGPMStarterGPOBackupCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPOCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPOCollection {}
+impl ::core::clone::Clone for IGPMStarterGPOCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStatusMessage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStatusMessage {}
+impl ::core::clone::Clone for IGPMStatusMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStatusMsgCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStatusMsgCollection {}
+impl ::core::clone::Clone for IGPMStatusMsgCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMTrustee(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMTrustee {}
+impl ::core::clone::Clone for IGPMTrustee {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMWMIFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMWMIFilter {}
+impl ::core::clone::Clone for IGPMWMIFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMWMIFilterCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMWMIFilterCollection {}
+impl ::core::clone::Clone for IGPMWMIFilterCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGroupPolicyObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGroupPolicyObject {}
+impl ::core::clone::Clone for IGroupPolicyObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLDATA {
@@ -710,6 +968,12 @@ impl ::core::clone::Clone for INSTALLSPECTYPE {
 }
 #[repr(transparent)]
 pub struct IRSOPInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRSOPInformation {}
+impl ::core::clone::Clone for IRSOPInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOCALMANAGEDAPPLICATION {

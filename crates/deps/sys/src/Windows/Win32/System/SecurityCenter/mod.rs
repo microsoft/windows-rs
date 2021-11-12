@@ -13,14 +13,44 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IWSCDefaultProduct(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSCDefaultProduct {}
+impl ::core::clone::Clone for IWSCDefaultProduct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSCProductList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSCProductList {}
+impl ::core::clone::Clone for IWSCProductList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWscProduct(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWscProduct {}
+impl ::core::clone::Clone for IWscProduct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWscProduct2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWscProduct2 {}
+impl ::core::clone::Clone for IWscProduct2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWscProduct3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWscProduct3 {}
+impl ::core::clone::Clone for IWscProduct3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SECURITY_PRODUCT_TYPE(pub i32);
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(0i32);

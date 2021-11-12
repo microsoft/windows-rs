@@ -3,14 +3,44 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsMediaLibrarySharingDevice {}
+impl ::core::clone::Clone for IWindowsMediaLibrarySharingDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDeviceProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsMediaLibrarySharingDeviceProperties {}
+impl ::core::clone::Clone for IWindowsMediaLibrarySharingDeviceProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDeviceProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsMediaLibrarySharingDeviceProperty {}
+impl ::core::clone::Clone for IWindowsMediaLibrarySharingDeviceProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsMediaLibrarySharingDevices {}
+impl ::core::clone::Clone for IWindowsMediaLibrarySharingDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsMediaLibrarySharingServices {}
+impl ::core::clone::Clone for IWindowsMediaLibrarySharingServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
 pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);

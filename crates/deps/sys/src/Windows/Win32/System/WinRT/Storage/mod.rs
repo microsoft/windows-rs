@@ -57,13 +57,49 @@ impl ::core::clone::Clone for HANDLE_SHARING_OPTIONS {
 }
 #[repr(transparent)]
 pub struct IOplockBreakingHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOplockBreakingHandler {}
+impl ::core::clone::Clone for IOplockBreakingHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRandomAccessStreamFileAccessMode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRandomAccessStreamFileAccessMode {}
+impl ::core::clone::Clone for IRandomAccessStreamFileAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageFolderHandleAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageFolderHandleAccess {}
+impl ::core::clone::Clone for IStorageFolderHandleAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageItemHandleAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageItemHandleAccess {}
+impl ::core::clone::Clone for IStorageItemHandleAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUnbufferedFileHandleOplockCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUnbufferedFileHandleOplockCallback {}
+impl ::core::clone::Clone for IUnbufferedFileHandleOplockCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUnbufferedFileHandleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUnbufferedFileHandleProvider {}
+impl ::core::clone::Clone for IUnbufferedFileHandleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

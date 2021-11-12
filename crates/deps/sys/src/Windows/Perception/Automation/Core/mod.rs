@@ -3,3 +3,9 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ICorePerceptionAutomationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICorePerceptionAutomationStatics {}
+impl ::core::clone::Clone for ICorePerceptionAutomationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -3,6 +3,12 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct DnssdRegistrationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DnssdRegistrationResult {}
+impl ::core::clone::Clone for DnssdRegistrationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DnssdRegistrationStatus(pub i32);
 impl DnssdRegistrationStatus {
@@ -19,10 +25,28 @@ impl ::core::clone::Clone for DnssdRegistrationStatus {
 }
 #[repr(transparent)]
 pub struct DnssdServiceInstance(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DnssdServiceInstance {}
+impl ::core::clone::Clone for DnssdServiceInstance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DnssdServiceInstanceCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DnssdServiceInstanceCollection {}
+impl ::core::clone::Clone for DnssdServiceInstanceCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DnssdServiceWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DnssdServiceWatcher {}
+impl ::core::clone::Clone for DnssdServiceWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DnssdServiceWatcherStatus(pub i32);
 impl DnssdServiceWatcherStatus {
@@ -41,9 +65,33 @@ impl ::core::clone::Clone for DnssdServiceWatcherStatus {
 }
 #[repr(transparent)]
 pub struct IDnssdRegistrationResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDnssdRegistrationResult {}
+impl ::core::clone::Clone for IDnssdRegistrationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDnssdServiceInstance(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDnssdServiceInstance {}
+impl ::core::clone::Clone for IDnssdServiceInstance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDnssdServiceInstanceFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDnssdServiceInstanceFactory {}
+impl ::core::clone::Clone for IDnssdServiceInstanceFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDnssdServiceWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDnssdServiceWatcher {}
+impl ::core::clone::Clone for IDnssdServiceWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

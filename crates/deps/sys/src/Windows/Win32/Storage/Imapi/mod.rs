@@ -64,18 +64,60 @@ pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows_sys::core::GUID = ::windows
 pub const CLSID_SmtpCat: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2990290359, data2: 37401, data3: 4562, data4: [158, 23, 0, 192, 79, 163, 34, 186] };
 #[repr(transparent)]
 pub struct DDiscFormat2DataEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DDiscFormat2DataEvents {}
+impl ::core::clone::Clone for DDiscFormat2DataEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DDiscFormat2EraseEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DDiscFormat2EraseEvents {}
+impl ::core::clone::Clone for DDiscFormat2EraseEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DDiscFormat2RawCDEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DDiscFormat2RawCDEvents {}
+impl ::core::clone::Clone for DDiscFormat2RawCDEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DDiscFormat2TrackAtOnceEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DDiscFormat2TrackAtOnceEvents {}
+impl ::core::clone::Clone for DDiscFormat2TrackAtOnceEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DDiscMaster2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DDiscMaster2Events {}
+impl ::core::clone::Clone for DDiscMaster2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DFileSystemImageEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DFileSystemImageEvents {}
+impl ::core::clone::Clone for DFileSystemImageEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DFileSystemImageImportEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DFileSystemImageImportEvents {}
+impl ::core::clone::Clone for DFileSystemImageImportEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISC_RECORDER_STATE_FLAGS(pub u32);
 pub const RECORDER_BURNING: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(2u32);
@@ -261,6 +303,12 @@ pub const DISPID_IWRITEENGINE2_WRITEINPROGRESS: u32 = 261u32;
 pub const DISPID_IWRITEENGINE2_WRITESECTION: u32 = 512u32;
 #[repr(transparent)]
 pub struct DWriteEngine2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DWriteEngine2Events {}
+impl ::core::clone::Clone for DWriteEngine2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EmulationType(pub i32);
 pub const EmulationNone: EmulationType = EmulationType(0i32);
@@ -314,74 +362,284 @@ pub const GUID_SMTPSVC_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4217750748, data2: 58472, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 #[repr(transparent)]
 pub struct IBlockRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBlockRange {}
+impl ::core::clone::Clone for IBlockRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBlockRangeList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBlockRangeList {}
+impl ::core::clone::Clone for IBlockRangeList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBootOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBootOptions {}
+impl ::core::clone::Clone for IBootOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBurnVerification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBurnVerification {}
+impl ::core::clone::Clone for IBurnVerification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2 {}
+impl ::core::clone::Clone for IDiscFormat2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2Data(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2Data {}
+impl ::core::clone::Clone for IDiscFormat2Data {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2DataEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2DataEventArgs {}
+impl ::core::clone::Clone for IDiscFormat2DataEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2Erase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2Erase {}
+impl ::core::clone::Clone for IDiscFormat2Erase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2RawCD(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2RawCD {}
+impl ::core::clone::Clone for IDiscFormat2RawCD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2RawCDEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2RawCDEventArgs {}
+impl ::core::clone::Clone for IDiscFormat2RawCDEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2TrackAtOnce(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2TrackAtOnce {}
+impl ::core::clone::Clone for IDiscFormat2TrackAtOnce {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscFormat2TrackAtOnceEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscFormat2TrackAtOnceEventArgs {}
+impl ::core::clone::Clone for IDiscFormat2TrackAtOnceEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscMaster(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscMaster {}
+impl ::core::clone::Clone for IDiscMaster {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscMaster2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscMaster2 {}
+impl ::core::clone::Clone for IDiscMaster2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscMasterProgressEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscMasterProgressEvents {}
+impl ::core::clone::Clone for IDiscMasterProgressEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscRecorder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscRecorder {}
+impl ::core::clone::Clone for IDiscRecorder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscRecorder2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscRecorder2 {}
+impl ::core::clone::Clone for IDiscRecorder2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiscRecorder2Ex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiscRecorder2Ex {}
+impl ::core::clone::Clone for IDiscRecorder2Ex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumDiscMasterFormats(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumDiscMasterFormats {}
+impl ::core::clone::Clone for IEnumDiscMasterFormats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumDiscRecorders(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumDiscRecorders {}
+impl ::core::clone::Clone for IEnumDiscRecorders {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumFsiItems(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumFsiItems {}
+impl ::core::clone::Clone for IEnumFsiItems {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumProgressItems(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumProgressItems {}
+impl ::core::clone::Clone for IEnumProgressItems {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSystemImage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSystemImage {}
+impl ::core::clone::Clone for IFileSystemImage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSystemImage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSystemImage2 {}
+impl ::core::clone::Clone for IFileSystemImage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSystemImage3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSystemImage3 {}
+impl ::core::clone::Clone for IFileSystemImage3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSystemImageResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSystemImageResult {}
+impl ::core::clone::Clone for IFileSystemImageResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSystemImageResult2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSystemImageResult2 {}
+impl ::core::clone::Clone for IFileSystemImageResult2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFsiDirectoryItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFsiDirectoryItem {}
+impl ::core::clone::Clone for IFsiDirectoryItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFsiDirectoryItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFsiDirectoryItem2 {}
+impl ::core::clone::Clone for IFsiDirectoryItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFsiFileItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFsiFileItem {}
+impl ::core::clone::Clone for IFsiFileItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFsiFileItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFsiFileItem2 {}
+impl ::core::clone::Clone for IFsiFileItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFsiItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFsiItem {}
+impl ::core::clone::Clone for IFsiItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFsiNamedStreams(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFsiNamedStreams {}
+impl ::core::clone::Clone for IFsiNamedStreams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsoImageManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsoImageManager {}
+impl ::core::clone::Clone for IIsoImageManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IJolietDiscMaster(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IJolietDiscMaster {}
+impl ::core::clone::Clone for IJolietDiscMaster {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
 pub const IMAPI2FS_MajorVersion: u32 = 1u32;
 pub const IMAPI2FS_MinorVersion: u32 = 0u32;
@@ -893,34 +1151,124 @@ impl ::core::clone::Clone for IMMP_MPV_STORE_DRIVER_HANDLE {
 }
 #[repr(transparent)]
 pub struct IMultisession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultisession {}
+impl ::core::clone::Clone for IMultisession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultisessionRandomWrite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultisessionRandomWrite {}
+impl ::core::clone::Clone for IMultisessionRandomWrite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultisessionSequential(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultisessionSequential {}
+impl ::core::clone::Clone for IMultisessionSequential {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultisessionSequential2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultisessionSequential2 {}
+impl ::core::clone::Clone for IMultisessionSequential2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProgressItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProgressItem {}
+impl ::core::clone::Clone for IProgressItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProgressItems(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProgressItems {}
+impl ::core::clone::Clone for IProgressItems {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawCDImageCreator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawCDImageCreator {}
+impl ::core::clone::Clone for IRawCDImageCreator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawCDImageTrackInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawCDImageTrackInfo {}
+impl ::core::clone::Clone for IRawCDImageTrackInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRedbookDiscMaster(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRedbookDiscMaster {}
+impl ::core::clone::Clone for IRedbookDiscMaster {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamConcatenate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamConcatenate {}
+impl ::core::clone::Clone for IStreamConcatenate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamInterleave(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamInterleave {}
+impl ::core::clone::Clone for IStreamInterleave {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamPseudoRandomBased(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamPseudoRandomBased {}
+impl ::core::clone::Clone for IStreamPseudoRandomBased {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWriteEngine2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWriteEngine2 {}
+impl ::core::clone::Clone for IWriteEngine2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWriteEngine2EventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWriteEngine2EventArgs {}
+impl ::core::clone::Clone for IWriteEngine2EventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWriteSpeedDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWriteSpeedDescriptor {}
+impl ::core::clone::Clone for IWriteSpeedDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MEDIA_FLAGS(pub i32);
 pub const MEDIA_BLANK: MEDIA_FLAGS = MEDIA_FLAGS(1i32);

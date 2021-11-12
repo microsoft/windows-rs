@@ -2238,18 +2238,48 @@ impl ::core::clone::Clone for HSAVEDUILANGUAGES {
 }
 #[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComprehensiveSpellCheckProvider {}
+impl ::core::clone::Clone for IComprehensiveSpellCheckProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
 pub const IDN_RAW_PUNYCODE: u32 = 8u32;
 pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
 #[repr(transparent)]
 pub struct IEnumCodePage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumCodePage {}
+impl ::core::clone::Clone for IEnumCodePage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRfc1766(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRfc1766 {}
+impl ::core::clone::Clone for IEnumRfc1766 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumScript(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumScript {}
+impl ::core::clone::Clone for IEnumScript {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSpellingError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSpellingError {}
+impl ::core::clone::Clone for IEnumSpellingError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
 pub const IME_CMODE_CHARCODE: u32 = 32u32;
 pub const IME_CMODE_CHINESE: u32 = 1u32;
@@ -2264,32 +2294,116 @@ pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
 pub const IME_CMODE_ROMAN: u32 = 16u32;
 #[repr(transparent)]
 pub struct IMLangCodePages(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangCodePages {}
+impl ::core::clone::Clone for IMLangCodePages {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangConvertCharset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangConvertCharset {}
+impl ::core::clone::Clone for IMLangConvertCharset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangFontLink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangFontLink {}
+impl ::core::clone::Clone for IMLangFontLink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangFontLink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangFontLink2 {}
+impl ::core::clone::Clone for IMLangFontLink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangLineBreakConsole(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangLineBreakConsole {}
+impl ::core::clone::Clone for IMLangLineBreakConsole {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangString(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangString {}
+impl ::core::clone::Clone for IMLangString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringAStr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringAStr {}
+impl ::core::clone::Clone for IMLangStringAStr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringBufA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringBufA {}
+impl ::core::clone::Clone for IMLangStringBufA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringBufW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringBufW {}
+impl ::core::clone::Clone for IMLangStringBufW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringWStr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringWStr {}
+impl ::core::clone::Clone for IMLangStringWStr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiLanguage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiLanguage {}
+impl ::core::clone::Clone for IMultiLanguage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiLanguage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiLanguage2 {}
+impl ::core::clone::Clone for IMultiLanguage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiLanguage3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiLanguage3 {}
+impl ::core::clone::Clone for IMultiLanguage3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOptionDescription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOptionDescription {}
+impl ::core::clone::Clone for IOptionDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IS_TEXT_UNICODE_RESULT(pub u32);
 pub const IS_TEXT_UNICODE_ASCII16: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(1u32);
@@ -2325,20 +2439,68 @@ impl ::core::clone::Clone for IS_VALID_LOCALE_FLAGS {
 }
 #[repr(transparent)]
 pub struct ISpellCheckProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckProvider {}
+impl ::core::clone::Clone for ISpellCheckProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellCheckProviderFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckProviderFactory {}
+impl ::core::clone::Clone for ISpellCheckProviderFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellChecker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellChecker {}
+impl ::core::clone::Clone for ISpellChecker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellChecker2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellChecker2 {}
+impl ::core::clone::Clone for ISpellChecker2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellCheckerChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckerChangedEventHandler {}
+impl ::core::clone::Clone for ISpellCheckerChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellCheckerFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckerFactory {}
+impl ::core::clone::Clone for ISpellCheckerFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellingError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellingError {}
+impl ::core::clone::Clone for ISpellingError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDictionariesRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDictionariesRegistrar {}
+impl ::core::clone::Clone for IUserDictionariesRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCA = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PSTR, param3: isize) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

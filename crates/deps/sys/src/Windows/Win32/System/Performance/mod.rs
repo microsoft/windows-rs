@@ -315,6 +315,12 @@ pub const CounterPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const Counters: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2997905106, data2: 10924, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 #[repr(transparent)]
 pub struct DICounterItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DICounterItem {}
+impl ::core::clone::Clone for DICounterItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2366193660,
@@ -327,12 +333,36 @@ pub const DIID_DISystemMonitorEvents: ::windows_sys::core::GUID = ::windows_sys:
 pub const DIID_DISystemMonitorInternal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 424587842, data2: 49964, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
 #[repr(transparent)]
 pub struct DILogFileItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DILogFileItem {}
+impl ::core::clone::Clone for DILogFileItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISystemMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DISystemMonitor {}
+impl ::core::clone::Clone for DISystemMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISystemMonitorEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DISystemMonitorEvents {}
+impl ::core::clone::Clone for DISystemMonitorEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISystemMonitorInternal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DISystemMonitorInternal {}
+impl ::core::clone::Clone for DISystemMonitorInternal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946849, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const DataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946853, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 #[repr(transparent)]
@@ -429,56 +459,212 @@ pub const GraphPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
 #[repr(transparent)]
 pub struct IAlertDataCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlertDataCollector {}
+impl ::core::clone::Clone for IAlertDataCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IApiTracingDataCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IApiTracingDataCollector {}
+impl ::core::clone::Clone for IApiTracingDataCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigurationDataCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigurationDataCollector {}
+impl ::core::clone::Clone for IConfigurationDataCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICounterItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICounterItem {}
+impl ::core::clone::Clone for ICounterItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICounterItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICounterItem2 {}
+impl ::core::clone::Clone for ICounterItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICounters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICounters {}
+impl ::core::clone::Clone for ICounters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataCollector {}
+impl ::core::clone::Clone for IDataCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataCollectorCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataCollectorCollection {}
+impl ::core::clone::Clone for IDataCollectorCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataCollectorSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataCollectorSet {}
+impl ::core::clone::Clone for IDataCollectorSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataCollectorSetCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataCollectorSetCollection {}
+impl ::core::clone::Clone for IDataCollectorSetCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataManager {}
+impl ::core::clone::Clone for IDataManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFolderAction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFolderAction {}
+impl ::core::clone::Clone for IFolderAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFolderActionCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFolderActionCollection {}
+impl ::core::clone::Clone for IFolderActionCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILogFileItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILogFileItem {}
+impl ::core::clone::Clone for ILogFileItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILogFiles(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILogFiles {}
+impl ::core::clone::Clone for ILogFiles {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPerformanceCounterDataCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPerformanceCounterDataCollector {}
+impl ::core::clone::Clone for IPerformanceCounterDataCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISchedule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISchedule {}
+impl ::core::clone::Clone for ISchedule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScheduleCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScheduleCollection {}
+impl ::core::clone::Clone for IScheduleCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemMonitor {}
+impl ::core::clone::Clone for ISystemMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemMonitor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemMonitor2 {}
+impl ::core::clone::Clone for ISystemMonitor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemMonitorEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemMonitorEvents {}
+impl ::core::clone::Clone for ISystemMonitorEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITraceDataCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITraceDataCollector {}
+impl ::core::clone::Clone for ITraceDataCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITraceDataProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITraceDataProvider {}
+impl ::core::clone::Clone for ITraceDataProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITraceDataProviderCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITraceDataProviderCollection {}
+impl ::core::clone::Clone for ITraceDataProviderCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValueMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IValueMap {}
+impl ::core::clone::Clone for IValueMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValueMapItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IValueMapItem {}
+impl ::core::clone::Clone for IValueMapItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 pub const LegacyDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946854, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const LegacyDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946855, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
@@ -1897,5 +2083,17 @@ impl ::core::clone::Clone for WeekDays {
 }
 #[repr(transparent)]
 pub struct _ICounterItemUnion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ICounterItemUnion {}
+impl ::core::clone::Clone for _ICounterItemUnion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ISystemMonitorUnion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ISystemMonitorUnion {}
+impl ::core::clone::Clone for _ISystemMonitorUnion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -16,6 +16,12 @@ impl ::core::clone::Clone for DeviceAccountAuthenticationType {
 }
 #[repr(transparent)]
 pub struct DeviceAccountConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DeviceAccountConfiguration {}
+impl ::core::clone::Clone for DeviceAccountConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeviceAccountIconId(pub i32);
 impl DeviceAccountIconId {
@@ -79,9 +85,33 @@ impl ::core::clone::Clone for DeviceAccountSyncScheduleKind {
 }
 #[repr(transparent)]
 pub struct IDeviceAccountConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceAccountConfiguration {}
+impl ::core::clone::Clone for IDeviceAccountConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeviceAccountConfiguration2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceAccountConfiguration2 {}
+impl ::core::clone::Clone for IDeviceAccountConfiguration2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDataAccountSystemAccessManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDataAccountSystemAccessManagerStatics {}
+impl ::core::clone::Clone for IUserDataAccountSystemAccessManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDataAccountSystemAccessManagerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDataAccountSystemAccessManagerStatics2 {}
+impl ::core::clone::Clone for IUserDataAccountSystemAccessManagerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

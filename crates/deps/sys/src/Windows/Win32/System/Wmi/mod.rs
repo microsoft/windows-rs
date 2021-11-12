@@ -32,144 +32,564 @@ impl ::core::clone::Clone for CIMTYPE_ENUMERATION {
 }
 #[repr(transparent)]
 pub struct IEnumWbemClassObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumWbemClassObject {}
+impl ::core::clone::Clone for IEnumWbemClassObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMofCompiler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMofCompiler {}
+impl ::core::clone::Clone for IMofCompiler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemDateTime(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemDateTime {}
+impl ::core::clone::Clone for ISWbemDateTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemEventSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemEventSource {}
+impl ::core::clone::Clone for ISWbemEventSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemLastError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemLastError {}
+impl ::core::clone::Clone for ISWbemLastError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemLocator {}
+impl ::core::clone::Clone for ISWbemLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemMethod(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemMethod {}
+impl ::core::clone::Clone for ISWbemMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemMethodSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemMethodSet {}
+impl ::core::clone::Clone for ISWbemMethodSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemNamedValue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemNamedValue {}
+impl ::core::clone::Clone for ISWbemNamedValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemNamedValueSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemNamedValueSet {}
+impl ::core::clone::Clone for ISWbemNamedValueSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObject {}
+impl ::core::clone::Clone for ISWbemObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObjectEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObjectEx {}
+impl ::core::clone::Clone for ISWbemObjectEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObjectPath(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObjectPath {}
+impl ::core::clone::Clone for ISWbemObjectPath {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObjectSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObjectSet {}
+impl ::core::clone::Clone for ISWbemObjectSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemPrivilege(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemPrivilege {}
+impl ::core::clone::Clone for ISWbemPrivilege {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemPrivilegeSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemPrivilegeSet {}
+impl ::core::clone::Clone for ISWbemPrivilegeSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemProperty {}
+impl ::core::clone::Clone for ISWbemProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemPropertySet {}
+impl ::core::clone::Clone for ISWbemPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemQualifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemQualifier {}
+impl ::core::clone::Clone for ISWbemQualifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemQualifierSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemQualifierSet {}
+impl ::core::clone::Clone for ISWbemQualifierSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemRefreshableItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemRefreshableItem {}
+impl ::core::clone::Clone for ISWbemRefreshableItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemRefresher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemRefresher {}
+impl ::core::clone::Clone for ISWbemRefresher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemSecurity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemSecurity {}
+impl ::core::clone::Clone for ISWbemSecurity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemServices {}
+impl ::core::clone::Clone for ISWbemServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemServicesEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemServicesEx {}
+impl ::core::clone::Clone for ISWbemServicesEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemSink {}
+impl ::core::clone::Clone for ISWbemSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemSinkEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemSinkEvents {}
+impl ::core::clone::Clone for ISWbemSinkEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUnsecuredApartment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUnsecuredApartment {}
+impl ::core::clone::Clone for IUnsecuredApartment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMIExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMIExtension {}
+impl ::core::clone::Clone for IWMIExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemAddressResolution(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemAddressResolution {}
+impl ::core::clone::Clone for IWbemAddressResolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemBackupRestore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemBackupRestore {}
+impl ::core::clone::Clone for IWbemBackupRestore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemBackupRestoreEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemBackupRestoreEx {}
+impl ::core::clone::Clone for IWbemBackupRestoreEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemCallResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemCallResult {}
+impl ::core::clone::Clone for IWbemCallResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemClassObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemClassObject {}
+impl ::core::clone::Clone for IWbemClassObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemClientConnectionTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemClientConnectionTransport {}
+impl ::core::clone::Clone for IWbemClientConnectionTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemClientTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemClientTransport {}
+impl ::core::clone::Clone for IWbemClientTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemConfigureRefresher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemConfigureRefresher {}
+impl ::core::clone::Clone for IWbemConfigureRefresher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemConnectorLogin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemConnectorLogin {}
+impl ::core::clone::Clone for IWbemConnectorLogin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemConstructClassObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemConstructClassObject {}
+impl ::core::clone::Clone for IWbemConstructClassObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemContext {}
+impl ::core::clone::Clone for IWbemContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemDecoupledBasicEventProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemDecoupledBasicEventProvider {}
+impl ::core::clone::Clone for IWbemDecoupledBasicEventProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemDecoupledRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemDecoupledRegistrar {}
+impl ::core::clone::Clone for IWbemDecoupledRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventConsumerProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventConsumerProvider {}
+impl ::core::clone::Clone for IWbemEventConsumerProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventProvider {}
+impl ::core::clone::Clone for IWbemEventProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventProviderQuerySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventProviderQuerySink {}
+impl ::core::clone::Clone for IWbemEventProviderQuerySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventProviderSecurity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventProviderSecurity {}
+impl ::core::clone::Clone for IWbemEventProviderSecurity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventSink {}
+impl ::core::clone::Clone for IWbemEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemHiPerfEnum(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemHiPerfEnum {}
+impl ::core::clone::Clone for IWbemHiPerfEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemHiPerfProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemHiPerfProvider {}
+impl ::core::clone::Clone for IWbemHiPerfProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemLevel1Login(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemLevel1Login {}
+impl ::core::clone::Clone for IWbemLevel1Login {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemLocator {}
+impl ::core::clone::Clone for IWbemLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectAccess {}
+impl ::core::clone::Clone for IWbemObjectAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectSink {}
+impl ::core::clone::Clone for IWbemObjectSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectSinkEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectSinkEx {}
+impl ::core::clone::Clone for IWbemObjectSinkEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectTextSrc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectTextSrc {}
+impl ::core::clone::Clone for IWbemObjectTextSrc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemPath(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemPath {}
+impl ::core::clone::Clone for IWbemPath {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemPathKeyList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemPathKeyList {}
+impl ::core::clone::Clone for IWbemPathKeyList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemPropertyProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemPropertyProvider {}
+impl ::core::clone::Clone for IWbemPropertyProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemProviderIdentity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemProviderIdentity {}
+impl ::core::clone::Clone for IWbemProviderIdentity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemProviderInit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemProviderInit {}
+impl ::core::clone::Clone for IWbemProviderInit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemProviderInitSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemProviderInitSink {}
+impl ::core::clone::Clone for IWbemProviderInitSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemQualifierSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemQualifierSet {}
+impl ::core::clone::Clone for IWbemQualifierSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemQuery {}
+impl ::core::clone::Clone for IWbemQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemRefresher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemRefresher {}
+impl ::core::clone::Clone for IWbemRefresher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemServices {}
+impl ::core::clone::Clone for IWbemServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemShutdown(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemShutdown {}
+impl ::core::clone::Clone for IWbemShutdown {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemStatusCodeText(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemStatusCodeText {}
+impl ::core::clone::Clone for IWbemStatusCodeText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemTransport {}
+impl ::core::clone::Clone for IWbemTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemUnboundObjectSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemUnboundObjectSink {}
+impl ::core::clone::Clone for IWbemUnboundObjectSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemUnsecuredApartment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemUnsecuredApartment {}
+impl ::core::clone::Clone for IWbemUnsecuredApartment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MI_Application {
     pub reserved1: u64,

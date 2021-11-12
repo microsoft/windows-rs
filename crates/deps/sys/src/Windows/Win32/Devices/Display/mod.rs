@@ -2729,6 +2729,12 @@ pub const HT_USERPAT_CY_MAX: u32 = 256u32;
 pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[repr(transparent)]
 pub struct ICloneViewHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICloneViewHelper {}
+impl ::core::clone::Clone for ICloneViewHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IFIEXTRA {
     pub ulIdentifier: u32,
@@ -3087,6 +3093,12 @@ pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
 pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
 #[repr(transparent)]
 pub struct IViewHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewHelper {}
+impl ::core::clone::Clone for IViewHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const JOIN_BEVEL: i32 = 1i32;
 pub const JOIN_MITER: i32 = 2i32;
 pub const JOIN_ROUND: i32 = 0i32;

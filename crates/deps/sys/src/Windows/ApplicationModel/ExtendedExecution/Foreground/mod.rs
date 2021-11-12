@@ -29,6 +29,12 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundResult {
 }
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ExtendedExecutionForegroundRevokedEventArgs {}
+impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
 impl ExtendedExecutionForegroundRevokedReason {
@@ -43,7 +49,25 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedReason {
 }
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ExtendedExecutionForegroundSession {}
+impl ::core::clone::Clone for ExtendedExecutionForegroundSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendedExecutionForegroundRevokedEventArgs {}
+impl ::core::clone::Clone for IExtendedExecutionForegroundRevokedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IExtendedExecutionForegroundSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IExtendedExecutionForegroundSession {}
+impl ::core::clone::Clone for IExtendedExecutionForegroundSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

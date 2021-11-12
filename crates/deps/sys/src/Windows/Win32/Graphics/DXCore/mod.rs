@@ -135,9 +135,27 @@ impl ::core::clone::Clone for DXCoreSegmentGroup {
 }
 #[repr(transparent)]
 pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXCoreAdapter {}
+impl ::core::clone::Clone for IDXCoreAdapter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXCoreAdapterFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXCoreAdapterFactory {}
+impl ::core::clone::Clone for IDXCoreAdapterFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXCoreAdapterList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXCoreAdapterList {}
+impl ::core::clone::Clone for IDXCoreAdapterList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows_sys::core::IUnknown, context: *const ::core::ffi::c_void);
 pub const _FACDXCORE: u32 = 2176u32;

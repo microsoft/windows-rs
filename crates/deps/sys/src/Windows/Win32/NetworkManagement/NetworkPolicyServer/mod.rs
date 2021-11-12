@@ -523,18 +523,60 @@ impl ::core::clone::Clone for IPFILTERPROPERTIES {
 }
 #[repr(transparent)]
 pub struct ISdo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISdo {}
+impl ::core::clone::Clone for ISdo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISdoCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISdoCollection {}
+impl ::core::clone::Clone for ISdoCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISdoDictionaryOld(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISdoDictionaryOld {}
+impl ::core::clone::Clone for ISdoDictionaryOld {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISdoMachine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISdoMachine {}
+impl ::core::clone::Clone for ISdoMachine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISdoMachine2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISdoMachine2 {}
+impl ::core::clone::Clone for ISdoMachine2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISdoServiceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISdoServiceControl {}
+impl ::core::clone::Clone for ISdoServiceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITemplateSdo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITemplateSdo {}
+impl ::core::clone::Clone for ITemplateSdo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NAMESPROPERTIES(pub i32);
 pub const PROPERTY_NAMES_REALMS: NAMESPROPERTIES = NAMESPROPERTIES(1026i32);

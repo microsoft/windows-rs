@@ -33,56 +33,212 @@ impl ::core::clone::Clone for HSWDEVICE {
 }
 #[repr(transparent)]
 pub struct IUPnPAddressFamilyControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPAddressFamilyControl {}
+impl ::core::clone::Clone for IUPnPAddressFamilyControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPAsyncResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPAsyncResult {}
+impl ::core::clone::Clone for IUPnPAsyncResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDescriptionDocument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDescriptionDocument {}
+impl ::core::clone::Clone for IUPnPDescriptionDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDescriptionDocumentCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDescriptionDocumentCallback {}
+impl ::core::clone::Clone for IUPnPDescriptionDocumentCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDevice {}
+impl ::core::clone::Clone for IUPnPDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceControl {}
+impl ::core::clone::Clone for IUPnPDeviceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceControlHttpHeaders(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceControlHttpHeaders {}
+impl ::core::clone::Clone for IUPnPDeviceControlHttpHeaders {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceDocumentAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceDocumentAccess {}
+impl ::core::clone::Clone for IUPnPDeviceDocumentAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceDocumentAccessEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceDocumentAccessEx {}
+impl ::core::clone::Clone for IUPnPDeviceDocumentAccessEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceFinder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceFinder {}
+impl ::core::clone::Clone for IUPnPDeviceFinder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceFinderAddCallbackWithInterface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceFinderAddCallbackWithInterface {}
+impl ::core::clone::Clone for IUPnPDeviceFinderAddCallbackWithInterface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceFinderCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceFinderCallback {}
+impl ::core::clone::Clone for IUPnPDeviceFinderCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceProvider {}
+impl ::core::clone::Clone for IUPnPDeviceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDevices {}
+impl ::core::clone::Clone for IUPnPDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPEventSink {}
+impl ::core::clone::Clone for IUPnPEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPEventSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPEventSource {}
+impl ::core::clone::Clone for IUPnPEventSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPHttpHeaderControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPHttpHeaderControl {}
+impl ::core::clone::Clone for IUPnPHttpHeaderControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPRegistrar {}
+impl ::core::clone::Clone for IUPnPRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPRemoteEndpointInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPRemoteEndpointInfo {}
+impl ::core::clone::Clone for IUPnPRemoteEndpointInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPReregistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPReregistrar {}
+impl ::core::clone::Clone for IUPnPReregistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPService {}
+impl ::core::clone::Clone for IUPnPService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceAsync {}
+impl ::core::clone::Clone for IUPnPServiceAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceCallback {}
+impl ::core::clone::Clone for IUPnPServiceCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceDocumentAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceDocumentAccess {}
+impl ::core::clone::Clone for IUPnPServiceDocumentAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceEnumProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceEnumProperty {}
+impl ::core::clone::Clone for IUPnPServiceEnumProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServices {}
+impl ::core::clone::Clone for IUPnPServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
 pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);

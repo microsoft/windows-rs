@@ -3,6 +3,12 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct CompositionDebugHeatMaps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CompositionDebugHeatMaps {}
+impl ::core::clone::Clone for CompositionDebugHeatMaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
@@ -24,9 +30,33 @@ impl ::core::clone::Clone for CompositionDebugOverdrawContentKinds {
 }
 #[repr(transparent)]
 pub struct CompositionDebugSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CompositionDebugSettings {}
+impl ::core::clone::Clone for CompositionDebugSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICompositionDebugHeatMaps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICompositionDebugHeatMaps {}
+impl ::core::clone::Clone for ICompositionDebugHeatMaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICompositionDebugSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICompositionDebugSettings {}
+impl ::core::clone::Clone for ICompositionDebugSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICompositionDebugSettingsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICompositionDebugSettingsStatics {}
+impl ::core::clone::Clone for ICompositionDebugSettingsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

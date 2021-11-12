@@ -3,28 +3,100 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IWiFiDirectService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectService {}
+impl ::core::clone::Clone for IWiFiDirectService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceAdvertiser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceAdvertiser {}
+impl ::core::clone::Clone for IWiFiDirectServiceAdvertiser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceAdvertiserFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceAdvertiserFactory {}
+impl ::core::clone::Clone for IWiFiDirectServiceAdvertiserFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
+impl ::core::clone::Clone for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceProvisioningInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceProvisioningInfo {}
+impl ::core::clone::Clone for IWiFiDirectServiceProvisioningInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceRemotePortAddedEventArgs {}
+impl ::core::clone::Clone for IWiFiDirectServiceRemotePortAddedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceSession {}
+impl ::core::clone::Clone for IWiFiDirectServiceSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSessionDeferredEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceSessionDeferredEventArgs {}
+impl ::core::clone::Clone for IWiFiDirectServiceSessionDeferredEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSessionRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceSessionRequest {}
+impl ::core::clone::Clone for IWiFiDirectServiceSessionRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSessionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceSessionRequestedEventArgs {}
+impl ::core::clone::Clone for IWiFiDirectServiceSessionRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWiFiDirectServiceStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWiFiDirectServiceStatics {}
+impl ::core::clone::Clone for IWiFiDirectServiceStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectService {}
+impl ::core::clone::Clone for WiFiDirectService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);
 impl WiFiDirectServiceAdvertisementStatus {
@@ -41,8 +113,20 @@ impl ::core::clone::Clone for WiFiDirectServiceAdvertisementStatus {
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertiser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceAdvertiser {}
+impl ::core::clone::Clone for WiFiDirectServiceAdvertiser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
+impl ::core::clone::Clone for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceConfigurationMethod(pub i32);
 impl WiFiDirectServiceConfigurationMethod {
@@ -85,12 +169,36 @@ impl ::core::clone::Clone for WiFiDirectServiceIPProtocol {
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceProvisioningInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceProvisioningInfo {}
+impl ::core::clone::Clone for WiFiDirectServiceProvisioningInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceRemotePortAddedEventArgs {}
+impl ::core::clone::Clone for WiFiDirectServiceRemotePortAddedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceSession {}
+impl ::core::clone::Clone for WiFiDirectServiceSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceSessionDeferredEventArgs {}
+impl ::core::clone::Clone for WiFiDirectServiceSessionDeferredEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionErrorStatus(pub i32);
 impl WiFiDirectServiceSessionErrorStatus {
@@ -109,8 +217,20 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionErrorStatus {
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceSessionRequest {}
+impl ::core::clone::Clone for WiFiDirectServiceSessionRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WiFiDirectServiceSessionRequestedEventArgs {}
+impl ::core::clone::Clone for WiFiDirectServiceSessionRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionStatus(pub i32);
 impl WiFiDirectServiceSessionStatus {

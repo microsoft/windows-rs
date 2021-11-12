@@ -247,26 +247,92 @@ impl ::core::clone::Clone for HrtfPosition {
 }
 #[repr(transparent)]
 pub struct IXAPO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAPO {}
+impl ::core::clone::Clone for IXAPO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAPOHrtfParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAPOHrtfParameters {}
+impl ::core::clone::Clone for IXAPOHrtfParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAPOParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAPOParameters {}
+impl ::core::clone::Clone for IXAPOParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2 {}
+impl ::core::clone::Clone for IXAudio2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2EngineCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2EngineCallback {}
+impl ::core::clone::Clone for IXAudio2EngineCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2Extension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2Extension {}
+impl ::core::clone::Clone for IXAudio2Extension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2MasteringVoice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2MasteringVoice {}
+impl ::core::clone::Clone for IXAudio2MasteringVoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2SourceVoice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2SourceVoice {}
+impl ::core::clone::Clone for IXAudio2SourceVoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2SubmixVoice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2SubmixVoice {}
+impl ::core::clone::Clone for IXAudio2SubmixVoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2Voice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2Voice {}
+impl ::core::clone::Clone for IXAudio2Voice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAudio2VoiceCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAudio2VoiceCallback {}
+impl ::core::clone::Clone for IXAudio2VoiceCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Processor1: u32 = 1u32;
 pub const Processor10: u32 = 512u32;
 pub const Processor11: u32 = 1024u32;

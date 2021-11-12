@@ -21,6 +21,12 @@ impl ::core::clone::Clone for AudioRoutingEndpoint {
 }
 #[repr(transparent)]
 pub struct AudioRoutingManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AudioRoutingManager {}
+impl ::core::clone::Clone for AudioRoutingManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {
@@ -37,5 +43,17 @@ impl ::core::clone::Clone for AvailableAudioRoutingEndpoints {
 }
 #[repr(transparent)]
 pub struct IAudioRoutingManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioRoutingManager {}
+impl ::core::clone::Clone for IAudioRoutingManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioRoutingManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioRoutingManagerStatics {}
+impl ::core::clone::Clone for IAudioRoutingManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

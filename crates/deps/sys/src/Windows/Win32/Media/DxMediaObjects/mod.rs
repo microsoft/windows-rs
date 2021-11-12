@@ -122,16 +122,52 @@ impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
 }
 #[repr(transparent)]
 pub struct IDMOQualityControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMOQualityControl {}
+impl ::core::clone::Clone for IDMOQualityControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMOVideoOutputOptimizations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMOVideoOutputOptimizations {}
+impl ::core::clone::Clone for IDMOVideoOutputOptimizations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumDMO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumDMO {}
+impl ::core::clone::Clone for IEnumDMO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaBuffer {}
+impl ::core::clone::Clone for IMediaBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaObject {}
+impl ::core::clone::Clone for IMediaObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaObjectInPlace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaObjectInPlace {}
+impl ::core::clone::Clone for IMediaObjectInPlace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_INPLACE_PROCESS_FLAGS(pub i32);
 pub const DMO_INPLACE_NORMAL: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(0i32);

@@ -3,30 +3,108 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct BasicProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for BasicProperties {}
+impl ::core::clone::Clone for BasicProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DocumentProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DocumentProperties {}
+impl ::core::clone::Clone for DocumentProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBasicProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBasicProperties {}
+impl ::core::clone::Clone for IBasicProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDocumentProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDocumentProperties {}
+impl ::core::clone::Clone for IDocumentProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGeotagHelperStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeotagHelperStatics {}
+impl ::core::clone::Clone for IGeotagHelperStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImageProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImageProperties {}
+impl ::core::clone::Clone for IImageProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMusicProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMusicProperties {}
+impl ::core::clone::Clone for IMusicProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageItemContentProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageItemContentProperties {}
+impl ::core::clone::Clone for IStorageItemContentProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageItemExtraProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageItemExtraProperties {}
+impl ::core::clone::Clone for IStorageItemExtraProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IThumbnailProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IThumbnailProperties {}
+impl ::core::clone::Clone for IThumbnailProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoProperties {}
+impl ::core::clone::Clone for IVideoProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ImageProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ImageProperties {}
+impl ::core::clone::Clone for ImageProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MusicProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MusicProperties {}
+impl ::core::clone::Clone for MusicProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
@@ -64,8 +142,20 @@ impl ::core::clone::Clone for PropertyPrefetchOptions {
 }
 #[repr(transparent)]
 pub struct StorageItemContentProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StorageItemContentProperties {}
+impl ::core::clone::Clone for StorageItemContentProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageItemThumbnail(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StorageItemThumbnail {}
+impl ::core::clone::Clone for StorageItemThumbnail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
@@ -124,3 +214,9 @@ impl ::core::clone::Clone for VideoOrientation {
 }
 #[repr(transparent)]
 pub struct VideoProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for VideoProperties {}
+impl ::core::clone::Clone for VideoProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

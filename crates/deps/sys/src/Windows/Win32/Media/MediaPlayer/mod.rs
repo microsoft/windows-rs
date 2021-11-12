@@ -667,218 +667,854 @@ pub const FeedsManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
 };
 #[repr(transparent)]
 pub struct IFeed(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeed {}
+impl ::core::clone::Clone for IFeed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeed2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeed2 {}
+impl ::core::clone::Clone for IFeed2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedEnclosure(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedEnclosure {}
+impl ::core::clone::Clone for IFeedEnclosure {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedEvents {}
+impl ::core::clone::Clone for IFeedEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedFolder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedFolder {}
+impl ::core::clone::Clone for IFeedFolder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedFolderEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedFolderEvents {}
+impl ::core::clone::Clone for IFeedFolderEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedItem {}
+impl ::core::clone::Clone for IFeedItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedItem2 {}
+impl ::core::clone::Clone for IFeedItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedsEnum(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedsEnum {}
+impl ::core::clone::Clone for IFeedsEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedsManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedsManager {}
+impl ::core::clone::Clone for IFeedsManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_WMP_DEVICE_CAN_SYNC: u32 = 844123479u32;
 pub const IOCTL_WMP_METADATA_ROUND_TRIP: u32 = 827346263u32;
 #[repr(transparent)]
 pub struct IWMPAudioRenderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPAudioRenderConfig {}
+impl ::core::clone::Clone for IWMPAudioRenderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPCdrom(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPCdrom {}
+impl ::core::clone::Clone for IWMPCdrom {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPCdromBurn(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPCdromBurn {}
+impl ::core::clone::Clone for IWMPCdromBurn {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPCdromCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPCdromCollection {}
+impl ::core::clone::Clone for IWMPCdromCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPCdromRip(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPCdromRip {}
+impl ::core::clone::Clone for IWMPCdromRip {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPClosedCaption(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPClosedCaption {}
+impl ::core::clone::Clone for IWMPClosedCaption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPClosedCaption2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPClosedCaption2 {}
+impl ::core::clone::Clone for IWMPClosedCaption2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPContentContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPContentContainer {}
+impl ::core::clone::Clone for IWMPContentContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPContentContainerList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPContentContainerList {}
+impl ::core::clone::Clone for IWMPContentContainerList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPContentPartner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPContentPartner {}
+impl ::core::clone::Clone for IWMPContentPartner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPContentPartnerCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPContentPartnerCallback {}
+impl ::core::clone::Clone for IWMPContentPartnerCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPControls(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPControls {}
+impl ::core::clone::Clone for IWMPControls {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPControls2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPControls2 {}
+impl ::core::clone::Clone for IWMPControls2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPControls3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPControls3 {}
+impl ::core::clone::Clone for IWMPControls3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPConvert(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPConvert {}
+impl ::core::clone::Clone for IWMPConvert {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPCore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPCore {}
+impl ::core::clone::Clone for IWMPCore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPCore2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPCore2 {}
+impl ::core::clone::Clone for IWMPCore2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPCore3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPCore3 {}
+impl ::core::clone::Clone for IWMPCore3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPDVD(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPDVD {}
+impl ::core::clone::Clone for IWMPDVD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPDownloadCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPDownloadCollection {}
+impl ::core::clone::Clone for IWMPDownloadCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPDownloadItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPDownloadItem {}
+impl ::core::clone::Clone for IWMPDownloadItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPDownloadItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPDownloadItem2 {}
+impl ::core::clone::Clone for IWMPDownloadItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPDownloadManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPDownloadManager {}
+impl ::core::clone::Clone for IWMPDownloadManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPEffects(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPEffects {}
+impl ::core::clone::Clone for IWMPEffects {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPEffects2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPEffects2 {}
+impl ::core::clone::Clone for IWMPEffects2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPError {}
+impl ::core::clone::Clone for IWMPError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPErrorItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPErrorItem {}
+impl ::core::clone::Clone for IWMPErrorItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPErrorItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPErrorItem2 {}
+impl ::core::clone::Clone for IWMPErrorItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPEvents {}
+impl ::core::clone::Clone for IWMPEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPEvents2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPEvents2 {}
+impl ::core::clone::Clone for IWMPEvents2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPEvents3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPEvents3 {}
+impl ::core::clone::Clone for IWMPEvents3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPEvents4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPEvents4 {}
+impl ::core::clone::Clone for IWMPEvents4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPFolderMonitorServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPFolderMonitorServices {}
+impl ::core::clone::Clone for IWMPFolderMonitorServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPGraphCreation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPGraphCreation {}
+impl ::core::clone::Clone for IWMPGraphCreation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPLibrary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPLibrary {}
+impl ::core::clone::Clone for IWMPLibrary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPLibrary2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPLibrary2 {}
+impl ::core::clone::Clone for IWMPLibrary2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPLibraryServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPLibraryServices {}
+impl ::core::clone::Clone for IWMPLibraryServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPLibrarySharingServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPLibrarySharingServices {}
+impl ::core::clone::Clone for IWMPLibrarySharingServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMedia(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMedia {}
+impl ::core::clone::Clone for IWMPMedia {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMedia2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMedia2 {}
+impl ::core::clone::Clone for IWMPMedia2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMedia3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMedia3 {}
+impl ::core::clone::Clone for IWMPMedia3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMediaCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMediaCollection {}
+impl ::core::clone::Clone for IWMPMediaCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMediaCollection2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMediaCollection2 {}
+impl ::core::clone::Clone for IWMPMediaCollection2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMediaPluginRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMediaPluginRegistrar {}
+impl ::core::clone::Clone for IWMPMediaPluginRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMetadataPicture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMetadataPicture {}
+impl ::core::clone::Clone for IWMPMetadataPicture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPMetadataText(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPMetadataText {}
+impl ::core::clone::Clone for IWMPMetadataText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPNetwork(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPNetwork {}
+impl ::core::clone::Clone for IWMPNetwork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPNodeRealEstate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPNodeRealEstate {}
+impl ::core::clone::Clone for IWMPNodeRealEstate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPNodeRealEstateHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPNodeRealEstateHost {}
+impl ::core::clone::Clone for IWMPNodeRealEstateHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPNodeWindowed(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPNodeWindowed {}
+impl ::core::clone::Clone for IWMPNodeWindowed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPNodeWindowedHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPNodeWindowedHost {}
+impl ::core::clone::Clone for IWMPNodeWindowedHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPNodeWindowless(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPNodeWindowless {}
+impl ::core::clone::Clone for IWMPNodeWindowless {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPNodeWindowlessHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPNodeWindowlessHost {}
+impl ::core::clone::Clone for IWMPNodeWindowlessHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlayer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlayer {}
+impl ::core::clone::Clone for IWMPPlayer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlayer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlayer2 {}
+impl ::core::clone::Clone for IWMPPlayer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlayer3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlayer3 {}
+impl ::core::clone::Clone for IWMPPlayer3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlayer4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlayer4 {}
+impl ::core::clone::Clone for IWMPPlayer4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlayerApplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlayerApplication {}
+impl ::core::clone::Clone for IWMPPlayerApplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlayerServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlayerServices {}
+impl ::core::clone::Clone for IWMPPlayerServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlayerServices2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlayerServices2 {}
+impl ::core::clone::Clone for IWMPPlayerServices2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlaylist(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlaylist {}
+impl ::core::clone::Clone for IWMPPlaylist {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlaylistArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlaylistArray {}
+impl ::core::clone::Clone for IWMPPlaylistArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlaylistCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlaylistCollection {}
+impl ::core::clone::Clone for IWMPPlaylistCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPlugin {}
+impl ::core::clone::Clone for IWMPPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPluginEnable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPluginEnable {}
+impl ::core::clone::Clone for IWMPPluginEnable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPPluginUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPPluginUI {}
+impl ::core::clone::Clone for IWMPPluginUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPQuery {}
+impl ::core::clone::Clone for IWMPQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPRemoteMediaServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPRemoteMediaServices {}
+impl ::core::clone::Clone for IWMPRemoteMediaServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPRenderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPRenderConfig {}
+impl ::core::clone::Clone for IWMPRenderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPServices {}
+impl ::core::clone::Clone for IWMPServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSettings {}
+impl ::core::clone::Clone for IWMPSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSettings2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSettings2 {}
+impl ::core::clone::Clone for IWMPSettings2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSkinManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSkinManager {}
+impl ::core::clone::Clone for IWMPSkinManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPStringCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPStringCollection {}
+impl ::core::clone::Clone for IWMPStringCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPStringCollection2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPStringCollection2 {}
+impl ::core::clone::Clone for IWMPStringCollection2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSubscriptionService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSubscriptionService {}
+impl ::core::clone::Clone for IWMPSubscriptionService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSubscriptionService2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSubscriptionService2 {}
+impl ::core::clone::Clone for IWMPSubscriptionService2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSubscriptionServiceCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSubscriptionServiceCallback {}
+impl ::core::clone::Clone for IWMPSubscriptionServiceCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSyncDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSyncDevice {}
+impl ::core::clone::Clone for IWMPSyncDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSyncDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSyncDevice2 {}
+impl ::core::clone::Clone for IWMPSyncDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSyncDevice3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSyncDevice3 {}
+impl ::core::clone::Clone for IWMPSyncDevice3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPSyncServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPSyncServices {}
+impl ::core::clone::Clone for IWMPSyncServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPTranscodePolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPTranscodePolicy {}
+impl ::core::clone::Clone for IWMPTranscodePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPUserEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPUserEventSink {}
+impl ::core::clone::Clone for IWMPUserEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPVideoRenderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPVideoRenderConfig {}
+impl ::core::clone::Clone for IWMPVideoRenderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMPWindowMessageSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMPWindowMessageSink {}
+impl ::core::clone::Clone for IWMPWindowMessageSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeed(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeed {}
+impl ::core::clone::Clone for IXFeed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeed2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeed2 {}
+impl ::core::clone::Clone for IXFeed2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedEnclosure(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedEnclosure {}
+impl ::core::clone::Clone for IXFeedEnclosure {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedEvents {}
+impl ::core::clone::Clone for IXFeedEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedFolder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedFolder {}
+impl ::core::clone::Clone for IXFeedFolder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedFolderEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedFolderEvents {}
+impl ::core::clone::Clone for IXFeedFolderEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedItem {}
+impl ::core::clone::Clone for IXFeedItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedItem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedItem2 {}
+impl ::core::clone::Clone for IXFeedItem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedsEnum(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedsEnum {}
+impl ::core::clone::Clone for IXFeedsEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXFeedsManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXFeedsManager {}
+impl ::core::clone::Clone for IXFeedsManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PLUGIN_FLAGS_ACCEPTSMEDIA: u32 = 268435456u32;
 pub const PLUGIN_FLAGS_ACCEPTSPLAYLISTS: u32 = 134217728u32;
 pub const PLUGIN_FLAGS_HASPRESETS: u32 = 67108864u32;
@@ -1549,6 +2185,12 @@ pub const WMProfile_V80_HIGHVBRVideo: ::windows_sys::core::GUID = ::windows_sys:
 pub const WindowsMediaPlayer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1811229266, data2: 14666, data3: 4563, data4: [177, 83, 0, 192, 79, 121, 250, 166] };
 #[repr(transparent)]
 pub struct _WMPOCXEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _WMPOCXEvents {}
+impl ::core::clone::Clone for _WMPOCXEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const g_szAllAuthors: &'static str = "AllAuthors";
 pub const g_szAllCPAlbumIDs: &'static str = "AllCPAlbumIDs";
 pub const g_szAllCPAlbumSubGenreIDs: &'static str = "AllCPAlbumSubGenreIDs";

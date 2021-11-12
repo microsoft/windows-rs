@@ -9,5 +9,17 @@ pub const CLSID_SoftwareBitmapNativeFactory: ::windows_sys::core::GUID = ::windo
 };
 #[repr(transparent)]
 pub struct ISoftwareBitmapNative(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISoftwareBitmapNative {}
+impl ::core::clone::Clone for ISoftwareBitmapNative {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISoftwareBitmapNativeFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISoftwareBitmapNativeFactory {}
+impl ::core::clone::Clone for ISoftwareBitmapNativeFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

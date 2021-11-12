@@ -22,5 +22,17 @@ impl ::core::clone::Clone for GRAPHICS_EFFECT_PROPERTY_MAPPING {
 }
 #[repr(transparent)]
 pub struct IGeometrySource2DInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeometrySource2DInterop {}
+impl ::core::clone::Clone for IGeometrySource2DInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphicsEffectD2D1Interop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphicsEffectD2D1Interop {}
+impl ::core::clone::Clone for IGraphicsEffectD2D1Interop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

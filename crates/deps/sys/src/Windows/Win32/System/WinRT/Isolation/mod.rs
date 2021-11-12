@@ -3,3 +3,9 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IIsolatedEnvironmentInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsolatedEnvironmentInterop {}
+impl ::core::clone::Clone for IIsolatedEnvironmentInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

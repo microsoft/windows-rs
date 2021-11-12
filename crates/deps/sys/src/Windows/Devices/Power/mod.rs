@@ -3,11 +3,41 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct Battery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Battery {}
+impl ::core::clone::Clone for Battery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BatteryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for BatteryReport {}
+impl ::core::clone::Clone for BatteryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBattery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBattery {}
+impl ::core::clone::Clone for IBattery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBatteryReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBatteryReport {}
+impl ::core::clone::Clone for IBatteryReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBatteryStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBatteryStatics {}
+impl ::core::clone::Clone for IBatteryStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
