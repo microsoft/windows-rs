@@ -1595,6 +1595,3 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintSchema {}
 unsafe impl ::core::marker::Sync for PrintSchema {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct PrintersContract(pub u8);

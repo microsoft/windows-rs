@@ -1005,9 +1005,6 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUICommandBarElement> for &WebUIComma
 }
 unsafe impl ::core::marker::Send for WebUICommandBarConfirmationButton {}
 unsafe impl ::core::marker::Sync for WebUICommandBarConfirmationButton {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct WebUICommandBarContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebUICommandBarIconButton(pub ::windows::core::IInspectable);

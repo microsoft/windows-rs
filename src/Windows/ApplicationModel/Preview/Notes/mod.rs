@@ -527,6 +527,3 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a N
 }
 unsafe impl ::core::marker::Send for NotesWindowManagerPreviewShowNoteOptions {}
 unsafe impl ::core::marker::Sync for NotesWindowManagerPreviewShowNoteOptions {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct PreviewNotesContract(pub u8);

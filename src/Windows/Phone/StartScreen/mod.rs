@@ -162,9 +162,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a D
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct DualSimTileContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IDualSimTile(pub ::windows::core::IInspectable);

@@ -111,6 +111,3 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::core::marker::Sync for InkWorkspaceHostedAppManager {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct PreviewInkWorkspaceContract(pub u8);

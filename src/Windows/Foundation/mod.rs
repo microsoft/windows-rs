@@ -821,9 +821,6 @@ unsafe impl ::windows::core::RuntimeType for EventRegistrationToken {
 impl ::windows::core::DefaultType for EventRegistrationToken {
     type DefaultType = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct FoundationContract(pub u8);
 pub struct GuidHelper {}
 impl GuidHelper {
     pub fn CreateNewGuid() -> ::windows::core::Result<::windows::core::GUID> {
@@ -3983,9 +3980,6 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
         ((*this).invoke)(&*(&sender as *const <TSender as ::windows::core::Abi>::Abi as *const <TSender as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <TResult as ::windows::core::Abi>::Abi as *const <TResult as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct UniversalApiContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Uri(pub ::windows::core::IInspectable);

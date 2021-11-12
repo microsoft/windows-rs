@@ -3560,9 +3560,6 @@ unsafe impl ::windows::core::RuntimeType for UserInteractionMode {
 impl ::windows::core::DefaultType for UserInteractionMode {
     type DefaultType = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct ViewManagementViewScalingContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ViewModePreferences(pub ::windows::core::IInspectable);

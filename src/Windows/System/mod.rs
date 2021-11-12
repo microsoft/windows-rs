@@ -5649,9 +5649,6 @@ impl ShutdownManager {
 impl ::windows::core::RuntimeName for ShutdownManager {
     const NAME: &'static str = "Windows.System.ShutdownManager";
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct SystemManagementContract(pub u8);
 pub struct TimeZoneSettings {}
 impl TimeZoneSettings {
     pub fn CurrentTimeZoneDisplayName() -> ::windows::core::Result<::windows::core::HSTRING> {

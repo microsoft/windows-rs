@@ -238,9 +238,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameChatOverlay {}
 unsafe impl ::core::marker::Sync for GameChatOverlay {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct GameChatOverlayContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameChatOverlayMessageSource(pub ::windows::core::IInspectable);
@@ -470,9 +467,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 }
 unsafe impl ::core::marker::Send for GameUIProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for GameUIProviderActivatedEventArgs {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct GamingUIProviderContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IGameBarStatics(pub ::windows::core::IInspectable);

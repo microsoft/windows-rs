@@ -72,9 +72,6 @@ impl CommunicationBlockingAppManager {
 impl ::windows::core::RuntimeName for CommunicationBlockingAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAppManager";
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct CommunicationBlockingContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAccessManagerStatics(pub ::windows::core::IInspectable);

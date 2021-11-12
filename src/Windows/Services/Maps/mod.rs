@@ -88,9 +88,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 }
 unsafe impl ::core::marker::Send for EnhancedWaypoint {}
 unsafe impl ::core::marker::Sync for EnhancedWaypoint {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct GuidanceContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IEnhancedWaypoint(pub ::windows::core::IInspectable);
@@ -824,9 +821,6 @@ pub struct IPlaceInfoStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, displayaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, displayaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct LocalSearchContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ManeuverWarning(pub ::windows::core::IInspectable);
