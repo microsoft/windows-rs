@@ -57,14 +57,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct INPUT_INJECTION_VALUE(i32);
+#[repr(C)]
 pub struct INPUT_TRANSFORM(i32);
+#[repr(C)]
 pub struct POINTER_BUTTON_CHANGE_TYPE(i32);
+#[repr(C)]
 pub struct POINTER_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct POINTER_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct POINTER_PEN_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct POINTER_TOUCH_INFO(i32);
+#[repr(C)]
 pub struct TOUCH_FEEDBACK_MODE(i32);

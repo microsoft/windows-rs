@@ -13,4 +13,5 @@ pub struct PlatformTelemetryClient(pub *mut ::core::ffi::c_void);
 pub struct PlatformTelemetryRegistrationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlatformTelemetryRegistrationStatus(i32);

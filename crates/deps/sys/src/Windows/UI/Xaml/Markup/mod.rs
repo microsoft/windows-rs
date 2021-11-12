@@ -43,6 +43,7 @@ pub struct IXamlType2(pub *mut ::core::ffi::c_void);
 pub struct MarkupExtension(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XamlBinaryWriter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XamlBinaryWriterErrorInformation(i32);
 #[repr(transparent)]
 pub struct XamlBindingHelper(pub *mut ::core::ffi::c_void);
@@ -50,4 +51,5 @@ pub struct XamlBindingHelper(pub *mut ::core::ffi::c_void);
 pub struct XamlMarkupHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XamlReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XmlnsDefinition(i32);

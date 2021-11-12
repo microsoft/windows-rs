@@ -61,16 +61,25 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WaitCommEvent(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct CLEAR_COMM_ERROR_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COMMCONFIG(i32);
+#[repr(C)]
 pub struct COMMPROP(i32);
+#[repr(C)]
 pub struct COMMPROP_STOP_PARITY(i32);
+#[repr(C)]
 pub struct COMMTIMEOUTS(i32);
+#[repr(C)]
 pub struct COMM_EVENT_MASK(i32);
+#[repr(C)]
 pub struct COMSTAT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DCB(i32);
+#[repr(C)]
 pub struct ESCAPE_COMM_FUNCTION(i32);
 pub const MAXLENGTH_NAI: u32 = 72u32;
 pub const MAXLENGTH_UICCDATASTORE: u32 = 10u32;
@@ -163,14 +172,23 @@ pub const MDM_X75_DATA_64K: u32 = 1u32;
 pub const MDM_X75_DATA_BTX: u32 = 4u32;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0u32;
 pub const MDM_X75_DATA_T_70: u32 = 3u32;
+#[repr(C)]
 pub struct MODEMDEVCAPS(i32);
+#[repr(C)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(i32);
+#[repr(C)]
 pub struct MODEMDEVCAPS_SPEAKER_MODE(i32);
+#[repr(C)]
 pub struct MODEMDEVCAPS_SPEAKER_VOLUME(i32);
+#[repr(C)]
 pub struct MODEMSETTINGS(i32);
+#[repr(C)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(i32);
+#[repr(C)]
 pub struct MODEM_SPEAKER_VOLUME(i32);
+#[repr(C)]
 pub struct MODEM_STATUS_FLAGS(i32);
+#[repr(C)]
 pub struct PURGE_COMM_FLAGS(i32);
 pub const SID_3GPP_SUPSVCMODEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3620769287,

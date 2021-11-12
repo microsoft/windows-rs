@@ -15,4 +15,5 @@ pub struct IUriToStreamResolver(pub *mut ::core::ffi::c_void);
 pub struct IWebErrorStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebError(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebErrorStatus(i32);

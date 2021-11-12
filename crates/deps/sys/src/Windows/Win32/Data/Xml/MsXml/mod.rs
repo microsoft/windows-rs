@@ -547,15 +547,21 @@ pub const DISPID_XTLRUNTIME_FORMATNUMBER: u32 = 193u32;
 pub const DISPID_XTLRUNTIME_FORMATTIME: u32 = 195u32;
 pub const DISPID_XTLRUNTIME_UNIQUEID: u32 = 187u32;
 pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
+#[repr(C)]
 pub struct DOMDocument(i32);
+#[repr(C)]
 pub struct DOMDocument60(i32);
+#[repr(C)]
 pub struct DOMFreeThreadedDocument(i32);
+#[repr(C)]
 pub struct DOMNodeType(i32);
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
 pub const E_XML_INVALID: i32 = -1072897499i32;
 pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
+#[repr(C)]
 pub struct FreeThreadedDOMDocument60(i32);
+#[repr(C)]
 pub struct FreeThreadedXMLHTTP60(i32);
 #[repr(transparent)]
 pub struct IMXAttributes(pub *mut ::core::ffi::c_void);
@@ -729,43 +735,77 @@ pub struct IXSLProcessor(pub *mut ::core::ffi::c_void);
 pub struct IXSLTemplate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXTLRuntime(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MXHTMLWriter60(i32);
+#[repr(C)]
 pub struct MXNamespaceManager60(i32);
+#[repr(C)]
 pub struct MXXMLWriter60(i32);
+#[repr(C)]
 pub struct SAXAttributes60(i32);
+#[repr(C)]
 pub struct SAXXMLReader60(i32);
+#[repr(C)]
 pub struct SCHEMACONTENTTYPE(i32);
+#[repr(C)]
 pub struct SCHEMADERIVATIONMETHOD(i32);
+#[repr(C)]
 pub struct SCHEMAPROCESSCONTENTS(i32);
+#[repr(C)]
 pub struct SCHEMATYPEVARIETY(i32);
+#[repr(C)]
 pub struct SCHEMAUSE(i32);
+#[repr(C)]
 pub struct SCHEMAWHITESPACE(i32);
+#[repr(C)]
 pub struct SERVERXMLHTTP_OPTION(i32);
+#[repr(C)]
 pub struct SOMITEMTYPE(i32);
+#[repr(C)]
 pub struct SXH_PROXY_SETTING(i32);
+#[repr(C)]
 pub struct SXH_SERVER_CERT_OPTION(i32);
+#[repr(C)]
 pub struct ServerXMLHTTP60(i32);
+#[repr(C)]
 pub struct XHR_AUTH(i32);
+#[repr(C)]
 pub struct XHR_CERT(i32);
+#[repr(C)]
 pub struct XHR_CERT_ERROR_FLAG(i32);
+#[repr(C)]
 pub struct XHR_CERT_IGNORE_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct XHR_COOKIE(i32);
+#[repr(C)]
 pub struct XHR_COOKIE_FLAG(i32);
+#[repr(C)]
 pub struct XHR_COOKIE_STATE(i32);
+#[repr(C)]
 pub struct XHR_CRED_PROMPT(i32);
+#[repr(C)]
 pub struct XHR_PROPERTY(i32);
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
 #[repr(transparent)]
 pub struct XMLDOMDocumentEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XMLDSOControl(i32);
+#[repr(C)]
 pub struct XMLDocument(i32);
+#[repr(C)]
 pub struct XMLEMEM_TYPE(i32);
+#[repr(C)]
 pub struct XMLHTTP60(i32);
+#[repr(C)]
 pub struct XMLHTTPRequest(i32);
+#[repr(C)]
 pub struct XMLSchemaCache60(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct XML_ERROR(i32);
+#[repr(C)]
 pub struct XSLTemplate60(i32);
+#[repr(C)]
 pub struct __msxml6_ReferenceRemainingTypes__(i32);

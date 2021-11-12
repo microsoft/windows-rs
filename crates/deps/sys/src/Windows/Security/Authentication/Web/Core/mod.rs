@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct FindAllAccountsResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FindAllWebAccountsStatus(i32);
 #[repr(transparent)]
 pub struct IFindAllAccountsResult(pub *mut ::core::ffi::c_void);
@@ -48,9 +49,11 @@ pub struct WebAuthenticationCoreManager(pub *mut ::core::ffi::c_void);
 pub struct WebProviderError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebTokenRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebTokenRequestPromptType(i32);
 #[repr(transparent)]
 pub struct WebTokenRequestResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebTokenRequestStatus(i32);
 #[repr(transparent)]
 pub struct WebTokenResponse(pub *mut ::core::ffi::c_void);

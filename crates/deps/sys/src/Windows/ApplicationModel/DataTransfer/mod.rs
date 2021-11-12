@@ -15,9 +15,11 @@ pub struct ClipboardHistoryChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ClipboardHistoryItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ClipboardHistoryItemsResultStatus(i32);
 #[repr(transparent)]
 pub struct DataPackage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DataPackageOperation(i32);
 #[repr(transparent)]
 pub struct DataPackagePropertySet(pub *mut ::core::ffi::c_void);
@@ -139,6 +141,7 @@ pub struct IStandardDataFormatsStatics3(pub *mut ::core::ffi::c_void);
 pub struct ITargetApplicationChosenEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OperationCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SetHistoryItemAsContentStatus(i32);
 #[repr(transparent)]
 pub struct ShareCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -154,6 +157,7 @@ pub struct ShareProvidersRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ShareTargetInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ShareUIOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ShareUITheme(i32);
 #[repr(transparent)]
 pub struct SharedStorageAccessManager(pub *mut ::core::ffi::c_void);

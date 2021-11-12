@@ -15,6 +15,7 @@ pub struct BarcodeScannerErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BarcodeScannerReport(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BarcodeScannerStatus(i32);
 #[repr(transparent)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -22,6 +23,7 @@ pub struct BarcodeScannerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct BarcodeSymbologies(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BarcodeSymbologyAttributes(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BarcodeSymbologyDecodeLengthKind(i32);
 #[repr(transparent)]
 pub struct CashDrawer(pub *mut ::core::ffi::c_void);
@@ -37,6 +39,7 @@ pub struct CashDrawerEventSource(pub *mut ::core::ffi::c_void);
 pub struct CashDrawerOpenedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CashDrawerStatus(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CashDrawerStatusKind(i32);
 #[repr(transparent)]
 pub struct CashDrawerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -288,15 +291,21 @@ pub struct LineDisplayCapabilities(pub *mut ::core::ffi::c_void);
 pub struct LineDisplayCursor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LineDisplayCursorAttributes(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LineDisplayCursorType(i32);
 #[repr(transparent)]
 pub struct LineDisplayCustomGlyphs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LineDisplayDescriptorState(i32);
+#[repr(C)]
 pub struct LineDisplayHorizontalAlignment(i32);
 #[repr(transparent)]
 pub struct LineDisplayMarquee(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LineDisplayMarqueeFormat(i32);
+#[repr(C)]
 pub struct LineDisplayPowerStatus(i32);
+#[repr(C)]
 pub struct LineDisplayScrollDirection(i32);
 #[repr(transparent)]
 pub struct LineDisplayStatisticsCategorySelector(pub *mut ::core::ffi::c_void);
@@ -304,8 +313,11 @@ pub struct LineDisplayStatisticsCategorySelector(pub *mut ::core::ffi::c_void);
 pub struct LineDisplayStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LineDisplayStoredBitmap(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LineDisplayTextAttribute(i32);
+#[repr(C)]
 pub struct LineDisplayTextAttributeGranularity(i32);
+#[repr(C)]
 pub struct LineDisplayVerticalAlignment(i32);
 #[repr(transparent)]
 pub struct LineDisplayWindow(pub *mut ::core::ffi::c_void);
@@ -313,7 +325,9 @@ pub struct LineDisplayWindow(pub *mut ::core::ffi::c_void);
 pub struct MagneticStripeReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MagneticStripeReaderAuthenticationLevel(i32);
+#[repr(C)]
 pub struct MagneticStripeReaderAuthenticationProtocol(i32);
 #[repr(transparent)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -325,46 +339,65 @@ pub struct MagneticStripeReaderCardTypes(pub *mut ::core::ffi::c_void);
 pub struct MagneticStripeReaderEncryptionAlgorithms(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MagneticStripeReaderErrorReportingType(i32);
 #[repr(transparent)]
 pub struct MagneticStripeReaderReport(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MagneticStripeReaderStatus(i32);
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackData(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MagneticStripeReaderTrackErrorType(i32);
+#[repr(C)]
 pub struct MagneticStripeReaderTrackIds(i32);
 #[repr(transparent)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosConnectionTypes(i32);
 #[repr(transparent)]
 pub struct PosPrinter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosPrinterAlignment(i32);
+#[repr(C)]
 pub struct PosPrinterBarcodeTextPosition(i32);
 #[repr(transparent)]
 pub struct PosPrinterCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosPrinterCartridgeSensors(i32);
 #[repr(transparent)]
 pub struct PosPrinterCharacterSetIds(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosPrinterColorCapabilities(i32);
+#[repr(C)]
 pub struct PosPrinterColorCartridge(i32);
 #[repr(transparent)]
 pub struct PosPrinterFontProperty(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosPrinterLineDirection(i32);
+#[repr(C)]
 pub struct PosPrinterLineStyle(i32);
+#[repr(C)]
 pub struct PosPrinterMapMode(i32);
+#[repr(C)]
 pub struct PosPrinterMarkFeedCapabilities(i32);
+#[repr(C)]
 pub struct PosPrinterMarkFeedKind(i32);
 #[repr(transparent)]
 pub struct PosPrinterPrintOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosPrinterPrintSide(i32);
 #[repr(transparent)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosPrinterRotation(i32);
+#[repr(C)]
 pub struct PosPrinterRuledLineCapabilities(i32);
 #[repr(transparent)]
 pub struct PosPrinterStatus(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PosPrinterStatusKind(i32);
 #[repr(transparent)]
 pub struct PosPrinterStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -372,6 +405,7 @@ pub struct PosPrinterStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ReceiptPrintJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ReceiptPrinterCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SizeUInt32(i32);
 #[repr(transparent)]
 pub struct SlipPrintJob(pub *mut ::core::ffi::c_void);
@@ -379,7 +413,11 @@ pub struct SlipPrintJob(pub *mut ::core::ffi::c_void);
 pub struct SlipPrinterCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UnifiedPosErrorData(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UnifiedPosErrorReason(i32);
+#[repr(C)]
 pub struct UnifiedPosErrorSeverity(i32);
+#[repr(C)]
 pub struct UnifiedPosHealthCheckLevel(i32);
+#[repr(C)]
 pub struct UnifiedPosPowerReportingType(i32);

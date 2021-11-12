@@ -13,7 +13,9 @@ pub struct IUICommand(pub *mut ::core::ffi::c_void);
 pub struct IUICommandFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MessageDialog(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MessageDialogOptions(i32);
+#[repr(C)]
 pub struct Placement(i32);
 #[repr(transparent)]
 pub struct PopupMenu(pub *mut ::core::ffi::c_void);

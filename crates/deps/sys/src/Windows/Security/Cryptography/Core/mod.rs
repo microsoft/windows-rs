@@ -5,6 +5,7 @@ extern "system" {}
 pub struct AsymmetricAlgorithmNames(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AsymmetricKeyAlgorithmProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Capi1KdfTargetAlgorithm(i32);
 #[repr(transparent)]
 pub struct CryptographicEngine(pub *mut ::core::ffi::c_void);
@@ -12,8 +13,11 @@ pub struct CryptographicEngine(pub *mut ::core::ffi::c_void);
 pub struct CryptographicHash(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CryptographicKey(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CryptographicPadding(i32);
+#[repr(C)]
 pub struct CryptographicPrivateKeyBlobType(i32);
+#[repr(C)]
 pub struct CryptographicPublicKeyBlobType(i32);
 #[repr(transparent)]
 pub struct EccCurveNames(pub *mut ::core::ffi::c_void);

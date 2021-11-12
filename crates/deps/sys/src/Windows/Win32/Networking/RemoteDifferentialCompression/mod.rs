@@ -1,8 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct FindSimilarFileIndexResults(i32);
+#[repr(C)]
 pub struct FindSimilarResults(i32);
+#[repr(C)]
 pub struct GeneratorParametersType(i32);
 #[repr(transparent)]
 pub struct IFindSimilarResults(pub *mut ::core::ffi::c_void);
@@ -60,33 +63,61 @@ pub const MSRDC_SIGNATURE_HASHSIZE: u32 = 16u32;
 pub const MSRDC_VERSION: u32 = 65536u32;
 pub const RDCE_TABLE_CORRUPT: u32 = 2147745794u32;
 pub const RDCE_TABLE_FULL: u32 = 2147745793u32;
+#[repr(C)]
 pub struct RDC_ErrorCode(i32);
+#[repr(C)]
 pub struct RdcBufferPointer(i32);
+#[repr(C)]
 pub struct RdcComparator(i32);
+#[repr(C)]
 pub struct RdcCreatedTables(i32);
+#[repr(C)]
 pub struct RdcFileReader(i32);
+#[repr(C)]
 pub struct RdcGenerator(i32);
+#[repr(C)]
 pub struct RdcGeneratorFilterMaxParameters(i32);
+#[repr(C)]
 pub struct RdcGeneratorParameters(i32);
+#[repr(C)]
 pub struct RdcLibrary(i32);
+#[repr(C)]
 pub struct RdcMappingAccessMode(i32);
+#[repr(C)]
 pub struct RdcNeed(i32);
+#[repr(C)]
 pub struct RdcNeedPointer(i32);
+#[repr(C)]
 pub struct RdcNeedType(i32);
+#[repr(C)]
 pub struct RdcSignature(i32);
+#[repr(C)]
 pub struct RdcSignaturePointer(i32);
+#[repr(C)]
 pub struct RdcSignatureReader(i32);
+#[repr(C)]
 pub struct RdcSimilarityGenerator(i32);
+#[repr(C)]
 pub struct Similarity(i32);
+#[repr(C)]
 pub struct SimilarityData(i32);
+#[repr(C)]
 pub struct SimilarityDumpData(i32);
+#[repr(C)]
 pub struct SimilarityFileId(i32);
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
 pub const SimilarityFileIdMinSize: u32 = 4u32;
+#[repr(C)]
 pub struct SimilarityFileIdTable(i32);
+#[repr(C)]
 pub struct SimilarityMappedViewInfo(i32);
+#[repr(C)]
 pub struct SimilarityReportProgress(i32);
+#[repr(C)]
 pub struct SimilarityTableDumpState(i32);
+#[repr(C)]
 pub struct SimilarityTraitsMappedView(i32);
+#[repr(C)]
 pub struct SimilarityTraitsMapping(i32);
+#[repr(C)]
 pub struct SimilarityTraitsTable(i32);

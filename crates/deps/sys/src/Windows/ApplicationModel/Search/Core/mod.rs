@@ -11,9 +11,11 @@ pub struct ISearchSuggestionManager(pub *mut ::core::ffi::c_void);
 pub struct ISearchSuggestionsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SearchCoreContract(i32);
 #[repr(transparent)]
 pub struct SearchSuggestion(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SearchSuggestionKind(i32);
 #[repr(transparent)]
 pub struct SearchSuggestionManager(pub *mut ::core::ffi::c_void);

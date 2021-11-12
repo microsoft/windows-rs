@@ -235,23 +235,34 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SCardWriteCacheW(hcontext: usize, cardidentifier: *const ::windows_sys::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
 }
+#[repr(C)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO(i32);
+#[repr(C)]
 pub struct CERT_CREDENTIAL_INFO(i32);
 pub const CERT_HASH_LENGTH: u32 = 20u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREDENTIALA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREDENTIALW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREDENTIAL_ATTRIBUTEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREDENTIAL_ATTRIBUTEW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW(i32);
+#[repr(C)]
 pub struct CREDSPP_SUBMIT_TYPE(i32);
+#[repr(C)]
 pub struct CREDSSP_CRED(i32);
+#[repr(C)]
 pub struct CREDSSP_CRED_EX(i32);
 pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
 pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
@@ -259,21 +270,28 @@ pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
 pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
 pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
 pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
+#[repr(C)]
 pub struct CREDUIWIN_FLAGS(i32);
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
+#[repr(C)]
 pub struct CREDUI_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct CREDUI_INFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct CREDUI_INFOW(i32);
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
 pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
+#[repr(C)]
 pub struct CRED_ENUMERATE_FLAGS(i32);
+#[repr(C)]
 pub struct CRED_FLAGS(i32);
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
+#[repr(C)]
 pub struct CRED_MARSHAL_TYPE(i32);
 pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
 pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
@@ -281,9 +299,12 @@ pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
 pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
 pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
+#[repr(C)]
 pub struct CRED_PACK_FLAGS(i32);
+#[repr(C)]
 pub struct CRED_PERSIST(i32);
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
+#[repr(C)]
 pub struct CRED_PROTECTION_TYPE(i32);
 pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
 pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
@@ -295,36 +316,54 @@ pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1u32;
 pub const CRED_TI_USERNAME_TARGET: u32 = 8u32;
 pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
 pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
+#[repr(C)]
 pub struct CRED_TYPE(i32);
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1356681776, data2: 47754, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
+#[repr(C)]
 pub struct KeyCredentialManagerInfo(i32);
+#[repr(C)]
 pub struct KeyCredentialManagerOperationErrorStates(i32);
+#[repr(C)]
 pub struct KeyCredentialManagerOperationType(i32);
+#[repr(C)]
 pub struct LPOCNCHKPROC(i32);
+#[repr(C)]
 pub struct LPOCNCONNPROCA(i32);
+#[repr(C)]
 pub struct LPOCNCONNPROCW(i32);
+#[repr(C)]
 pub struct LPOCNDSCPROC(i32);
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENCARDNAMEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENCARDNAMEW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OPENCARDNAME_EXA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OPENCARDNAME_EXW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENCARD_SEARCH_CRITERIAA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENCARD_SEARCH_CRITERIAW(i32);
+#[repr(C)]
 pub struct READER_SEL_REQUEST(i32);
+#[repr(C)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(i32);
+#[repr(C)]
 pub struct READER_SEL_RESPONSE(i32);
 pub const SCARD_ABSENT: u32 = 1u32;
+#[repr(C)]
 pub struct SCARD_ATRMASK(i32);
 pub const SCARD_ATR_LENGTH: u32 = 33u32;
 pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
@@ -342,6 +381,7 @@ pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7u32;
 pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
 pub const SCARD_COLD_RESET: u32 = 1u32;
 pub const SCARD_EJECT_CARD: u32 = 3u32;
+#[repr(C)]
 pub struct SCARD_IO_REQUEST(i32);
 pub const SCARD_LEAVE_CARD: u32 = 0u32;
 pub const SCARD_NEGOTIABLE: u32 = 5u32;
@@ -358,8 +398,10 @@ pub const SCARD_PROVIDER_CSP: u32 = 2u32;
 pub const SCARD_PROVIDER_KSP: u32 = 3u32;
 pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCARD_READERSTATEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCARD_READERSTATEW(i32);
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
 pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
@@ -379,23 +421,28 @@ pub const SCARD_READER_TYPE_UICC: u32 = 512u32;
 pub const SCARD_READER_TYPE_USB: u32 = 32u32;
 pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
 pub const SCARD_RESET_CARD: u32 = 1u32;
+#[repr(C)]
 pub struct SCARD_SCOPE(i32);
 pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
 pub const SCARD_SHARE_DIRECT: u32 = 3u32;
 pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
 pub const SCARD_SHARE_SHARED: u32 = 2u32;
 pub const SCARD_SPECIFIC: u32 = 6u32;
+#[repr(C)]
 pub struct SCARD_STATE(i32);
 pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
 pub const SCARD_SWALLOWED: u32 = 3u32;
 pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
+#[repr(C)]
 pub struct SCARD_T0_COMMAND(i32);
 pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
+#[repr(C)]
 pub struct SCARD_T0_REQUEST(i32);
 pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
 pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
 pub const SCARD_T1_MAX_IFS: u32 = 254u32;
 pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
+#[repr(C)]
 pub struct SCARD_T1_REQUEST(i32);
 pub const SCARD_UNKNOWN: u32 = 0u32;
 pub const SCARD_UNPOWER_CARD: u32 = 2u32;
@@ -435,7 +482,10 @@ pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = super::s
 pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741276i32 as _);
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741718i32 as _);
+#[repr(C)]
 pub struct SecHandle(i32);
+#[repr(C)]
 pub struct SecPkgContext_ClientCreds(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO(i32);

@@ -3,12 +3,17 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct AsyncCausalityTracer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CausalityRelation(i32);
+#[repr(C)]
 pub struct CausalitySource(i32);
+#[repr(C)]
 pub struct CausalitySynchronousWork(i32);
+#[repr(C)]
 pub struct CausalityTraceLevel(i32);
 #[repr(transparent)]
 pub struct ErrorDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ErrorOptions(i32);
 #[repr(transparent)]
 pub struct FileLoggingSession(pub *mut ::core::ffi::c_void);
@@ -66,10 +71,13 @@ pub struct LoggingActivity(pub *mut ::core::ffi::c_void);
 pub struct LoggingChannel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LoggingChannelOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LoggingFieldFormat(i32);
 #[repr(transparent)]
 pub struct LoggingFields(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LoggingLevel(i32);
+#[repr(C)]
 pub struct LoggingOpcode(i32);
 #[repr(transparent)]
 pub struct LoggingOptions(pub *mut ::core::ffi::c_void);

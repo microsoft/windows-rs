@@ -15,7 +15,9 @@ pub struct IUserDataAccountProviderSettingsOperation(pub *mut ::core::ffi::c_voi
 pub struct UserDataAccountPartnerAccountInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataAccountProviderAddAccountOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataAccountProviderOperationKind(i32);
+#[repr(C)]
 pub struct UserDataAccountProviderPartnerAccountKind(i32);
 #[repr(transparent)]
 pub struct UserDataAccountProviderResolveErrorsOperation(pub *mut ::core::ffi::c_void);

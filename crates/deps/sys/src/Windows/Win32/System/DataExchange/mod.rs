@@ -142,23 +142,37 @@ pub const APPCLASS_MASK: i32 = 15i32;
 pub const APPCMD_MASK: i32 = 4080i32;
 pub const CADV_LATEACK: u32 = 65535u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct CONVCONTEXT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct CONVINFO(i32);
+#[repr(C)]
 pub struct CONVINFO_CONVERSATION_STATE(i32);
+#[repr(C)]
 pub struct CONVINFO_STATUS(i32);
+#[repr(C)]
 pub struct COPYDATASTRUCT(i32);
 pub const CP_WINANSI: i32 = 1004i32;
 pub const CP_WINNEUTRAL: i32 = 1200i32;
 pub const CP_WINUNICODE: i32 = 1200i32;
+#[repr(C)]
 pub struct DDEACK(i32);
+#[repr(C)]
 pub struct DDEADVISE(i32);
+#[repr(C)]
 pub struct DDEDATA(i32);
+#[repr(C)]
 pub struct DDELN(i32);
+#[repr(C)]
 pub struct DDEML_MSG_HOOK_DATA(i32);
+#[repr(C)]
 pub struct DDEPOKE(i32);
+#[repr(C)]
 pub struct DDEUP(i32);
+#[repr(C)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(i32);
+#[repr(C)]
 pub struct DDE_ENABLE_CALLBACK_CMD(i32);
 pub const DDE_FACK: u32 = 32768u32;
 pub const DDE_FACKREQ: u32 = 32768u32;
@@ -168,7 +182,9 @@ pub const DDE_FDEFERUPD: u32 = 16384u32;
 pub const DDE_FNOTPROCESSED: u32 = 0u32;
 pub const DDE_FRELEASE: u32 = 8192u32;
 pub const DDE_FREQUESTED: u32 = 4096u32;
+#[repr(C)]
 pub struct DDE_INITIALIZE_COMMAND(i32);
+#[repr(C)]
 pub struct DDE_NAME_SERVICE_CMD(i32);
 pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
 pub const DMLERR_BUSY: u32 = 16385u32;
@@ -191,14 +207,20 @@ pub const DMLERR_SERVER_DIED: u32 = 16398u32;
 pub const DMLERR_SYS_ERROR: u32 = 16399u32;
 pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
+#[repr(C)]
 pub struct HCONV(i32);
+#[repr(C)]
 pub struct HCONVLIST(i32);
 pub const HDATA_APPOWNED: u32 = 1u32;
+#[repr(C)]
 pub struct HDDEDATA(i32);
+#[repr(C)]
 pub struct HSZ(i32);
+#[repr(C)]
 pub struct HSZPAIR(i32);
 pub const MAX_MONITORS: u32 = 4u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct METAFILEPICT(i32);
 pub const MF_MASK: u32 = 4278190080u32;
 pub const MH_CLEANUP: u32 = 4u32;
@@ -206,20 +228,28 @@ pub const MH_CREATE: u32 = 1u32;
 pub const MH_DELETE: u32 = 3u32;
 pub const MH_KEEP: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct MONCBSTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONCONVSTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONERRSTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONHSZSTRUCTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONHSZSTRUCTW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONLINKSTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONMSGSTRUCT(i32);
 pub const MSGF_DDEMGR: u32 = 32769u32;
+#[repr(C)]
 pub struct PFNCALLBACK(i32);
 pub const QID_SYNC: u32 = 4294967295u32;
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;

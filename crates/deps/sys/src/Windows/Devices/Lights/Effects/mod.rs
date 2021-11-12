@@ -41,10 +41,13 @@ pub struct LampArrayBlinkEffect(pub *mut ::core::ffi::c_void);
 pub struct LampArrayColorRampEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampArrayCustomEffect(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LampArrayEffectCompletionBehavior(i32);
 #[repr(transparent)]
 pub struct LampArrayEffectPlaylist(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LampArrayEffectStartMode(i32);
+#[repr(C)]
 pub struct LampArrayRepetitionMode(i32);
 #[repr(transparent)]
 pub struct LampArraySolidEffect(pub *mut ::core::ffi::c_void);

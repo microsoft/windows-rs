@@ -3,11 +3,13 @@
 pub mod Management;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AdaptiveNotificationContentKind(i32);
 #[repr(transparent)]
 pub struct AdaptiveNotificationText(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BadgeNotification(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BadgeTemplateType(i32);
 #[repr(transparent)]
 pub struct BadgeUpdateManager(pub *mut ::core::ffi::c_void);
@@ -157,12 +159,17 @@ pub struct Notification(pub *mut ::core::ffi::c_void);
 pub struct NotificationBinding(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NotificationData(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NotificationKinds(i32);
+#[repr(C)]
 pub struct NotificationMirroring(i32);
+#[repr(C)]
 pub struct NotificationSetting(i32);
+#[repr(C)]
 pub struct NotificationUpdateResult(i32);
 #[repr(transparent)]
 pub struct NotificationVisual(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PeriodicUpdateRecurrence(i32);
 #[repr(transparent)]
 pub struct ScheduledTileNotification(pub *mut ::core::ffi::c_void);
@@ -174,6 +181,7 @@ pub struct ScheduledToastNotificationShowingEventArgs(pub *mut ::core::ffi::c_vo
 pub struct ShownTileNotification(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TileFlyoutNotification(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TileFlyoutTemplateType(i32);
 #[repr(transparent)]
 pub struct TileFlyoutUpdateManager(pub *mut ::core::ffi::c_void);
@@ -181,6 +189,7 @@ pub struct TileFlyoutUpdateManager(pub *mut ::core::ffi::c_void);
 pub struct TileFlyoutUpdater(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TileNotification(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TileTemplateType(i32);
 #[repr(transparent)]
 pub struct TileUpdateManager(pub *mut ::core::ffi::c_void);
@@ -194,11 +203,13 @@ pub struct ToastActivatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ToastCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ToastCollectionManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ToastDismissalReason(i32);
 #[repr(transparent)]
 pub struct ToastDismissedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ToastFailedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ToastHistoryChangedType(i32);
 #[repr(transparent)]
 pub struct ToastNotification(pub *mut ::core::ffi::c_void);
@@ -212,12 +223,15 @@ pub struct ToastNotificationHistoryChangedTriggerDetail(pub *mut ::core::ffi::c_
 pub struct ToastNotificationManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ToastNotificationManagerForUser(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ToastNotificationPriority(i32);
 #[repr(transparent)]
 pub struct ToastNotifier(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ToastTemplateType(i32);
 #[repr(transparent)]
 pub struct UserNotification(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserNotificationChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserNotificationChangedKind(i32);

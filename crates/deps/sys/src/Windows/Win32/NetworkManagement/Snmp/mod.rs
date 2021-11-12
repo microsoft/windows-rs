@@ -125,9 +125,12 @@ pub const ASN_PRIMITIVE: u32 = 0u32;
 pub const ASN_PRIVATE: u32 = 192u32;
 pub const ASN_UNIVERSAL: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AsnAny(i32);
+#[repr(C)]
 pub struct AsnObjectIdentifier(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AsnOctetString(i32);
 pub const DEFAULT_SNMPTRAP_PORT_IPX: u32 = 36880u32;
 pub const DEFAULT_SNMPTRAP_PORT_UDP: u32 = 162u32;
@@ -137,16 +140,26 @@ pub const MAXOBJIDSIZE: u32 = 128u32;
 pub const MAXOBJIDSTRSIZE: u32 = 1408u32;
 pub const MAXVENDORINFO: u32 = 32u32;
 pub const MGMCTL_SETAGENTPORT: u32 = 1u32;
+#[repr(C)]
 pub struct PFNSNMPCLEANUPEX(i32);
+#[repr(C)]
 pub struct PFNSNMPEXTENSIONCLOSE(i32);
+#[repr(C)]
 pub struct PFNSNMPEXTENSIONINIT(i32);
+#[repr(C)]
 pub struct PFNSNMPEXTENSIONINITEX(i32);
+#[repr(C)]
 pub struct PFNSNMPEXTENSIONMONITOR(i32);
+#[repr(C)]
 pub struct PFNSNMPEXTENSIONQUERY(i32);
+#[repr(C)]
 pub struct PFNSNMPEXTENSIONQUERYEX(i32);
+#[repr(C)]
 pub struct PFNSNMPEXTENSIONTRAP(i32);
+#[repr(C)]
 pub struct PFNSNMPSTARTUPEX(i32);
 pub const SNMPAPI_ALLOC_ERROR: u32 = 2u32;
+#[repr(C)]
 pub struct SNMPAPI_CALLBACK(i32);
 pub const SNMPAPI_CONTEXT_INVALID: u32 = 3u32;
 pub const SNMPAPI_CONTEXT_UNKNOWN: u32 = 4u32;
@@ -193,6 +206,7 @@ pub const SNMP_ACCESS_NOTIFY: u32 = 1u32;
 pub const SNMP_ACCESS_READ_CREATE: u32 = 4u32;
 pub const SNMP_ACCESS_READ_ONLY: u32 = 2u32;
 pub const SNMP_ACCESS_READ_WRITE: u32 = 3u32;
+#[repr(C)]
 pub struct SNMP_API_TRANSLATE_MODE(i32);
 pub const SNMP_AUTHAPI_INVALID_MSG_TYPE: u32 = 31u32;
 pub const SNMP_AUTHAPI_INVALID_VERSION: u32 = 30u32;
@@ -202,10 +216,15 @@ pub const SNMP_BERAPI_INVALID_OBJELEM: u32 = 14u32;
 pub const SNMP_BERAPI_INVALID_TAG: u32 = 11u32;
 pub const SNMP_BERAPI_OVERFLOW: u32 = 12u32;
 pub const SNMP_BERAPI_SHORT_BUFFER: u32 = 13u32;
+#[repr(C)]
 pub struct SNMP_ERROR(i32);
+#[repr(C)]
 pub struct SNMP_ERROR_STATUS(i32);
+#[repr(C)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(i32);
+#[repr(C)]
 pub struct SNMP_GENERICTRAP(i32);
+#[repr(C)]
 pub struct SNMP_LOG(i32);
 pub const SNMP_MAX_OID_LEN: u32 = 128u32;
 pub const SNMP_MEM_ALLOC_ERROR: u32 = 1u32;
@@ -218,12 +237,15 @@ pub const SNMP_MGMTAPI_SELECT_FDERRORS: u32 = 41u32;
 pub const SNMP_MGMTAPI_TIMEOUT: u32 = 40u32;
 pub const SNMP_MGMTAPI_TRAP_DUPINIT: u32 = 43u32;
 pub const SNMP_MGMTAPI_TRAP_ERRORS: u32 = 42u32;
+#[repr(C)]
 pub struct SNMP_OUTPUT_LOG_TYPE(i32);
 pub const SNMP_OUTPUT_TO_EVENTLOG: u32 = 4u32;
 pub const SNMP_PDUAPI_INVALID_ES: u32 = 21u32;
 pub const SNMP_PDUAPI_INVALID_GT: u32 = 22u32;
 pub const SNMP_PDUAPI_UNRECOGNIZED_PDU: u32 = 20u32;
+#[repr(C)]
 pub struct SNMP_PDU_TYPE(i32);
+#[repr(C)]
 pub struct SNMP_STATUS(i32);
 pub const SNMP_TRAP_AUTHFAIL: u32 = 4u32;
 pub const SNMP_TRAP_COLDSTART: u32 = 0u32;
@@ -233,12 +255,19 @@ pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SnmpVarBind(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SnmpVarBindList(i32);
+#[repr(C)]
 pub struct smiCNTR64(i32);
+#[repr(C)]
 pub struct smiOCTETS(i32);
+#[repr(C)]
 pub struct smiOID(i32);
+#[repr(C)]
 pub struct smiVALUE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct smiVENDORINFO(i32);

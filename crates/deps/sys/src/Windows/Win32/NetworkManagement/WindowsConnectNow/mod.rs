@@ -26,8 +26,10 @@ pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 32u32,
 };
 pub const SID_WcnProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3238051530, data2: 54074, data3: 19019, data4: [191, 35, 187, 239, 70, 99, 208, 23] };
+#[repr(C)]
 pub struct WCNDeviceObject(i32);
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
+#[repr(C)]
 pub struct WCN_ATTRIBUTE_TYPE(i32);
 pub const WCN_E_AUTHENTICATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147206142i32 as _);
 pub const WCN_E_CONNECTION_REJECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147206141i32 as _);
@@ -39,7 +41,9 @@ pub const WCN_FLAG_DISCOVERY_VE: u32 = 1u32;
 pub const WCN_FLAG_ENCRYPTED_VE: u32 = 4u32;
 pub const WCN_MICROSOFT_VENDOR_ID: u32 = 311u32;
 pub const WCN_NO_SUBTYPE: u32 = 4294967294u32;
+#[repr(C)]
 pub struct WCN_PASSWORD_TYPE(i32);
+#[repr(C)]
 pub struct WCN_SESSION_STATUS(i32);
 pub const WCN_VALUE_DT_CATEGORY_AUDIO_DEVICE: u32 = 11u32;
 pub const WCN_VALUE_DT_CATEGORY_CAMERA: u32 = 4u32;
@@ -113,19 +117,35 @@ pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_DUALMODE: u32 = 5u32;
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_SINGLEMODE: u32 = 4u32;
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__WINDOWS_MOBILE: u32 = 1u32;
 pub const WCN_VALUE_DT_SUBTYPE_WIFI_OUI: u32 = 5304836u32;
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_BOOLEAN(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_CONFIG_METHODS(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_REQUEST_TYPE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_RF_BANDS(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_VERSION(i32);
+#[repr(C)]
 pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(i32);
+#[repr(C)]
 pub struct WCN_VENDOR_EXTENSION_SPEC(i32);

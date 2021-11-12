@@ -115,20 +115,25 @@ pub struct IVpnTrafficFilterAssignment(pub *mut ::core::ffi::c_void);
 pub struct IVpnTrafficFilterFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnAppId(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnAppIdType(i32);
+#[repr(C)]
 pub struct VpnAuthenticationMethod(i32);
 #[repr(transparent)]
 pub struct VpnChannel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnChannelActivityEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnChannelActivityEventType(i32);
 #[repr(transparent)]
 pub struct VpnChannelActivityStateChangedArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnChannelConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnChannelRequestCredentialsOptions(i32);
 #[repr(transparent)]
 pub struct VpnCredential(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnCredentialType(i32);
 #[repr(transparent)]
 pub struct VpnCustomCheckBox(pub *mut ::core::ffi::c_void);
@@ -148,22 +153,27 @@ pub struct VpnCustomPromptText(pub *mut ::core::ffi::c_void);
 pub struct VpnCustomPromptTextInput(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnCustomTextBox(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnDataPathType(i32);
 #[repr(transparent)]
 pub struct VpnDomainNameAssignment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnDomainNameInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnDomainNameType(i32);
 #[repr(transparent)]
 pub struct VpnForegroundActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnForegroundActivationOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnIPProtocol(i32);
 #[repr(transparent)]
 pub struct VpnInterfaceId(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnManagementAgent(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnManagementConnectionStatus(i32);
+#[repr(C)]
 pub struct VpnManagementErrorStatus(i32);
 #[repr(transparent)]
 pub struct VpnNamespaceAssignment(pub *mut ::core::ffi::c_void);
@@ -171,11 +181,13 @@ pub struct VpnNamespaceAssignment(pub *mut ::core::ffi::c_void);
 pub struct VpnNamespaceInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnNativeProfile(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnNativeProtocolType(i32);
 #[repr(transparent)]
 pub struct VpnPacketBuffer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnPacketBufferList(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnPacketBufferStatus(i32);
 #[repr(transparent)]
 pub struct VpnPickedCredential(pub *mut ::core::ffi::c_void);
@@ -185,6 +197,7 @@ pub struct VpnPlugInProfile(pub *mut ::core::ffi::c_void);
 pub struct VpnRoute(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VpnRouteAssignment(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VpnRoutingPolicyType(i32);
 #[repr(transparent)]
 pub struct VpnSystemHealth(pub *mut ::core::ffi::c_void);

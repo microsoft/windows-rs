@@ -23,7 +23,9 @@ extern "system" {
     pub fn PTQuerySchemaVersionSupport(pszprintername: super::super::super::Foundation::PWSTR, pmaxversion: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct EDefaultDevmodeType(i32);
+#[repr(C)]
 pub struct EPrintTicketScope(i32);
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;

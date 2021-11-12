@@ -22,18 +22,28 @@ extern "system" {
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
+#[repr(C)]
 pub struct RM_APP_STATUS(i32);
+#[repr(C)]
 pub struct RM_APP_TYPE(i32);
+#[repr(C)]
 pub struct RM_FILTER_ACTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RM_FILTER_INFO(i32);
+#[repr(C)]
 pub struct RM_FILTER_TRIGGER(i32);
 pub const RM_INVALID_PROCESS: i32 = -1i32;
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RM_PROCESS_INFO(i32);
+#[repr(C)]
 pub struct RM_REBOOT_REASON(i32);
+#[repr(C)]
 pub struct RM_SHUTDOWN_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RM_UNIQUE_PROCESS(i32);
+#[repr(C)]
 pub struct RM_WRITE_STATUS_CALLBACK(i32);

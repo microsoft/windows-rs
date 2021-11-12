@@ -1,9 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct BackgroundDownloadProgress(i32);
 #[repr(transparent)]
 pub struct BackgroundDownloader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundTransferBehavior(i32);
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
@@ -11,16 +13,21 @@ pub struct BackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTransferCompletionGroupTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTransferContentPart(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundTransferCostPolicy(i32);
 #[repr(transparent)]
 pub struct BackgroundTransferError(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundTransferFileRange(i32);
 #[repr(transparent)]
 pub struct BackgroundTransferGroup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundTransferPriority(i32);
 #[repr(transparent)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundTransferStatus(i32);
+#[repr(C)]
 pub struct BackgroundUploadProgress(i32);
 #[repr(transparent)]
 pub struct BackgroundUploader(pub *mut ::core::ffi::c_void);

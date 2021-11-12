@@ -7,7 +7,9 @@ extern "system" {}
 pub struct DeviceAccessChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeviceAccessInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DeviceAccessStatus(i32);
+#[repr(C)]
 pub struct DeviceClass(i32);
 #[repr(transparent)]
 pub struct DeviceConnectionChangeTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -19,22 +21,27 @@ pub struct DeviceInformation(pub *mut ::core::ffi::c_void);
 pub struct DeviceInformationCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeviceInformationCustomPairing(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DeviceInformationKind(i32);
 #[repr(transparent)]
 pub struct DeviceInformationPairing(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeviceInformationUpdate(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DevicePairingKinds(i32);
+#[repr(C)]
 pub struct DevicePairingProtectionLevel(i32);
 #[repr(transparent)]
 pub struct DevicePairingRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DevicePairingResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DevicePairingResultStatus(i32);
 #[repr(transparent)]
 pub struct DevicePicker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DevicePickerAppearance(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DevicePickerDisplayStatusOptions(i32);
 #[repr(transparent)]
 pub struct DevicePickerFilter(pub *mut ::core::ffi::c_void);
@@ -44,12 +51,15 @@ pub struct DeviceSelectedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct DeviceThumbnail(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeviceUnpairingResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DeviceUnpairingResultStatus(i32);
 #[repr(transparent)]
 pub struct DeviceWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeviceWatcherEvent(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DeviceWatcherEventKind(i32);
+#[repr(C)]
 pub struct DeviceWatcherStatus(i32);
 #[repr(transparent)]
 pub struct DeviceWatcherTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -119,4 +129,5 @@ pub struct IDeviceWatcherTriggerDetails(pub *mut ::core::ffi::c_void);
 pub struct IEnclosureLocation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IEnclosureLocation2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Panel(i32);

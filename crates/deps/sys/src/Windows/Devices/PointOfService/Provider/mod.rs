@@ -41,6 +41,7 @@ pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(pub *mut ::core::f
 pub struct BarcodeScannerStopSoftwareTriggerRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BarcodeScannerTriggerState(i32);
 #[repr(transparent)]
 pub struct BarcodeScannerVideoFrame(pub *mut ::core::ffi::c_void);

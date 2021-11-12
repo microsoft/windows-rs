@@ -11,6 +11,7 @@ extern "system" {}
 pub struct HttpBufferContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpClient(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HttpCompletionOption(i32);
 #[repr(transparent)]
 pub struct HttpCookie(pub *mut ::core::ffi::c_void);
@@ -33,7 +34,9 @@ pub struct HttpMultipartContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpMultipartFormDataContent(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct HttpProgress(i32);
+#[repr(C)]
 pub struct HttpProgressStage(i32);
 #[repr(transparent)]
 pub struct HttpRequestMessage(pub *mut ::core::ffi::c_void);
@@ -41,7 +44,9 @@ pub struct HttpRequestMessage(pub *mut ::core::ffi::c_void);
 pub struct HttpRequestResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpResponseMessage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HttpResponseMessageSource(i32);
+#[repr(C)]
 pub struct HttpStatusCode(i32);
 #[repr(transparent)]
 pub struct HttpStreamContent(pub *mut ::core::ffi::c_void);
@@ -49,6 +54,7 @@ pub struct HttpStreamContent(pub *mut ::core::ffi::c_void);
 pub struct HttpStringContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpTransportInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HttpVersion(i32);
 #[repr(transparent)]
 pub struct IHttpBufferContentFactory(pub *mut ::core::ffi::c_void);

@@ -22,25 +22,38 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct GESTURECONFIG(i32);
+#[repr(C)]
 pub struct GESTURECONFIG_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GESTUREINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GESTURENOTIFYSTRUCT(i32);
+#[repr(C)]
 pub struct HGESTUREINFO(i32);
+#[repr(C)]
 pub struct HTOUCHINPUT(i32);
 #[repr(transparent)]
 pub struct IInertiaProcessor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IManipulationProcessor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InertiaProcessor(i32);
+#[repr(C)]
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(i32);
+#[repr(C)]
 pub struct ManipulationProcessor(i32);
+#[repr(C)]
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(i32);
+#[repr(C)]
 pub struct TOUCHEVENTF_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TOUCHINPUT(i32);
+#[repr(C)]
 pub struct TOUCHINPUTMASKF_MASK(i32);
 #[repr(transparent)]
 pub struct _IManipulationEvents(pub *mut ::core::ffi::c_void);

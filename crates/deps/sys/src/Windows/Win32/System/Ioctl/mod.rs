@@ -3,38 +3,60 @@
 extern "system" {}
 pub const ASSERT_ALTERNATE: u32 = 9u32;
 pub const ASSERT_PRIMARY: u32 = 8u32;
+#[repr(C)]
 pub struct ASYNC_DUPLICATE_EXTENTS_STATUS(i32);
 pub const ATAPI_ID_CMD: u32 = 161u32;
+#[repr(C)]
 pub struct BIN_COUNT(i32);
+#[repr(C)]
 pub struct BIN_RANGE(i32);
+#[repr(C)]
 pub struct BIN_RESULTS(i32);
+#[repr(C)]
 pub struct BIN_TYPES(i32);
+#[repr(C)]
 pub struct BOOT_AREA_INFO(i32);
+#[repr(C)]
 pub struct BULK_SECURITY_TEST_DATA(i32);
 pub const CAP_ATAPI_ID_CMD: u32 = 2u32;
 pub const CAP_ATA_ID_CMD: u32 = 1u32;
 pub const CAP_SMART_CMD: u32 = 4u32;
 pub const CDB_SIZE: u32 = 16u32;
+#[repr(C)]
 pub struct CHANGER_DEVICE_PROBLEM_TYPE(i32);
+#[repr(C)]
 pub struct CHANGER_ELEMENT(i32);
+#[repr(C)]
 pub struct CHANGER_ELEMENT_LIST(i32);
+#[repr(C)]
 pub struct CHANGER_ELEMENT_STATUS(i32);
+#[repr(C)]
 pub struct CHANGER_ELEMENT_STATUS_EX(i32);
+#[repr(C)]
 pub struct CHANGER_ELEMENT_STATUS_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHANGER_EXCHANGE_MEDIUM(i32);
+#[repr(C)]
 pub struct CHANGER_FEATURES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHANGER_MOVE_MEDIUM(i32);
+#[repr(C)]
 pub struct CHANGER_PRODUCT_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHANGER_READ_ELEMENT_STATUS(i32);
 pub const CHANGER_RESERVED_BIT: u32 = 2147483648u32;
+#[repr(C)]
 pub struct CHANGER_SEND_VOLUME_TAG_INFORMATION(i32);
+#[repr(C)]
 pub struct CHANGER_SET_ACCESS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHANGER_SET_POSITION(i32);
 pub const CHANGER_TO_DRIVE: u32 = 8u32;
 pub const CHANGER_TO_IEPORT: u32 = 4u32;
@@ -46,7 +68,9 @@ pub const CHECKSUM_TYPE_ECC: u32 = 3u32;
 pub const CHECKSUM_TYPE_FIRST_UNUSED_TYPE: u32 = 4u32;
 pub const CHECKSUM_TYPE_NONE: u32 = 0u32;
 pub const CHECKSUM_TYPE_UNCHANGED: i32 = -1i32;
+#[repr(C)]
 pub struct CLASS_MEDIA_CHANGE_CONTEXT(i32);
+#[repr(C)]
 pub struct CLUSTER_RANGE(i32);
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: u32 = 256u32;
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT: u32 = 128u32;
@@ -58,77 +82,123 @@ pub const CONTAINER_ROOT_INFO_FLAG_UNION_LAYER_ROOT: u32 = 512u32;
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_EXCEPTION_ROOT: u32 = 16u32;
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_ROOT: u32 = 4u32;
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_TARGET_ROOT: u32 = 8u32;
+#[repr(C)]
 pub struct CONTAINER_ROOT_INFO_INPUT(i32);
+#[repr(C)]
 pub struct CONTAINER_ROOT_INFO_OUTPUT(i32);
 pub const CONTAINER_ROOT_INFO_VALID_FLAGS: u32 = 1023u32;
+#[repr(C)]
 pub struct CONTAINER_VOLUME_STATE(i32);
 pub const CONTAINER_VOLUME_STATE_HOSTING_CONTAINER: u32 = 1u32;
 pub const COPYFILE_SIS_FLAGS: u32 = 3u32;
 pub const COPYFILE_SIS_LINK: u32 = 1u32;
 pub const COPYFILE_SIS_REPLACE: u32 = 2u32;
+#[repr(C)]
 pub struct CREATE_DISK(i32);
+#[repr(C)]
 pub struct CREATE_DISK_GPT(i32);
+#[repr(C)]
 pub struct CREATE_DISK_MBR(i32);
+#[repr(C)]
 pub struct CREATE_USN_JOURNAL_DATA(i32);
+#[repr(C)]
 pub struct CSVFS_DISK_CONNECTIVITY(i32);
+#[repr(C)]
 pub struct CSV_CONTROL_OP(i32);
+#[repr(C)]
 pub struct CSV_CONTROL_PARAM(i32);
 pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CSV_IS_OWNED_BY_CSVFS(i32);
 pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: u32 = 1u32;
+#[repr(C)]
 pub struct CSV_MGMT_LOCK(i32);
+#[repr(C)]
 pub struct CSV_NAMESPACE_INFO(i32);
+#[repr(C)]
 pub struct CSV_QUERY_FILE_REVISION(i32);
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[repr(C)]
 pub struct CSV_QUERY_FILE_REVISION_FILE_ID_128(i32);
+#[repr(C)]
 pub struct CSV_QUERY_MDS_PATH(i32);
 pub const CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED: u32 = 2u32;
 pub const CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED: u32 = 4u32;
 pub const CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED: u32 = 1u32;
+#[repr(C)]
 pub struct CSV_QUERY_MDS_PATH_V2(i32);
 pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CSV_QUERY_REDIRECT_STATE(i32);
+#[repr(C)]
 pub struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT(i32);
+#[repr(C)]
 pub struct CSV_QUERY_VOLUME_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE(i32);
+#[repr(C)]
 pub struct CSV_SET_VOLUME_ID(i32);
 pub const DAX_ALLOC_ALIGNMENT_FLAG_FALLBACK_SPECIFIED: u32 = 2u32;
 pub const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: u32 = 1u32;
 pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DECRYPTION_STATUS_BUFFER(i32);
+#[repr(C)]
 pub struct DELETE_USN_JOURNAL_DATA(i32);
+#[repr(C)]
 pub struct DETECTION_TYPE(i32);
 pub const DEVICEDUMP_CAP_PRIVATE_SECTION: u32 = 1u32;
 pub const DEVICEDUMP_CAP_RESTRICTED_SECTION: u32 = 2u32;
 pub const DEVICEDUMP_MAX_IDSTRING: u32 = 32u32;
+#[repr(C)]
 pub struct DEVICEDUMP_PRIVATE_SUBSECTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION(i32);
+#[repr(C)]
 pub struct DEVICEDUMP_RESTRICTED_SUBSECTION(i32);
+#[repr(C)]
 pub struct DEVICEDUMP_SECTION_HEADER(i32);
+#[repr(C)]
 pub struct DEVICEDUMP_STORAGEDEVICE_DATA(i32);
+#[repr(C)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP(i32);
+#[repr(C)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD(i32);
+#[repr(C)]
 pub struct DEVICEDUMP_STRUCTURE_VERSION(i32);
 pub const DEVICEDUMP_STRUCTURE_VERSION_V1: u32 = 1u32;
+#[repr(C)]
 pub struct DEVICEDUMP_SUBSECTION_POINTER(i32);
+#[repr(C)]
 pub struct DEVICE_COPY_OFFLOAD_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS(i32);
 pub const DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1: u32 = 1u32;
+#[repr(C)]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_RANGE(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_REPAIR_OUTPUT(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_REPAIR_PARAMETERS(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_SCRUB_OUTPUT(i32);
+#[repr(C)]
 pub struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_CONVERSION_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICE_DSM_DEFINITION(i32);
 pub const DEVICE_DSM_FLAG_ALLOCATION_CONSOLIDATEABLE_ONLY: u32 = 1073741824u32;
 pub const DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE: u32 = 1u32;
@@ -139,46 +209,73 @@ pub const DEVICE_DSM_FLAG_SCRUB_OUTPUT_PARITY_EXTENT: u32 = 536870912u32;
 pub const DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC: u32 = 268435456u32;
 pub const DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT: u32 = 1073741824u32;
 pub const DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED: u32 = 2147483648u32;
+#[repr(C)]
 pub struct DEVICE_DSM_FREE_SPACE_OUTPUT(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_LOST_QUERY_OUTPUT(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_LOST_QUERY_PARAMETERS(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_NOTIFICATION_PARAMETERS(i32);
 pub const DEVICE_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
 pub const DEVICE_DSM_NOTIFY_FLAG_END: u32 = 2u32;
+#[repr(C)]
 pub struct DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_OFFLOAD_READ_PARAMETERS(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS(i32);
 pub const DEVICE_DSM_PARAMETERS_V1: u32 = 1u32;
+#[repr(C)]
 pub struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT(i32);
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: u32 = 1u32;
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: u32 = 1u32;
+#[repr(C)]
 pub struct DEVICE_DSM_RANGE_ERROR_INFO(i32);
 pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1u32;
 pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICE_DSM_REPORT_ZONES_DATA(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_REPORT_ZONES_PARAMETERS(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_TIERING_QUERY_INPUT(i32);
+#[repr(C)]
 pub struct DEVICE_DSM_TIERING_QUERY_OUTPUT(i32);
+#[repr(C)]
 pub struct DEVICE_INTERNAL_STATUS_DATA(i32);
+#[repr(C)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(i32);
+#[repr(C)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_SET(i32);
+#[repr(C)]
 pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct DEVICE_LOCATION(i32);
+#[repr(C)]
 pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT(i32);
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[repr(C)]
 pub struct DEVICE_MEDIA_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICE_POWER_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct DEVICE_STORAGE_ADDRESS_RANGE(i32);
 pub const DEVICE_STORAGE_NO_ERRORS: u32 = 1u32;
+#[repr(C)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICE_TRIM_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Storage_Disk_Number: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -225,53 +322,82 @@ pub const DISK_ATTRIBUTE_OFFLINE: u64 = 1u64;
 pub const DISK_ATTRIBUTE_READ_ONLY: u64 = 2u64;
 pub const DISK_BINNING: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISK_CACHE_INFORMATION(i32);
+#[repr(C)]
 pub struct DISK_CACHE_RETENTION_PRIORITY(i32);
+#[repr(C)]
 pub struct DISK_CONTROLLER_NUMBER(i32);
+#[repr(C)]
 pub struct DISK_DETECTION_INFO(i32);
+#[repr(C)]
 pub struct DISK_EXTENT(i32);
+#[repr(C)]
 pub struct DISK_EX_INT13_INFO(i32);
+#[repr(C)]
 pub struct DISK_GEOMETRY(i32);
+#[repr(C)]
 pub struct DISK_GEOMETRY_EX(i32);
+#[repr(C)]
 pub struct DISK_GROW_PARTITION(i32);
+#[repr(C)]
 pub struct DISK_HISTOGRAM(i32);
+#[repr(C)]
 pub struct DISK_INT13_INFO(i32);
+#[repr(C)]
 pub struct DISK_LOGGING(i32);
 pub const DISK_LOGGING_DUMP: u32 = 2u32;
 pub const DISK_LOGGING_START: u32 = 0u32;
 pub const DISK_LOGGING_STOP: u32 = 1u32;
+#[repr(C)]
 pub struct DISK_PARTITION_INFO(i32);
+#[repr(C)]
 pub struct DISK_PERFORMANCE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISK_RECORD(i32);
+#[repr(C)]
 pub struct DRIVERSTATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVE_LAYOUT_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVE_LAYOUT_INFORMATION_EX(i32);
+#[repr(C)]
 pub struct DRIVE_LAYOUT_INFORMATION_GPT(i32);
+#[repr(C)]
 pub struct DRIVE_LAYOUT_INFORMATION_MBR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DUPLICATE_EXTENTS_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct DUPLICATE_EXTENTS_DATA32(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DUPLICATE_EXTENTS_DATA_EX(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct DUPLICATE_EXTENTS_DATA_EX32(i32);
 pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: u32 = 2u32;
 pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: u32 = 1u32;
+#[repr(C)]
 pub struct DUPLICATE_EXTENTS_STATE(i32);
 pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
 pub const EFS_TRACKED_OFFSET_HEADER_FLAG: u32 = 1u32;
+#[repr(C)]
 pub struct ELEMENT_TYPE(i32);
 pub const ENABLE_DISABLE_AUTOSAVE: u32 = 210u32;
 pub const ENABLE_DISABLE_AUTO_OFFLINE: u32 = 219u32;
 pub const ENABLE_SMART: u32 = 216u32;
+#[repr(C)]
 pub struct ENCRYPTED_DATA_INFO(i32);
 pub const ENCRYPTED_DATA_INFO_SPARSE_FILE: u32 = 1u32;
+#[repr(C)]
 pub struct ENCRYPTION_BUFFER(i32);
 pub const ENCRYPTION_FORMAT_DEFAULT: u32 = 1u32;
+#[repr(C)]
 pub struct ENCRYPTION_KEY_CTRL_INPUT(i32);
 pub const ERROR_DRIVE_NOT_INSTALLED: u32 = 8u32;
 pub const ERROR_HISTORY_DIRECTORY_ENTRY_DEFAULT_COUNT: u32 = 8u32;
@@ -282,17 +408,25 @@ pub const ERROR_SLOT_NOT_PRESENT: u32 = 4u32;
 pub const ERROR_TRAY_MALFUNCTION: u32 = 16u32;
 pub const ERROR_UNHANDLED_ERROR: u32 = 4294967295u32;
 pub const EXECUTE_OFFLINE_DIAGS: u32 = 212u32;
+#[repr(C)]
 pub struct EXFAT_STATISTICS(i32);
+#[repr(C)]
 pub struct EXTENDED_ENCRYPTED_DATA_INFO(i32);
 pub const EXTEND_IEPORT: u32 = 2u32;
+#[repr(C)]
 pub struct FAT_STATISTICS(i32);
+#[repr(C)]
 pub struct FILESYSTEM_STATISTICS(i32);
+#[repr(C)]
 pub struct FILESYSTEM_STATISTICS_EX(i32);
+#[repr(C)]
 pub struct FILESYSTEM_STATISTICS_TYPE(i32);
 pub const FILESYSTEM_STATISTICS_TYPE_REFS: u32 = 4u32;
+#[repr(C)]
 pub struct FILE_ALLOCATED_RANGE_BUFFER(i32);
 pub const FILE_ANY_ACCESS: u32 = 0u32;
 pub const FILE_CLEAR_ENCRYPTION: u32 = 2u32;
+#[repr(C)]
 pub struct FILE_DESIRED_STORAGE_CLASS_INFORMATION(i32);
 pub const FILE_DEVICE_8042_PORT: u32 = 39u32;
 pub const FILE_DEVICE_ACPI: u32 = 50u32;
@@ -378,6 +512,7 @@ pub const FILE_DEVICE_VMBUS: u32 = 62u32;
 pub const FILE_DEVICE_WAVE_IN: u32 = 37u32;
 pub const FILE_DEVICE_WAVE_OUT: u32 = 38u32;
 pub const FILE_DEVICE_WPD: u32 = 64u32;
+#[repr(C)]
 pub struct FILE_FS_PERSISTENT_VOLUME_INFORMATION(i32);
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NON_RESIDENT: u64 = 137438953472u64;
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NOT_FOUND: u64 = 4096u64;
@@ -422,19 +557,30 @@ pub const FILE_INITIATE_REPAIR_HINT1_STALE_INFORMATION: u64 = 16384u64;
 pub const FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE: u64 = 16u64;
 pub const FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR: u64 = 64u64;
 pub const FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY: u64 = 536870912u64;
+#[repr(C)]
 pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER(i32);
+#[repr(C)]
 pub struct FILE_LAYOUT_ENTRY(i32);
+#[repr(C)]
 pub struct FILE_LAYOUT_INFO_ENTRY(i32);
+#[repr(C)]
 pub struct FILE_LAYOUT_NAME_ENTRY(i32);
 pub const FILE_LAYOUT_NAME_ENTRY_DOS: u32 = 2u32;
 pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: u32 = 1u32;
+#[repr(C)]
 pub struct FILE_LEVEL_TRIM(i32);
+#[repr(C)]
 pub struct FILE_LEVEL_TRIM_OUTPUT(i32);
+#[repr(C)]
 pub struct FILE_LEVEL_TRIM_RANGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER(i32);
+#[repr(C)]
 pub struct FILE_OBJECTID_BUFFER(i32);
+#[repr(C)]
 pub struct FILE_PREFETCH(i32);
+#[repr(C)]
 pub struct FILE_PREFETCH_EX(i32);
 pub const FILE_PREFETCH_TYPE_FOR_CREATE: u32 = 1u32;
 pub const FILE_PREFETCH_TYPE_FOR_CREATE_EX: u32 = 3u32;
@@ -443,17 +589,25 @@ pub const FILE_PREFETCH_TYPE_FOR_DIRENUM_EX: u32 = 4u32;
 pub const FILE_PREFETCH_TYPE_MAX: u32 = 4u32;
 pub const FILE_PROVIDER_COMPRESSION_MAXIMUM: u32 = 4u32;
 pub const FILE_PROVIDER_CURRENT_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V0(i32);
+#[repr(C)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V1(i32);
 pub const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: u32 = 1u32;
 pub const FILE_PROVIDER_SINGLE_FILE: u32 = 1u32;
+#[repr(C)]
 pub struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_QUERY_SPARING_BUFFER(i32);
 pub const FILE_READ_ACCESS: u32 = 1u32;
+#[repr(C)]
 pub struct FILE_REFERENCE_RANGE(i32);
+#[repr(C)]
 pub struct FILE_REGION_INFO(i32);
+#[repr(C)]
 pub struct FILE_REGION_INPUT(i32);
+#[repr(C)]
 pub struct FILE_REGION_OUTPUT(i32);
 pub const FILE_REGION_USAGE_HUGE_PAGE_ALIGNMENT: u32 = 16u32;
 pub const FILE_REGION_USAGE_LARGE_PAGE_ALIGNMENT: u32 = 8u32;
@@ -462,23 +616,31 @@ pub const FILE_REGION_USAGE_QUERY_ALIGNMENT: u32 = 8u32;
 pub const FILE_REGION_USAGE_VALID_CACHED_DATA: u32 = 1u32;
 pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER(i32);
 pub const FILE_SET_ENCRYPTION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_SET_SPARSE_BUFFER(i32);
 pub const FILE_SPECIAL_ACCESS: u32 = 0u32;
+#[repr(C)]
 pub struct FILE_STORAGE_TIER(i32);
+#[repr(C)]
 pub struct FILE_STORAGE_TIER_CLASS(i32);
 pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
+#[repr(C)]
 pub struct FILE_STORAGE_TIER_FLAGS(i32);
 pub const FILE_STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
 pub const FILE_STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
 pub const FILE_STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
 pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
+#[repr(C)]
 pub struct FILE_STORAGE_TIER_MEDIA_TYPE(i32);
 pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
+#[repr(C)]
 pub struct FILE_STORAGE_TIER_REGION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION(i32);
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
@@ -495,16 +657,23 @@ pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows_sys::core::GUI
     data4: [128, 17, 91, 134, 201, 64, 231, 183],
 };
 pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 218784929, data2: 14588, data3: 19896, data4: [159, 231, 63, 67, 82, 205, 124, 92] };
+#[repr(C)]
 pub struct FILE_TYPE_NOTIFICATION_INPUT(i32);
 pub const FILE_WRITE_ACCESS: u32 = 2u32;
+#[repr(C)]
 pub struct FILE_ZERO_DATA_INFORMATION(i32);
+#[repr(C)]
 pub struct FILE_ZERO_DATA_INFORMATION_EX(i32);
 pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: u32 = 1u32;
 #[cfg(feature = "Win32_Security")]
+#[repr(C)]
 pub struct FIND_BY_SID_DATA(i32);
+#[repr(C)]
 pub struct FIND_BY_SID_OUTPUT(i32);
 pub const FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: u32 = 1u32;
+#[repr(C)]
 pub struct FORMAT_EX_PARAMETERS(i32);
+#[repr(C)]
 pub struct FORMAT_PARAMETERS(i32);
 pub const FSCTL_ADD_OVERLAY: u32 = 623408u32;
 pub const FSCTL_ADVANCE_FILE_ID: u32 = 590532u32;
@@ -554,6 +723,7 @@ pub const FSCTL_GET_COMPRESSION: u32 = 589884u32;
 pub const FSCTL_GET_EXTERNAL_BACKING: u32 = 590608u32;
 pub const FSCTL_GET_FILTER_FILE_IDENTIFIER: u32 = 590788u32;
 pub const FSCTL_GET_INTEGRITY_INFORMATION: u32 = 590460u32;
+#[repr(C)]
 pub struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER(i32);
 pub const FSCTL_GET_NTFS_FILE_RECORD: u32 = 589928u32;
 pub const FSCTL_GET_NTFS_VOLUME_DATA: u32 = 589924u32;
@@ -592,10 +762,14 @@ pub const FSCTL_MOVE_FILE: u32 = 589940u32;
 pub const FSCTL_NOTIFY_DATA_CHANGE: u32 = 590844u32;
 pub const FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION: u32 = 590748u32;
 pub const FSCTL_OFFLOAD_READ: u32 = 606820u32;
+#[repr(C)]
 pub struct FSCTL_OFFLOAD_READ_INPUT(i32);
+#[repr(C)]
 pub struct FSCTL_OFFLOAD_READ_OUTPUT(i32);
 pub const FSCTL_OFFLOAD_WRITE: u32 = 623208u32;
+#[repr(C)]
 pub struct FSCTL_OFFLOAD_WRITE_INPUT(i32);
+#[repr(C)]
 pub struct FSCTL_OFFLOAD_WRITE_OUTPUT(i32);
 pub const FSCTL_OPBATCH_ACK_CLOSE_PENDING: u32 = 589840u32;
 pub const FSCTL_OPLOCK_BREAK_ACKNOWLEDGE: u32 = 589836u32;
@@ -609,6 +783,7 @@ pub const FSCTL_QUERY_DIRECT_ACCESS_EXTENTS: u32 = 590747u32;
 pub const FSCTL_QUERY_DIRECT_IMAGE_ORIGINAL_BASE: u32 = 590756u32;
 pub const FSCTL_QUERY_EXTENT_READ_CACHE_INFO: u32 = 590711u32;
 pub const FSCTL_QUERY_FAT_BPB: u32 = 589912u32;
+#[repr(C)]
 pub struct FSCTL_QUERY_FAT_BPB_BUFFER(i32);
 pub const FSCTL_QUERY_FILE_LAYOUT: u32 = 590455u32;
 pub const FSCTL_QUERY_FILE_METADATA_OPTIMIZATION: u32 = 590688u32;
@@ -621,12 +796,15 @@ pub const FSCTL_QUERY_PERSISTENT_VOLUME_STATE: u32 = 590396u32;
 pub const FSCTL_QUERY_REFS_SMR_VOLUME_INFO: u32 = 590812u32;
 pub const FSCTL_QUERY_REFS_VOLUME_COUNTER_INFO: u32 = 590715u32;
 pub const FSCTL_QUERY_REGION_INFO: u32 = 590576u32;
+#[repr(C)]
 pub struct FSCTL_QUERY_REGION_INFO_INPUT(i32);
+#[repr(C)]
 pub struct FSCTL_QUERY_REGION_INFO_OUTPUT(i32);
 pub const FSCTL_QUERY_RETRIEVAL_POINTERS: u32 = 589883u32;
 pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: u32 = 590592u32;
 pub const FSCTL_QUERY_SPARING_INFO: u32 = 590136u32;
 pub const FSCTL_QUERY_STORAGE_CLASSES: u32 = 590572u32;
+#[repr(C)]
 pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT(i32);
 pub const FSCTL_QUERY_USN_JOURNAL: u32 = 590068u32;
 pub const FSCTL_QUERY_VOLUME_CONTAINER_STATE: u32 = 590736u32;
@@ -660,7 +838,9 @@ pub const FSCTL_SET_DEFECT_MANAGEMENT: u32 = 622900u32;
 pub const FSCTL_SET_ENCRYPTION: u32 = 590039u32;
 pub const FSCTL_SET_EXTERNAL_BACKING: u32 = 590604u32;
 pub const FSCTL_SET_INTEGRITY_INFORMATION: u32 = 639616u32;
+#[repr(C)]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER(i32);
+#[repr(C)]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX(i32);
 pub const FSCTL_SET_INTEGRITY_INFORMATION_EX: u32 = 590720u32;
 pub const FSCTL_SET_LAYER_ROOT: u32 = 590740u32;
@@ -724,26 +904,43 @@ pub const FSCTL_WAIT_FOR_REPAIR: u32 = 590240u32;
 pub const FSCTL_WRITE_RAW_ENCRYPTED: u32 = 590047u32;
 pub const FSCTL_WRITE_USN_CLOSE_RECORD: u32 = 590063u32;
 pub const FSCTL_WRITE_USN_REASON: u32 = 590544u32;
+#[repr(C)]
 pub struct FS_BPIO_INFLAGS(i32);
+#[repr(C)]
 pub struct FS_BPIO_INFO(i32);
+#[repr(C)]
 pub struct FS_BPIO_INPUT(i32);
+#[repr(C)]
 pub struct FS_BPIO_OPERATIONS(i32);
+#[repr(C)]
 pub struct FS_BPIO_OUTFLAGS(i32);
+#[repr(C)]
 pub struct FS_BPIO_OUTPUT(i32);
+#[repr(C)]
 pub struct FS_BPIO_RESULTS(i32);
 pub const FW_ISSUEID_NO_ISSUE: u32 = 0u32;
 pub const FW_ISSUEID_UNKNOWN: u32 = 4294967295u32;
+#[repr(C)]
 pub struct GETVERSIONINPARAMS(i32);
+#[repr(C)]
 pub struct GET_CHANGER_PARAMETERS(i32);
+#[repr(C)]
 pub struct GET_CHANGER_PARAMETERS_FEATURES1(i32);
+#[repr(C)]
 pub struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST(i32);
+#[repr(C)]
 pub struct GET_DISK_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct GET_FILTER_FILE_IDENTIFIER_INPUT(i32);
+#[repr(C)]
 pub struct GET_FILTER_FILE_IDENTIFIER_OUTPUT(i32);
+#[repr(C)]
 pub struct GET_LENGTH_INFORMATION(i32);
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[repr(C)]
 pub struct GET_MEDIA_TYPES(i32);
 pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
+#[repr(C)]
 pub struct GPT_ATTRIBUTES(i32);
 pub const GPT_ATTRIBUTE_LEGACY_BIOS_BOOTABLE: u64 = 4u64;
 pub const GPT_ATTRIBUTE_NO_BLOCK_IO_PROTOCOL: u64 = 2u64;
@@ -751,6 +948,7 @@ pub const GPT_BASIC_DATA_ATTRIBUTE_DAX: u64 = 288230376151711744u64;
 pub const GPT_BASIC_DATA_ATTRIBUTE_OFFLINE: u64 = 576460752303423488u64;
 pub const GPT_BASIC_DATA_ATTRIBUTE_SERVICE: u64 = 144115188075855872u64;
 pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808u64;
+#[repr(C)]
 pub struct GP_LOG_PAGE_DESCRIPTOR(i32);
 pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3665970205, data2: 28994, data3: 19393, data4: [184, 68, 8, 7, 197, 164, 182, 127] };
 pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3638712623, data2: 6827, data3: 19798, data4: [167, 70, 31, 117, 133, 223, 64, 244] };
@@ -785,9 +983,11 @@ pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows_sys::core::GUID = ::windows
 pub const GUID_DEVINTERFACE_ZNSDISK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3094954437, data2: 65499, data3: 17351, data4: [182, 177, 32, 182, 50, 240, 177, 9] };
 pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2644693894, data2: 29429, data3: 20195, data4: [129, 85, 236, 160, 103, 142, 59, 6] };
 pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1124707376, data2: 3345, data3: 4580, data4: [145, 145, 8, 0, 32, 12, 154, 102] };
+#[repr(C)]
 pub struct HISTOGRAM_BUCKET(i32);
 pub const HIST_NO_OF_BUCKETS: u32 = 24u32;
 pub const IDENTIFY_BUFFER_SIZE: u32 = 512u32;
+#[repr(C)]
 pub struct IDEREGS(i32);
 pub const ID_CMD: u32 = 236u32;
 pub const IOCTL_CHANGER_BASE: u32 = 48u32;
@@ -935,11 +1135,13 @@ pub const IOCTL_STORAGE_SET_PROPERTY: u32 = 2987004u32;
 pub const IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD: u32 = 3002880u32;
 pub const IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK: u32 = 3004548u32;
 pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
+#[repr(C)]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER(i32);
 pub const LOCK_ELEMENT: u32 = 0u32;
 pub const LOCK_UNLOCK_DOOR: u32 = 2u32;
 pub const LOCK_UNLOCK_IEPORT: u32 = 1u32;
 pub const LOCK_UNLOCK_KEYPAD: u32 = 4u32;
+#[repr(C)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY(i32);
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA: u32 = 16777216u32;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_INDEX: u32 = 33554432u32;
@@ -949,7 +1151,9 @@ pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_DENY_DEFRAG_SET: u32 = 2u32;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_FS_SYSTEM_FILE: u32 = 4u32;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE: u32 = 1u32;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE: u32 = 8u32;
+#[repr(C)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_INPUT(i32);
+#[repr(C)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT(i32);
 pub const MARK_HANDLE_CLOUD_SYNC: u32 = 2048u32;
 pub const MARK_HANDLE_DISABLE_FILE_METADATA_OPTIMIZATION: u32 = 4096u32;
@@ -957,8 +1161,10 @@ pub const MARK_HANDLE_ENABLE_CPU_CACHE: u32 = 268435456u32;
 pub const MARK_HANDLE_ENABLE_USN_SOURCE_ON_PAGING_IO: u32 = 8192u32;
 pub const MARK_HANDLE_FILTER_METADATA: u32 = 512u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MARK_HANDLE_INFO(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct MARK_HANDLE_INFO32(i32);
 pub const MARK_HANDLE_NOT_READ_COPY: u32 = 256u32;
 pub const MARK_HANDLE_NOT_REALTIME: u32 = 64u32;
@@ -979,6 +1185,7 @@ pub const MEDIA_CURRENTLY_MOUNTED: u32 = 2147483648u32;
 pub const MEDIA_ERASEABLE: u32 = 1u32;
 pub const MEDIA_READ_ONLY: u32 = 4u32;
 pub const MEDIA_READ_WRITE: u32 = 8u32;
+#[repr(C)]
 pub struct MEDIA_TYPE(i32);
 pub const MEDIA_WRITE_ONCE: u32 = 2u32;
 pub const MEDIA_WRITE_PROTECTED: u32 = 256u32;
@@ -988,19 +1195,30 @@ pub const METHOD_DIRECT_TO_HARDWARE: u32 = 1u32;
 pub const METHOD_IN_DIRECT: u32 = 1u32;
 pub const METHOD_NEITHER: u32 = 3u32;
 pub const METHOD_OUT_DIRECT: u32 = 2u32;
+#[repr(C)]
 pub struct MFT_ENUM_DATA_V0(i32);
+#[repr(C)]
 pub struct MFT_ENUM_DATA_V1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MOVE_FILE_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct MOVE_FILE_DATA32(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MOVE_FILE_RECORD_DATA(i32);
+#[repr(C)]
 pub struct NTFS_EXTENDED_VOLUME_DATA(i32);
+#[repr(C)]
 pub struct NTFS_FILE_RECORD_INPUT_BUFFER(i32);
+#[repr(C)]
 pub struct NTFS_FILE_RECORD_OUTPUT_BUFFER(i32);
+#[repr(C)]
 pub struct NTFS_STATISTICS(i32);
+#[repr(C)]
 pub struct NTFS_STATISTICS_EX(i32);
+#[repr(C)]
 pub struct NTFS_VOLUME_DATA_BUFFER(i32);
 pub const OBSOLETE_DISK_GET_WRITE_CACHE_STATE: u32 = 475356u32;
 pub const OBSOLETE_IOCTL_STORAGE_RESET_BUS: u32 = 3002368u32;
@@ -1024,11 +1242,15 @@ pub const PARTITION_GPT: u32 = 238u32;
 pub const PARTITION_HUGE: u32 = 6u32;
 pub const PARTITION_IFS: u32 = 7u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PARTITION_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PARTITION_INFORMATION_EX(i32);
+#[repr(C)]
 pub struct PARTITION_INFORMATION_GPT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PARTITION_INFORMATION_MBR(i32);
 pub const PARTITION_LDM: u32 = 66u32;
 pub const PARTITION_MAIN_OS: u32 = 40u32;
@@ -1039,6 +1261,7 @@ pub const PARTITION_PREP: u32 = 65u32;
 pub const PARTITION_PRE_INSTALLED: u32 = 42u32;
 pub const PARTITION_SPACES: u32 = 231u32;
 pub const PARTITION_SPACES_DATA: u32 = 215u32;
+#[repr(C)]
 pub struct PARTITION_STYLE(i32);
 pub const PARTITION_SYSTEM: u32 = 239u32;
 pub const PARTITION_UNIX: u32 = 99u32;
@@ -1047,8 +1270,11 @@ pub const PARTITION_XENIX_1: u32 = 2u32;
 pub const PARTITION_XENIX_2: u32 = 3u32;
 pub const PARTITION_XINT13: u32 = 14u32;
 pub const PARTITION_XINT13_EXTENDED: u32 = 15u32;
+#[repr(C)]
 pub struct PATHNAME_BUFFER(i32);
+#[repr(C)]
 pub struct PERF_BIN(i32);
+#[repr(C)]
 pub struct PERSISTENT_RESERVE_COMMAND(i32);
 pub const PERSISTENT_VOLUME_STATE_BACKED_BY_WIM: u32 = 64u32;
 pub const PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE: u32 = 1024u32;
@@ -1063,21 +1289,32 @@ pub const PERSISTENT_VOLUME_STATE_REALLOCATE_ALL_DATA_WRITES: u32 = 512u32;
 pub const PERSISTENT_VOLUME_STATE_SHORT_NAME_CREATION_DISABLED: u32 = 1u32;
 pub const PERSISTENT_VOLUME_STATE_TXF_DISABLED: u32 = 256u32;
 pub const PERSISTENT_VOLUME_STATE_VOLUME_SCRUB_DISABLED: u32 = 2u32;
+#[repr(C)]
 pub struct PHYSICAL_ELEMENT_STATUS(i32);
+#[repr(C)]
 pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct PHYSICAL_ELEMENT_STATUS_REQUEST(i32);
+#[repr(C)]
 pub struct PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(i32);
+#[repr(C)]
 pub struct PLEX_READ_DATA_REQUEST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PREVENT_MEDIA_REMOVAL(i32);
 pub const PRODUCT_ID_LENGTH: u32 = 16u32;
 pub const PROJFS_PROTOCOL_VERSION: u32 = 3u32;
+#[repr(C)]
 pub struct QUERY_BAD_RANGES_INPUT(i32);
+#[repr(C)]
 pub struct QUERY_BAD_RANGES_INPUT_RANGE(i32);
+#[repr(C)]
 pub struct QUERY_BAD_RANGES_OUTPUT(i32);
+#[repr(C)]
 pub struct QUERY_BAD_RANGES_OUTPUT_RANGE(i32);
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: u32 = 2u32;
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: u32 = 1u32;
+#[repr(C)]
 pub struct QUERY_FILE_LAYOUT_FILTER_TYPE(i32);
 pub const QUERY_FILE_LAYOUT_INCLUDE_EXTENTS: u32 = 8u32;
 pub const QUERY_FILE_LAYOUT_INCLUDE_EXTRA_INFO: u32 = 16u32;
@@ -1094,7 +1331,9 @@ pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EA_ATTRIBUTE: u32 = 3
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EFS_ATTRIBUTE: u32 = 1024u32;
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE: u32 = 16384u32;
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE: u32 = 512u32;
+#[repr(C)]
 pub struct QUERY_FILE_LAYOUT_INPUT(i32);
+#[repr(C)]
 pub struct QUERY_FILE_LAYOUT_OUTPUT(i32);
 pub const QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID: u32 = 1u32;
 pub const QUERY_FILE_LAYOUT_REPARSE_TAG_INVALID: u32 = 2u32;
@@ -1108,118 +1347,200 @@ pub const READ_ATTRIBUTE_BUFFER_SIZE: u32 = 512u32;
 pub const READ_COMPRESSION_INFO_VALID: u32 = 32u32;
 pub const READ_COPY_NUMBER_BYPASS_CACHE_FLAG: u32 = 256u32;
 pub const READ_COPY_NUMBER_KEY: u32 = 1380142592u32;
+#[repr(C)]
 pub struct READ_ELEMENT_ADDRESS_INFO(i32);
+#[repr(C)]
 pub struct READ_FILE_USN_DATA(i32);
 pub const READ_THRESHOLDS: u32 = 209u32;
 pub const READ_THRESHOLD_BUFFER_SIZE: u32 = 512u32;
+#[repr(C)]
 pub struct READ_USN_JOURNAL_DATA_V0(i32);
+#[repr(C)]
 pub struct READ_USN_JOURNAL_DATA_V1(i32);
+#[repr(C)]
 pub struct REASSIGN_BLOCKS(i32);
+#[repr(C)]
 pub struct REASSIGN_BLOCKS_EX(i32);
 pub const RECOVERED_READS_VALID: u32 = 4u32;
 pub const RECOVERED_WRITES_VALID: u32 = 1u32;
+#[repr(C)]
 pub struct REFS_SMR_VOLUME_GC_ACTION(i32);
+#[repr(C)]
 pub struct REFS_SMR_VOLUME_GC_METHOD(i32);
+#[repr(C)]
 pub struct REFS_SMR_VOLUME_GC_PARAMETERS(i32);
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
+#[repr(C)]
 pub struct REFS_SMR_VOLUME_GC_STATE(i32);
+#[repr(C)]
 pub struct REFS_SMR_VOLUME_INFO_OUTPUT(i32);
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: u32 = 0u32;
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: u32 = 1u32;
+#[repr(C)]
 pub struct REFS_VOLUME_DATA_BUFFER(i32);
+#[repr(C)]
 pub struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST(i32);
+#[repr(C)]
 pub struct REPAIR_COPIES_INPUT(i32);
+#[repr(C)]
 pub struct REPAIR_COPIES_OUTPUT(i32);
 pub const REPLACE_ALTERNATE: u32 = 11u32;
 pub const REPLACE_PRIMARY: u32 = 10u32;
 pub const REQUEST_OPLOCK_CURRENT_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct REQUEST_OPLOCK_INPUT_BUFFER(i32);
 pub const REQUEST_OPLOCK_INPUT_FLAG_ACK: u32 = 2u32;
 pub const REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE: u32 = 4u32;
 pub const REQUEST_OPLOCK_INPUT_FLAG_REQUEST: u32 = 1u32;
+#[repr(C)]
 pub struct REQUEST_OPLOCK_OUTPUT_BUFFER(i32);
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED: u32 = 1u32;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED: u32 = 2u32;
+#[repr(C)]
 pub struct REQUEST_RAW_ENCRYPTED_DATA(i32);
 pub const RETRACT_IEPORT: u32 = 3u32;
+#[repr(C)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER(i32);
+#[repr(C)]
 pub struct RETRIEVAL_POINTERS_BUFFER(i32);
+#[repr(C)]
 pub struct RETRIEVAL_POINTER_BASE(i32);
+#[repr(C)]
 pub struct RETRIEVAL_POINTER_COUNT(i32);
 pub const RETURN_SMART_STATUS: u32 = 218u32;
 pub const REVISION_LENGTH: u32 = 4u32;
 pub const SAVE_ATTRIBUTE_VALUES: u32 = 211u32;
+#[repr(C)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO(i32);
+#[repr(C)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE(i32);
+#[repr(C)]
 pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(i32);
+#[repr(C)]
 pub struct SCM_BUS_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct SCM_BUS_PROPERTY_QUERY(i32);
+#[repr(C)]
 pub struct SCM_BUS_PROPERTY_SET(i32);
+#[repr(C)]
 pub struct SCM_BUS_QUERY_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO(i32);
+#[repr(C)]
 pub struct SCM_BUS_SET_TYPE(i32);
+#[repr(C)]
 pub struct SCM_INTERLEAVED_PD_INFO(i32);
+#[repr(C)]
 pub struct SCM_LD_INTERLEAVE_SET_INFO(i32);
+#[repr(C)]
 pub struct SCM_LOGICAL_DEVICES(i32);
+#[repr(C)]
 pub struct SCM_LOGICAL_DEVICE_INSTANCE(i32);
 pub const SCM_MAX_SYMLINK_LEN_IN_CHARS: u32 = 256u32;
+#[repr(C)]
 pub struct SCM_PD_DESCRIPTOR_HEADER(i32);
+#[repr(C)]
 pub struct SCM_PD_DEVICE_HANDLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCM_PD_DEVICE_INFO(i32);
+#[repr(C)]
 pub struct SCM_PD_DEVICE_SPECIFIC_INFO(i32);
+#[repr(C)]
 pub struct SCM_PD_DEVICE_SPECIFIC_PROPERTY(i32);
+#[repr(C)]
 pub struct SCM_PD_FIRMWARE_ACTIVATE(i32);
+#[repr(C)]
 pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(i32);
+#[repr(C)]
 pub struct SCM_PD_FIRMWARE_DOWNLOAD(i32);
+#[repr(C)]
 pub struct SCM_PD_FIRMWARE_INFO(i32);
 pub const SCM_PD_FIRMWARE_LAST_DOWNLOAD: u32 = 1u32;
 pub const SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES: u32 = 32u32;
+#[repr(C)]
 pub struct SCM_PD_FIRMWARE_SLOT_INFO(i32);
+#[repr(C)]
 pub struct SCM_PD_FRU_ID_STRING(i32);
+#[repr(C)]
 pub struct SCM_PD_HEALTH_NOTIFICATION_DATA(i32);
+#[repr(C)]
 pub struct SCM_PD_HEALTH_STATUS(i32);
+#[repr(C)]
 pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(i32);
+#[repr(C)]
 pub struct SCM_PD_LOCATION_STRING(i32);
+#[repr(C)]
 pub struct SCM_PD_MANAGEMENT_STATUS(i32);
 pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
+#[repr(C)]
 pub struct SCM_PD_MEDIA_REINITIALIZATION_STATUS(i32);
+#[repr(C)]
 pub struct SCM_PD_OPERATIONAL_STATUS(i32);
+#[repr(C)]
 pub struct SCM_PD_OPERATIONAL_STATUS_REASON(i32);
+#[repr(C)]
 pub struct SCM_PD_PASSTHROUGH_INPUT(i32);
+#[repr(C)]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT(i32);
+#[repr(C)]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT(i32);
+#[repr(C)]
 pub struct SCM_PD_PASSTHROUGH_OUTPUT(i32);
+#[repr(C)]
 pub struct SCM_PD_PROPERTY_ID(i32);
 pub const SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS: u32 = 128u32;
+#[repr(C)]
 pub struct SCM_PD_PROPERTY_QUERY(i32);
+#[repr(C)]
 pub struct SCM_PD_PROPERTY_SET(i32);
+#[repr(C)]
 pub struct SCM_PD_QUERY_TYPE(i32);
+#[repr(C)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT(i32);
+#[repr(C)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE(i32);
+#[repr(C)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO(i32);
+#[repr(C)]
 pub struct SCM_PD_SET_TYPE(i32);
+#[repr(C)]
 pub struct SCM_PHYSICAL_DEVICES(i32);
+#[repr(C)]
 pub struct SCM_PHYSICAL_DEVICE_INSTANCE(i32);
+#[repr(C)]
 pub struct SCM_REGION(i32);
+#[repr(C)]
 pub struct SCM_REGIONS(i32);
+#[repr(C)]
 pub struct SCM_REGION_FLAG(i32);
+#[repr(C)]
 pub struct SD_CHANGE_MACHINE_SID_INPUT(i32);
+#[repr(C)]
 pub struct SD_CHANGE_MACHINE_SID_OUTPUT(i32);
+#[repr(C)]
 pub struct SD_ENUM_SDS_ENTRY(i32);
+#[repr(C)]
 pub struct SD_ENUM_SDS_INPUT(i32);
+#[repr(C)]
 pub struct SD_ENUM_SDS_OUTPUT(i32);
+#[repr(C)]
 pub struct SD_GLOBAL_CHANGE_INPUT(i32);
+#[repr(C)]
 pub struct SD_GLOBAL_CHANGE_OUTPUT(i32);
 pub const SD_GLOBAL_CHANGE_TYPE_ENUM_SDS: u32 = 131072u32;
 pub const SD_GLOBAL_CHANGE_TYPE_MACHINE_SID: u32 = 1u32;
 pub const SD_GLOBAL_CHANGE_TYPE_QUERY_STATS: u32 = 65536u32;
+#[repr(C)]
 pub struct SD_QUERY_STATS_INPUT(i32);
+#[repr(C)]
 pub struct SD_QUERY_STATS_OUTPUT(i32);
 pub const SEARCH_ALL: u32 = 0u32;
 pub const SEARCH_ALL_NO_SEQ: u32 = 4u32;
@@ -1227,23 +1548,33 @@ pub const SEARCH_ALTERNATE: u32 = 2u32;
 pub const SEARCH_ALT_NO_SEQ: u32 = 6u32;
 pub const SEARCH_PRIMARY: u32 = 1u32;
 pub const SEARCH_PRI_NO_SEQ: u32 = 5u32;
+#[repr(C)]
 pub struct SENDCMDINPARAMS(i32);
+#[repr(C)]
 pub struct SENDCMDOUTPARAMS(i32);
 pub const SERIAL_NUMBER_LENGTH: u32 = 32u32;
+#[repr(C)]
 pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SET_DISK_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct SET_PARTITION_INFORMATION(i32);
+#[repr(C)]
 pub struct SET_PARTITION_INFORMATION_EX(i32);
 pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
 pub const SET_PURGE_FAILURE_MODE_ENABLED: u32 = 1u32;
+#[repr(C)]
 pub struct SET_PURGE_FAILURE_MODE_INPUT(i32);
 pub const SET_REPAIR_DISABLED_AND_BUGCHECK_ON_CORRUPT: u32 = 16u32;
 pub const SET_REPAIR_ENABLED: u32 = 1u32;
 pub const SET_REPAIR_VALID_MASK: u32 = 25u32;
 pub const SET_REPAIR_WARN_ABOUT_DATA_LOSS: u32 = 8u32;
+#[repr(C)]
 pub struct SHRINK_VOLUME_INFORMATION(i32);
+#[repr(C)]
 pub struct SHRINK_VOLUME_REQUEST_TYPES(i32);
+#[repr(C)]
 pub struct SI_COPYFILE(i32);
 pub const SMART_ABORT_OFFLINE_SELFTEST: u32 = 127u32;
 pub const SMART_CMD: u32 = 176u32;
@@ -1272,101 +1603,162 @@ pub const SMART_SEND_DRIVE_COMMAND: u32 = 508036u32;
 pub const SMART_SHORT_SELFTEST_CAPTIVE: u32 = 129u32;
 pub const SMART_SHORT_SELFTEST_OFFLINE: u32 = 1u32;
 pub const SMART_WRITE_LOG: u32 = 214u32;
+#[repr(C)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_INPUT(i32);
+#[repr(C)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_OUTPUT(i32);
 pub const SPACES_TRACKED_OFFSET_HEADER_FLAG: u32 = 2u32;
 pub const SRB_TYPE_SCSI_REQUEST_BLOCK: u32 = 0u32;
 pub const SRB_TYPE_STORAGE_REQUEST_BLOCK: u32 = 1u32;
+#[repr(C)]
 pub struct STARTING_LCN_INPUT_BUFFER(i32);
+#[repr(C)]
 pub struct STARTING_LCN_INPUT_BUFFER_EX(i32);
+#[repr(C)]
 pub struct STARTING_VCN_INPUT_BUFFER(i32);
+#[repr(C)]
 pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_ADAPTER_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_ADAPTER_SERIAL_NUMBER(i32);
 pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: u32 = 128u32;
 pub const STORAGE_ADDRESS_TYPE_BTL8: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT(i32);
+#[repr(C)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT(i32);
+#[repr(C)]
 pub struct STORAGE_ASSOCIATION_TYPE(i32);
 pub const STORAGE_ATTRIBUTE_ASYNC_EVENT_NOTIFICATION: u32 = 16u32;
 pub const STORAGE_ATTRIBUTE_BLOCK_IO: u32 = 2u32;
 pub const STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO: u32 = 1u32;
 pub const STORAGE_ATTRIBUTE_DYNAMIC_PERSISTENCE: u32 = 4u32;
+#[repr(C)]
 pub struct STORAGE_ATTRIBUTE_MGMT(i32);
+#[repr(C)]
 pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(i32);
 pub const STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT: u32 = 32u32;
 pub const STORAGE_ATTRIBUTE_VOLATILE: u32 = 8u32;
+#[repr(C)]
 pub struct STORAGE_BREAK_RESERVATION_REQUEST(i32);
+#[repr(C)]
 pub struct STORAGE_BUS_RESET_REQUEST(i32);
+#[repr(C)]
 pub struct STORAGE_COMPONENT_HEALTH_STATUS(i32);
 pub const STORAGE_COMPONENT_ROLE_CACHE: u32 = 1u32;
 pub const STORAGE_COMPONENT_ROLE_DATA: u32 = 4u32;
 pub const STORAGE_COMPONENT_ROLE_TIERING: u32 = 2u32;
+#[repr(C)]
 pub struct STORAGE_COUNTER(i32);
+#[repr(C)]
 pub struct STORAGE_COUNTERS(i32);
+#[repr(C)]
 pub struct STORAGE_COUNTER_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_CRYPTO_ALGORITHM_ID(i32);
+#[repr(C)]
 pub struct STORAGE_CRYPTO_CAPABILITY(i32);
 pub const STORAGE_CRYPTO_CAPABILITY_VERSION_1: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_CRYPTO_DESCRIPTOR(i32);
 pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_CRYPTO_KEY_SIZE(i32);
+#[repr(C)]
 pub struct STORAGE_DESCRIPTOR_HEADER(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[repr(C)]
 pub struct STORAGE_DEVICE_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR(i32);
 pub const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: u32 = 4u32;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID: u32 = 2u32;
+#[repr(C)]
 pub struct STORAGE_DEVICE_FORM_FACTOR(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_ID_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_LOCATION_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_MANAGEMENT_STATUS(i32);
 pub const STORAGE_DEVICE_MAX_OPERATIONAL_STATUS: u32 = 16u32;
 pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295u32;
+#[repr(C)]
 pub struct STORAGE_DEVICE_NUMA_PROPERTY(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_NUMBER(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_NUMBERS(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_NUMBER_EX(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_POWER_CAP(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_POWER_CAP_UNITS(i32);
 pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT(i32);
+#[repr(C)]
 pub struct STORAGE_DIAGNOSTIC_DATA(i32);
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_DIAGNOSTIC_LEVEL(i32);
+#[repr(C)]
 pub struct STORAGE_DIAGNOSTIC_REQUEST(i32);
+#[repr(C)]
 pub struct STORAGE_DIAGNOSTIC_TARGET_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_DISK_HEALTH_STATUS(i32);
+#[repr(C)]
 pub struct STORAGE_DISK_OPERATIONAL_STATUS(i32);
 pub const STORAGE_EVENT_DEVICE_OPERATION: u64 = 4u64;
 pub const STORAGE_EVENT_DEVICE_STATUS: u64 = 2u64;
 pub const STORAGE_EVENT_MEDIA_STATUS: u64 = 1u64;
+#[repr(C)]
 pub struct STORAGE_EVENT_NOTIFICATION(i32);
 pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG(i32);
 pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_FRU_ID_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_HOTPLUG_INFO(i32);
+#[repr(C)]
 pub struct STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_HW_ENDURANCE_INFO(i32);
+#[repr(C)]
 pub struct STORAGE_HW_FIRMWARE_ACTIVATE(i32);
+#[repr(C)]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD(i32);
+#[repr(C)]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_HW_FIRMWARE_INFO(i32);
+#[repr(C)]
 pub struct STORAGE_HW_FIRMWARE_INFO_QUERY(i32);
 pub const STORAGE_HW_FIRMWARE_INVALID_SLOT: u32 = 255u32;
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
@@ -1374,53 +1766,89 @@ pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
 pub const STORAGE_HW_FIRMWARE_REVISION_LENGTH: u32 = 16u32;
+#[repr(C)]
 pub struct STORAGE_HW_FIRMWARE_SLOT_INFO(i32);
+#[repr(C)]
 pub struct STORAGE_IDENTIFIER(i32);
+#[repr(C)]
 pub struct STORAGE_IDENTIFIER_CODE_SET(i32);
+#[repr(C)]
 pub struct STORAGE_IDENTIFIER_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_IDLE_POWER(i32);
+#[repr(C)]
 pub struct STORAGE_IDLE_POWERUP_REASON(i32);
 pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_ID_NAA_FORMAT(i32);
+#[repr(C)]
 pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES(i32);
+#[repr(C)]
 pub struct STORAGE_MEDIA_SERIAL_NUMBER_DATA(i32);
+#[repr(C)]
 pub struct STORAGE_MEDIA_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR(i32);
 pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: u32 = 512u32;
+#[repr(C)]
 pub struct STORAGE_OFFLOAD_READ_OUTPUT(i32);
 pub const STORAGE_OFFLOAD_READ_RANGE_TRUNCATED: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_OFFLOAD_TOKEN(i32);
 pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: u32 = 504u32;
 pub const STORAGE_OFFLOAD_TOKEN_INVALID: u32 = 2u32;
 pub const STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA: u32 = 4294901761u32;
+#[repr(C)]
 pub struct STORAGE_OFFLOAD_WRITE_OUTPUT(i32);
 pub const STORAGE_OFFLOAD_WRITE_RANGE_TRUNCATED: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_OPERATIONAL_REASON(i32);
+#[repr(C)]
 pub struct STORAGE_OPERATIONAL_STATUS_REASON(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA(i32);
+#[repr(C)]
 pub struct STORAGE_PHYSICAL_DEVICE_DATA(i32);
+#[repr(C)]
 pub struct STORAGE_PHYSICAL_NODE_DATA(i32);
+#[repr(C)]
 pub struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_PORT_CODE_SET(i32);
+#[repr(C)]
 pub struct STORAGE_POWERUP_REASON_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_PREDICT_FAILURE(i32);
+#[repr(C)]
 pub struct STORAGE_PRIORITY_HINT_SUPPORT(i32);
 pub const STORAGE_PRIORITY_HINT_SUPPORTED: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct STORAGE_PROPERTY_QUERY(i32);
+#[repr(C)]
 pub struct STORAGE_PROPERTY_SET(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_COMMAND(i32);
 pub const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648u32;
 pub const STORAGE_PROTOCOL_COMMAND_LENGTH_NVME: u32 = 64u32;
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA_EXT(i32);
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_ADMIN_COMMAND: u32 = 1u32;
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_NVM_COMMAND: u32 = 2u32;
@@ -1435,39 +1863,61 @@ pub const STORAGE_PROTOCOL_STATUS_PENDING: u32 = 0u32;
 pub const STORAGE_PROTOCOL_STATUS_SUCCESS: u32 = 1u32;
 pub const STORAGE_PROTOCOL_STATUS_THROTTLED_REQUEST: u32 = 8u32;
 pub const STORAGE_PROTOCOL_STRUCTURE_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(i32);
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[repr(C)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY(i32);
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[repr(C)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY(i32);
+#[repr(C)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST(i32);
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[repr(C)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE(i32);
+#[repr(C)]
 pub struct STORAGE_QUERY_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_READ_CAPACITY(i32);
+#[repr(C)]
 pub struct STORAGE_REINITIALIZE_MEDIA(i32);
+#[repr(C)]
 pub struct STORAGE_RESERVE_ID(i32);
+#[repr(C)]
 pub struct STORAGE_RPMB_COMMAND_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_RPMB_DATA_FRAME(i32);
+#[repr(C)]
 pub struct STORAGE_RPMB_DESCRIPTOR(i32);
 pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: u32 = 1u32;
+#[repr(C)]
 pub struct STORAGE_RPMB_FRAME_TYPE(i32);
 pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: u32 = 512u32;
+#[repr(C)]
 pub struct STORAGE_SANITIZE_METHOD(i32);
+#[repr(C)]
 pub struct STORAGE_SET_TYPE(i32);
+#[repr(C)]
 pub struct STORAGE_SPEC_VERSION(i32);
 pub const STORAGE_SUPPORTED_FEATURES_BYPASS_IO: u32 = 1u32;
 pub const STORAGE_SUPPORTED_FEATURES_MASK: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_TEMPERATURE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_TEMPERATURE_THRESHOLD(i32);
 pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: u32 = 1u32;
 pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: u32 = 32768u32;
+#[repr(C)]
 pub struct STORAGE_TIER(i32);
+#[repr(C)]
 pub struct STORAGE_TIER_CLASS(i32);
 pub const STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
 pub const STORAGE_TIER_FLAG_NO_SEEK_PENALTY: u32 = 131072u32;
@@ -1475,34 +1925,50 @@ pub const STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
 pub const STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
 pub const STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
 pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
+#[repr(C)]
 pub struct STORAGE_TIER_MEDIA_TYPE(i32);
 pub const STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
+#[repr(C)]
 pub struct STORAGE_TIER_REGION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_WRITE_CACHE_PROPERTY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_ZONED_DEVICE_TYPES(i32);
+#[repr(C)]
 pub struct STORAGE_ZONES_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct STORAGE_ZONE_CONDITION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_ZONE_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct STORAGE_ZONE_GROUP(i32);
+#[repr(C)]
 pub struct STORAGE_ZONE_TYPES(i32);
 pub const STORATTRIBUTE_MANAGEMENT_STATE: u32 = 1u32;
 pub const STORATTRIBUTE_NONE: u32 = 0u32;
 pub const STREAMS_ASSOCIATE_ID_CLEAR: u32 = 1u32;
+#[repr(C)]
 pub struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER(i32);
 pub const STREAMS_ASSOCIATE_ID_SET: u32 = 2u32;
 pub const STREAMS_INVALID_ID: u32 = 0u32;
 pub const STREAMS_MAX_ID: u32 = 65535u32;
+#[repr(C)]
 pub struct STREAMS_QUERY_ID_OUTPUT_BUFFER(i32);
+#[repr(C)]
 pub struct STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER(i32);
 pub const STREAM_CLEAR_ENCRYPTION: u32 = 4u32;
+#[repr(C)]
 pub struct STREAM_EXTENT_ENTRY(i32);
 pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: u32 = 2u32;
 pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: u32 = 1u32;
+#[repr(C)]
 pub struct STREAM_INFORMATION_ENTRY(i32);
+#[repr(C)]
 pub struct STREAM_LAYOUT_ENTRY(i32);
 pub const STREAM_LAYOUT_ENTRY_HAS_INFORMATION: u32 = 16u32;
 pub const STREAM_LAYOUT_ENTRY_IMMOVABLE: u32 = 1u32;
@@ -1510,30 +1976,43 @@ pub const STREAM_LAYOUT_ENTRY_NO_CLUSTERS_ALLOCATED: u32 = 8u32;
 pub const STREAM_LAYOUT_ENTRY_PINNED: u32 = 2u32;
 pub const STREAM_LAYOUT_ENTRY_RESIDENT: u32 = 4u32;
 pub const STREAM_SET_ENCRYPTION: u32 = 3u32;
+#[repr(C)]
 pub struct TAPE_GET_STATISTICS(i32);
 pub const TAPE_RESET_STATISTICS: i32 = 2i32;
 pub const TAPE_RETURN_ENV_INFO: i32 = 1i32;
 pub const TAPE_RETURN_STATISTICS: i32 = 0i32;
+#[repr(C)]
 pub struct TAPE_STATISTICS(i32);
 pub const TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH: u32 = 16u32;
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: u32 = 2u32;
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX: u32 = 16u32;
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_SMART: u32 = 1u32;
 pub const TELEMETRY_COMMAND_SIZE: u32 = 16u32;
+#[repr(C)]
 pub struct TXFS_CREATE_MINIVERSION_INFO(i32);
+#[repr(C)]
 pub struct TXFS_GET_METADATA_INFO_OUT(i32);
+#[repr(C)]
 pub struct TXFS_GET_TRANSACTED_VERSION(i32);
+#[repr(C)]
 pub struct TXFS_LIST_TRANSACTIONS(i32);
+#[repr(C)]
 pub struct TXFS_LIST_TRANSACTIONS_ENTRY(i32);
+#[repr(C)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES(i32);
+#[repr(C)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY(i32);
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_CREATED: u32 = 1u32;
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED: u32 = 2u32;
 pub const TXFS_LOGGING_MODE_FULL: u32 = 2u32;
 pub const TXFS_LOGGING_MODE_SIMPLE: u32 = 1u32;
+#[repr(C)]
 pub struct TXFS_MODIFY_RM(i32);
+#[repr(C)]
 pub struct TXFS_QUERY_RM_INFORMATION(i32);
+#[repr(C)]
 pub struct TXFS_READ_BACKUP_INFORMATION_OUT(i32);
+#[repr(C)]
 pub struct TXFS_RMF_LAGS(i32);
 pub const TXFS_RM_STATE_ACTIVE: u32 = 2u32;
 pub const TXFS_RM_STATE_NOT_STARTED: u32 = 0u32;
@@ -1541,10 +2020,12 @@ pub const TXFS_RM_STATE_SHUTTING_DOWN: u32 = 3u32;
 pub const TXFS_RM_STATE_STARTING: u32 = 1u32;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: u32 = 1u32;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: u32 = 2u32;
+#[repr(C)]
 pub struct TXFS_ROLLFORWARD_REDO_INFORMATION(i32);
 pub const TXFS_SAVEPOINT_CLEAR: u32 = 4u32;
 pub const TXFS_SAVEPOINT_CLEAR_ALL: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TXFS_SAVEPOINT_INFORMATION(i32);
 pub const TXFS_SAVEPOINT_ROLLBACK: u32 = 2u32;
 pub const TXFS_SAVEPOINT_SET: u32 = 1u32;
@@ -1561,27 +2042,35 @@ pub const TXFS_START_RM_FLAG_PREFER_AVAILABILITY: u32 = 8192u32;
 pub const TXFS_START_RM_FLAG_PREFER_CONSISTENCY: u32 = 4096u32;
 pub const TXFS_START_RM_FLAG_PRESERVE_CHANGES: u32 = 2048u32;
 pub const TXFS_START_RM_FLAG_RECOVER_BEST_EFFORT: u32 = 512u32;
+#[repr(C)]
 pub struct TXFS_START_RM_INFORMATION(i32);
 pub const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294u32;
 pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO(i32);
 pub const TXFS_TRANSACTION_STATE_ACTIVE: u32 = 1u32;
 pub const TXFS_TRANSACTION_STATE_NONE: u32 = 0u32;
 pub const TXFS_TRANSACTION_STATE_NOTACTIVE: u32 = 3u32;
 pub const TXFS_TRANSACTION_STATE_PREPARED: u32 = 2u32;
+#[repr(C)]
 pub struct TXFS_WRITE_BACKUP_INFORMATION(i32);
 pub const UNDEFINE_ALTERNATE: u32 = 13u32;
 pub const UNDEFINE_PRIMARY: u32 = 12u32;
 pub const UNLOCK_ELEMENT: u32 = 1u32;
 pub const UNRECOVERED_READS_VALID: u32 = 8u32;
 pub const UNRECOVERED_WRITES_VALID: u32 = 2u32;
+#[repr(C)]
 pub struct USN_DELETE_FLAGS(i32);
 pub const USN_DELETE_VALID_FLAGS: u32 = 3u32;
+#[repr(C)]
 pub struct USN_JOURNAL_DATA_V0(i32);
+#[repr(C)]
 pub struct USN_JOURNAL_DATA_V1(i32);
+#[repr(C)]
 pub struct USN_JOURNAL_DATA_V2(i32);
 pub const USN_PAGE_SIZE: u32 = 4096u32;
+#[repr(C)]
 pub struct USN_RANGE_TRACK_OUTPUT(i32);
 pub const USN_REASON_BASIC_INFO_CHANGE: u32 = 32768u32;
 pub const USN_REASON_CLOSE: u32 = 2147483648u32;
@@ -1607,50 +2096,82 @@ pub const USN_REASON_REPARSE_POINT_CHANGE: u32 = 1048576u32;
 pub const USN_REASON_SECURITY_CHANGE: u32 = 2048u32;
 pub const USN_REASON_STREAM_CHANGE: u32 = 2097152u32;
 pub const USN_REASON_TRANSACTED_CHANGE: u32 = 4194304u32;
+#[repr(C)]
 pub struct USN_RECORD_COMMON_HEADER(i32);
+#[repr(C)]
 pub struct USN_RECORD_EXTENT(i32);
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[repr(C)]
 pub struct USN_RECORD_UNION(i32);
+#[repr(C)]
 pub struct USN_RECORD_V2(i32);
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[repr(C)]
 pub struct USN_RECORD_V3(i32);
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[repr(C)]
 pub struct USN_RECORD_V4(i32);
+#[repr(C)]
 pub struct USN_SOURCE_INFO_ID(i32);
+#[repr(C)]
 pub struct USN_TRACK_MODIFIED_RANGES(i32);
 pub const VALID_NTFT: u32 = 192u32;
 pub const VENDOR_ID_LENGTH: u32 = 8u32;
+#[repr(C)]
 pub struct VERIFY_INFORMATION(i32);
+#[repr(C)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT(i32);
+#[repr(C)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX(i32);
+#[repr(C)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT(i32);
+#[repr(C)]
 pub struct VIRTUAL_STORAGE_BEHAVIOR_CODE(i32);
+#[repr(C)]
 pub struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT(i32);
+#[repr(C)]
 pub struct VOLUME_BITMAP_BUFFER(i32);
+#[repr(C)]
 pub struct VOLUME_DISK_EXTENTS(i32);
+#[repr(C)]
 pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION(i32);
 pub const VOLUME_IS_DIRTY: u32 = 1u32;
 pub const VOLUME_SESSION_OPEN: u32 = 4u32;
 pub const VOLUME_UPGRADE_SCHEDULED: u32 = 2u32;
+#[repr(C)]
 pub struct WIM_PROVIDER_ADD_OVERLAY_INPUT(i32);
 pub const WIM_PROVIDER_CURRENT_VERSION: u32 = 1u32;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: u32 = 2u32;
+#[repr(C)]
 pub struct WIM_PROVIDER_EXTERNAL_INFO(i32);
+#[repr(C)]
 pub struct WIM_PROVIDER_OVERLAY_ENTRY(i32);
+#[repr(C)]
 pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT(i32);
+#[repr(C)]
 pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT(i32);
+#[repr(C)]
 pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT(i32);
 pub const WOF_CURRENT_VERSION: u32 = 1u32;
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[repr(C)]
 pub struct WOF_EXTERNAL_FILE_ID(i32);
+#[repr(C)]
 pub struct WOF_EXTERNAL_INFO(i32);
 pub const WOF_PROVIDER_CLOUD: u32 = 3u32;
+#[repr(C)]
 pub struct WOF_VERSION_INFO(i32);
+#[repr(C)]
 pub struct WRITE_CACHE_CHANGE(i32);
+#[repr(C)]
 pub struct WRITE_CACHE_ENABLE(i32);
+#[repr(C)]
 pub struct WRITE_CACHE_TYPE(i32);
 pub const WRITE_COMPRESSION_INFO_VALID: u32 = 16u32;
+#[repr(C)]
 pub struct WRITE_THROUGH(i32);
+#[repr(C)]
 pub struct WRITE_USN_REASON_INPUT(i32);
+#[repr(C)]
 pub struct _DEVICEDUMP_COLLECTION_TYPE(i32);

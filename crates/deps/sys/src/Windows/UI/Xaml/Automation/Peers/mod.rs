@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AccessibilityView(i32);
 #[repr(transparent)]
 pub struct AppBarAutomationPeer(pub *mut ::core::ffi::c_void);
@@ -10,19 +11,29 @@ pub struct AppBarButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 pub struct AppBarToggleButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutoSuggestBoxAutomationPeer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutomationControlType(i32);
+#[repr(C)]
 pub struct AutomationEvents(i32);
+#[repr(C)]
 pub struct AutomationHeadingLevel(i32);
+#[repr(C)]
 pub struct AutomationLandmarkType(i32);
+#[repr(C)]
 pub struct AutomationLiveSetting(i32);
+#[repr(C)]
 pub struct AutomationNavigationDirection(i32);
+#[repr(C)]
 pub struct AutomationNotificationKind(i32);
+#[repr(C)]
 pub struct AutomationNotificationProcessing(i32);
+#[repr(C)]
 pub struct AutomationOrientation(i32);
 #[repr(transparent)]
 pub struct AutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutomationPeerAnnotation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutomationStructureChangeType(i32);
 #[repr(transparent)]
 pub struct ButtonAutomationPeer(pub *mut ::core::ffi::c_void);
@@ -516,6 +527,7 @@ pub struct MenuFlyoutPresenterAutomationPeer(pub *mut ::core::ffi::c_void);
 pub struct NavigationViewItemAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PasswordBoxAutomationPeer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PatternInterface(i32);
 #[repr(transparent)]
 pub struct PersonPictureAutomationPeer(pub *mut ::core::ffi::c_void);
@@ -537,6 +549,7 @@ pub struct RadioButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 pub struct RangeBaseAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RatingControlAutomationPeer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RawElementProviderRuntimeId(i32);
 #[repr(transparent)]
 pub struct RepeatButtonAutomationPeer(pub *mut ::core::ffi::c_void);

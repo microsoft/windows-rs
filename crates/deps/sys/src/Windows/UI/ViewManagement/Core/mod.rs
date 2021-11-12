@@ -13,9 +13,11 @@ pub struct CoreInputView(pub *mut ::core::ffi::c_void);
 pub struct CoreInputViewAnimationStartingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreInputViewHidingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreInputViewKind(i32);
 #[repr(transparent)]
 pub struct CoreInputViewOcclusion(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreInputViewOcclusionKind(i32);
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -23,6 +25,7 @@ pub struct CoreInputViewOcclusionsChangedEventArgs(pub *mut ::core::ffi::c_void)
 pub struct CoreInputViewShowingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreInputViewXYFocusTransferDirection(i32);
 #[repr(transparent)]
 pub struct ICoreFrameworkInputView(pub *mut ::core::ffi::c_void);

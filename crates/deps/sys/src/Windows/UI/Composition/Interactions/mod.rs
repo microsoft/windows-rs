@@ -89,14 +89,19 @@ pub struct IVisualInteractionSourceObjectFactory(pub *mut ::core::ffi::c_void);
 pub struct IVisualInteractionSourceStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVisualInteractionSourceStatics2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InteractionBindingAxisModes(i32);
+#[repr(C)]
 pub struct InteractionChainingMode(i32);
 #[repr(transparent)]
 pub struct InteractionSourceConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InteractionSourceMode(i32);
+#[repr(C)]
 pub struct InteractionSourceRedirectionMode(i32);
 #[repr(transparent)]
 pub struct InteractionTracker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InteractionTrackerClampingOption(i32);
 #[repr(transparent)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(pub *mut ::core::ffi::c_void);
@@ -114,6 +119,7 @@ pub struct InteractionTrackerInertiaRestingValue(pub *mut ::core::ffi::c_void);
 pub struct InteractionTrackerInertiaStateEnteredArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InteractionTrackerPositionUpdateOption(i32);
 #[repr(transparent)]
 pub struct InteractionTrackerRequestIgnoredArgs(pub *mut ::core::ffi::c_void);
@@ -125,4 +131,5 @@ pub struct InteractionTrackerVector2InertiaModifier(pub *mut ::core::ffi::c_void
 pub struct InteractionTrackerVector2InertiaNaturalMotion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VisualInteractionSource(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VisualInteractionSourceRedirectionMode(i32);

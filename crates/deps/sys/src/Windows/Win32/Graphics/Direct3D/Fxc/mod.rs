@@ -54,6 +54,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn D3DWriteBlobToFile(pblob: super::ID3DBlob, pfilename: super::super::super::Foundation::PWSTR, boverwrite: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct D3DCOMPILER_STRIP_FLAGS(i32);
 pub const D3DCOMPILE_ALL_RESOURCES_BOUND: u32 = 2097152u32;
 pub const D3DCOMPILE_AVOID_FLOW_CONTROL: u32 = 512u32;
@@ -88,6 +89,7 @@ pub const D3DCOMPILE_SECDATA_REQUIRE_TEMPLATE_MATCH: u32 = 4u32;
 pub const D3DCOMPILE_SKIP_OPTIMIZATION: u32 = 4u32;
 pub const D3DCOMPILE_SKIP_VALIDATION: u32 = 2u32;
 pub const D3DCOMPILE_WARNINGS_ARE_ERRORS: u32 = 262144u32;
+#[repr(C)]
 pub struct D3D_BLOB_PART(i32);
 pub const D3D_COMPILER_VERSION: u32 = 47u32;
 pub const D3D_COMPRESS_SHADER_KEEP_ALL_PARTS: u32 = 1u32;
@@ -100,7 +102,11 @@ pub const D3D_DISASM_ENABLE_INSTRUCTION_OFFSET: u32 = 32u32;
 pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64u32;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128u32;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
+#[repr(C)]
 pub struct D3D_SHADER_DATA(i32);
+#[repr(C)]
 pub struct pD3DCompile(i32);
+#[repr(C)]
 pub struct pD3DDisassemble(i32);
+#[repr(C)]
 pub struct pD3DPreprocess(i32);

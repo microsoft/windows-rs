@@ -373,24 +373,37 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaGetById2(enginehandle: super::super::Foundation::HANDLE, id: u64, salookupcontext: *const ::windows_sys::core::GUID, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32;
 }
+#[repr(C)]
 pub struct ARP_HARDWARE_TYPE(i32);
+#[repr(C)]
 pub struct ARP_HEADER(i32);
+#[repr(C)]
 pub struct ARP_OPCODE(i32);
 pub const BYTE_ORDER: u32 = 1234u32;
 pub const DL_ADDRESS_LENGTH_MAXIMUM: u32 = 32u32;
+#[repr(C)]
 pub struct DL_ADDRESS_TYPE(i32);
+#[repr(C)]
 pub struct DL_EI48(i32);
+#[repr(C)]
 pub struct DL_EI64(i32);
+#[repr(C)]
 pub struct DL_EUI48(i32);
+#[repr(C)]
 pub struct DL_EUI64(i32);
 pub const DL_HEADER_LENGTH_MAXIMUM: u32 = 64u32;
+#[repr(C)]
 pub struct DL_OUI(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct DL_TEREDO_ADDRESS(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct DL_TEREDO_ADDRESS_PRV(i32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
+#[repr(C)]
 pub struct DL_TUNNEL_ADDRESS(i32);
+#[repr(C)]
 pub struct ETHERNET_HEADER(i32);
 pub const ETHERNET_TYPE_802_1AD: u32 = 34984u32;
 pub const ETHERNET_TYPE_802_1Q: u32 = 33024u32;
@@ -402,7 +415,9 @@ pub const ETH_LENGTH_OF_HEADER: u32 = 14u32;
 pub const ETH_LENGTH_OF_SNAP_HEADER: u32 = 8u32;
 pub const ETH_LENGTH_OF_VLAN_HEADER: u32 = 4u32;
 pub const EXT_LEN_UNIT: u32 = 8u32;
+#[repr(C)]
 pub struct FALLBACK_INDEX(i32);
+#[repr(C)]
 pub struct FWPM_ACTION0(i32);
 pub const FWPM_ACTRL_ADD: u32 = 1u32;
 pub const FWPM_ACTRL_ADD_LINK: u32 = 2u32;
@@ -415,9 +430,11 @@ pub const FWPM_ACTRL_READ: u32 = 128u32;
 pub const FWPM_ACTRL_READ_STATS: u32 = 256u32;
 pub const FWPM_ACTRL_SUBSCRIBE: u32 = 512u32;
 pub const FWPM_ACTRL_WRITE: u32 = 1024u32;
+#[repr(C)]
 pub struct FWPM_APPC_NETWORK_CAPABILITY_TYPE(i32);
 pub const FWPM_AUTO_WEIGHT_BITS: u32 = 60u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_CALLOUT0(i32);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2006391204,
@@ -443,7 +460,9 @@ pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: ::windows_sys::core::GUID = ::window
     data3: 16617,
     data4: [145, 230, 247, 255, 126, 82, 247, 217],
 };
+#[repr(C)]
 pub struct FWPM_CALLOUT_CHANGE0(i32);
+#[repr(C)]
 pub struct FWPM_CALLOUT_CHANGE_CALLBACK0(i32);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 860383925,
@@ -452,6 +471,7 @@ pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows_sys::core::GUID =
     data4: [160, 11, 167, 175, 237, 11, 169, 161],
 };
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 127602704, data2: 61893, data3: 20429, data4: [174, 5, 218, 65, 16, 122, 189, 11] };
+#[repr(C)]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0(i32);
 pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536u32;
 pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144u32;
@@ -552,6 +572,7 @@ pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V6: ::windows_sys::cor
     data3: 19908,
     data4: [131, 211, 141, 236, 24, 183, 173, 226],
 };
+#[repr(C)]
 pub struct FWPM_CALLOUT_SUBSCRIPTION0(i32);
 pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3783519410,
@@ -600,10 +621,13 @@ pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V6_SILENT_DROP: ::windows_sys::core::
     data3: 16726,
     data4: [180, 118, 146, 134, 238, 206, 129, 78],
 };
+#[repr(C)]
 pub struct FWPM_CHANGE_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_CLASSIFY_OPTION0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_CLASSIFY_OPTIONS0(i32);
 pub const FWPM_CONDITION_ALE_APP_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3616415367,
@@ -1122,30 +1146,46 @@ pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows_sys::core::GUID = 
     data4: [160, 37, 101, 185, 187, 15, 159, 148],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_CONNECTION0(i32);
+#[repr(C)]
 pub struct FWPM_CONNECTION_CALLBACK0(i32);
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
+#[repr(C)]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0(i32);
+#[repr(C)]
 pub struct FWPM_CONNECTION_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct FWPM_CONNECTION_SUBSCRIPTION0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_DISPLAY_DATA0(i32);
+#[repr(C)]
 pub struct FWPM_DYNAMIC_KEYWORD_CALLBACK0(i32);
+#[repr(C)]
 pub struct FWPM_ENGINE_OPTION(i32);
 pub const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: u32 = 4u32;
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: u32 = 2u32;
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1u32;
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0u32;
+#[repr(C)]
 pub struct FWPM_FIELD0(i32);
+#[repr(C)]
 pub struct FWPM_FIELD_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_FILTER0(i32);
+#[repr(C)]
 pub struct FWPM_FILTER_CHANGE0(i32);
+#[repr(C)]
 pub struct FWPM_FILTER_CHANGE_CALLBACK0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_FILTER_CONDITION0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0(i32);
+#[repr(C)]
 pub struct FWPM_FILTER_FLAGS(i32);
 pub const FWPM_FILTER_FLAG_GAMEOS_ONLY: u32 = 512u32;
 pub const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 128u32;
@@ -1155,6 +1195,7 @@ pub const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192u32;
 pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024u32;
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_FILTER_SUBSCRIPTION0(i32);
 pub const FWPM_KEYING_MODULE_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 300145376,
@@ -1165,6 +1206,7 @@ pub const FWPM_KEYING_MODULE_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::
 pub const FWPM_KEYING_MODULE_IKE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2847668103, data2: 33448, data3: 17851, data4: [164, 0, 93, 126, 89, 82, 199, 169] };
 pub const FWPM_KEYING_MODULE_IKEV2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 68653772, data2: 36615, data3: 16797, data4: [163, 148, 113, 105, 104, 203, 22, 71] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_LAYER0(i32);
 pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3280820177,
@@ -1301,6 +1343,7 @@ pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: ::windows_sys::core::GUID = ::
     data4: [189, 196, 135, 29, 253, 74, 124, 152],
 };
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 455995171, data2: 6273, data3: 16573, data4: [130, 244, 66, 84, 230, 49, 65, 203] };
+#[repr(C)]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0(i32);
 pub const FWPM_LAYER_FLAG_BUFFERED: u32 = 8u32;
 pub const FWPM_LAYER_FLAG_BUILTIN: u32 = 2u32;
@@ -1520,6 +1563,7 @@ pub const FWPM_LAYER_RPC_UM: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 16627,
     data4: [173, 199, 118, 136, 169, 200, 71, 225],
 };
+#[repr(C)]
 pub struct FWPM_LAYER_STATISTICS0(i32);
 pub const FWPM_LAYER_STREAM_PACKET_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2941442284,
@@ -1543,36 +1587,55 @@ pub const FWPM_LAYER_STREAM_V6: ::windows_sys::core::GUID = ::windows_sys::GUID 
 };
 pub const FWPM_LAYER_STREAM_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 279289799, data2: 46632, data3: 19521, data4: [158, 184, 207, 55, 213, 81, 3, 207] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT1(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT3(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT4_(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT5_(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CALLBACK0(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CALLBACK1(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CALLBACK2(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CALLBACK3(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CALLBACK4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0(i32);
 pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32u32;
 pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192u32;
@@ -1589,30 +1652,43 @@ pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16u32;
 pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128u32;
 pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_HEADER0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_HEADER1(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_HEADER2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_HEADER3(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1(i32);
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2u32;
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1u32;
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_(i32);
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1u32;
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0(i32);
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: u32 = 8u32;
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: u32 = 4u32;
@@ -1620,24 +1696,37 @@ pub const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: u32 = 16u32;
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2u32;
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1u32;
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32u32;
+#[repr(C)]
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0(i32);
+#[repr(C)]
 pub struct FWPM_NET_EVENT_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_PROVIDER0(i32);
+#[repr(C)]
 pub struct FWPM_PROVIDER_CHANGE0(i32);
+#[repr(C)]
 pub struct FWPM_PROVIDER_CHANGE_CALLBACK0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT1(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT3_(i32);
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0(i32);
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0(i32);
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0(i32);
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1u32;
@@ -1653,8 +1742,11 @@ pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_IPSEC: ::windows_sys::core::GUID =
     data3: 17088,
     data4: [148, 206, 124, 207, 198, 59, 47, 155],
 };
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0(i32);
+#[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_TYPE(i32);
+#[repr(C)]
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0(i32);
 pub const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16u32;
 pub const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1u32;
@@ -1674,6 +1766,7 @@ pub const FWPM_PROVIDER_MPSSVC_WSH: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 17536,
     data4: [170, 180, 209, 185, 189, 192, 55, 16],
 };
+#[repr(C)]
 pub struct FWPM_PROVIDER_SUBSCRIPTION0(i32);
 pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2305466782,
@@ -1682,17 +1775,25 @@ pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windo
     data4: [174, 121, 190, 185, 18, 124, 132, 185],
 };
 pub const FWPM_PROVIDER_TCP_TEMPLATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1993329968, data2: 13204, data3: 17197, data4: [190, 211, 68, 26, 229, 14, 99, 195] };
+#[repr(C)]
 pub struct FWPM_SERVICE_STATE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWPM_SESSION0(i32);
+#[repr(C)]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0(i32);
 pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1u32;
 pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456u32;
+#[repr(C)]
 pub struct FWPM_STATISTICS0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_SUBLAYER0(i32);
+#[repr(C)]
 pub struct FWPM_SUBLAYER_CHANGE0(i32);
+#[repr(C)]
 pub struct FWPM_SUBLAYER_CHANGE_CALLBACK0(i32);
+#[repr(C)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0(i32);
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_SUBLAYER_INSPECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2272598497, data2: 59049, data3: 16805, data4: [129, 180, 140, 79, 17, 142, 74, 96] };
@@ -1743,6 +1844,7 @@ pub const FWPM_SUBLAYER_SECURE_SOCKET: ::windows_sys::core::GUID = ::windows_sys
     data3: 20347,
     data4: [170, 108, 129, 42, 166, 19, 221, 130],
 };
+#[repr(C)]
 pub struct FWPM_SUBLAYER_SUBSCRIPTION0(i32);
 pub const FWPM_SUBLAYER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 863373497, data2: 47061, data3: 19807, data4: [130, 249, 54, 24, 97, 139, 192, 88] };
 pub const FWPM_SUBLAYER_TCP_TEMPLATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 608312783, data2: 2757, data3: 19626, data4: [158, 20, 80, 246, 227, 99, 106, 240] };
@@ -1753,19 +1855,28 @@ pub const FWPM_SUBLAYER_TEREDO: ::windows_sys::core::GUID = ::windows_sys::GUID 
     data4: [156, 137, 38, 167, 180, 106, 131, 39],
 };
 pub const FWPM_SUBLAYER_UNIVERSAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4005481475, data2: 52948, data3: 17280, data4: [129, 154, 39, 52, 57, 123, 43, 116] };
+#[repr(C)]
 pub struct FWPM_SUBSCRIPTION_FLAGS(i32);
+#[repr(C)]
 pub struct FWPM_SYSTEM_PORTS0(i32);
+#[repr(C)]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0(i32);
+#[repr(C)]
 pub struct FWPM_SYSTEM_PORTS_CALLBACK0(i32);
+#[repr(C)]
 pub struct FWPM_SYSTEM_PORT_TYPE(i32);
 pub const FWPM_TUNNEL_FLAG_ENABLE_VIRTUAL_IF_TUNNELING: u32 = 2u32;
 pub const FWPM_TUNNEL_FLAG_POINT_TO_POINT: u32 = 1u32;
 pub const FWPM_TUNNEL_FLAG_RESERVED0: u32 = 4u32;
 pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FWPM_VSWITCH_EVENT0(i32);
+#[repr(C)]
 pub struct FWPM_VSWITCH_EVENT_CALLBACK0(i32);
+#[repr(C)]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0(i32);
+#[repr(C)]
 pub struct FWPM_VSWITCH_EVENT_TYPE(i32);
 pub const FWPM_WEIGHT_RANGE_IKE_EXEMPTIONS: u32 = 12u32;
 pub const FWPM_WEIGHT_RANGE_IPSEC: u32 = 0u32;
@@ -1841,11 +1952,15 @@ pub const FWP_ACTION_FLAG_TERMINATING: u32 = 4096u32;
 pub const FWP_ACTION_NONE: u32 = 7u32;
 pub const FWP_ACTION_NONE_NO_MATCH: u32 = 8u32;
 pub const FWP_ACTRL_MATCH_FILTER: u32 = 1u32;
+#[repr(C)]
 pub struct FWP_AF(i32);
 pub const FWP_BYTEMAP_ARRAY64_SIZE: u32 = 8u32;
+#[repr(C)]
 pub struct FWP_BYTE_ARRAY16(i32);
+#[repr(C)]
 pub struct FWP_BYTE_ARRAY6(i32);
 pub const FWP_BYTE_ARRAY6_SIZE: u32 = 6u32;
+#[repr(C)]
 pub struct FWP_BYTE_BLOB(i32);
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: u32 = 128u32;
 pub const FWP_CALLOUT_FLAG_ALLOW_MID_STREAM_INSPECTION: u32 = 8u32;
@@ -1858,6 +1973,7 @@ pub const FWP_CALLOUT_FLAG_CONDITIONAL_ON_FLOW: u32 = 1u32;
 pub const FWP_CALLOUT_FLAG_ENABLE_COMMIT_ADD_NOTIFY: u32 = 4u32;
 pub const FWP_CALLOUT_FLAG_RESERVED1: u32 = 32u32;
 pub const FWP_CALLOUT_FLAG_RESERVED2: u32 = 1024u32;
+#[repr(C)]
 pub struct FWP_CLASSIFY_OPTION_TYPE(i32);
 pub const FWP_CONDITION_FLAG_IS_APPCONTAINER_LOOPBACK: u32 = 4194304u32;
 pub const FWP_CONDITION_FLAG_IS_AUTH_FW: u32 = 65536u32;
@@ -1906,9 +2022,13 @@ pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: u32 = 2u32;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: u32 = 4u32;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWP_CONDITION_VALUE0(i32);
+#[repr(C)]
 pub struct FWP_DATA_TYPE(i32);
+#[repr(C)]
 pub struct FWP_DIRECTION(i32);
+#[repr(C)]
 pub struct FWP_ETHER_ENCAP_METHOD(i32);
 pub const FWP_FILTER_ENUM_FLAG_BEST_TERMINATING_MATCH: u32 = 1u32;
 pub const FWP_FILTER_ENUM_FLAG_BOOTTIME_ONLY: u32 = 4u32;
@@ -1916,8 +2036,11 @@ pub const FWP_FILTER_ENUM_FLAG_INCLUDE_BOOTTIME: u32 = 8u32;
 pub const FWP_FILTER_ENUM_FLAG_INCLUDE_DISABLED: u32 = 16u32;
 pub const FWP_FILTER_ENUM_FLAG_RESERVED1: u32 = 32u32;
 pub const FWP_FILTER_ENUM_FLAG_SORTED: u32 = 2u32;
+#[repr(C)]
 pub struct FWP_FILTER_ENUM_TYPE(i32);
+#[repr(C)]
 pub struct FWP_IP_VERSION(i32);
+#[repr(C)]
 pub struct FWP_MATCH_TYPE(i32);
 pub const FWP_OPTION_VALUE_ALLOW_GLOBAL_MULTICAST_STATE: u32 = 2u32;
 pub const FWP_OPTION_VALUE_ALLOW_MULTICAST_STATE: u32 = 0u32;
@@ -1927,16 +2050,24 @@ pub const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: u32 = 0u32;
 pub const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: u32 = 1u32;
 pub const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWP_RANGE0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWP_TOKEN_INFORMATION(i32);
+#[repr(C)]
 pub struct FWP_V4_ADDR_AND_MASK(i32);
+#[repr(C)]
 pub struct FWP_V6_ADDR_AND_MASK(i32);
 pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct FWP_VALUE0(i32);
+#[repr(C)]
 pub struct FWP_VSWITCH_NETWORK_TYPE(i32);
+#[repr(C)]
 pub struct ICMP4_TIME_EXCEED_CODE(i32);
+#[repr(C)]
 pub struct ICMP4_UNREACH_CODE(i32);
 pub const ICMP6_DST_UNREACH_ADDR: u32 = 3u32;
 pub const ICMP6_DST_UNREACH_ADMIN: u32 = 1u32;
@@ -1948,142 +2079,228 @@ pub const ICMP6_PARAMPROB_NEXTHEADER: u32 = 1u32;
 pub const ICMP6_PARAMPROB_OPTION: u32 = 2u32;
 pub const ICMP6_TIME_EXCEED_REASSEMBLY: u32 = 1u32;
 pub const ICMP6_TIME_EXCEED_TRANSIT: u32 = 0u32;
+#[repr(C)]
 pub struct ICMPV4_ADDRESS_MASK_MESSAGE(i32);
 pub const ICMPV4_INVALID_PREFERENCE_LEVEL: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct ICMPV4_ROUTER_ADVERT_ENTRY(i32);
+#[repr(C)]
 pub struct ICMPV4_ROUTER_ADVERT_HEADER(i32);
+#[repr(C)]
 pub struct ICMPV4_ROUTER_SOLICIT(i32);
+#[repr(C)]
 pub struct ICMPV4_TIMESTAMP_MESSAGE(i32);
 pub const ICMPV6_ECHO_REQUEST_FLAG_REVERSE: u32 = 1u32;
+#[repr(C)]
 pub struct ICMP_HEADER(i32);
+#[repr(C)]
 pub struct ICMP_MESSAGE(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct IGMPV3_QUERY_HEADER(i32);
+#[repr(C)]
 pub struct IGMPV3_REPORT_HEADER(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct IGMPV3_REPORT_RECORD_HEADER(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct IGMP_HEADER(i32);
 pub const IGMP_LEAVE_GROUP_TYPE: u32 = 23u32;
+#[repr(C)]
 pub struct IGMP_MAX_RESP_CODE_TYPE(i32);
 pub const IGMP_QUERY_TYPE: u32 = 17u32;
 pub const IGMP_VERSION1_REPORT_TYPE: u32 = 18u32;
 pub const IGMP_VERSION2_REPORT_TYPE: u32 = 22u32;
 pub const IGMP_VERSION3_REPORT_TYPE: u32 = 34u32;
+#[repr(C)]
 pub struct IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_AUTHENTICATION_METHOD0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_AUTHENTICATION_METHOD1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_AUTHENTICATION_METHOD2(i32);
+#[repr(C)]
 pub struct IKEEXT_AUTHENTICATION_METHOD_TYPE(i32);
+#[repr(C)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0(i32);
+#[repr(C)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2(i32);
+#[repr(C)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0(i32);
+#[repr(C)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0(i32);
+#[repr(C)]
 pub struct IKEEXT_CERT_AUTH(i32);
 pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK: u32 = 2u32;
 pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 64u32;
+#[repr(C)]
 pub struct IKEEXT_CERT_CONFIG_TYPE(i32);
 pub const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: u32 = 1u32;
+#[repr(C)]
 pub struct IKEEXT_CERT_CRITERIA_NAME_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CERT_EKUS0(i32);
+#[repr(C)]
 pub struct IKEEXT_CERT_FLAGS(i32);
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CERT_NAME0(i32);
+#[repr(C)]
 pub struct IKEEXT_CERT_ROOT_CONFIG0(i32);
+#[repr(C)]
 pub struct IKEEXT_CIPHER_ALGORITHM0(i32);
+#[repr(C)]
 pub struct IKEEXT_CIPHER_TYPE(i32);
+#[repr(C)]
 pub struct IKEEXT_COMMON_STATISTICS0(i32);
+#[repr(C)]
 pub struct IKEEXT_COMMON_STATISTICS1(i32);
+#[repr(C)]
 pub struct IKEEXT_COOKIE_PAIR0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIAL0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIAL1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIAL2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIALS0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIALS1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIALS2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIAL_PAIR0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIAL_PAIR1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_CREDENTIAL_PAIR2(i32);
+#[repr(C)]
 pub struct IKEEXT_DH_GROUP(i32);
+#[repr(C)]
 pub struct IKEEXT_EAP_AUTHENTICATION0(i32);
+#[repr(C)]
 pub struct IKEEXT_EAP_AUTHENTICATION_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_EM_POLICY0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_EM_POLICY1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_EM_POLICY2(i32);
+#[repr(C)]
 pub struct IKEEXT_EM_SA_STATE(i32);
+#[repr(C)]
 pub struct IKEEXT_INTEGRITY_ALGORITHM0(i32);
+#[repr(C)]
 pub struct IKEEXT_INTEGRITY_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0(i32);
+#[repr(C)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0(i32);
+#[repr(C)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1(i32);
+#[repr(C)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0(i32);
+#[repr(C)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1(i32);
+#[repr(C)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1(i32);
+#[repr(C)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(i32);
 pub const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: u32 = 4u32;
+#[repr(C)]
 pub struct IKEEXT_KEYMODULE_STATISTICS0(i32);
+#[repr(C)]
 pub struct IKEEXT_KEYMODULE_STATISTICS1(i32);
+#[repr(C)]
 pub struct IKEEXT_KEY_MODULE_TYPE(i32);
+#[repr(C)]
 pub struct IKEEXT_MM_SA_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_NAME_CREDENTIAL0(i32);
+#[repr(C)]
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0(i32);
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_POLICY0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_POLICY1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_POLICY2(i32);
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128u32;
+#[repr(C)]
 pub struct IKEEXT_POLICY_FLAG(i32);
 pub const IKEEXT_POLICY_FLAG_IMS_VPN: u32 = 64u32;
 pub const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: u32 = 16u32;
 pub const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32u32;
 pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256u32;
+#[repr(C)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0(i32);
+#[repr(C)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1(i32);
+#[repr(C)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(i32);
+#[repr(C)]
 pub struct IKEEXT_PROPOSAL0(i32);
+#[repr(C)]
 pub struct IKEEXT_QM_SA_STATE(i32);
+#[repr(C)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION0(i32);
+#[repr(C)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_SA_DETAILS0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_SA_DETAILS1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IKEEXT_SA_DETAILS2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IKEEXT_SA_ENUM_TEMPLATE0(i32);
+#[repr(C)]
 pub struct IKEEXT_SA_ROLE(i32);
+#[repr(C)]
 pub struct IKEEXT_STATISTICS0(i32);
+#[repr(C)]
 pub struct IKEEXT_STATISTICS1(i32);
+#[repr(C)]
 pub struct IKEEXT_TRAFFIC0(i32);
 pub const IN6_EMBEDDEDV4_BITS_IN_BYTE: u32 = 8u32;
 pub const IN6_EMBEDDEDV4_UOCTET_POSITION: u32 = 8u32;
@@ -2096,11 +2313,17 @@ pub const IP6OPT_TYPE_DISCARD: u32 = 64u32;
 pub const IP6OPT_TYPE_FORCEICMP: u32 = 128u32;
 pub const IP6OPT_TYPE_ICMP: u32 = 192u32;
 pub const IP6OPT_TYPE_SKIP: u32 = 0u32;
+#[repr(C)]
 pub struct IPSEC_ADDRESS_INFO0(i32);
+#[repr(C)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0(i32);
+#[repr(C)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1(i32);
+#[repr(C)]
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0(i32);
+#[repr(C)]
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0(i32);
+#[repr(C)]
 pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0(i32);
 pub const IPSEC_AUTH_CONFIG_GCM_AES_128: u32 = 3u32;
 pub const IPSEC_AUTH_CONFIG_GCM_AES_192: u32 = 4u32;
@@ -2109,8 +2332,11 @@ pub const IPSEC_AUTH_CONFIG_HMAC_MD5_96: u32 = 0u32;
 pub const IPSEC_AUTH_CONFIG_HMAC_SHA_1_96: u32 = 1u32;
 pub const IPSEC_AUTH_CONFIG_HMAC_SHA_256_128: u32 = 2u32;
 pub const IPSEC_AUTH_CONFIG_MAX: u32 = 6u32;
+#[repr(C)]
 pub struct IPSEC_AUTH_TRANSFORM0(i32);
+#[repr(C)]
 pub struct IPSEC_AUTH_TRANSFORM_ID0(i32);
+#[repr(C)]
 pub struct IPSEC_AUTH_TYPE(i32);
 pub const IPSEC_CIPHER_CONFIG_CBC_3DES: u32 = 2u32;
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_128: u32 = 3u32;
@@ -2121,47 +2347,77 @@ pub const IPSEC_CIPHER_CONFIG_GCM_AES_128: u32 = 6u32;
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_192: u32 = 7u32;
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_256: u32 = 8u32;
 pub const IPSEC_CIPHER_CONFIG_MAX: u32 = 9u32;
+#[repr(C)]
 pub struct IPSEC_CIPHER_TRANSFORM0(i32);
+#[repr(C)]
 pub struct IPSEC_CIPHER_TRANSFORM_ID0(i32);
+#[repr(C)]
 pub struct IPSEC_CIPHER_TYPE(i32);
 pub const IPSEC_DOSP_DSCP_DISABLE_VALUE: u32 = 255u32;
+#[repr(C)]
 pub struct IPSEC_DOSP_FLAGS(i32);
+#[repr(C)]
 pub struct IPSEC_DOSP_OPTIONS0(i32);
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0u32;
+#[repr(C)]
 pub struct IPSEC_DOSP_STATE0(i32);
+#[repr(C)]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0(i32);
+#[repr(C)]
 pub struct IPSEC_DOSP_STATISTICS0(i32);
+#[repr(C)]
 pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0(i32);
+#[repr(C)]
 pub struct IPSEC_FAILURE_POINT(i32);
+#[repr(C)]
 pub struct IPSEC_GETSPI0(i32);
+#[repr(C)]
 pub struct IPSEC_GETSPI1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_ID0(i32);
+#[repr(C)]
 pub struct IPSEC_KEYING_POLICY0(i32);
+#[repr(C)]
 pub struct IPSEC_KEYING_POLICY1(i32);
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
+#[repr(C)]
 pub struct IPSEC_KEYMODULE_STATE0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_KEY_MANAGER0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0(i32);
+#[repr(C)]
 pub struct IPSEC_KEY_MANAGER_DICTATE_KEY0(i32);
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
+#[repr(C)]
 pub struct IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0(i32);
+#[repr(C)]
 pub struct IPSEC_KEY_MANAGER_NOTIFY_KEY0(i32);
+#[repr(C)]
 pub struct IPSEC_PFS_GROUP(i32);
+#[repr(C)]
 pub struct IPSEC_POLICY_FLAG(i32);
 pub const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY: u32 = 16384u32;
 pub const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768u32;
 pub const IPSEC_POLICY_FLAG_SITE_TO_SITE_TUNNEL: u32 = 65536u32;
+#[repr(C)]
 pub struct IPSEC_PROPOSAL0(i32);
+#[repr(C)]
 pub struct IPSEC_SA0(i32);
+#[repr(C)]
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0(i32);
+#[repr(C)]
 pub struct IPSEC_SA_AUTH_INFORMATION0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_SA_BUNDLE0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_SA_BUNDLE1(i32);
+#[repr(C)]
 pub struct IPSEC_SA_BUNDLE_FLAGS(i32);
 pub const IPSEC_SA_BUNDLE_FLAG_ENABLE_OPTIONAL_ASYMMETRIC_IDLE: u32 = 262144u32;
 pub const IPSEC_SA_BUNDLE_FLAG_FORCE_INBOUND_CONNECTIONS: u32 = 32768u32;
@@ -2176,106 +2432,170 @@ pub const IPSEC_SA_BUNDLE_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 64u32;
 pub const IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 32u32;
 pub const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152u32;
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
+#[repr(C)]
 pub struct IPSEC_SA_CIPHER_INFORMATION0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IPSEC_SA_CONTEXT0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IPSEC_SA_CONTEXT1(i32);
+#[repr(C)]
 pub struct IPSEC_SA_CONTEXT_CALLBACK0(i32);
+#[repr(C)]
 pub struct IPSEC_SA_CONTEXT_CHANGE0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0(i32);
+#[repr(C)]
 pub struct IPSEC_SA_CONTEXT_EVENT_TYPE0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IPSEC_SA_DETAILS0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct IPSEC_SA_DETAILS1(i32);
+#[repr(C)]
 pub struct IPSEC_SA_ENUM_TEMPLATE0(i32);
+#[repr(C)]
 pub struct IPSEC_SA_IDLE_TIMEOUT0(i32);
+#[repr(C)]
 pub struct IPSEC_SA_LIFETIME0(i32);
+#[repr(C)]
 pub struct IPSEC_SA_TRANSFORM0(i32);
+#[repr(C)]
 pub struct IPSEC_STATISTICS0(i32);
+#[repr(C)]
 pub struct IPSEC_STATISTICS1(i32);
+#[repr(C)]
 pub struct IPSEC_TOKEN0(i32);
+#[repr(C)]
 pub struct IPSEC_TOKEN_MODE(i32);
+#[repr(C)]
 pub struct IPSEC_TOKEN_PRINCIPAL(i32);
+#[repr(C)]
 pub struct IPSEC_TOKEN_TYPE(i32);
+#[repr(C)]
 pub struct IPSEC_TRAFFIC0(i32);
+#[repr(C)]
 pub struct IPSEC_TRAFFIC1(i32);
+#[repr(C)]
 pub struct IPSEC_TRAFFIC_SELECTOR0_(i32);
+#[repr(C)]
 pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0_(i32);
+#[repr(C)]
 pub struct IPSEC_TRAFFIC_STATISTICS0(i32);
+#[repr(C)]
 pub struct IPSEC_TRAFFIC_STATISTICS1(i32);
+#[repr(C)]
 pub struct IPSEC_TRAFFIC_TYPE(i32);
+#[repr(C)]
 pub struct IPSEC_TRANSFORM_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TRANSPORT_POLICY0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TRANSPORT_POLICY1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TRANSPORT_POLICY2(i32);
+#[repr(C)]
 pub struct IPSEC_TUNNEL_ENDPOINT0(i32);
+#[repr(C)]
 pub struct IPSEC_TUNNEL_ENDPOINTS0(i32);
+#[repr(C)]
 pub struct IPSEC_TUNNEL_ENDPOINTS1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TUNNEL_ENDPOINTS2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TUNNEL_POLICY0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TUNNEL_POLICY1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TUNNEL_POLICY2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPSEC_TUNNEL_POLICY3_(i32);
+#[repr(C)]
 pub struct IPSEC_V4_UDP_ENCAPSULATION0(i32);
+#[repr(C)]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0(i32);
+#[repr(C)]
 pub struct IPTLS_METADATA(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct IPV4_HEADER(i32);
 pub const IPV4_MAX_MINIMUM_MTU: u32 = 576u32;
 pub const IPV4_MINIMUM_MTU: u32 = 576u32;
 pub const IPV4_MIN_MINIMUM_MTU: u32 = 352u32;
+#[repr(C)]
 pub struct IPV4_OPTION_HEADER(i32);
+#[repr(C)]
 pub struct IPV4_OPTION_TYPE(i32);
+#[repr(C)]
 pub struct IPV4_ROUTING_HEADER(i32);
+#[repr(C)]
 pub struct IPV4_TIMESTAMP_OPTION(i32);
 pub const IPV4_VERSION: u32 = 4u32;
 pub const IPV6_ECN_MASK: u32 = 12288u32;
 pub const IPV6_ECN_SHIFT: u32 = 12u32;
+#[repr(C)]
 pub struct IPV6_EXTENSION_HEADER(i32);
 pub const IPV6_FLOW_LABEL_MASK: u32 = 4294905600u32;
+#[repr(C)]
 pub struct IPV6_FRAGMENT_HEADER(i32);
 pub const IPV6_FULL_TRAFFIC_CLASS_MASK: u32 = 61455u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct IPV6_HEADER(i32);
 pub const IPV6_MINIMUM_MTU: u32 = 1280u32;
+#[repr(C)]
 pub struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS(i32);
+#[repr(C)]
 pub struct IPV6_OPTION_HEADER(i32);
+#[repr(C)]
 pub struct IPV6_OPTION_JUMBOGRAM(i32);
+#[repr(C)]
 pub struct IPV6_OPTION_ROUTER_ALERT(i32);
+#[repr(C)]
 pub struct IPV6_OPTION_TYPE(i32);
+#[repr(C)]
 pub struct IPV6_ROUTER_ADVERTISEMENT_FLAGS(i32);
+#[repr(C)]
 pub struct IPV6_ROUTING_HEADER(i32);
 pub const IPV6_TRAFFIC_CLASS_MASK: u32 = 49167u32;
 pub const IPV6_VERSION: u32 = 96u32;
+#[repr(C)]
 pub struct IP_OPTION_TIMESTAMP_FLAGS(i32);
 pub const IP_VER_MASK: u32 = 240u32;
 pub const MAX_IPV4_HLEN: u32 = 60u32;
 pub const MAX_IPV4_PACKET: u32 = 65535u32;
 pub const MAX_IPV6_PAYLOAD: u32 = 65535u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct MLDV2_QUERY_HEADER(i32);
+#[repr(C)]
 pub struct MLDV2_REPORT_HEADER(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct MLDV2_REPORT_RECORD_HEADER(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct MLD_HEADER(i32);
+#[repr(C)]
 pub struct MLD_MAX_RESP_CODE_TYPE(i32);
 pub const ND_NA_FLAG_OVERRIDE: u32 = 536870912u32;
 pub const ND_NA_FLAG_ROUTER: u32 = 2147483648u32;
 pub const ND_NA_FLAG_SOLICITED: u32 = 1073741824u32;
+#[repr(C)]
 pub struct ND_OPTION_TYPE(i32);
 pub const ND_OPT_DNSSL_MIN_LEN: u32 = 16u32;
 pub const ND_OPT_PI_FLAG_AUTO: u32 = 64u32;
@@ -2290,7 +2610,9 @@ pub const ND_RA_FLAG_MANAGED: u32 = 128u32;
 pub const ND_RA_FLAG_OTHER: u32 = 64u32;
 pub const ND_RA_FLAG_PREFERENCE: u32 = 24u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NPI_MODULEID(i32);
+#[repr(C)]
 pub struct NPI_MODULEID_TYPE(i32);
 pub const SIZEOF_IP_OPT_ROUTERALERT: u32 = 4u32;
 pub const SIZEOF_IP_OPT_ROUTING_HEADER: u32 = 3u32;
@@ -2299,6 +2621,7 @@ pub const SIZEOF_IP_OPT_STREAMIDENTIFIER: u32 = 4u32;
 pub const SIZEOF_IP_OPT_TIMESTAMP_HEADER: u32 = 4u32;
 pub const SNAP_CONTROL: u32 = 3u32;
 pub const SNAP_DSAP: u32 = 170u32;
+#[repr(C)]
 pub struct SNAP_HEADER(i32);
 pub const SNAP_OUI: u32 = 0u32;
 pub const SNAP_SSAP: u32 = 170u32;
@@ -2318,33 +2641,55 @@ pub const TH_PSH: u32 = 8u32;
 pub const TH_RST: u32 = 4u32;
 pub const TH_SYN: u32 = 2u32;
 pub const TH_URG: u32 = 32u32;
+#[repr(C)]
 pub struct TUNNEL_SUB_TYPE(i32);
+#[repr(C)]
 pub struct VLAN_TAG(i32);
 pub const _BIG_ENDIAN: u32 = 4321u32;
 pub const _LITTLE_ENDIAN: u32 = 1234u32;
 pub const _PDP_ENDIAN: u32 = 3412u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct nd_neighbor_advert(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct nd_neighbor_solicit(i32);
+#[repr(C)]
 pub struct nd_opt_dnssl(i32);
+#[repr(C)]
 pub struct nd_opt_hdr(i32);
+#[repr(C)]
 pub struct nd_opt_mtu(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct nd_opt_prefix_info(i32);
+#[repr(C)]
 pub struct nd_opt_rd_hdr(i32);
+#[repr(C)]
 pub struct nd_opt_rdnss(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct nd_opt_route_info(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct nd_redirect(i32);
+#[repr(C)]
 pub struct nd_router_advert(i32);
+#[repr(C)]
 pub struct nd_router_solicit(i32);
+#[repr(C)]
 pub struct tcp_hdr(i32);
+#[repr(C)]
 pub struct tcp_opt_fastopen(i32);
+#[repr(C)]
 pub struct tcp_opt_mss(i32);
+#[repr(C)]
 pub struct tcp_opt_sack(i32);
+#[repr(C)]
 pub struct tcp_opt_sack_permitted(i32);
+#[repr(C)]
 pub struct tcp_opt_ts(i32);
+#[repr(C)]
 pub struct tcp_opt_unknown(i32);
+#[repr(C)]
 pub struct tcp_opt_ws(i32);

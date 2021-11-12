@@ -65,6 +65,7 @@ pub struct UserActivityRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct UserActivitySession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserActivitySessionHistoryItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserActivityState(i32);
 #[repr(transparent)]
 pub struct UserActivityVisualElements(pub *mut ::core::ffi::c_void);

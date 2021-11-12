@@ -19,6 +19,7 @@ pub struct ISettingsResult(pub *mut ::core::ffi::c_void);
 pub struct ITargetInfo(pub *mut ::core::ffi::c_void);
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
+#[repr(C)]
 pub struct SettingsEngine(i32);
 pub const WCM_E_ABORTOPERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255384i32 as _);
 pub const WCM_E_ASSERTIONFAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255398i32 as _);
@@ -73,10 +74,17 @@ pub const WCM_S_INTERNALERROR: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const WCM_S_INVALIDATTRIBUTECOMBINATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232324i32 as _);
 pub const WCM_S_LEGACYSETTINGWARNING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232322i32 as _);
 pub const WCM_S_NAMESPACENOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2232326i32 as _);
+#[repr(C)]
 pub struct WcmDataType(i32);
+#[repr(C)]
 pub struct WcmNamespaceAccess(i32);
+#[repr(C)]
 pub struct WcmNamespaceEnumerationFlags(i32);
+#[repr(C)]
 pub struct WcmRestrictionFacets(i32);
+#[repr(C)]
 pub struct WcmSettingType(i32);
+#[repr(C)]
 pub struct WcmTargetMode(i32);
+#[repr(C)]
 pub struct WcmUserStatus(i32);

@@ -87,7 +87,9 @@ pub struct Print3DManager(pub *mut ::core::ffi::c_void);
 pub struct Print3DTask(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Print3DTaskCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Print3DTaskCompletion(i32);
+#[repr(C)]
 pub struct Print3DTaskDetail(i32);
 #[repr(transparent)]
 pub struct Print3DTaskRequest(pub *mut ::core::ffi::c_void);
@@ -105,7 +107,9 @@ pub struct Printing3D3MFPackage(pub *mut ::core::ffi::c_void);
 pub struct Printing3DBaseMaterial(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DBaseMaterialGroup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Printing3DBufferDescription(i32);
+#[repr(C)]
 pub struct Printing3DBufferFormat(i32);
 #[repr(transparent)]
 pub struct Printing3DColorMaterial(pub *mut ::core::ffi::c_void);
@@ -119,6 +123,7 @@ pub struct Printing3DComponentWithMatrix(pub *mut ::core::ffi::c_void);
 pub struct Printing3DCompositeMaterial(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DCompositeMaterialGroup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Printing3DContract(i32);
 #[repr(transparent)]
 pub struct Printing3DFaceReductionOptions(pub *mut ::core::ffi::c_void);
@@ -126,6 +131,7 @@ pub struct Printing3DFaceReductionOptions(pub *mut ::core::ffi::c_void);
 pub struct Printing3DMaterial(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DMesh(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Printing3DMeshVerificationMode(i32);
 #[repr(transparent)]
 pub struct Printing3DMeshVerificationResult(pub *mut ::core::ffi::c_void);
@@ -133,17 +139,21 @@ pub struct Printing3DMeshVerificationResult(pub *mut ::core::ffi::c_void);
 pub struct Printing3DModel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DModelTexture(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Printing3DModelUnit(i32);
 #[repr(transparent)]
 pub struct Printing3DMultiplePropertyMaterial(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DMultiplePropertyMaterialGroup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Printing3DObjectType(i32);
+#[repr(C)]
 pub struct Printing3DPackageCompression(i32);
 #[repr(transparent)]
 pub struct Printing3DTexture2CoordMaterial(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DTexture2CoordMaterialGroup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Printing3DTextureEdgeBehavior(i32);
 #[repr(transparent)]
 pub struct Printing3DTextureResource(pub *mut ::core::ffi::c_void);

@@ -5,8 +5,11 @@ pub mod DataProvider;
 extern "system" {}
 #[repr(transparent)]
 pub struct EmailAttachment(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailAttachmentDownloadState(i32);
+#[repr(C)]
 pub struct EmailBatchStatus(i32);
+#[repr(C)]
 pub struct EmailCertificateValidationStatus(i32);
 #[repr(transparent)]
 pub struct EmailConversation(pub *mut ::core::ffi::c_void);
@@ -14,9 +17,11 @@ pub struct EmailConversation(pub *mut ::core::ffi::c_void);
 pub struct EmailConversationBatch(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailConversationReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailFlagState(i32);
 #[repr(transparent)]
 pub struct EmailFolder(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailImportance(i32);
 #[repr(transparent)]
 pub struct EmailIrmInfo(pub *mut ::core::ffi::c_void);
@@ -28,10 +33,13 @@ pub struct EmailItemCounts(pub *mut ::core::ffi::c_void);
 pub struct EmailMailbox(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailMailboxAction(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMailboxActionKind(i32);
+#[repr(C)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(i32);
 #[repr(transparent)]
 pub struct EmailMailboxAutoReply(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(i32);
 #[repr(transparent)]
 pub struct EmailMailboxAutoReplySettings(pub *mut ::core::ffi::c_void);
@@ -43,6 +51,7 @@ pub struct EmailMailboxChange(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxChangeReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailMailboxChangeTracker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMailboxChangeType(i32);
 #[repr(transparent)]
 pub struct EmailMailboxChangedDeferral(pub *mut ::core::ffi::c_void);
@@ -50,17 +59,25 @@ pub struct EmailMailboxChangedDeferral(pub *mut ::core::ffi::c_void);
 pub struct EmailMailboxChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMailboxCreateFolderStatus(i32);
+#[repr(C)]
 pub struct EmailMailboxDeleteFolderStatus(i32);
+#[repr(C)]
 pub struct EmailMailboxEmptyFolderStatus(i32);
+#[repr(C)]
 pub struct EmailMailboxOtherAppReadAccess(i32);
+#[repr(C)]
 pub struct EmailMailboxOtherAppWriteAccess(i32);
 #[repr(transparent)]
 pub struct EmailMailboxPolicies(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(i32);
+#[repr(C)]
 pub struct EmailMailboxSmimeSigningAlgorithm(i32);
 #[repr(transparent)]
 pub struct EmailMailboxSyncManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMailboxSyncStatus(i32);
 #[repr(transparent)]
 pub struct EmailManager(pub *mut ::core::ffi::c_void);
@@ -68,23 +85,33 @@ pub struct EmailManager(pub *mut ::core::ffi::c_void);
 pub struct EmailManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailMeetingInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMeetingResponseType(i32);
 #[repr(transparent)]
 pub struct EmailMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailMessageBatch(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMessageBodyKind(i32);
+#[repr(C)]
 pub struct EmailMessageDownloadState(i32);
 #[repr(transparent)]
 pub struct EmailMessageReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailMessageResponseKind(i32);
+#[repr(C)]
 pub struct EmailMessageSmimeKind(i32);
+#[repr(C)]
 pub struct EmailQueryKind(i32);
 #[repr(transparent)]
 pub struct EmailQueryOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailQuerySearchFields(i32);
+#[repr(C)]
 pub struct EmailQuerySearchScope(i32);
+#[repr(C)]
 pub struct EmailQuerySortDirection(i32);
+#[repr(C)]
 pub struct EmailQuerySortProperty(i32);
 #[repr(transparent)]
 pub struct EmailQueryTextSearch(pub *mut ::core::ffi::c_void);
@@ -92,10 +119,13 @@ pub struct EmailQueryTextSearch(pub *mut ::core::ffi::c_void);
 pub struct EmailRecipient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailRecipientResolutionResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailRecipientResolutionStatus(i32);
+#[repr(C)]
 pub struct EmailSpecialFolderKind(i32);
 #[repr(transparent)]
 pub struct EmailStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EmailStoreAccessType(i32);
 #[repr(transparent)]
 pub struct EmailStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);

@@ -3,14 +3,17 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct GattCharacteristic(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattCharacteristicProperties(i32);
 #[repr(transparent)]
 pub struct GattCharacteristicUuids(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattCharacteristicsResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(i32);
 #[repr(transparent)]
 pub struct GattClientNotificationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattCommunicationStatus(i32);
 #[repr(transparent)]
 pub struct GattDescriptor(pub *mut ::core::ffi::c_void);
@@ -36,11 +39,13 @@ pub struct GattLocalDescriptorParameters(pub *mut ::core::ffi::c_void);
 pub struct GattLocalDescriptorResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattLocalService(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattOpenStatus(i32);
 #[repr(transparent)]
 pub struct GattPresentationFormat(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattPresentationFormatTypes(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattProtectionLevel(i32);
 #[repr(transparent)]
 pub struct GattProtocolError(pub *mut ::core::ffi::c_void);
@@ -54,11 +59,13 @@ pub struct GattReadRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct GattReadResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattReliableWriteTransaction(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattRequestState(i32);
 #[repr(transparent)]
 pub struct GattRequestStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattServiceProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattServiceProviderAdvertisementStatus(i32);
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -70,14 +77,17 @@ pub struct GattServiceProviderResult(pub *mut ::core::ffi::c_void);
 pub struct GattServiceUuids(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattSession(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattSessionStatus(i32);
 #[repr(transparent)]
 pub struct GattSessionStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattSharingMode(i32);
 #[repr(transparent)]
 pub struct GattSubscribedClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattValueChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GattWriteOption(i32);
 #[repr(transparent)]
 pub struct GattWriteRequest(pub *mut ::core::ffi::c_void);

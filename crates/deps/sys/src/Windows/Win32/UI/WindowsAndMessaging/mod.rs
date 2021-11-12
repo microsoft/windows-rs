@@ -803,10 +803,14 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn wvsprintfW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, arglist: *const i8) -> i32;
 }
+#[repr(C)]
 pub struct ACCEL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ALTTABINFO(i32);
+#[repr(C)]
 pub struct ANIMATE_WINDOW_FLAGS(i32);
+#[repr(C)]
 pub struct ANIMATIONINFO(i32);
 pub const ARW_DOWN: i32 = 4i32;
 pub const ARW_HIDE: i32 = 8i32;
@@ -818,6 +822,7 @@ pub const ARW_STARTTOP: i32 = 2i32;
 pub const ARW_UP: i32 = 4i32;
 pub const ASFW_ANY: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AUDIODESCRIPTION(i32);
 pub const BM_CLICK: u32 = 245u32;
 pub const BM_GETCHECK: u32 = 240u32;
@@ -874,6 +879,7 @@ pub const BS_TYPEMASK: i32 = 15i32;
 pub const BS_USERBUTTON: i32 = 8i32;
 pub const BS_VCENTER: i32 = 3072i32;
 pub const CALERT_SYSTEM: u32 = 6u32;
+#[repr(C)]
 pub struct CASCADE_WINDOWS_HOW(i32);
 pub const CBN_CLOSEUP: u32 = 8u32;
 pub const CBN_DBLCLK: u32 = 2u32;
@@ -900,10 +906,13 @@ pub const CBS_SIMPLE: i32 = 1i32;
 pub const CBS_SORT: i32 = 256i32;
 pub const CBS_UPPERCASE: i32 = 8192i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CBTACTIVATESTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CBT_CREATEWNDA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CBT_CREATEWNDW(i32);
 pub const CB_ADDSTRING: u32 = 323u32;
 pub const CB_DELETESTRING: u32 = 324u32;
@@ -947,10 +956,13 @@ pub const CB_SETTOPINDEX: u32 = 348u32;
 pub const CB_SHOWDROPDOWN: u32 = 335u32;
 pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
 pub const CCHILDREN_TITLEBAR: u32 = 5u32;
+#[repr(C)]
 pub struct CHANGEFILTERSTRUCT(i32);
+#[repr(C)]
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(i32);
 pub const CHILDID_SELF: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CLIENTCREATESTRUCT(i32);
 pub const COLOR_BTNHIGHLIGHT: u32 = 20u32;
 pub const COLOR_BTNHILIGHT: u32 = 20u32;
@@ -962,8 +974,10 @@ pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
 pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREATESTRUCTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREATESTRUCTW(i32);
 pub const CSOUND_SYSTEM: u32 = 16u32;
 pub const CTLCOLOR_BTN: u32 = 3u32;
@@ -975,21 +989,28 @@ pub const CTLCOLOR_MSGBOX: u32 = 0u32;
 pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
 pub const CTLCOLOR_STATIC: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CURSORINFO(i32);
+#[repr(C)]
 pub struct CURSORINFO_FLAGS(i32);
+#[repr(C)]
 pub struct CURSORSHAPE(i32);
 pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
 pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
 pub const CWF_CREATE_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CWPRETSTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CWPSTRUCT(i32);
+#[repr(C)]
 pub struct CWP_FLAGS(i32);
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 pub const DC_HASDEFID: u32 = 21323u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEBUGHOOKINFO(i32);
 pub const DESKTOP_CREATEMENU: i32 = 4i32;
 pub const DESKTOP_CREATEWINDOW: i32 = 2i32;
@@ -1003,6 +1024,7 @@ pub const DESKTOP_WRITEOBJECTS: i32 = 128i32;
 pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
 pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
 pub const DIFFERENCE: u32 = 11u32;
+#[repr(C)]
 pub struct DI_FLAGS(i32);
 pub const DLGC_BUTTON: u32 = 8192u32;
 pub const DLGC_DEFPUSHBUTTON: u32 = 16u32;
@@ -1015,8 +1037,11 @@ pub const DLGC_WANTARROWS: u32 = 1u32;
 pub const DLGC_WANTCHARS: u32 = 128u32;
 pub const DLGC_WANTMESSAGE: u32 = 4u32;
 pub const DLGC_WANTTAB: u32 = 2u32;
+#[repr(C)]
 pub struct DLGITEMTEMPLATE(i32);
+#[repr(C)]
 pub struct DLGPROC(i32);
+#[repr(C)]
 pub struct DLGTEMPLATE(i32);
 pub const DLGWINDOWEXTRA: u32 = 30u32;
 pub const DM_GETDEFID: u32 = 1024u32;
@@ -1032,6 +1057,7 @@ pub const DOF_SHELLDATA: u32 = 2u32;
 pub const DO_DROPFILE: i32 = 1162627398i32;
 pub const DO_PRINTFILE: i32 = 1414419024i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DROPSTRUCT(i32);
 pub const DS_3DLOOK: i32 = 4i32;
 pub const DS_ABSALIGN: i32 = 1i32;
@@ -1056,6 +1082,7 @@ pub const EC_LEFTMARGIN: u32 = 1u32;
 pub const EC_RIGHTMARGIN: u32 = 2u32;
 pub const EC_USEFONTINFO: u32 = 65535u32;
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
+#[repr(C)]
 pub struct EDIT_CONTROL_FEATURE(i32);
 pub const EDS_RAWMODE: u32 = 2u32;
 pub const EDS_ROTATEDMODE: u32 = 4u32;
@@ -1093,6 +1120,7 @@ pub const ES_RIGHT: i32 = 2i32;
 pub const ES_UPPERCASE: i32 = 8i32;
 pub const ES_WANTRETURN: i32 = 4096i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EVENTMSG(i32);
 pub const EVENT_AIA_END: u32 = 45055u32;
 pub const EVENT_AIA_START: u32 = 40960u32;
@@ -1205,13 +1233,17 @@ pub const FKF_HOTKEYACTIVE: u32 = 4u32;
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
 pub const FKF_INDICATOR: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FLASHWINFO(i32);
+#[repr(C)]
 pub struct FLASHWINFO_FLAGS(i32);
 pub const FNOINVERT: u32 = 2u32;
+#[repr(C)]
 pub struct FOREGROUND_WINDOW_LOCK_CODE(i32);
 pub const FSHIFT: u32 = 4u32;
 pub const FVIRTKEY: u32 = 1u32;
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
+#[repr(C)]
 pub struct GDI_IMAGE_TYPE(i32);
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
 pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
@@ -1221,9 +1253,13 @@ pub const GESTUREVISUALIZATION_PRESSANDHOLD: u32 = 8u32;
 pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
 pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
+#[repr(C)]
 pub struct GET_ANCESTOR_FLAGS(i32);
+#[repr(C)]
 pub struct GET_CLASS_LONG_INDEX(i32);
+#[repr(C)]
 pub struct GET_MENU_DEFAULT_ITEM_FLAGS(i32);
+#[repr(C)]
 pub struct GET_WINDOW_CMD(i32);
 pub const GF_BEGIN: u32 = 1u32;
 pub const GF_END: u32 = 4u32;
@@ -1231,14 +1267,19 @@ pub const GF_INERTIA: u32 = 2u32;
 pub const GIDC_ARRIVAL: u32 = 1u32;
 pub const GIDC_REMOVAL: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GUITHREADINFO(i32);
+#[repr(C)]
 pub struct GUITHREADINFO_FLAGS(i32);
 pub const GUI_16BITTASK: u32 = 0u32;
 pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
 pub const GW_MAX: u32 = 5u32;
+#[repr(C)]
 pub struct HACCEL(i32);
+#[repr(C)]
 pub struct HANDEDNESS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HARDWAREHOOKSTRUCT(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
@@ -1274,6 +1315,7 @@ pub const HCBT_SETFOCUS: u32 = 9u32;
 pub const HCBT_SYSCOMMAND: u32 = 8u32;
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
+#[repr(C)]
 pub struct HCURSOR(i32);
 pub const HC_ACTION: u32 = 0u32;
 pub const HC_GETNEXT: u32 = 1u32;
@@ -1305,12 +1347,16 @@ pub const HELP_TCARD: u32 = 32768u32;
 pub const HELP_TCARD_DATA: u32 = 16u32;
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
 pub const HELP_WM_HELP: u32 = 12u32;
+#[repr(C)]
 pub struct HHOOK(i32);
+#[repr(C)]
 pub struct HICON(i32);
 pub const HIDE_WINDOW: u32 = 0u32;
 pub const HKL_NEXT: u32 = 1u32;
 pub const HKL_PREV: u32 = 0u32;
+#[repr(C)]
 pub struct HMENU(i32);
+#[repr(C)]
 pub struct HOOKPROC(i32);
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
 pub const HSHELL_ACTIVATESHELLWINDOW: u32 = 3u32;
@@ -1370,14 +1416,19 @@ pub const HWND_TOP: super::super::Foundation::HWND = super::super::Foundation::H
 #[cfg(feature = "Win32_Foundation")]
 pub const HWND_TOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-1i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ICONINFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ICONINFOEXA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ICONINFOEXW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ICONMETRICSA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ICONMETRICSW(i32);
 pub const ICON_BIG: u32 = 1u32;
 pub const ICON_SMALL: u32 = 0u32;
@@ -1446,6 +1497,7 @@ pub const IDI_WARNING: u32 = 32515u32;
 #[cfg(feature = "Win32_Foundation")]
 pub const IDI_WINLOGO: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32517u32 as _);
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
+#[repr(C)]
 pub struct IMAGE_FLAGS(i32);
 pub const INDEXID_CONTAINER: u32 = 0u32;
 pub const INDEXID_OBJECT: u32 = 0u32;
@@ -1462,8 +1514,11 @@ pub const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: u32 = 3u32;
 pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: u32 = 5u32;
 pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IndexedResourceQualifier(i32);
+#[repr(C)]
 pub struct KBDLLHOOKSTRUCT(i32);
+#[repr(C)]
 pub struct KBDLLHOOKSTRUCT_FLAGS(i32);
 pub const KF_ALTDOWN: u32 = 8192u32;
 pub const KF_DLGMODE: u32 = 2048u32;
@@ -1472,6 +1527,7 @@ pub const KF_MENUMODE: u32 = 4096u32;
 pub const KF_REPEAT: u32 = 16384u32;
 pub const KF_UP: u32 = 32768u32;
 pub const KL_NAMELENGTH: u32 = 9u32;
+#[repr(C)]
 pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(i32);
 pub const LBN_DBLCLK: u32 = 2u32;
 pub const LBN_ERRSPACE: i32 = -2i32;
@@ -1561,40 +1617,65 @@ pub const MA_ACTIVATEANDEAT: u32 = 2u32;
 pub const MA_NOACTIVATE: u32 = 3u32;
 pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MDICREATESTRUCTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MDICREATESTRUCTW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MDINEXTMENU(i32);
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MENUBARINFO(i32);
+#[repr(C)]
 pub struct MENUGETOBJECTINFO(i32);
+#[repr(C)]
 pub struct MENUGETOBJECTINFO_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct MENUINFO(i32);
+#[repr(C)]
 pub struct MENUINFO_MASK(i32);
+#[repr(C)]
 pub struct MENUINFO_STYLE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct MENUITEMINFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct MENUITEMINFOW(i32);
+#[repr(C)]
 pub struct MENUITEMTEMPLATE(i32);
+#[repr(C)]
 pub struct MENUITEMTEMPLATEHEADER(i32);
+#[repr(C)]
 pub struct MENU_ITEM_FLAGS(i32);
+#[repr(C)]
 pub struct MENU_ITEM_MASK(i32);
+#[repr(C)]
 pub struct MENU_ITEM_STATE(i32);
+#[repr(C)]
 pub struct MENU_ITEM_TYPE(i32);
+#[repr(C)]
 pub struct MESSAGEBOX_RESULT(i32);
+#[repr(C)]
 pub struct MESSAGEBOX_STYLE(i32);
+#[repr(C)]
 pub struct MESSAGE_RESOURCE_BLOCK(i32);
+#[repr(C)]
 pub struct MESSAGE_RESOURCE_DATA(i32);
+#[repr(C)]
 pub struct MESSAGE_RESOURCE_ENTRY(i32);
 pub const METRICS_USEDEFAULT: i32 = -1i32;
+#[repr(C)]
 pub struct MINIMIZEDMETRICS(i32);
+#[repr(C)]
 pub struct MINIMIZEDMETRICS_ARRANGE(i32);
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MINMAXINFO(i32);
 pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
 pub const MKF_AVAILABLE: u32 = 2u32;
@@ -1628,20 +1709,28 @@ pub const MNGO_NOINTERFACE: u32 = 0u32;
 pub const MN_GETHMENU: u32 = 481u32;
 pub const MONITORINFOF_PRIMARY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MOUSEHOOKSTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MOUSEHOOKSTRUCTEX(i32);
+#[repr(C)]
 pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(i32);
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MSG(i32);
+#[repr(C)]
 pub struct MSGBOXCALLBACK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[repr(C)]
 pub struct MSGBOXPARAMSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[repr(C)]
 pub struct MSGBOXPARAMSW(i32);
+#[repr(C)]
 pub struct MSGFLTINFO_STATUS(i32);
 pub const MSGF_DIALOGBOX: u32 = 0u32;
 pub const MSGF_MAX: u32 = 8u32;
@@ -1650,21 +1739,34 @@ pub const MSGF_MESSAGEBOX: u32 = 1u32;
 pub const MSGF_NEXTWINDOW: u32 = 6u32;
 pub const MSGF_SCROLLBAR: u32 = 5u32;
 pub const MSGF_USER: u32 = 4096u32;
+#[repr(C)]
 pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MSLLHOOKSTRUCT(i32);
+#[repr(C)]
 pub struct MrmDumpType(i32);
+#[repr(C)]
 pub struct MrmIndexerFlags(i32);
+#[repr(C)]
 pub struct MrmPackagingMode(i32);
+#[repr(C)]
 pub struct MrmPackagingOptions(i32);
+#[repr(C)]
 pub struct MrmPlatformVersion(i32);
+#[repr(C)]
 pub struct MrmResourceIndexerHandle(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MrmResourceIndexerMessage(i32);
+#[repr(C)]
 pub struct MrmResourceIndexerMessageSeverity(i32);
+#[repr(C)]
 pub struct NAMEENUMPROCA(i32);
+#[repr(C)]
 pub struct NAMEENUMPROCW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NCCALCSIZE_PARAMS(i32);
 pub const NFR_ANSI: u32 = 1u32;
 pub const NFR_UNICODE: u32 = 2u32;
@@ -1677,9 +1779,12 @@ pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
 pub const NID_MULTI_INPUT: u32 = 64u32;
 pub const NID_READY: u32 = 128u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct NONCLIENTMETRICSA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct NONCLIENTMETRICSW(i32);
+#[repr(C)]
 pub struct OBJECT_IDENTIFIER(i32);
 pub const OBM_BTNCORNERS: u32 = 32758u32;
 pub const OBM_BTSIZE: u32 = 32761u32;
@@ -1772,6 +1877,7 @@ pub const PDC_ORIENTATION_90: u32 = 8u32;
 pub const PDC_ORIGIN: u32 = 1024u32;
 pub const PDC_REMOVAL: u32 = 2u32;
 pub const PDC_RESOLUTION: u32 = 512u32;
+#[repr(C)]
 pub struct PEEK_MESSAGE_REMOVE_TYPE(i32);
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
 pub const PENARBITRATIONTYPE_MAX: u32 = 4u32;
@@ -1794,6 +1900,7 @@ pub const PEN_MASK_TILT_X: u32 = 4u32;
 pub const PEN_MASK_TILT_Y: u32 = 8u32;
 pub const PMB_ACTIVE: u32 = 1u32;
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
+#[repr(C)]
 pub struct POINTER_INPUT_TYPE(i32);
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
 pub const POINTER_MESSAGE_FLAG_CONFIDENCE: u32 = 16384u32;
@@ -1808,6 +1915,7 @@ pub const POINTER_MESSAGE_FLAG_SECONDBUTTON: u32 = 32u32;
 pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
+#[repr(C)]
 pub struct PREGISTERCLASSNAMEW(i32);
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
 pub const PRF_CHILDREN: i32 = 16i32;
@@ -1815,9 +1923,13 @@ pub const PRF_CLIENT: i32 = 4i32;
 pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 pub const PRF_OWNED: i32 = 32i32;
+#[repr(C)]
 pub struct PROPENUMPROCA(i32);
+#[repr(C)]
 pub struct PROPENUMPROCEXA(i32);
+#[repr(C)]
 pub struct PROPENUMPROCEXW(i32);
+#[repr(C)]
 pub struct PROPENUMPROCW(i32);
 pub const PWR_CRITICALRESUME: u32 = 3u32;
 pub const PWR_FAIL: i32 = -1i32;
@@ -1827,6 +1939,7 @@ pub const PWR_SUSPENDRESUME: u32 = 2u32;
 pub const PW_RENDERFULLCONTENT: u32 = 2u32;
 pub const QS_POINTER: u32 = 4096u32;
 pub const QS_TOUCH: u32 = 2048u32;
+#[repr(C)]
 pub struct QUEUE_STATUS_FLAGS(i32);
 pub const RES_CURSOR: u32 = 2u32;
 pub const RES_ICON: u32 = 1u32;
@@ -1927,9 +2040,13 @@ pub const SB_THUMBTRACK: u32 = 5u32;
 pub const SB_TOP: u32 = 6u32;
 pub const SCF_ISSECURE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCROLLBARINFO(i32);
+#[repr(C)]
 pub struct SCROLLBAR_CONSTANTS(i32);
+#[repr(C)]
 pub struct SCROLLINFO(i32);
+#[repr(C)]
 pub struct SCROLLINFO_MASK(i32);
 pub const SC_ARRANGE: u32 = 61712u32;
 pub const SC_CLOSE: u32 = 61536u32;
@@ -1952,15 +2069,20 @@ pub const SC_SIZE: u32 = 61440u32;
 pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 pub const SC_ZOOM: u32 = 61488u32;
+#[repr(C)]
 pub struct SENDASYNCPROC(i32);
+#[repr(C)]
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(i32);
+#[repr(C)]
 pub struct SET_WINDOW_POS_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SHELLHOOKINFO(i32);
 pub const SHOW_FULLSCREEN: u32 = 3u32;
 pub const SHOW_ICONWINDOW: u32 = 2u32;
 pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
 pub const SHOW_OPENWINDOW: u32 = 1u32;
+#[repr(C)]
 pub struct SHOW_WINDOW_CMD(i32);
 pub const SIZEFULLSCREEN: u32 = 2u32;
 pub const SIZEICONIC: u32 = 1u32;
@@ -2073,21 +2195,31 @@ pub const STRSAFE_MAX_CCH: u32 = 2147483647u32;
 pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
 pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
 pub const STRSAFE_USE_SECURE_CRT: u32 = 0u32;
+#[repr(C)]
 pub struct STYLESTRUCT(i32);
+#[repr(C)]
 pub struct SYSTEM_CURSOR_ID(i32);
+#[repr(C)]
 pub struct SYSTEM_METRICS_INDEX(i32);
+#[repr(C)]
 pub struct SYSTEM_PARAMETERS_INFO_ACTION(i32);
+#[repr(C)]
 pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(i32);
+#[repr(C)]
 pub struct SYS_COLOR_INDEX(i32);
+#[repr(C)]
 pub struct TILE_WINDOWS_HOW(i32);
+#[repr(C)]
 pub struct TIMERPROC(i32);
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
 pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
 pub const TIMERV_NO_COALESCING: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TITLEBARINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TITLEBARINFOEX(i32);
 pub const TKF_AVAILABLE: u32 = 2u32;
 pub const TKF_CONFIRMHOTKEY: u32 = 8u32;
@@ -2114,8 +2246,11 @@ pub const TOUCH_MASK_NONE: u32 = 0u32;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TPMPARAMS(i32);
+#[repr(C)]
 pub struct TRACK_POPUP_MENU_FLAGS(i32);
+#[repr(C)]
 pub struct TouchPredictionParameters(i32);
 pub const UISF_ACTIVE: u32 = 4u32;
 pub const UISF_HIDEACCEL: u32 = 2u32;
@@ -2126,7 +2261,9 @@ pub const UIS_SET: u32 = 1u32;
 pub const UNICODE_NOCHAR: u32 = 65535u32;
 pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct UPDATELAYEREDWINDOWINFO(i32);
+#[repr(C)]
 pub struct UPDATE_LAYERED_WINDOW_FLAGS(i32);
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
@@ -2141,17 +2278,27 @@ pub const WH_MAXHOOK: u32 = 14u32;
 pub const WH_MIN: i32 = -1i32;
 pub const WH_MINHOOK: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINDOWINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINDOWPLACEMENT(i32);
+#[repr(C)]
 pub struct WINDOWPLACEMENT_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINDOWPOS(i32);
+#[repr(C)]
 pub struct WINDOWS_HOOK_ID(i32);
+#[repr(C)]
 pub struct WINDOW_DISPLAY_AFFINITY(i32);
+#[repr(C)]
 pub struct WINDOW_EX_STYLE(i32);
+#[repr(C)]
 pub struct WINDOW_LONG_PTR_INDEX(i32);
+#[repr(C)]
 pub struct WINDOW_MESSAGE_FILTER_ACTION(i32);
+#[repr(C)]
 pub struct WINDOW_STYLE(i32);
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
@@ -2425,15 +2572,22 @@ pub const WM_XBUTTONDBLCLK: u32 = 525u32;
 pub const WM_XBUTTONDOWN: u32 = 523u32;
 pub const WM_XBUTTONUP: u32 = 524u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct WNDCLASSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct WNDCLASSEXA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct WNDCLASSEXW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct WNDCLASSW(i32);
+#[repr(C)]
 pub struct WNDCLASS_STYLES(i32);
+#[repr(C)]
 pub struct WNDENUMPROC(i32);
+#[repr(C)]
 pub struct WNDPROC(i32);
 pub const WSF_VISIBLE: i32 = 1i32;
 pub const WTS_CONSOLE_CONNECT: u32 = 1u32;

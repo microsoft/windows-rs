@@ -29,11 +29,13 @@ pub struct IVoiceCommandUserMessage(pub *mut ::core::ffi::c_void);
 pub struct VoiceCommand(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VoiceCommandCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VoiceCommandCompletionReason(i32);
 #[repr(transparent)]
 pub struct VoiceCommandConfirmationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VoiceCommandContentTile(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VoiceCommandContentTileType(i32);
 #[repr(transparent)]
 pub struct VoiceCommandDefinition(pub *mut ::core::ffi::c_void);

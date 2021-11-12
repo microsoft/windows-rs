@@ -1,10 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct BitmapAlphaMode(i32);
+#[repr(C)]
 pub struct BitmapBounds(i32);
 #[repr(transparent)]
 pub struct BitmapBuffer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BitmapBufferAccessMode(i32);
 #[repr(transparent)]
 pub struct BitmapCodecInformation(pub *mut ::core::ffi::c_void);
@@ -12,11 +15,15 @@ pub struct BitmapCodecInformation(pub *mut ::core::ffi::c_void);
 pub struct BitmapDecoder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapEncoder(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BitmapFlip(i32);
 #[repr(transparent)]
 pub struct BitmapFrame(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BitmapInterpolationMode(i32);
+#[repr(C)]
 pub struct BitmapPixelFormat(i32);
+#[repr(C)]
 pub struct BitmapPlaneDescription(i32);
 #[repr(transparent)]
 pub struct BitmapProperties(pub *mut ::core::ffi::c_void);
@@ -24,13 +31,17 @@ pub struct BitmapProperties(pub *mut ::core::ffi::c_void);
 pub struct BitmapPropertiesView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapPropertySet(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BitmapRotation(i32);
+#[repr(C)]
 pub struct BitmapSize(i32);
 #[repr(transparent)]
 pub struct BitmapTransform(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapTypedValue(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ColorManagementMode(i32);
+#[repr(C)]
 pub struct ExifOrientationMode(i32);
 #[repr(transparent)]
 pub struct IBitmapBuffer(pub *mut ::core::ffi::c_void);
@@ -74,10 +85,13 @@ pub struct ISoftwareBitmapFactory(pub *mut ::core::ffi::c_void);
 pub struct ISoftwareBitmapStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageStream(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct JpegSubsamplingMode(i32);
 #[repr(transparent)]
 pub struct PixelDataProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PngFilterMode(i32);
 #[repr(transparent)]
 pub struct SoftwareBitmap(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TiffCompressionMode(i32);

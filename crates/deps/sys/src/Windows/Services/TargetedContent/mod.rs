@@ -33,7 +33,9 @@ pub struct ITargetedContentSubscriptionStatics(pub *mut ::core::ffi::c_void);
 pub struct ITargetedContentValue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentAction(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TargetedContentAppInstallationState(i32);
+#[repr(C)]
 pub struct TargetedContentAvailability(i32);
 #[repr(transparent)]
 pub struct TargetedContentAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -43,11 +45,13 @@ pub struct TargetedContentChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentContainer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TargetedContentContract(i32);
 #[repr(transparent)]
 pub struct TargetedContentFile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentImage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TargetedContentInteraction(i32);
 #[repr(transparent)]
 pub struct TargetedContentItem(pub *mut ::core::ffi::c_void);
@@ -55,6 +59,7 @@ pub struct TargetedContentItem(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentItemState(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentObject(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TargetedContentObjectKind(i32);
 #[repr(transparent)]
 pub struct TargetedContentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -64,4 +69,5 @@ pub struct TargetedContentSubscription(pub *mut ::core::ffi::c_void);
 pub struct TargetedContentSubscriptionOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetedContentValue(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TargetedContentValueKind(i32);

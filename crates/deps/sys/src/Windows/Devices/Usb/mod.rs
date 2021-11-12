@@ -69,9 +69,11 @@ pub struct UsbBulkOutPipe(pub *mut ::core::ffi::c_void);
 pub struct UsbConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbConfigurationDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UsbControlRecipient(i32);
 #[repr(transparent)]
 pub struct UsbControlRequestType(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UsbControlTransferType(i32);
 #[repr(transparent)]
 pub struct UsbDescriptor(pub *mut ::core::ffi::c_void);
@@ -85,6 +87,7 @@ pub struct UsbDeviceClasses(pub *mut ::core::ffi::c_void);
 pub struct UsbDeviceDescriptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbEndpointDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UsbEndpointType(i32);
 #[repr(transparent)]
 pub struct UsbInterface(pub *mut ::core::ffi::c_void);
@@ -102,8 +105,11 @@ pub struct UsbInterruptInPipe(pub *mut ::core::ffi::c_void);
 pub struct UsbInterruptOutEndpointDescriptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UsbInterruptOutPipe(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UsbReadOptions(i32);
 #[repr(transparent)]
 pub struct UsbSetupPacket(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UsbTransferDirection(i32);
+#[repr(C)]
 pub struct UsbWriteOptions(i32);

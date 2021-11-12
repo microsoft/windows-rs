@@ -18,14 +18,23 @@ extern "system" {
     pub fn WebSocketReceive(hwebsocket: WEB_SOCKET_HANDLE, pbuffer: *const WEB_SOCKET_BUFFER, pvcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct WEB_SOCKET_ACTION(i32);
+#[repr(C)]
 pub struct WEB_SOCKET_ACTION_QUEUE(i32);
+#[repr(C)]
 pub struct WEB_SOCKET_BUFFER(i32);
+#[repr(C)]
 pub struct WEB_SOCKET_BUFFER_TYPE(i32);
+#[repr(C)]
 pub struct WEB_SOCKET_CLOSE_STATUS(i32);
+#[repr(C)]
 pub struct WEB_SOCKET_HANDLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WEB_SOCKET_HTTP_HEADER(i32);
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
+#[repr(C)]
 pub struct WEB_SOCKET_PROPERTY(i32);
+#[repr(C)]
 pub struct WEB_SOCKET_PROPERTY_TYPE(i32);

@@ -15,5 +15,7 @@ pub struct IWebApplicationScriptEvents(pub *mut ::core::ffi::c_void);
 pub struct IWebApplicationUIEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWebApplicationUpdateEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RegisterAuthoringClientFunctionType(i32);
+#[repr(C)]
 pub struct UnregisterAuthoringClientFunctionType(i32);

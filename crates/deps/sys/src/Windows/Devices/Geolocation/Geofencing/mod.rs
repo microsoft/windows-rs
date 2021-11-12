@@ -5,8 +5,11 @@ extern "system" {}
 pub struct Geofence(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GeofenceMonitor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GeofenceMonitorStatus(i32);
+#[repr(C)]
 pub struct GeofenceRemovalReason(i32);
+#[repr(C)]
 pub struct GeofenceState(i32);
 #[repr(transparent)]
 pub struct GeofenceStateChangeReport(pub *mut ::core::ffi::c_void);
@@ -20,4 +23,5 @@ pub struct IGeofenceMonitor(pub *mut ::core::ffi::c_void);
 pub struct IGeofenceMonitorStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IGeofenceStateChangeReport(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MonitoredGeofenceStates(i32);

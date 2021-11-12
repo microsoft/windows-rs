@@ -11,7 +11,9 @@ pub struct ChatConversation(pub *mut ::core::ffi::c_void);
 pub struct ChatConversationReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatConversationThreadingInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatConversationThreadingKind(i32);
+#[repr(C)]
 pub struct ChatItemKind(i32);
 #[repr(transparent)]
 pub struct ChatMessage(pub *mut ::core::ffi::c_void);
@@ -25,19 +27,23 @@ pub struct ChatMessageChange(pub *mut ::core::ffi::c_void);
 pub struct ChatMessageChangeReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatMessageChangeTracker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatMessageChangeType(i32);
 #[repr(transparent)]
 pub struct ChatMessageChangedDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatMessageChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatMessageKind(i32);
 #[repr(transparent)]
 pub struct ChatMessageManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatMessageNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatMessageOperatorKind(i32);
 #[repr(transparent)]
 pub struct ChatMessageReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatMessageStatus(i32);
 #[repr(transparent)]
 pub struct ChatMessageStore(pub *mut ::core::ffi::c_void);
@@ -47,23 +53,29 @@ pub struct ChatMessageStoreChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ChatMessageTransport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatMessageTransportConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatMessageTransportKind(i32);
 #[repr(transparent)]
 pub struct ChatMessageValidationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatMessageValidationStatus(i32);
 #[repr(transparent)]
 pub struct ChatQueryOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatRecipientDeliveryInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatRestoreHistorySpan(i32);
 #[repr(transparent)]
 pub struct ChatSearchReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatStoreChangedEventKind(i32);
 #[repr(transparent)]
 pub struct ChatSyncConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatSyncManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChatTransportErrorCodeCategory(i32);
+#[repr(C)]
 pub struct ChatTransportInterpretedErrorCode(i32);
 #[repr(transparent)]
 pub struct IChatCapabilities(pub *mut ::core::ffi::c_void);
@@ -181,6 +193,7 @@ pub struct RcsEndUserMessageAvailableTriggerDetails(pub *mut ::core::ffi::c_void
 pub struct RcsEndUserMessageManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RcsManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RcsServiceKind(i32);
 #[repr(transparent)]
 pub struct RcsServiceKindSupportedChangedEventArgs(pub *mut ::core::ffi::c_void);

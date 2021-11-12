@@ -15,8 +15,10 @@ pub const CLSID_IITWordWheelLocal: ::windows_sys::core::GUID = ::windows_sys::GU
 pub const CLSID_IITWordWheelUpdate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883621, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_ITEngStemmer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2409682344, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_ITStdBreaker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883631, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+#[repr(C)]
 pub struct COLUMNSTATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CProperty(i32);
 pub const E_ALL_WILD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147479467i32 as _);
 pub const E_ALREADYINIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147479421i32 as _);
@@ -105,8 +107,10 @@ pub const HHACT_TOC_NEXT: i32 = 20i32;
 pub const HHACT_TOC_PREV: i32 = 21i32;
 pub const HHACT_ZOOM: i32 = 19i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct HHNTRACK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct HHN_NOTIFY(i32);
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
 pub const HHWIN_BUTTON_BROWSE_BCK: u32 = 256u32;
@@ -183,6 +187,7 @@ pub const HHWIN_PROP_TRI_PANE: u32 = 32u32;
 pub const HHWIN_PROP_USER_POS: u32 = 262144u32;
 pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HH_AKLINK(i32);
 pub const HH_ALINK_LOOKUP: u32 = 19u32;
 pub const HH_CLOSE_ALL: u32 = 18u32;
@@ -192,20 +197,25 @@ pub const HH_DISPLAY_TEXT_POPUP: u32 = 14u32;
 pub const HH_DISPLAY_TOC: u32 = 1u32;
 pub const HH_DISPLAY_TOPIC: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HH_ENUM_CAT(i32);
 pub const HH_ENUM_CATEGORY: u32 = 21u32;
 pub const HH_ENUM_CATEGORY_IT: u32 = 22u32;
 pub const HH_ENUM_INFO_TYPE: u32 = 7u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HH_ENUM_IT(i32);
 pub const HH_FTS_DEFAULT_PROXIMITY: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HH_FTS_QUERY(i32);
 pub const HH_GET_LAST_ERROR: u32 = 20u32;
 pub const HH_GET_WIN_HANDLE: u32 = 6u32;
 pub const HH_GET_WIN_TYPE: u32 = 5u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct HH_GLOBAL_PROPERTY(i32);
+#[repr(C)]
 pub struct HH_GPROPID(i32);
 pub const HH_HELP_CONTEXT: u32 = 15u32;
 pub const HH_HELP_FINDER: u32 = 0u32;
@@ -213,6 +223,7 @@ pub const HH_INITIALIZE: u32 = 28u32;
 pub const HH_KEYWORD_LOOKUP: u32 = 13u32;
 pub const HH_MAX_TABS: u32 = 19u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HH_POPUP(i32);
 pub const HH_PRETRANSLATEMESSAGE: u32 = 253u32;
 pub const HH_RESERVED1: u32 = 10u32;
@@ -224,6 +235,7 @@ pub const HH_SET_EXCLUSIVE_FILTER: u32 = 25u32;
 pub const HH_SET_GLOBAL_PROPERTY: u32 = 252u32;
 pub const HH_SET_INCLUSIVE_FILTER: u32 = 24u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HH_SET_INFOTYPE(i32);
 pub const HH_SET_INFO_TYPE: u32 = 8u32;
 pub const HH_SET_QUERYSERVICE: u32 = 30u32;
@@ -241,6 +253,7 @@ pub const HH_TP_HELP_CONTEXTMENU: u32 = 16u32;
 pub const HH_TP_HELP_WM_HELP: u32 = 17u32;
 pub const HH_UNINITIALIZE: u32 = 29u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HH_WINTYPE(i32);
 pub const IDTB_BACK: u32 = 204u32;
 pub const IDTB_BROWSE_BACK: u32 = 212u32;
@@ -268,12 +281,15 @@ pub const IDTB_TOC_PREV: u32 = 224u32;
 pub const IDTB_ZOOM: u32 = 222u32;
 #[repr(transparent)]
 pub struct IITDatabase(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IITGroup(i32);
 #[repr(transparent)]
 pub struct IITPropList(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IITQuery(i32);
 #[repr(transparent)]
 pub struct IITResultSet(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IITStopWordList(i32);
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
@@ -291,11 +307,14 @@ pub const IT_INCLUSIVE: i32 = 0i32;
 #[repr(transparent)]
 pub struct IWordBreakerConfig(pub *mut ::core::ffi::c_void);
 pub const MAX_COLUMNS: u32 = 256u32;
+#[repr(C)]
 pub struct PFNCOLHEAPFREE(i32);
+#[repr(C)]
 pub struct PRIORITY(i32);
 pub const PROP_ADD: u32 = 0u32;
 pub const PROP_DELETE: u32 = 1u32;
 pub const PROP_UPDATE: u32 = 2u32;
+#[repr(C)]
 pub struct ROWSTATUS(i32);
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
 pub const STDPROP_INDEX_BREAK: u32 = 204u32;
@@ -316,4 +335,5 @@ pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
 pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
+#[repr(C)]
 pub struct WORD_WHEEL_OPEN_FLAGS(i32);

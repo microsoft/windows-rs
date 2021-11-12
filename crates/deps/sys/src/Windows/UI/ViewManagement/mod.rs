@@ -9,23 +9,31 @@ pub struct AccessibilitySettings(pub *mut ::core::ffi::c_void);
 pub struct ActivationViewSwitcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationView(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationViewBoundsMode(i32);
 #[repr(transparent)]
 pub struct ApplicationViewConsolidatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationViewMode(i32);
+#[repr(C)]
 pub struct ApplicationViewOrientation(i32);
 #[repr(transparent)]
 pub struct ApplicationViewScaling(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationViewState(i32);
 #[repr(transparent)]
 pub struct ApplicationViewSwitcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationViewSwitchingOptions(i32);
 #[repr(transparent)]
 pub struct ApplicationViewTitleBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationViewTransferContext(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationViewWindowingMode(i32);
+#[repr(C)]
 pub struct FullScreenSystemOverlayMode(i32);
+#[repr(C)]
 pub struct HandPreference(i32);
 #[repr(transparent)]
 pub struct IAccessibilitySettings(pub *mut ::core::ffi::c_void);
@@ -135,7 +143,9 @@ pub struct ProjectionManager(pub *mut ::core::ffi::c_void);
 pub struct StatusBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StatusBarProgressIndicator(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UIColorType(i32);
+#[repr(C)]
 pub struct UIElementType(i32);
 #[repr(transparent)]
 pub struct UISettings(pub *mut ::core::ffi::c_void);
@@ -147,8 +157,11 @@ pub struct UISettingsAutoHideScrollBarsChangedEventArgs(pub *mut ::core::ffi::c_
 pub struct UISettingsMessageDurationChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UIViewSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserInteractionMode(i32);
+#[repr(C)]
 pub struct ViewManagementViewScalingContract(i32);
 #[repr(transparent)]
 pub struct ViewModePreferences(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ViewSizePreference(i32);

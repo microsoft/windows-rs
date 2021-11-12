@@ -77,21 +77,33 @@ pub const D3D10_ALL_RESOURCES_BOUND: u32 = 2097152u32;
 pub const D3D10_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 pub const D3D10_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 pub const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
+#[repr(C)]
 pub struct D3D10_ASYNC_GETDATA_FLAG(i32);
+#[repr(C)]
 pub struct D3D10_BIND_FLAG(i32);
+#[repr(C)]
 pub struct D3D10_BLEND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_BLEND_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_BLEND_DESC1(i32);
+#[repr(C)]
 pub struct D3D10_BLEND_OP(i32);
+#[repr(C)]
 pub struct D3D10_BOX(i32);
+#[repr(C)]
 pub struct D3D10_BUFFER_DESC(i32);
+#[repr(C)]
 pub struct D3D10_BUFFER_RTV(i32);
+#[repr(C)]
 pub struct D3D10_BUFFER_SRV(i32);
+#[repr(C)]
 pub struct D3D10_CLEAR_FLAG(i32);
 pub const D3D10_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 pub const D3D10_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
+#[repr(C)]
 pub struct D3D10_COLOR_WRITE_ENABLE(i32);
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14u32;
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS: u32 = 4u32;
@@ -128,13 +140,21 @@ pub const D3D10_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MIN: i32 = -10i32;
 pub const D3D10_COMMONSHADER_TEXEL_OFFSET_MAX_NEGATIVE: i32 = -8i32;
 pub const D3D10_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7u32;
 pub const D3D10_COMPARISON_FILTERING_BIT: u32 = 128u32;
+#[repr(C)]
 pub struct D3D10_COMPARISON_FUNC(i32);
+#[repr(C)]
 pub struct D3D10_COUNTER(i32);
+#[repr(C)]
 pub struct D3D10_COUNTER_DESC(i32);
+#[repr(C)]
 pub struct D3D10_COUNTER_INFO(i32);
+#[repr(C)]
 pub struct D3D10_COUNTER_TYPE(i32);
+#[repr(C)]
 pub struct D3D10_CPU_ACCESS_FLAG(i32);
+#[repr(C)]
 pub struct D3D10_CREATE_DEVICE_FLAG(i32);
+#[repr(C)]
 pub struct D3D10_CULL_MODE(i32);
 pub const D3D10_DEBUG_FEATURE_FINISH_PER_RENDER_OP: u32 = 2u32;
 pub const D3D10_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: u32 = 1u32;
@@ -165,33 +185,48 @@ pub const D3D10_DEFAULT_VIEWPORT_MIN_DEPTH: f32 = 0f32;
 pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0u32;
 pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0u32;
 pub const D3D10_DEFAULT_VIEWPORT_WIDTH: u32 = 0u32;
+#[repr(C)]
 pub struct D3D10_DEPTH_STENCILOP_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_DEPTH_STENCIL_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D10_DEPTH_STENCIL_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D10_DEPTH_WRITE_MASK(i32);
+#[repr(C)]
 pub struct D3D10_DEVICE_STATE_TYPES(i32);
+#[repr(C)]
 pub struct D3D10_DRIVER_TYPE(i32);
+#[repr(C)]
 pub struct D3D10_DSV_DIMENSION(i32);
 pub const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: u32 = 2u32;
 pub const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_EFFECT_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_EFFECT_SHADER_DESC(i32);
 pub const D3D10_EFFECT_SINGLE_THREADED: u32 = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D10_EFFECT_TYPE_DESC(i32);
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_EFFECT_VARIABLE_DESC(i32);
 pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4u32;
 pub const D3D10_EFFECT_VARIABLE_POOLED: u32 = 1u32;
 pub const D3D10_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576u32;
+#[repr(C)]
 pub struct D3D10_FEATURE_LEVEL1(i32);
+#[repr(C)]
 pub struct D3D10_FILL_MODE(i32);
+#[repr(C)]
 pub struct D3D10_FILTER(i32);
+#[repr(C)]
 pub struct D3D10_FILTER_TYPE(i32);
 pub const D3D10_FILTER_TYPE_MASK: u32 = 3u32;
 pub const D3D10_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6f64;
@@ -203,6 +238,7 @@ pub const D3D10_FLOAT_TO_SRGB_OFFSET: f32 = 0.055f32;
 pub const D3D10_FLOAT_TO_SRGB_SCALE_1: f32 = 12.92f32;
 pub const D3D10_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
 pub const D3D10_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
+#[repr(C)]
 pub struct D3D10_FORMAT_SUPPORT(i32);
 pub const D3D10_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600f32;
 pub const D3D10_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600f32;
@@ -235,18 +271,26 @@ pub const D3D10_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 16u32;
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 64u32;
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16u32;
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
+#[repr(C)]
 pub struct D3D10_INFO_QUEUE_FILTER(i32);
+#[repr(C)]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC(i32);
+#[repr(C)]
 pub struct D3D10_INPUT_CLASSIFICATION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D10_INPUT_ELEMENT_DESC(i32);
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
 pub const D3D10_LINEAR_GAMMA: f32 = 1f32;
 pub const D3D10_MAG_FILTER_SHIFT: u32 = 2u32;
+#[repr(C)]
 pub struct D3D10_MAP(i32);
+#[repr(C)]
 pub struct D3D10_MAPPED_TEXTURE2D(i32);
+#[repr(C)]
 pub struct D3D10_MAPPED_TEXTURE3D(i32);
+#[repr(C)]
 pub struct D3D10_MAP_FLAG(i32);
 pub const D3D10_MAX_BORDER_COLOR_COMPONENT: f32 = 1f32;
 pub const D3D10_MAX_DEPTH: f32 = 1f32;
@@ -254,9 +298,13 @@ pub const D3D10_MAX_MAXANISOTROPY: u32 = 16u32;
 pub const D3D10_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32u32;
 pub const D3D10_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000f32;
 pub const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17u32;
+#[repr(C)]
 pub struct D3D10_MESSAGE(i32);
+#[repr(C)]
 pub struct D3D10_MESSAGE_CATEGORY(i32);
+#[repr(C)]
 pub struct D3D10_MESSAGE_ID(i32);
+#[repr(C)]
 pub struct D3D10_MESSAGE_SEVERITY(i32);
 pub const D3D10_MIN_BORDER_COLOR_COMPONENT: f32 = 0f32;
 pub const D3D10_MIN_DEPTH: f32 = 0f32;
@@ -270,7 +318,9 @@ pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_PASS_DESC(i32);
+#[repr(C)]
 pub struct D3D10_PASS_SHADER_DESC(i32);
 pub const D3D10_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 13u32;
 pub const D3D10_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
@@ -290,19 +340,29 @@ pub const D3D10_PS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D10_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D10_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
 pub const D3D10_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
+#[repr(C)]
 pub struct D3D10_QUERY(i32);
+#[repr(C)]
 pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS(i32);
+#[repr(C)]
 pub struct D3D10_QUERY_DATA_SO_STATISTICS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT(i32);
+#[repr(C)]
 pub struct D3D10_QUERY_DESC(i32);
+#[repr(C)]
 pub struct D3D10_QUERY_MISC_FLAG(i32);
+#[repr(C)]
 pub struct D3D10_RAISE_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_RASTERIZER_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D10_RENDER_TARGET_VIEW_DESC(i32);
 pub const D3D10_REQ_BLEND_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
 pub const D3D10_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27u32;
@@ -328,37 +388,56 @@ pub const D3D10_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 8192u32;
 pub const D3D10_REQ_TEXTURE3D_U_V_OR_W_DIMENSION: u32 = 2048u32;
 pub const D3D10_REQ_TEXTURECUBE_DIMENSION: u32 = 8192u32;
 pub const D3D10_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0u32;
+#[repr(C)]
 pub struct D3D10_RESOURCE_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D10_RESOURCE_MISC_FLAG(i32);
+#[repr(C)]
 pub struct D3D10_RTV_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D10_SAMPLER_DESC(i32);
 pub const D3D10_SDK_LAYERS_VERSION: u32 = 11u32;
 pub const D3D10_SDK_VERSION: u32 = 29u32;
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D10_SHADER_BUFFER_DESC(i32);
 pub const D3D10_SHADER_DEBUG: u32 = 1u32;
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_FILE_INFO(i32);
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_INFO(i32);
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_INPUT_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_INST_INFO(i32);
 pub const D3D10_SHADER_DEBUG_NAME_FOR_BINARY: u32 = 8388608u32;
 pub const D3D10_SHADER_DEBUG_NAME_FOR_SOURCE: u32 = 4194304u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_OUTPUTVAR(i32);
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_REGTYPE(i32);
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_SCOPETYPE(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO(i32);
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_SCOPE_INFO(i32);
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_TOKEN_INFO(i32);
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_VARTYPE(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[repr(C)]
 pub struct D3D10_SHADER_DEBUG_VAR_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D10_SHADER_DESC(i32);
 pub const D3D10_SHADER_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096u32;
 pub const D3D10_SHADER_ENABLE_STRICTNESS: u32 = 2048u32;
@@ -369,6 +448,7 @@ pub const D3D10_SHADER_FORCE_PS_SOFTWARE_NO_OPT: u32 = 128u32;
 pub const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64u32;
 pub const D3D10_SHADER_IEEE_STRICTNESS: u32 = 8192u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D10_SHADER_INPUT_BIND_DESC(i32);
 pub const D3D10_SHADER_MAJOR_VERSION: u32 = 4u32;
 pub const D3D10_SHADER_MINOR_VERSION: u32 = 0u32;
@@ -382,19 +462,24 @@ pub const D3D10_SHADER_PARTIAL_PRECISION: u32 = 32u32;
 pub const D3D10_SHADER_PREFER_FLOW_CONTROL: u32 = 1024u32;
 pub const D3D10_SHADER_RESOURCES_MAY_ALIAS: u32 = 524288u32;
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC1(i32);
 pub const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4u32;
 pub const D3D10_SHADER_SKIP_VALIDATION: u32 = 2u32;
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[repr(C)]
 pub struct D3D10_SHADER_TYPE_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_SHADER_VARIABLE_DESC(i32);
 pub const D3D10_SHADER_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D10_SIGNATURE_PARAMETER_DESC(i32);
 pub const D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
 pub const D3D10_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048u32;
@@ -402,6 +487,7 @@ pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256u32;
 pub const D3D10_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 pub const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_SO_DECLARATION_ENTRY(i32);
 pub const D3D10_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1u32;
 pub const D3D10_SO_SINGLE_BUFFER_COMPONENT_LIMIT: u32 = 64u32;
@@ -415,53 +501,87 @@ pub const D3D10_SRGB_TO_FLOAT_TOLERANCE_IN_ULP: f32 = 0.5f32;
 pub const D3D10_STANDARD_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D10_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: u32 = 64u32;
 pub const D3D10_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: u32 = 4u32;
+#[repr(C)]
 pub struct D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(i32);
 pub const D3D10_STANDARD_PIXEL_COMPONENT_COUNT: u32 = 128u32;
 pub const D3D10_STANDARD_PIXEL_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D10_STANDARD_VECTOR_SIZE: u32 = 4u32;
 pub const D3D10_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 16u32;
 pub const D3D10_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64u32;
+#[repr(C)]
 pub struct D3D10_STATE_BLOCK_MASK(i32);
+#[repr(C)]
 pub struct D3D10_STENCIL_OP(i32);
 pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
+#[repr(C)]
 pub struct D3D10_SUBRESOURCE_DATA(i32);
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D10_TECHNIQUE_DESC(i32);
+#[repr(C)]
 pub struct D3D10_TEX1D_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D10_TEX1D_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D10_TEX1D_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D10_TEX1D_DSV(i32);
+#[repr(C)]
 pub struct D3D10_TEX1D_RTV(i32);
+#[repr(C)]
 pub struct D3D10_TEX1D_SRV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2DMS_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2DMS_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2DMS_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2DMS_DSV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2DMS_RTV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2DMS_SRV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2D_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2D_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2D_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2D_DSV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2D_RTV(i32);
+#[repr(C)]
 pub struct D3D10_TEX2D_SRV(i32);
+#[repr(C)]
 pub struct D3D10_TEX3D_RTV(i32);
+#[repr(C)]
 pub struct D3D10_TEX3D_SRV(i32);
+#[repr(C)]
 pub struct D3D10_TEXCUBE_ARRAY_SRV1(i32);
+#[repr(C)]
 pub struct D3D10_TEXCUBE_SRV(i32);
 pub const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18u32;
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D10_TEXTURE1D_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D10_TEXTURE2D_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D10_TEXTURE3D_DESC(i32);
+#[repr(C)]
 pub struct D3D10_TEXTURECUBE_FACE(i32);
+#[repr(C)]
 pub struct D3D10_TEXTURE_ADDRESS_MODE(i32);
 pub const D3D10_TEXT_1BIT_BIT: u32 = 2147483648u32;
 pub const D3D10_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
+#[repr(C)]
 pub struct D3D10_USAGE(i32);
+#[repr(C)]
 pub struct D3D10_VIEWPORT(i32);
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;
@@ -596,6 +716,8 @@ pub struct ID3D10Texture3D(pub *mut ::core::ffi::c_void);
 pub struct ID3D10VertexShader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ID3D10View(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PFN_D3D10_CREATE_DEVICE1(i32);
+#[repr(C)]
 pub struct PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(i32);
 pub const _FACD3D10: u32 = 2169u32;

@@ -439,6 +439,7 @@ extern "system" {
     pub fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct EMRPIXELFORMAT(i32);
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
 pub const GLU_BEGIN: u32 = 100100u32;
@@ -555,23 +556,41 @@ pub const GLU_VERSION_1_1: u32 = 1u32;
 pub const GLU_VERSION_1_2: u32 = 1u32;
 pub const GLU_VERTEX: u32 = 100101u32;
 pub const GLU_V_STEP: u32 = 100207u32;
+#[repr(C)]
 pub struct GLUnurbs(i32);
+#[repr(C)]
 pub struct GLUnurbsErrorProc(i32);
+#[repr(C)]
 pub struct GLUquadric(i32);
+#[repr(C)]
 pub struct GLUquadricErrorProc(i32);
+#[repr(C)]
 pub struct GLUtessBeginDataProc(i32);
+#[repr(C)]
 pub struct GLUtessBeginProc(i32);
+#[repr(C)]
 pub struct GLUtessCombineDataProc(i32);
+#[repr(C)]
 pub struct GLUtessCombineProc(i32);
+#[repr(C)]
 pub struct GLUtessEdgeFlagDataProc(i32);
+#[repr(C)]
 pub struct GLUtessEdgeFlagProc(i32);
+#[repr(C)]
 pub struct GLUtessEndDataProc(i32);
+#[repr(C)]
 pub struct GLUtessEndProc(i32);
+#[repr(C)]
 pub struct GLUtessErrorDataProc(i32);
+#[repr(C)]
 pub struct GLUtessErrorProc(i32);
+#[repr(C)]
 pub struct GLUtessVertexDataProc(i32);
+#[repr(C)]
 pub struct GLUtessVertexProc(i32);
+#[repr(C)]
 pub struct GLUtesselator(i32);
+#[repr(C)]
 pub struct GLYPHMETRICSFLOAT(i32);
 pub const GL_2D: u32 = 1536u32;
 pub const GL_2_BYTES: u32 = 5127u32;
@@ -1161,24 +1180,45 @@ pub const GL_XOR: u32 = 5382u32;
 pub const GL_ZERO: u32 = 0u32;
 pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
+#[repr(C)]
 pub struct HGLRC(i32);
+#[repr(C)]
 pub struct LAYERPLANEDESCRIPTOR(i32);
+#[repr(C)]
 pub struct PFNGLADDSWAPHINTRECTWINPROC(i32);
+#[repr(C)]
 pub struct PFNGLARRAYELEMENTARRAYEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLARRAYELEMENTEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLCOLORPOINTEREXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLCOLORSUBTABLEEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLCOLORTABLEEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLDRAWARRAYSEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLDRAWRANGEELEMENTSWINPROC(i32);
+#[repr(C)]
 pub struct PFNGLEDGEFLAGPOINTEREXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLGETCOLORTABLEEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLGETCOLORTABLEPARAMETERFVEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLGETCOLORTABLEPARAMETERIVEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLGETPOINTERVEXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLINDEXPOINTEREXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLNORMALPOINTEREXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLTEXCOORDPOINTEREXTPROC(i32);
+#[repr(C)]
 pub struct PFNGLVERTEXPOINTEREXTPROC(i32);
+#[repr(C)]
 pub struct PIXELFORMATDESCRIPTOR(i32);
+#[repr(C)]
 pub struct POINTFLOAT(i32);

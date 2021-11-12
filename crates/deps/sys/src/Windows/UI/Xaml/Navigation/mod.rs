@@ -31,6 +31,7 @@ pub struct NavigatedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct NavigatingCancelEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigatingCancelEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NavigationCacheMode(i32);
 #[repr(transparent)]
 pub struct NavigationEventArgs(pub *mut ::core::ffi::c_void);
@@ -38,6 +39,7 @@ pub struct NavigationEventArgs(pub *mut ::core::ffi::c_void);
 pub struct NavigationFailedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationFailedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NavigationMode(i32);
 #[repr(transparent)]
 pub struct NavigationStoppedEventHandler(pub *mut ::core::ffi::c_void);

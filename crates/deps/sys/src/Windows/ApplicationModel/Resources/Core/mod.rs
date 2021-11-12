@@ -33,6 +33,7 @@ pub struct IResourceQualifier(pub *mut ::core::ffi::c_void);
 pub struct NamedResource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceCandidate(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ResourceCandidateKind(i32);
 #[repr(transparent)]
 pub struct ResourceCandidateVectorView(pub *mut ::core::ffi::c_void);
@@ -40,6 +41,7 @@ pub struct ResourceCandidateVectorView(pub *mut ::core::ffi::c_void);
 pub struct ResourceContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceContextLanguagesVectorView(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ResourceLayoutInfo(i32);
 #[repr(transparent)]
 pub struct ResourceManager(pub *mut ::core::ffi::c_void);
@@ -57,6 +59,7 @@ pub struct ResourceQualifier(pub *mut ::core::ffi::c_void);
 pub struct ResourceQualifierMapView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceQualifierObservableMap(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ResourceQualifierPersistence(i32);
 #[repr(transparent)]
 pub struct ResourceQualifierVectorView(pub *mut ::core::ffi::c_void);

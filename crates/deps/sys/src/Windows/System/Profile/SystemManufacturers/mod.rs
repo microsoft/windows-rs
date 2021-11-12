@@ -15,6 +15,7 @@ pub struct ISystemSupportInfoStatics2(pub *mut ::core::ffi::c_void);
 pub struct OemSupportInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmbiosInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SystemManufacturersContract(i32);
 #[repr(transparent)]
 pub struct SystemSupportDeviceInfo(pub *mut ::core::ffi::c_void);

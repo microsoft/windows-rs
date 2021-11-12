@@ -15,7 +15,9 @@ pub struct IResourceIndexerFactory2(pub *mut ::core::ffi::c_void);
 pub struct IndexedResourceCandidate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IndexedResourceQualifier(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IndexedResourceType(i32);
 #[repr(transparent)]
 pub struct ResourceIndexer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ResourceIndexerContract(i32);

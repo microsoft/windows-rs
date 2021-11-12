@@ -222,11 +222,17 @@ extern "system" {
     pub fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32;
     pub fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32;
 }
+#[repr(C)]
 pub struct AR_STATE(i32);
+#[repr(C)]
 pub struct Adapter(i32);
+#[repr(C)]
 pub struct Adapters(i32);
+#[repr(C)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(i32);
+#[repr(C)]
 pub struct BACKLIGHT_REDUCTION_GAMMA_RAMP(i32);
+#[repr(C)]
 pub struct BANK_POSITION(i32);
 pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
 pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
@@ -234,6 +240,7 @@ pub const BITMAP_BITS_PIXEL: u32 = 1u32;
 pub const BITMAP_BITS_WORD_ALIGN: u32 = 16u32;
 pub const BITMAP_PLANES: u32 = 1u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct BLENDOBJ(i32);
 pub const BMF_16BPP: i32 = 4i32;
 pub const BMF_1BPP: i32 = 1i32;
@@ -257,17 +264,23 @@ pub const BMF_TOPDOWN: u32 = 1u32;
 pub const BMF_UMPDMEM: u32 = 128u32;
 pub const BMF_USERMEM: u32 = 8u32;
 pub const BMF_WINDOW_BLT: u32 = 64u32;
+#[repr(C)]
 pub struct BRIGHTNESS_INTERFACE_VERSION(i32);
+#[repr(C)]
 pub struct BRIGHTNESS_LEVEL(i32);
 pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
 pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
+#[repr(C)]
 pub struct BRIGHTNESS_NIT_RANGE(i32);
+#[repr(C)]
 pub struct BRIGHTNESS_NIT_RANGES(i32);
+#[repr(C)]
 pub struct BRUSHOBJ(i32);
 pub const BR_CMYKCOLOR: u32 = 4u32;
 pub const BR_DEVICE_ICM: u32 = 1u32;
 pub const BR_HOST_ICM: u32 = 2u32;
 pub const BR_ORIGCOLOR: u32 = 8u32;
+#[repr(C)]
 pub struct BlackScreenDiagnosticsCalloutParam(i32);
 pub const CDBEX_CROSSADAPTER: u32 = 8u32;
 pub const CDBEX_DXINTEROP: u32 = 2u32;
@@ -275,6 +288,7 @@ pub const CDBEX_NTSHAREDSURFACEHANDLE: u32 = 4u32;
 pub const CDBEX_REDIRECTION: u32 = 1u32;
 pub const CDBEX_REUSE: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CDDDXGK_REDIRBITMAPPRESENTINFO(i32);
 pub const CD_ANY: i32 = 4i32;
 pub const CD_LEFTDOWN: i32 = 1i32;
@@ -284,27 +298,45 @@ pub const CD_RIGHTDOWN: i32 = 0i32;
 pub const CD_RIGHTUP: i32 = 2i32;
 pub const CD_UPWARDS: i32 = 2i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[repr(C)]
 pub struct CHAR_IMAGE_INFO(i32);
 pub const CHAR_TYPE_LEADING: u32 = 2u32;
 pub const CHAR_TYPE_SBCS: u32 = 0u32;
 pub const CHAR_TYPE_TRAILING: u32 = 3u32;
+#[repr(C)]
 pub struct CHROMATICITY_COORDINATE(i32);
+#[repr(C)]
 pub struct CIECHROMA(i32);
+#[repr(C)]
 pub struct CLIPLINE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CLIPOBJ(i32);
+#[repr(C)]
 pub struct COLORINFO(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_1DLUT_CAP(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_3x4(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_MATRIX_V2(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_SET_INPUT(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(i32);
+#[repr(C)]
 pub struct COLORSPACE_TRANSFORM_TYPE(i32);
 pub const CT_RECTANGLES: i32 = 0i32;
 pub const DCR_DRIVER: u32 = 1u32;
@@ -319,11 +351,14 @@ pub const DDI_DRIVER_VERSION_NT5_01: u32 = 196864u32;
 pub const DDI_DRIVER_VERSION_NT5_01_SP1: u32 = 196865u32;
 pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
 pub const DDI_ERROR: u32 = 4294967295u32;
+#[repr(C)]
 pub struct DEVHTADJDATA(i32);
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
+#[repr(C)]
 pub struct DEVHTINFO(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct DEVINFO(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -365,61 +400,96 @@ pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PR
     },
     pid: 1u32,
 };
+#[repr(C)]
 pub struct DHPDEV(i32);
+#[repr(C)]
 pub struct DHSURF(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_2DREGION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_ADAPTER_NAME(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_MODE_INFO(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_PATH_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_RATIONAL(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_ROTATION(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_SCALING(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_SCANLINE_ORDERING(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_SOURCE_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_TARGET_BASE_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_TARGET_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO(i32);
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 pub const DISPLAYPOLICY_DC: u32 = 2u32;
+#[repr(C)]
 pub struct DISPLAY_BRIGHTNESS(i32);
 pub const DM_DEFAULT: u32 = 1u32;
 pub const DM_MONOCHROME: u32 = 2u32;
@@ -435,15 +505,20 @@ pub const DRD_ERROR: u32 = 1u32;
 pub const DRD_SUCCESS: u32 = 0u32;
 pub const DRH_APIBITMAP: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRH_APIBITMAPDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVEROBJ(i32);
+#[repr(C)]
 pub struct DRVENABLEDATA(i32);
+#[repr(C)]
 pub struct DRVFN(i32);
 pub const DRVQUERY_USERMODE: u32 = 1u32;
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
 pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
 pub const DSI_CONTENTION_DETECTED: u32 = 128u32;
+#[repr(C)]
 pub struct DSI_CONTROL_TRANSMISSION_MODE(i32);
 pub const DSI_DSI_DATA_TYPE_NOT_RECOGNIZED: u32 = 2048u32;
 pub const DSI_DSI_PROTOCOL_VIOLATION: u32 = 32768u32;
@@ -464,13 +539,16 @@ pub const DSS_RESERVED: u32 = 4u32;
 pub const DSS_RESERVED1: u32 = 8u32;
 pub const DSS_RESERVED2: u32 = 16u32;
 pub const DSS_TIMER_EVENT: u32 = 1u32;
+#[repr(C)]
 pub struct DXGK_WIN32K_PARAM_DATA(i32);
 pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
 pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
 pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DisplayMode(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DisplayModes(i32);
 pub const ECS_REDRAW: u32 = 2u32;
 pub const ECS_TEARDOWN: u32 = 1u32;
@@ -478,18 +556,25 @@ pub const ED_ABORTDOC: u32 = 1u32;
 pub const EHN_ERROR: u32 = 1u32;
 pub const EHN_RESTORED: u32 = 0u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct EMFINFO(i32);
 pub const ENDCAP_BUTT: i32 = 2i32;
 pub const ENDCAP_ROUND: i32 = 0i32;
 pub const ENDCAP_SQUARE: i32 = 1i32;
+#[repr(C)]
 pub struct ENGSAFESEMAPHORE(i32);
+#[repr(C)]
 pub struct ENG_DEVICE_ATTRIBUTE(i32);
+#[repr(C)]
 pub struct ENG_EVENT(i32);
 pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
+#[repr(C)]
 pub struct ENG_SYSTEM_ATTRIBUTE(i32);
+#[repr(C)]
 pub struct ENG_TIME_FIELDS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUMRECTS(i32);
 pub const FC_COMPLEX: u32 = 3u32;
 pub const FC_RECT: u32 = 1u32;
@@ -500,29 +585,41 @@ pub const FDM_TYPE_CONST_BEARINGS: u32 = 16u32;
 pub const FDM_TYPE_MAXEXT_EQUAL_BM_SIDE: u32 = 2u32;
 pub const FDM_TYPE_ZERO_BEARINGS: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FD_DEVICEMETRICS(i32);
 pub const FD_ERROR: u32 = 4294967295u32;
+#[repr(C)]
 pub struct FD_GLYPHATTR(i32);
+#[repr(C)]
 pub struct FD_GLYPHSET(i32);
+#[repr(C)]
 pub struct FD_KERNINGPAIR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FD_LIGATURE(i32);
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct FD_XFORM(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct FD_XFORM(i32);
 pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
 pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct FLOATOBJ(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct FLOATOBJ_XFORM(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct FLOATOBJ_XFORM(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct FLOAT_LONG(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct FLOAT_LONG(i32);
 pub const FL_NONPAGED_MEMORY: u32 = 2u32;
 pub const FL_NON_SESSION: u32 = 4u32;
@@ -573,12 +670,17 @@ pub const FM_SEL_UNDERSCORE: u32 = 2u32;
 pub const FM_TYPE_LICENSED: u32 = 2u32;
 pub const FM_VERSION_NUMBER: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FONTDIFF(i32);
+#[repr(C)]
 pub struct FONTINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FONTOBJ(i32);
+#[repr(C)]
 pub struct FONTSIM(i32);
 #[cfg(feature = "Win32_System_Console")]
+#[repr(C)]
 pub struct FONT_IMAGE_INFO(i32);
 pub const FO_ATTR_MODE_ROTATE: u32 = 1u32;
 pub const FO_CFF: u32 = 1048576u32;
@@ -604,22 +706,34 @@ pub const FO_SIM_ITALIC: u32 = 16384u32;
 pub const FO_VERT_FACE: u32 = 8388608u32;
 pub const FP_ALTERNATEMODE: i32 = 1i32;
 pub const FP_WINDINGMODE: i32 = 2i32;
+#[repr(C)]
 pub struct FREEOBJPROC(i32);
 #[cfg(feature = "Win32_System_Console")]
+#[repr(C)]
 pub struct FSCNTL_SCREEN_INFO(i32);
 #[cfg(feature = "Win32_System_Console")]
+#[repr(C)]
 pub struct FSVIDEO_COPY_FRAME_BUFFER(i32);
+#[repr(C)]
 pub struct FSVIDEO_CURSOR_POSITION(i32);
+#[repr(C)]
 pub struct FSVIDEO_MODE_INFORMATION(i32);
 #[cfg(feature = "Win32_System_Console")]
+#[repr(C)]
 pub struct FSVIDEO_REVERSE_MOUSE_POINTER(i32);
 #[cfg(feature = "Win32_System_Console")]
+#[repr(C)]
 pub struct FSVIDEO_SCREEN_INFORMATION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[repr(C)]
 pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER(i32);
+#[repr(C)]
 pub struct GAMMARAMP(i32);
+#[repr(C)]
 pub struct GAMMA_RAMP_DXGI_1(i32);
+#[repr(C)]
 pub struct GAMMA_RAMP_RGB(i32);
+#[repr(C)]
 pub struct GAMMA_RAMP_RGB256x3x16(i32);
 pub const GCAPS2_ACC_DRIVER: u32 = 32768u32;
 pub const GCAPS2_ALPHACURSOR: u32 = 32u32;
@@ -669,17 +783,22 @@ pub const GCAPS_VECTORFONT: u32 = 512u32;
 pub const GCAPS_VERTSTRIKE: u32 = 128u32;
 pub const GCAPS_WINDINGFILL: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GDIINFO(i32);
 pub const GDI_DRIVER_VERSION: u32 = 16384u32;
 pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
 pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GLYPHBITS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GLYPHDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GLYPHDEF(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GLYPHPOS(i32);
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
@@ -708,9 +827,13 @@ pub const GX_GENERAL: i32 = 3i32;
 pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
 pub const GX_SCALE: i32 = 2i32;
+#[repr(C)]
 pub struct HBM(i32);
+#[repr(C)]
 pub struct HDEV(i32);
+#[repr(C)]
 pub struct HDRVOBJ(i32);
+#[repr(C)]
 pub struct HFASTMUTEX(i32);
 pub const HOOK_ALPHABLEND: u32 = 65536u32;
 pub const HOOK_BITBLT: u32 = 1u32;
@@ -740,7 +863,9 @@ pub const HOST_DSI_OS_REJECTED_PACKET: u32 = 512u32;
 pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
+#[repr(C)]
 pub struct HSEMAPHORE(i32);
+#[repr(C)]
 pub struct HSURF(i32);
 pub const HS_DDI_MAX: u32 = 6u32;
 pub const HT_FLAG_8BPP_CMY332_MASK: u32 = 4278190080u32;
@@ -796,12 +921,15 @@ pub const HT_USERPAT_CY_MAX: u32 = 256u32;
 pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[repr(transparent)]
 pub struct ICloneViewHelper(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IFIEXTRA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct IFIMETRICS(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct IFIMETRICS(i32);
 pub const IGRF_RGB_256BYTES: u32 = 0u32;
 pub const IGRF_RGB_256WORDS: u32 = 1u32;
@@ -906,6 +1034,7 @@ pub const INDEX_DrvUnloadFontFile: i32 = 46i32;
 pub const INDEX_DrvUnlockDisplayArea: i32 = 102i32;
 pub const INDEX_LAST: i32 = 89i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct INDIRECT_DISPLAY_INFO(i32);
 pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
 pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
@@ -991,10 +1120,13 @@ pub const LA_GEOMETRIC: u32 = 1u32;
 pub const LA_STARTGAP: u32 = 4u32;
 pub const LA_STYLED: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LIGATURE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct LINEATTRS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct LINEATTRS(i32);
 pub const MAXCHARSETS: u32 = 16u32;
 pub const MAX_PACKET_COUNT: u32 = 128u32;
@@ -1010,12 +1142,18 @@ pub const MC_CAPS_RED_GREEN_BLUE_DRIVE: u32 = 32u32;
 pub const MC_CAPS_RED_GREEN_BLUE_GAIN: u32 = 16u32;
 pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
 pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
+#[repr(C)]
 pub struct MC_COLOR_TEMPERATURE(i32);
+#[repr(C)]
 pub struct MC_DISPLAY_TECHNOLOGY_TYPE(i32);
+#[repr(C)]
 pub struct MC_DRIVE_TYPE(i32);
+#[repr(C)]
 pub struct MC_GAIN_TYPE(i32);
+#[repr(C)]
 pub struct MC_POSITION_TYPE(i32);
 pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
+#[repr(C)]
 pub struct MC_SIZE_TYPE(i32);
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_10000K: u32 = 64u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_11500K: u32 = 128u32;
@@ -1026,11 +1164,17 @@ pub const MC_SUPPORTED_COLOR_TEMPERATURE_7500K: u32 = 8u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_8200K: u32 = 16u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
+#[repr(C)]
 pub struct MC_TIMING_REPORT(i32);
+#[repr(C)]
 pub struct MC_VCP_CODE_TYPE(i32);
+#[repr(C)]
 pub struct MIPI_DSI_CAPS(i32);
+#[repr(C)]
 pub struct MIPI_DSI_PACKET(i32);
+#[repr(C)]
 pub struct MIPI_DSI_RESET(i32);
+#[repr(C)]
 pub struct MIPI_DSI_TRANSMISSION(i32);
 pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
 pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
@@ -1039,25 +1183,40 @@ pub const MS_SHAREDACCESS: u32 = 2u32;
 pub const OC_BANK_CLIP: u32 = 1u32;
 pub const OPENGL_CMD: u32 = 4352u32;
 pub const OPENGL_GETINFO: u32 = 4353u32;
+#[repr(C)]
 pub struct ORIENTATION_PREFERENCE(i32);
+#[repr(C)]
 pub struct OUTPUT_COLOR_ENCODING(i32);
+#[repr(C)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(i32);
+#[repr(C)]
 pub struct OUTPUT_WIRE_FORMAT(i32);
+#[repr(C)]
 pub struct PALOBJ(i32);
 pub const PAL_BGR: u32 = 8u32;
 pub const PAL_BITFIELDS: u32 = 2u32;
 pub const PAL_CMYK: u32 = 16u32;
 pub const PAL_INDEXED: u32 = 1u32;
 pub const PAL_RGB: u32 = 4u32;
+#[repr(C)]
 pub struct PANEL_BRIGHTNESS_SENSOR_DATA(i32);
+#[repr(C)]
 pub struct PANEL_GET_BACKLIGHT_REDUCTION(i32);
+#[repr(C)]
 pub struct PANEL_GET_BRIGHTNESS(i32);
+#[repr(C)]
 pub struct PANEL_QUERY_BRIGHTNESS_CAPS(i32);
+#[repr(C)]
 pub struct PANEL_QUERY_BRIGHTNESS_RANGES(i32);
+#[repr(C)]
 pub struct PANEL_SET_BACKLIGHT_OPTIMIZATION(i32);
+#[repr(C)]
 pub struct PANEL_SET_BRIGHTNESS(i32);
+#[repr(C)]
 pub struct PANEL_SET_BRIGHTNESS_STATE(i32);
+#[repr(C)]
 pub struct PATHDATA(i32);
+#[repr(C)]
 pub struct PATHOBJ(i32);
 pub const PD_BEGINSUBPATH: u32 = 1u32;
 pub const PD_BEZIERS: u32 = 16u32;
@@ -1065,111 +1224,212 @@ pub const PD_CLOSEFIGURE: u32 = 8u32;
 pub const PD_ENDSUBPATH: u32 = 2u32;
 pub const PD_RESETSTYLE: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PERBANDINFO(i32);
+#[repr(C)]
 pub struct PFN(i32);
+#[repr(C)]
 pub struct PFN_DrvAccumulateD3DDirtyRect(i32);
+#[repr(C)]
 pub struct PFN_DrvAlphaBlend(i32);
+#[repr(C)]
 pub struct PFN_DrvAssertMode(i32);
+#[repr(C)]
 pub struct PFN_DrvAssociateSharedSurface(i32);
+#[repr(C)]
 pub struct PFN_DrvBitBlt(i32);
+#[repr(C)]
 pub struct PFN_DrvCompletePDEV(i32);
+#[repr(C)]
 pub struct PFN_DrvCopyBits(i32);
+#[repr(C)]
 pub struct PFN_DrvCreateDeviceBitmap(i32);
+#[repr(C)]
 pub struct PFN_DrvCreateDeviceBitmapEx(i32);
+#[repr(C)]
 pub struct PFN_DrvDeleteDeviceBitmap(i32);
+#[repr(C)]
 pub struct PFN_DrvDeleteDeviceBitmapEx(i32);
+#[repr(C)]
 pub struct PFN_DrvDeriveSurface(i32);
+#[repr(C)]
 pub struct PFN_DrvDescribePixelFormat(i32);
+#[repr(C)]
 pub struct PFN_DrvDestroyFont(i32);
+#[repr(C)]
 pub struct PFN_DrvDisableDirectDraw(i32);
+#[repr(C)]
 pub struct PFN_DrvDisableDriver(i32);
+#[repr(C)]
 pub struct PFN_DrvDisablePDEV(i32);
+#[repr(C)]
 pub struct PFN_DrvDisableSurface(i32);
+#[repr(C)]
 pub struct PFN_DrvDitherColor(i32);
+#[repr(C)]
 pub struct PFN_DrvDrawEscape(i32);
+#[repr(C)]
 pub struct PFN_DrvEnableDirectDraw(i32);
+#[repr(C)]
 pub struct PFN_DrvEnableDriver(i32);
+#[repr(C)]
 pub struct PFN_DrvEnablePDEV(i32);
+#[repr(C)]
 pub struct PFN_DrvEnableSurface(i32);
+#[repr(C)]
 pub struct PFN_DrvEndDoc(i32);
+#[repr(C)]
 pub struct PFN_DrvEndDxInterop(i32);
+#[repr(C)]
 pub struct PFN_DrvEscape(i32);
+#[repr(C)]
 pub struct PFN_DrvFillPath(i32);
+#[repr(C)]
 pub struct PFN_DrvFontManagement(i32);
+#[repr(C)]
 pub struct PFN_DrvFree(i32);
+#[repr(C)]
 pub struct PFN_DrvGetDirectDrawInfo(i32);
+#[repr(C)]
 pub struct PFN_DrvGetGlyphMode(i32);
+#[repr(C)]
 pub struct PFN_DrvGetModes(i32);
+#[repr(C)]
 pub struct PFN_DrvGetTrueTypeFile(i32);
+#[repr(C)]
 pub struct PFN_DrvGradientFill(i32);
+#[repr(C)]
 pub struct PFN_DrvIcmCheckBitmapBits(i32);
+#[repr(C)]
 pub struct PFN_DrvIcmCreateColorTransform(i32);
+#[repr(C)]
 pub struct PFN_DrvIcmDeleteColorTransform(i32);
+#[repr(C)]
 pub struct PFN_DrvIcmSetDeviceGammaRamp(i32);
+#[repr(C)]
 pub struct PFN_DrvLineTo(i32);
+#[repr(C)]
 pub struct PFN_DrvLoadFontFile(i32);
+#[repr(C)]
 pub struct PFN_DrvLockDisplayArea(i32);
+#[repr(C)]
 pub struct PFN_DrvMovePointer(i32);
+#[repr(C)]
 pub struct PFN_DrvNextBand(i32);
+#[repr(C)]
 pub struct PFN_DrvNotify(i32);
+#[repr(C)]
 pub struct PFN_DrvPaint(i32);
+#[repr(C)]
 pub struct PFN_DrvPlgBlt(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryAdvanceWidths(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryDeviceSupport(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryFont(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryFontCaps(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryFontData(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryFontFile(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryFontTree(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryGlyphAttrs(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryPerBandInfo(i32);
+#[repr(C)]
 pub struct PFN_DrvQuerySpoolType(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryTrueTypeOutline(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryTrueTypeSection(i32);
+#[repr(C)]
 pub struct PFN_DrvQueryTrueTypeTable(i32);
+#[repr(C)]
 pub struct PFN_DrvRealizeBrush(i32);
+#[repr(C)]
 pub struct PFN_DrvRenderHint(i32);
+#[repr(C)]
 pub struct PFN_DrvResetDevice(i32);
+#[repr(C)]
 pub struct PFN_DrvResetPDEV(i32);
+#[repr(C)]
 pub struct PFN_DrvSaveScreenBits(i32);
+#[repr(C)]
 pub struct PFN_DrvSendPage(i32);
+#[repr(C)]
 pub struct PFN_DrvSetPalette(i32);
+#[repr(C)]
 pub struct PFN_DrvSetPixelFormat(i32);
+#[repr(C)]
 pub struct PFN_DrvSetPointerShape(i32);
+#[repr(C)]
 pub struct PFN_DrvStartBanding(i32);
+#[repr(C)]
 pub struct PFN_DrvStartDoc(i32);
+#[repr(C)]
 pub struct PFN_DrvStartDxInterop(i32);
+#[repr(C)]
 pub struct PFN_DrvStartPage(i32);
+#[repr(C)]
 pub struct PFN_DrvStretchBlt(i32);
+#[repr(C)]
 pub struct PFN_DrvStretchBltROP(i32);
+#[repr(C)]
 pub struct PFN_DrvStrokeAndFillPath(i32);
+#[repr(C)]
 pub struct PFN_DrvStrokePath(i32);
+#[repr(C)]
 pub struct PFN_DrvSurfaceComplete(i32);
+#[repr(C)]
 pub struct PFN_DrvSwapBuffers(i32);
+#[repr(C)]
 pub struct PFN_DrvSynchronize(i32);
+#[repr(C)]
 pub struct PFN_DrvSynchronizeRedirectionBitmaps(i32);
+#[repr(C)]
 pub struct PFN_DrvSynchronizeSurface(i32);
+#[repr(C)]
 pub struct PFN_DrvTextOut(i32);
+#[repr(C)]
 pub struct PFN_DrvTransparentBlt(i32);
+#[repr(C)]
 pub struct PFN_DrvUnloadFontFile(i32);
+#[repr(C)]
 pub struct PFN_DrvUnlockDisplayArea(i32);
+#[repr(C)]
 pub struct PFN_EngCombineRgn(i32);
+#[repr(C)]
 pub struct PFN_EngCopyRgn(i32);
+#[repr(C)]
 pub struct PFN_EngCreateRectRgn(i32);
+#[repr(C)]
 pub struct PFN_EngDeleteRgn(i32);
+#[repr(C)]
 pub struct PFN_EngIntersectRgn(i32);
+#[repr(C)]
 pub struct PFN_EngSubtractRgn(i32);
+#[repr(C)]
 pub struct PFN_EngUnionRgn(i32);
+#[repr(C)]
 pub struct PFN_EngXorRgn(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PHYSICAL_MONITOR(i32);
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct POINTE(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct POINTE(i32);
+#[repr(C)]
 pub struct POINTFIX(i32);
+#[repr(C)]
 pub struct POINTQF(i32);
 pub const PO_ALL_INTEGERS: u32 = 4u32;
 pub const PO_BEZIERS: u32 = 1u32;
@@ -1190,6 +1450,7 @@ pub const PRIMARY_ORDER_BAC: u32 = 2u32;
 pub const PRIMARY_ORDER_BCA: u32 = 3u32;
 pub const PRIMARY_ORDER_CAB: u32 = 5u32;
 pub const PRIMARY_ORDER_CBA: u32 = 4u32;
+#[repr(C)]
 pub struct PVIDEO_WIN32K_CALLOUT(i32);
 pub const QAW_GETEASYWIDTHS: u32 = 1u32;
 pub const QAW_GETWIDTHS: u32 = 0u32;
@@ -1219,13 +1480,17 @@ pub const QSA_SSE1: u32 = 8192u32;
 pub const QSA_SSE2: u32 = 65536u32;
 pub const QSA_SSE3: u32 = 524288u32;
 pub const RB_DITHERCOLOR: i32 = -2147483648i32;
+#[repr(C)]
 pub struct RECTFX(i32);
+#[repr(C)]
 pub struct RUN(i32);
 pub const SETCONFIGURATION_STATUS_ADDITIONAL: u32 = 1u32;
 pub const SETCONFIGURATION_STATUS_APPLIED: u32 = 0u32;
 pub const SETCONFIGURATION_STATUS_OVERRIDDEN: u32 = 2u32;
+#[repr(C)]
 pub struct SET_ACTIVE_COLOR_PROFILE_NAME(i32);
 pub const SGI_EXTRASPACE: u32 = 0u32;
+#[repr(C)]
 pub struct SORTCOMP(i32);
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
 pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
@@ -1259,12 +1524,15 @@ pub const SS_FREE: u32 = 2u32;
 pub const SS_RESTORE: u32 = 1u32;
 pub const SS_SAVE: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STROBJ(i32);
 pub const STYPE_BITMAP: i32 = 0i32;
 pub const STYPE_DEVBITMAP: i32 = 3i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SURFOBJ(i32);
 pub const S_INIT: u32 = 2u32;
+#[repr(C)]
 pub struct Sources(i32);
 pub const TC_PATHOBJ: u32 = 2u32;
 pub const TC_RECTANGLES: u32 = 0u32;
@@ -1272,35 +1540,55 @@ pub const TTO_METRICS_ONLY: u32 = 1u32;
 pub const TTO_QUBICS: u32 = 2u32;
 pub const TTO_UNHINTED: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TYPE1_FONT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VGA_CHAR(i32);
+#[repr(C)]
 pub struct VIDEOPARAMETERS(i32);
+#[repr(C)]
 pub struct VIDEO_BANK_SELECT(i32);
+#[repr(C)]
 pub struct VIDEO_BANK_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDEO_BRIGHTNESS_POLICY(i32);
+#[repr(C)]
 pub struct VIDEO_CLUT(i32);
+#[repr(C)]
 pub struct VIDEO_CLUTDATA(i32);
+#[repr(C)]
 pub struct VIDEO_COLOR_CAPABILITIES(i32);
+#[repr(C)]
 pub struct VIDEO_COLOR_LUT_DATA(i32);
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
+#[repr(C)]
 pub struct VIDEO_CURSOR_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct VIDEO_CURSOR_POSITION(i32);
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
+#[repr(C)]
 pub struct VIDEO_DEVICE_SESSION_STATUS(i32);
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
 pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
 pub const VIDEO_DUALVIEW_SECONDARY: u32 = 1073741824u32;
 pub const VIDEO_DUALVIEW_WDDM_VGA: u32 = 536870912u32;
+#[repr(C)]
 pub struct VIDEO_HARDWARE_STATE(i32);
+#[repr(C)]
 pub struct VIDEO_HARDWARE_STATE_HEADER(i32);
+#[repr(C)]
 pub struct VIDEO_LOAD_FONT_INFORMATION(i32);
+#[repr(C)]
 pub struct VIDEO_LUT_RGB256WORDS(i32);
 pub const VIDEO_MAX_REASON: u32 = 9u32;
+#[repr(C)]
 pub struct VIDEO_MEMORY(i32);
+#[repr(C)]
 pub struct VIDEO_MEMORY_INFORMATION(i32);
+#[repr(C)]
 pub struct VIDEO_MODE(i32);
 pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
 pub const VIDEO_MODE_ANIMATE_UPDATE: u32 = 16u32;
@@ -1309,6 +1597,7 @@ pub const VIDEO_MODE_BANKED: u32 = 128u32;
 pub const VIDEO_MODE_COLOR: u32 = 1u32;
 pub const VIDEO_MODE_COLOR_POINTER: u32 = 4u32;
 pub const VIDEO_MODE_GRAPHICS: u32 = 2u32;
+#[repr(C)]
 pub struct VIDEO_MODE_INFORMATION(i32);
 pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
 pub const VIDEO_MODE_LINEAR: u32 = 256u32;
@@ -1319,17 +1608,28 @@ pub const VIDEO_MODE_NO_64_BIT_ACCESS: u32 = 64u32;
 pub const VIDEO_MODE_NO_OFF_SCREEN: u32 = 32u32;
 pub const VIDEO_MODE_NO_ZERO_MEMORY: u32 = 2147483648u32;
 pub const VIDEO_MODE_PALETTE_DRIVEN: u32 = 4u32;
+#[repr(C)]
 pub struct VIDEO_MONITOR_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct VIDEO_NUM_MODES(i32);
 pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
+#[repr(C)]
 pub struct VIDEO_PALETTE_DATA(i32);
+#[repr(C)]
 pub struct VIDEO_PERFORMANCE_COUNTER(i32);
+#[repr(C)]
 pub struct VIDEO_POINTER_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct VIDEO_POINTER_CAPABILITIES(i32);
+#[repr(C)]
 pub struct VIDEO_POINTER_POSITION(i32);
+#[repr(C)]
 pub struct VIDEO_POWER_MANAGEMENT(i32);
+#[repr(C)]
 pub struct VIDEO_POWER_STATE(i32);
+#[repr(C)]
 pub struct VIDEO_PUBLIC_ACCESS_RANGES(i32);
+#[repr(C)]
 pub struct VIDEO_QUERY_PERFORMANCE_COUNTER(i32);
 pub const VIDEO_REASON_ALLOCATION: u32 = 6u32;
 pub const VIDEO_REASON_CONFIGURATION: u32 = 9u32;
@@ -1341,26 +1641,36 @@ pub const VIDEO_REASON_POLICY2: u32 = 2u32;
 pub const VIDEO_REASON_POLICY3: u32 = 3u32;
 pub const VIDEO_REASON_POLICY4: u32 = 4u32;
 pub const VIDEO_REASON_SCRATCH: u32 = 8u32;
+#[repr(C)]
 pub struct VIDEO_REGISTER_VDM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDEO_SHARE_MEMORY(i32);
+#[repr(C)]
 pub struct VIDEO_SHARE_MEMORY_INFORMATION(i32);
 pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
 pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
 pub const VIDEO_STATE_UNEMULATED_VGA_STATE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDEO_VDM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDEO_WIN32K_CALLBACKS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS(i32);
+#[repr(C)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(i32);
+#[repr(C)]
 pub struct WCRUN(i32);
 pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WNDOBJ(i32);
+#[repr(C)]
 pub struct WNDOBJCHANGEPROC(i32);
 pub const WNDOBJ_SETUP: u32 = 4354u32;
 pub const WOC_CHANGED: u32 = 16u32;
@@ -1384,14 +1694,18 @@ pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct XFORML(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct XFORML(i32);
+#[repr(C)]
 pub struct XFORMOBJ(i32);
 pub const XF_INV_FXTOL: i32 = 3i32;
 pub const XF_INV_LTOL: i32 = 1i32;
 pub const XF_LTOFX: i32 = 2i32;
 pub const XF_LTOL: i32 = 0i32;
+#[repr(C)]
 pub struct XLATEOBJ(i32);
 pub const XO_DESTBITFIELDS: u32 = 5u32;
 pub const XO_DESTDCPALETTE: u32 = 3u32;

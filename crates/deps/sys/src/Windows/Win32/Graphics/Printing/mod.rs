@@ -429,8 +429,10 @@ extern "system" {
     pub fn XcvDataW(hxcv: super::super::Foundation::HANDLE, pszdataname: super::super::Foundation::PWSTR, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADDJOB_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADDJOB_INFO_1W(i32);
 pub const APD_COPY_ALL_FILES: u32 = 4u32;
 pub const APD_COPY_FROM_DIRECTORY: u32 = 16u32;
@@ -439,43 +441,64 @@ pub const APD_STRICT_DOWNGRADE: u32 = 2u32;
 pub const APD_STRICT_UPGRADE: u32 = 1u32;
 pub const APPLYCPSUI_NO_NEWDEF: u32 = 1u32;
 pub const APPLYCPSUI_OK_CANCEL_BUTTON: u32 = 2u32;
+#[repr(C)]
 pub struct ATTRIBUTE_INFO_1(i32);
+#[repr(C)]
 pub struct ATTRIBUTE_INFO_2(i32);
+#[repr(C)]
 pub struct ATTRIBUTE_INFO_3(i32);
+#[repr(C)]
 pub struct ATTRIBUTE_INFO_4(i32);
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 pub const BIDI_ACCESS_USER: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BIDI_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BIDI_REQUEST_CONTAINER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BIDI_REQUEST_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BIDI_RESPONSE_CONTAINER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BIDI_RESPONSE_DATA(i32);
+#[repr(C)]
 pub struct BIDI_TYPE(i32);
+#[repr(C)]
 pub struct BINARY_CONTAINER(i32);
 pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
 pub const BOOKLET_PRINT: u32 = 2u32;
 pub const BORDER_PRINT: u32 = 0u32;
+#[repr(C)]
 pub struct BidiRequest(i32);
+#[repr(C)]
 pub struct BidiRequestContainer(i32);
+#[repr(C)]
 pub struct BidiSpl(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BranchOfficeJobData(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BranchOfficeJobDataContainer(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BranchOfficeJobDataError(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BranchOfficeJobDataPipelineFailed(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BranchOfficeJobDataPrinted(i32);
+#[repr(C)]
 pub struct BranchOfficeJobDataRendered(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BranchOfficeLogOfflineFileFull(i32);
 pub const CC_BIG5: i32 = -10i32;
 pub const CC_CP437: i32 = -1i32;
@@ -524,7 +547,9 @@ pub const CLSID_XPSRASTERIZER_FACTORY: ::windows_sys::core::GUID = ::windows_sys
 };
 pub const COLOR_OPTIMIZATION: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct COMPROPSHEETUI(i32);
+#[repr(C)]
 pub struct CONFIG_INFO_DATA_1(i32);
 pub const COPYFILE_EVENT_ADD_PRINTER_CONNECTION: u32 = 3u32;
 pub const COPYFILE_EVENT_DELETE_PRINTER: u32 = 2u32;
@@ -534,8 +559,10 @@ pub const COPYFILE_EVENT_SET_PRINTER_DATAEX: u32 = 1u32;
 pub const COPYFILE_FLAG_CLIENT_SPOOLER: u32 = 1u32;
 pub const COPYFILE_FLAG_SERVER_SPOOLER: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CORE_PRINTER_DRIVERA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CORE_PRINTER_DRIVERW(i32);
 pub const CPSFUNC_ADD_HPROPSHEETPAGE: u32 = 0u32;
 pub const CPSFUNC_ADD_PCOMPROPSHEETUI: u32 = 3u32;
@@ -571,6 +598,7 @@ pub const CPSFUNC_SET_PSUIPAGE_TITLEA: u32 = 18u32;
 pub const CPSFUNC_SET_PSUIPAGE_TITLEW: u32 = 19u32;
 pub const CPSFUNC_SET_RESULT: u32 = 9u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct CPSUICBPARAM(i32);
 pub const CPSUICB_ACTION_ITEMS_APPLIED: u32 = 4u32;
 pub const CPSUICB_ACTION_NONE: u32 = 0u32;
@@ -589,6 +617,7 @@ pub const CPSUICB_REASON_PUSHBUTTON: u32 = 1u32;
 pub const CPSUICB_REASON_SEL_CHANGED: u32 = 0u32;
 pub const CPSUICB_REASON_SETACTIVE: u32 = 10u32;
 pub const CPSUICB_REASON_UNDO_CHANGES: u32 = 4u32;
+#[repr(C)]
 pub struct CPSUIDATABLOCK(i32);
 pub const CPSUIF_ABOUT_CALLBACK: u32 = 4u32;
 pub const CPSUIF_ICONID_AS_HICON: u32 = 2u32;
@@ -603,17 +632,24 @@ pub const CUSTOMPARAM_MAX: u32 = 5u32;
 pub const CUSTOMPARAM_ORIENTATION: u32 = 4u32;
 pub const CUSTOMPARAM_WIDTH: u32 = 0u32;
 pub const CUSTOMPARAM_WIDTHOFFSET: u32 = 2u32;
+#[repr(C)]
 pub struct CUSTOMSIZEPARAM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DATATYPES_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DATATYPES_INFO_1W(i32);
+#[repr(C)]
 pub struct DATA_HEADER(i32);
 pub const DEF_PRIORITY: u32 = 1u32;
+#[repr(C)]
 pub struct DELETE_PORT_DATA_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICEPROPERTYHEADER(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DEVQUERYPRINT_INFO(i32);
 pub const DF_BKSP_OK: u32 = 64u32;
 pub const DF_NOITALIC: u32 = 1u32;
@@ -765,6 +801,7 @@ pub const DI_CHANNEL: u32 = 1u32;
 pub const DI_MEMORYMAP_WRITE: u32 = 1u32;
 pub const DI_READ_SPOOL_JOB: u32 = 3u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct DLGPAGE(i32);
 pub const DMPUB_BOOKLET_EDGE: u32 = 21u32;
 pub const DMPUB_COLOR: u32 = 6u32;
@@ -801,8 +838,11 @@ pub const DM_PROMPT_NON_MODAL: u32 = 1073741824u32;
 pub const DM_RESERVED: u32 = 2147483648u32;
 pub const DM_USER_DEFAULT: u32 = 64u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DOCEVENT_CREATEDCPRE(i32);
+#[repr(C)]
 pub struct DOCEVENT_ESCAPE(i32);
+#[repr(C)]
 pub struct DOCEVENT_FILTER(i32);
 pub const DOCUMENTEVENT_ABORTDOC: u32 = 9u32;
 pub const DOCUMENTEVENT_CREATEDCPOST: u32 = 2u32;
@@ -840,18 +880,25 @@ pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPOST: u32 = 10u32;
 pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPRE: u32 = 9u32;
 pub const DOCUMENTEVENT_XPS_CANCELJOB: u32 = 6u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DOCUMENTPROPERTYHEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOC_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOC_INFO_1W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOC_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOC_INFO_2W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOC_INFO_3A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOC_INFO_3W(i32);
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
 pub const DPD_DELETE_SPECIFIC_VERSION: u32 = 2u32;
@@ -866,35 +913,51 @@ pub const DP_STD_TREEVIEWPAGE: u32 = 65535u32;
 pub const DRIVER_EVENT_DELETE: u32 = 2u32;
 pub const DRIVER_EVENT_INITIALIZE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_1W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_2W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_3A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_3W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_4A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_4W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_5A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_5W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_6A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_6W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_8A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRIVER_INFO_8W(i32);
 pub const DRIVER_KERNELMODE: u32 = 1u32;
+#[repr(C)]
 pub struct DRIVER_UPGRADE_INFO_1(i32);
+#[repr(C)]
 pub struct DRIVER_UPGRADE_INFO_2(i32);
 pub const DRIVER_USERMODE: u32 = 2u32;
 pub const DSPRINT_PENDING: u32 = 2147483648u32;
@@ -902,7 +965,9 @@ pub const DSPRINT_PUBLISH: u32 = 1u32;
 pub const DSPRINT_REPUBLISH: u32 = 8u32;
 pub const DSPRINT_UNPUBLISH: u32 = 4u32;
 pub const DSPRINT_UPDATE: u32 = 2u32;
+#[repr(C)]
 pub struct EATTRIBUTE_DATATYPE(i32);
+#[repr(C)]
 pub struct EBranchOfficeJobEventType(i32);
 pub const ECBF_CHECKNAME_AT_FRONT: u32 = 1u32;
 pub const ECBF_CHECKNAME_ONLY: u32 = 128u32;
@@ -913,6 +978,7 @@ pub const ECBF_OVERLAY_ECBICON_IF_CHECKED: u32 = 16u32;
 pub const ECBF_OVERLAY_NO_ICON: u32 = 64u32;
 pub const ECBF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const ECBF_OVERLAY_WARNING_ICON: u32 = 8u32;
+#[repr(C)]
 pub struct EMFPLAYPROC(i32);
 pub const EMF_PP_COLOR_OPTIMIZATION: u32 = 1u32;
 pub const EPF_ICONID_AS_HICON: u32 = 8u32;
@@ -924,8 +990,11 @@ pub const EPF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const EPF_OVERLAY_WARNING_ICON: u32 = 16u32;
 pub const EPF_PUSH_TYPE_DLGPROC: u32 = 1u32;
 pub const EPF_USE_HDLGTEMPLATE: u32 = 128u32;
+#[repr(C)]
 pub struct EPrintPropertyType(i32);
+#[repr(C)]
 pub struct EPrintXPSJobOperation(i32);
+#[repr(C)]
 pub struct EPrintXPSJobProgress(i32);
 pub const ERROR_BIDI_DEVICE_CONFIG_UNCHANGED: u32 = 13014u32;
 pub const ERROR_BIDI_DEVICE_OFFLINE: u32 = 13004u32;
@@ -992,13 +1061,20 @@ pub const ERR_CPSUI_SUBITEM_DIFF_OPTIF_HIDE: i32 = -36i32;
 pub const ERR_CPSUI_TOO_MANY_DLGPAGES: i32 = -15i32;
 pub const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9i32;
 pub const ERR_CPSUI_ZERO_OPTITEM: i32 = -44i32;
+#[repr(C)]
 pub struct EXTCHKBOX(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct EXTPUSH(i32);
+#[repr(C)]
 pub struct EXTTEXTMETRIC(i32);
+#[repr(C)]
 pub struct EXpsCompressionOptions(i32);
+#[repr(C)]
 pub struct EXpsFontOptions(i32);
+#[repr(C)]
 pub struct EXpsFontRestriction(i32);
+#[repr(C)]
 pub struct EXpsJobConsumption(i32);
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub const FG_CANCHANGE: u32 = 128u32;
@@ -1035,15 +1111,20 @@ pub const FONT_FL_SOFTFONT: u32 = 4u32;
 pub const FONT_FL_UFM: u32 = 1u32;
 pub const FORM_BUILTIN: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FORM_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FORM_INFO_1W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FORM_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FORM_INFO_2W(i32);
 pub const FORM_PRINTER: u32 = 2u32;
 pub const FORM_USER: u32 = 0u32;
+#[repr(C)]
 pub struct GLYPHRUN(i32);
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1059,13 +1140,21 @@ pub struct IAsyncGetSendNotificationCookie(pub *mut ::core::ffi::c_void);
 pub struct IAsyncGetSrvReferralCookie(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IBidiAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IBidiRequest(i32);
+#[repr(C)]
 pub struct IBidiRequestContainer(i32);
+#[repr(C)]
 pub struct IBidiRequestContainerVtbl(i32);
+#[repr(C)]
 pub struct IBidiRequestVtbl(i32);
+#[repr(C)]
 pub struct IBidiSpl(i32);
+#[repr(C)]
 pub struct IBidiSpl2(i32);
+#[repr(C)]
 pub struct IBidiSpl2Vtbl(i32);
+#[repr(C)]
 pub struct IBidiSplVtbl(i32);
 pub const IDI_CPSUI_ADVANCE: u32 = 64058u32;
 pub const IDI_CPSUI_AUTOSEL: u32 = 64025u32;
@@ -1374,24 +1463,38 @@ pub const IDS_CPSUI_VERTICAL: u32 = 64769u32;
 pub const IDS_CPSUI_WARNING: u32 = 64847u32;
 pub const IDS_CPSUI_WATERMARK: u32 = 64797u32;
 pub const IDS_CPSUI_YES: u32 = 64729u32;
+#[repr(C)]
 pub struct IFixedDocument(i32);
+#[repr(C)]
 pub struct IFixedDocumentSequence(i32);
+#[repr(C)]
 pub struct IFixedDocumentSequenceVtbl(i32);
+#[repr(C)]
 pub struct IFixedDocumentVtbl(i32);
+#[repr(C)]
 pub struct IFixedPage(i32);
+#[repr(C)]
 pub struct IFixedPageVtbl(i32);
+#[repr(C)]
 pub struct IImgCreateErrorInfo(i32);
+#[repr(C)]
 pub struct IImgCreateErrorInfoVtbl(i32);
+#[repr(C)]
 pub struct IImgErrorInfo(i32);
+#[repr(C)]
 pub struct IImgErrorInfoVtbl(i32);
+#[repr(C)]
 pub struct IInterFilterCommunicator(i32);
+#[repr(C)]
 pub struct IInterFilterCommunicatorVtbl(i32);
+#[repr(C)]
 pub struct INSERTPSUIPAGE_INFO(i32);
 pub const INSPSUIPAGE_MODE_AFTER: u32 = 1u32;
 pub const INSPSUIPAGE_MODE_BEFORE: u32 = 0u32;
 pub const INSPSUIPAGE_MODE_FIRST_CHILD: u32 = 2u32;
 pub const INSPSUIPAGE_MODE_INDEX: u32 = 4u32;
 pub const INSPSUIPAGE_MODE_LAST_CHILD: u32 = 3u32;
+#[repr(C)]
 pub struct INVOC(i32);
 pub const IOCTL_USBPRINT_ADD_CHILD_DEVICE: u32 = 2228316u32;
 pub const IOCTL_USBPRINT_ADD_MSIPP_COMPAT_ID: u32 = 2228308u32;
@@ -1407,23 +1510,41 @@ pub const IOCTL_USBPRINT_SOFT_RESET: u32 = 2228288u32;
 pub const IOCTL_USBPRINT_VENDOR_GET_COMMAND: u32 = 2228284u32;
 pub const IOCTL_USBPRINT_VENDOR_SET_COMMAND: u32 = 2228280u32;
 pub const IPDFP_COPY_ALL_FILES: u32 = 1u32;
+#[repr(C)]
 pub struct IPartBase(i32);
+#[repr(C)]
 pub struct IPartBaseVtbl(i32);
+#[repr(C)]
 pub struct IPartColorProfile(i32);
+#[repr(C)]
 pub struct IPartColorProfileVtbl(i32);
+#[repr(C)]
 pub struct IPartDiscardControl(i32);
+#[repr(C)]
 pub struct IPartDiscardControlVtbl(i32);
+#[repr(C)]
 pub struct IPartFont(i32);
+#[repr(C)]
 pub struct IPartFont2(i32);
+#[repr(C)]
 pub struct IPartFont2Vtbl(i32);
+#[repr(C)]
 pub struct IPartFontVtbl(i32);
+#[repr(C)]
 pub struct IPartImage(i32);
+#[repr(C)]
 pub struct IPartImageVtbl(i32);
+#[repr(C)]
 pub struct IPartPrintTicket(i32);
+#[repr(C)]
 pub struct IPartPrintTicketVtbl(i32);
+#[repr(C)]
 pub struct IPartResourceDictionary(i32);
+#[repr(C)]
 pub struct IPartResourceDictionaryVtbl(i32);
+#[repr(C)]
 pub struct IPartThumbnail(i32);
+#[repr(C)]
 pub struct IPartThumbnailVtbl(i32);
 #[repr(transparent)]
 pub struct IPrintAsyncCookie(pub *mut ::core::ffi::c_void);
@@ -1443,7 +1564,9 @@ pub struct IPrintAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
 pub struct IPrintAsyncNotifyServerReferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintBidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IPrintClassObjectFactory(i32);
+#[repr(C)]
 pub struct IPrintClassObjectFactoryVtbl(i32);
 #[repr(transparent)]
 pub struct IPrintCoreHelper(pub *mut ::core::ffi::c_void);
@@ -1469,19 +1592,31 @@ pub struct IPrintOemUI(pub *mut ::core::ffi::c_void);
 pub struct IPrintOemUI2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintOemUIMXDC(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IPrintPipelineFilter(i32);
+#[repr(C)]
 pub struct IPrintPipelineFilterVtbl(i32);
+#[repr(C)]
 pub struct IPrintPipelineManagerControl(i32);
+#[repr(C)]
 pub struct IPrintPipelineManagerControlVtbl(i32);
+#[repr(C)]
 pub struct IPrintPipelineProgressReport(i32);
+#[repr(C)]
 pub struct IPrintPipelineProgressReportVtbl(i32);
+#[repr(C)]
 pub struct IPrintPipelinePropertyBag(i32);
+#[repr(C)]
 pub struct IPrintPipelinePropertyBagVtbl(i32);
 #[repr(transparent)]
 pub struct IPrintPreviewDxgiPackageTarget(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IPrintReadStream(i32);
+#[repr(C)]
 pub struct IPrintReadStreamFactory(i32);
+#[repr(C)]
 pub struct IPrintReadStreamFactoryVtbl(i32);
+#[repr(C)]
 pub struct IPrintReadStreamVtbl(i32);
 #[repr(transparent)]
 pub struct IPrintSchemaAsyncOperation(pub *mut ::core::ffi::c_void);
@@ -1521,9 +1656,13 @@ pub struct IPrintTicketProvider(pub *mut ::core::ffi::c_void);
 pub struct IPrintTicketProvider2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintUnidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IPrintWriteStream(i32);
+#[repr(C)]
 pub struct IPrintWriteStreamFlush(i32);
+#[repr(C)]
 pub struct IPrintWriteStreamFlushVtbl(i32);
+#[repr(C)]
 pub struct IPrintWriteStreamVtbl(i32);
 #[repr(transparent)]
 pub struct IPrinterBidiSetRequestCallback(pub *mut ::core::ffi::c_void);
@@ -1563,13 +1702,21 @@ pub struct IPrinterScriptablePropertyBag2(pub *mut ::core::ffi::c_void);
 pub struct IPrinterScriptableSequentialStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrinterScriptableStream(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IXpsDocument(i32);
+#[repr(C)]
 pub struct IXpsDocumentConsumer(i32);
+#[repr(C)]
 pub struct IXpsDocumentConsumerVtbl(i32);
+#[repr(C)]
 pub struct IXpsDocumentProvider(i32);
+#[repr(C)]
 pub struct IXpsDocumentProviderVtbl(i32);
+#[repr(C)]
 pub struct IXpsDocumentVtbl(i32);
+#[repr(C)]
 pub struct IXpsPartIterator(i32);
+#[repr(C)]
 pub struct IXpsPartIteratorVtbl(i32);
 #[repr(transparent)]
 pub struct IXpsRasterizationFactory(pub *mut ::core::ffi::c_void);
@@ -1593,17 +1740,24 @@ pub const JOB_CONTROL_RESUME: u32 = 2u32;
 pub const JOB_CONTROL_RETAIN: u32 = 8u32;
 pub const JOB_CONTROL_SENT_TO_PRINTER: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOB_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOB_INFO_1W(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct JOB_INFO_2A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct JOB_INFO_2W(i32);
+#[repr(C)]
 pub struct JOB_INFO_3(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct JOB_INFO_4A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct JOB_INFO_4W(i32);
 pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: u32 = 23u32;
 pub const JOB_NOTIFY_FIELD_DATATYPE: u32 = 5u32;
@@ -1648,8 +1802,10 @@ pub const JOB_STATUS_RETAINED: u32 = 8192u32;
 pub const JOB_STATUS_SPOOLING: u32 = 8u32;
 pub const JOB_STATUS_USER_INTERVENTION: u32 = 1024u32;
 #[cfg(feature = "Win32_Devices_Display")]
+#[repr(C)]
 pub struct KERNDATA(i32);
 pub const LPR: u32 = 2u32;
+#[repr(C)]
 pub struct MAPTABLE(i32);
 pub const MAX_ADDRESS_STR_LEN: u32 = 13u32;
 pub const MAX_CPSFUNC_INDEX: u32 = 26u32;
@@ -1667,22 +1823,33 @@ pub const MAX_QUEUENAME_LEN: u32 = 33u32;
 pub const MAX_RES_STR_CHARS: u32 = 160u32;
 pub const MAX_SNMP_COMMUNITY_STR_LEN: u32 = 33u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MESSAGEBOX_PARAMS(i32);
 pub const MIN_PRIORITY: u32 = 1u32;
+#[repr(C)]
 pub struct MONITOR(i32);
+#[repr(C)]
 pub struct MONITOR2(i32);
+#[repr(C)]
 pub struct MONITOREX(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[repr(C)]
 pub struct MONITORINIT(i32);
+#[repr(C)]
 pub struct MONITORREG(i32);
+#[repr(C)]
 pub struct MONITORUI(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONITOR_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONITOR_INFO_1W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONITOR_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONITOR_INFO_2W(i32);
 pub const MTYPE_ADD: u32 = 64u32;
 pub const MTYPE_COMPOSE: u32 = 1u32;
@@ -1709,38 +1876,56 @@ pub const MXDCOP_SET_S0PAGE: u32 = 28u32;
 pub const MXDCOP_SET_S0PAGE_RESOURCE: u32 = 30u32;
 pub const MXDCOP_SET_XPSPASSTHRU_MODE: u32 = 32u32;
 pub const MXDC_ESCAPE: u32 = 4122u32;
+#[repr(C)]
 pub struct MxdcEscapeHeader(i32);
+#[repr(C)]
 pub struct MxdcGetFileNameData(i32);
+#[repr(C)]
 pub struct MxdcImageTypeEnums(i32);
+#[repr(C)]
 pub struct MxdcLandscapeRotationEnums(i32);
+#[repr(C)]
 pub struct MxdcPrintTicketEscape(i32);
+#[repr(C)]
 pub struct MxdcPrintTicketPassthrough(i32);
+#[repr(C)]
 pub struct MxdcS0PageData(i32);
+#[repr(C)]
 pub struct MxdcS0PageEnums(i32);
+#[repr(C)]
 pub struct MxdcS0PagePassthroughEscape(i32);
+#[repr(C)]
 pub struct MxdcS0PageResourceEscape(i32);
+#[repr(C)]
 pub struct MxdcXpsS0PageResource(i32);
 pub const NORMAL_PRINT: u32 = 0u32;
+#[repr(C)]
 pub struct NOTIFICATION_CALLBACK_COMMANDS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NOTIFICATION_CONFIG_1(i32);
+#[repr(C)]
 pub struct NOTIFICATION_CONFIG_FLAGS(i32);
 pub const NOTIFICATION_RELEASE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3130675239, data2: 42766, data3: 19175, data4: [155, 125, 235, 62, 6, 173, 65, 87] };
 pub const NO_BORDER_PRINT: u32 = 1u32;
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
 pub const NO_PRIORITY: u32 = 0u32;
+#[repr(C)]
 pub struct OEMCUIPCALLBACK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OEMCUIPPARAM(i32);
 pub const OEMCUIP_DOCPROP: u32 = 1u32;
 pub const OEMCUIP_PRNPROP: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct OEMDMPARAM(i32);
 pub const OEMDM_CONVERT: u32 = 3u32;
 pub const OEMDM_DEFAULT: u32 = 2u32;
 pub const OEMDM_MERGE: u32 = 4u32;
 pub const OEMDM_SIZE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OEMFONTINSTPARAM(i32);
 pub const OEMGDS_FREEMEM: u32 = 32769u32;
 pub const OEMGDS_JOBTIMEOUT: u32 = 32770u32;
@@ -1772,19 +1957,25 @@ pub const OEMTTY_INFO_MARGINS: u32 = 1u32;
 pub const OEMTTY_INFO_NUM_UFMS: u32 = 3u32;
 pub const OEMTTY_INFO_UFM_IDS: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OEMUIOBJ(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OEMUIPROCS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct OEMUIPSPARAM(i32);
+#[repr(C)]
 pub struct OEM_DMEXTRAHEADER(i32);
 pub const OEM_MODE_PUBLISHER: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OIEXT(i32);
 pub const OIEXTF_ANSI_STRING: u32 = 1u32;
 pub const OPTCF_HIDE: u32 = 1u32;
 pub const OPTCF_MASK: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPTCOMBO(i32);
 pub const OPTIF_CALLBACK: i32 = 4i32;
 pub const OPTIF_CHANGED: i32 = 8i32;
@@ -1805,8 +1996,10 @@ pub const OPTIF_OVERLAY_STOP_ICON: i32 = 8192i32;
 pub const OPTIF_OVERLAY_WARNING_ICON: i32 = 4096i32;
 pub const OPTIF_SEL_AS_HICON: i32 = 512i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OPTITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPTPARAM(i32);
 pub const OPTPF_DISABLED: u32 = 2u32;
 pub const OPTPF_HIDE: u32 = 1u32;
@@ -1820,6 +2013,7 @@ pub const OPTTF_MASK: u32 = 3u32;
 pub const OPTTF_NOSPACE_BEFORE_POSTFIX: u32 = 2u32;
 pub const OPTTF_TYPE_DISABLED: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPTTYPE(i32);
 pub const OTS_LBCB_INCL_ITEM_NONE: u32 = 8u32;
 pub const OTS_LBCB_NO_ICON16_IN_ITEM: u32 = 16u32;
@@ -1833,25 +2027,39 @@ pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
 pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
 pub const PDEV_HOSTFONT_ENABLED_TYPE: u32 = 2u32;
 pub const PDEV_USE_TRUE_COLOR_TYPE: u32 = 3u32;
+#[repr(C)]
 pub struct PFNCOMPROPSHEET(i32);
+#[repr(C)]
 pub struct PFNPROPSHEETUI(i32);
+#[repr(C)]
 pub struct PFN_DrvGetDriverSetting(i32);
+#[repr(C)]
 pub struct PFN_DrvUpdateUISetting(i32);
+#[repr(C)]
 pub struct PFN_DrvUpgradeRegistrySetting(i32);
+#[repr(C)]
 pub struct PORT_DATA_1(i32);
+#[repr(C)]
 pub struct PORT_DATA_2(i32);
+#[repr(C)]
 pub struct PORT_DATA_LIST_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PORT_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PORT_INFO_1W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PORT_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PORT_INFO_2W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PORT_INFO_3A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PORT_INFO_3W(i32);
 pub const PORT_STATUS_DOOR_OPEN: u32 = 7u32;
 pub const PORT_STATUS_NO_TONER: u32 = 6u32;
@@ -1932,8 +2140,10 @@ pub const PRINTER_CHANGE_SET_PRINTER_DRIVER: u32 = 536870912u32;
 pub const PRINTER_CHANGE_TIMEOUT: u32 = 2147483648u32;
 pub const PRINTER_CHANGE_WRITE_JOB: u32 = 2048u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_CONNECTION_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_CONNECTION_INFO_1W(i32);
 pub const PRINTER_CONNECTION_MISMATCH: u32 = 32u32;
 pub const PRINTER_CONNECTION_NO_UI: u32 = 64u32;
@@ -1942,8 +2152,10 @@ pub const PRINTER_CONTROL_PURGE: u32 = 3u32;
 pub const PRINTER_CONTROL_RESUME: u32 = 2u32;
 pub const PRINTER_CONTROL_SET_STATUS: u32 = 4u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTER_DEFAULTSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTER_DEFAULTSW(i32);
 pub const PRINTER_DRIVER_CATEGORY_3D: u32 = 4096u32;
 pub const PRINTER_DRIVER_CATEGORY_CLOUD: u32 = 8192u32;
@@ -1982,8 +2194,10 @@ pub const PRINTER_ENUM_NETWORK: u32 = 64u32;
 pub const PRINTER_ENUM_REMOTE: u32 = 16u32;
 pub const PRINTER_ENUM_SHARED: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_ENUM_VALUESA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_ENUM_VALUESW(i32);
 pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648u32;
 pub const PRINTER_ERROR_JAM: u32 = 2u32;
@@ -1994,6 +2208,7 @@ pub const PRINTER_ERROR_WARNING: u32 = 1073741824u32;
 pub const PRINTER_EVENT_ADD_CONNECTION: u32 = 1u32;
 pub const PRINTER_EVENT_ADD_CONNECTION_NO_UI: u32 = 9u32;
 pub const PRINTER_EVENT_ATTRIBUTES_CHANGED: u32 = 7u32;
+#[repr(C)]
 pub struct PRINTER_EVENT_ATTRIBUTES_INFO(i32);
 pub const PRINTER_EVENT_CACHE_DELETE: u32 = 6u32;
 pub const PRINTER_EVENT_CACHE_REFRESH: u32 = 5u32;
@@ -2018,35 +2233,51 @@ pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows_sys::core::GUID = ::w
 };
 pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3968804383, data2: 9852, data3: 18079, data4: [181, 214, 57, 51, 2, 60, 41, 204] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_1W(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct PRINTER_INFO_2A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct PRINTER_INFO_2W(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct PRINTER_INFO_3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_4A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_4W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_5A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_5W(i32);
+#[repr(C)]
 pub struct PRINTER_INFO_6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_7A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTER_INFO_7W(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTER_INFO_8A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTER_INFO_8W(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTER_INFO_9A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTER_INFO_9W(i32);
 pub const PRINTER_NOTIFY_CATEGORY_3D: u32 = 8192u32;
 pub const PRINTER_NOTIFY_CATEGORY_ALL: u32 = 4096u32;
@@ -2079,21 +2310,29 @@ pub const PRINTER_NOTIFY_FIELD_STATUS_STRING: u32 = 19u32;
 pub const PRINTER_NOTIFY_FIELD_TOTAL_BYTES: u32 = 24u32;
 pub const PRINTER_NOTIFY_FIELD_TOTAL_PAGES: u32 = 22u32;
 pub const PRINTER_NOTIFY_FIELD_UNTIL_TIME: u32 = 17u32;
+#[repr(C)]
 pub struct PRINTER_NOTIFY_INFO(i32);
+#[repr(C)]
 pub struct PRINTER_NOTIFY_INFO_DATA(i32);
 pub const PRINTER_NOTIFY_INFO_DATA_COMPACT: u32 = 1u32;
 pub const PRINTER_NOTIFY_INFO_DISCARDED: u32 = 1u32;
+#[repr(C)]
 pub struct PRINTER_NOTIFY_INIT(i32);
+#[repr(C)]
 pub struct PRINTER_NOTIFY_OPTIONS(i32);
 pub const PRINTER_NOTIFY_OPTIONS_REFRESH: u32 = 1u32;
+#[repr(C)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE(i32);
 pub const PRINTER_NOTIFY_STATUS_ENDPOINT: u32 = 1u32;
 pub const PRINTER_NOTIFY_STATUS_INFO: u32 = 4u32;
 pub const PRINTER_NOTIFY_STATUS_POLL: u32 = 2u32;
 pub const PRINTER_NOTIFY_TYPE: u32 = 0u32;
 pub const PRINTER_OEMINTF_VERSION: u32 = 65536u32;
+#[repr(C)]
 pub struct PRINTER_OPTIONSA(i32);
+#[repr(C)]
 pub struct PRINTER_OPTIONSW(i32);
+#[repr(C)]
 pub struct PRINTER_OPTION_FLAGS(i32);
 pub const PRINTER_STATUS_BUSY: u32 = 512u32;
 pub const PRINTER_STATUS_DOOR_OPEN: u32 = 4194304u32;
@@ -2123,15 +2362,22 @@ pub const PRINTER_STATUS_USER_INTERVENTION: u32 = 1048576u32;
 pub const PRINTER_STATUS_WAITING: u32 = 8192u32;
 pub const PRINTER_STATUS_WARMING_UP: u32 = 65536u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTIFI32(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTPROCESSOROPENDATA(i32);
+#[repr(C)]
 pub struct PRINTPROCESSOR_CAPS_1(i32);
+#[repr(C)]
 pub struct PRINTPROCESSOR_CAPS_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTPROCESSOR_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINTPROCESSOR_INFO_1W(i32);
+#[repr(C)]
 pub struct PRINTPROVIDOR(i32);
 pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 716886563,
@@ -2139,9 +2385,12 @@ pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_s
     data3: 19146,
     data4: [130, 252, 69, 113, 177, 181, 133, 172],
 };
+#[repr(C)]
 pub struct PRINT_EXECUTION_CONTEXT(i32);
+#[repr(C)]
 pub struct PRINT_EXECUTION_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PRINT_FEATURE_OPTION(i32);
 pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 635386638,
@@ -2150,10 +2399,13 @@ pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windo
     data4: [128, 206, 121, 180, 177, 235, 92, 88],
 };
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[repr(C)]
 pub struct PROPSHEETUI_GETICON_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROPSHEETUI_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct PROPSHEETUI_INFO_HEADER(i32);
 pub const PROPSHEETUI_INFO_VERSION: u32 = 256u32;
 pub const PROPSHEETUI_REASON_BEFORE_INIT: u32 = 5u32;
@@ -2166,15 +2418,21 @@ pub const PROTOCOL_LPR_TYPE: u32 = 2u32;
 pub const PROTOCOL_RAWTCP_TYPE: u32 = 1u32;
 pub const PROTOCOL_UNKNOWN_TYPE: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROVIDOR_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROVIDOR_INFO_1W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROVIDOR_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROVIDOR_INFO_2W(i32);
+#[repr(C)]
 pub struct PSCRIPT5_PRIVATE_DEVMODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PSPINFO(i32);
 pub const PSUIHDRF_DEFTITLE: u32 = 16u32;
 pub const PSUIHDRF_EXACT_PTITLE: u32 = 32u32;
@@ -2189,28 +2447,44 @@ pub const PSUIPAGEINSERT_HPROPSHEETPAGE: u32 = 4u32;
 pub const PSUIPAGEINSERT_PCOMPROPSHEETUI: u32 = 1u32;
 pub const PSUIPAGEINSERT_PFNPROPSHEETUI: u32 = 2u32;
 pub const PSUIPAGEINSERT_PROPSHEETPAGE: u32 = 3u32;
+#[repr(C)]
 pub struct PUBLISHERINFO(i32);
 pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
 pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
 pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
+#[repr(C)]
 pub struct PageCountType(i32);
+#[repr(C)]
 pub struct PrintAsyncNotifyConversationStyle(i32);
+#[repr(C)]
 pub struct PrintAsyncNotifyError(i32);
+#[repr(C)]
 pub struct PrintAsyncNotifyUserFilter(i32);
+#[repr(C)]
 pub struct PrintJobStatus(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PrintNamedProperty(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PrintPropertiesCollection(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PrintPropertyValue(i32);
+#[repr(C)]
 pub struct PrintSchemaAsyncOperation(i32);
+#[repr(C)]
 pub struct PrintSchemaConstrainedSetting(i32);
+#[repr(C)]
 pub struct PrintSchemaParameterDataType(i32);
+#[repr(C)]
 pub struct PrintSchemaSelectionType(i32);
+#[repr(C)]
 pub struct PrinterExtensionManager(i32);
+#[repr(C)]
 pub struct PrinterQueue(i32);
+#[repr(C)]
 pub struct PrinterQueueView(i32);
 pub const QCP_DEVICEPROFILE: u32 = 0u32;
 pub const QCP_PROFILEDISK: u32 = 2u32;
@@ -2220,6 +2494,7 @@ pub const RAWTCP: u32 = 1u32;
 pub const REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
 pub const REVERSE_PRINT: u32 = 1u32;
 pub const RIGHT_THEN_DOWN: u32 = 1u32;
+#[repr(C)]
 pub struct ROUTER_NOTIFY_CALLBACK(i32);
 pub const ROUTER_STOP_ROUTING: u32 = 2u32;
 pub const ROUTER_SUCCESS: u32 = 1u32;
@@ -2234,14 +2509,20 @@ pub const SETOPTIONS_RESULT_CONFLICT_REMAINED: u32 = 2u32;
 pub const SETOPTIONS_RESULT_CONFLICT_RESOLVED: u32 = 1u32;
 pub const SETOPTIONS_RESULT_NO_CONFLICT: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SETRESULT_INFO(i32);
+#[repr(C)]
 pub struct SHIMOPTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SHOWUIPARAMS(i32);
+#[repr(C)]
 pub struct SIMULATE_CAPS_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPLCLIENT_INFO_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPLCLIENT_INFO_3_VISTA(i32);
 pub const SPOOL_FILE_PERSISTENT: u32 = 1u32;
 pub const SPOOL_FILE_TEMPORARY: u32 = 2u32;
@@ -2256,6 +2537,7 @@ pub const STRING_NONE: u32 = 1u32;
 pub const S_CONFLICT_RESOLVED: u32 = 262146u32;
 pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(318465i32 as _);
 pub const S_NO_CONFLICT: u32 = 262145u32;
+#[repr(C)]
 pub struct TRANSDATA(i32);
 pub const TTDOWNLOAD_BITMAP: u32 = 2u32;
 pub const TTDOWNLOAD_DONTCARE: u32 = 0u32;
@@ -2276,7 +2558,9 @@ pub const TYPE_GLYPHHANDLE: u32 = 3u32;
 pub const TYPE_GLYPHID: u32 = 4u32;
 pub const TYPE_TRANSDATA: u32 = 2u32;
 pub const TYPE_UNICODE: u32 = 1u32;
+#[repr(C)]
 pub struct UFF_FILEHEADER(i32);
+#[repr(C)]
 pub struct UFF_FONTDIRECTORY(i32);
 pub const UFF_VERSION_NUMBER: u32 = 65537u32;
 pub const UFM_CART: u32 = 2u32;
@@ -2295,12 +2579,18 @@ pub const UFO_GETINFO_GLYPHSTRING: u32 = 2u32;
 pub const UFO_GETINFO_GLYPHWIDTH: u32 = 4u32;
 pub const UFO_GETINFO_MEMORY: u32 = 5u32;
 pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
+#[repr(C)]
 pub struct UI_TYPE(i32);
+#[repr(C)]
 pub struct UNIDRVINFO(i32);
+#[repr(C)]
 pub struct UNIDRV_PRIVATE_DEVMODE(i32);
+#[repr(C)]
 pub struct UNIFM_HDR(i32);
 pub const UNIFM_VERSION_1_0: u32 = 65536u32;
+#[repr(C)]
 pub struct UNI_CODEPAGEINFO(i32);
+#[repr(C)]
 pub struct UNI_GLYPHSETDATA(i32);
 pub const UNI_GLYPHSETDATA_VERSION_1_0: u32 = 65536u32;
 pub const UNKNOWN_PROTOCOL: u32 = 0u32;
@@ -2312,19 +2602,31 @@ pub const USB_PRINTER_INTERFACE_CLASSIC: u32 = 1u32;
 pub const USB_PRINTER_INTERFACE_DUAL: u32 = 3u32;
 pub const USB_PRINTER_INTERFACE_IPP: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct USERDATA(i32);
+#[repr(C)]
 pub struct WIDTHRUN(i32);
+#[repr(C)]
 pub struct WIDTHTABLE(i32);
 pub const WM_FI_FILENAME: u32 = 900u32;
+#[repr(C)]
 pub struct XPSRAS_BACKGROUND_COLOR(i32);
+#[repr(C)]
 pub struct XPSRAS_PIXEL_FORMAT(i32);
+#[repr(C)]
 pub struct XPSRAS_RENDERING_MODE(i32);
+#[repr(C)]
 pub struct _CPSUICALLBACK(i32);
+#[repr(C)]
 pub struct _SPLCLIENT_INFO_2_V1(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct _SPLCLIENT_INFO_2_V2(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct _SPLCLIENT_INFO_2_V2(i32);
+#[repr(C)]
 pub struct _SPLCLIENT_INFO_2_V3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct __MIDL___MIDL_itf_imgerror_0000_0000_0001(i32);

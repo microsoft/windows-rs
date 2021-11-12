@@ -131,7 +131,9 @@ pub const MDSP_SEEK_BOF: u32 = 1u32;
 pub const MDSP_SEEK_CUR: u32 = 2u32;
 pub const MDSP_SEEK_EOF: u32 = 4u32;
 pub const MDSP_WRITE: u32 = 2u32;
+#[repr(C)]
 pub struct MTP_COMMAND_DATA_IN(i32);
+#[repr(C)]
 pub struct MTP_COMMAND_DATA_OUT(i32);
 pub const MTP_COMMAND_MAX_PARAMS: u32 = 5u32;
 pub const MTP_NEXTPHASE_NO_DATA: u32 = 3u32;
@@ -139,8 +141,11 @@ pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
+#[repr(C)]
 pub struct MediaDevMgr(i32);
+#[repr(C)]
 pub struct MediaDevMgrClassFactory(i32);
+#[repr(C)]
 pub struct OPAQUECOMMAND(i32);
 pub const RSA_KEY_LEN: u32 = 64u32;
 pub const SAC_CERT_V1: u32 = 2u32;
@@ -158,19 +163,31 @@ pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [185, 118, 213, 209, 206, 83, 138, 111],
 };
 pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
+#[repr(C)]
 pub struct WMDMDATETIME(i32);
+#[repr(C)]
 pub struct WMDMDetermineMaxPropStringLen(i32);
+#[repr(C)]
 pub struct WMDMDevice(i32);
+#[repr(C)]
 pub struct WMDMDeviceEnum(i32);
+#[repr(C)]
 pub struct WMDMID(i32);
 pub const WMDMID_LENGTH: u32 = 128u32;
+#[repr(C)]
 pub struct WMDMLogger(i32);
+#[repr(C)]
 pub struct WMDMMessage(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WMDMMetadataView(i32);
+#[repr(C)]
 pub struct WMDMRIGHTS(i32);
+#[repr(C)]
 pub struct WMDMStorage(i32);
+#[repr(C)]
 pub struct WMDMStorageEnum(i32);
+#[repr(C)]
 pub struct WMDMStorageGlobal(i32);
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
@@ -209,6 +226,7 @@ pub const WMDM_DEVICE_TYPE_SDMI: u32 = 64u32;
 pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
+#[repr(C)]
 pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(i32);
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 pub const WMDM_E_BUSY: i32 = -2147201024i32;
@@ -248,9 +266,12 @@ pub const WMDM_FILE_ATTR_READONLY: u32 = 16777216u32;
 pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
+#[repr(C)]
 pub struct WMDM_FIND_SCOPE(i32);
+#[repr(C)]
 pub struct WMDM_FORMATCODE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct WMDM_FORMAT_CAPABILITY(i32);
 pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
 pub const WMDM_GET_FORMAT_SUPPORT_FILE: u32 = 4u32;
@@ -273,12 +294,16 @@ pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
 pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct WMDM_PROP_CONFIG(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct WMDM_PROP_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct WMDM_PROP_VALUES_ENUM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct WMDM_PROP_VALUES_RANGE(i32);
 pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
 pub const WMDM_RIGHTS_COPY_TO_NON_SDMI_DEVICE: u32 = 2u32;
@@ -312,6 +337,7 @@ pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::
     data3: 17386,
     data4: [164, 150, 198, 37, 172, 145, 204, 93],
 };
+#[repr(C)]
 pub struct WMDM_SESSION_TYPE(i32);
 pub const WMDM_SP_REVOKED: u32 = 4u32;
 pub const WMDM_STATUS_BUSY: u32 = 2u32;
@@ -351,19 +377,26 @@ pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
 pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
 pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
+#[repr(C)]
 pub struct WMDM_STORAGE_ENUM_MODE(i32);
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
+#[repr(C)]
 pub struct WMDM_TAG_DATATYPE(i32);
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WMFILECAPABILITIES(i32);
+#[repr(C)]
 pub struct _BITMAPINFOHEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct _VIDEOINFOHEADER(i32);
+#[repr(C)]
 pub struct _WAVEFORMATEX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct __MACINFO(i32);
 pub const g_wszAudioWAVECodec: &'static str = "WMDM/AudioWAVECodec";
 pub const g_wszVideoFourCCCodec: &'static str = "WMDM/VideoFourCCCodec";

@@ -25,6 +25,7 @@ pub struct LocalLocation(pub *mut ::core::ffi::c_void);
 pub struct LocalLocationFinder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LocalLocationFinderResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LocalLocationFinderStatus(i32);
 #[repr(transparent)]
 pub struct LocalLocationHoursOfOperationItem(pub *mut ::core::ffi::c_void);

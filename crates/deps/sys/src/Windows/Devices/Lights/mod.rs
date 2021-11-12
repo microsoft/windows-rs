@@ -19,9 +19,11 @@ pub struct ILampStatics(pub *mut ::core::ffi::c_void);
 pub struct Lamp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampArray(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LampArrayKind(i32);
 #[repr(transparent)]
 pub struct LampAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LampInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LampPurposes(i32);

@@ -5,6 +5,7 @@ pub mod Provider;
 extern "system" {}
 #[repr(transparent)]
 pub struct AdcChannel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AdcChannelMode(i32);
 #[repr(transparent)]
 pub struct AdcController(pub *mut ::core::ffi::c_void);

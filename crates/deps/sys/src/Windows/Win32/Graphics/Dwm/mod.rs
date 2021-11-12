@@ -58,16 +58,21 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct DWMFLIP3DWINDOWPOLICY(i32);
+#[repr(C)]
 pub struct DWMNCRENDERINGPOLICY(i32);
+#[repr(C)]
 pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(i32);
 pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
 pub const DWMWA_COLOR_NONE: u32 = 4294967294u32;
+#[repr(C)]
 pub struct DWMWINDOWATTRIBUTE(i32);
 pub const DWM_BB_BLURREGION: u32 = 2u32;
 pub const DWM_BB_ENABLE: u32 = 1u32;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DWM_BLURBEHIND(i32);
 pub const DWM_CLOAKED_APP: u32 = 1u32;
 pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
@@ -76,22 +81,32 @@ pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DWM_PRESENT_PARAMETERS(i32);
+#[repr(C)]
 pub struct DWM_SHOWCONTACT(i32);
 pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
+#[repr(C)]
 pub struct DWM_SOURCE_FRAME_SAMPLING(i32);
+#[repr(C)]
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DWM_THUMBNAIL_PROPERTIES(i32);
+#[repr(C)]
 pub struct DWM_TIMING_INFO(i32);
 pub const DWM_TNP_OPACITY: u32 = 4u32;
 pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
 pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
 pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
 pub const DWM_TNP_VISIBLE: u32 = 8u32;
+#[repr(C)]
 pub struct DWM_WINDOW_CORNER_PREFERENCE(i32);
+#[repr(C)]
 pub struct GESTURE_TYPE(i32);
+#[repr(C)]
 pub struct MilMatrix3x2D(i32);
+#[repr(C)]
 pub struct UNSIGNED_RATIO(i32);
 pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;

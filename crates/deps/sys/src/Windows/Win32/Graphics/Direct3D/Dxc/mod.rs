@@ -66,16 +66,24 @@ pub const CLSID_DxcValidator: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 19699,
     data4: [140, 221, 136, 175, 145, 117, 135, 161],
 };
+#[repr(C)]
 pub struct DXC_CP(i32);
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
+#[repr(C)]
 pub struct DXC_OUT_KIND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DxcArgPair(i32);
+#[repr(C)]
 pub struct DxcBuffer(i32);
+#[repr(C)]
 pub struct DxcCreateInstance2Proc(i32);
+#[repr(C)]
 pub struct DxcCreateInstanceProc(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DxcDefine(i32);
+#[repr(C)]
 pub struct DxcShaderHash(i32);
 pub const DxcValidatorFlags_Default: u32 = 0u32;
 pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;

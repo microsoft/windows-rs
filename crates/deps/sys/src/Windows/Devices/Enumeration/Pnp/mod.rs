@@ -13,6 +13,7 @@ pub struct IPnpObjectWatcher(pub *mut ::core::ffi::c_void);
 pub struct PnpObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PnpObjectCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PnpObjectType(i32);
 #[repr(transparent)]
 pub struct PnpObjectUpdate(pub *mut ::core::ffi::c_void);

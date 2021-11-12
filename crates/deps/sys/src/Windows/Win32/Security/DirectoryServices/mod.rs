@@ -17,9 +17,15 @@ pub const DSSI_NO_EDIT_SACL: u32 = 4u32;
 pub const DSSI_NO_FILTER: u32 = 32u32;
 pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
 pub const DSSI_READ_ONLY: u32 = 1u32;
+#[repr(C)]
 pub struct PFNDSCREATEISECINFO(i32);
+#[repr(C)]
 pub struct PFNDSCREATEISECINFOEX(i32);
+#[repr(C)]
 pub struct PFNDSCREATESECPAGE(i32);
+#[repr(C)]
 pub struct PFNDSEDITSECURITY(i32);
+#[repr(C)]
 pub struct PFNREADOBJECTSECURITY(i32);
+#[repr(C)]
 pub struct PFNWRITEOBJECTSECURITY(i32);

@@ -13,6 +13,7 @@ pub struct BeginStoryboard(pub *mut ::core::ffi::c_void);
 pub struct BounceEase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CircleEase(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ClockState(i32);
 #[repr(transparent)]
 pub struct ColorAnimation(pub *mut ::core::ffi::c_void);
@@ -26,6 +27,7 @@ pub struct ColorKeyFrameCollection(pub *mut ::core::ffi::c_void);
 pub struct CommonNavigationTransitionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ConnectedAnimation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ConnectedAnimationComponent(i32);
 #[repr(transparent)]
 pub struct ConnectedAnimationConfiguration(pub *mut ::core::ffi::c_void);
@@ -73,6 +75,7 @@ pub struct EasingColorKeyFrame(pub *mut ::core::ffi::c_void);
 pub struct EasingDoubleKeyFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EasingFunctionBase(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EasingMode(i32);
 #[repr(transparent)]
 pub struct EasingPointKeyFrame(pub *mut ::core::ffi::c_void);
@@ -90,6 +93,7 @@ pub struct ExponentialEase(pub *mut ::core::ffi::c_void);
 pub struct FadeInThemeAnimation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FadeOutThemeAnimation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FillBehavior(i32);
 #[repr(transparent)]
 pub struct GravityConnectedAnimationConfiguration(pub *mut ::core::ffi::c_void);
@@ -406,6 +410,7 @@ pub struct ITransitionFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeySpline(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct KeyTime(i32);
 #[repr(transparent)]
 pub struct KeyTimeHelper(pub *mut ::core::ffi::c_void);
@@ -456,9 +461,11 @@ pub struct QuinticEase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ReorderThemeTransition(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct RepeatBehavior(i32);
 #[repr(transparent)]
 pub struct RepeatBehaviorHelper(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RepeatBehaviorType(i32);
 #[repr(transparent)]
 pub struct RepositionThemeAnimation(pub *mut ::core::ffi::c_void);
@@ -466,6 +473,7 @@ pub struct RepositionThemeAnimation(pub *mut ::core::ffi::c_void);
 pub struct RepositionThemeTransition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SineEase(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SlideNavigationTransitionEffect(i32);
 #[repr(transparent)]
 pub struct SlideNavigationTransitionInfo(pub *mut ::core::ffi::c_void);

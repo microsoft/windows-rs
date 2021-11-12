@@ -239,12 +239,15 @@ pub struct LocalMapTileDataSource(pub *mut ::core::ffi::c_void);
 pub struct MapActualCameraChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapActualCameraChangingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapAnimationKind(i32);
 #[repr(transparent)]
 pub struct MapBillboard(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapCamera(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapCameraChangeReason(i32);
+#[repr(C)]
 pub struct MapColorScheme(i32);
 #[repr(transparent)]
 pub struct MapContextRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -278,6 +281,7 @@ pub struct MapElement(pub *mut ::core::ffi::c_void);
 pub struct MapElement3D(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapElementClickEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapElementCollisionBehavior(i32);
 #[repr(transparent)]
 pub struct MapElementPointerEnteredEventArgs(pub *mut ::core::ffi::c_void);
@@ -297,20 +301,25 @@ pub struct MapElementsLayerPointerExitedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MapIcon(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapInputEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapInteractionMode(i32);
 #[repr(transparent)]
 pub struct MapItemsControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapLayer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapLoadingStatus(i32);
 #[repr(transparent)]
 pub struct MapModel3D(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapModel3DShadingOption(i32);
+#[repr(C)]
 pub struct MapPanInteractionMode(i32);
 #[repr(transparent)]
 pub struct MapPolygon(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapPolyline(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapProjection(i32);
 #[repr(transparent)]
 pub struct MapRightTappedEventArgs(pub *mut ::core::ffi::c_void);
@@ -318,6 +327,7 @@ pub struct MapRightTappedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MapRouteView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapScene(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapStyle(i32);
 #[repr(transparent)]
 pub struct MapStyleSheet(pub *mut ::core::ffi::c_void);
@@ -327,6 +337,7 @@ pub struct MapStyleSheetEntries(pub *mut ::core::ffi::c_void);
 pub struct MapStyleSheetEntryStates(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapTargetCameraChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapTileAnimationState(i32);
 #[repr(transparent)]
 pub struct MapTileBitmapRequest(pub *mut ::core::ffi::c_void);
@@ -336,6 +347,7 @@ pub struct MapTileBitmapRequestDeferral(pub *mut ::core::ffi::c_void);
 pub struct MapTileBitmapRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapTileDataSource(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapTileLayer(i32);
 #[repr(transparent)]
 pub struct MapTileSource(pub *mut ::core::ffi::c_void);
@@ -345,8 +357,11 @@ pub struct MapTileUriRequest(pub *mut ::core::ffi::c_void);
 pub struct MapTileUriRequestDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapTileUriRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapVisibleRegionKind(i32);
+#[repr(C)]
 pub struct MapWatermarkMode(i32);
+#[repr(C)]
 pub struct MapZoomLevelRange(i32);
 #[repr(transparent)]
 pub struct StreetsideExperience(pub *mut ::core::ffi::c_void);

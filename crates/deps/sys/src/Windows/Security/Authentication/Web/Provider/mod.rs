@@ -53,6 +53,7 @@ pub struct IWebProviderTokenResponse(pub *mut ::core::ffi::c_void);
 pub struct IWebProviderTokenResponseFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountClientView(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebAccountClientViewType(i32);
 #[repr(transparent)]
 pub struct WebAccountManager(pub *mut ::core::ffi::c_void);
@@ -64,6 +65,7 @@ pub struct WebAccountProviderDeleteAccountOperation(pub *mut ::core::ffi::c_void
 pub struct WebAccountProviderGetTokenSilentOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountProviderManageAccountOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebAccountProviderOperationKind(i32);
 #[repr(transparent)]
 pub struct WebAccountProviderRequestTokenOperation(pub *mut ::core::ffi::c_void);
@@ -73,7 +75,9 @@ pub struct WebAccountProviderRetrieveCookiesOperation(pub *mut ::core::ffi::c_vo
 pub struct WebAccountProviderSignOutAccountOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountProviderTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebAccountScope(i32);
+#[repr(C)]
 pub struct WebAccountSelectionOptions(i32);
 #[repr(transparent)]
 pub struct WebProviderTokenRequest(pub *mut ::core::ffi::c_void);

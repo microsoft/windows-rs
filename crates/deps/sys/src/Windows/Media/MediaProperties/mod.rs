@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct AudioEncodingProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioEncodingQuality(i32);
 #[repr(transparent)]
 pub struct ContainerEncodingProperties(pub *mut ::core::ffi::c_void);
@@ -90,20 +91,27 @@ pub struct ImageEncodingProperties(pub *mut ::core::ffi::c_void);
 pub struct MediaEncodingProfile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaEncodingSubtypes(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaMirroringOptions(i32);
+#[repr(C)]
 pub struct MediaPixelFormat(i32);
 #[repr(transparent)]
 pub struct MediaPropertySet(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaRatio(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaRotation(i32);
+#[repr(C)]
 pub struct MediaThumbnailFormat(i32);
 #[repr(transparent)]
 pub struct Mpeg2ProfileIds(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SphericalVideoFrameFormat(i32);
+#[repr(C)]
 pub struct StereoscopicVideoPackingMode(i32);
 #[repr(transparent)]
 pub struct TimedMetadataEncodingProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VideoEncodingProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VideoEncodingQuality(i32);

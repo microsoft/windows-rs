@@ -29,6 +29,7 @@ pub const ACCESS_PROPERTY_SET_GUID: u32 = 1u32;
 pub const ACCESS_REASON_DATA_MASK: u32 = 65535u32;
 pub const ACCESS_REASON_EXDATA_MASK: u32 = 2130706432u32;
 pub const ACCESS_REASON_STAGING_MASK: u32 = 2147483648u32;
+#[repr(C)]
 pub struct ACCESS_REASON_TYPE(i32);
 pub const ACCESS_REASON_TYPE_MASK: u32 = 16711680u32;
 pub const ACCESS_SYSTEM_SECURITY: u32 = 16777216u32;
@@ -39,6 +40,7 @@ pub const ACL_REVISION4: u32 = 4u32;
 pub const ACPI_PPM_HARDWARE_ALL: u32 = 254u32;
 pub const ACPI_PPM_SOFTWARE_ALL: u32 = 252u32;
 pub const ACPI_PPM_SOFTWARE_ANY: u32 = 253u32;
+#[repr(C)]
 pub struct ACTIVATION_CONTEXT_INFO_CLASS(i32);
 pub const ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: u32 = 4u32;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: u32 = 1u32;
@@ -56,18 +58,27 @@ pub const ACTIVATION_CONTEXT_SECTION_DLL_REDIRECTION: u32 = 2u32;
 pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: u32 = 8u32;
 pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3u32;
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12u32;
+#[repr(C)]
 pub struct ALERT_SYSTEM_SEV(i32);
 pub const ALL_POWERSCHEMES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1755441502, data2: 5098, data3: 16865, data4: [128, 17, 12, 73, 108, 164, 144, 176] };
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
+#[repr(C)]
 pub struct ANON_OBJECT_HEADER(i32);
+#[repr(C)]
 pub struct ANON_OBJECT_HEADER_BIGOBJ(i32);
+#[repr(C)]
 pub struct ANON_OBJECT_HEADER_V2(i32);
 pub const ANYSIZE_ARRAY: u32 = 1u32;
+#[repr(C)]
 pub struct APC_CALLBACK_FUNCTION(i32);
+#[repr(C)]
 pub struct APPCOMMAND_ID(i32);
+#[repr(C)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE(i32);
 pub const APPLICATION_ERROR_MASK: u32 = 536870912u32;
+#[repr(C)]
 pub struct ARM64_FNPDATA_CR(i32);
+#[repr(C)]
 pub struct ARM64_FNPDATA_FLAGS(i32);
 pub const ARM64_MAX_BREAKPOINTS: u32 = 8u32;
 pub const ARM64_MAX_WATCHPOINTS: u32 = 2u32;
@@ -84,8 +95,10 @@ pub const ARM_CACHE_ALIGNMENT_SIZE: u32 = 128u32;
 pub const ARM_MAX_BREAKPOINTS: u32 = 8u32;
 pub const ARM_MAX_WATCHPOINTS: u32 = 1u32;
 pub const ASSERT_BREAKPOINT: u32 = 524291u32;
+#[repr(C)]
 pub struct ATF_FLAGS(i32);
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
+#[repr(C)]
 pub struct AtlThunkData_t(i32);
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648u32;
 pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: u32 = 7u32;
@@ -93,22 +106,28 @@ pub const BREAK_DEBUG_BASE: u32 = 524288u32;
 pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
 pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255u32;
+#[repr(C)]
 pub struct CFE_UNDERLINE(i32);
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: u32 = 4u32;
 pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: u32 = 16u32;
 pub const CFG_CALL_TARGET_PROCESSED: u32 = 2u32;
 pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
+#[repr(C)]
 pub struct CHOOSECOLOR_FLAGS(i32);
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
+#[repr(C)]
 pub struct CLIPBOARD_FORMATS(i32);
+#[repr(C)]
 pub struct CM_ERROR_CONTROL_TYPE(i32);
+#[repr(C)]
 pub struct CM_SERVICE_LOAD_TYPE(i32);
 pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
 pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1u32;
+#[repr(C)]
 pub struct CM_SERVICE_NODE_TYPE(i32);
 pub const CM_SERVICE_RAM_DISK_BOOT_LOAD: u32 = 256u32;
 pub const CM_SERVICE_SD_DISK_BOOT_LOAD: u32 = 8u32;
@@ -117,6 +136,7 @@ pub const CM_SERVICE_USB_DISK_BOOT_LOAD: u32 = 4u32;
 pub const CM_SERVICE_VERIFIER_BOOT_LOAD: u32 = 64u32;
 pub const CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: u32 = 2u32;
 pub const CM_SERVICE_WINPE_BOOT_LOAD: u32 = 128u32;
+#[repr(C)]
 pub struct COMPONENT_FILTER(i32);
 pub const COMPONENT_KTM: u32 = 1u32;
 pub const COMPONENT_VALID_FLAGS: u32 = 1u32;
@@ -641,27 +661,46 @@ pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
 pub const DDBLT_EXTENDED_PRESENTATION_STRETCHFACTOR: i32 = 16i32;
 pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: u32 = 1u32;
 pub const DELETE: u32 = 65536u32;
+#[repr(C)]
 pub struct DEVICE_EVENT_BECOMING_READY(i32);
+#[repr(C)]
 pub struct DEVICE_EVENT_EXTERNAL_REQUEST(i32);
+#[repr(C)]
 pub struct DEVICE_EVENT_GENERIC_DATA(i32);
+#[repr(C)]
 pub struct DEVICE_EVENT_MOUNT(i32);
+#[repr(C)]
 pub struct DEVICE_EVENT_RBC_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_A(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_W(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_DEVNODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEV_BROADCAST_HANDLE(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_HANDLE32(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_HANDLE64(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_HDR(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_NET(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_OEM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEV_BROADCAST_PORT_A(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_PORT_W(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_VOLUME(i32);
+#[repr(C)]
 pub struct DEV_BROADCAST_VOLUME_FLAGS(i32);
 pub const DIAGNOSTIC_REASON_DETAILED_STRING: u32 = 2u32;
 pub const DIAGNOSTIC_REASON_NOT_SPECIFIED: u32 = 2147483648u32;
@@ -670,7 +709,9 @@ pub const DIAGNOSTIC_REASON_VERSION: u32 = 0u32;
 pub const DIRECT3D_VERSION: u32 = 1792u32;
 pub const DISCHARGE_POLICY_CRITICAL: u32 = 0u32;
 pub const DISCHARGE_POLICY_LOW: u32 = 1u32;
+#[repr(C)]
 pub struct DISK_HEALTH_NOTIFICATION_DATA(i32);
+#[repr(C)]
 pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64(i32);
 pub const DLL_PROCESS_ATTACH: u32 = 1u32;
 pub const DLL_PROCESS_DETACH: u32 = 0u32;
@@ -780,8 +821,11 @@ pub const ENCLAVE_TYPE_SGX2: u32 = 2u32;
 pub const ENCLAVE_TYPE_VBS: u32 = 16u32;
 pub const ENCLAVE_TYPE_VBS_BASIC: u32 = 17u32;
 pub const ENCLAVE_VBS_FLAG_DEBUG: u32 = 1u32;
+#[repr(C)]
 pub struct ENLISTMENT_BASIC_INFORMATION(i32);
+#[repr(C)]
 pub struct ENLISTMENT_CRM_INFORMATION(i32);
+#[repr(C)]
 pub struct ENLISTMENT_INFORMATION_CLASS(i32);
 pub const ENLISTMENT_QUERY_INFORMATION: u32 = 1u32;
 pub const ENLISTMENT_RECOVER: u32 = 4u32;
@@ -926,11 +970,13 @@ pub const FRAME_NONFPO: u32 = 3u32;
 pub const FRAME_TRAP: u32 = 1u32;
 pub const FRAME_TSS: u32 = 2u32;
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct GDI_NONREMOTE(i32);
 pub const GENERIC_ALL: u32 = 268435456u32;
 pub const GENERIC_EXECUTE: u32 = 536870912u32;
 pub const GENERIC_READ: u32 = 2147483648u32;
 pub const GENERIC_WRITE: u32 = 1073741824u32;
+#[repr(C)]
 pub struct GESTURECONFIG_FLAGS(i32);
 pub const GUID_ACDC_POWER_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1564383833,
@@ -1184,6 +1230,7 @@ pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys:
     data3: 17373,
     data4: [155, 86, 184, 172, 34, 165, 73, 170],
 };
+#[repr(C)]
 pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION(i32);
 pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 253482564, data2: 14614, data3: 18885, data4: [176, 99, 153, 25, 64, 17, 143, 178] };
 pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1736,29 +1783,48 @@ pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sy
 };
 pub const GUID_VIDEO_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1964423519, data2: 63350, data3: 17508, data4: [140, 83, 6, 22, 127, 64, 204, 153] };
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION(i32);
+#[repr(C)]
 pub struct HIBERFILE_BUCKET(i32);
+#[repr(C)]
 pub struct HIBERFILE_BUCKET_SIZE(i32);
 pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
 pub const HIBERFILE_TYPE_MAX: u32 = 3u32;
 pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
 pub const HIBERFILE_TYPE_REDUCED: u32 = 1u32;
+#[repr(C)]
 pub struct IGP_ID(i32);
+#[repr(C)]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY(i32);
+#[repr(C)]
 pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY(i32);
+#[repr(C)]
 pub struct IMAGE_ARCHITECTURE_ENTRY(i32);
+#[repr(C)]
 pub struct IMAGE_ARCHITECTURE_HEADER(i32);
+#[repr(C)]
 pub struct IMAGE_ARCHIVE_MEMBER_HEADER(i32);
 pub const IMAGE_ARCHIVE_START_SIZE: u32 = 8u32;
+#[repr(C)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA(i32);
+#[repr(C)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY(i32);
+#[repr(C)]
 pub struct IMAGE_AUX_SYMBOL(i32);
+#[repr(C)]
 pub struct IMAGE_AUX_SYMBOL_EX(i32);
+#[repr(C)]
 pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF(i32);
+#[repr(C)]
 pub struct IMAGE_AUX_SYMBOL_TYPE(i32);
+#[repr(C)]
 pub struct IMAGE_BASE_RELOCATION(i32);
+#[repr(C)]
 pub struct IMAGE_BOUND_FORWARDER_REF(i32);
+#[repr(C)]
 pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY(i32);
 pub const IMAGE_COMDAT_SELECT_ANY: u32 = 2u32;
 pub const IMAGE_COMDAT_SELECT_ASSOCIATIVE: u32 = 5u32;
@@ -1768,6 +1834,7 @@ pub const IMAGE_COMDAT_SELECT_NEWEST: u32 = 7u32;
 pub const IMAGE_COMDAT_SELECT_NODUPLICATES: u32 = 1u32;
 pub const IMAGE_COMDAT_SELECT_SAME_SIZE: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMAGE_DEBUG_MISC(i32);
 pub const IMAGE_DEBUG_MISC_EXENAME: u32 = 1u32;
 pub const IMAGE_DEBUG_TYPE_CLSID: u32 = 11u32;
@@ -1780,17 +1847,23 @@ pub const IMAGE_DEBUG_TYPE_POGO: u32 = 13u32;
 pub const IMAGE_DEBUG_TYPE_REPRO: u32 = 16u32;
 pub const IMAGE_DEBUG_TYPE_RESERVED10: u32 = 10u32;
 pub const IMAGE_DEBUG_TYPE_VC_FEATURE: u32 = 12u32;
+#[repr(C)]
 pub struct IMAGE_DOS_HEADER(i32);
 pub const IMAGE_DOS_SIGNATURE: u32 = 23117u32;
+#[repr(C)]
 pub struct IMAGE_DYNAMIC_RELOCATION32(i32);
+#[repr(C)]
 pub struct IMAGE_DYNAMIC_RELOCATION32_V2(i32);
+#[repr(C)]
 pub struct IMAGE_DYNAMIC_RELOCATION64(i32);
+#[repr(C)]
 pub struct IMAGE_DYNAMIC_RELOCATION64_V2(i32);
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER: u32 = 3u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_INDIR_CONTROL_TRANSFER: u32 = 4u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_EPILOGUE: u32 = 2u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_PROLOGUE: u32 = 1u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: u32 = 5u32;
+#[repr(C)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE(i32);
 pub const IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: u32 = 1u32;
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_AUTHOR_ID: u32 = 2u32;
@@ -1801,7 +1874,9 @@ pub const IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: u32 = 1u32;
 pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: u32 = 32u32;
 pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: u32 = 1u32;
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: u32 = 16u32;
+#[repr(C)]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER(i32);
+#[repr(C)]
 pub struct IMAGE_EXPORT_DIRECTORY(i32);
 pub const IMAGE_GUARD_CFW_INSTRUMENTED: u32 = 512u32;
 pub const IMAGE_GUARD_CF_ENABLE_EXPORT_SUPPRESSION: u32 = 32768u32;
@@ -1825,6 +1900,7 @@ pub const IMAGE_GUARD_RF_STRICT: u32 = 524288u32;
 pub const IMAGE_GUARD_SECURITY_COOKIE_UNUSED: u32 = 2048u32;
 pub const IMAGE_GUARD_XFG_ENABLED: u32 = 8388608u32;
 pub const IMAGE_HOT_PATCH_ABSOLUTE: u32 = 180224u32;
+#[repr(C)]
 pub struct IMAGE_HOT_PATCH_BASE(i32);
 pub const IMAGE_HOT_PATCH_BASE_CAN_ROLL_BACK: u32 = 2u32;
 pub const IMAGE_HOT_PATCH_BASE_OBLIGATORY: u32 = 1u32;
@@ -1838,17 +1914,24 @@ pub const IMAGE_HOT_PATCH_CHUNK_TARGET_RVA: u32 = 16384u32;
 pub const IMAGE_HOT_PATCH_CHUNK_TYPE: u32 = 1032192u32;
 pub const IMAGE_HOT_PATCH_DYNAMIC_VALUE: u32 = 491520u32;
 pub const IMAGE_HOT_PATCH_FUNCTION: u32 = 114688u32;
+#[repr(C)]
 pub struct IMAGE_HOT_PATCH_HASHES(i32);
 pub const IMAGE_HOT_PATCH_INDIRECT: u32 = 376832u32;
+#[repr(C)]
 pub struct IMAGE_HOT_PATCH_INFO(i32);
 pub const IMAGE_HOT_PATCH_NONE: u32 = 0u32;
 pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: u32 = 409600u32;
 pub const IMAGE_HOT_PATCH_REL32: u32 = 245760u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMAGE_IMPORT_BY_NAME(i32);
+#[repr(C)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION(i32);
+#[repr(C)]
 pub struct IMAGE_IMPORT_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION(i32);
+#[repr(C)]
 pub struct IMAGE_LINENUMBER(i32);
 pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: u32 = 16u32;
@@ -1856,17 +1939,24 @@ pub const IMAGE_ORDINAL_FLAG: u64 = 9223372036854775808u64;
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648u32;
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808u64;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMAGE_OS2_HEADER(i32);
 pub const IMAGE_OS2_SIGNATURE: u32 = 17742u32;
 pub const IMAGE_OS2_SIGNATURE_LE: u32 = 17740u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMAGE_POLICY_ENTRY(i32);
+#[repr(C)]
 pub struct IMAGE_POLICY_ENTRY_TYPE(i32);
+#[repr(C)]
 pub struct IMAGE_POLICY_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMAGE_POLICY_METADATA(i32);
 pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER(i32);
+#[repr(C)]
 pub struct IMAGE_RELOCATION(i32);
 pub const IMAGE_REL_ALPHA_ABSOLUTE: u32 = 0u32;
 pub const IMAGE_REL_ALPHA_BRADDR: u32 = 7u32;
@@ -2128,15 +2218,21 @@ pub const IMAGE_REL_THUMB_BLX23: u32 = 21u32;
 pub const IMAGE_REL_THUMB_BRANCH20: u32 = 18u32;
 pub const IMAGE_REL_THUMB_BRANCH24: u32 = 20u32;
 pub const IMAGE_REL_THUMB_MOV32: u32 = 17u32;
+#[repr(C)]
 pub struct IMAGE_RESOURCE_DATA_ENTRY(i32);
 pub const IMAGE_RESOURCE_DATA_IS_DIRECTORY: u32 = 2147483648u32;
+#[repr(C)]
 pub struct IMAGE_RESOURCE_DIRECTORY(i32);
+#[repr(C)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING(i32);
+#[repr(C)]
 pub struct IMAGE_RESOURCE_DIR_STRING_U(i32);
 pub const IMAGE_RESOURCE_NAME_IS_STRING: u32 = 2147483648u32;
 pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: u32 = 32768u32;
+#[repr(C)]
 pub struct IMAGE_SEPARATE_DEBUG_HEADER(i32);
 pub const IMAGE_SEPARATE_DEBUG_MISMATCH: u32 = 32768u32;
 pub const IMAGE_SEPARATE_DEBUG_SIGNATURE: u32 = 18756u32;
@@ -2145,8 +2241,11 @@ pub const IMAGE_SIZEOF_FILE_HEADER: u32 = 20u32;
 pub const IMAGE_SIZEOF_SECTION_HEADER: u32 = 40u32;
 pub const IMAGE_SIZEOF_SHORT_NAME: u32 = 8u32;
 pub const IMAGE_SIZEOF_SYMBOL: u32 = 18u32;
+#[repr(C)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION(i32);
+#[repr(C)]
 pub struct IMAGE_SYMBOL(i32);
+#[repr(C)]
 pub struct IMAGE_SYMBOL_EX(i32);
 pub const IMAGE_SYM_CLASS_ARGUMENT: u32 = 9u32;
 pub const IMAGE_SYM_CLASS_AUTOMATIC: u32 = 1u32;
@@ -2198,8 +2297,11 @@ pub const IMAGE_SYM_TYPE_UINT: u32 = 14u32;
 pub const IMAGE_SYM_TYPE_UNION: u32 = 9u32;
 pub const IMAGE_SYM_TYPE_VOID: u32 = 1u32;
 pub const IMAGE_SYM_TYPE_WORD: u32 = 13u32;
+#[repr(C)]
 pub struct IMAGE_TLS_DIRECTORY32(i32);
+#[repr(C)]
 pub struct IMAGE_TLS_DIRECTORY64(i32);
+#[repr(C)]
 pub struct IMAGE_VXD_HEADER(i32);
 pub const IMAGE_VXD_SIGNATURE: u32 = 17740u32;
 pub const IMAGE_WEAK_EXTERN_ANTI_DEPENDENCY: u32 = 4u32;
@@ -2207,8 +2309,11 @@ pub const IMAGE_WEAK_EXTERN_SEARCH_ALIAS: u32 = 3u32;
 pub const IMAGE_WEAK_EXTERN_SEARCH_LIBRARY: u32 = 2u32;
 pub const IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY: u32 = 1u32;
 pub const IMPORT_OBJECT_HDR_SIG2: u32 = 65535u32;
+#[repr(C)]
 pub struct IMPORT_OBJECT_HEADER(i32);
+#[repr(C)]
 pub struct IMPORT_OBJECT_NAME_TYPE(i32);
+#[repr(C)]
 pub struct IMPORT_OBJECT_TYPE(i32);
 pub const INITIAL_CPSR: u32 = 16u32;
 pub const INITIAL_FPCSR: u32 = 639u32;
@@ -2470,8 +2575,11 @@ pub const JOB_OBJECT_SET_SECURITY_ATTRIBUTES: u32 = 16u32;
 pub const JOB_OBJECT_TERMINATE: u32 = 8u32;
 pub const JOB_OBJECT_UILIMIT_ALL: u32 = 255u32;
 pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 255u32;
+#[repr(C)]
 pub struct KERNEL_CET_CONTEXT(i32);
+#[repr(C)]
 pub struct KTMOBJECT_CURSOR(i32);
+#[repr(C)]
 pub struct KTMOBJECT_TYPE(i32);
 pub const LANG_AFRIKAANS: u32 = 54u32;
 pub const LANG_ALBANIAN: u32 = 28u32;
@@ -2651,6 +2759,7 @@ pub const MAXLOGICALLOGNAMESIZE: u32 = 256u32;
 pub const MAXLONG: u32 = 2147483647u32;
 pub const MAXLONGLONG: u64 = 9223372036854775807u64;
 pub const MAXSHORT: u32 = 32767u32;
+#[repr(C)]
 pub struct MAXVERSIONTESTED_INFO(i32);
 pub const MAXWORD: u32 = 65535u32;
 pub const MAX_ACL_REVISION: u32 = 4u32;
@@ -2785,14 +2894,18 @@ pub const MCA_WARNING_UNKNOWN: super::super::Foundation::NTSTATUS = super::super
 #[cfg(feature = "Win32_Foundation")]
 pub const MCA_WARNING_UNKNOWN_NO_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155862i32 as _);
 pub const MEMORY_ALLOCATION_ALIGNMENT: u32 = 16u32;
+#[repr(C)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE(i32);
+#[repr(C)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION(i32);
 pub const MEMORY_PARTITION_MODIFY_ACCESS: u32 = 2u32;
 pub const MEMORY_PARTITION_QUERY_ACCESS: u32 = 1u32;
 pub const MEMORY_PRIORITY_LOWEST: u32 = 0u32;
 pub const MEM_4MB_PAGES: u32 = 2147483648u32;
+#[repr(C)]
 pub struct MEM_ADDRESS_REQUIREMENTS(i32);
 pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1u32;
+#[repr(C)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(i32);
 pub const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608u32;
 pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
@@ -2805,6 +2918,7 @@ pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
 pub const MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL: u32 = 4u32;
 pub const MEM_PHYSICAL: u32 = 4194304u32;
 pub const MEM_ROTATE: u32 = 8388608u32;
+#[repr(C)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(i32);
 pub const MEM_TOP_DOWN: u32 = 1048576u32;
 pub const MEM_WRITE_WATCH: u32 = 2097152u32;
@@ -2814,16 +2928,20 @@ pub const MINCHAR: u32 = 128u32;
 pub const MINLONG: u32 = 2147483648u32;
 pub const MINSHORT: u32 = 32768u32;
 pub const MIN_UCSCHAR: u32 = 0u32;
+#[repr(C)]
 pub struct MONITOR_DISPLAY_STATE(i32);
 pub const MS_PPM_SOFTWARE_ALL: u32 = 1u32;
 pub const MUTANT_QUERY_STATE: u32 = 1u32;
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
+#[repr(C)]
 pub struct NETWORK_APP_INSTANCE_EA(i32);
 pub const NLS_VALID_LOCALE_MASK: u32 = 1048575u32;
 pub const NONVOL_FP_NUMREG_ARM64: u32 = 8u32;
 pub const NONVOL_INT_NUMREG_ARM64: u32 = 11u32;
+#[repr(C)]
 pub struct NON_PAGED_DEBUG_INFO(i32);
 pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766u32;
+#[repr(C)]
 pub struct NOTIFY_USER_POWER_SETTING(i32);
 pub const NO_SUBGROUP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4272111934,
@@ -2831,7 +2949,9 @@ pub const NO_SUBGROUP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18705,
     data4: [154, 113, 112, 3, 49, 241, 194, 148],
 };
+#[repr(C)]
 pub struct NT_TIB32(i32);
+#[repr(C)]
 pub struct NT_TIB64(i32);
 pub const NUMA_NO_PREFERRED_NODE: u32 = 4294967295u32;
 pub const NUM_DISCHARGE_POLICIES: u32 = 4u32;
@@ -2841,6 +2961,7 @@ pub const N_TMASK: u32 = 48u32;
 pub const N_TMASK1: u32 = 192u32;
 pub const N_TMASK2: u32 = 240u32;
 pub const N_TSHIFT: u32 = 2u32;
+#[repr(C)]
 pub struct PACKEDEVENTINFO(i32);
 pub const PDCAP_D0_SUPPORTED: u32 = 1u32;
 pub const PDCAP_D1_SUPPORTED: u32 = 2u32;
@@ -2858,6 +2979,7 @@ pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
+#[repr(C)]
 pub struct PEXCEPTION_FILTER(i32);
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
 pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: u32 = 19u32;
@@ -2880,9 +3002,12 @@ pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: u32 = 36u32;
 pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
+#[repr(C)]
 pub struct PIMAGE_TLS_CALLBACK(i32);
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
+#[repr(C)]
 pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
+#[repr(C)]
 pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
 pub const POWERBUTTON_ACTION_INDEX_NOTHING: u32 = 0u32;
@@ -2915,28 +3040,41 @@ pub const POWER_DEVICE_IDLE_POLICY_CONSERVATIVE: u32 = 1u32;
 pub const POWER_DEVICE_IDLE_POLICY_PERFORMANCE: u32 = 0u32;
 pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: u32 = 1u32;
 pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: u32 = 0u32;
+#[repr(C)]
 pub struct POWER_IDLE_RESILIENCY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POWER_MONITOR_INVOCATION(i32);
+#[repr(C)]
 pub struct POWER_MONITOR_REQUEST_REASON(i32);
+#[repr(C)]
 pub struct POWER_MONITOR_REQUEST_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POWER_PLATFORM_INFORMATION(i32);
 pub const POWER_REQUEST_CONTEXT_VERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POWER_SESSION_CONNECT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POWER_SESSION_RIT_STATE(i32);
+#[repr(C)]
 pub struct POWER_SESSION_TIMEOUTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POWER_SESSION_WINLOGON(i32);
+#[repr(C)]
 pub struct POWER_SETTING_ALTITUDE(i32);
 pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
 pub const POWER_SYSTEM_MAXIMUM: u32 = 7u32;
 pub const POWER_USER_NOTIFY_FORCED_SHUTDOWN: u32 = 32u32;
+#[repr(C)]
 pub struct POWER_USER_PRESENCE(i32);
+#[repr(C)]
 pub struct POWER_USER_PRESENCE_TYPE(i32);
 pub const PO_THROTTLE_ADAPTIVE: u32 = 3u32;
 pub const PO_THROTTLE_CONSTANT: u32 = 1u32;
@@ -2975,8 +3113,11 @@ pub const PPM_IDLESTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data3: 20049,
     data4: [158, 204, 132, 48, 167, 172, 76, 108],
 };
+#[repr(C)]
 pub struct PPM_IDLESTATE_EVENT(i32);
+#[repr(C)]
 pub struct PPM_IDLE_ACCOUNTING(i32);
+#[repr(C)]
 pub struct PPM_IDLE_ACCOUNTING_EX(i32);
 pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3598368057,
@@ -2995,8 +3136,11 @@ pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4u32;
 pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3u32;
 pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0u32;
 pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2u32;
+#[repr(C)]
 pub struct PPM_IDLE_STATE_ACCOUNTING(i32);
+#[repr(C)]
 pub struct PPM_IDLE_STATE_ACCOUNTING_EX(i32);
+#[repr(C)]
 pub struct PPM_IDLE_STATE_BUCKET_EX(i32);
 pub const PPM_PERFMON_PERFSTATE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2144437842, data2: 3326, data3: 16594, data4: [176, 161, 11, 6, 106, 135, 117, 158] };
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
@@ -3012,18 +3156,29 @@ pub const PPM_PERFSTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data4: [184, 146, 144, 14, 67, 181, 158, 187],
 };
 pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2573101951, data2: 54867, data3: 18810, data4: [185, 120, 54, 163, 12, 41, 191, 1] };
+#[repr(C)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT(i32);
+#[repr(C)]
 pub struct PPM_PERFSTATE_EVENT(i32);
+#[repr(C)]
 pub struct PPM_THERMALCHANGE_EVENT(i32);
 pub const PPM_THERMALCONSTRAINT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2823996104, data2: 6732, data3: 16955, data4: [140, 44, 243, 13, 130, 147, 26, 136] };
 pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1223915448, data2: 26752, data3: 19579, data4: [139, 220, 56, 1, 118, 198, 101, 77] };
+#[repr(C)]
 pub struct PPM_THERMAL_POLICY_EVENT(i32);
+#[repr(C)]
 pub struct PPM_WMI_IDLE_STATE(i32);
+#[repr(C)]
 pub struct PPM_WMI_IDLE_STATES(i32);
+#[repr(C)]
 pub struct PPM_WMI_IDLE_STATES_EX(i32);
+#[repr(C)]
 pub struct PPM_WMI_LEGACY_PERFSTATE(i32);
+#[repr(C)]
 pub struct PPM_WMI_PERF_STATE(i32);
+#[repr(C)]
 pub struct PPM_WMI_PERF_STATES(i32);
+#[repr(C)]
 pub struct PPM_WMI_PERF_STATES_EX(i32);
 pub const PRAGMA_DEPRECATED_DDK: u32 = 1u32;
 pub const PRIVILEGE_SET_ALL_NECESSARY: u32 = 1u32;
@@ -3049,7 +3204,9 @@ pub const PROCESSOR_DUTY_CYCLING_ENABLED: u32 = 1u32;
 pub const PROCESSOR_HITACHI_SH3: u32 = 10003u32;
 pub const PROCESSOR_HITACHI_SH3E: u32 = 10004u32;
 pub const PROCESSOR_HITACHI_SH4: u32 = 10005u32;
+#[repr(C)]
 pub struct PROCESSOR_IDLESTATE_INFO(i32);
+#[repr(C)]
 pub struct PROCESSOR_IDLESTATE_POLICY(i32);
 pub const PROCESSOR_IDLESTATE_POLICY_COUNT: u32 = 3u32;
 pub const PROCESSOR_INTEL_386: u32 = 386u32;
@@ -3059,6 +3216,7 @@ pub const PROCESSOR_INTEL_PENTIUM: u32 = 586u32;
 pub const PROCESSOR_MIPS_R4000: u32 = 4000u32;
 pub const PROCESSOR_MOTOROLA_821: u32 = 821u32;
 pub const PROCESSOR_OPTIL: u32 = 18767u32;
+#[repr(C)]
 pub struct PROCESSOR_PERFSTATE_POLICY(i32);
 pub const PROCESSOR_PERF_AUTONOMOUS_MODE_DISABLED: u32 = 0u32;
 pub const PROCESSOR_PERF_AUTONOMOUS_MODE_ENABLED: u32 = 1u32;
@@ -3092,22 +3250,38 @@ pub const PROCESS_HEAP_ENTRY_MOVEABLE: u32 = 16u32;
 pub const PROCESS_HEAP_REGION: u32 = 1u32;
 pub const PROCESS_HEAP_SEG_ALLOC: u32 = 8u32;
 pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2u32;
+#[repr(C)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROCESS_MITIGATION_DEP_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY(i32);
+#[repr(C)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY(i32);
 pub const PROCESS_TRUST_LABEL_SECURITY_INFORMATION: i32 = 128i32;
 pub const PROC_IDLE_BUCKET_COUNT: u32 = 6u32;
@@ -3189,23 +3363,31 @@ pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
 pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
+#[repr(C)]
 pub struct PTERMINATION_HANDLER(i32);
+#[repr(C)]
 pub struct PTERMINATION_HANDLER(i32);
+#[repr(C)]
 pub struct PUMS_SCHEDULER_ENTRY_POINT(i32);
 pub const PcTeb: u32 = 24u32;
+#[repr(C)]
 pub struct QUOTA_LIMITS_EX(i32);
 pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: u32 = 8u32;
 pub const QUOTA_LIMITS_HARDWS_MAX_ENABLE: u32 = 4u32;
 pub const QUOTA_LIMITS_HARDWS_MIN_DISABLE: u32 = 2u32;
 pub const QUOTA_LIMITS_HARDWS_MIN_ENABLE: u32 = 1u32;
 pub const QUOTA_LIMITS_USE_DEFAULT_LIMITS: u32 = 16u32;
+#[repr(C)]
 pub struct RATE_QUOTA_LIMIT(i32);
 pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: u32 = 1u32;
 pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REARRANGE_FILE_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct REARRANGE_FILE_DATA32(i32);
+#[repr(C)]
 pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO(i32);
 pub const REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO_VERSION: u32 = 1u32;
 pub const REG_APP_HIVE: i32 = 16i32;
@@ -3225,17 +3407,21 @@ pub const REG_PROCESS_PRIVATE: i32 = 32i32;
 pub const REG_REFRESH_HIVE: i32 = 2i32;
 pub const REG_START_JOURNAL: i32 = 64i32;
 pub const REG_UNLOAD_LEGAL_FLAGS: u32 = 1u32;
+#[repr(C)]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION(i32);
 pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION(i32);
 pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
 pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
+#[repr(C)]
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(i32);
 pub const RESOURCEMANAGER_QUERY_INFORMATION: u32 = 1u32;
 pub const RESOURCEMANAGER_RECOVER: u32 = 4u32;
 pub const RESOURCEMANAGER_REGISTER_PROTOCOL: u32 = 32u32;
 pub const RESOURCEMANAGER_SET_INFORMATION: u32 = 2u32;
+#[repr(C)]
 pub struct RESUME_PERFORMANCE(i32);
 pub const ROTFLAGS_ALLOWANYCLIENT: u32 = 2u32;
 pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: u32 = 1u32;
@@ -3252,21 +3438,34 @@ pub const RTL_RUN_ONCE_ASYNC: u32 = 2u32;
 pub const RTL_RUN_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4u32;
+#[repr(C)]
 pub struct RTL_UMS_SCHEDULER_REASON(i32);
 pub const RTL_UMS_VERSION: u32 = 256u32;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
+#[repr(C)]
 pub struct RemBRUSH(i32);
+#[repr(C)]
 pub struct RemHBITMAP(i32);
+#[repr(C)]
 pub struct RemHENHMETAFILE(i32);
+#[repr(C)]
 pub struct RemHGLOBAL(i32);
+#[repr(C)]
 pub struct RemHMETAFILEPICT(i32);
+#[repr(C)]
 pub struct RemHPALETTE(i32);
+#[repr(C)]
 pub struct RemotableHandle(i32);
+#[repr(C)]
 pub struct ReplacesCorHdrNumericDefines(i32);
+#[repr(C)]
 pub struct SCOPE_TABLE_AMD64(i32);
+#[repr(C)]
 pub struct SCOPE_TABLE_ARM(i32);
+#[repr(C)]
 pub struct SCOPE_TABLE_ARM64(i32);
+#[repr(C)]
 pub struct SCRUB_DATA_INPUT(i32);
 pub const SCRUB_DATA_INPUT_FLAG_IGNORE_REDUNDANCY: u32 = 8u32;
 pub const SCRUB_DATA_INPUT_FLAG_OPLOCK_NOT_ACQUIRED: u32 = 64u32;
@@ -3275,13 +3474,17 @@ pub const SCRUB_DATA_INPUT_FLAG_SCRUB_BY_OBJECT_ID: u32 = 32u32;
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_DATA: u32 = 16u32;
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC: u32 = 2u32;
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA: u32 = 4u32;
+#[repr(C)]
 pub struct SCRUB_DATA_OUTPUT(i32);
 pub const SCRUB_DATA_OUTPUT_FLAG_INCOMPLETE: u32 = 1u32;
 pub const SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE: u32 = 65536u32;
 pub const SCRUB_DATA_OUTPUT_FLAG_PARITY_EXTENT_DATA_RETURNED: u32 = 131072u32;
 pub const SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED: u32 = 262144u32;
+#[repr(C)]
 pub struct SCRUB_PARITY_EXTENT(i32);
+#[repr(C)]
 pub struct SCRUB_PARITY_EXTENT_DATA(i32);
+#[repr(C)]
 pub struct SECTION_FLAGS(i32);
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
 pub const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82i32;
@@ -3333,6 +3536,7 @@ pub const SECURITY_CRED_TYPE_RID_COUNT: i32 = 2i32;
 pub const SECURITY_CRED_TYPE_THIS_ORG_CERT_RID: i32 = 1i32;
 pub const SECURITY_DASHOST_ID_BASE_RID: i32 = 92i32;
 pub const SECURITY_DASHOST_ID_RID_COUNT: i32 = 6i32;
+#[repr(C)]
 pub struct SECURITY_DESCRIPTOR_RELATIVE(i32);
 pub const SECURITY_DESCRIPTOR_REVISION: u32 = 1u32;
 pub const SECURITY_DESCRIPTOR_REVISION1: u32 = 1u32;
@@ -3370,6 +3574,7 @@ pub const SECURITY_NFS_ID_BASE_RID: i32 = 88i32;
 pub const SECURITY_NT_NON_UNIQUE: i32 = 21i32;
 pub const SECURITY_NT_NON_UNIQUE_SUB_AUTH_COUNT: i32 = 3i32;
 pub const SECURITY_NULL_RID: i32 = 0i32;
+#[repr(C)]
 pub struct SECURITY_OBJECT_AI_PARAMS(i32);
 pub const SECURITY_OTHER_ORGANIZATION_RID: i32 = 1000i32;
 pub const SECURITY_PACKAGE_BASE_RID: i32 = 64i32;
@@ -3427,7 +3632,9 @@ pub const SEF_AI_USE_EXTRA_PARAMS: u32 = 2048u32;
 pub const SEF_FORCE_USER_MODE: u32 = 8192u32;
 pub const SEMAPHORE_MODIFY_STATE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVERSILO_BASIC_INFORMATION(i32);
+#[repr(C)]
 pub struct SERVERSILO_STATE(i32);
 pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256u32;
 pub const SERVICE_PKG_SERVICE: u32 = 512u32;
@@ -3452,7 +3659,9 @@ pub const SE_GROUP_MANDATORY: i32 = 1i32;
 pub const SE_GROUP_OWNER: i32 = 8i32;
 pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
+#[repr(C)]
 pub struct SE_IMAGE_SIGNATURE_TYPE(i32);
+#[repr(C)]
 pub struct SE_LEARNING_MODE_DATA_TYPE(i32);
 pub const SE_LEARNING_MODE_FLAG_PERMISSIVE: u32 = 1u32;
 pub const SE_OWNER_DEFAULTED: u32 = 1u32;
@@ -3486,8 +3695,11 @@ pub const SE_SIGNING_LEVEL_UNSIGNED: u32 = 1u32;
 pub const SE_SIGNING_LEVEL_WINDOWS: u32 = 12u32;
 pub const SE_SIGNING_LEVEL_WINDOWS_TCB: u32 = 14u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct SE_TOKEN_USER(i32);
+#[repr(C)]
 pub struct SHARED_VIRTUAL_DISK_SUPPORT(i32);
+#[repr(C)]
 pub struct SHUFFLE_FILE_DATA(i32);
 pub const SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: u32 = 1u32;
 pub const SID_HASH_SIZE: u32 = 32u32;
@@ -3495,6 +3707,7 @@ pub const SID_MAX_SUB_AUTHORITIES: u32 = 15u32;
 pub const SID_RECOMMENDED_SUB_AUTHORITIES: u32 = 1u32;
 pub const SID_REVISION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SILOOBJECT_BASIC_INFORMATION(i32);
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
@@ -3760,6 +3973,7 @@ pub const SUBLANG_YAKUT_RUSSIA: u32 = 1u32;
 pub const SUBLANG_YI_PRC: u32 = 1u32;
 pub const SUBLANG_YORUBA_NIGERIA: u32 = 1u32;
 pub const SUBLANG_ZULU_SOUTH_AFRICA: u32 = 1u32;
+#[repr(C)]
 pub struct SUPPORTED_OS_INFO(i32);
 pub const SYSTEM_ACCESS_FILTER_ACE_TYPE: u32 = 21u32;
 pub const SYSTEM_ACCESS_FILTER_NOCONSTRAINT_MASK: u32 = 4294967295u32;
@@ -3782,9 +3996,12 @@ pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: u32 = 16777215u32;
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295u32;
 pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18u32;
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19u32;
+#[repr(C)]
 pub struct SharedVirtualDiskHandleState(i32);
+#[repr(C)]
 pub struct SharedVirtualDiskSupportType(i32);
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2i32;
+#[repr(C)]
 pub struct TAPE_CREATE_PARTITION(i32);
 pub const TAPE_DRIVE_CLEAN_REQUESTS: u32 = 33554432u32;
 pub const TAPE_DRIVE_COMPRESSION: u32 = 131072u32;
@@ -3804,6 +4021,7 @@ pub const TAPE_DRIVE_GET_LOGICAL_BLK: u32 = 2097152u32;
 pub const TAPE_DRIVE_HIGH_FEATURES: u32 = 2147483648u32;
 pub const TAPE_DRIVE_INITIATOR: u32 = 4u32;
 pub const TAPE_DRIVE_PADDING: u32 = 262144u32;
+#[repr(C)]
 pub struct TAPE_DRIVE_PROBLEM_TYPE(i32);
 pub const TAPE_DRIVE_REPORT_SMKS: u32 = 524288u32;
 pub const TAPE_DRIVE_RESERVED_BIT: u32 = 2147483648u32;
@@ -3815,9 +4033,12 @@ pub const TAPE_DRIVE_TAPE_REMAINING: u32 = 512u32;
 pub const TAPE_DRIVE_VARIABLE_BLOCK: u32 = 2048u32;
 pub const TAPE_DRIVE_WRITE_PROTECT: u32 = 4096u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TAPE_GET_DRIVE_PARAMETERS(i32);
+#[repr(C)]
 pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TAPE_GET_MEDIA_PARAMETERS(i32);
 pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3i32;
 pub const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2i32;
@@ -3826,9 +4047,13 @@ pub const TAPE_QUERY_DRIVE_PARAMETERS: i32 = 0i32;
 pub const TAPE_QUERY_IO_ERROR_DATA: i32 = 3i32;
 pub const TAPE_QUERY_MEDIA_CAPACITY: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TAPE_SET_DRIVE_PARAMETERS(i32);
+#[repr(C)]
 pub struct TAPE_SET_MEDIA_PARAMETERS(i32);
+#[repr(C)]
 pub struct TAPE_WMI_OPERATIONS(i32);
+#[repr(C)]
 pub struct TEB(i32);
 pub const THREAD_BASE_PRIORITY_IDLE: i32 = -15i32;
 pub const THREAD_BASE_PRIORITY_LOWRT: u32 = 15u32;
@@ -3843,41 +4068,61 @@ pub const TIME_ZONE_ID_STANDARD: u32 = 1u32;
 pub const TIME_ZONE_ID_UNKNOWN: u32 = 0u32;
 pub const TLS_MINIMUM_AVAILABLE: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TOKEN_SID_INFORMATION(i32);
 pub const TOKEN_SOURCE_LENGTH: u32 = 8u32;
+#[repr(C)]
 pub struct TP_CLEANUP_GROUP(i32);
+#[repr(C)]
 pub struct TP_POOL(i32);
+#[repr(C)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION(i32);
 pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32u32;
 pub const TRANSACTIONMANAGER_CREATE_RM: u32 = 16u32;
+#[repr(C)]
 pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(i32);
+#[repr(C)]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION(i32);
+#[repr(C)]
 pub struct TRANSACTIONMANAGER_LOG_INFORMATION(i32);
+#[repr(C)]
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION(i32);
 pub const TRANSACTIONMANAGER_QUERY_INFORMATION: u32 = 1u32;
 pub const TRANSACTIONMANAGER_RECOVER: u32 = 4u32;
+#[repr(C)]
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION(i32);
 pub const TRANSACTIONMANAGER_RENAME: u32 = 8u32;
 pub const TRANSACTIONMANAGER_SET_INFORMATION: u32 = 2u32;
+#[repr(C)]
 pub struct TRANSACTION_BASIC_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TRANSACTION_BIND_INFORMATION(i32);
 pub const TRANSACTION_COMMIT: u32 = 8u32;
 pub const TRANSACTION_ENLIST: u32 = 4u32;
+#[repr(C)]
 pub struct TRANSACTION_ENLISTMENTS_INFORMATION(i32);
+#[repr(C)]
 pub struct TRANSACTION_ENLISTMENT_PAIR(i32);
+#[repr(C)]
 pub struct TRANSACTION_INFORMATION_CLASS(i32);
+#[repr(C)]
 pub struct TRANSACTION_LIST_ENTRY(i32);
+#[repr(C)]
 pub struct TRANSACTION_LIST_INFORMATION(i32);
 pub const TRANSACTION_PROPAGATE: u32 = 32u32;
+#[repr(C)]
 pub struct TRANSACTION_PROPERTIES_INFORMATION(i32);
 pub const TRANSACTION_QUERY_INFORMATION: u32 = 1u32;
 pub const TRANSACTION_RIGHT_RESERVED1: u32 = 64u32;
 pub const TRANSACTION_ROLLBACK: u32 = 16u32;
 pub const TRANSACTION_SET_INFORMATION: u32 = 2u32;
+#[repr(C)]
 pub struct TRANSACTION_STATE(i32);
+#[repr(C)]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION(i32);
 pub const TREE_CONNECT_ATTRIBUTE_GLOBAL: u32 = 4u32;
 pub const TREE_CONNECT_ATTRIBUTE_INTEGRITY: u32 = 32768u32;
@@ -3885,12 +4130,14 @@ pub const TREE_CONNECT_ATTRIBUTE_PINNED: u32 = 2u32;
 pub const TREE_CONNECT_ATTRIBUTE_PRIVACY: u32 = 16384u32;
 pub const TRUST_PROTECTED_FILTER_ACE_FLAG: u32 = 64u32;
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295u32;
+#[repr(C)]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES(i32);
 pub const UNICODE_STRING_MAX_CHARS: u32 = 32767u32;
 pub const UNIFIEDBUILDREVISION_MIN: u32 = 0u32;
 pub const UNWIND_CHAIN_LIMIT: u32 = 32u32;
 pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
+#[repr(C)]
 pub struct USER_ACTIVITY_PRESENCE(i32);
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
 pub const VBS_BASIC_PAGE_MEASURED_DATA: u32 = 1u32;
@@ -3938,10 +4185,12 @@ pub const VOLMGR_KSR_READ_ERROR: super::super::Foundation::NTSTATUS = super::sup
 pub const VRL_CUSTOM_CLASS_BEGIN: u32 = 256u32;
 pub const VRL_ENABLE_KERNEL_BREAKS: u32 = 2147483648u32;
 pub const VRL_PREDEFINED_CLASS_BEGIN: u32 = 1u32;
+#[repr(C)]
 pub struct VolLockBroadcast(i32);
 pub const WDT_INPROC64_CALL: u32 = 1349805143u32;
 pub const WDT_INPROC_CALL: u32 = 1215587415u32;
 pub const WDT_REMOTE_CALL: u32 = 1383359575u32;
+#[repr(C)]
 pub struct WORKERCALLBACKFUNC(i32);
 pub const WRITE_DAC: u32 = 262144u32;
 pub const WRITE_NV_MEMORY_FLAG_FLUSH: u32 = 1u32;
@@ -3994,6 +4243,7 @@ pub const X3_TMPLT_INST_WORD_X: u32 = 0u32;
 pub const X3_TMPLT_SIGN_VAL_POS_X: u32 = 0u32;
 pub const X3_TMPLT_SIZE_X: u32 = 4u32;
 pub const X86_CACHE_ALIGNMENT_SIZE: u32 = 64u32;
+#[repr(C)]
 pub struct XSAVE_CET_U_FORMAT(i32);
 pub const XSTATE_ALIGN_BIT: u32 = 1u32;
 pub const XSTATE_AMX_TILE_CONFIG: u32 = 17u32;
@@ -4017,8 +4267,10 @@ pub const XSTATE_MPX_BNDCSR: u32 = 4u32;
 pub const XSTATE_MPX_BNDREGS: u32 = 3u32;
 pub const XSTATE_PASID: u32 = 10u32;
 pub const XSTATE_XFD_BIT: u32 = 2u32;
+#[repr(C)]
 pub struct _DEV_BROADCAST_HEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct _DEV_BROADCAST_USERDEFINED(i32);
 pub const _MM_HINT_NTA: u32 = 0u32;
 pub const _MM_HINT_T0: u32 = 1u32;
@@ -4144,18 +4396,27 @@ pub const _NT_D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
 pub const _NT_RTPATCHFLAG_HASINFO: i32 = 2i32;
 pub const _NT_RTPATCHFLAG_HASSEGS: i32 = 1i32;
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct remoteMETAFILEPICT(i32);
+#[repr(C)]
 pub struct userBITMAP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct userCLIPFORMAT(i32);
+#[repr(C)]
 pub struct userHBITMAP(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct userHENHMETAFILE(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct userHGLOBAL(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct userHMETAFILE(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct userHMETAFILEPICT(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct userHPALETTE(i32);

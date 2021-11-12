@@ -35,28 +35,47 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct HRAWINPUT(i32);
+#[repr(C)]
 pub struct INPUT_MESSAGE_DEVICE_TYPE(i32);
+#[repr(C)]
 pub struct INPUT_MESSAGE_ORIGIN_ID(i32);
+#[repr(C)]
 pub struct INPUT_MESSAGE_SOURCE(i32);
+#[repr(C)]
 pub struct RAWHID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAWINPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAWINPUTDEVICE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAWINPUTDEVICELIST(i32);
+#[repr(C)]
 pub struct RAWINPUTDEVICE_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAWINPUTHEADER(i32);
+#[repr(C)]
 pub struct RAWKEYBOARD(i32);
+#[repr(C)]
 pub struct RAWMOUSE(i32);
+#[repr(C)]
 pub struct RAW_INPUT_DATA_COMMAND_FLAGS(i32);
+#[repr(C)]
 pub struct RAW_INPUT_DEVICE_INFO_COMMAND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RID_DEVICE_INFO(i32);
+#[repr(C)]
 pub struct RID_DEVICE_INFO_HID(i32);
+#[repr(C)]
 pub struct RID_DEVICE_INFO_KEYBOARD(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RID_DEVICE_INFO_MOUSE(i32);
+#[repr(C)]
 pub struct RID_DEVICE_INFO_TYPE(i32);

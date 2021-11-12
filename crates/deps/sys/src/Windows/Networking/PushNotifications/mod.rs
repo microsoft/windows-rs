@@ -35,6 +35,7 @@ pub struct PushNotificationChannelManagerForUser(pub *mut ::core::ffi::c_void);
 pub struct PushNotificationChannelsRevokedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PushNotificationReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PushNotificationType(i32);
 #[repr(transparent)]
 pub struct RawNotification(pub *mut ::core::ffi::c_void);

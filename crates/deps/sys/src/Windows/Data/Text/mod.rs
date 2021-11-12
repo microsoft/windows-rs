@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AlternateNormalizationFormat(i32);
 #[repr(transparent)]
 pub struct AlternateWordForm(pub *mut ::core::ffi::c_void);
@@ -56,13 +57,17 @@ pub struct TextConversionGenerator(pub *mut ::core::ffi::c_void);
 pub struct TextPhoneme(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TextPredictionGenerator(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TextPredictionOptions(i32);
 #[repr(transparent)]
 pub struct TextReverseConversionGenerator(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TextSegment(i32);
 #[repr(transparent)]
 pub struct UnicodeCharacters(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UnicodeGeneralCategory(i32);
+#[repr(C)]
 pub struct UnicodeNumericType(i32);
 #[repr(transparent)]
 pub struct WordSegment(pub *mut ::core::ffi::c_void);

@@ -17,10 +17,15 @@ pub mod Printing;
 pub mod Printing3D;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct DisplayAdapterId(i32);
+#[repr(C)]
 pub struct DisplayId(i32);
 #[repr(transparent)]
 pub struct IGeometrySource2D(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PointInt32(i32);
+#[repr(C)]
 pub struct RectInt32(i32);
+#[repr(C)]
 pub struct SizeInt32(i32);

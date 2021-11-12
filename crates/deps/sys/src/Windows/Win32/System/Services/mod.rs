@@ -174,15 +174,21 @@ pub const DOMAIN_LEAVE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18534,
     data4: [149, 116, 195, 182, 21, 212, 46, 161],
 };
+#[repr(C)]
 pub struct ENUM_SERVICE_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUM_SERVICE_STATUSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUM_SERVICE_STATUSW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUM_SERVICE_STATUS_PROCESSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW(i32);
+#[repr(C)]
 pub struct ENUM_SERVICE_TYPE(i32);
 pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2705648952,
@@ -191,11 +197,17 @@ pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [157, 150, 230, 71, 64, 177, 165, 36],
 };
 pub const FIREWALL_PORT_OPEN_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3075907079, data2: 33825, data3: 20192, data4: [173, 16, 134, 145, 90, 253, 173, 9] };
+#[repr(C)]
 pub struct HANDLER_FUNCTION(i32);
+#[repr(C)]
 pub struct HANDLER_FUNCTION_EX(i32);
+#[repr(C)]
 pub struct LPHANDLER_FUNCTION(i32);
+#[repr(C)]
 pub struct LPHANDLER_FUNCTION_EX(i32);
+#[repr(C)]
 pub struct LPSERVICE_MAIN_FUNCTIONA(i32);
+#[repr(C)]
 pub struct LPSERVICE_MAIN_FUNCTIONW(i32);
 pub const MACHINE_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1704970982,
@@ -216,15 +228,21 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_sys::core::GUI
     data3: 17992,
     data4: [132, 122, 182, 189, 249, 147, 227, 53],
 };
+#[repr(C)]
 pub struct PFN_SC_NOTIFY_CALLBACK(i32);
+#[repr(C)]
 pub struct PSC_NOTIFICATION_CALLBACK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct QUERY_SERVICE_CONFIGA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct QUERY_SERVICE_CONFIGW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct QUERY_SERVICE_LOCK_STATUSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct QUERY_SERVICE_LOCK_STATUSW(i32);
 pub const RPC_INTERFACE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3163607399,
@@ -232,9 +250,13 @@ pub const RPC_INTERFACE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 16697,
     data4: [169, 186, 190, 11, 187, 245, 183, 77],
 };
+#[repr(C)]
 pub struct SC_ACTION(i32);
+#[repr(C)]
 pub struct SC_ACTION_TYPE(i32);
+#[repr(C)]
 pub struct SC_ENUM_TYPE(i32);
+#[repr(C)]
 pub struct SC_EVENT_TYPE(i32);
 pub const SC_MANAGER_ALL_ACCESS: u32 = 983103u32;
 pub const SC_MANAGER_CONNECT: u32 = 1u32;
@@ -243,6 +265,7 @@ pub const SC_MANAGER_ENUMERATE_SERVICE: u32 = 4u32;
 pub const SC_MANAGER_LOCK: u32 = 8u32;
 pub const SC_MANAGER_MODIFY_BOOT_CONFIG: u32 = 32u32;
 pub const SC_MANAGER_QUERY_LOCK_STATUS: u32 = 16u32;
+#[repr(C)]
 pub struct SC_STATUS_TYPE(i32);
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
 pub const SERVICE_ACCEPT_LOWRESOURCES: u32 = 8192u32;
@@ -260,6 +283,7 @@ pub const SERVICE_ACCEPT_TRIGGEREVENT: u32 = 1024u32;
 pub const SERVICE_ACCEPT_USER_LOGOFF: u32 = 2048u32;
 pub const SERVICE_ALL_ACCESS: u32 = 983551u32;
 pub const SERVICE_CHANGE_CONFIG: u32 = 2u32;
+#[repr(C)]
 pub struct SERVICE_CONFIG(i32);
 pub const SERVICE_CONTROL_CONTINUE: u32 = 3u32;
 pub const SERVICE_CONTROL_DEVICEEVENT: u32 = 11u32;
@@ -278,43 +302,61 @@ pub const SERVICE_CONTROL_SESSIONCHANGE: u32 = 14u32;
 pub const SERVICE_CONTROL_SHUTDOWN: u32 = 5u32;
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW(i32);
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
 pub const SERVICE_CONTROL_SYSTEMLOWRESOURCES: u32 = 97u32;
 pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16u32;
 pub const SERVICE_CONTROL_TRIGGEREVENT: u32 = 32u32;
+#[repr(C)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_DELAYED_AUTO_START_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_DESCRIPTIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_DESCRIPTIONW(i32);
+#[repr(C)]
 pub struct SERVICE_DIRECTORY_TYPE(i32);
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
+#[repr(C)]
 pub struct SERVICE_ERROR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_FAILURE_ACTIONSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_FAILURE_ACTIONSW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG(i32);
 pub const SERVICE_INTERROGATE: u32 = 128u32;
 pub const SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: u32 = 3u32;
+#[repr(C)]
 pub struct SERVICE_LAUNCH_PROTECTED_INFO(i32);
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
+#[repr(C)]
 pub struct SERVICE_MAIN_FUNCTIONA(i32);
+#[repr(C)]
 pub struct SERVICE_MAIN_FUNCTIONW(i32);
+#[repr(C)]
 pub struct SERVICE_NOTIFY(i32);
+#[repr(C)]
 pub struct SERVICE_NOTIFY_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_NOTIFY_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_NOTIFY_2W(i32);
 pub const SERVICE_NOTIFY_STATUS_CHANGE: u32 = 2u32;
 pub const SERVICE_NOTIFY_STATUS_CHANGE_1: u32 = 1u32;
@@ -322,32 +364,47 @@ pub const SERVICE_NOTIFY_STATUS_CHANGE_2: u32 = 2u32;
 pub const SERVICE_NO_CHANGE: u32 = 4294967295u32;
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_PREFERRED_NODE_INFO(i32);
+#[repr(C)]
 pub struct SERVICE_PRESHUTDOWN_INFO(i32);
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
+#[repr(C)]
 pub struct SERVICE_REGISTRY_STATE_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW(i32);
+#[repr(C)]
 pub struct SERVICE_RUNS_IN_PROCESS(i32);
+#[repr(C)]
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(i32);
+#[repr(C)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(i32);
+#[repr(C)]
 pub struct SERVICE_SID_INFO(i32);
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
 pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1u32;
 pub const SERVICE_START: u32 = 16u32;
+#[repr(C)]
 pub struct SERVICE_START_REASON(i32);
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
 pub const SERVICE_START_REASON_DELAYEDAUTO: u32 = 16u32;
 pub const SERVICE_START_REASON_DEMAND: u32 = 1u32;
 pub const SERVICE_START_REASON_RESTART_ON_FAILURE: u32 = 8u32;
 pub const SERVICE_START_REASON_TRIGGER: u32 = 4u32;
+#[repr(C)]
 pub struct SERVICE_START_TYPE(i32);
+#[repr(C)]
 pub struct SERVICE_STATUS(i32);
+#[repr(C)]
 pub struct SERVICE_STATUS_CURRENT_STATE(i32);
+#[repr(C)]
 pub struct SERVICE_STATUS_HANDLE(i32);
+#[repr(C)]
 pub struct SERVICE_STATUS_PROCESS(i32);
 pub const SERVICE_STOP: u32 = 32u32;
 pub const SERVICE_STOP_REASON_FLAG_CUSTOM: u32 = 536870912u32;
@@ -394,19 +451,30 @@ pub const SERVICE_STOP_REASON_MINOR_UNSTABLE: u32 = 7u32;
 pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_TABLE_ENTRYA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_TABLE_ENTRYW(i32);
+#[repr(C)]
 pub struct SERVICE_TIMECHANGE_INFO(i32);
+#[repr(C)]
 pub struct SERVICE_TRIGGER(i32);
+#[repr(C)]
 pub struct SERVICE_TRIGGER_ACTION(i32);
+#[repr(C)]
 pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID(i32);
+#[repr(C)]
 pub struct SERVICE_TRIGGER_INFO(i32);
+#[repr(C)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM(i32);
+#[repr(C)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(i32);
+#[repr(C)]
 pub struct SERVICE_TRIGGER_TYPE(i32);
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: u32 = 30u32;
 pub const SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: u32 = 7u32;
 pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
 pub const USER_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1425753800, data2: 61577, data3: 17996, data4: [177, 253, 89, 209, 182, 44, 59, 80] };
+#[repr(C)]
 pub struct _SC_NOTIFICATION_REGISTRATION(i32);

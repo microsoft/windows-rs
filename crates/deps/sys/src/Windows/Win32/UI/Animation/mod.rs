@@ -63,28 +63,48 @@ pub struct IUIAnimationVariableCurveChangeHandler2(pub *mut ::core::ffi::c_void)
 pub struct IUIAnimationVariableIntegerChangeHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUIAnimationVariableIntegerChangeHandler2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UIAnimationManager(i32);
+#[repr(C)]
 pub struct UIAnimationManager2(i32);
+#[repr(C)]
 pub struct UIAnimationTimer(i32);
+#[repr(C)]
 pub struct UIAnimationTransitionFactory(i32);
+#[repr(C)]
 pub struct UIAnimationTransitionFactory2(i32);
+#[repr(C)]
 pub struct UIAnimationTransitionLibrary(i32);
+#[repr(C)]
 pub struct UIAnimationTransitionLibrary2(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_DEPENDENCIES(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_IDLE_BEHAVIOR(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_KEYFRAME(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_MANAGER_STATUS(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_MODE(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_PRIORITY_EFFECT(i32);
 pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1i32;
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2i32;
+#[repr(C)]
 pub struct UI_ANIMATION_REPEAT_MODE(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_ROUNDING_MODE(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_SCHEDULING_RESULT(i32);
 pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
 pub const UI_ANIMATION_SECONDS_INFINITE: i32 = -1i32;
+#[repr(C)]
 pub struct UI_ANIMATION_SLOPE(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_STORYBOARD_STATUS(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_TIMER_CLIENT_STATUS(i32);
+#[repr(C)]
 pub struct UI_ANIMATION_UPDATE_RESULT(i32);

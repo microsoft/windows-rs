@@ -85,7 +85,9 @@ pub struct PrintHolePunchOptionDetails(pub *mut ::core::ffi::c_void);
 pub struct PrintMediaSizeOptionDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintMediaTypeOptionDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintOptionStates(i32);
+#[repr(C)]
 pub struct PrintOptionType(i32);
 #[repr(transparent)]
 pub struct PrintOrientationOptionDetails(pub *mut ::core::ffi::c_void);

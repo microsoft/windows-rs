@@ -9,9 +9,13 @@ pub struct II2cDeviceProvider(pub *mut ::core::ffi::c_void);
 pub struct II2cProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IProviderI2cConnectionSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ProviderI2cBusSpeed(i32);
 #[repr(transparent)]
 pub struct ProviderI2cConnectionSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ProviderI2cSharingMode(i32);
+#[repr(C)]
 pub struct ProviderI2cTransferResult(i32);
+#[repr(C)]
 pub struct ProviderI2cTransferStatus(i32);

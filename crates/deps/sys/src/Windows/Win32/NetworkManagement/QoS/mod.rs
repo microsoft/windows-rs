@@ -66,18 +66,25 @@ extern "system" {
 }
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[repr(C)]
 pub struct ADDRESS_LIST_DESCRIPTOR(i32);
 pub const ADM_CTRL_FAILED: u32 = 3u32;
+#[repr(C)]
 pub struct ADSPEC(i32);
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
+#[repr(C)]
 pub struct AD_GENERAL_PARAMS(i32);
+#[repr(C)]
 pub struct AD_GUARANTEED(i32);
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
+#[repr(C)]
 pub struct CBADMITRESULT(i32);
+#[repr(C)]
 pub struct CBGETRSVPOBJECTS(i32);
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
+#[repr(C)]
 pub struct CONTROL_SERVICE(i32);
 pub const CREDENTIAL_SUB_TYPE_ASCII_ID: u32 = 1u32;
 pub const CREDENTIAL_SUB_TYPE_KERBEROS_TKT: u32 = 3u32;
@@ -85,9 +92,11 @@ pub const CREDENTIAL_SUB_TYPE_PGP_CERT: u32 = 5u32;
 pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
+#[repr(C)]
 pub struct CtrlLoadFlowspec(i32);
 pub const DUP_RESULTS: u32 = 4u32;
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
+#[repr(C)]
 pub struct ENUMERATION_BUFFER(i32);
 pub const ERROR_ADDRESS_TYPE_NOT_SUPPORTED: u32 = 7511u32;
 pub const ERROR_DS_MAPPING_EXISTS: u32 = 7518u32;
@@ -108,6 +117,7 @@ pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
 pub const ERROR_NO_MORE_INFO: u32 = 1u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct ERROR_SPEC(i32);
 pub const ERROR_SPECF_InPlace: u32 = 1u32;
 pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
@@ -122,10 +132,14 @@ pub const ERR_Usage_serv: u32 = 17u32;
 pub const ERR_global_mask: u32 = 4095u32;
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct Error_Spec_IPv4(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct FILTER_SPEC(i32);
+#[repr(C)]
 pub struct FLOWDESCRIPTOR(i32);
+#[repr(C)]
 pub struct FLOWSPEC(i32);
 pub const FLOW_DURATION: u32 = 5u32;
 pub const FORCE_IMMEDIATE_REFRESH: u32 = 1u32;
@@ -140,10 +154,13 @@ pub const FVEB_UNLOCK_FLAG_PASSPHRASE: u32 = 128u32;
 pub const FVEB_UNLOCK_FLAG_PIN: u32 = 16u32;
 pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
+#[repr(C)]
 pub struct FilterType(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct Filter_Spec_IPv4(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct Filter_Spec_IPv4GPI(i32);
 pub const GENERAL_INFO: u32 = 1u32;
 pub const GQOS_API: u32 = 56400u32;
@@ -185,15 +202,23 @@ pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows_sys::core::GUID = ::windows_s
 pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301250848, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
 pub const GUID_QOS_STATISTICS_BUFFER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3140225408, data2: 59648, data3: 4561, data4: [176, 126, 0, 128, 199, 19, 130, 191] };
 pub const GUID_QOS_TIMER_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3121663112, data2: 61758, data3: 4562, data4: [190, 27, 0, 160, 201, 158, 230, 59] };
+#[repr(C)]
 pub struct Gads_parms_t(i32);
+#[repr(C)]
 pub struct GenAdspecParams(i32);
+#[repr(C)]
 pub struct GenTspec(i32);
+#[repr(C)]
 pub struct GenTspecParms(i32);
+#[repr(C)]
 pub struct GuarFlowSpec(i32);
+#[repr(C)]
 pub struct GuarRspec(i32);
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
 pub const IDENTITY_CHANGED: u32 = 5u32;
+#[repr(C)]
 pub struct IDPE_ATTR(i32);
+#[repr(C)]
 pub struct ID_ERROR_OBJECT(i32);
 pub const IF_MIB_STATS_ID: u32 = 1u32;
 pub const INFO_NOT_AVAILABLE: u32 = 4294967295u32;
@@ -203,28 +228,41 @@ pub const INTSERV_VERS_MASK: u32 = 240u32;
 pub const INV_LPM_HANDLE: u32 = 1u32;
 pub const INV_REQ_HANDLE: u32 = 3u32;
 pub const INV_RESULTS: u32 = 5u32;
+#[repr(C)]
 pub struct IN_ADDR_IPV4(i32);
+#[repr(C)]
 pub struct IN_ADDR_IPV6(i32);
+#[repr(C)]
 pub struct IPX_PATTERN(i32);
 pub const IP_INTFC_INFO_ID: u32 = 259u32;
 pub const IP_MIB_ADDRTABLE_ENTRY_ID: u32 = 258u32;
 pub const IP_MIB_STATS_ID: u32 = 1u32;
+#[repr(C)]
 pub struct IP_PATTERN(i32);
 pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
+#[repr(C)]
 pub struct IS_ADSPEC_BODY(i32);
+#[repr(C)]
 pub struct IS_FLOWSPEC(i32);
 pub const IS_GUAR_RSPEC: i32 = 130i32;
+#[repr(C)]
 pub struct IntServFlowSpec(i32);
+#[repr(C)]
 pub struct IntServMainHdr(i32);
+#[repr(C)]
 pub struct IntServParmHdr(i32);
+#[repr(C)]
 pub struct IntServServiceHdr(i32);
+#[repr(C)]
 pub struct IntServTspecBody(i32);
 pub const LINE_RATE: u32 = 50003u32;
 pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 pub const LPM_API_VERSION_1: u32 = 1u32;
+#[repr(C)]
 pub struct LPM_HANDLE(i32);
+#[repr(C)]
 pub struct LPM_INIT_INFO(i32);
 pub const LPM_OK: u32 = 0u32;
 pub const LPM_PE_ALL_TYPES: u32 = 0u32;
@@ -260,14 +298,19 @@ pub const Opt_Share_mask: u32 = 24u32;
 pub const Opt_Shared: u32 = 16u32;
 pub const Opt_SndSel_mask: u32 = 7u32;
 pub const Opt_Wildcard: u32 = 1u32;
+#[repr(C)]
 pub struct PALLOCMEM(i32);
+#[repr(C)]
 pub struct PARAM_BUFFER(i32);
 pub const PCM_VERSION_1: u32 = 1u32;
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
+#[repr(C)]
 pub struct PFREEMEM(i32);
+#[repr(C)]
 pub struct POLICY_DATA(i32);
+#[repr(C)]
 pub struct POLICY_ELEMENT(i32);
 pub const POLICY_ERRV_CRAZY_FLOWSPEC: u32 = 57u32;
 pub const POLICY_ERRV_EXPIRED_CREDENTIALS: u32 = 4u32;
@@ -339,48 +382,75 @@ pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 pub const PREDICTIVE_SERV: u32 = 3u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct QOS(i32);
 pub const QOSSPBASE: u32 = 50000u32;
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct QOS_DESTADDR(i32);
+#[repr(C)]
 pub struct QOS_DIFFSERV(i32);
+#[repr(C)]
 pub struct QOS_DIFFSERV_RULE(i32);
+#[repr(C)]
 pub struct QOS_DS_CLASS(i32);
+#[repr(C)]
 pub struct QOS_FLOWRATE_OUTGOING(i32);
+#[repr(C)]
 pub struct QOS_FLOWRATE_REASON(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct QOS_FLOW_FUNDAMENTALS(i32);
+#[repr(C)]
 pub struct QOS_FRIENDLY_NAME(i32);
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
 pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
+#[repr(C)]
 pub struct QOS_NOTIFY_FLOW(i32);
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
+#[repr(C)]
 pub struct QOS_OBJECT_HDR(i32);
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
+#[repr(C)]
 pub struct QOS_PACKET_PRIORITY(i32);
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
+#[repr(C)]
 pub struct QOS_QUERY_FLOW(i32);
+#[repr(C)]
 pub struct QOS_SD_MODE(i32);
+#[repr(C)]
 pub struct QOS_SET_FLOW(i32);
+#[repr(C)]
 pub struct QOS_SHAPING(i32);
+#[repr(C)]
 pub struct QOS_SHAPING_RATE(i32);
+#[repr(C)]
 pub struct QOS_TCP_TRAFFIC(i32);
+#[repr(C)]
 pub struct QOS_TRAFFIC_CLASS(i32);
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
+#[repr(C)]
 pub struct QOS_TRAFFIC_TYPE(i32);
+#[repr(C)]
 pub struct QOS_VERSION(i32);
 pub const QUALITATIVE_SERV: u32 = 6u32;
+#[repr(C)]
 pub struct QualAppFlowSpec(i32);
+#[repr(C)]
 pub struct QualTspec(i32);
+#[repr(C)]
 pub struct QualTspecParms(i32);
 pub const RCVD_PATH_TEAR: u32 = 1u32;
 pub const RCVD_RESV_TEAR: u32 = 2u32;
 pub const RESOURCES_ALLOCATED: u32 = 1u32;
 pub const RESOURCES_MODIFIED: u32 = 2u32;
+#[repr(C)]
 pub struct RESV_STYLE(i32);
+#[repr(C)]
 pub struct RHANDLE(i32);
+#[repr(C)]
 pub struct RSVP_ADSPEC(i32);
 pub const RSVP_DEFAULT_STYLE: u32 = 0u32;
 pub const RSVP_Err_ADMISSION: u32 = 1u32;
@@ -415,37 +485,54 @@ pub const RSVP_Erv_No_Serv: u32 = 2u32;
 pub const RSVP_Erv_Nonev: u32 = 0u32;
 pub const RSVP_Erv_Other: u32 = 0u32;
 pub const RSVP_Erv_Peak_Rate: u32 = 32771u32;
+#[repr(C)]
 pub struct RSVP_FILTERSPEC(i32);
+#[repr(C)]
 pub struct RSVP_FILTERSPEC_V4(i32);
+#[repr(C)]
 pub struct RSVP_FILTERSPEC_V4_GPI(i32);
+#[repr(C)]
 pub struct RSVP_FILTERSPEC_V6(i32);
+#[repr(C)]
 pub struct RSVP_FILTERSPEC_V6_FLOW(i32);
+#[repr(C)]
 pub struct RSVP_FILTERSPEC_V6_GPI(i32);
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RSVP_HOP(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RSVP_MSG_OBJS(i32);
 pub const RSVP_OBJECT_ID_BASE: u32 = 1000u32;
 pub const RSVP_PATH: u32 = 1u32;
 pub const RSVP_PATH_ERR: u32 = 3u32;
 pub const RSVP_PATH_TEAR: u32 = 5u32;
+#[repr(C)]
 pub struct RSVP_POLICY(i32);
+#[repr(C)]
 pub struct RSVP_POLICY_INFO(i32);
+#[repr(C)]
 pub struct RSVP_RESERVE_INFO(i32);
 pub const RSVP_RESV: u32 = 2u32;
 pub const RSVP_RESV_ERR: u32 = 4u32;
 pub const RSVP_RESV_TEAR: u32 = 6u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RSVP_SCOPE(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RSVP_SESSION(i32);
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
+#[repr(C)]
 pub struct RSVP_STATUS_INFO(i32);
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
+#[repr(C)]
 pub struct RsvpObjHdr(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct Rsvp_Hop_IPv4(i32);
+#[repr(C)]
 pub struct SENDER_TSPEC(i32);
 pub const SERVICETYPE_BESTEFFORT: u32 = 1u32;
 pub const SERVICETYPE_CONTROLLEDLOAD: u32 = 2u32;
@@ -628,21 +715,33 @@ pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
 pub const SIPALOGVERSION: u32 = 1u32;
 pub const STATE_TIMEOUT: u32 = 4u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct Scope_list_ipv4(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct Session_IPv4(i32);
 pub const TCBASE: u32 = 7500u32;
+#[repr(C)]
 pub struct TCG_PCClientPCREventStruct(i32);
+#[repr(C)]
 pub struct TCG_PCClientTaggedEventStruct(i32);
+#[repr(C)]
 pub struct TCI_ADD_FLOW_COMPLETE_HANDLER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TCI_CLIENT_FUNC_LIST(i32);
+#[repr(C)]
 pub struct TCI_DEL_FLOW_COMPLETE_HANDLER(i32);
+#[repr(C)]
 pub struct TCI_MOD_FLOW_COMPLETE_HANDLER(i32);
+#[repr(C)]
 pub struct TCI_NOTIFY_HANDLER(i32);
+#[repr(C)]
 pub struct TC_GEN_FILTER(i32);
+#[repr(C)]
 pub struct TC_GEN_FLOW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[repr(C)]
 pub struct TC_IFC_DESCRIPTOR(i32);
 pub const TC_NONCONF_BORROW: u32 = 0u32;
 pub const TC_NONCONF_BORROW_PLUS: u32 = 3u32;
@@ -654,6 +753,7 @@ pub const TC_NOTIFY_IFC_CLOSE: u32 = 2u32;
 pub const TC_NOTIFY_IFC_UP: u32 = 1u32;
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4u32;
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[repr(C)]
 pub struct TC_SUPPORTED_INFO_BUFFER(i32);
 pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_256: u32 = 32u32;
@@ -673,17 +773,29 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_384: u32 = 12u32;
 pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
+#[repr(C)]
 pub struct WBCL_Iterator(i32);
+#[repr(C)]
 pub struct WBCL_LogHdr(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct flow_desc(i32);
+#[repr(C)]
 pub struct int_serv_wkp(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct lpmiptable(i32);
+#[repr(C)]
 pub struct policy_decision(i32);
+#[repr(C)]
 pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD(i32);
+#[repr(C)]
 pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD(i32);
+#[repr(C)]
 pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1(i32);
+#[repr(C)]
 pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD(i32);
+#[repr(C)]
 pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD(i32);
+#[repr(C)]
 pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO(i32);

@@ -447,7 +447,9 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn WinRTPropertyValueToPropVariant(punkpropertyvalue: ::windows_sys::core::IUnknown, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct DRAWPROGRESSFLAGS(i32);
+#[repr(C)]
 pub struct GETPROPERTYSTOREFLAGS(i32);
 #[repr(transparent)]
 pub struct ICreateObject(pub *mut ::core::ffi::c_void);
@@ -501,38 +503,71 @@ pub struct IPropertySystem(pub *mut ::core::ffi::c_void);
 pub struct IPropertySystemChangeNotify(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPropertyUI(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InMemoryPropertyStore(i32);
+#[repr(C)]
 pub struct InMemoryPropertyStoreMarshalByValue(i32);
+#[repr(C)]
 pub struct PDOPSTATUS(i32);
+#[repr(C)]
 pub struct PKA_FLAGS(i32);
 pub const PKEY_PIDSTR_MAX: u32 = 10u32;
+#[repr(C)]
 pub struct PLACEHOLDER_STATES(i32);
+#[repr(C)]
 pub struct PROPDESC_AGGREGATION_TYPE(i32);
+#[repr(C)]
 pub struct PROPDESC_COLUMNINDEX_TYPE(i32);
+#[repr(C)]
 pub struct PROPDESC_CONDITION_TYPE(i32);
+#[repr(C)]
 pub struct PROPDESC_DISPLAYTYPE(i32);
+#[repr(C)]
 pub struct PROPDESC_ENUMFILTER(i32);
+#[repr(C)]
 pub struct PROPDESC_FORMAT_FLAGS(i32);
+#[repr(C)]
 pub struct PROPDESC_GROUPING_RANGE(i32);
+#[repr(C)]
 pub struct PROPDESC_RELATIVEDESCRIPTION_TYPE(i32);
+#[repr(C)]
 pub struct PROPDESC_SEARCHINFO_FLAGS(i32);
+#[repr(C)]
 pub struct PROPDESC_SORTDESCRIPTION(i32);
+#[repr(C)]
 pub struct PROPDESC_TYPE_FLAGS(i32);
+#[repr(C)]
 pub struct PROPDESC_VIEW_FLAGS(i32);
+#[repr(C)]
 pub struct PROPENUMTYPE(i32);
+#[repr(C)]
 pub struct PROPERTYKEY(i32);
+#[repr(C)]
 pub struct PROPERTYUI_FLAGS(i32);
+#[repr(C)]
 pub struct PROPERTYUI_FORMAT_FLAGS(i32);
+#[repr(C)]
 pub struct PROPERTYUI_NAME_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROPPRG(i32);
+#[repr(C)]
 pub struct PROPVAR_CHANGE_FLAGS(i32);
+#[repr(C)]
 pub struct PROPVAR_COMPARE_FLAGS(i32);
+#[repr(C)]
 pub struct PROPVAR_COMPARE_UNIT(i32);
+#[repr(C)]
 pub struct PSC_STATE(i32);
+#[repr(C)]
 pub struct PSTIME_FLAGS(i32);
+#[repr(C)]
 pub struct PropertySystem(i32);
+#[repr(C)]
 pub struct SERIALIZEDPROPSTORAGE(i32);
+#[repr(C)]
 pub struct SYNC_ENGINE_STATE_FLAGS(i32);
+#[repr(C)]
 pub struct SYNC_TRANSFER_STATUS(i32);
+#[repr(C)]
 pub struct _PERSIST_SPROPSTORE_FLAGS(i32);

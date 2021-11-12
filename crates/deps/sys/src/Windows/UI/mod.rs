@@ -31,6 +31,7 @@ pub mod WindowManagement;
 pub mod Xaml;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct Color(i32);
 #[repr(transparent)]
 pub struct ColorHelper(pub *mut ::core::ffi::c_void);
@@ -54,4 +55,5 @@ pub struct IUIContext(pub *mut ::core::ffi::c_void);
 pub struct UIContentRoot(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UIContext(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WindowId(i32);

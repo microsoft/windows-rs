@@ -9,6 +9,7 @@ pub struct BindingBase(pub *mut ::core::ffi::c_void);
 pub struct BindingExpression(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BindingExpressionBase(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BindingMode(i32);
 #[repr(transparent)]
 pub struct BindingOperations(pub *mut ::core::ffi::c_void);
@@ -82,6 +83,7 @@ pub struct ISupportIncrementalLoading(pub *mut ::core::ffi::c_void);
 pub struct IValueConverter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ItemIndexRange(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LoadMoreItemsResult(i32);
 #[repr(transparent)]
 pub struct PropertyChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -89,5 +91,7 @@ pub struct PropertyChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct PropertyChangedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RelativeSource(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RelativeSourceMode(i32);
+#[repr(C)]
 pub struct UpdateSourceTrigger(i32);

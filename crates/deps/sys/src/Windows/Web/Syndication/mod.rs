@@ -47,6 +47,7 @@ pub struct ISyndicationPersonFactory(pub *mut ::core::ffi::c_void);
 pub struct ISyndicationText(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISyndicationTextFactory(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RetrievalProgress(i32);
 #[repr(transparent)]
 pub struct SyndicationAttribute(pub *mut ::core::ffi::c_void);
@@ -58,9 +59,11 @@ pub struct SyndicationClient(pub *mut ::core::ffi::c_void);
 pub struct SyndicationContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationError(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SyndicationErrorStatus(i32);
 #[repr(transparent)]
 pub struct SyndicationFeed(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SyndicationFormat(i32);
 #[repr(transparent)]
 pub struct SyndicationGenerator(pub *mut ::core::ffi::c_void);
@@ -74,5 +77,7 @@ pub struct SyndicationNode(pub *mut ::core::ffi::c_void);
 pub struct SyndicationPerson(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationText(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SyndicationTextType(i32);
+#[repr(C)]
 pub struct TransferProgress(i32);

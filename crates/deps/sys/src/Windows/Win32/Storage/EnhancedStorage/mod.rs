@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct ACT_AUTHORIZATION_STATE(i32);
+#[repr(C)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(i32);
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
 pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
@@ -341,6 +343,7 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI
     pid: 6u32,
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -696,9 +699,13 @@ pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
 pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
 pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
 pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
+#[repr(C)]
 pub struct EnhancedStorageACT(i32);
+#[repr(C)]
 pub struct EnhancedStorageSilo(i32);
+#[repr(C)]
 pub struct EnhancedStorageSiloAction(i32);
+#[repr(C)]
 pub struct EnumEnhancedStorageACT(i32);
 pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
@@ -8240,6 +8247,7 @@ pub const RATING_TWO_STARS_SET: u32 = 25u32;
 pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
+#[repr(C)]
 pub struct SILO_INFO(i32);
 pub const STORAGE_PROVIDER_SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PRIVATE: u32 = 2u32;

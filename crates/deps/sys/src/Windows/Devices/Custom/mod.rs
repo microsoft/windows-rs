@@ -3,8 +3,11 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct CustomDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CustomDeviceContract(i32);
+#[repr(C)]
 pub struct DeviceAccessMode(i32);
+#[repr(C)]
 pub struct DeviceSharingMode(i32);
 #[repr(transparent)]
 pub struct ICustomDevice(pub *mut ::core::ffi::c_void);
@@ -16,7 +19,9 @@ pub struct IIOControlCode(pub *mut ::core::ffi::c_void);
 pub struct IIOControlCodeFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IKnownDeviceTypesStatics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IOControlAccessMode(i32);
+#[repr(C)]
 pub struct IOControlBufferingMethod(i32);
 #[repr(transparent)]
 pub struct IOControlCode(pub *mut ::core::ffi::c_void);

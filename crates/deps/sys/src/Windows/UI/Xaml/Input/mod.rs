@@ -23,6 +23,7 @@ pub struct DoubleTappedRoutedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ExecuteRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FindNextElementOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FocusInputDeviceKind(i32);
 #[repr(transparent)]
 pub struct FocusManager(pub *mut ::core::ffi::c_void);
@@ -32,6 +33,7 @@ pub struct FocusManagerGotFocusEventArgs(pub *mut ::core::ffi::c_void);
 pub struct FocusManagerLostFocusEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FocusMovementResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FocusNavigationDirection(i32);
 #[repr(transparent)]
 pub struct GettingFocusEventArgs(pub *mut ::core::ffi::c_void);
@@ -183,17 +185,21 @@ pub struct InertiaTranslationBehavior(pub *mut ::core::ffi::c_void);
 pub struct InputScope(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InputScopeName(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InputScopeNameValue(i32);
 #[repr(transparent)]
 pub struct KeyEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyRoutedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KeyTipPlacementMode(i32);
 #[repr(transparent)]
 pub struct KeyboardAccelerator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyboardAcceleratorInvokedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KeyboardAcceleratorPlacementMode(i32);
+#[repr(C)]
 pub struct KeyboardNavigationMode(i32);
 #[repr(transparent)]
 pub struct LosingFocusEventArgs(pub *mut ::core::ffi::c_void);
@@ -209,6 +215,7 @@ pub struct ManipulationDeltaRoutedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ManipulationInertiaStartingEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingRoutedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ManipulationModes(i32);
 #[repr(transparent)]
 pub struct ManipulationPivot(pub *mut ::core::ffi::c_void);
@@ -236,13 +243,17 @@ pub struct RightTappedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct RightTappedRoutedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StandardUICommand(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StandardUICommandKind(i32);
 #[repr(transparent)]
 pub struct TappedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TappedRoutedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XYFocusKeyboardNavigationMode(i32);
+#[repr(C)]
 pub struct XYFocusNavigationStrategy(i32);
+#[repr(C)]
 pub struct XYFocusNavigationStrategyOverride(i32);
 #[repr(transparent)]
 pub struct XamlUICommand(pub *mut ::core::ffi::c_void);

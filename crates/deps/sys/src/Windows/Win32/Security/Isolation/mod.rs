@@ -24,6 +24,8 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IIsolatedAppLauncher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedAppLauncher(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IsolatedAppLauncherTelemetryParameters(i32);

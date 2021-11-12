@@ -17,13 +17,19 @@ extern "system" {}
 pub struct AmbientLight(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AnimationController(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AnimationControllerProgressBehavior(i32);
+#[repr(C)]
 pub struct AnimationDelayBehavior(i32);
+#[repr(C)]
 pub struct AnimationDirection(i32);
+#[repr(C)]
 pub struct AnimationIterationBehavior(i32);
+#[repr(C)]
 pub struct AnimationPropertyAccessMode(i32);
 #[repr(transparent)]
 pub struct AnimationPropertyInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AnimationStopBehavior(i32);
 #[repr(transparent)]
 pub struct BackEasingFunction(pub *mut ::core::ffi::c_void);
@@ -47,11 +53,15 @@ pub struct CompositionAnimation(pub *mut ::core::ffi::c_void);
 pub struct CompositionAnimationGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionBackdropBrush(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionBackfaceVisibility(i32);
 #[repr(transparent)]
 pub struct CompositionBatchCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionBatchTypes(i32);
+#[repr(C)]
 pub struct CompositionBitmapInterpolationMode(i32);
+#[repr(C)]
 pub struct CompositionBorderMode(i32);
 #[repr(transparent)]
 pub struct CompositionBrush(pub *mut ::core::ffi::c_void);
@@ -65,22 +75,27 @@ pub struct CompositionColorBrush(pub *mut ::core::ffi::c_void);
 pub struct CompositionColorGradientStop(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionColorGradientStopCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionColorSpace(i32);
 #[repr(transparent)]
 pub struct CompositionCommitBatch(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionCompositeMode(i32);
 #[repr(transparent)]
 pub struct CompositionContainerShape(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionDrawingSurface(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionDropShadowSourcePolicy(i32);
 #[repr(transparent)]
 pub struct CompositionEasingFunction(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionEasingFunctionMode(i32);
 #[repr(transparent)]
 pub struct CompositionEffectBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionEffectFactory(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionEffectFactoryLoadStatus(i32);
 #[repr(transparent)]
 pub struct CompositionEffectSourceParameter(pub *mut ::core::ffi::c_void);
@@ -90,9 +105,11 @@ pub struct CompositionEllipseGeometry(pub *mut ::core::ffi::c_void);
 pub struct CompositionGeometricClip(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionGeometry(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionGetValueStatus(i32);
 #[repr(transparent)]
 pub struct CompositionGradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionGradientExtendMode(i32);
 #[repr(transparent)]
 pub struct CompositionGraphicsDevice(pub *mut ::core::ffi::c_void);
@@ -102,6 +119,7 @@ pub struct CompositionLight(pub *mut ::core::ffi::c_void);
 pub struct CompositionLineGeometry(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionLinearGradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionMappingMode(i32);
 #[repr(transparent)]
 pub struct CompositionMaskBrush(pub *mut ::core::ffi::c_void);
@@ -143,10 +161,13 @@ pub struct CompositionShape(pub *mut ::core::ffi::c_void);
 pub struct CompositionShapeCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositionSpriteShape(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionStretch(i32);
+#[repr(C)]
 pub struct CompositionStrokeCap(i32);
 #[repr(transparent)]
 pub struct CompositionStrokeDashArray(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionStrokeLineJoin(i32);
 #[repr(transparent)]
 pub struct CompositionSurfaceBrush(pub *mut ::core::ffi::c_void);
@@ -543,6 +564,7 @@ pub struct ImplicitAnimationCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InitialValueExpressionCollection(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct InkTrailPoint(i32);
 #[repr(transparent)]
 pub struct InsetClip(pub *mut ::core::ffi::c_void);

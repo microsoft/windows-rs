@@ -19,7 +19,9 @@ pub struct ISpeechSynthesizerOptions2(pub *mut ::core::ffi::c_void);
 pub struct ISpeechSynthesizerOptions3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVoiceInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpeechAppendedSilence(i32);
+#[repr(C)]
 pub struct SpeechPunctuationSilence(i32);
 #[repr(transparent)]
 pub struct SpeechSynthesisStream(pub *mut ::core::ffi::c_void);
@@ -27,6 +29,7 @@ pub struct SpeechSynthesisStream(pub *mut ::core::ffi::c_void);
 pub struct SpeechSynthesizer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechSynthesizerOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VoiceGender(i32);
 #[repr(transparent)]
 pub struct VoiceInformation(pub *mut ::core::ffi::c_void);

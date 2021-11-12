@@ -5,14 +5,21 @@ extern "system" {
     pub fn CoGetInterceptorFromTypeInfo(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, typeinfo: super::ITypeInfo, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CALLFRAMEINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CALLFRAMEPARAMINFO(i32);
+#[repr(C)]
 pub struct CALLFRAME_COPY(i32);
+#[repr(C)]
 pub struct CALLFRAME_FREE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CALLFRAME_MARSHALCONTEXT(i32);
+#[repr(C)]
 pub struct CALLFRAME_NULL(i32);
+#[repr(C)]
 pub struct CALLFRAME_WALK(i32);
 #[repr(transparent)]
 pub struct ICallFrame(pub *mut ::core::ffi::c_void);

@@ -13,7 +13,11 @@ pub struct IGpioPinProviderValueChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct IGpioPinProviderValueChangedEventArgsFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IGpioProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ProviderGpioPinDriveMode(i32);
+#[repr(C)]
 pub struct ProviderGpioPinEdge(i32);
+#[repr(C)]
 pub struct ProviderGpioPinValue(i32);
+#[repr(C)]
 pub struct ProviderGpioSharingMode(i32);

@@ -25,13 +25,17 @@ pub struct IWiFiDirectServiceSessionRequestedEventArgs(pub *mut ::core::ffi::c_v
 pub struct IWiFiDirectServiceStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectService(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectServiceAdvertisementStatus(i32);
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertiser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectServiceConfigurationMethod(i32);
+#[repr(C)]
 pub struct WiFiDirectServiceError(i32);
+#[repr(C)]
 pub struct WiFiDirectServiceIPProtocol(i32);
 #[repr(transparent)]
 pub struct WiFiDirectServiceProvisioningInfo(pub *mut ::core::ffi::c_void);
@@ -41,10 +45,13 @@ pub struct WiFiDirectServiceRemotePortAddedEventArgs(pub *mut ::core::ffi::c_voi
 pub struct WiFiDirectServiceSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectServiceSessionErrorStatus(i32);
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectServiceSessionStatus(i32);
+#[repr(C)]
 pub struct WiFiDirectServiceStatus(i32);

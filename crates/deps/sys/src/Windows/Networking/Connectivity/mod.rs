@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct AttributedNetworkUsage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CellularApnAuthenticationType(i32);
 #[repr(transparent)]
 pub struct CellularApnContext(pub *mut ::core::ffi::c_void);
@@ -10,6 +11,7 @@ pub struct CellularApnContext(pub *mut ::core::ffi::c_void);
 pub struct ConnectionCost(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ConnectionProfile(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ConnectionProfileDeleteStatus(i32);
 #[repr(transparent)]
 pub struct ConnectionProfileFilter(pub *mut ::core::ffi::c_void);
@@ -25,7 +27,9 @@ pub struct DataPlanStatus(pub *mut ::core::ffi::c_void);
 pub struct DataPlanUsage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DataUsage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DataUsageGranularity(i32);
+#[repr(C)]
 pub struct DomainConnectivityLevel(i32);
 #[repr(transparent)]
 pub struct IAttributedNetworkUsage(pub *mut ::core::ffi::c_void);
@@ -109,9 +113,13 @@ pub struct LanIdentifier(pub *mut ::core::ffi::c_void);
 pub struct LanIdentifierData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkAdapter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NetworkAuthenticationType(i32);
+#[repr(C)]
 pub struct NetworkConnectivityLevel(i32);
+#[repr(C)]
 pub struct NetworkCostType(i32);
+#[repr(C)]
 pub struct NetworkEncryptionType(i32);
 #[repr(transparent)]
 pub struct NetworkInformation(pub *mut ::core::ffi::c_void);
@@ -123,23 +131,31 @@ pub struct NetworkSecuritySettings(pub *mut ::core::ffi::c_void);
 pub struct NetworkStateChangeEventDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkStatusChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NetworkTypes(i32);
 #[repr(transparent)]
 pub struct NetworkUsage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NetworkUsageStates(i32);
 #[repr(transparent)]
 pub struct ProviderNetworkUsage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProxyConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RoamingStates(i32);
 #[repr(transparent)]
 pub struct RoutePolicy(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TriStates(i32);
 #[repr(transparent)]
 pub struct WlanConnectionProfileDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WwanConnectionProfileDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WwanContract(i32);
+#[repr(C)]
 pub struct WwanDataClass(i32);
+#[repr(C)]
 pub struct WwanNetworkIPKind(i32);
+#[repr(C)]
 pub struct WwanNetworkRegistrationState(i32);

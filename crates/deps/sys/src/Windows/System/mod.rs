@@ -33,17 +33,21 @@ pub struct AppDiagnosticInfo(pub *mut ::core::ffi::c_void);
 pub struct AppDiagnosticInfoWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppDiagnosticInfoWatcherStatus(i32);
 #[repr(transparent)]
 pub struct AppExecutionStateChangeResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppMemoryReport(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppMemoryUsageLevel(i32);
 #[repr(transparent)]
 pub struct AppMemoryUsageLimitChangingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppResourceGroupBackgroundTaskReport(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppResourceGroupEnergyQuotaState(i32);
+#[repr(C)]
 pub struct AppResourceGroupExecutionState(i32);
 #[repr(transparent)]
 pub struct AppResourceGroupInfo(pub *mut ::core::ffi::c_void);
@@ -53,6 +57,7 @@ pub struct AppResourceGroupInfoWatcher(pub *mut ::core::ffi::c_void);
 pub struct AppResourceGroupInfoWatcherEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppResourceGroupInfoWatcherStatus(i32);
 #[repr(transparent)]
 pub struct AppResourceGroupMemoryReport(pub *mut ::core::ffi::c_void);
@@ -64,9 +69,11 @@ pub struct AppUriHandlerHost(pub *mut ::core::ffi::c_void);
 pub struct AppUriHandlerRegistration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppUriHandlerRegistrationManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutoUpdateTimeZoneStatus(i32);
 #[repr(transparent)]
 pub struct DateTimeSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DiagnosticAccessStatus(i32);
 #[repr(transparent)]
 pub struct DispatcherQueue(pub *mut ::core::ffi::c_void);
@@ -74,6 +81,7 @@ pub struct DispatcherQueue(pub *mut ::core::ffi::c_void);
 pub struct DispatcherQueueController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DispatcherQueueHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DispatcherQueuePriority(i32);
 #[repr(transparent)]
 pub struct DispatcherQueueShutdownStartingEventArgs(pub *mut ::core::ffi::c_void);
@@ -243,11 +251,15 @@ pub struct IUserStatics2(pub *mut ::core::ffi::c_void);
 pub struct IUserWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KnownUserProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LaunchFileStatus(i32);
+#[repr(C)]
 pub struct LaunchQuerySupportStatus(i32);
+#[repr(C)]
 pub struct LaunchQuerySupportType(i32);
 #[repr(transparent)]
 pub struct LaunchUriResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LaunchUriStatus(i32);
 #[repr(transparent)]
 pub struct Launcher(pub *mut ::core::ffi::c_void);
@@ -257,6 +269,7 @@ pub struct LauncherOptions(pub *mut ::core::ffi::c_void);
 pub struct LauncherUIOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MemoryManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PowerState(i32);
 #[repr(transparent)]
 pub struct ProcessLauncher(pub *mut ::core::ffi::c_void);
@@ -266,24 +279,31 @@ pub struct ProcessLauncherOptions(pub *mut ::core::ffi::c_void);
 pub struct ProcessLauncherResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProcessMemoryReport(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ProcessorArchitecture(i32);
 #[repr(transparent)]
 pub struct ProtocolForResultsOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteLaunchUriStatus(i32);
 #[repr(transparent)]
 pub struct RemoteLauncher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteLauncherOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ShutdownKind(i32);
 #[repr(transparent)]
 pub struct ShutdownManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SystemManagementContract(i32);
 #[repr(transparent)]
 pub struct TimeZoneSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct User(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserAgeConsentGroup(i32);
+#[repr(C)]
 pub struct UserAgeConsentResult(i32);
+#[repr(C)]
 pub struct UserAuthenticationStatus(i32);
 #[repr(transparent)]
 pub struct UserAuthenticationStatusChangeDeferral(pub *mut ::core::ffi::c_void);
@@ -297,11 +317,17 @@ pub struct UserDeviceAssociation(pub *mut ::core::ffi::c_void);
 pub struct UserDeviceAssociationChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserPicker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserPictureSize(i32);
+#[repr(C)]
 pub struct UserType(i32);
 #[repr(transparent)]
 pub struct UserWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserWatcherStatus(i32);
+#[repr(C)]
 pub struct UserWatcherUpdateKind(i32);
+#[repr(C)]
 pub struct VirtualKey(i32);
+#[repr(C)]
 pub struct VirtualKeyModifiers(i32);

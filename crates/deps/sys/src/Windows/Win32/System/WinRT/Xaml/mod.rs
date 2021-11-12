@@ -36,5 +36,7 @@ pub struct ITrackerOwner(pub *mut ::core::ffi::c_void);
 pub struct IVirtualSurfaceImageSourceNative(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVirtualSurfaceUpdatesCallbackNative(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TrackerHandle__(i32);
+#[repr(C)]
 pub struct XAML_REFERENCETRACKER_DISCONNECT(i32);

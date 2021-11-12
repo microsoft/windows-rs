@@ -3,9 +3,11 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct GameService(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameServiceGameOutcome(i32);
 #[repr(transparent)]
 pub struct GameServicePropertyCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameServiceScoreKind(i32);
 #[repr(transparent)]
 pub struct IGameService(pub *mut ::core::ffi::c_void);

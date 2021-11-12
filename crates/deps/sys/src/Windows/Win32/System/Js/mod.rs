@@ -109,14 +109,25 @@ extern "system" {
     pub fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
 }
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
+#[repr(C)]
 pub struct JsBackgroundWorkItemCallback(i32);
+#[repr(C)]
 pub struct JsBeforeCollectCallback(i32);
+#[repr(C)]
 pub struct JsErrorCode(i32);
+#[repr(C)]
 pub struct JsFinalizeCallback(i32);
+#[repr(C)]
 pub struct JsMemoryAllocationCallback(i32);
+#[repr(C)]
 pub struct JsMemoryEventType(i32);
+#[repr(C)]
 pub struct JsNativeFunction(i32);
+#[repr(C)]
 pub struct JsRuntimeAttributes(i32);
+#[repr(C)]
 pub struct JsRuntimeVersion(i32);
+#[repr(C)]
 pub struct JsThreadServiceCallback(i32);
+#[repr(C)]
 pub struct JsValueType(i32);

@@ -75,7 +75,9 @@ pub struct MediaFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MediaFrameFormat(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaFrameReaderAcquisitionMode(i32);
+#[repr(C)]
 pub struct MediaFrameReaderStartStatus(i32);
 #[repr(transparent)]
 pub struct MediaFrameReference(pub *mut ::core::ffi::c_void);
@@ -85,17 +87,21 @@ pub struct MediaFrameSource(pub *mut ::core::ffi::c_void);
 pub struct MediaFrameSourceController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaFrameSourceGetPropertyResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaFrameSourceGetPropertyStatus(i32);
 #[repr(transparent)]
 pub struct MediaFrameSourceGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaFrameSourceInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaFrameSourceKind(i32);
+#[repr(C)]
 pub struct MediaFrameSourceSetPropertyStatus(i32);
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MultiSourceMediaFrameReaderStartStatus(i32);
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReference(pub *mut ::core::ffi::c_void);

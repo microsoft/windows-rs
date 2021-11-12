@@ -12,51 +12,92 @@ extern "system" {
     pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
 }
+#[repr(C)]
 pub struct AppDomainHelper(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ApplicationProcessRecycleInfo(i32);
+#[repr(C)]
 pub struct ApplicationProcessStatistics(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ApplicationProcessSummary(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ApplicationSummary(i32);
+#[repr(C)]
 pub struct AutoSvcs_Error_Constants(i32);
+#[repr(C)]
 pub struct ByotServerEx(i32);
+#[repr(C)]
 pub struct CAppData(i32);
+#[repr(C)]
 pub struct CAppStatistics(i32);
+#[repr(C)]
 pub struct CCLSIDData(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CCLSIDData2(i32);
+#[repr(C)]
 pub struct COMAdminAccessChecksLevelOptions(i32);
+#[repr(C)]
 pub struct COMAdminActivationOptions(i32);
+#[repr(C)]
 pub struct COMAdminApplicationExportOptions(i32);
+#[repr(C)]
 pub struct COMAdminApplicationInstallOptions(i32);
+#[repr(C)]
 pub struct COMAdminAuthenticationCapabilitiesOptions(i32);
+#[repr(C)]
 pub struct COMAdminAuthenticationLevelOptions(i32);
+#[repr(C)]
 pub struct COMAdminCatalog(i32);
+#[repr(C)]
 pub struct COMAdminCatalogCollection(i32);
+#[repr(C)]
 pub struct COMAdminCatalogObject(i32);
+#[repr(C)]
 pub struct COMAdminComponentFlags(i32);
+#[repr(C)]
 pub struct COMAdminComponentType(i32);
+#[repr(C)]
 pub struct COMAdminErrorCodes(i32);
+#[repr(C)]
 pub struct COMAdminFileFlags(i32);
+#[repr(C)]
 pub struct COMAdminImpersonationLevelOptions(i32);
+#[repr(C)]
 pub struct COMAdminInUse(i32);
+#[repr(C)]
 pub struct COMAdminOS(i32);
+#[repr(C)]
 pub struct COMAdminQCMessageAuthenticateOptions(i32);
+#[repr(C)]
 pub struct COMAdminServiceOptions(i32);
+#[repr(C)]
 pub struct COMAdminServiceStatusOptions(i32);
+#[repr(C)]
 pub struct COMAdminSynchronizationOptions(i32);
+#[repr(C)]
 pub struct COMAdminThreadingModels(i32);
+#[repr(C)]
 pub struct COMAdminTransactionOptions(i32);
+#[repr(C)]
 pub struct COMAdminTxIsolationLevelOptions(i32);
+#[repr(C)]
 pub struct COMEvents(i32);
+#[repr(C)]
 pub struct COMPLUS_APPTYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COMSVCSEVENTINFO(i32);
+#[repr(C)]
 pub struct CRMClerk(i32);
+#[repr(C)]
 pub struct CRMFLAGS(i32);
+#[repr(C)]
 pub struct CRMREGFLAGS(i32);
+#[repr(C)]
 pub struct CRMRecoveryClerk(i32);
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
@@ -64,42 +105,69 @@ pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
 pub const CRR_MEMORY_LIMIT: u32 = 4294967292u32;
 pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
+#[repr(C)]
 pub struct CSC_Binding(i32);
+#[repr(C)]
 pub struct CSC_COMTIIntrinsicsConfig(i32);
+#[repr(C)]
 pub struct CSC_IISIntrinsicsConfig(i32);
+#[repr(C)]
 pub struct CSC_InheritanceConfig(i32);
+#[repr(C)]
 pub struct CSC_PartitionConfig(i32);
+#[repr(C)]
 pub struct CSC_SxsConfig(i32);
+#[repr(C)]
 pub struct CSC_SynchronizationConfig(i32);
+#[repr(C)]
 pub struct CSC_ThreadPool(i32);
+#[repr(C)]
 pub struct CSC_TrackerConfig(i32);
+#[repr(C)]
 pub struct CSC_TransactionConfig(i32);
+#[repr(C)]
 pub struct CServiceConfig(i32);
+#[repr(C)]
 pub struct ClrAssemblyLocator(i32);
+#[repr(C)]
 pub struct CoMTSLocator(i32);
+#[repr(C)]
 pub struct ComServiceEvents(i32);
+#[repr(C)]
 pub struct ComSystemAppEventData(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ComponentHangMonitorInfo(i32);
+#[repr(C)]
 pub struct ComponentStatistics(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ComponentSummary(i32);
 #[repr(transparent)]
 pub struct ContextInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContextInfo2(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct CrmLogRecordRead(i32);
+#[repr(C)]
 pub struct CrmTransactionState(i32);
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
+#[repr(C)]
 pub struct DUMPTYPE(i32);
+#[repr(C)]
 pub struct DispenserManager(i32);
+#[repr(C)]
 pub struct Dummy30040732(i32);
+#[repr(C)]
 pub struct EventServer(i32);
 pub const GUID_STRING_SIZE: u32 = 40u32;
+#[repr(C)]
 pub struct GetAppTrackerDataFlags(i32);
+#[repr(C)]
 pub struct GetSecurityCallContextAppObject(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HANG_INFO(i32);
 #[repr(transparent)]
 pub struct IAppDomainHelper(pub *mut ::core::ffi::c_void);
@@ -337,30 +405,50 @@ pub struct ITransactionResourcePool(pub *mut ::core::ffi::c_void);
 pub struct ITransactionStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITxProxyHolder(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LBEvents(i32);
+#[repr(C)]
 pub struct LockModes(i32);
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
+#[repr(C)]
 pub struct MessageMover(i32);
+#[repr(C)]
 pub struct MtsGrp(i32);
 #[repr(transparent)]
 pub struct ObjectContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ObjectControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PoolMgr(i32);
+#[repr(C)]
 pub struct RECYCLE_INFO(i32);
+#[repr(C)]
 pub struct ReleaseModes(i32);
+#[repr(C)]
 pub struct SecurityCallContext(i32);
+#[repr(C)]
 pub struct SecurityCallers(i32);
+#[repr(C)]
 pub struct SecurityIdentity(i32);
 #[repr(transparent)]
 pub struct SecurityProperty(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ServicePool(i32);
+#[repr(C)]
 pub struct ServicePoolConfig(i32);
+#[repr(C)]
 pub struct SharedProperty(i32);
+#[repr(C)]
 pub struct SharedPropertyGroup(i32);
+#[repr(C)]
 pub struct SharedPropertyGroupManager(i32);
+#[repr(C)]
 pub struct TRACKING_COLL_TYPE(i32);
+#[repr(C)]
 pub struct TrackerServer(i32);
+#[repr(C)]
 pub struct TransactionContext(i32);
+#[repr(C)]
 pub struct TransactionContextEx(i32);
+#[repr(C)]
 pub struct TransactionVote(i32);

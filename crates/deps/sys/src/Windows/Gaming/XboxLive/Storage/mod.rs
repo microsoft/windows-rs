@@ -17,6 +17,7 @@ pub struct GameSaveContainerInfo(pub *mut ::core::ffi::c_void);
 pub struct GameSaveContainerInfoGetResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GameSaveContainerInfoQuery(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameSaveErrorStatus(i32);
 #[repr(transparent)]
 pub struct GameSaveOperationResult(pub *mut ::core::ffi::c_void);

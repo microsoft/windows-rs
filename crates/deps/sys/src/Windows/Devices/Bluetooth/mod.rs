@@ -11,15 +11,19 @@ pub mod Rfcomm;
 extern "system" {}
 #[repr(transparent)]
 pub struct BluetoothAdapter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BluetoothAddressType(i32);
+#[repr(C)]
 pub struct BluetoothCacheMode(i32);
 #[repr(transparent)]
 pub struct BluetoothClassOfDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BluetoothConnectionStatus(i32);
 #[repr(transparent)]
 pub struct BluetoothDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BluetoothDeviceId(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BluetoothError(i32);
 #[repr(transparent)]
 pub struct BluetoothLEAppearance(pub *mut ::core::ffi::c_void);
@@ -39,9 +43,13 @@ pub struct BluetoothLEDevice(pub *mut ::core::ffi::c_void);
 pub struct BluetoothLEPreferredConnectionParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(i32);
+#[repr(C)]
 pub struct BluetoothMajorClass(i32);
+#[repr(C)]
 pub struct BluetoothMinorClass(i32);
+#[repr(C)]
 pub struct BluetoothServiceCapabilities(i32);
 #[repr(transparent)]
 pub struct BluetoothSignalStrengthFilter(pub *mut ::core::ffi::c_void);

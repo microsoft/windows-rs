@@ -5,4 +5,5 @@ extern "system" {}
 pub struct CorePerceptionAutomation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ICorePerceptionAutomationStatics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PerceptionAutomationCoreContract(i32);

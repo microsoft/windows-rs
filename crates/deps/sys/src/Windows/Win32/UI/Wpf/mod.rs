@@ -48,6 +48,9 @@ pub struct IMILBitmapEffectRenderContextImpl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMILBitmapEffects(pub *mut ::core::ffi::c_void);
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
+#[repr(C)]
 pub struct MILMatrixF(i32);
+#[repr(C)]
 pub struct MilPoint2D(i32);
+#[repr(C)]
 pub struct MilRectD(i32);

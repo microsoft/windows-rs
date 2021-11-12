@@ -7,6 +7,7 @@ pub struct HidBooleanControl(pub *mut ::core::ffi::c_void);
 pub struct HidBooleanControlDescription(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HidCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HidCollectionType(i32);
 #[repr(transparent)]
 pub struct HidDevice(pub *mut ::core::ffi::c_void);
@@ -22,6 +23,7 @@ pub struct HidNumericControl(pub *mut ::core::ffi::c_void);
 pub struct HidNumericControlDescription(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HidOutputReport(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HidReportType(i32);
 #[repr(transparent)]
 pub struct IHidBooleanControl(pub *mut ::core::ffi::c_void);

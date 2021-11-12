@@ -10,19 +10,27 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DtcGetTransactionManagerExW(i_pwszhost: super::super::Foundation::PWSTR, i_pwsztmname: super::super::Foundation::PWSTR, i_riid: *const ::windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct APPLICATIONTYPE(i32);
+#[repr(C)]
 pub struct AUTHENTICATION_LEVEL(i32);
+#[repr(C)]
 pub struct BOID(i32);
 pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 972609387, data2: 2344, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
 pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1528343393, data2: 2333, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
+#[repr(C)]
 pub struct DTC_GET_TRANSACTION_MANAGER(i32);
+#[repr(C)]
 pub struct DTC_GET_TRANSACTION_MANAGER_EX_A(i32);
+#[repr(C)]
 pub struct DTC_GET_TRANSACTION_MANAGER_EX_W(i32);
+#[repr(C)]
 pub struct DTC_INSTALL_CLIENT(i32);
 pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
+#[repr(C)]
 pub struct DTC_STATUS_(i32);
 #[repr(transparent)]
 pub struct IDtcLuConfigure(pub *mut ::core::ffi::c_void);
@@ -90,7 +98,9 @@ pub struct IResourceManagerFactory2(pub *mut ::core::ffi::c_void);
 pub struct IResourceManagerRejoinable(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IResourceManagerSink(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ISOFLAG(i32);
+#[repr(C)]
 pub struct ISOLATIONLEVEL(i32);
 #[repr(transparent)]
 pub struct ITipHelper(pub *mut ::core::ffi::c_void);
@@ -161,7 +171,9 @@ pub struct IXATransLookup2(pub *mut ::core::ffi::c_void);
 pub const MAXBQUALSIZE: u32 = 64u32;
 pub const MAXGTRIDSIZE: u32 = 64u32;
 pub const MAXINFOSIZE: u32 = 256u32;
+#[repr(C)]
 pub struct OLE_TM_CONFIG_PARAMS_V1(i32);
+#[repr(C)]
 pub struct OLE_TM_CONFIG_PARAMS_V2(i32);
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
 pub const OLE_TM_CONFIG_VERSION_2: u32 = 2u32;
@@ -193,16 +205,26 @@ pub const TMUSEASYNC: i32 = 4i32;
 pub const TM_JOIN: u32 = 2u32;
 pub const TM_OK: u32 = 0u32;
 pub const TM_RESUME: u32 = 1u32;
+#[repr(C)]
 pub struct TX_MISC_CONSTANTS(i32);
+#[repr(C)]
 pub struct XACTCONST(i32);
+#[repr(C)]
 pub struct XACTHEURISTIC(i32);
+#[repr(C)]
 pub struct XACTOPT(i32);
+#[repr(C)]
 pub struct XACTRM(i32);
+#[repr(C)]
 pub struct XACTSTAT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct XACTSTATS(i32);
+#[repr(C)]
 pub struct XACTTC(i32);
+#[repr(C)]
 pub struct XACTTRANSINFO(i32);
+#[repr(C)]
 pub struct XACT_DTC_CONSTANTS(i32);
 pub const XAER_ASYNC: i32 = -2i32;
 pub const XAER_DUPID: i32 = -8i32;
@@ -212,12 +234,17 @@ pub const XAER_OUTSIDE: i32 = -9i32;
 pub const XAER_PROTO: i32 = -6i32;
 pub const XAER_RMERR: i32 = -3i32;
 pub const XAER_RMFAIL: i32 = -7i32;
+#[repr(C)]
 pub struct XA_CLOSE_EPT(i32);
+#[repr(C)]
 pub struct XA_COMMIT_EPT(i32);
+#[repr(C)]
 pub struct XA_COMPLETE_EPT(i32);
+#[repr(C)]
 pub struct XA_END_EPT(i32);
 pub const XA_FMTID_DTC: u32 = 4478019u32;
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
+#[repr(C)]
 pub struct XA_FORGET_EPT(i32);
 pub const XA_HEURCOM: u32 = 7u32;
 pub const XA_HEURHAZ: u32 = 8u32;
@@ -225,7 +252,9 @@ pub const XA_HEURMIX: u32 = 5u32;
 pub const XA_HEURRB: u32 = 6u32;
 pub const XA_NOMIGRATE: u32 = 9u32;
 pub const XA_OK: u32 = 0u32;
+#[repr(C)]
 pub struct XA_OPEN_EPT(i32);
+#[repr(C)]
 pub struct XA_PREPARE_EPT(i32);
 pub const XA_RBBASE: u32 = 100u32;
 pub const XA_RBCOMMFAIL: u32 = 101u32;
@@ -238,23 +267,38 @@ pub const XA_RBROLLBACK: u32 = 100u32;
 pub const XA_RBTIMEOUT: u32 = 106u32;
 pub const XA_RBTRANSIENT: u32 = 107u32;
 pub const XA_RDONLY: u32 = 3u32;
+#[repr(C)]
 pub struct XA_RECOVER_EPT(i32);
 pub const XA_RETRY: u32 = 4u32;
+#[repr(C)]
 pub struct XA_ROLLBACK_EPT(i32);
+#[repr(C)]
 pub struct XA_START_EPT(i32);
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
 pub const XIDDATASIZE: u32 = 128u32;
+#[repr(C)]
 pub struct _DtcLu_CompareState(i32);
+#[repr(C)]
 pub struct _DtcLu_CompareStates_Confirmation(i32);
+#[repr(C)]
 pub struct _DtcLu_CompareStates_Error(i32);
+#[repr(C)]
 pub struct _DtcLu_CompareStates_Response(i32);
+#[repr(C)]
 pub struct _DtcLu_LocalRecovery_Work(i32);
+#[repr(C)]
 pub struct _DtcLu_Xln(i32);
+#[repr(C)]
 pub struct _DtcLu_Xln_Confirmation(i32);
+#[repr(C)]
 pub struct _DtcLu_Xln_Error(i32);
+#[repr(C)]
 pub struct _DtcLu_Xln_Response(i32);
+#[repr(C)]
 pub struct _ProxyConfigParams(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct xa_switch_t(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct xid_t(i32);

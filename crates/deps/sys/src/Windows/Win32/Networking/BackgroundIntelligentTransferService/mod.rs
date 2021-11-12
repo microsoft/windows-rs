@@ -4,13 +4,19 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AsyncIBackgroundCopyCallback(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BG_AUTH_CREDENTIALS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BG_AUTH_CREDENTIALS_UNION(i32);
+#[repr(C)]
 pub struct BG_AUTH_SCHEME(i32);
+#[repr(C)]
 pub struct BG_AUTH_TARGET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BG_BASIC_CREDENTIALS(i32);
+#[repr(C)]
 pub struct BG_CERT_STORE_LOCATION(i32);
 pub const BG_COPY_FILE_ALL: u32 = 15u32;
 pub const BG_COPY_FILE_DACL: u32 = 4u32;
@@ -20,6 +26,7 @@ pub const BG_COPY_FILE_SACL: u32 = 8u32;
 pub const BG_DISABLE_BRANCH_CACHE: u32 = 4u32;
 pub const BG_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
 pub const BG_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
+#[repr(C)]
 pub struct BG_ERROR_CONTEXT(i32);
 pub const BG_E_APP_PACKAGE_NOT_FOUND: i32 = -2145386390i32;
 pub const BG_E_APP_PACKAGE_SCENARIO_NOT_SUPPORTED: i32 = -2145386389i32;
@@ -149,9 +156,12 @@ pub const BG_E_VALIDATION_FAILED: i32 = -2145386413i32;
 pub const BG_E_VOLUME_CHANGED: i32 = -2145386482i32;
 pub const BG_E_WATCHDOG_TIMEOUT: i32 = -2145386391i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BG_FILE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BG_FILE_PROGRESS(i32);
+#[repr(C)]
 pub struct BG_FILE_RANGE(i32);
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: u32 = 2048u32;
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: u32 = 256u32;
@@ -162,13 +172,20 @@ pub const BG_JOB_DISABLE_BRANCH_CACHE: u32 = 4u32;
 pub const BG_JOB_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
 pub const BG_JOB_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
 pub const BG_JOB_ENUM_ALL_USERS: u32 = 1u32;
+#[repr(C)]
 pub struct BG_JOB_PRIORITY(i32);
+#[repr(C)]
 pub struct BG_JOB_PROGRESS(i32);
+#[repr(C)]
 pub struct BG_JOB_PROXY_USAGE(i32);
+#[repr(C)]
 pub struct BG_JOB_REPLY_PROGRESS(i32);
+#[repr(C)]
 pub struct BG_JOB_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BG_JOB_TIMES(i32);
+#[repr(C)]
 pub struct BG_JOB_TYPE(i32);
 pub const BG_NOTIFY_DISABLE: u32 = 4u32;
 pub const BG_NOTIFY_FILE_RANGES_TRANSFERRED: u32 = 32u32;
@@ -186,7 +203,9 @@ pub const BG_S_OVERRIDDEN_BY_POLICY: i32 = 2097237i32;
 pub const BG_S_PARTIAL_COMPLETE: i32 = 2097175i32;
 pub const BG_S_PROXY_CHANGED: i32 = 2097194i32;
 pub const BG_S_UNABLE_TO_DELETE_FILES: i32 = 2097178i32;
+#[repr(C)]
 pub struct BG_TOKEN(i32);
+#[repr(C)]
 pub struct BITSExtensionSetupFactory(i32);
 pub const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648u32;
 pub const BITS_COST_STATE_BELOW_CAP: u32 = 4u32;
@@ -198,12 +217,17 @@ pub const BITS_COST_STATE_RESERVED: u32 = 1073741824u32;
 pub const BITS_COST_STATE_ROAMING: u32 = 128u32;
 pub const BITS_COST_STATE_UNRESTRICTED: u32 = 1u32;
 pub const BITS_COST_STATE_USAGE_BASED: u32 = 64u32;
+#[repr(C)]
 pub struct BITS_FILE_PROPERTY_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BITS_FILE_PROPERTY_VALUE(i32);
+#[repr(C)]
 pub struct BITS_JOB_PROPERTY_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BITS_JOB_PROPERTY_VALUE(i32);
+#[repr(C)]
 pub struct BITS_JOB_TRANSFER_POLICY(i32);
 pub const BITS_MC_FAILED_TO_START: i32 = -2145828856i32;
 pub const BITS_MC_FATAL_IGD_ERROR: i32 = -2145828855i32;
@@ -217,19 +241,32 @@ pub const BITS_MC_JOB_TAKE_OWNERSHIP: i32 = -2145828860i32;
 pub const BITS_MC_PEERCACHING_PORT: i32 = -2145828854i32;
 pub const BITS_MC_STATE_FILE_CORRUPT: i32 = -2145828857i32;
 pub const BITS_MC_WSD_PORT: i32 = -2145828853i32;
+#[repr(C)]
 pub struct BackgroundCopyManager(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager10_1(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager10_2(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager10_3(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager1_5(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager2_0(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager2_5(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager3_0(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager4_0(i32);
+#[repr(C)]
 pub struct BackgroundCopyManager5_0(i32);
+#[repr(C)]
 pub struct BackgroundCopyQMgr(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILESETINFO(i32);
+#[repr(C)]
 pub struct GROUPPROP(i32);
 #[repr(transparent)]
 pub struct IBITSExtensionSetup(pub *mut ::core::ffi::c_void);

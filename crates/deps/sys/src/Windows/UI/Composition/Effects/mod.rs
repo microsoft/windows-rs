@@ -7,4 +7,5 @@ pub struct ISceneLightingEffect(pub *mut ::core::ffi::c_void);
 pub struct ISceneLightingEffect2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneLightingEffect(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SceneLightingEffectReflectanceModel(i32);

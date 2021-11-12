@@ -11,6 +11,7 @@ extern "system" {
     pub fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CORRELATION_VECTOR(i32);
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
 pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64u32;

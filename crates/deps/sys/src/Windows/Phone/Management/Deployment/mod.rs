@@ -7,7 +7,9 @@ pub struct Enterprise(pub *mut ::core::ffi::c_void);
 pub struct EnterpriseEnrollmentManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EnterpriseEnrollmentResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EnterpriseEnrollmentStatus(i32);
+#[repr(C)]
 pub struct EnterpriseStatus(i32);
 #[repr(transparent)]
 pub struct IEnterprise(pub *mut ::core::ffi::c_void);

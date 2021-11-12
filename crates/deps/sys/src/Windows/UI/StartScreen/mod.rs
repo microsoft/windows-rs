@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct ForegroundText(i32);
 #[repr(transparent)]
 pub struct IJumpList(pub *mut ::core::ffi::c_void);
@@ -48,7 +49,9 @@ pub struct IVisualElementsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct JumpList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct JumpListItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct JumpListItemKind(i32);
+#[repr(C)]
 pub struct JumpListSystemGroupKind(i32);
 #[repr(transparent)]
 pub struct SecondaryTile(pub *mut ::core::ffi::c_void);
@@ -58,8 +61,11 @@ pub struct SecondaryTileVisualElements(pub *mut ::core::ffi::c_void);
 pub struct StartScreenManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TileMixedRealityModel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TileMixedRealityModelActivationBehavior(i32);
+#[repr(C)]
 pub struct TileOptions(i32);
+#[repr(C)]
 pub struct TileSize(i32);
 #[repr(transparent)]
 pub struct VisualElementsRequest(pub *mut ::core::ffi::c_void);

@@ -59,6 +59,7 @@ pub struct LeavingBackgroundEventHandler(pub *mut ::core::ffi::c_void);
 pub struct NavigatedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NewWebUIViewCreatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintContent(i32);
 #[repr(transparent)]
 pub struct ResumingEventHandler(pub *mut ::core::ffi::c_void);

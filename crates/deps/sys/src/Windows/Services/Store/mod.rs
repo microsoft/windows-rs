@@ -89,15 +89,19 @@ pub struct StoreAppLicense(pub *mut ::core::ffi::c_void);
 pub struct StoreAvailability(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoreCanAcquireLicenseResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreCanLicenseStatus(i32);
 #[repr(transparent)]
 pub struct StoreCollectionData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoreConsumableResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreConsumableStatus(i32);
 #[repr(transparent)]
 pub struct StoreContext(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreContract(i32);
+#[repr(C)]
 pub struct StoreDurationUnit(i32);
 #[repr(transparent)]
 pub struct StoreImage(pub *mut ::core::ffi::c_void);
@@ -111,7 +115,9 @@ pub struct StorePackageLicense(pub *mut ::core::ffi::c_void);
 pub struct StorePackageUpdate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorePackageUpdateResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StorePackageUpdateState(i32);
+#[repr(C)]
 pub struct StorePackageUpdateStatus(i32);
 #[repr(transparent)]
 pub struct StorePrice(pub *mut ::core::ffi::c_void);
@@ -129,18 +135,23 @@ pub struct StoreProductResult(pub *mut ::core::ffi::c_void);
 pub struct StorePurchaseProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorePurchaseResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StorePurchaseStatus(i32);
 #[repr(transparent)]
 pub struct StoreQueueItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoreQueueItemCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreQueueItemExtendedState(i32);
+#[repr(C)]
 pub struct StoreQueueItemKind(i32);
+#[repr(C)]
 pub struct StoreQueueItemState(i32);
 #[repr(transparent)]
 pub struct StoreQueueItemStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoreRateAndReviewResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreRateAndReviewStatus(i32);
 #[repr(transparent)]
 pub struct StoreRequestHelper(pub *mut ::core::ffi::c_void);
@@ -152,6 +163,7 @@ pub struct StoreSku(pub *mut ::core::ffi::c_void);
 pub struct StoreSubscriptionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoreUninstallStorePackageResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreUninstallStorePackageStatus(i32);
 #[repr(transparent)]
 pub struct StoreVideo(pub *mut ::core::ffi::c_void);

@@ -9,9 +9,11 @@ pub struct AllJoynAboutDataView(pub *mut ::core::ffi::c_void);
 pub struct AllJoynAcceptSessionJoinerEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynAuthenticationCompleteEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AllJoynAuthenticationMechanism(i32);
 #[repr(transparent)]
 pub struct AllJoynBusAttachment(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AllJoynBusAttachmentState(i32);
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -39,6 +41,7 @@ pub struct AllJoynSession(pub *mut ::core::ffi::c_void);
 pub struct AllJoynSessionJoinedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynSessionLostEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AllJoynSessionLostReason(i32);
 #[repr(transparent)]
 pub struct AllJoynSessionMemberAddedEventArgs(pub *mut ::core::ffi::c_void);
@@ -46,6 +49,7 @@ pub struct AllJoynSessionMemberAddedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AllJoynSessionMemberRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynStatus(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AllJoynTrafficType(i32);
 #[repr(transparent)]
 pub struct AllJoynWatcherStoppedEventArgs(pub *mut ::core::ffi::c_void);

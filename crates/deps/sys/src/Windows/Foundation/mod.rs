@@ -21,7 +21,9 @@ pub struct AsyncOperationCompletedHandler<TResult>(pub *mut ::core::ffi::c_void)
 pub struct AsyncOperationProgressHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AsyncStatus(i32);
+#[repr(C)]
 pub struct DateTime(i32);
 #[repr(transparent)]
 pub struct Deferral(pub *mut ::core::ffi::c_void);
@@ -29,7 +31,9 @@ pub struct Deferral(pub *mut ::core::ffi::c_void);
 pub struct DeferralCompletedHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EventHandler<T>(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EventRegistrationToken(i32);
+#[repr(C)]
 pub struct FoundationContract(i32);
 #[repr(transparent)]
 pub struct GuidHelper(pub *mut ::core::ffi::c_void);
@@ -85,15 +89,21 @@ pub struct IWwwFormUrlDecoderRuntimeClass(pub *mut ::core::ffi::c_void);
 pub struct IWwwFormUrlDecoderRuntimeClassFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MemoryBuffer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Point(i32);
+#[repr(C)]
 pub struct PropertyType(i32);
 #[repr(transparent)]
 pub struct PropertyValue(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Rect(i32);
+#[repr(C)]
 pub struct Size(i32);
+#[repr(C)]
 pub struct TimeSpan(i32);
 #[repr(transparent)]
 pub struct TypedEventHandler<TSender, TResult>(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UniversalApiContract(i32);
 #[repr(transparent)]
 pub struct Uri(pub *mut ::core::ffi::c_void);

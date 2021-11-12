@@ -23,9 +23,11 @@ pub struct IJsonValueStatics2(pub *mut ::core::ffi::c_void);
 pub struct JsonArray(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct JsonError(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct JsonErrorStatus(i32);
 #[repr(transparent)]
 pub struct JsonObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct JsonValue(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct JsonValueType(i32);

@@ -383,21 +383,27 @@ extern "system" {
 }
 pub const AAL5_MODE_MESSAGE: u32 = 1u32;
 pub const AAL5_MODE_STREAMING: u32 = 2u32;
+#[repr(C)]
 pub struct AAL5_PARAMETERS(i32);
 pub const AAL5_SSCS_FRAME_RELAY: u32 = 4u32;
 pub const AAL5_SSCS_NULL: u32 = 0u32;
 pub const AAL5_SSCS_SSCOP_ASSURED: u32 = 1u32;
 pub const AAL5_SSCS_SSCOP_NON_ASSURED: u32 = 2u32;
+#[repr(C)]
 pub struct AALUSER_PARAMETERS(i32);
+#[repr(C)]
 pub struct AAL_PARAMETERS_IE(i32);
+#[repr(C)]
 pub struct AAL_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADDRINFOA(i32);
 pub const ADDRINFOEX_VERSION_2: u32 = 2u32;
 pub const ADDRINFOEX_VERSION_3: u32 = 3u32;
 pub const ADDRINFOEX_VERSION_4: u32 = 4u32;
 pub const ADDRINFOEX_VERSION_5: u32 = 5u32;
 pub const ADDRINFOEX_VERSION_6: u32 = 6u32;
+#[repr(C)]
 pub struct AFPROTOCOLS(i32);
 pub const AF_12844: u16 = 25u16;
 pub const AF_APPLETALK: u16 = 16u16;
@@ -466,31 +472,45 @@ pub const ASSOCIATE_NAMERES_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::
     data3: 18145,
     data4: [186, 60, 135, 234, 116, 202, 48, 73],
 };
+#[repr(C)]
 pub struct ASSOCIATE_NAMERES_CONTEXT_INPUT(i32);
 pub const ATMPROTO_AAL1: u32 = 1u32;
 pub const ATMPROTO_AAL2: u32 = 2u32;
 pub const ATMPROTO_AAL34: u32 = 3u32;
 pub const ATMPROTO_AAL5: u32 = 5u32;
 pub const ATMPROTO_AALUSER: u32 = 0u32;
+#[repr(C)]
 pub struct ATM_ADDRESS(i32);
 pub const ATM_ADDR_SIZE: u32 = 20u32;
 pub const ATM_AESA: u32 = 2u32;
+#[repr(C)]
 pub struct ATM_BHLI(i32);
+#[repr(C)]
 pub struct ATM_BLLI(i32);
+#[repr(C)]
 pub struct ATM_BLLI_IE(i32);
+#[repr(C)]
 pub struct ATM_BROADBAND_BEARER_CAPABILITY_IE(i32);
+#[repr(C)]
 pub struct ATM_CALLING_PARTY_NUMBER_IE(i32);
+#[repr(C)]
 pub struct ATM_CAUSE_IE(i32);
+#[repr(C)]
 pub struct ATM_CONNECTION_ID(i32);
 pub const ATM_E164: u32 = 1u32;
 pub const ATM_NSAP: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
+#[repr(C)]
 pub struct ATM_PVC_PARAMS(i32);
+#[repr(C)]
 pub struct ATM_QOS_CLASS_IE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ATM_TD(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ATM_TRAFFIC_DESCRIPTOR_IE(i32);
+#[repr(C)]
 pub struct ATM_TRANSIT_NETWORK_SELECTION_IE(i32);
 pub const BASE_PROTOCOL: u32 = 1u32;
 pub const BCOB_A: u32 = 1u32;
@@ -602,8 +622,10 @@ pub const CF_DEFER: u32 = 2u32;
 pub const CF_REJECT: u32 = 1u32;
 pub const CLIP_NOT: u32 = 0u32;
 pub const CLIP_SUS: u32 = 32u32;
+#[repr(C)]
 pub struct CONTROL_CHANNEL_TRIGGER_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CSADDR_INFO(i32);
 pub const DE_REUSE_SOCKET: u32 = 2u32;
 pub const FD_ACCEPT: u32 = 8u32;
@@ -630,11 +652,15 @@ pub const FIONREAD: i32 = 1074030207i32;
 pub const FROM_PROTOCOL_INFO: i32 = -1i32;
 pub const GAI_STRERROR_BUFFER_SIZE: u32 = 1024u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GROUP_FILTER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GROUP_REQ(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GROUP_SOURCE_REQ(i32);
+#[repr(C)]
 pub struct HWSAEVENT(i32);
 pub const IAS_ATTRIB_INT: u32 = 1u32;
 pub const IAS_ATTRIB_NO_ATTRIB: u32 = 0u32;
@@ -646,6 +672,7 @@ pub const IAS_MAX_CLASSNAME: u32 = 64u32;
 pub const IAS_MAX_OCTET_STRING: u32 = 1024u32;
 pub const IAS_MAX_USER_STRING: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ICMP_ERROR_INFO(i32);
 pub const IFF_BROADCAST: u32 = 2u32;
 pub const IFF_LOOPBACK: u32 = 4u32;
@@ -665,7 +692,9 @@ pub const IN6ADDR_MULTICASTPREFIX_LENGTH: u32 = 8u32;
 pub const IN6ADDR_SOLICITEDNODEMULTICASTPREFIX_LENGTH: u32 = 104u32;
 pub const IN6ADDR_TEREDOPREFIX_LENGTH: u32 = 32u32;
 pub const IN6ADDR_V4MAPPEDPREFIX_LENGTH: u32 = 96u32;
+#[repr(C)]
 pub struct IN6_ADDR(i32);
+#[repr(C)]
 pub struct IN6_PKTINFO(i32);
 pub const INADDR_LOOPBACK: u32 = 2130706433u32;
 pub const INADDR_NONE: u32 = 4294967295u32;
@@ -673,15 +702,22 @@ pub const INCL_WINSOCK_API_PROTOTYPES: u32 = 1u32;
 pub const INCL_WINSOCK_API_TYPEDEFS: u32 = 0u32;
 pub const INET6_ADDRSTRLEN: u32 = 65u32;
 pub const INET_ADDRSTRLEN: u32 = 22u32;
+#[repr(C)]
 pub struct INET_PORT_RANGE(i32);
+#[repr(C)]
 pub struct INET_PORT_RESERVATION_INFORMATION(i32);
+#[repr(C)]
 pub struct INET_PORT_RESERVATION_INSTANCE(i32);
+#[repr(C)]
 pub struct INET_PORT_RESERVATION_TOKEN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct INTERFACE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct INTERFACE_INFO_EX(i32);
 pub const INVALID_SOCKET: SOCKET = SOCKET(4294967295u32 as _);
+#[repr(C)]
 pub struct IN_ADDR(i32);
 pub const IN_CLASSA_HOST: u32 = 16777215u32;
 pub const IN_CLASSA_MAX: u32 = 128u32;
@@ -697,8 +733,11 @@ pub const IN_CLASSC_NSHIFT: u32 = 8u32;
 pub const IN_CLASSD_HOST: u32 = 268435455u32;
 pub const IN_CLASSD_NET: u32 = 4026531840u32;
 pub const IN_CLASSD_NSHIFT: u32 = 28u32;
+#[repr(C)]
 pub struct IN_PKTINFO(i32);
+#[repr(C)]
 pub struct IN_PKTINFO_EX(i32);
+#[repr(C)]
 pub struct IN_RECVERR(i32);
 pub const IOCPARM_MASK: u32 = 127u32;
 pub const IOC_IN: u32 = 2147483648u32;
@@ -757,6 +796,7 @@ pub const IPPORT_TIMESERVER: u32 = 37u32;
 pub const IPPORT_TTYLINK: u32 = 87u32;
 pub const IPPORT_WHOIS: u32 = 43u32;
 pub const IPPORT_WHOSERVER: u32 = 513u32;
+#[repr(C)]
 pub struct IPPROTO(i32);
 pub const IPPROTO_IP: u32 = 0u32;
 pub const IPPROTO_RM: u32 = 113u32;
@@ -774,6 +814,7 @@ pub const IPV6_HOPOPTS: u32 = 1u32;
 pub const IPV6_IFLIST: u32 = 28u32;
 pub const IPV6_JOIN_GROUP: u32 = 12u32;
 pub const IPV6_LEAVE_GROUP: u32 = 13u32;
+#[repr(C)]
 pub struct IPV6_MREQ(i32);
 pub const IPV6_MTU: u32 = 72u32;
 pub const IPV6_MTU_DISCOVER: u32 = 71u32;
@@ -800,6 +841,7 @@ pub const IPV6_WFP_REDIRECT_CONTEXT: u32 = 70u32;
 pub const IPV6_WFP_REDIRECT_RECORDS: u32 = 60u32;
 pub const IPX_ADDRESS: u32 = 16391u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IPX_ADDRESS_DATA(i32);
 pub const IPX_ADDRESS_NOTIFY: u32 = 16396u32;
 pub const IPX_DSTYPE: u32 = 16386u32;
@@ -810,11 +852,13 @@ pub const IPX_GETNETINFO_NORIP: u32 = 16393u32;
 pub const IPX_IMMEDIATESPXACK: u32 = 16400u32;
 pub const IPX_MAXSIZE: u32 = 16390u32;
 pub const IPX_MAX_ADAPTER_NUM: u32 = 16397u32;
+#[repr(C)]
 pub struct IPX_NETNUM_DATA(i32);
 pub const IPX_PTYPE: u32 = 16384u32;
 pub const IPX_RECEIVE_BROADCAST: u32 = 16399u32;
 pub const IPX_RECVHDR: u32 = 16389u32;
 pub const IPX_RERIPNETNUMBER: u32 = 16398u32;
+#[repr(C)]
 pub struct IPX_SPXCONNSTATUS_DATA(i32);
 pub const IPX_SPXGETCONNECTIONSTATUS: u32 = 16395u32;
 pub const IPX_STOPFILTERPTYPE: u32 = 16387u32;
@@ -834,8 +878,11 @@ pub const IP_HDRINCL: u32 = 2u32;
 pub const IP_HOPLIMIT: u32 = 21u32;
 pub const IP_IFLIST: u32 = 28u32;
 pub const IP_MAX_MEMBERSHIPS: u32 = 20u32;
+#[repr(C)]
 pub struct IP_MREQ(i32);
+#[repr(C)]
 pub struct IP_MREQ_SOURCE(i32);
+#[repr(C)]
 pub struct IP_MSFILTER(i32);
 pub const IP_MTU: u32 = 73u32;
 pub const IP_MTU_DISCOVER: u32 = 71u32;
@@ -924,110 +971,214 @@ pub const LM_HB1_Printer: i32 = 8i32;
 pub const LM_HB2_FileServer: i32 = 2i32;
 pub const LM_HB2_Telephony: i32 = 1i32;
 pub const LM_HB_Extension: i32 = 128i32;
+#[repr(C)]
 pub struct LM_IRPARMS(i32);
 pub const LOG2_BITS_PER_BYTE: u32 = 3u32;
+#[repr(C)]
 pub struct LPBLOCKINGCALLBACK(i32);
+#[repr(C)]
 pub struct LPCONDITIONPROC(i32);
+#[repr(C)]
 pub struct LPFN_ACCEPTEX(i32);
+#[repr(C)]
 pub struct LPFN_CONNECTEX(i32);
+#[repr(C)]
 pub struct LPFN_DISCONNECTEX(i32);
+#[repr(C)]
 pub struct LPFN_GETACCEPTEXSOCKADDRS(i32);
+#[repr(C)]
 pub struct LPFN_NSPAPI(i32);
+#[repr(C)]
 pub struct LPFN_RIOCLOSECOMPLETIONQUEUE(i32);
+#[repr(C)]
 pub struct LPFN_RIOCREATECOMPLETIONQUEUE(i32);
+#[repr(C)]
 pub struct LPFN_RIOCREATEREQUESTQUEUE(i32);
+#[repr(C)]
 pub struct LPFN_RIODEQUEUECOMPLETION(i32);
+#[repr(C)]
 pub struct LPFN_RIODEREGISTERBUFFER(i32);
+#[repr(C)]
 pub struct LPFN_RIONOTIFY(i32);
+#[repr(C)]
 pub struct LPFN_RIORECEIVE(i32);
+#[repr(C)]
 pub struct LPFN_RIORECEIVEEX(i32);
+#[repr(C)]
 pub struct LPFN_RIOREGISTERBUFFER(i32);
+#[repr(C)]
 pub struct LPFN_RIORESIZECOMPLETIONQUEUE(i32);
+#[repr(C)]
 pub struct LPFN_RIORESIZEREQUESTQUEUE(i32);
+#[repr(C)]
 pub struct LPFN_RIOSEND(i32);
+#[repr(C)]
 pub struct LPFN_RIOSENDEX(i32);
+#[repr(C)]
 pub struct LPFN_TRANSMITFILE(i32);
+#[repr(C)]
 pub struct LPFN_TRANSMITPACKETS(i32);
+#[repr(C)]
 pub struct LPFN_WSAPOLL(i32);
+#[repr(C)]
 pub struct LPFN_WSARECVMSG(i32);
+#[repr(C)]
 pub struct LPFN_WSASENDMSG(i32);
+#[repr(C)]
 pub struct LPLOOKUPSERVICE_COMPLETION_ROUTINE(i32);
+#[repr(C)]
 pub struct LPNSPCLEANUP(i32);
+#[repr(C)]
 pub struct LPNSPGETSERVICECLASSINFO(i32);
+#[repr(C)]
 pub struct LPNSPINSTALLSERVICECLASS(i32);
+#[repr(C)]
 pub struct LPNSPIOCTL(i32);
+#[repr(C)]
 pub struct LPNSPLOOKUPSERVICEBEGIN(i32);
+#[repr(C)]
 pub struct LPNSPLOOKUPSERVICEEND(i32);
+#[repr(C)]
 pub struct LPNSPLOOKUPSERVICENEXT(i32);
+#[repr(C)]
 pub struct LPNSPREMOVESERVICECLASS(i32);
+#[repr(C)]
 pub struct LPNSPSETSERVICE(i32);
+#[repr(C)]
 pub struct LPNSPSTARTUP(i32);
+#[repr(C)]
 pub struct LPNSPV2CLEANUP(i32);
+#[repr(C)]
 pub struct LPNSPV2CLIENTSESSIONRUNDOWN(i32);
+#[repr(C)]
 pub struct LPNSPV2LOOKUPSERVICEBEGIN(i32);
+#[repr(C)]
 pub struct LPNSPV2LOOKUPSERVICEEND(i32);
+#[repr(C)]
 pub struct LPNSPV2LOOKUPSERVICENEXTEX(i32);
+#[repr(C)]
 pub struct LPNSPV2SETSERVICEEX(i32);
+#[repr(C)]
 pub struct LPNSPV2STARTUP(i32);
+#[repr(C)]
 pub struct LPSERVICE_CALLBACK_PROC(i32);
+#[repr(C)]
 pub struct LPWPUCLOSEEVENT(i32);
+#[repr(C)]
 pub struct LPWPUCLOSESOCKETHANDLE(i32);
+#[repr(C)]
 pub struct LPWPUCLOSETHREAD(i32);
+#[repr(C)]
 pub struct LPWPUCOMPLETEOVERLAPPEDREQUEST(i32);
+#[repr(C)]
 pub struct LPWPUCREATEEVENT(i32);
+#[repr(C)]
 pub struct LPWPUCREATESOCKETHANDLE(i32);
+#[repr(C)]
 pub struct LPWPUFDISSET(i32);
+#[repr(C)]
 pub struct LPWPUGETPROVIDERPATH(i32);
+#[repr(C)]
 pub struct LPWPUMODIFYIFSHANDLE(i32);
+#[repr(C)]
 pub struct LPWPUOPENCURRENTTHREAD(i32);
+#[repr(C)]
 pub struct LPWPUPOSTMESSAGE(i32);
+#[repr(C)]
 pub struct LPWPUQUERYBLOCKINGCALLBACK(i32);
+#[repr(C)]
 pub struct LPWPUQUERYSOCKETHANDLECONTEXT(i32);
+#[repr(C)]
 pub struct LPWPUQUEUEAPC(i32);
+#[repr(C)]
 pub struct LPWPURESETEVENT(i32);
+#[repr(C)]
 pub struct LPWPUSETEVENT(i32);
+#[repr(C)]
 pub struct LPWSAOVERLAPPED_COMPLETION_ROUTINE(i32);
+#[repr(C)]
 pub struct LPWSAUSERAPC(i32);
+#[repr(C)]
 pub struct LPWSCDEINSTALLPROVIDER(i32);
+#[repr(C)]
 pub struct LPWSCENABLENSPROVIDER(i32);
+#[repr(C)]
 pub struct LPWSCENUMPROTOCOLS(i32);
+#[repr(C)]
 pub struct LPWSCGETPROVIDERPATH(i32);
+#[repr(C)]
 pub struct LPWSCINSTALLNAMESPACE(i32);
+#[repr(C)]
 pub struct LPWSCINSTALLPROVIDER(i32);
+#[repr(C)]
 pub struct LPWSCUNINSTALLNAMESPACE(i32);
+#[repr(C)]
 pub struct LPWSCUPDATEPROVIDER(i32);
+#[repr(C)]
 pub struct LPWSCWRITENAMESPACEORDER(i32);
+#[repr(C)]
 pub struct LPWSCWRITEPROVIDERORDER(i32);
+#[repr(C)]
 pub struct LPWSPACCEPT(i32);
+#[repr(C)]
 pub struct LPWSPADDRESSTOSTRING(i32);
+#[repr(C)]
 pub struct LPWSPASYNCSELECT(i32);
+#[repr(C)]
 pub struct LPWSPBIND(i32);
+#[repr(C)]
 pub struct LPWSPCANCELBLOCKINGCALL(i32);
+#[repr(C)]
 pub struct LPWSPCLEANUP(i32);
+#[repr(C)]
 pub struct LPWSPCLOSESOCKET(i32);
+#[repr(C)]
 pub struct LPWSPCONNECT(i32);
+#[repr(C)]
 pub struct LPWSPDUPLICATESOCKET(i32);
+#[repr(C)]
 pub struct LPWSPENUMNETWORKEVENTS(i32);
+#[repr(C)]
 pub struct LPWSPEVENTSELECT(i32);
+#[repr(C)]
 pub struct LPWSPGETOVERLAPPEDRESULT(i32);
+#[repr(C)]
 pub struct LPWSPGETPEERNAME(i32);
+#[repr(C)]
 pub struct LPWSPGETQOSBYNAME(i32);
+#[repr(C)]
 pub struct LPWSPGETSOCKNAME(i32);
+#[repr(C)]
 pub struct LPWSPGETSOCKOPT(i32);
+#[repr(C)]
 pub struct LPWSPIOCTL(i32);
+#[repr(C)]
 pub struct LPWSPJOINLEAF(i32);
+#[repr(C)]
 pub struct LPWSPLISTEN(i32);
+#[repr(C)]
 pub struct LPWSPRECV(i32);
+#[repr(C)]
 pub struct LPWSPRECVDISCONNECT(i32);
+#[repr(C)]
 pub struct LPWSPRECVFROM(i32);
+#[repr(C)]
 pub struct LPWSPSELECT(i32);
+#[repr(C)]
 pub struct LPWSPSEND(i32);
+#[repr(C)]
 pub struct LPWSPSENDDISCONNECT(i32);
+#[repr(C)]
 pub struct LPWSPSENDTO(i32);
+#[repr(C)]
 pub struct LPWSPSETSOCKOPT(i32);
+#[repr(C)]
 pub struct LPWSPSHUTDOWN(i32);
+#[repr(C)]
 pub struct LPWSPSOCKET(i32);
+#[repr(C)]
 pub struct LPWSPSTARTUP(i32);
+#[repr(C)]
 pub struct LPWSPSTRINGTOADDRESS(i32);
 pub const LSP_CRYPTO_COMPRESS: u32 = 64u32;
 pub const LSP_FIREWALL: u32 = 8u32;
@@ -1103,10 +1254,15 @@ pub const MSG_PEEK: u32 = 2u32;
 pub const MSG_PUSH_IMMEDIATE: u32 = 32u32;
 pub const MSG_TRUNC: u32 = 256u32;
 pub const MSG_WAITALL: u32 = 8u32;
+#[repr(C)]
 pub struct MULTICAST_MODE_TYPE(i32);
+#[repr(C)]
 pub struct NAPI_DOMAIN_DESCRIPTION_BLOB(i32);
+#[repr(C)]
 pub struct NAPI_PROVIDER_INSTALLATION_BLOB(i32);
+#[repr(C)]
 pub struct NAPI_PROVIDER_LEVEL(i32);
+#[repr(C)]
 pub struct NAPI_PROVIDER_TYPE(i32);
 pub const NETBIOS_GROUP_NAME: u32 = 1u32;
 pub const NETBIOS_NAME_LENGTH: u32 = 16u32;
@@ -1114,8 +1270,10 @@ pub const NETBIOS_TYPE_QUICK_GROUP: u32 = 3u32;
 pub const NETBIOS_TYPE_QUICK_UNIQUE: u32 = 2u32;
 pub const NETBIOS_UNIQUE_NAME: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NETRESOURCE2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NETRESOURCE2W(i32);
 pub const NI_DGRAM: u32 = 16u32;
 pub const NI_MAXHOST: u32 = 1025u32;
@@ -1126,38 +1284,62 @@ pub const NI_NUMERICHOST: u32 = 2u32;
 pub const NI_NUMERICSERV: u32 = 8u32;
 pub const NLA_ALLUSERS_NETWORK: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NLA_BLOB(i32);
+#[repr(C)]
 pub struct NLA_BLOB_DATA_TYPE(i32);
+#[repr(C)]
 pub struct NLA_CONNECTIVITY_TYPE(i32);
 pub const NLA_FRIENDLY_NAME: u32 = 2u32;
+#[repr(C)]
 pub struct NLA_INTERNET(i32);
+#[repr(C)]
 pub struct NL_ADDRESS_TYPE(i32);
+#[repr(C)]
 pub struct NL_BANDWIDTH_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NL_BANDWIDTH_INFORMATION(i32);
+#[repr(C)]
 pub struct NL_DAD_STATE(i32);
+#[repr(C)]
 pub struct NL_INTERFACE_NETWORK_CATEGORY_STATE(i32);
+#[repr(C)]
 pub struct NL_INTERFACE_OFFLOAD_ROD(i32);
+#[repr(C)]
 pub struct NL_LINK_LOCAL_ADDRESS_BEHAVIOR(i32);
+#[repr(C)]
 pub struct NL_NEIGHBOR_STATE(i32);
+#[repr(C)]
 pub struct NL_NETWORK_CATEGORY(i32);
+#[repr(C)]
 pub struct NL_NETWORK_CONNECTIVITY_COST_HINT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NL_NETWORK_CONNECTIVITY_HINT(i32);
+#[repr(C)]
 pub struct NL_NETWORK_CONNECTIVITY_LEVEL_HINT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NL_PATH_BANDWIDTH_ROD(i32);
+#[repr(C)]
 pub struct NL_PREFIX_ORIGIN(i32);
+#[repr(C)]
 pub struct NL_ROUTER_DISCOVERY_BEHAVIOR(i32);
+#[repr(C)]
 pub struct NL_ROUTE_ORIGIN(i32);
+#[repr(C)]
 pub struct NL_ROUTE_PROTOCOL(i32);
+#[repr(C)]
 pub struct NL_SUFFIX_ORIGIN(i32);
 pub const NSPROTO_IPX: u32 = 1000u32;
 pub const NSPROTO_SPX: u32 = 1256u32;
 pub const NSPROTO_SPXII: u32 = 1257u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct NSPV2_ROUTINE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
+#[repr(C)]
 pub struct NSP_ROUTINE(i32);
 pub const NSTYPE_DYNAMIC: u32 = 2u32;
 pub const NSTYPE_ENUMERABLE: u32 = 4u32;
@@ -1169,8 +1351,10 @@ pub const NS_DHCP: u32 = 6u32;
 pub const NS_DNS: u32 = 12u32;
 pub const NS_EMAIL: u32 = 37u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NS_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NS_INFOW(i32);
 pub const NS_LOCALNAME: u32 = 19u32;
 pub const NS_MS: u32 = 30u32;
@@ -1185,8 +1369,10 @@ pub const NS_NTDS: u32 = 32u32;
 pub const NS_PEER_BROWSE: u32 = 3u32;
 pub const NS_SAP: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct NS_SERVICE_INFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct NS_SERVICE_INFOW(i32);
 pub const NS_SLP: u32 = 5u32;
 pub const NS_STDA: u32 = 31u32;
@@ -1228,6 +1414,7 @@ pub const PF_VOICEVIEW: u16 = 18u16;
 pub const PI_ALLOWED: u32 = 0u32;
 pub const PI_NUMBER_NOT_AVAILABLE: u32 = 128u32;
 pub const PI_RESTRICTED: u32 = 64u32;
+#[repr(C)]
 pub struct PMTUD_STATE(i32);
 pub const POLLERR: u32 = 1u32;
 pub const POLLHUP: u32 = 2u32;
@@ -1238,6 +1425,7 @@ pub const POLLRDBAND: u32 = 512u32;
 pub const POLLRDNORM: u32 = 256u32;
 pub const POLLWRBAND: u32 = 32u32;
 pub const POLLWRNORM: u32 = 16u32;
+#[repr(C)]
 pub struct PRIORITY_STATUS(i32);
 pub const PROP_ADDRESSES: u32 = 256u32;
 pub const PROP_ALL: u32 = 2147483648u32;
@@ -1253,25 +1441,35 @@ pub const PROTECTION_LEVEL_EDGERESTRICTED: u32 = 20u32;
 pub const PROTECTION_LEVEL_RESTRICTED: u32 = 30u32;
 pub const PROTECTION_LEVEL_UNRESTRICTED: u32 = 10u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROTOCOL_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROTOCOL_INFOW(i32);
 pub const PVD_CONFIG: u32 = 12289u32;
+#[repr(C)]
 pub struct Q2931_IE(i32);
+#[repr(C)]
 pub struct Q2931_IE_TYPE(i32);
 pub const QOS_CLASS0: u32 = 0u32;
 pub const QOS_CLASS1: u32 = 1u32;
 pub const QOS_CLASS2: u32 = 2u32;
 pub const QOS_CLASS3: u32 = 3u32;
 pub const QOS_CLASS4: u32 = 4u32;
+#[repr(C)]
 pub struct RCVALL_IF(i32);
+#[repr(C)]
 pub struct RCVALL_VALUE(i32);
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1801027994, data2: 23726, data3: 18733, data4: [169, 1, 42, 60, 44, 80, 22, 79] };
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1749277187, data2: 5450, data3: 17942, data4: [165, 8, 68, 55, 18, 149, 249, 107] };
+#[repr(C)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX(i32);
+#[repr(C)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT(i32);
+#[repr(C)]
 pub struct RESOURCE_DISPLAY_TYPE(i32);
 pub const RESULT_IS_ADDED: u32 = 16u32;
 pub const RESULT_IS_ALIAS: u32 = 1u32;
@@ -1282,13 +1480,19 @@ pub const RES_FLUSH_CACHE: u32 = 2u32;
 pub const RES_SERVICE: u32 = 4u32;
 pub const RES_SOFT_SEARCH: u32 = 1u32;
 pub const RES_UNUSED_1: u32 = 1u32;
+#[repr(C)]
 pub struct RIORESULT(i32);
+#[repr(C)]
 pub struct RIO_BUF(i32);
+#[repr(C)]
 pub struct RIO_BUFFERID_t(i32);
+#[repr(C)]
 pub struct RIO_CMSG_BUFFER(i32);
 pub const RIO_CORRUPT_CQ: u32 = 4294967295u32;
+#[repr(C)]
 pub struct RIO_CQ_t(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RIO_EXTENSION_FUNCTION_TABLE(i32);
 pub const RIO_MAX_CQ_SIZE: u32 = 134217728u32;
 pub const RIO_MSG_COMMIT_ONLY: u32 = 8u32;
@@ -1296,12 +1500,16 @@ pub const RIO_MSG_DEFER: u32 = 2u32;
 pub const RIO_MSG_DONT_NOTIFY: u32 = 1u32;
 pub const RIO_MSG_WAITALL: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RIO_NOTIFICATION_COMPLETION(i32);
+#[repr(C)]
 pub struct RIO_NOTIFICATION_COMPLETION_TYPE(i32);
+#[repr(C)]
 pub struct RIO_RQ_t(i32);
 pub const RM_ADD_RECEIVE_IF: u32 = 1008u32;
 pub const RM_DEL_RECEIVE_IF: u32 = 1009u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RM_FEC_INFO(i32);
 pub const RM_FLUSHCACHE: u32 = 1003u32;
 pub const RM_HIGH_SPEED_INTRANET_OPT: u32 = 1014u32;
@@ -1309,10 +1517,13 @@ pub const RM_LATEJOIN: u32 = 1006u32;
 pub const RM_OPTIONSBASE: u32 = 1000u32;
 pub const RM_RATE_WINDOW_SIZE: u32 = 1001u32;
 pub const RM_RECEIVER_STATISTICS: u32 = 1013u32;
+#[repr(C)]
 pub struct RM_RECEIVER_STATS(i32);
 pub const RM_SENDER_STATISTICS: u32 = 1005u32;
+#[repr(C)]
 pub struct RM_SENDER_STATS(i32);
 pub const RM_SENDER_WINDOW_ADVANCE_METHOD: u32 = 1004u32;
+#[repr(C)]
 pub struct RM_SEND_WINDOW(i32);
 pub const RM_SEND_WINDOW_ADV_RATE: u32 = 1010u32;
 pub const RM_SET_MCAST_TTL: u32 = 1012u32;
@@ -1320,12 +1531,15 @@ pub const RM_SET_MESSAGE_BOUNDARY: u32 = 1002u32;
 pub const RM_SET_SEND_IF: u32 = 1007u32;
 pub const RM_USE_FEC: u32 = 1011u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RSS_SCALABILITY_INFO(i32);
 pub const SAP_FIELD_ABSENT: u32 = 4294967294u32;
 pub const SAP_FIELD_ANY: u32 = 4294967295u32;
 pub const SAP_FIELD_ANY_AESA_REST: u32 = 4294967291u32;
 pub const SAP_FIELD_ANY_AESA_SEL: u32 = 4294967290u32;
+#[repr(C)]
 pub struct SCOPE_ID(i32);
+#[repr(C)]
 pub struct SCOPE_LEVEL(i32);
 pub const SD_BOTH: u32 = 2u32;
 pub const SD_RECEIVE: u32 = 0u32;
@@ -1335,34 +1549,47 @@ pub const SENDER_DEFAULT_LATE_JOINER_PERCENTAGE: u32 = 0u32;
 pub const SENDER_DEFAULT_RATE_KBITS_PER_SEC: u32 = 56u32;
 pub const SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE: u32 = 15u32;
 pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
+#[repr(C)]
 pub struct SEND_FLAGS(i32);
+#[repr(C)]
 pub struct SERVICE_ADDRESS(i32);
+#[repr(C)]
 pub struct SERVICE_ADDRESSES(i32);
 pub const SERVICE_ADDRESS_FLAG_RPC_CN: u32 = 1u32;
 pub const SERVICE_ADDRESS_FLAG_RPC_DG: u32 = 2u32;
 pub const SERVICE_ADDRESS_FLAG_RPC_NB: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_ASYNC_INFO(i32);
 pub const SERVICE_FLAG_DEFER: u32 = 1u32;
 pub const SERVICE_FLAG_HARD: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SERVICE_INFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SERVICE_INFOW(i32);
 pub const SERVICE_LOCAL: u32 = 4u32;
 pub const SERVICE_MULTIPLE: u32 = 1u32;
 pub const SERVICE_RESOURCE: u32 = 1u32;
 pub const SERVICE_SERVICE: u32 = 2u32;
+#[repr(C)]
 pub struct SERVICE_TYPE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_TYPE_INFO_ABSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_TYPE_INFO_ABSW(i32);
+#[repr(C)]
 pub struct SERVICE_TYPE_VALUE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_TYPE_VALUE_ABSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERVICE_TYPE_VALUE_ABSW(i32);
+#[repr(C)]
 pub struct SET_SERVICE_OPERATION(i32);
 pub const SET_SERVICE_PARTIAL_SUCCESS: u32 = 1u32;
 pub const SG_CONSTRAINED_GROUP: u32 = 2u32;
@@ -1381,25 +1608,38 @@ pub const SI_USER_FAILED: u32 = 2u32;
 pub const SI_USER_NOT_SCREENED: u32 = 0u32;
 pub const SI_USER_PASSED: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKADDR(i32);
+#[repr(C)]
 pub struct SOCKADDR_DL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKADDR_IN(i32);
+#[repr(C)]
 pub struct SOCKADDR_IN6(i32);
+#[repr(C)]
 pub struct SOCKADDR_IN6_PAIR(i32);
+#[repr(C)]
 pub struct SOCKADDR_IN6_W2KSP1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKADDR_INET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKADDR_IRDA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKADDR_STORAGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKADDR_STORAGE_XP(i32);
+#[repr(C)]
 pub struct SOCKET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKET_ADDRESS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKET_ADDRESS_LIST(i32);
 pub const SOCKET_DEFAULT2_QM_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2932010908, data2: 14925, data3: 19774, data4: [136, 66, 35, 153, 66, 227, 154, 71] };
 pub const SOCKET_ERROR: i32 = -1i32;
@@ -1407,21 +1647,31 @@ pub const SOCKET_INFO_CONNECTION_ENCRYPTED: u32 = 2u32;
 pub const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4u32;
 pub const SOCKET_INFO_CONNECTION_SECURED: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKET_PEER_TARGET_NAME(i32);
+#[repr(C)]
 pub struct SOCKET_PRIORITY_HINT(i32);
 #[cfg(feature = "Win32_System_Kernel")]
+#[repr(C)]
 pub struct SOCKET_PROCESSOR_AFFINITY(i32);
 pub const SOCKET_QUERY_IPSEC2_ABORT_CONNECTION_ON_FIELD_CHANGE: u32 = 1u32;
 pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: u32 = 1u32;
 pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: u32 = 2u32;
+#[repr(C)]
 pub struct SOCKET_SECURITY_PROTOCOL(i32);
+#[repr(C)]
 pub struct SOCKET_SECURITY_QUERY_INFO(i32);
+#[repr(C)]
 pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2(i32);
+#[repr(C)]
 pub struct SOCKET_SECURITY_SETTINGS(i32);
+#[repr(C)]
 pub struct SOCKET_SECURITY_SETTINGS_IPSEC(i32);
 pub const SOCKET_SETTINGS_ALLOW_INSECURE: u32 = 2u32;
 pub const SOCKET_SETTINGS_GUARANTEE_ENCRYPTION: u32 = 1u32;
@@ -1429,6 +1679,7 @@ pub const SOCKET_SETTINGS_IPSEC_ALLOW_FIRST_INBOUND_PKT_UNENCRYPTED: u32 = 4u32;
 pub const SOCKET_SETTINGS_IPSEC_OPTIONAL_PEER_NAME_VERIFICATION: u32 = 2u32;
 pub const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8u32;
 pub const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1u32;
+#[repr(C)]
 pub struct SOCKET_USAGE_TYPE(i32);
 pub const SOCK_DGRAM: u16 = 2u16;
 pub const SOCK_NOTIFY_EVENT_ERR: u32 = 64u32;
@@ -1444,6 +1695,7 @@ pub const SOCK_NOTIFY_REGISTER_EVENT_HANGUP: u32 = 4u32;
 pub const SOCK_NOTIFY_REGISTER_EVENT_IN: u32 = 1u32;
 pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: u32 = 0u32;
 pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: u32 = 2u32;
+#[repr(C)]
 pub struct SOCK_NOTIFY_REGISTRATION(i32);
 pub const SOCK_NOTIFY_TRIGGER_EDGE: u32 = 8u32;
 pub const SOCK_NOTIFY_TRIGGER_LEVEL: u32 = 4u32;
@@ -1506,7 +1758,9 @@ pub const SO_TYPE: u32 = 4104u32;
 pub const SO_UPDATE_ACCEPT_CONTEXT: u32 = 28683u32;
 pub const SO_UPDATE_CONNECT_CONTEXT: u32 = 28688u32;
 pub const SO_USELOOPBACK: u32 = 64u32;
+#[repr(C)]
 pub struct TCPSTATE(i32);
+#[repr(C)]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS(i32);
 pub const TCP_ATMARK: u32 = 8u32;
 pub const TCP_BSDURGENT: u32 = 28672u32;
@@ -1516,14 +1770,19 @@ pub const TCP_EXPEDITED_1122: u32 = 2u32;
 pub const TCP_FAIL_CONNECT_ON_ICMP_ERROR: u32 = 18u32;
 pub const TCP_FASTOPEN: u32 = 15u32;
 pub const TCP_ICMP_ERROR_INFO: u32 = 19u32;
+#[repr(C)]
 pub struct TCP_ICW_LEVEL(i32);
+#[repr(C)]
 pub struct TCP_ICW_PARAMETERS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TCP_INFO_v0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TCP_INFO_v1(i32);
 pub const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0u32;
 pub const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0u32;
+#[repr(C)]
 pub struct TCP_INITIAL_RTO_PARAMETERS(i32);
 pub const TCP_KEEPALIVE: u32 = 3u32;
 pub const TCP_KEEPCNT: u32 = 16u32;
@@ -1549,6 +1808,7 @@ pub const TF_USE_SYSTEM_THREAD: u32 = 16u32;
 pub const TF_WRITE_BEHIND: u32 = 4u32;
 pub const TH_NETDEV: u32 = 1u32;
 pub const TH_TAPI: u32 = 2u32;
+#[repr(C)]
 pub struct TIMESTAMPING_CONFIG(i32);
 pub const TIMESTAMPING_FLAG_RX: u32 = 1u32;
 pub const TIMESTAMPING_FLAG_TX: u32 = 2u32;
@@ -1562,9 +1822,12 @@ pub const TP_REUSE_SOCKET: u32 = 2u32;
 pub const TP_USE_DEFAULT_WORKER: u32 = 0u32;
 pub const TP_USE_KERNEL_APC: u32 = 32u32;
 pub const TP_USE_SYSTEM_THREAD: u32 = 16u32;
+#[repr(C)]
 pub struct TRANSMIT_FILE_BUFFERS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TRANSMIT_PACKETS_ELEMENT(i32);
+#[repr(C)]
 pub struct TRANSPORT_SETTING_ID(i32);
 pub const TR_END_TO_END: u32 = 1u32;
 pub const TR_NOIND: u32 = 0u32;
@@ -1585,76 +1848,114 @@ pub const VNSPROTO_RELIABLE_IPC: u32 = 2u32;
 pub const VNSPROTO_SPP: u32 = 3u32;
 pub const WCE_AF_IRDA: u32 = 22u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCE_DEVICELIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCE_IRDA_DEVICE_INFO(i32);
 pub const WCE_PF_IRDA: u32 = 22u32;
 pub const WINDOWS_AF_IRDA: u32 = 26u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINDOWS_DEVICELIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINDOWS_IAS_QUERY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINDOWS_IAS_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINDOWS_IRDA_DEVICE_INFO(i32);
 pub const WINDOWS_PF_IRDA: u32 = 26u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSABUF(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[repr(C)]
 pub struct WSACOMPLETION(i32);
+#[repr(C)]
 pub struct WSACOMPLETIONTYPE(i32);
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSAData(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSAData(i32);
+#[repr(C)]
 pub struct WSAECOMPARATOR(i32);
+#[repr(C)]
 pub struct WSAESETSERVICEOP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSAMSG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSANAMESPACE_INFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct WSANAMESPACE_INFOEXA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct WSANAMESPACE_INFOEXW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSANAMESPACE_INFOW(i32);
+#[repr(C)]
 pub struct WSANETWORKEVENTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSANSCLASSINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSANSCLASSINFOW(i32);
+#[repr(C)]
 pub struct WSAPOLLDATA(i32);
+#[repr(C)]
 pub struct WSAPOLLFD(i32);
+#[repr(C)]
 pub struct WSAPROTOCOLCHAIN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSAPROTOCOL_INFOA(i32);
+#[repr(C)]
 pub struct WSAPROTOCOL_INFOW(i32);
 pub const WSAPROTOCOL_LEN: u32 = 255u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct WSAQUERYSET2A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct WSAQUERYSET2W(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct WSAQUERYSETA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct WSAQUERYSETW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[repr(C)]
 pub struct WSASENDMSG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSASERVICECLASSINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSASERVICECLASSINFOW(i32);
 pub const WSASYS_STATUS_LEN: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSATHREADID(i32);
+#[repr(C)]
 pub struct WSAVERSION(i32);
+#[repr(C)]
 pub struct WSA_COMPATIBILITY_BEHAVIOR_ID(i32);
+#[repr(C)]
 pub struct WSA_COMPATIBILITY_MODE(i32);
+#[repr(C)]
 pub struct WSA_ERROR(i32);
 pub const WSA_FLAG_ACCESS_SYSTEM_SECURITY: u32 = 64u32;
 pub const WSA_FLAG_MULTIPOINT_C_LEAF: u32 = 4u32;
@@ -1669,14 +1970,19 @@ pub const WSA_MAXIMUM_WAIT_EVENTS: u32 = 64u32;
 pub const WSA_WAIT_EVENT_0: u32 = 0u32;
 pub const WSA_WAIT_FAILED: u32 = 4294967295u32;
 pub const WSA_WAIT_IO_COMPLETION: u32 = 192u32;
+#[repr(C)]
 pub struct WSC_PROVIDER_AUDIT_INFO(i32);
+#[repr(C)]
 pub struct WSC_PROVIDER_INFO_TYPE(i32);
 pub const WSK_SO_BASE: u32 = 16384u32;
 pub const WSPDESCRIPTION_LEN: u32 = 255u32;
+#[repr(C)]
 pub struct WSPData(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
+#[repr(C)]
 pub struct WSPPROC_TABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSPUPCALLTABLE(i32);
 pub const WSS_OPERATION_IN_PROGRESS: i32 = 259i32;
 pub const XP1_CONNECTIONLESS: u32 = 1u32;
@@ -1715,54 +2021,85 @@ pub const XP_SUPPORTS_BROADCAST: u32 = 512u32;
 pub const XP_SUPPORTS_MULTICAST: u32 = 1024u32;
 pub const _SS_MAXSIZE: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfo_dns_server(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoex2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoex2W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoex3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoex4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoex5(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoex6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoexA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct addrinfoexW(i32);
+#[repr(C)]
 pub struct cmsghdr(i32);
+#[repr(C)]
 pub struct eWINDOW_ADVANCE_METHOD(i32);
+#[repr(C)]
 pub struct fd_set(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct hostent(i32);
+#[repr(C)]
 pub struct in6_pktinfo_ex(i32);
+#[repr(C)]
 pub struct linger(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct netent(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct protoent(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct servent(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct servent(i32);
+#[repr(C)]
 pub struct sockaddr_atm(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sockaddr_gen(i32);
+#[repr(C)]
 pub struct sockaddr_in6_old(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sockaddr_ipx(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sockaddr_nb(i32);
+#[repr(C)]
 pub struct sockaddr_tp(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sockaddr_un(i32);
+#[repr(C)]
 pub struct sockaddr_vns(i32);
+#[repr(C)]
 pub struct sockproto(i32);
+#[repr(C)]
 pub struct tcp_keepalive(i32);
+#[repr(C)]
 pub struct timeval(i32);

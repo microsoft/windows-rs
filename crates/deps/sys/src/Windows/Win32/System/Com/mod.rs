@@ -164,6 +164,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn StringFromIID(rclsid: *const ::windows_sys::core::GUID, lplpsz: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct ADVF(i32);
 pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
 pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
@@ -180,11 +181,15 @@ pub const APPIDREGFLAGS_RESERVED7: u32 = 4096u32;
 pub const APPIDREGFLAGS_RESERVED8: u32 = 8192u32;
 pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
+#[repr(C)]
 pub struct APTTYPE(i32);
+#[repr(C)]
 pub struct APTTYPEQUALIFIER(i32);
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
+#[repr(C)]
 pub struct AUTHENTICATEINFO(i32);
+#[repr(C)]
 pub struct ApplicationType(i32);
 #[repr(transparent)]
 pub struct AsyncIAdviseSink(pub *mut ::core::ffi::c_void);
@@ -201,28 +206,47 @@ pub struct AsyncIPipeLong(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AsyncIUnknown(pub *mut ::core::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct BINDINFO(i32);
+#[repr(C)]
 pub struct BINDINFOF(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct BINDPTR(i32);
+#[repr(C)]
 pub struct BIND_FLAGS(i32);
+#[repr(C)]
 pub struct BIND_OPTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BIND_OPTS2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BIND_OPTS3(i32);
+#[repr(C)]
 pub struct BLOB(i32);
+#[repr(C)]
 pub struct BYTE_BLOB(i32);
+#[repr(C)]
 pub struct BYTE_SIZEDARR(i32);
+#[repr(C)]
 pub struct CALLCONV(i32);
+#[repr(C)]
 pub struct CALLTYPE(i32);
+#[repr(C)]
 pub struct CATEGORYINFO(i32);
+#[repr(C)]
 pub struct CLSCTX(i32);
+#[repr(C)]
 pub struct COAUTHIDENTITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COAUTHINFO(i32);
+#[repr(C)]
 pub struct COINIT(i32);
+#[repr(C)]
 pub struct COINITBASE(i32);
+#[repr(C)]
 pub struct COMSD(i32);
 pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
 pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
@@ -231,22 +255,35 @@ pub const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2u32;
 pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4u32;
 pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
 pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
+#[repr(C)]
 pub struct CONNECTDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COSERVERINFO(i32);
+#[repr(C)]
 pub struct COWAIT_FLAGS(i32);
+#[repr(C)]
 pub struct CO_DEVICE_CATALOG_COOKIE(i32);
+#[repr(C)]
 pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct CO_MTA_USAGE_COOKIE(i32);
+#[repr(C)]
 pub struct CSPLATFORM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct CUSTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct CUSTDATAITEM(i32);
+#[repr(C)]
 pub struct CWMO_FLAGS(i32);
 pub const CWMO_MAX_HANDLES: u32 = 56u32;
+#[repr(C)]
 pub struct CY(i32);
+#[repr(C)]
 pub struct ComCallData(i32);
+#[repr(C)]
 pub struct DATADIR(i32);
 pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
 pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
@@ -254,35 +291,58 @@ pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
 pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16u32;
 pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
 pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
+#[repr(C)]
 pub struct DCOM_CALL_STATE(i32);
+#[repr(C)]
 pub struct DESCKIND(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct DISPPARAMS(i32);
 pub const DMUS_ERRBASE: u32 = 4096u32;
+#[repr(C)]
 pub struct DVASPECT(i32);
+#[repr(C)]
 pub struct DVTARGETDEVICE(i32);
+#[repr(C)]
 pub struct DWORD_BLOB(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct ELEMDESC(i32);
+#[repr(C)]
 pub struct EOLE_AUTHENTICATION_CAPABILITIES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EXCEPINFO(i32);
+#[repr(C)]
 pub struct EXTCONN(i32);
+#[repr(C)]
 pub struct FLAGGED_BYTE_BLOB(i32);
+#[repr(C)]
 pub struct FLAGGED_WORD_BLOB(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct FLAG_STGMEDIUM(i32);
+#[repr(C)]
 pub struct FORMATETC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct FUNCDESC(i32);
+#[repr(C)]
 pub struct FUNCKIND(i32);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[repr(C)]
 pub struct GDI_OBJECT(i32);
+#[repr(C)]
 pub struct GLOBALOPT_EH_VALUES(i32);
+#[repr(C)]
 pub struct GLOBALOPT_PROPERTIES(i32);
+#[repr(C)]
 pub struct GLOBALOPT_RO_FLAGS(i32);
+#[repr(C)]
 pub struct GLOBALOPT_RPCTP_VALUES(i32);
+#[repr(C)]
 pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(i32);
+#[repr(C)]
 pub struct HYPER_SIZEDARR(i32);
 #[repr(transparent)]
 pub struct IActivationFilter(pub *mut ::core::ffi::c_void);
@@ -338,9 +398,11 @@ pub struct IComThreadingInfo(pub *mut ::core::ffi::c_void);
 pub struct IConnectionPoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IConnectionPointContainer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IContext(i32);
 #[repr(transparent)]
 pub struct IContextCallback(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDLDESC(i32);
 #[repr(transparent)]
 pub struct IDataAdviseHolder(pub *mut ::core::ffi::c_void);
@@ -354,6 +416,7 @@ pub struct IEnumCATEGORYINFO(pub *mut ::core::ffi::c_void);
 pub struct IEnumConnectionPoints(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IEnumConnections(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IEnumContextProps(i32);
 #[repr(transparent)]
 pub struct IEnumFORMATETC(pub *mut ::core::ffi::c_void);
@@ -395,7 +458,9 @@ pub struct IMallocSpy(pub *mut ::core::ffi::c_void);
 pub struct IMoniker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMultiQI(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct INTERFACEINFO(i32);
+#[repr(C)]
 pub struct INVOKEKIND(i32);
 #[repr(transparent)]
 pub struct INoMarshal(pub *mut ::core::ffi::c_void);
@@ -499,73 +564,127 @@ pub struct IUriBuilder(pub *mut ::core::ffi::c_void);
 pub struct IUrlMon(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWaitMultiple(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LONG_SIZEDARR(i32);
+#[repr(C)]
 pub struct LPEXCEPFINO_DEFERRED_FILLIN(i32);
+#[repr(C)]
 pub struct LPFNCANUNLOADNOW(i32);
+#[repr(C)]
 pub struct LPFNGETCLASSOBJECT(i32);
 pub const MARSHALINTERFACE_MIN: u32 = 500u32;
 pub const MAXLSN: u64 = 9223372036854775807u64;
+#[repr(C)]
 pub struct MEMCTX(i32);
+#[repr(C)]
 pub struct MKREDUCE(i32);
+#[repr(C)]
 pub struct MKSYS(i32);
+#[repr(C)]
 pub struct MSHCTX(i32);
+#[repr(C)]
 pub struct MSHLFLAGS(i32);
+#[repr(C)]
 pub struct MULTI_QI(i32);
+#[repr(C)]
 pub struct MachineGlobalObjectTableRegistrationToken__(i32);
+#[repr(C)]
 pub struct PENDINGMSG(i32);
+#[repr(C)]
 pub struct PENDINGTYPE(i32);
+#[repr(C)]
 pub struct PFNCONTEXTCALL(i32);
+#[repr(C)]
 pub struct QUERYCONTEXT(i32);
+#[repr(C)]
 pub struct REGCLS(i32);
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
+#[repr(C)]
 pub struct RPCOLEMESSAGE(i32);
+#[repr(C)]
 pub struct RPCOPT_PROPERTIES(i32);
+#[repr(C)]
 pub struct RPCOPT_SERVER_LOCALITY_VALUES(i32);
+#[repr(C)]
 pub struct RPC_C_AUTHN_LEVEL(i32);
+#[repr(C)]
 pub struct RPC_C_IMP_LEVEL(i32);
+#[repr(C)]
 pub struct RemSTGMEDIUM(i32);
+#[repr(C)]
 pub struct SAFEARRAY(i32);
+#[repr(C)]
 pub struct SAFEARRAYBOUND(i32);
+#[repr(C)]
 pub struct SChannelHookCallInfo(i32);
+#[repr(C)]
 pub struct SERVERCALL(i32);
+#[repr(C)]
 pub struct SHORT_SIZEDARR(i32);
+#[repr(C)]
 pub struct SOLE_AUTHENTICATION_INFO(i32);
+#[repr(C)]
 pub struct SOLE_AUTHENTICATION_LIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOLE_AUTHENTICATION_SERVICE(i32);
+#[repr(C)]
 pub struct STATDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STATSTG(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct STGMEDIUM(i32);
+#[repr(C)]
 pub struct STGTY(i32);
 pub const STGTY_REPEAT: i32 = 256i32;
 pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
 pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
 pub const STG_TOEND: i32 = -1i32;
+#[repr(C)]
 pub struct STREAM_SEEK(i32);
+#[repr(C)]
 pub struct SYSKIND(i32);
+#[repr(C)]
 pub struct ShutdownType(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct StorageLayout(i32);
+#[repr(C)]
 pub struct THDTYPE(i32);
+#[repr(C)]
 pub struct TLIBATTR(i32);
+#[repr(C)]
 pub struct TYMED(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct TYPEATTR(i32);
 #[cfg(feature = "Win32_System_Ole")]
+#[repr(C)]
 pub struct TYPEDESC(i32);
+#[repr(C)]
 pub struct TYPEKIND(i32);
+#[repr(C)]
 pub struct TYSPEC(i32);
+#[repr(C)]
 pub struct URI_CREATE_FLAGS(i32);
+#[repr(C)]
 pub struct Uri_PROPERTY(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct VARDESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct VARIANT(i32);
+#[repr(C)]
 pub struct VARKIND(i32);
+#[repr(C)]
 pub struct WORD_BLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct uCLSSPEC(i32);
+#[repr(C)]
 pub struct userFLAG_STGMEDIUM(i32);
+#[repr(C)]
 pub struct userSTGMEDIUM(i32);

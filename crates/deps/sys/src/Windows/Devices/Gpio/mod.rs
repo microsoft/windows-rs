@@ -4,24 +4,32 @@ pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct GpioChangeCount(i32);
 #[repr(transparent)]
 pub struct GpioChangeCounter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GpioChangePolarity(i32);
 #[repr(transparent)]
 pub struct GpioChangeReader(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct GpioChangeRecord(i32);
 #[repr(transparent)]
 pub struct GpioController(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GpioOpenStatus(i32);
 #[repr(transparent)]
 pub struct GpioPin(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GpioPinDriveMode(i32);
+#[repr(C)]
 pub struct GpioPinEdge(i32);
+#[repr(C)]
 pub struct GpioPinValue(i32);
 #[repr(transparent)]
 pub struct GpioPinValueChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GpioSharingMode(i32);
 #[repr(transparent)]
 pub struct IGpioChangeCounter(pub *mut ::core::ffi::c_void);

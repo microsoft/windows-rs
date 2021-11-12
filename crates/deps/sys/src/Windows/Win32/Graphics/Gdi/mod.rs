@@ -694,32 +694,49 @@ extern "system" {
     pub fn WindowFromDC(hdc: HDC) -> super::super::Foundation::HWND;
     pub fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32;
 }
+#[repr(C)]
 pub struct ABC(i32);
+#[repr(C)]
 pub struct ABCFLOAT(i32);
 pub const ABORTDOC: u32 = 2u32;
+#[repr(C)]
 pub struct ABORTPATH(i32);
 pub const ABSOLUTE: u32 = 1u32;
 pub const AC_SRC_ALPHA: u32 = 1u32;
 pub const AC_SRC_OVER: u32 = 0u32;
 pub const ANSI_CHARSET: u32 = 0u32;
 pub const ARABIC_CHARSET: u32 = 178u32;
+#[repr(C)]
 pub struct ARC_DIRECTION(i32);
 pub const ASPECT_FILTERING: u32 = 1u32;
+#[repr(C)]
 pub struct AXESLISTA(i32);
+#[repr(C)]
 pub struct AXESLISTW(i32);
+#[repr(C)]
 pub struct AXISINFOA(i32);
+#[repr(C)]
 pub struct AXISINFOW(i32);
+#[repr(C)]
 pub struct BACKGROUND_MODE(i32);
 pub const BALTIC_CHARSET: u32 = 186u32;
 pub const BANDINFO: u32 = 24u32;
 pub const BEGIN_PATH: u32 = 4096u32;
+#[repr(C)]
 pub struct BITMAP(i32);
+#[repr(C)]
 pub struct BITMAPCOREHEADER(i32);
+#[repr(C)]
 pub struct BITMAPCOREINFO(i32);
+#[repr(C)]
 pub struct BITMAPFILEHEADER(i32);
+#[repr(C)]
 pub struct BITMAPINFO(i32);
+#[repr(C)]
 pub struct BITMAPINFOHEADER(i32);
+#[repr(C)]
 pub struct BITMAPV4HEADER(i32);
+#[repr(C)]
 pub struct BITMAPV5HEADER(i32);
 pub const BI_BITFIELDS: i32 = 3i32;
 pub const BI_JPEG: i32 = 4i32;
@@ -728,6 +745,7 @@ pub const BI_RGB: i32 = 0i32;
 pub const BI_RLE4: i32 = 2i32;
 pub const BI_RLE8: i32 = 1i32;
 pub const BKMODE_LAST: u32 = 2u32;
+#[repr(C)]
 pub struct BLENDFUNCTION(i32);
 pub const BS_DIBPATTERN: u32 = 5u32;
 pub const BS_DIBPATTERN8X8: u32 = 8u32;
@@ -754,16 +772,22 @@ pub const CC_ROUNDRECT: u32 = 256u32;
 pub const CC_STYLED: u32 = 32u32;
 pub const CC_WIDE: u32 = 16u32;
 pub const CC_WIDESTYLED: u32 = 64u32;
+#[repr(C)]
 pub struct CDS_TYPE(i32);
+#[repr(C)]
 pub struct CFP_ALLOCPROC(i32);
+#[repr(C)]
 pub struct CFP_FREEPROC(i32);
+#[repr(C)]
 pub struct CFP_REALLOCPROC(i32);
 pub const CHARSET_DEFAULT: u32 = 1u32;
 pub const CHARSET_GLYPHIDX: u32 = 3u32;
 pub const CHECKJPEGFORMAT: u32 = 4119u32;
 pub const CHECKPNGFORMAT: u32 = 4120u32;
 pub const CHINESEBIG5_CHARSET: u32 = 136u32;
+#[repr(C)]
 pub struct CIEXYZ(i32);
+#[repr(C)]
 pub struct CIEXYZTRIPLE(i32);
 pub const CLEARTYPE_NATURAL_QUALITY: u32 = 6u32;
 pub const CLIP_TO_PATH: u32 = 4097u32;
@@ -775,8 +799,11 @@ pub const CM_GAMMA_RAMP: u32 = 2u32;
 pub const CM_IN_GAMUT: u32 = 0u32;
 pub const CM_NONE: u32 = 0u32;
 pub const CM_OUT_OF_GAMUT: u32 = 255u32;
+#[repr(C)]
 pub struct COLORADJUSTMENT(i32);
+#[repr(C)]
 pub struct COLORCORRECTPALETTE(i32);
+#[repr(C)]
 pub struct COLORMATCHTOTARGET(i32);
 pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
 pub const COMPLEXREGION: u32 = 3u32;
@@ -784,9 +811,13 @@ pub const CP_NONE: u32 = 0u32;
 pub const CP_RECTANGLE: u32 = 1u32;
 pub const CP_REGION: u32 = 2u32;
 pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
+#[repr(C)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(i32);
+#[repr(C)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(i32);
+#[repr(C)]
 pub struct CREATE_POLYGON_RGN_MODE(i32);
+#[repr(C)]
 pub struct CreatedHDC(i32);
 pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
 pub const DCBA_FACEDOWNLEFT: u32 = 258u32;
@@ -803,23 +834,32 @@ pub const DCTT_SUBDEV: i32 = 4i32;
 pub const DC_BINADJUST: u32 = 19u32;
 pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
 pub const DC_EMF_COMPLIANT: u32 = 20u32;
+#[repr(C)]
 pub struct DC_LAYOUT(i32);
 pub const DC_MANUFACTURER: u32 = 23u32;
 pub const DC_MODEL: u32 = 24u32;
 pub const DEFAULT_CHARSET: u32 = 1u32;
 pub const DEFAULT_PITCH: u32 = 0u32;
+#[repr(C)]
 pub struct DESIGNVECTOR(i32);
 pub const DEVICEDATA: u32 = 19u32;
 pub const DEVICE_FONTTYPE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVMODEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVMODEW(i32);
+#[repr(C)]
 pub struct DFCS_STATE(i32);
+#[repr(C)]
 pub struct DFC_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIBSECTION(i32);
+#[repr(C)]
 pub struct DIB_USAGE(i32);
+#[repr(C)]
 pub struct DISPLAYCONFIG_COLOR_ENCODING(i32);
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
 pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
@@ -839,7 +879,9 @@ pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
 pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
 pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DISPLAY_DEVICEA(i32);
+#[repr(C)]
 pub struct DISPLAY_DEVICEW(i32);
 pub const DISPLAY_DEVICE_ACC_DRIVER: u32 = 64u32;
 pub const DISPLAY_DEVICE_ACTIVE: u32 = 1u32;
@@ -856,6 +898,7 @@ pub const DISPLAY_DEVICE_REMOVABLE: u32 = 32u32;
 pub const DISPLAY_DEVICE_TS_COMPATIBLE: u32 = 2097152u32;
 pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288u32;
 pub const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16u32;
+#[repr(C)]
 pub struct DISP_CHANGE(i32);
 pub const DI_APPBANDING: u32 = 1u32;
 pub const DI_ROPS_READ_DESTINATION: u32 = 2u32;
@@ -1082,13 +1125,20 @@ pub const DM_YRESOLUTION: i32 = 8192i32;
 pub const DOWNLOADFACE: u32 = 514u32;
 pub const DOWNLOADHEADER: u32 = 4111u32;
 pub const DRAFTMODE: u32 = 7u32;
+#[repr(C)]
 pub struct DRAWEDGE_FLAGS(i32);
 pub const DRAWPATTERNRECT: u32 = 25u32;
+#[repr(C)]
 pub struct DRAWSTATEPROC(i32);
+#[repr(C)]
 pub struct DRAWSTATE_FLAGS(i32);
+#[repr(C)]
 pub struct DRAWTEXTPARAMS(i32);
+#[repr(C)]
 pub struct DRAW_CAPTION_FLAGS(i32);
+#[repr(C)]
 pub struct DRAW_EDGE_FLAGS(i32);
+#[repr(C)]
 pub struct DRAW_TEXT_FORMAT(i32);
 pub const DT_CHARSTREAM: u32 = 4u32;
 pub const DT_DISPFILE: u32 = 6u32;
@@ -1101,107 +1151,174 @@ pub const EASTEUROPE_CHARSET: u32 = 238u32;
 pub const ELF_CULTURE_LATIN: u32 = 0u32;
 pub const ELF_VENDOR_SIZE: u32 = 4u32;
 pub const ELF_VERSION: u32 = 0u32;
+#[repr(C)]
 pub struct EMBEDDED_FONT_PRIV_STATUS(i32);
+#[repr(C)]
 pub struct EMBED_FONT_CHARSET(i32);
+#[repr(C)]
 pub struct EMR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRALPHABLEND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRANGLEARC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRARC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRBITBLT(i32);
+#[repr(C)]
 pub struct EMRCREATEBRUSHINDIRECT(i32);
+#[repr(C)]
 pub struct EMRCREATEDIBPATTERNBRUSHPT(i32);
+#[repr(C)]
 pub struct EMRCREATEMONOBRUSH(i32);
+#[repr(C)]
 pub struct EMRCREATEPALETTE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRCREATEPEN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRELLIPSE(i32);
+#[repr(C)]
 pub struct EMREOF(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMREXCLUDECLIPRECT(i32);
+#[repr(C)]
 pub struct EMREXTCREATEFONTINDIRECTW(i32);
+#[repr(C)]
 pub struct EMREXTCREATEPEN(i32);
+#[repr(C)]
 pub struct EMREXTESCAPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMREXTFLOODFILL(i32);
+#[repr(C)]
 pub struct EMREXTSELECTCLIPRGN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMREXTTEXTOUTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRFILLPATH(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRFILLRGN(i32);
+#[repr(C)]
 pub struct EMRFORMAT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRFRAMERGN(i32);
+#[repr(C)]
 pub struct EMRGDICOMMENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRGLSBOUNDEDRECORD(i32);
+#[repr(C)]
 pub struct EMRGLSRECORD(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRGRADIENTFILL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRINVERTRGN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRLINETO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRMASKBLT(i32);
+#[repr(C)]
 pub struct EMRMODIFYWORLDTRANSFORM(i32);
+#[repr(C)]
 pub struct EMRNAMEDESCAPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMROFFSETCLIPRGN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPLGBLT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPOLYDRAW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPOLYDRAW16(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPOLYLINE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPOLYLINE16(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPOLYPOLYLINE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPOLYPOLYLINE16(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRPOLYTEXTOUTA(i32);
+#[repr(C)]
 pub struct EMRRESIZEPALETTE(i32);
+#[repr(C)]
 pub struct EMRRESTOREDC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRROUNDRECT(i32);
+#[repr(C)]
 pub struct EMRSCALEVIEWPORTEXTEX(i32);
+#[repr(C)]
 pub struct EMRSELECTCLIPPATH(i32);
+#[repr(C)]
 pub struct EMRSELECTOBJECT(i32);
+#[repr(C)]
 pub struct EMRSELECTPALETTE(i32);
+#[repr(C)]
 pub struct EMRSETARCDIRECTION(i32);
+#[repr(C)]
 pub struct EMRSETCOLORADJUSTMENT(i32);
+#[repr(C)]
 pub struct EMRSETCOLORSPACE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRSETDIBITSTODEVICE(i32);
+#[repr(C)]
 pub struct EMRSETICMPROFILE(i32);
+#[repr(C)]
 pub struct EMRSETMAPPERFLAGS(i32);
+#[repr(C)]
 pub struct EMRSETMITERLIMIT(i32);
+#[repr(C)]
 pub struct EMRSETPALETTEENTRIES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRSETPIXELV(i32);
+#[repr(C)]
 pub struct EMRSETTEXTCOLOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRSETVIEWPORTEXTEX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRSETVIEWPORTORGEX(i32);
+#[repr(C)]
 pub struct EMRSETWORLDTRANSFORM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRSTRETCHBLT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRSTRETCHDIBITS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EMRTRANSPARENTBLT(i32);
 pub const EMR_ABORTPATH: u32 = 68u32;
 pub const EMR_ALPHABLEND: u32 = 114u32;
@@ -1333,22 +1450,32 @@ pub const ENCAPSULATED_POSTSCRIPT: u32 = 4116u32;
 pub const ENDDOC: u32 = 11u32;
 pub const END_PATH: u32 = 4098u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENHMETAHEADER(i32);
+#[repr(C)]
 pub struct ENHMETARECORD(i32);
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
+#[repr(C)]
 pub struct ENHMFENUMPROC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUMLOGFONTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUMLOGFONTEXA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUMLOGFONTEXDVA(i32);
+#[repr(C)]
 pub struct ENUMLOGFONTEXDVW(i32);
+#[repr(C)]
 pub struct ENUMLOGFONTEXW(i32);
+#[repr(C)]
 pub struct ENUMLOGFONTW(i32);
 pub const ENUMPAPERBINS: u32 = 31u32;
 pub const ENUMPAPERMETRICS: u32 = 34u32;
+#[repr(C)]
 pub struct ENUM_DISPLAY_SETTINGS_MODE(i32);
 pub const EPSPRINTING: u32 = 33u32;
 pub const EPS_SIGNATURE: u32 = 1179865157u32;
@@ -1425,14 +1552,20 @@ pub const ERR_VERSION: u32 = 1008u32;
 pub const ERR_WOULD_GROW: u32 = 1007u32;
 pub const ERR_WRITECONTROL: u32 = 1004u32;
 pub const ERR_WRITEOUTOFBOUNDS: u32 = 1002u32;
+#[repr(C)]
 pub struct ETO_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EXTLOGFONTA(i32);
+#[repr(C)]
 pub struct EXTLOGFONTW(i32);
+#[repr(C)]
 pub struct EXTLOGPEN(i32);
+#[repr(C)]
 pub struct EXTLOGPEN32(i32);
 pub const EXTTEXTOUT: u32 = 512u32;
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
+#[repr(C)]
 pub struct EXT_FLOOD_FILL_TYPE(i32);
 pub const E_ADDFONTFAILED: i32 = 512i32;
 pub const E_API_NOTIMPL: i32 = 1i32;
@@ -1500,19 +1633,28 @@ pub const FEATURESETTING_PRIVATE_BEGIN: u32 = 4096u32;
 pub const FEATURESETTING_PRIVATE_END: u32 = 8191u32;
 pub const FEATURESETTING_PROTOCOL: u32 = 6u32;
 pub const FEATURESETTING_PSLEVEL: u32 = 2u32;
+#[repr(C)]
 pub struct FIXED(i32);
 pub const FIXED_PITCH: u32 = 1u32;
 pub const FLI_GLYPHS: i32 = 262144i32;
 pub const FLI_MASK: u32 = 4155u32;
 pub const FLUSHOUTPUT: u32 = 6u32;
+#[repr(C)]
 pub struct FONTENUMPROCA(i32);
+#[repr(C)]
 pub struct FONTENUMPROCW(i32);
 pub const FONTMAPPER_MAX: u32 = 10u32;
+#[repr(C)]
 pub struct FONT_CLIP_PRECISION(i32);
+#[repr(C)]
 pub struct FONT_LICENSE_PRIVS(i32);
+#[repr(C)]
 pub struct FONT_OUTPUT_PRECISION(i32);
+#[repr(C)]
 pub struct FONT_PITCH_AND_FAMILY(i32);
+#[repr(C)]
 pub struct FONT_QUALITY(i32);
+#[repr(C)]
 pub struct FONT_RESOURCE_CHARACTERISTICS(i32);
 pub const FS_ARABIC: i32 = 64i32;
 pub const FS_BALTIC: i32 = 128i32;
@@ -1565,8 +1707,10 @@ pub const GCP_DBCS: u32 = 1u32;
 pub const GCP_ERROR: u32 = 32768u32;
 pub const GCP_JUSTIFYIN: i32 = 2097152i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GCP_RESULTSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GCP_RESULTSW(i32);
 pub const GDICOMMENT_BEGINGROUP: u32 = 2u32;
 pub const GDICOMMENT_ENDGROUP: u32 = 3u32;
@@ -1598,45 +1742,74 @@ pub const GETTECHNOLOGY: u32 = 20u32;
 pub const GETTRACKKERNTABLE: u32 = 259u32;
 pub const GETVECTORBRUSHSIZE: u32 = 27u32;
 pub const GETVECTORPENSIZE: u32 = 26u32;
+#[repr(C)]
 pub struct GET_CHARACTER_PLACEMENT_FLAGS(i32);
+#[repr(C)]
 pub struct GET_DCX_FLAGS(i32);
+#[repr(C)]
 pub struct GET_DEVICE_CAPS_INDEX(i32);
+#[repr(C)]
 pub struct GET_GLYPH_OUTLINE_FORMAT(i32);
 pub const GET_PS_FEATURESETTING: u32 = 4121u32;
+#[repr(C)]
 pub struct GET_STOCK_OBJECT_FLAGS(i32);
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GLYPHMETRICS(i32);
+#[repr(C)]
 pub struct GLYPHSET(i32);
 pub const GM_LAST: u32 = 2u32;
+#[repr(C)]
 pub struct GOBJENUMPROC(i32);
+#[repr(C)]
 pub struct GRADIENT_FILL(i32);
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
+#[repr(C)]
 pub struct GRADIENT_RECT(i32);
+#[repr(C)]
 pub struct GRADIENT_TRIANGLE(i32);
+#[repr(C)]
 pub struct GRAPHICS_MODE(i32);
+#[repr(C)]
 pub struct GRAYSTRINGPROC(i32);
 pub const GREEK_CHARSET: u32 = 161u32;
 pub const GS_8BIT_INDICES: u32 = 1u32;
+#[repr(C)]
 pub struct HANDLETABLE(i32);
 pub const HANGEUL_CHARSET: u32 = 129u32;
 pub const HANGUL_CHARSET: u32 = 129u32;
+#[repr(C)]
 pub struct HATCH_BRUSH_STYLE(i32);
+#[repr(C)]
 pub struct HBITMAP(i32);
+#[repr(C)]
 pub struct HBRUSH(i32);
+#[repr(C)]
 pub struct HDC(i32);
+#[repr(C)]
 pub struct HDC_MAP_MODE(i32);
 pub const HEBREW_CHARSET: u32 = 177u32;
+#[repr(C)]
 pub struct HENHMETAFILE(i32);
+#[repr(C)]
 pub struct HFONT(i32);
+#[repr(C)]
 pub struct HGDIOBJ(i32);
+#[repr(C)]
 pub struct HMETAFILE(i32);
+#[repr(C)]
 pub struct HMONITOR(i32);
+#[repr(C)]
 pub struct HPALETTE(i32);
+#[repr(C)]
 pub struct HPEN(i32);
+#[repr(C)]
 pub struct HRGN(i32);
 pub const HS_API_MAX: u32 = 12u32;
+#[repr(C)]
 pub struct HdcMetdataEnhFileHandle(i32);
+#[repr(C)]
 pub struct HdcMetdataFileHandle(i32);
 pub const ICM_DONE_OUTSIDEDC: u32 = 4u32;
 pub const ICM_OFF: u32 = 1u32;
@@ -1657,6 +1830,7 @@ pub const ILLUMINANT_MAX_INDEX: u32 = 8u32;
 pub const ILLUMINANT_NTSC: u32 = 3u32;
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
 pub const JOHAB_CHARSET: u32 = 130u32;
+#[repr(C)]
 pub struct KERNINGPAIR(i32);
 pub const LAYOUT_BTT: u32 = 2u32;
 pub const LAYOUT_VBH: u32 = 4u32;
@@ -1675,14 +1849,21 @@ pub const LC_WIDE: u32 = 16u32;
 pub const LC_WIDESTYLED: u32 = 64u32;
 pub const LF_FACESIZE: u32 = 32u32;
 pub const LF_FULLFACESIZE: u32 = 64u32;
+#[repr(C)]
 pub struct LINEDDAPROC(i32);
+#[repr(C)]
 pub struct LOGBRUSH(i32);
+#[repr(C)]
 pub struct LOGBRUSH32(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LOGFONTA(i32);
+#[repr(C)]
 pub struct LOGFONTW(i32);
+#[repr(C)]
 pub struct LOGPALETTE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LOGPEN(i32);
 pub const LPD_DOUBLEBUFFER: u32 = 1u32;
 pub const LPD_SHARE_ACCUM: u32 = 256u32;
@@ -1696,13 +1877,18 @@ pub const LPD_SWAP_EXCHANGE: u32 = 512u32;
 pub const LPD_TRANSPARENT: u32 = 4096u32;
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
 pub const LPD_TYPE_RGBA: u32 = 0u32;
+#[repr(C)]
 pub struct LPFNDEVCAPS(i32);
+#[repr(C)]
 pub struct LPFNDEVMODE(i32);
 pub const MAC_CHARSET: u32 = 77u32;
+#[repr(C)]
 pub struct MAT2(i32);
 pub const MAXSTRETCHBLTMODE: u32 = 4u32;
 pub const METAFILE_DRIVER: u32 = 2049u32;
+#[repr(C)]
 pub struct METAHEADER(i32);
+#[repr(C)]
 pub struct METARECORD(i32);
 pub const META_ANIMATEPALETTE: u32 = 1078u32;
 pub const META_ARC: u32 = 2071u32;
@@ -1774,24 +1960,33 @@ pub const META_STRETCHBLT: u32 = 2851u32;
 pub const META_STRETCHDIB: u32 = 3907u32;
 pub const META_TEXTOUT: u32 = 1313u32;
 pub const MFCOMMENT: u32 = 15u32;
+#[repr(C)]
 pub struct MFENUMPROC(i32);
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647u32;
 pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
 pub const MM_MAX_NUMAXES: u32 = 16u32;
+#[repr(C)]
 pub struct MODIFY_WORLD_TRANSFORM_MODE(i32);
+#[repr(C)]
 pub struct MONITORENUMPROC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONITORINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONITORINFOEXA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MONITORINFOEXW(i32);
+#[repr(C)]
 pub struct MONITOR_FROM_FLAGS(i32);
 pub const MONO_FONT: u32 = 8u32;
 pub const MOUSETRAILS: u32 = 39u32;
 pub const NEWFRAME: u32 = 1u32;
+#[repr(C)]
 pub struct NEWTEXTMETRICA(i32);
+#[repr(C)]
 pub struct NEWTEXTMETRICW(i32);
 pub const NEWTRANSPARENT: u32 = 3u32;
 pub const NEXTBAND: u32 = 3u32;
@@ -1805,17 +2000,23 @@ pub const NTM_REGULAR: i32 = 64i32;
 pub const NTM_TT_OPENTYPE: u32 = 262144u32;
 pub const NTM_TYPE1: u32 = 1048576u32;
 pub const NULLREGION: u32 = 1u32;
+#[repr(C)]
 pub struct OBJ_TYPE(i32);
 pub const OEM_CHARSET: u32 = 255u32;
 pub const OPENCHANNEL: u32 = 4110u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OUTLINETEXTMETRICA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OUTLINETEXTMETRICW(i32);
 pub const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PAINTSTRUCT(i32);
+#[repr(C)]
 pub struct PALETTEENTRY(i32);
+#[repr(C)]
 pub struct PANOSE(i32);
 pub const PANOSE_COUNT: u32 = 10u32;
 pub const PAN_ANY: u32 = 0u32;
@@ -1940,7 +2141,9 @@ pub const PC_TRAPEZOID: u32 = 4u32;
 pub const PC_WIDE: u32 = 16u32;
 pub const PC_WIDESTYLED: u32 = 64u32;
 pub const PC_WINDPOLYGON: u32 = 4u32;
+#[repr(C)]
 pub struct PELARRAY(i32);
+#[repr(C)]
 pub struct PEN_STYLE(i32);
 pub const PFD_DEPTH_DONTCARE: u32 = 536870912u32;
 pub const PFD_DIRECT3D_ACCELERATED: u32 = 16384u32;
@@ -1966,11 +2169,14 @@ pub const PFD_SWAP_LAYER_BUFFERS: u32 = 2048u32;
 pub const PFD_TYPE_COLORINDEX: u32 = 1u32;
 pub const PFD_TYPE_RGBA: u32 = 0u32;
 pub const PFD_UNDERLAY_PLANE: i32 = -1i32;
+#[repr(C)]
 pub struct POINTFX(i32);
 pub const POLYFILL_LAST: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POLYTEXTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POLYTEXTW(i32);
 pub const POSTSCRIPT_DATA: u32 = 37u32;
 pub const POSTSCRIPT_IDENTIFY: u32 = 4117u32;
@@ -2006,7 +2212,9 @@ pub const QDI_STRETCHDIB: u32 = 8u32;
 pub const QUERYDIBSUPPORT: u32 = 3073u32;
 pub const QUERYESCSUPPORT: u32 = 8u32;
 pub const QUERYROPSUPPORT: u32 = 40u32;
+#[repr(C)]
 pub struct R2_MODE(i32);
+#[repr(C)]
 pub struct RASTERIZER_STATUS(i32);
 pub const RASTER_FONTTYPE: u32 = 1u32;
 pub const RC_BANDING: u32 = 2u32;
@@ -2026,18 +2234,26 @@ pub const RC_SCALING: u32 = 4u32;
 pub const RC_STRETCHBLT: u32 = 2048u32;
 pub const RC_STRETCHDIB: u32 = 8192u32;
 pub const RDH_RECTANGLES: u32 = 1u32;
+#[repr(C)]
 pub struct READEMBEDPROC(i32);
+#[repr(C)]
 pub struct REDRAW_WINDOW_FLAGS(i32);
 pub const RELATIVE: u32 = 2u32;
 pub const RESTORE_CTM: u32 = 4100u32;
+#[repr(C)]
 pub struct RGBQUAD(i32);
+#[repr(C)]
 pub struct RGBTRIPLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RGNDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RGNDATAHEADER(i32);
+#[repr(C)]
 pub struct RGN_COMBINE_MODE(i32);
 pub const RGN_ERROR: u32 = 0u32;
+#[repr(C)]
 pub struct ROP_CODE(i32);
 pub const RUSSIAN_CHARSET: u32 = 204u32;
 pub const SAVE_CTM: u32 = 4101u32;
@@ -2080,6 +2296,7 @@ pub const SETMITERLIMIT: u32 = 23u32;
 pub const SET_ARC_DIRECTION: u32 = 4102u32;
 pub const SET_BACKGROUND_COLOR: u32 = 4103u32;
 pub const SET_BOUNDS: u32 = 4109u32;
+#[repr(C)]
 pub struct SET_BOUNDS_RECT_FLAGS(i32);
 pub const SET_CLIP_BOX: u32 = 4108u32;
 pub const SET_MIRROR_MODE: u32 = 4110u32;
@@ -2098,10 +2315,12 @@ pub const SP_USERABORT: i32 = -3i32;
 pub const STARTDOC: u32 = 10u32;
 pub const STOCK_LAST: u32 = 19u32;
 pub const STRETCHBLT: u32 = 2048u32;
+#[repr(C)]
 pub struct STRETCH_BLT_MODE(i32);
 pub const SYMBOL_CHARSET: u32 = 2u32;
 pub const SYSPAL_ERROR: u32 = 0u32;
 pub const SYSRGN: u32 = 4u32;
+#[repr(C)]
 pub struct SYSTEM_PALETTE_USE(i32);
 pub const TC_CP_STROKE: u32 = 4u32;
 pub const TC_CR_90: u32 = 8u32;
@@ -2120,8 +2339,11 @@ pub const TC_SF_X_YINDEP: u32 = 32u32;
 pub const TC_SO_ABLE: u32 = 4096u32;
 pub const TC_UA_ABLE: u32 = 2048u32;
 pub const TC_VA_ABLE: u32 = 16384u32;
+#[repr(C)]
 pub struct TEXTMETRICA(i32);
+#[repr(C)]
 pub struct TEXTMETRICW(i32);
+#[repr(C)]
 pub struct TEXT_ALIGN_OPTIONS(i32);
 pub const THAI_CHARSET: u32 = 222u32;
 pub const TMPF_DEVICE: u32 = 8u32;
@@ -2129,12 +2351,15 @@ pub const TMPF_FIXED_PITCH: u32 = 1u32;
 pub const TMPF_TRUETYPE: u32 = 4u32;
 pub const TMPF_VECTOR: u32 = 2u32;
 pub const TRANSFORM_CTM: u32 = 4107u32;
+#[repr(C)]
 pub struct TRIVERTEX(i32);
 pub const TRUETYPE_FONTTYPE: u32 = 4u32;
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
+#[repr(C)]
 pub struct TTEMBEDINFO(i32);
 pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
+#[repr(C)]
 pub struct TTEMBED_FLAGS(i32);
 pub const TTEMBED_SUBSETCANCEL: u32 = 4u32;
 pub const TTEMBED_VARIATIONSIMULATED: u32 = 1u32;
@@ -2154,14 +2379,20 @@ pub const TTFCFP_SUBSET1: u32 = 1u32;
 pub const TTFMFP_DELTA: u32 = 2u32;
 pub const TTFMFP_SUBSET: u32 = 0u32;
 pub const TTFMFP_SUBSET1: u32 = 1u32;
+#[repr(C)]
 pub struct TTLOADINFO(i32);
+#[repr(C)]
 pub struct TTLOAD_EMBEDDED_FONT_STATUS(i32);
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
 pub const TTLOAD_PRIVATE: u32 = 1u32;
+#[repr(C)]
 pub struct TTPOLYCURVE(i32);
+#[repr(C)]
 pub struct TTPOLYGONHEADER(i32);
+#[repr(C)]
 pub struct TTVALIDATIONTESTSPARAMS(i32);
+#[repr(C)]
 pub struct TTVALIDATIONTESTSPARAMSEX(i32);
 pub const TT_AVAILABLE: u32 = 1u32;
 pub const TT_ENABLED: u32 = 2u32;
@@ -2172,7 +2403,9 @@ pub const TT_PRIM_QSPLINE: u32 = 2u32;
 pub const TURKISH_CHARSET: u32 = 162u32;
 pub const VARIABLE_PITCH: u32 = 2u32;
 pub const VIETNAMESE_CHARSET: u32 = 163u32;
+#[repr(C)]
 pub struct WCRANGE(i32);
+#[repr(C)]
 pub struct WGLSWAP(i32);
 pub const WGL_FONT_LINES: u32 = 0u32;
 pub const WGL_FONT_POLYGONS: u32 = 1u32;
@@ -2208,5 +2441,7 @@ pub const WGL_SWAP_UNDERLAY6: u32 = 2097152u32;
 pub const WGL_SWAP_UNDERLAY7: u32 = 4194304u32;
 pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
+#[repr(C)]
 pub struct WRITEEMBEDPROC(i32);
+#[repr(C)]
 pub struct XFORM(i32);

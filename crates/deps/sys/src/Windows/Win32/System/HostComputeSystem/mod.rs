@@ -116,21 +116,36 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct HCS_CREATE_OPTIONS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct HCS_CREATE_OPTIONS_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HCS_EVENT(i32);
+#[repr(C)]
 pub struct HCS_EVENT_CALLBACK(i32);
+#[repr(C)]
 pub struct HCS_EVENT_OPTIONS(i32);
+#[repr(C)]
 pub struct HCS_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct HCS_NOTIFICATIONS(i32);
+#[repr(C)]
 pub struct HCS_NOTIFICATION_CALLBACK(i32);
+#[repr(C)]
 pub struct HCS_NOTIFICATION_FLAGS(i32);
+#[repr(C)]
 pub struct HCS_OPERATION(i32);
+#[repr(C)]
 pub struct HCS_OPERATION_COMPLETION(i32);
+#[repr(C)]
 pub struct HCS_OPERATION_TYPE(i32);
+#[repr(C)]
 pub struct HCS_PROCESS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HCS_PROCESS_INFORMATION(i32);
+#[repr(C)]
 pub struct HCS_SYSTEM(i32);

@@ -30,6 +30,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: super::super::Foundation::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct EXIT_WINDOWS_FLAGS(i32);
 pub const MAX_NUM_REASONS: u32 = 256u32;
 pub const MAX_REASON_BUGID_LEN: u32 = 32u32;
@@ -40,7 +41,9 @@ pub const POLICY_SHOWREASONUI_ALWAYS: u32 = 1u32;
 pub const POLICY_SHOWREASONUI_NEVER: u32 = 0u32;
 pub const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3u32;
 pub const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2u32;
+#[repr(C)]
 pub struct SHUTDOWN_FLAGS(i32);
+#[repr(C)]
 pub struct SHUTDOWN_REASON(i32);
 pub const SHUTDOWN_TYPE_LEN: u32 = 32u32;
 pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;

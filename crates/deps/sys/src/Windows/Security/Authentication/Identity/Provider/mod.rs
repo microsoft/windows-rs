@@ -25,21 +25,31 @@ pub struct ISecondaryAuthenticationFactorRegistrationResult(pub *mut ::core::ffi
 pub struct ISecondaryAuthenticationFactorRegistrationStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthentication(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(i32);
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(i32);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorAuthenticationStage(i32);
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(i32);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorDeviceCapabilities(i32);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorDeviceFindScope(i32);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorDevicePresence(i32);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringMode(i32);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(i32);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorFinishAuthenticationStatus(i32);
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorInfo(pub *mut ::core::ffi::c_void);
@@ -47,4 +57,5 @@ pub struct SecondaryAuthenticationFactorInfo(pub *mut ::core::ffi::c_void);
 pub struct SecondaryAuthenticationFactorRegistration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(i32);

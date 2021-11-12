@@ -51,6 +51,7 @@ pub struct IXmlNodeSerializer(pub *mut ::core::ffi::c_void);
 pub struct IXmlProcessingInstruction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXmlText(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NodeType(i32);
 #[repr(transparent)]
 pub struct XmlAttribute(pub *mut ::core::ffi::c_void);

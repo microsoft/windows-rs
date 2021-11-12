@@ -7,6 +7,7 @@ pub struct AccountsSettingsPane(pub *mut ::core::ffi::c_void);
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AccountsSettingsPaneEventDeferral(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationsSettingsContract(i32);
 #[repr(transparent)]
 pub struct CredentialCommand(pub *mut ::core::ffi::c_void);
@@ -54,6 +55,7 @@ pub struct IWebAccountProviderCommand(pub *mut ::core::ffi::c_void);
 pub struct IWebAccountProviderCommandFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SettingsCommand(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SettingsEdgeLocation(i32);
 #[repr(transparent)]
 pub struct SettingsPane(pub *mut ::core::ffi::c_void);
@@ -61,7 +63,9 @@ pub struct SettingsPane(pub *mut ::core::ffi::c_void);
 pub struct SettingsPaneCommandsRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SettingsPaneCommandsRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SupportedWebAccountActions(i32);
+#[repr(C)]
 pub struct WebAccountAction(i32);
 #[repr(transparent)]
 pub struct WebAccountCommand(pub *mut ::core::ffi::c_void);

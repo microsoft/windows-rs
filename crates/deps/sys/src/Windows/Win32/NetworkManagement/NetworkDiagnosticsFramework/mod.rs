@@ -30,20 +30,28 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct ATTRIBUTE_TYPE(i32);
 pub const DF_IMPERSONATION: u32 = 2147483648u32;
 pub const DF_TRACELESS: u32 = 1073741824u32;
+#[repr(C)]
 pub struct DIAGNOSIS_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIAG_SOCKADDR(i32);
+#[repr(C)]
 pub struct DiagnosticsInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HELPER_ATTRIBUTE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HYPOTHESIS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HelperAttributeInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HypothesisResult(i32);
 #[repr(transparent)]
 pub struct INetDiagExtensibleHelper(pub *mut ::core::ffi::c_void);
@@ -56,6 +64,7 @@ pub struct INetDiagHelperInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct INetDiagHelperUtilFactory(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LIFE_TIME(i32);
 pub const NDF_ADD_CAPTURE_TRACE: u32 = 1u32;
 pub const NDF_APPLY_INCLUSION_LIST_FILTER: u32 = 2u32;
@@ -70,13 +79,18 @@ pub const NDF_E_UNKNOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRE
 pub const NDF_E_VALIDATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146895610i32 as _);
 pub const NDF_INBOUND_FLAG_EDGETRAVERSAL: u32 = 1u32;
 pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2u32;
+#[repr(C)]
 pub struct OCTET_STRING(i32);
+#[repr(C)]
 pub struct PROBLEM_TYPE(i32);
 pub const RCF_ISCONFIRMED: u32 = 2u32;
 pub const RCF_ISLEAF: u32 = 1u32;
 pub const RCF_ISTHIRDPARTY: u32 = 4u32;
+#[repr(C)]
 pub struct REPAIR_RISK(i32);
+#[repr(C)]
 pub struct REPAIR_SCOPE(i32);
+#[repr(C)]
 pub struct REPAIR_STATUS(i32);
 pub const RF_CONTACT_ADMIN: u32 = 131072u32;
 pub const RF_INFORMATION_ONLY: u32 = 33554432u32;
@@ -91,13 +105,19 @@ pub const RF_USER_CONFIRMATION: u32 = 134217728u32;
 pub const RF_VALIDATE_HELPTOPIC: u32 = 4194304u32;
 pub const RF_WORKAROUND: u32 = 536870912u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RepairInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RepairInfoEx(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RootCauseInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ShellCommandInfo(i32);
+#[repr(C)]
 pub struct UI_INFO_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UiInfo(i32);

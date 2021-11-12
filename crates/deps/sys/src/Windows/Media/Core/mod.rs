@@ -3,7 +3,9 @@
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AudioDecoderDegradation(i32);
+#[repr(C)]
 pub struct AudioDecoderDegradationReason(i32);
 #[repr(transparent)]
 pub struct AudioStreamDescriptor(pub *mut ::core::ffi::c_void);
@@ -15,9 +17,11 @@ pub struct AudioTrackOpenFailedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AudioTrackSupportInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChapterCue(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CodecCategory(i32);
 #[repr(transparent)]
 pub struct CodecInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CodecKind(i32);
 #[repr(transparent)]
 pub struct CodecQuery(pub *mut ::core::ffi::c_void);
@@ -33,6 +37,7 @@ pub struct FaceDetectionEffect(pub *mut ::core::ffi::c_void);
 pub struct FaceDetectionEffectDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FaceDetectionEffectFrame(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FaceDetectionMode(i32);
 #[repr(transparent)]
 pub struct HighDynamicRangeControl(pub *mut ::core::ffi::c_void);
@@ -268,6 +273,7 @@ pub struct MediaBinder(pub *mut ::core::ffi::c_void);
 pub struct MediaBindingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaCueEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaDecoderStatus(i32);
 #[repr(transparent)]
 pub struct MediaSource(pub *mut ::core::ffi::c_void);
@@ -277,9 +283,11 @@ pub struct MediaSourceAppServiceConnection(pub *mut ::core::ffi::c_void);
 pub struct MediaSourceError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaSourceOpenOperationCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaSourceState(i32);
 #[repr(transparent)]
 pub struct MediaSourceStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaSourceStatus(i32);
 #[repr(transparent)]
 pub struct MediaStreamSample(pub *mut ::core::ffi::c_void);
@@ -291,9 +299,11 @@ pub struct MediaStreamSampleProtectionProperties(pub *mut ::core::ffi::c_void);
 pub struct MediaStreamSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaStreamSourceClosedReason(i32);
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaStreamSourceErrorStatus(i32);
 #[repr(transparent)]
 pub struct MediaStreamSourceSampleRenderedEventArgs(pub *mut ::core::ffi::c_void);
@@ -315,9 +325,13 @@ pub struct MediaStreamSourceSwitchStreamsRequest(pub *mut ::core::ffi::c_void);
 pub struct MediaStreamSourceSwitchStreamsRequestDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaStreamSourceSwitchStreamsRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaTrackKind(i32);
+#[repr(C)]
 pub struct MseAppendMode(i32);
+#[repr(C)]
 pub struct MseEndOfStreamStatus(i32);
+#[repr(C)]
 pub struct MseReadyState(i32);
 #[repr(transparent)]
 pub struct MseSourceBuffer(pub *mut ::core::ffi::c_void);
@@ -326,6 +340,7 @@ pub struct MseSourceBufferList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MseStreamSource(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct MseTimeRange(i32);
 #[repr(transparent)]
 pub struct SceneAnalysisEffect(pub *mut ::core::ffi::c_void);
@@ -333,11 +348,13 @@ pub struct SceneAnalysisEffect(pub *mut ::core::ffi::c_void);
 pub struct SceneAnalysisEffectDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneAnalysisEffectFrame(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SceneAnalysisRecommendation(i32);
 #[repr(transparent)]
 pub struct SceneAnalyzedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechCue(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedMetadataKind(i32);
 #[repr(transparent)]
 pub struct TimedMetadataStreamDescriptor(pub *mut ::core::ffi::c_void);
@@ -345,32 +362,47 @@ pub struct TimedMetadataStreamDescriptor(pub *mut ::core::ffi::c_void);
 pub struct TimedMetadataTrack(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TimedMetadataTrackError(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedMetadataTrackErrorCode(i32);
 #[repr(transparent)]
 pub struct TimedMetadataTrackFailedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TimedTextBouten(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedTextBoutenPosition(i32);
+#[repr(C)]
 pub struct TimedTextBoutenType(i32);
 #[repr(transparent)]
 pub struct TimedTextCue(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedTextDisplayAlignment(i32);
+#[repr(C)]
 pub struct TimedTextDouble(i32);
+#[repr(C)]
 pub struct TimedTextFlowDirection(i32);
+#[repr(C)]
 pub struct TimedTextFontStyle(i32);
 #[repr(transparent)]
 pub struct TimedTextLine(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedTextLineAlignment(i32);
+#[repr(C)]
 pub struct TimedTextPadding(i32);
+#[repr(C)]
 pub struct TimedTextPoint(i32);
 #[repr(transparent)]
 pub struct TimedTextRegion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TimedTextRuby(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedTextRubyAlign(i32);
+#[repr(C)]
 pub struct TimedTextRubyPosition(i32);
+#[repr(C)]
 pub struct TimedTextRubyReserve(i32);
+#[repr(C)]
 pub struct TimedTextScrollMode(i32);
+#[repr(C)]
 pub struct TimedTextSize(i32);
 #[repr(transparent)]
 pub struct TimedTextSource(pub *mut ::core::ffi::c_void);
@@ -380,9 +412,13 @@ pub struct TimedTextSourceResolveResultEventArgs(pub *mut ::core::ffi::c_void);
 pub struct TimedTextStyle(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TimedTextSubformat(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedTextUnit(i32);
+#[repr(C)]
 pub struct TimedTextWeight(i32);
+#[repr(C)]
 pub struct TimedTextWrapping(i32);
+#[repr(C)]
 pub struct TimedTextWritingMode(i32);
 #[repr(transparent)]
 pub struct VideoStabilizationEffect(pub *mut ::core::ffi::c_void);
@@ -390,6 +426,7 @@ pub struct VideoStabilizationEffect(pub *mut ::core::ffi::c_void);
 pub struct VideoStabilizationEffectDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VideoStabilizationEffectEnabledChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VideoStabilizationEffectEnabledChangedReason(i32);
 #[repr(transparent)]
 pub struct VideoStreamDescriptor(pub *mut ::core::ffi::c_void);

@@ -327,36 +327,62 @@ extern "system" {
     pub fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows_sys::core::HRESULT;
     pub fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct AACMFTEncoder(i32);
+#[repr(C)]
 pub struct AEC_INPUT_STREAM(i32);
 pub const AEC_MAX_SYSTEM_MODES: u32 = 6u32;
+#[repr(C)]
 pub struct AEC_SYSTEM_MODE(i32);
+#[repr(C)]
 pub struct AEC_VAD_MODE(i32);
+#[repr(C)]
 pub struct ALawCodecWrapper(i32);
 pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3806603986, data2: 4908, data3: 18718, data4: [162, 104, 60, 124, 45, 202, 24, 31] };
+#[repr(C)]
 pub struct ASF_FLAT_PICTURE(i32);
+#[repr(C)]
 pub struct ASF_FLAT_SYNCHRONISED_LYRICS(i32);
+#[repr(C)]
 pub struct ASF_INDEX_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct ASF_INDEX_IDENTIFIER(i32);
+#[repr(C)]
 pub struct ASF_MUX_STATISTICS(i32);
+#[repr(C)]
 pub struct ASF_SELECTION_STATUS(i32);
+#[repr(C)]
 pub struct ASF_STATUSFLAGS(i32);
 pub const AVENC_H263V_LEVELCOUNT: u32 = 8u32;
 pub const AVENC_H264V_LEVELCOUNT: u32 = 16u32;
 pub const AVENC_H264V_MAX_MBBITS: u32 = 3200u32;
+#[repr(C)]
 pub struct AecQualityMetrics_Struct(i32);
+#[repr(C)]
 pub struct CAC3DecMediaObject(i32);
+#[repr(C)]
 pub struct CClusterDetectorDmo(i32);
+#[repr(C)]
 pub struct CColorControlDmo(i32);
+#[repr(C)]
 pub struct CColorConvertDMO(i32);
+#[repr(C)]
 pub struct CColorLegalizerDmo(i32);
+#[repr(C)]
 pub struct CDTVAudDecoderDS(i32);
+#[repr(C)]
 pub struct CDTVVidDecoderDS(i32);
+#[repr(C)]
 pub struct CDVDecoderMediaObject(i32);
+#[repr(C)]
 pub struct CDVEncoderMediaObject(i32);
+#[repr(C)]
 pub struct CDeColorConvMediaObject(i32);
+#[repr(C)]
 pub struct CFrameInterpDMO(i32);
+#[repr(C)]
 pub struct CFrameRateConvertDmo(i32);
+#[repr(C)]
 pub struct CInterlaceMediaObject(i32);
 pub const CLSID_AudioResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4098340510,
@@ -511,356 +537,707 @@ pub const CLSID_WMVDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17282,
     data4: [139, 194, 63, 97, 146, 183, 110, 52],
 };
+#[repr(C)]
 pub struct CMP3DecMediaObject(i32);
+#[repr(C)]
 pub struct CMPEG2AudDecoderDS(i32);
+#[repr(C)]
 pub struct CMPEG2AudioEncoderMFT(i32);
+#[repr(C)]
 pub struct CMPEG2EncoderAudioDS(i32);
+#[repr(C)]
 pub struct CMPEG2EncoderDS(i32);
+#[repr(C)]
 pub struct CMPEG2EncoderVideoDS(i32);
+#[repr(C)]
 pub struct CMPEG2VidDecoderDS(i32);
+#[repr(C)]
 pub struct CMPEG2VideoEncoderMFT(i32);
+#[repr(C)]
 pub struct CMPEGAACDecMediaObject(i32);
+#[repr(C)]
 pub struct CMSAACDecMFT(i32);
+#[repr(C)]
 pub struct CMSAC3Enc(i32);
+#[repr(C)]
 pub struct CMSALACDecMFT(i32);
+#[repr(C)]
 pub struct CMSALACEncMFT(i32);
+#[repr(C)]
 pub struct CMSDDPlusDecMFT(i32);
+#[repr(C)]
 pub struct CMSDolbyDigitalEncMFT(i32);
+#[repr(C)]
 pub struct CMSFLACDecMFT(i32);
+#[repr(C)]
 pub struct CMSFLACEncMFT(i32);
+#[repr(C)]
 pub struct CMSH263EncoderMFT(i32);
+#[repr(C)]
 pub struct CMSH264DecoderMFT(i32);
+#[repr(C)]
 pub struct CMSH264EncoderMFT(i32);
+#[repr(C)]
 pub struct CMSH264RemuxMFT(i32);
+#[repr(C)]
 pub struct CMSH265EncoderMFT(i32);
+#[repr(C)]
 pub struct CMSMPEGAudDecMFT(i32);
+#[repr(C)]
 pub struct CMSMPEGDecoderMFT(i32);
+#[repr(C)]
 pub struct CMSOpusDecMFT(i32);
+#[repr(C)]
 pub struct CMSSCDecMediaObject(i32);
+#[repr(C)]
 pub struct CMSSCEncMediaObject(i32);
+#[repr(C)]
 pub struct CMSSCEncMediaObject2(i32);
+#[repr(C)]
 pub struct CMSVPXEncoderMFT(i32);
+#[repr(C)]
 pub struct CMSVideoDSPMFT(i32);
+#[repr(C)]
 pub struct CMpeg2DecMediaObject(i32);
+#[repr(C)]
 pub struct CMpeg43DecMediaObject(i32);
+#[repr(C)]
 pub struct CMpeg4DecMediaObject(i32);
+#[repr(C)]
 pub struct CMpeg4EncMediaObject(i32);
+#[repr(C)]
 pub struct CMpeg4sDecMFT(i32);
+#[repr(C)]
 pub struct CMpeg4sDecMediaObject(i32);
+#[repr(C)]
 pub struct CMpeg4sEncMediaObject(i32);
+#[repr(C)]
 pub struct CNokiaAACCCDecMediaObject(i32);
+#[repr(C)]
 pub struct CNokiaAACDecMediaObject(i32);
+#[repr(C)]
 pub struct CODECAPI_AVAudioChannelConfig(i32);
+#[repr(C)]
 pub struct CODECAPI_AVAudioChannelCount(i32);
+#[repr(C)]
 pub struct CODECAPI_AVAudioSampleRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDDSurroundMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDSPLoudnessEqualization(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDSPSpeakerFill(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecAACDownmixMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecAudioDualMono(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecAudioDualMonoReproMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecCommonInputFormat(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecCommonMeanBitRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecCommonMeanBitRateInterval(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecCommonOutputFormat(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecDDDynamicRangeScaleHigh(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecDDDynamicRangeScaleLow(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecDDMatrixDecodingMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecDDOperationalMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecDDStereoDownMixMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecDisableVideoPostProcessing(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecHEAACDynamicRangeControl(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecNumWorkerThreads(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecSoftwareDynamicFormatChange(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoAcceleration_H264(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoAcceleration_MPEG2(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoAcceleration_VC1(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoCodecType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoDXVABusEncryption(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoDXVAMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoDropPicWithMissingRef(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoFastDecodeMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoH264ErrorConcealment(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoImageSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoInputScanType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoMPEG2ErrorConcealment(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoMaxCodedHeight(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoMaxCodedWidth(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoPixelAspectRatio(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoProcDeinterlaceCSC(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoSWPowerLevel(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoSoftwareDeinterlaceMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVDecVideoThumbnailGenerationMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEnableInLoopDeblockFilter(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAdaptiveMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioDualMono(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioInputContent(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioIntervalToEncode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioIntervalToSkip(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel0(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel1(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel10(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel11(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel12(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel13(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel14(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel15(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel2(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel3(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel4(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel5(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel6(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel7(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel8(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMapDestChannel9(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncAudioMeanBitRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncChromaEncodeMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncChromaUpdateTime(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCodecType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonAllowFrameDrops(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonBufferInLevel(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonBufferOutLevel(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonBufferSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonFormatConstraint(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonLowLatency(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonMaxBitRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonMeanBitRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonMeanBitRateInterval(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonMinBitRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonMultipassMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonPassEnd(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonPassStart(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonQuality(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonQualityVsSpeed(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonRateControlMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonRealTime(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonStreamEndHandling(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncCommonTranscodeEncodingProfile(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDAtoDConverterType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDCentreDownMixLevel(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDChannelBWLowPassFilter(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDCopyright(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDDCHighPassFilter(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDDialogNormalization(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDDigitalDeemphasis(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDDynamicRangeCompressionControl(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDHeadphoneMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDLFELowPassFilter(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDLoRoCenterMixLvl_x10(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDLoRoSurroundMixLvl_x10(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDLtRtCenterMixLvl_x10(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDLtRtSurroundMixLvl_x10(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDOriginalBitstream(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDPreferredStereoDownMixMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDProductionInfoExists(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDProductionMixLevel(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDProductionRoomType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDRFPreEmphasisFilter(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDService(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDSurround3dBAttenuation(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDSurround90DegreeePhaseShift(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDSurroundDownMixLevel(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncDDSurroundExMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncEnableVideoProcessing(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncH264CABACEnable(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncH264PPSID(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncH264SPSID(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncInputVideoSystem(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncLowPowerEncoder(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxDVDNavPacks(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxEarliestPTS(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxInitialSCR(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxLargestPacketSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxMuxRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxNumStreams(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxPackSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxPacketOverhead(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxSysAudioLock(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxSysCSPS(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxSysFixed(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxSysRateBound(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxSysSTDBufferBound(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxSysVideoLock(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12MuxTargetPacketizer(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12PktzCopyright(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12PktzInitialPTS(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12PktzOriginal(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12PktzPacketSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12PktzSTDBuffer(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMP12PktzStreamID(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPACodingMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPACopyright(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPAEmphasisType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPAEnableRedundancyProtection(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPALayer(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPAOriginalBitstream(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPAPrivateUserBit(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVAddSeqEndCode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVDefaultBPictureCount(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVFrameFieldMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGOPOpen(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGOPSInSeq(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGOPSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGOPSizeMax(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGOPSizeMin(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGenerateHeaderPicDispExt(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGenerateHeaderPicExt(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGenerateHeaderSeqDispExt(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGenerateHeaderSeqExt(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVIntraDCPrecision(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVIntraVLCTable(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVLevel(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVProfile(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVQScaleType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVQuantMatrixChromaIntra(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVQuantMatrixChromaNonIntra(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVQuantMatrixIntra(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVQuantMatrixNonIntra(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVScanPattern(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVSceneDetection(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMPVUseConcealmentMotionVectors(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMaxFrameRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncMuxOutputStreamType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncNoInputCopy(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncNumWorkerThreads(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncProgressiveUpdateTime(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncSliceControlMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncSliceControlSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncSliceGenerationMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatAudioAverageBPS(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatAudioAveragePCMValue(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatAudioPeakPCMValue(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatAverageBPS(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatCommonCompletedPasses(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatHardwareBandwidthUtilitization(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatHardwareProcessorUtilitization(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatMPVSkippedEmptyFrames(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatVideoCodedFrames(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatVideoOutputFrameRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatVideoTotalFrames(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatWMVCBAvg(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatWMVCBMax(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncStatWMVDecoderComplexityProfile(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoCBRMotionTradeoff(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoCTBSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoCodedVideoAccessUnitSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoContentType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoDefaultUpperFieldDominant(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoDirtyRectEnabled(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoDisplayDimension(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoEncodeDimension(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoEncodeFrameTypeQP(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoEncodeOffsetOrigin(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoEncodeQP(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoFieldSwap(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoForceKeyFrame(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoForceSourceScanType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoGradualIntraRefresh(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoHeaderDropFrame(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoHeaderFrames(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoHeaderHours(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoHeaderMinutes(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoHeaderSeconds(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInputChromaResolution(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInputChromaSubsampling(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInputColorLighting(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInputColorNominalRange(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInputColorPrimaries(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInputColorTransferFunction(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInputColorTransferMatrix(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInstantTemporalUpSwitching(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoIntraLayerPrediction(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInverseTelecineEnable(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoInverseTelecineThreshold(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoLTRBufferControl(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMarkLTRFrame(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMaxCTBSize(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMaxKeyframeDistance(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMaxNumRefFrame(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMaxQP(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMaxTemporalLayers(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMeanAbsoluteDifference(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoMinQP(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoNoOfFieldsToEncode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoNoOfFieldsToSkip(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoNumGOPsPerIDR(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputChromaResolution(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputChromaSubsampling(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputColorLighting(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputColorNominalRange(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputColorPrimaries(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputColorTransferFunction(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputColorTransferMatrix(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputFrameRate(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputFrameRateConversion(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoOutputScanType(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoPixelAspectRatio(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoROIEnabled(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoRateControlParams(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoSelectLayer(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoSourceFilmContent(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoSourceIsBW(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoSupportedControls(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoTemporalLayerCount(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoUsage(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncVideoUseLTRFrame(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncWMVDecoderComplexity(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncWMVInterlacedEncoding(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncWMVKeyFrameBufferLevelMarker(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncWMVKeyFrameDistance(i32);
+#[repr(C)]
 pub struct CODECAPI_AVEncWMVProduceDummyFrames(i32);
+#[repr(C)]
 pub struct CODECAPI_AVLowLatencyMode(i32);
+#[repr(C)]
 pub struct CODECAPI_AVPriorityControl(i32);
+#[repr(C)]
 pub struct CODECAPI_AVRealtimeControl(i32);
+#[repr(C)]
 pub struct CODECAPI_AVScenarioInfo(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputAAC(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputDTS(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputDolby(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputHEAAC(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputMPEG(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputPCM(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputWMA(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioInputWMAPro(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatATSC(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatDVB(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatDVD_DashVR(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatDVD_V(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatHighMAT(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatHighMPV(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatMP3(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatSVCD(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatUnSpecified(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncCommonFormatVCD(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncDTS(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncDTSHD(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncDV(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncDolbyDigitalConsumer(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncDolbyDigitalPlus(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncDolbyDigitalPro(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncH264Video(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncMLP(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncMPEG1Audio(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncMPEG1Video(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncMPEG2Audio(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncMPEG2Video(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncPCM(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncSDDS(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncWMALossless(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncWMAPro(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncWMAVoice(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEncWMV(i32);
+#[repr(C)]
 pub struct CODECAPI_GUID_AVEndMPEG4Video(i32);
+#[repr(C)]
 pub struct CODECAPI_GetOPMContext(i32);
+#[repr(C)]
 pub struct CODECAPI_SetHDCPManagerContext(i32);
+#[repr(C)]
 pub struct CODECAPI_VideoEncoderDisplayContentType(i32);
 pub const COPP_ProtectionType_ACP: i32 = 2i32;
 pub const COPP_ProtectionType_CGMSA: i32 = 4i32;
@@ -869,140 +1246,237 @@ pub const COPP_ProtectionType_Mask: i32 = -2147483641i32;
 pub const COPP_ProtectionType_None: i32 = 0i32;
 pub const COPP_ProtectionType_Reserved: i32 = 2147483640i32;
 pub const COPP_ProtectionType_Unknown: i32 = -2147483648i32;
+#[repr(C)]
 pub struct CPK_DS_AC3Decoder(i32);
+#[repr(C)]
 pub struct CPK_DS_MPEG2Decoder(i32);
+#[repr(C)]
 pub struct CResamplerMediaObject(i32);
+#[repr(C)]
 pub struct CResizerDMO(i32);
+#[repr(C)]
 pub struct CResizerMediaObject(i32);
+#[repr(C)]
 pub struct CShotDetectorDmo(i32);
+#[repr(C)]
 pub struct CSmpteTransformsDmo(i32);
+#[repr(C)]
 pub struct CThumbnailGeneratorDmo(i32);
+#[repr(C)]
 pub struct CTocGeneratorDmo(i32);
+#[repr(C)]
 pub struct CVodafoneAACCCDecMediaObject(i32);
+#[repr(C)]
 pub struct CVodafoneAACDecMediaObject(i32);
+#[repr(C)]
 pub struct CWMADecMediaObject(i32);
+#[repr(C)]
 pub struct CWMAEncMediaObject(i32);
+#[repr(C)]
 pub struct CWMATransMediaObject(i32);
+#[repr(C)]
 pub struct CWMAudioAEC(i32);
+#[repr(C)]
 pub struct CWMAudioCAPXGFXAPO(i32);
+#[repr(C)]
 pub struct CWMAudioCAPXLFXAPO(i32);
+#[repr(C)]
 pub struct CWMAudioGFXAPO(i32);
+#[repr(C)]
 pub struct CWMAudioLFXAPO(i32);
+#[repr(C)]
 pub struct CWMAudioSpdTxDMO(i32);
+#[repr(C)]
 pub struct CWMSPDecMediaObject(i32);
+#[repr(C)]
 pub struct CWMSPEncMediaObject(i32);
+#[repr(C)]
 pub struct CWMSPEncMediaObject2(i32);
+#[repr(C)]
 pub struct CWMTDecMediaObject(i32);
+#[repr(C)]
 pub struct CWMTEncMediaObject(i32);
+#[repr(C)]
 pub struct CWMV9EncMediaObject(i32);
+#[repr(C)]
 pub struct CWMVDecMediaObject(i32);
+#[repr(C)]
 pub struct CWMVEncMediaObject2(i32);
+#[repr(C)]
 pub struct CWMVXEncMediaObject(i32);
+#[repr(C)]
 pub struct CWVC1DecMediaObject(i32);
+#[repr(C)]
 pub struct CWVC1EncMediaObject(i32);
+#[repr(C)]
 pub struct CZuneAACCCDecMediaObject(i32);
+#[repr(C)]
 pub struct CZuneM4S2DecMediaObject(i32);
+#[repr(C)]
 pub struct CodecAPIEventData(i32);
+#[repr(C)]
 pub struct D3D12_BITSTREAM_ENCRYPTION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_VIDEO(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS(i32);
+#[repr(C)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_COORDINATE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODER_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_ARGUMENT_TYPE(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1(i32);
 pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 387084297,
@@ -1070,175 +1544,307 @@ pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows_sys::core::GUID = ::windows_
 };
 pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_STATUS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_SUPPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_DECODE_TIER(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_SETTING(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_HEVC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_TIER_HEVC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_FIELD_TYPE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_FORMAT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_FRAME_STEREO_FORMAT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_FEATURE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_FILTER(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_LUMA_KEY(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_ORIENTATION(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_VIDEO_SAMPLE(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIDEO_SIZE_RANGE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct D3DCONTENTPROTECTIONCAPS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct D3DCONTENTPROTECTIONCAPS(i32);
+#[repr(C)]
 pub struct D3DOVERLAYCAPS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICE_INFO(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -1246,28 +1852,45 @@ pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::Prop
     pid: 3u32,
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIRTYRECT_INFO(i32);
+#[repr(C)]
 pub struct DXVA2_AES_CTR_IV(i32);
+#[repr(C)]
 pub struct DXVA2_AYUVSample16(i32);
+#[repr(C)]
 pub struct DXVA2_AYUVSample8(i32);
+#[repr(C)]
 pub struct DXVA2_BufferfType(i32);
+#[repr(C)]
 pub struct DXVA2_ConfigPictureDecode(i32);
 pub const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829u32;
 pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: u32 = 1828u32;
+#[repr(C)]
 pub struct DXVA2_DecodeBufferDesc(i32);
+#[repr(C)]
 pub struct DXVA2_DecodeExecuteParams(i32);
+#[repr(C)]
 pub struct DXVA2_DecodeExtensionData(i32);
+#[repr(C)]
 pub struct DXVA2_DeinterlaceTech(i32);
+#[repr(C)]
 pub struct DXVA2_DestData(i32);
+#[repr(C)]
 pub struct DXVA2_DetailFilterTech(i32);
 pub const DXVA2_E_NEW_VIDEO_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217407i32 as _);
 pub const DXVA2_E_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217405i32 as _);
 pub const DXVA2_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217408i32 as _);
 pub const DXVA2_E_VIDEO_DEVICE_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217406i32 as _);
+#[repr(C)]
 pub struct DXVA2_ExtendedFormat(i32);
+#[repr(C)]
 pub struct DXVA2_FilterType(i32);
+#[repr(C)]
 pub struct DXVA2_FilterValues(i32);
+#[repr(C)]
 pub struct DXVA2_Fixed32(i32);
+#[repr(C)]
 pub struct DXVA2_Frequency(i32);
 pub const DXVA2_ModeH264_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVA2_ModeH264_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
@@ -1348,19 +1971,32 @@ pub const DXVA2_ModeWMV9_A: ::windows_sys::core::GUID = ::windows_sys::GUID { da
 pub const DXVA2_ModeWMV9_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487761, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVA2_ModeWMV9_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVA2_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+#[repr(C)]
 pub struct DXVA2_NoiseFilterTech(i32);
+#[repr(C)]
 pub struct DXVA2_NominalRange(i32);
+#[repr(C)]
 pub struct DXVA2_ProcAmp(i32);
+#[repr(C)]
 pub struct DXVA2_ProcAmpValues(i32);
+#[repr(C)]
 pub struct DXVA2_SampleData(i32);
+#[repr(C)]
 pub struct DXVA2_SampleFormat(i32);
+#[repr(C)]
 pub struct DXVA2_SurfaceType(i32);
+#[repr(C)]
 pub struct DXVA2_VPDev(i32);
+#[repr(C)]
 pub struct DXVA2_ValueRange(i32);
+#[repr(C)]
 pub struct DXVA2_VideoChromaSubSampling(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVA2_VideoDesc(i32);
+#[repr(C)]
 pub struct DXVA2_VideoLighting(i32);
+#[repr(C)]
 pub struct DXVA2_VideoPrimaries(i32);
 pub const DXVA2_VideoProcBobDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 861578094,
@@ -1380,18 +2016,27 @@ pub const DXVA2_VideoProcSoftwareDevice: ::windows_sys::core::GUID = ::windows_s
     data3: 20031,
     data4: [148, 117, 219, 241, 55, 108, 72, 16],
 };
+#[repr(C)]
 pub struct DXVA2_VideoProcess(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA2_VideoProcessBltParams(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVA2_VideoProcessorCaps(i32);
+#[repr(C)]
 pub struct DXVA2_VideoRenderTargetType(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[repr(C)]
 pub struct DXVA2_VideoSample(i32);
+#[repr(C)]
 pub struct DXVA2_VideoTransferFunction(i32);
+#[repr(C)]
 pub struct DXVA2_VideoTransferMatrix(i32);
+#[repr(C)]
 pub struct DXVABufferInfo(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVACompBufferInfo(i32);
 pub const DXVAHDControlGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
 pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1746812190, data2: 22132, data3: 20403, data4: [165, 3, 47, 32, 85, 233, 31, 96] };
@@ -1415,132 +2060,221 @@ pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows_sys::core::GUID = ::wind
     data4: [148, 132, 164, 217, 153, 218, 129, 168],
 };
 pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640420610, data2: 8349, data3: 18413, data4: [148, 216, 130, 174, 2, 184, 74, 167] };
+#[repr(C)]
 pub struct DXVAHDETW_CREATEVIDEOPROCESSOR(i32);
+#[repr(C)]
 pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[repr(C)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[repr(C)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[repr(C)]
 pub struct DXVAHDSW_CALLBACKS(i32);
+#[repr(C)]
 pub struct DXVAHD_ALPHA_FILL_MODE(i32);
+#[repr(C)]
 pub struct DXVAHD_BLT_STATE(i32);
+#[repr(C)]
 pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_BLT_STATE_PRIVATE_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_COLOR(i32);
+#[repr(C)]
 pub struct DXVAHD_COLOR_RGBA(i32);
+#[repr(C)]
 pub struct DXVAHD_COLOR_YCbCrA(i32);
+#[repr(C)]
 pub struct DXVAHD_CONTENT_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_CUSTOM_RATE_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_DEVICE_CAPS(i32);
+#[repr(C)]
 pub struct DXVAHD_DEVICE_TYPE(i32);
+#[repr(C)]
 pub struct DXVAHD_DEVICE_USAGE(i32);
+#[repr(C)]
 pub struct DXVAHD_FEATURE_CAPS(i32);
+#[repr(C)]
 pub struct DXVAHD_FILTER(i32);
+#[repr(C)]
 pub struct DXVAHD_FILTER_CAPS(i32);
+#[repr(C)]
 pub struct DXVAHD_FILTER_RANGE_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_FRAME_FORMAT(i32);
+#[repr(C)]
 pub struct DXVAHD_INPUT_FORMAT_CAPS(i32);
+#[repr(C)]
 pub struct DXVAHD_ITELECINE_CAPS(i32);
+#[repr(C)]
 pub struct DXVAHD_OUTPUT_RATE(i32);
+#[repr(C)]
 pub struct DXVAHD_PROCESSOR_CAPS(i32);
+#[repr(C)]
 pub struct DXVAHD_RATIONAL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[repr(C)]
 pub struct DXVAHD_STREAM_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_ALPHA_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_FILTER_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_PALETTE_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_DATA(i32);
 pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2623544892, data2: 3891, data3: 16716, data4: [167, 57, 153, 84, 14, 228, 45, 165] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA(i32);
+#[repr(C)]
 pub struct DXVAHD_SURFACE_TYPE(i32);
+#[repr(C)]
 pub struct DXVAHD_VPCAPS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVAHD_VPDEVCAPS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVAUncompDataInfo(i32);
+#[repr(C)]
 pub struct DXVA_AYUVsample2(i32);
+#[repr(C)]
 pub struct DXVA_BufferDescription(i32);
+#[repr(C)]
 pub struct DXVA_COPPCommand(i32);
+#[repr(C)]
 pub struct DXVA_COPPSignature(i32);
+#[repr(C)]
 pub struct DXVA_COPPStatusInput(i32);
+#[repr(C)]
 pub struct DXVA_COPPStatusOutput(i32);
+#[repr(C)]
 pub struct DXVA_ConfigPictureDecode(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA_DeinterlaceBlt(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA_DeinterlaceBltEx(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA_DeinterlaceBltEx32(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVA_DeinterlaceCaps(i32);
+#[repr(C)]
 pub struct DXVA_DeinterlaceQueryAvailableModes(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVA_DeinterlaceQueryModeCaps(i32);
+#[repr(C)]
 pub struct DXVA_DeinterlaceTech(i32);
+#[repr(C)]
 pub struct DXVA_DestinationFlags(i32);
+#[repr(C)]
 pub struct DXVA_ExtendedFormat(i32);
+#[repr(C)]
 pub struct DXVA_Frequency(i32);
+#[repr(C)]
 pub struct DXVA_NominalRange(i32);
+#[repr(C)]
 pub struct DXVA_PictureParameters(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA_ProcAmpControlBlt(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVA_ProcAmpControlCaps(i32);
+#[repr(C)]
 pub struct DXVA_ProcAmpControlProp(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVA_ProcAmpControlQueryRange(i32);
+#[repr(C)]
 pub struct DXVA_SampleFlags(i32);
+#[repr(C)]
 pub struct DXVA_SampleFormat(i32);
+#[repr(C)]
 pub struct DXVA_VideoChromaSubsampling(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct DXVA_VideoDesc(i32);
+#[repr(C)]
 pub struct DXVA_VideoLighting(i32);
+#[repr(C)]
 pub struct DXVA_VideoPrimaries(i32);
+#[repr(C)]
 pub struct DXVA_VideoProcessCaps(i32);
+#[repr(C)]
 pub struct DXVA_VideoPropertyRange(i32);
+#[repr(C)]
 pub struct DXVA_VideoSample(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA_VideoSample2(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA_VideoSample2(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXVA_VideoSample32(i32);
+#[repr(C)]
 pub struct DXVA_VideoTransferFunction(i32);
+#[repr(C)]
 pub struct DXVA_VideoTransferMatrix(i32);
 pub const DXVAp_DeinterlaceBobDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 861578094,
@@ -1557,15 +2291,21 @@ pub const DXVAp_DeinterlaceContainerDevice: ::windows_sys::core::GUID = ::window
 pub const DXVAp_ModeMPEG2_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487626, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVAp_ModeMPEG2_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487628, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVAp_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+#[repr(C)]
 pub struct DeviceStreamState(i32);
+#[repr(C)]
 pub struct DigitalWindowSetting(i32);
+#[repr(C)]
 pub struct EAllocationType(i32);
+#[repr(C)]
 pub struct EVRFilterConfigPrefs(i32);
 pub const E_TOCPARSER_INVALIDASFFILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1728053247i32 as _);
 pub const E_TOCPARSER_INVALIDRIFFFILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1728053246i32 as _);
 pub const FACILITY_MF: u32 = 13u32;
 pub const FACILITY_MF_WIN32: u32 = 7u32;
+#[repr(C)]
 pub struct FILE_ACCESSMODE(i32);
+#[repr(C)]
 pub struct FILE_OPENMODE(i32);
 pub const FORMAT_MFVideoFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2933173037,
@@ -2288,9 +3028,12 @@ pub struct IWMVideoDecoderHurryup(pub *mut ::core::ffi::c_void);
 pub struct IWMVideoDecoderReconBuffer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWMVideoForceKeyFrame(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KSMETHOD_OPMVIDEOOUTPUT(i32);
+#[repr(C)]
 pub struct KSPROPSETID_OPMVideoOutput(i32);
 pub const LOCAL_D3DFMT_DEFINES: u32 = 1u32;
+#[repr(C)]
 pub struct MACROBLOCK_DATA(i32);
 pub const MACROBLOCK_FLAG_DIRTY: u32 = 2u32;
 pub const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: u32 = 16u32;
@@ -2373,12 +3116,18 @@ pub const MEDIASUBTYPE_wmvr: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const MEDIASUBTYPE_wvc1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 828601975, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MEDIASUBTYPE_wvp2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 846231159, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MEDIASUBTYPE_x264: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875967096, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+#[repr(C)]
 pub struct MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(i32);
 pub const MEDeviceStreamCreated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 38969807, data2: 13632, data3: 17332, data4: [145, 100, 215, 46, 180, 5, 250, 64] };
+#[repr(C)]
 pub struct MF2DBuffer_LockFlags(i32);
+#[repr(C)]
 pub struct MF3DVideoOutputType(i32);
+#[repr(C)]
 pub struct MFAMRNBByteStreamHandler(i32);
+#[repr(C)]
 pub struct MFAMRNBSinkClassFactory(i32);
+#[repr(C)]
 pub struct MFARGB(i32);
 pub const MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN: u64 = 18446744073709551615u64;
 pub const MFASFINDEXER_NO_FIXED_INTERVAL: u32 = 4294967295u32;
@@ -2429,13 +3178,17 @@ pub const MFASFSampleExtension_SampleDuration: ::windows_sys::core::GUID = ::win
     data4: [131, 163, 199, 121, 33, 183, 51, 173],
 };
 pub const MFASF_DEFAULT_BUFFER_WINDOW_MS: u32 = 3000u32;
+#[repr(C)]
 pub struct MFASF_INDEXER_FLAGS(i32);
 pub const MFASF_INVALID_STREAM_NUMBER: u32 = 128u32;
 pub const MFASF_MAX_STREAM_NUMBER: u32 = 127u32;
+#[repr(C)]
 pub struct MFASF_MULTIPLEXERFLAGS(i32);
 pub const MFASF_PAYLOADEXTENSION_MAX_SIZE: u32 = 255u32;
 pub const MFASF_PAYLOADEXTENSION_VARIABLE_SIZE: u32 = 65535u32;
+#[repr(C)]
 pub struct MFASF_SPLITTERFLAGS(i32);
+#[repr(C)]
 pub struct MFASF_STREAMSELECTOR_FLAGS(i32);
 #[repr(transparent)]
 pub struct MFASYNCRESULT(pub *mut ::core::ffi::c_void);
@@ -2453,9 +3206,13 @@ pub const MFASYNC_FAST_IO_PROCESSING_CALLBACK: u32 = 1u32;
 pub const MFASYNC_LOCALIZE_REMOTE_CALLBACK: u32 = 16u32;
 pub const MFASYNC_REPLY_CALLBACK: u32 = 8u32;
 pub const MFASYNC_SIGNAL_CALLBACK: u32 = 2u32;
+#[repr(C)]
 pub struct MFASYNC_WORKQUEUE_TYPE(i32);
+#[repr(C)]
 pub struct MFAYUVSample(i32);
+#[repr(C)]
 pub struct MFAudioConstriction(i32);
+#[repr(C)]
 pub struct MFAudioDecoderDegradationInfo(i32);
 pub const MFAudioFormat_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5648, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFAudioFormat_AAC_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2554,6 +3311,7 @@ pub const MFAudioFormat_WMASPDIF: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub const MFAudioFormat_WMAudioV8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFAudioFormat_WMAudioV9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 354, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFAudioFormat_WMAudio_Lossless: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+#[repr(C)]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS(i32);
 pub const MFBYTESTREAM_DOES_NOT_USE_NETWORK: u32 = 2048u32;
 pub const MFBYTESTREAM_HAS_SLOW_SEEK: u32 = 256u32;
@@ -2564,18 +3322,23 @@ pub const MFBYTESTREAM_IS_REMOTE: u32 = 8u32;
 pub const MFBYTESTREAM_IS_SEEKABLE: u32 = 4u32;
 pub const MFBYTESTREAM_IS_WRITABLE: u32 = 2u32;
 pub const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: u32 = 1u32;
+#[repr(C)]
 pub struct MFBYTESTREAM_SEEK_ORIGIN(i32);
 pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024u32;
 pub const MFCAPTURE_METADATA_SCANLINE_VERTICAL: u32 = 4u32;
 pub const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: u32 = 2u32;
 pub const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: u32 = 1u32;
+#[repr(C)]
 pub struct MFCLOCK_CHARACTERISTICS_FLAGS(i32);
 pub const MFCLOCK_FREQUENCY_HNS: u32 = 10000000u32;
 pub const MFCLOCK_JITTER_DPC: u32 = 4000u32;
 pub const MFCLOCK_JITTER_ISR: u32 = 1000u32;
 pub const MFCLOCK_JITTER_PASSIVE: u32 = 10000u32;
+#[repr(C)]
 pub struct MFCLOCK_PROPERTIES(i32);
+#[repr(C)]
 pub struct MFCLOCK_RELATIONAL_FLAGS(i32);
+#[repr(C)]
 pub struct MFCLOCK_STATE(i32);
 pub const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000u32;
 pub const MFCONNECTOR_AGP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543520, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
@@ -2606,19 +3369,32 @@ pub const MFCONNECTOR_UDI_EXTERNAL: ::windows_sys::core::GUID = ::windows_sys::G
 pub const MFCONNECTOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543516, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
 pub const MFCONNECTOR_VGA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075560, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
 pub const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864u32;
+#[repr(C)]
 pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA(i32);
+#[repr(C)]
 pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA(i32);
+#[repr(C)]
 pub struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA(i32);
 pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864u32;
+#[repr(C)]
 pub struct MFCameraExtrinsic_CalibratedTransform(i32);
+#[repr(C)]
 pub struct MFCameraExtrinsics(i32);
+#[repr(C)]
 pub struct MFCameraIntrinsic_CameraModel(i32);
+#[repr(C)]
 pub struct MFCameraIntrinsic_DistortionModel(i32);
+#[repr(C)]
 pub struct MFCameraIntrinsic_DistortionModel6KT(i32);
+#[repr(C)]
 pub struct MFCameraIntrinsic_DistortionModelArcTan(i32);
+#[repr(C)]
 pub struct MFCameraIntrinsic_DistortionModelType(i32);
+#[repr(C)]
 pub struct MFCameraIntrinsic_PinholeCameraModel(i32);
+#[repr(C)]
 pub struct MFCameraOcclusionState(i32);
+#[repr(C)]
 pub struct MFDepthMeasurement(i32);
 pub const MFENABLETYPE_MF_RebootRequired: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1833778507, data2: 3790, data3: 18002, data4: [139, 58, 242, 210, 66, 96, 216, 135] };
 pub const MFENABLETYPE_MF_UpdateRevocationInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2642,19 +3418,29 @@ pub const MFENABLETYPE_WMDRMV1_LicenseAcquisition: ::windows_sys::core::GUID = :
 pub const MFENABLETYPE_WMDRMV7_Individualization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2899494986, data2: 45827, data3: 20325, data4: [188, 44, 44, 132, 141, 1, 169, 137] };
 pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3344095, data2: 18950, data3: 18564, data4: [160, 151, 239, 109, 34, 236, 132, 163] };
 pub const MFEVRDLL: u32 = 0u32;
+#[repr(C)]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel(i32);
+#[repr(C)]
 pub struct MFFLACBytestreamHandler(i32);
+#[repr(C)]
 pub struct MFFLACSinkClassFactory(i32);
+#[repr(C)]
 pub struct MFFOLDDOWN_MATRIX(i32);
+#[repr(C)]
 pub struct MFFrameSourceTypes(i32);
+#[repr(C)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION(i32);
+#[repr(C)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS(i32);
 pub const MFImageFormat_JPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 434415018, data2: 22114, data3: 20421, data4: [160, 192, 23, 88, 2, 142, 16, 87] };
 pub const MFImageFormat_RGB32: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 22, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+#[repr(C)]
 pub struct MFMEDIASOURCE_CHARACTERISTICS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MFMPEG2DLNASINKSTATS(i32);
 pub const MFMPEG4Format_Base: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 30330, data3: 18765, data4: [180, 120, 242, 157, 37, 220, 144, 55] };
+#[repr(C)]
 pub struct MFMediaKeyStatus(i32);
 pub const MFMediaType_Audio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935963489, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFMediaType_Binary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145829, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
@@ -2688,6 +3474,7 @@ pub const MFNETSOURCE_BROWSERUSERAGENT: ::windows_sys::core::GUID = ::windows_sy
 pub const MFNETSOURCE_BROWSERWEBPAGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294924, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_BUFFERINGTIME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294902, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_CACHEENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294905, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+#[repr(C)]
 pub struct MFNETSOURCE_CACHE_STATE(i32);
 pub const MFNETSOURCE_CLIENTGUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1621279910,
@@ -2747,6 +3534,7 @@ pub const MFNETSOURCE_PLAYERVERSION: ::windows_sys::core::GUID = ::windows_sys::
 pub const MFNETSOURCE_PPBANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294913, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_PREVIEWMODEENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294911, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294909, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+#[repr(C)]
 pub struct MFNETSOURCE_PROTOCOL_TYPE(i32);
 pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294918, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294917, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
@@ -2770,6 +3558,7 @@ pub const MFNETSOURCE_SSLCERTIFICATE_MANAGER: ::windows_sys::core::GUID = ::wind
     data4: [148, 12, 45, 126, 197, 187, 138, 15],
 };
 pub const MFNETSOURCE_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294900, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+#[repr(C)]
 pub struct MFNETSOURCE_STATISTICS_IDS(i32);
 pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294901, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2780,8 +3569,10 @@ pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys
 };
 pub const MFNETSOURCE_THINNINGENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294908, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294910, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+#[repr(C)]
 pub struct MFNETSOURCE_TRANSPORT_TYPE(i32);
 pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294938, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+#[repr(C)]
 pub struct MFNET_PROXYSETTINGS(i32);
 pub const MFNET_SAVEJOB_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3092928639,
@@ -2789,15 +3580,24 @@ pub const MFNET_SAVEJOB_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID
     data3: 20050,
     data4: [149, 101, 85, 211, 236, 30, 127, 247],
 };
+#[repr(C)]
 pub struct MFNetAuthenticationFlags(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MFNetCredentialManagerGetParam(i32);
+#[repr(C)]
 pub struct MFNetCredentialOptions(i32);
+#[repr(C)]
 pub struct MFNetCredentialRequirements(i32);
+#[repr(C)]
 pub struct MFNominalRange(i32);
+#[repr(C)]
 pub struct MFOffset(i32);
+#[repr(C)]
 pub struct MFPERIODICCALLBACK(i32);
+#[repr(C)]
 pub struct MFPMPSESSION_CREATION_FLAGS(i32);
+#[repr(C)]
 pub struct MFPOLICYMANAGER_ACTION(i32);
 pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3370148657, data2: 30192, data3: 20161, data4: [142, 119, 23, 87, 143, 119, 59, 70] };
 pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 8681212, data2: 19288, data3: 19840, data4: [167, 144, 231, 41, 118, 115, 22, 29] };
@@ -2870,44 +3670,68 @@ pub const MFPROTECTION_VIDEO_FRAMES: ::windows_sys::core::GUID = ::windows_sys::
 };
 pub const MFPROTECTION_WMDRMOTA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2724701857, data2: 13870, data3: 18384, data4: [136, 5, 70, 40, 89, 138, 35, 228] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[repr(C)]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT(i32);
+#[repr(C)]
 pub struct MFP_CREATION_OPTIONS(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_ERROR_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_EVENT_HEADER(i32);
+#[repr(C)]
 pub struct MFP_EVENT_TYPE(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_FRAME_STEP_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_MEDIAITEM_CREATED_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_MEDIAITEM_SET_EVENT(i32);
+#[repr(C)]
 pub struct MFP_MEDIAPLAYER_STATE(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_MF_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_PAUSE_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_PLAYBACK_ENDED_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_PLAY_EVENT(i32);
 pub const MFP_POSITIONTYPE_100NS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_POSITION_SET_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_RATE_SET_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct MFP_STOP_EVENT(i32);
+#[repr(C)]
 pub struct MFPaletteEntry(i32);
+#[repr(C)]
 pub struct MFPinholeCameraIntrinsic_IntrinsicModel(i32);
+#[repr(C)]
 pub struct MFPinholeCameraIntrinsics(i32);
+#[repr(C)]
 pub struct MFRATE_DIRECTION(i32);
+#[repr(C)]
 pub struct MFRR_COMPONENTS(i32);
+#[repr(C)]
 pub struct MFRR_COMPONENT_HASH_INFO(i32);
 pub const MFRR_INFO_VERSION: u32 = 0u32;
+#[repr(C)]
 pub struct MFRatio(i32);
 pub const MFSEQUENCER_INVALID_ELEMENT_ID: u32 = 4294967295u32;
 pub const MFSESSIONCAP_DOES_NOT_USE_NETWORK: u32 = 64u32;
@@ -2916,15 +3740,22 @@ pub const MFSESSIONCAP_RATE_FORWARD: u32 = 16u32;
 pub const MFSESSIONCAP_RATE_REVERSE: u32 = 32u32;
 pub const MFSESSIONCAP_SEEK: u32 = 2u32;
 pub const MFSESSIONCAP_START: u32 = 1u32;
+#[repr(C)]
 pub struct MFSESSION_GETFULLTOPOLOGY_FLAGS(i32);
+#[repr(C)]
 pub struct MFSESSION_SETTOPOLOGY_FLAGS(i32);
+#[repr(C)]
 pub struct MFSHUTDOWN_STATUS(i32);
+#[repr(C)]
 pub struct MFSINK_WMDRMACTION(i32);
 pub const MFSTARTUP_FULL: u32 = 0u32;
 pub const MFSTARTUP_LITE: u32 = 1u32;
 pub const MFSTARTUP_NOSOCKET: u32 = 1u32;
+#[repr(C)]
 pub struct MFSTREAMSINK_MARKER_TYPE(i32);
+#[repr(C)]
 pub struct MFSampleAllocatorUsage(i32);
+#[repr(C)]
 pub struct MFSampleEncryptionProtectionScheme(i32);
 pub const MFSampleExtension_3DVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4168062884, data2: 56660, data3: 20014, data4: [154, 94, 85, 252, 45, 116, 160, 5] };
 pub const MFSampleExtension_3DVideo_SampleFormat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 140973938, data2: 58223, data3: 19711, data4: [151, 179, 215, 46, 32, 152, 122, 72] };
@@ -3185,10 +4016,15 @@ pub const MFSampleExtension_VideoDSPMode: ::windows_sys::core::GUID = ::windows_
 };
 pub const MFSampleExtension_VideoEncodePictureType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2536965350, data2: 52500, data3: 18492, data4: [143, 32, 201, 252, 9, 40, 186, 213] };
 pub const MFSampleExtension_VideoEncodeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3002066040, data2: 63865, data3: 19558, data4: [185, 94, 238, 43, 130, 200, 47, 54] };
+#[repr(C)]
 pub struct MFSensorDeviceMode(i32);
+#[repr(C)]
 pub struct MFSensorDeviceType(i32);
+#[repr(C)]
 pub struct MFSensorStreamType(i32);
+#[repr(C)]
 pub struct MFSequencerTopologyFlags(i32);
+#[repr(C)]
 pub struct MFStandardVideoFormat(i32);
 pub const MFStreamExtension_CameraExtrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1751226064, data2: 5090, data3: 16857, data4: [150, 56, 239, 3, 44, 39, 42, 82] };
 pub const MFStreamExtension_ExtendedCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -3234,9 +4070,13 @@ pub const MFSubtitleFormat_WebVTT: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [141, 182, 250, 219, 198, 25, 164, 93],
 };
 pub const MFSubtitleFormat_XML: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 537327951, data2: 10698, data3: 16789, data4: [184, 219, 0, 222, 216, 255, 12, 151] };
+#[repr(C)]
 pub struct MFTIMER_FLAGS(i32);
+#[repr(C)]
 pub struct MFTOPOLOGY_DXVA_MODE(i32);
+#[repr(C)]
 pub struct MFTOPOLOGY_HARDWARE_MODE(i32);
+#[repr(C)]
 pub struct MFTOPONODE_ATTRIBUTE_UPDATE(i32);
 pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3352092014,
@@ -3250,7 +4090,9 @@ pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows_sys::core::GUI
     data3: 17165,
     data4: [178, 165, 80, 92, 113, 120, 217, 196],
 };
+#[repr(C)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_REASON(i32);
+#[repr(C)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_TYPE(i32);
 pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 93879796, data2: 4720, data3: 18841, data4: [146, 95, 142, 147, 154, 124, 10, 247] };
 pub const MFT_CATEGORY_AUDIO_DECODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2661760948, data2: 61306, data3: 17753, data4: [141, 93, 113, 157, 143, 4, 38, 199] };
@@ -3302,6 +4144,7 @@ pub const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: ::windows_sys::core::
 pub const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3694101654, data2: 5572, data3: 16506, data4: [182, 240, 27, 102, 171, 95, 191, 83] };
 pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2723033303, data2: 56869, data3: 17752, data4: [187, 251, 113, 7, 10, 45, 51, 46] };
 pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3633843691, data2: 2632, data3: 16991, data4: [134, 35, 97, 29, 180, 29, 56, 16] };
+#[repr(C)]
 pub struct MFT_DRAIN_TYPE(i32);
 pub const MFT_ENCODER_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3369201060, data2: 39140, data3: 16853, data4: [146, 151, 68, 245, 56, 82, 249, 14] };
 pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2258851246, data2: 14967, data3: 20164, data4: [159, 49, 1, 20, 154, 78, 146, 222] };
@@ -3325,6 +4168,7 @@ pub const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: ::windows_sys::core::GUID = ::win
     data3: 16984,
     data4: [162, 46, 146, 16, 190, 248, 155, 228],
 };
+#[repr(C)]
 pub struct MFT_INPUT_STREAM_INFO(i32);
 pub const MFT_INPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1115081137,
@@ -3332,9 +4176,12 @@ pub const MFT_INPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys:
     data3: 19443,
     data4: [156, 208, 13, 114, 61, 19, 143, 150],
 };
+#[repr(C)]
 pub struct MFT_MESSAGE_TYPE(i32);
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: u64 = 9223372036854775807u64;
+#[repr(C)]
 pub struct MFT_OUTPUT_DATA_BUFFER(i32);
+#[repr(C)]
 pub struct MFT_OUTPUT_STREAM_INFO(i32);
 pub const MFT_OUTPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2393804019, data2: 42063, data3: 17158, data4: [186, 92, 191, 93, 218, 36, 40, 24] };
 pub const MFT_POLICY_SET_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1516452633, data2: 52281, data3: 20392, data4: [140, 165, 89, 152, 27, 122, 0, 24] };
@@ -3351,11 +4198,14 @@ pub const MFT_PROCESS_LOCAL_Attribute: ::windows_sys::core::GUID = ::windows_sys
     data3: 20069,
     data4: [181, 136, 74, 163, 82, 175, 243, 121],
 };
+#[repr(C)]
 pub struct MFT_REGISTER_TYPE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MFT_REGISTRATION_INFO(i32);
 pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 911118213, data2: 16174, data3: 17260, data4: [178, 162, 68, 64, 160, 18, 169, 232] };
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295u32;
+#[repr(C)]
 pub struct MFT_STREAM_STATE_PARAM(i32);
 pub const MFT_SUPPORT_3DVIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 155156913, data2: 20270, data3: 17969, data4: [129, 104, 121, 52, 3, 42, 1, 211] };
 pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1397189137, data2: 16147, data3: 18939, data4: [172, 66, 238, 39, 51, 201, 103, 65] };
@@ -3409,22 +4259,36 @@ pub const MFTranscodeContainerType_WAVE: ::windows_sys::core::GUID = ::windows_s
     data4: [190, 99, 135, 189, 248, 187, 147, 91],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MFVIDEOFORMAT(i32);
+#[repr(C)]
 pub struct MFVP_MESSAGE_TYPE(i32);
+#[repr(C)]
 pub struct MFVideo3DFormat(i32);
+#[repr(C)]
 pub struct MFVideo3DSampleFormat(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct MFVideoAlphaBitmap(i32);
+#[repr(C)]
 pub struct MFVideoAlphaBitmapFlags(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MFVideoAlphaBitmapParams(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MFVideoArea(i32);
+#[repr(C)]
 pub struct MFVideoAspectRatioMode(i32);
+#[repr(C)]
 pub struct MFVideoChromaSubsampling(i32);
+#[repr(C)]
 pub struct MFVideoCompressedInfo(i32);
+#[repr(C)]
 pub struct MFVideoDRMFlags(i32);
+#[repr(C)]
 pub struct MFVideoDSPMode(i32);
+#[repr(C)]
 pub struct MFVideoFlags(i32);
 pub const MFVideoFormat_420O: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1328558644, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_A16B16G16R16F: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 113, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
@@ -3515,21 +4379,37 @@ pub const MFVideoFormat_v210: ::windows_sys::core::GUID = ::windows_sys::GUID { 
 pub const MFVideoFormat_v216: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193846, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_v410: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808531062, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MFVideoInfo(i32);
+#[repr(C)]
 pub struct MFVideoInterlaceMode(i32);
+#[repr(C)]
 pub struct MFVideoLighting(i32);
+#[repr(C)]
 pub struct MFVideoMixPrefs(i32);
+#[repr(C)]
 pub struct MFVideoNormalizedRect(i32);
+#[repr(C)]
 pub struct MFVideoPadFlags(i32);
+#[repr(C)]
 pub struct MFVideoPrimaries(i32);
+#[repr(C)]
 pub struct MFVideoRenderPrefs(i32);
+#[repr(C)]
 pub struct MFVideoRotationFormat(i32);
+#[repr(C)]
 pub struct MFVideoSphericalFormat(i32);
+#[repr(C)]
 pub struct MFVideoSphericalProjectionMode(i32);
+#[repr(C)]
 pub struct MFVideoSrcContentHintFlags(i32);
+#[repr(C)]
 pub struct MFVideoSurfaceInfo(i32);
+#[repr(C)]
 pub struct MFVideoTransferFunction(i32);
+#[repr(C)]
 pub struct MFVideoTransferMatrix(i32);
+#[repr(C)]
 pub struct MFWaveFormatExConvertFlags(i32);
 pub const MF_1024_BYTE_ALIGNMENT: u32 = 1023u32;
 pub const MF_128_BYTE_ALIGNMENT: u32 = 127u32;
@@ -3551,7 +4431,9 @@ pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows_sys::core::GUID = 
     data3: 19562,
     data4: [159, 156, 125, 13, 196, 237, 165, 244],
 };
+#[repr(C)]
 pub struct MF_ACTIVATE_CUSTOM_MIXER(i32);
+#[repr(C)]
 pub struct MF_ACTIVATE_CUSTOM_PRESENTER(i32);
 pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3125351265,
@@ -3626,8 +4508,11 @@ pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET2: ::windows_sys::core::GUID = ::windows
     data3: 19611,
     data4: [182, 146, 226, 160, 210, 154, 138, 221],
 };
+#[repr(C)]
 pub struct MF_ATTRIBUTES_MATCH_TYPE(i32);
+#[repr(C)]
 pub struct MF_ATTRIBUTE_SERIALIZE_OPTIONS(i32);
+#[repr(C)]
 pub struct MF_ATTRIBUTE_TYPE(i32);
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2970267331,
@@ -3662,6 +4547,7 @@ pub const MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY: ::windows_sys::core::GUID
     data3: 19956,
     data4: [148, 254, 129, 195, 111, 12, 58, 122],
 };
+#[repr(C)]
 pub struct MF_AUVRHP_ROOMMODEL(i32);
 pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1655067876, data2: 46956, data3: 18689, data4: [152, 35, 44, 182, 21, 212, 115, 24] };
 pub const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576u32;
@@ -3685,6 +4571,7 @@ pub const MF_BYTESTREAM_TRANSCODED: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 19897,
     data4: [171, 72, 207, 59, 109, 139, 197, 224],
 };
+#[repr(C)]
 pub struct MF_BYTE_STREAM_CACHE_RANGE(i32);
 pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4260197665,
@@ -3693,6 +4580,7 @@ pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows_sys::core::GUID = ::w
     data4: [169, 107, 243, 226, 86, 94, 152, 28],
 };
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 284278366, data2: 32273, data3: 16651, data4: [151, 61, 244, 182, 16, 144, 0, 254] };
+#[repr(C)]
 pub struct MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(i32);
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2753598487, data2: 36153, data3: 18163, data4: [183, 89, 89, 18, 82, 143, 66, 7] };
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -3708,6 +4596,7 @@ pub const MF_CAPTURE_ENGINE_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_s
     data4: [150, 44, 197, 148, 175, 215, 141, 223],
 };
 pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 730518248, data2: 31435, data3: 17185, data4: [166, 6, 50, 92, 66, 73, 244, 252] };
+#[repr(C)]
 pub struct MF_CAPTURE_ENGINE_DEVICE_TYPE(i32);
 pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4186015842,
@@ -3776,6 +4665,7 @@ pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY: ::windows_sys::core::GUID = ::window
     data3: 17136,
     data4: [133, 66, 208, 122, 57, 113, 118, 42],
 };
+#[repr(C)]
 pub struct MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(i32);
 pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3400194452, data2: 33772, data3: 17897, data4: [163, 10, 31, 32, 170, 219, 152, 49] };
 pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -3819,8 +4709,11 @@ pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX: ::windows_sys::core::GU
     data3: 18115,
     data4: [180, 23, 130, 248, 163, 19, 201, 195],
 };
+#[repr(C)]
 pub struct MF_CAPTURE_ENGINE_SINK_TYPE(i32);
+#[repr(C)]
 pub struct MF_CAPTURE_ENGINE_SOURCE(i32);
+#[repr(C)]
 pub struct MF_CAPTURE_ENGINE_STREAM_CATEGORY(i32);
 pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 478181338, data2: 33894, data3: 19908, data4: [139, 142, 39, 107, 63, 133, 146, 59] };
 pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2114081137, data2: 53042, data3: 20270, data4: [143, 25, 65, 5, 119, 183, 58, 102] };
@@ -3951,6 +4844,7 @@ pub const MF_COMPONENT_INVALID_EKU: u32 = 16384u32;
 pub const MF_COMPONENT_INVALID_ROOT: u32 = 65536u32;
 pub const MF_COMPONENT_LS_CERT_REVOKED: u32 = 262144u32;
 pub const MF_COMPONENT_REVOKED: u32 = 8192u32;
+#[repr(C)]
 pub struct MF_CONNECT_METHOD(i32);
 pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355601477, data2: 65408, data3: 18506, data4: [157, 203, 13, 248, 148, 230, 154, 1] };
 pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -3965,7 +4859,9 @@ pub const MF_CONTENT_PROTECTION_DEVICE_SERVICE: ::windows_sys::core::GUID = ::wi
     data3: 16894,
     data4: [181, 102, 16, 204, 83, 150, 46, 221],
 };
+#[repr(C)]
 pub struct MF_CROSS_ORIGIN_POLICY(i32);
+#[repr(C)]
 pub struct MF_CUSTOM_DECODE_UNIT_TYPE(i32);
 pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 712805738, data2: 34214, data3: 18765, data4: [160, 70, 6, 234, 26, 19, 143, 75] };
 pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -4216,6 +5112,7 @@ pub const MF_EVENT_TOPOLOGY_STATUS: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 17739,
     data4: [173, 158, 109, 95, 143, 167, 196, 59],
 };
+#[repr(C)]
 pub struct MF_EVENT_TYPE(i32);
 pub const MF_E_ALLOCATOR_ALREADY_COMMITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072846854i32 as _);
 pub const MF_E_ALLOCATOR_NOT_COMMITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072846855i32 as _);
@@ -4555,10 +5452,15 @@ pub const MF_E_WMDRMOTA_DRM_ENCRYPTION_SCHEME_NOT_SUPPORTED: ::windows_sys::core
 pub const MF_E_WMDRMOTA_DRM_HEADER_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072860843i32 as _);
 pub const MF_E_WMDRMOTA_INVALID_POLICY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072860840i32 as _);
 pub const MF_E_WMDRMOTA_NO_ACTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072860845i32 as _);
+#[repr(C)]
 pub struct MF_FILE_ACCESSMODE(i32);
+#[repr(C)]
 pub struct MF_FILE_FLAGS(i32);
+#[repr(C)]
 pub struct MF_FILE_OPENMODE(i32);
+#[repr(C)]
 pub struct MF_FLOAT2(i32);
+#[repr(C)]
 pub struct MF_FLOAT3(i32);
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1851345052,
@@ -4588,6 +5490,7 @@ pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP: ::windows_sys::core::GU
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2699799463, data2: 42018, data3: 20019, data4: [132, 1, 179, 125, 40, 0, 170, 103] };
 pub const MF_GRL_ABSENT: u32 = 4096u32;
 pub const MF_GRL_LOAD_FAILED: u32 = 16u32;
+#[repr(C)]
 pub struct MF_HDCP_STATUS(i32);
 pub const MF_HISTOGRAM_CHANNEL_B: u32 = 8u32;
 pub const MF_HISTOGRAM_CHANNEL_Cb: u32 = 16u32;
@@ -4608,6 +5511,7 @@ pub const MF_INVALID_PRESENTATION_TIME: u64 = 9223372036854775808u64;
 pub const MF_INVALID_STATE_ERR: u32 = 2154823691u32;
 pub const MF_I_MANUAL_PROXY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074610802i32 as _);
 pub const MF_KERNEL_MODE_COMPONENT_LOAD: u32 = 2u32;
+#[repr(C)]
 pub struct MF_LEAKY_BUCKET_PAIR(i32);
 pub const MF_LOCAL_MFT_REGISTRATION_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3723874204,
@@ -4630,9 +5534,13 @@ pub const MF_LOW_LATENCY: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const MF_LUMA_KEY_ENABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1936294415, data2: 30430, data3: 17354, data4: [146, 132, 71, 184, 243, 126, 6, 73] };
 pub const MF_LUMA_KEY_LOWER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2480388309, data2: 2945, data3: 18197, data4: [174, 160, 135, 37, 135, 22, 33, 233] };
 pub const MF_LUMA_KEY_UPPER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3500095931, data2: 17922, data3: 19505, data4: [167, 6, 161, 33, 113, 165, 17, 10] };
+#[repr(C)]
 pub struct MF_MEDIAKEYSESSION_MESSAGETYPE(i32);
+#[repr(C)]
 pub struct MF_MEDIAKEYSESSION_TYPE(i32);
+#[repr(C)]
 pub struct MF_MEDIAKEYS_REQUIREMENT(i32);
+#[repr(C)]
 pub struct MF_MEDIAKEY_STATUS(i32);
 pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1220620734, data2: 4954, data3: 16843, data4: [130, 144, 3, 101, 37, 9, 201, 153] };
 pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 872497765, data2: 52094, data3: 19678, data4: [172, 124, 239, 253, 59, 60, 37, 48] };
@@ -4676,6 +5584,7 @@ pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: ::windows_sys::cor
     data4: [163, 240, 173, 109, 218, 216, 57, 174],
 };
 pub const MF_MEDIA_ENGINE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3322118584, data2: 33700, data3: 16888, data4: [163, 208, 222, 5, 7, 104, 73, 169] };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_CANPLAY(i32);
 pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1056074452,
@@ -4714,14 +5623,20 @@ pub const MF_MEDIA_ENGINE_COREWINDOW: ::windows_sys::core::GUID = ::windows_sys:
     data3: 16834,
     data4: [159, 150, 70, 89, 148, 138, 205, 220],
 };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_CREATEFLAGS(i32);
 pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 106365658, data2: 4244, data3: 18541, data4: [134, 23, 238, 124, 196, 238, 70, 72] };
 pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1229280167, data2: 42113, data3: 19639, data4: [190, 197, 56, 9, 3, 81, 55, 49] };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_ERR(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_EVENT(i32);
 pub const MF_MEDIA_ENGINE_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 822738246, data2: 1549, data3: 19298, data4: [141, 207, 250, 255, 129, 19, 24, 210] };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_EXTENSION_TYPE(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_KEYERR(i32);
 pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1037929797,
@@ -4735,8 +5650,10 @@ pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows_sys::core::GUID = ::window
     data3: 17196,
     data4: [142, 164, 120, 72, 255, 228, 34, 14],
 };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_NETWORK(i32);
 pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2696842983, data2: 1394, data3: 20268, data4: [168, 1, 42, 21, 27, 211, 231, 38] };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_OPM_STATUS(i32);
 pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3649603483,
@@ -4750,10 +5667,15 @@ pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows_sys::core::GUID = ::windows
     data3: 19838,
     data4: [176, 238, 198, 26, 115, 255, 173, 21],
 };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_PRELOAD(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_PROTECTION_FLAGS(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_READY(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_S3D_PACKING_MODE(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_SEEK_MODE(i32);
 pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 180405399,
@@ -4761,7 +5683,9 @@ pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows_sys::core::GUI
     data3: 18633,
     data4: [156, 222, 187, 140, 162, 68, 44, 163],
 };
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_STATISTIC(i32);
+#[repr(C)]
 pub struct MF_MEDIA_ENGINE_STREAMTYPE_FAILED(i32);
 pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1556066116,
@@ -4812,6 +5736,7 @@ pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows_sys::core::GUID = ::win
     data3: 17049,
     data4: [149, 172, 174, 129, 253, 20, 243, 231],
 };
+#[repr(C)]
 pub struct MF_MEDIA_SHARING_ENGINE_EVENT(i32);
 pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1865717749,
@@ -4880,6 +5805,7 @@ pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys:
     data3: 18133,
     data4: [173, 127, 184, 70, 225, 171, 22, 82],
 };
+#[repr(C)]
 pub struct MF_MSE_APPEND_MODE(i32);
 pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1122396592,
@@ -4893,6 +5819,7 @@ pub const MF_MSE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20477,
     data4: [168, 168, 111, 207, 158, 163, 208, 12],
 };
+#[repr(C)]
 pub struct MF_MSE_ERROR(i32);
 pub const MF_MSE_OPUS_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1294093505,
@@ -4900,7 +5827,9 @@ pub const MF_MSE_OPUS_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18595,
     data4: [167, 167, 228, 193, 108, 230, 56, 138],
 };
+#[repr(C)]
 pub struct MF_MSE_OPUS_SUPPORT_TYPE(i32);
+#[repr(C)]
 pub struct MF_MSE_READY(i32);
 pub const MF_MSE_VP9_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2463597609,
@@ -4908,6 +5837,7 @@ pub const MF_MSE_VP9_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20464,
     data4: [131, 34, 128, 62, 250, 110, 150, 38],
 };
+#[repr(C)]
 pub struct MF_MSE_VP9_SUPPORT_TYPE(i32);
 pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1983049958,
@@ -5036,6 +5966,7 @@ pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: ::windows_sys::core:
 pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3121004460, data2: 65507, data3: 18250, data4: [171, 85, 22, 30, 228, 65, 122, 46] };
 pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2546490538, data2: 3051, data3: 20193, data4: [151, 21, 242, 47, 173, 140, 16, 245] };
 pub const MF_MT_D3D_RESOURCE_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 391061125, data2: 65062, data3: 17725, data4: [181, 46, 91, 221, 78, 85, 185, 68] };
+#[repr(C)]
 pub struct MF_MT_D3D_RESOURCE_VERSION_ENUM(i32);
 pub const MF_MT_DECODER_MAX_DPB_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1740510284, data2: 34999, data3: 19625, data4: [150, 40, 200, 8, 213, 38, 34, 23] };
 pub const MF_MT_DECODER_USE_MAX_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -5441,8 +6372,11 @@ pub const MF_NALU_LENGTH_INFORMATION: ::windows_sys::core::GUID = ::windows_sys:
 pub const MF_NALU_LENGTH_SET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2811305299, data2: 4772, data3: 18789, data4: [174, 112, 110, 173, 214, 255, 5, 81] };
 pub const MF_NOT_FOUND_ERR: u32 = 2154823688u32;
 pub const MF_NOT_SUPPORTED_ERR: u32 = 2154823689u32;
+#[repr(C)]
 pub struct MF_OBJECT_TYPE(i32);
+#[repr(C)]
 pub struct MF_OPM_ACP_PROTECTION_LEVEL(i32);
+#[repr(C)]
 pub struct MF_OPM_CGMSA_PROTECTION_LEVEL(i32);
 pub const MF_PARSE_ERR: u32 = 2154823761u32;
 pub const MF_PD_ADAPTIVE_STREAMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3926744471, data2: 10745, data3: 18571, data4: [174, 107, 125, 107, 65, 54, 17, 43] };
@@ -5678,6 +6612,7 @@ pub const MF_PD_VIDEO_ENCODING_BITRATE: ::windows_sys::core::GUID = ::windows_sy
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
+#[repr(C)]
 pub struct MF_PLUGIN_CONTROL_POLICY(i32);
 pub const MF_PMP_SERVER_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 788580624,
@@ -5704,9 +6639,13 @@ pub const MF_PROPERTY_HANDLER_SERVICE: ::windows_sys::core::GUID = ::windows_sys
     data3: 16861,
     data4: [144, 231, 95, 239, 124, 137, 145, 181],
 };
+#[repr(C)]
 pub struct MF_Plugin_Type(i32);
+#[repr(C)]
 pub struct MF_QUALITY_ADVISE_FLAGS(i32);
+#[repr(C)]
 pub struct MF_QUALITY_DROP_MODE(i32);
+#[repr(C)]
 pub struct MF_QUALITY_LEVEL(i32);
 pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4139010808, data2: 24653, data3: 18174, data4: [169, 93, 69, 71, 155, 16, 201, 188] };
 pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 819024390, data2: 60714, data3: 18272, data4: [190, 23, 235, 74, 159, 18, 41, 92] };
@@ -5716,6 +6655,7 @@ pub const MF_QUALITY_SERVICES: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17984,
     data4: [181, 44, 40, 35, 101, 189, 241, 108],
 };
+#[repr(C)]
 pub struct MF_QUATERNION(i32);
 pub const MF_QUOTA_EXCEEDED_ERR: u32 = 2154823702u32;
 pub const MF_RATE_CONTROL_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -5758,6 +6698,7 @@ pub const MF_REMOTE_PROXY: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17016,
     data4: [139, 106, 208, 119, 250, 195, 162, 95],
 };
+#[repr(C)]
 pub struct MF_RESOLUTION_FLAGS(i32);
 pub const MF_SAMI_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1235786471, data2: 46297, data3: 20210, data4: [170, 92, 246, 90, 62, 5, 174, 78] };
 pub const MF_SAMPLEGRABBERSINK_IGNORE_CLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -5905,6 +6846,7 @@ pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: ::windows_sys::core::GUID
     data3: 18047,
     data4: [157, 177, 193, 113, 101, 113, 108, 73],
 };
+#[repr(C)]
 pub struct MF_SERVICE_LOOKUP_TYPE(i32);
 pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 420381999,
@@ -5934,6 +6876,7 @@ pub const MF_SHARING_ENGINE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys:
     data3: 17402,
     data4: [155, 188, 24, 0, 112, 238, 254, 109],
 };
+#[repr(C)]
 pub struct MF_SHARING_ENGINE_EVENT(i32);
 pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4020520608,
@@ -5963,6 +6906,7 @@ pub const MF_SINK_VIDEO_NATIVE_HEIGHT: ::windows_sys::core::GUID = ::windows_sys
 pub const MF_SINK_VIDEO_NATIVE_WIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3872827143, data2: 5381, data3: 18247, data4: [155, 16, 114, 210, 209, 88, 203, 58] };
 pub const MF_SINK_VIDEO_PTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 560119271, data2: 16926, data3: 19344, data4: [155, 51, 229, 143, 191, 29, 88, 182] };
 pub const MF_SINK_WRITER_ASYNC_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1221269566, data2: 31499, data3: 18164, data4: [130, 46, 94, 29, 45, 218, 67, 84] };
+#[repr(C)]
 pub struct MF_SINK_WRITER_CONSTANTS(i32);
 pub const MF_SINK_WRITER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3967954338,
@@ -5977,11 +6921,15 @@ pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows_sys::core::GUID = ::windows_s
     data3: 19143,
     data4: [153, 182, 165, 123, 154, 74, 124, 112],
 };
+#[repr(C)]
 pub struct MF_SINK_WRITER_STATISTICS(i32);
 pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3758271196, data2: 62639, data3: 20197, data4: [152, 71, 5, 62, 223, 132, 4, 38] };
 pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 507362988, data2: 47939, data3: 19509, data4: [181, 7, 205, 100, 68, 100, 201, 101] };
+#[repr(C)]
 pub struct MF_SOURCE_READER_CONSTANTS(i32);
+#[repr(C)]
 pub struct MF_SOURCE_READER_CONTROL_FLAG(i32);
+#[repr(C)]
 pub struct MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS(i32);
 pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 871569787, data2: 63290, data3: 19988, data4: [141, 133, 14, 76, 67, 104, 120, 141] };
 pub const MF_SOURCE_READER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -6016,6 +6964,7 @@ pub const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: ::windows_sys::core::GUID = 
     data3: 17134,
     data4: [187, 179, 249, 184, 69, 213, 104, 29],
 };
+#[repr(C)]
 pub struct MF_SOURCE_READER_FLAG(i32);
 pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1831073224,
@@ -6049,6 +6998,7 @@ pub const MF_STREAM_SINK_SUPPORTS_ROTATION: ::windows_sys::core::GUID = ::window
     data3: 16805,
     data4: [151, 173, 138, 127, 238, 36, 185, 18],
 };
+#[repr(C)]
 pub struct MF_STREAM_STATE(i32);
 pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1634593138, data2: 33709, data3: 18768, data4: [129, 112, 99, 13, 25, 203, 227, 7] };
 pub const MF_SYNTAX_ERR: u32 = 2154823692u32;
@@ -6067,21 +7017,37 @@ pub const MF_S_WAIT_FOR_POLICY_SET: ::windows_sys::core::HRESULT = ::windows_sys
 pub const MF_SampleProtectionSalt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1409539822, data2: 47598, data3: 17295, data4: [170, 131, 56, 4, 153, 126, 86, 157] };
 pub const MF_TEST_SIGNED_COMPONENT_LOADING: u32 = 16777216u32;
 pub const MF_TIMECODE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2698314407, data2: 3763, data3: 18565, data4: [177, 185, 159, 235, 13, 8, 52, 84] };
+#[repr(C)]
 pub struct MF_TIMED_TEXT_ALIGNMENT(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_BOUTEN_POSITION(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_BOUTEN_TYPE(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_CUE_EVENT(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_DECORATION(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_DISPLAY_ALIGNMENT(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_ERROR_CODE(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_FONT_STYLE(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_RUBY_ALIGN(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_RUBY_POSITION(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_RUBY_RESERVE(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_SCROLL_MODE(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_TRACK_KIND(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_TRACK_READY_STATE(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_UNIT_TYPE(i32);
+#[repr(C)]
 pub struct MF_TIMED_TEXT_WRITING_MODE(i32);
 pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1134162296,
@@ -6146,6 +7112,7 @@ pub const MF_TOPOLOGY_RESOLUTION_STATUS: ::windows_sys::core::GUID = ::windows_s
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
+#[repr(C)]
 pub struct MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(i32);
 pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3368816959,
@@ -6154,6 +7121,7 @@ pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows_sys::core::GU
     data4: [170, 214, 158, 214, 32, 46, 98, 179],
 };
 pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3094129730, data2: 16806, data3: 19321, data4: [137, 122, 26, 176, 229, 43, 74, 27] };
+#[repr(C)]
 pub struct MF_TOPOLOGY_TYPE(i32);
 pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1701146138, data2: 1919, data3: 17522, data4: [131, 239, 49, 111, 17, 213, 8, 122] };
 pub const MF_TOPONODE_CONNECT_METHOD: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -6193,6 +7161,7 @@ pub const MF_TOPONODE_DRAIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
+#[repr(C)]
 pub struct MF_TOPONODE_DRAIN_MODE(i32);
 pub const MF_TOPONODE_ERRORCODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1229700334,
@@ -6218,6 +7187,7 @@ pub const MF_TOPONODE_FLUSH: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
+#[repr(C)]
 pub struct MF_TOPONODE_FLUSH_MODE(i32);
 pub const MF_TOPONODE_LOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1229700343,
@@ -6318,6 +7288,7 @@ pub const MF_TOPONODE_WORKQUEUE_MMCSS_TASKID: ::windows_sys::core::GUID = ::wind
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
+#[repr(C)]
 pub struct MF_TOPOSTATUS(i32);
 pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2620899867,
@@ -6325,6 +7296,7 @@ pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows_sys::core::GUID = ::windows_sys
     data3: 18556,
     data4: [166, 144, 128, 215, 245, 13, 28, 114],
 };
+#[repr(C)]
 pub struct MF_TRANSCODE_ADJUST_PROFILE_FLAGS(i32);
 pub const MF_TRANSCODE_CONTAINERTYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 353366591,
@@ -6340,6 +7312,7 @@ pub const MF_TRANSCODE_ENCODINGPROFILE: ::windows_sys::core::GUID = ::windows_sy
     data4: [177, 233, 161, 254, 58, 73, 251, 201],
 };
 pub const MF_TRANSCODE_QUALITYVSSPEED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
+#[repr(C)]
 pub struct MF_TRANSCODE_SINK_INFO(i32);
 pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1313106415,
@@ -6353,6 +7326,7 @@ pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows_sys::core::GUID = ::windows_sys::
     data3: 16562,
     data4: [157, 234, 59, 171, 101, 11, 235, 242],
 };
+#[repr(C)]
 pub struct MF_TRANSCODE_TOPOLOGYMODE_FLAGS(i32);
 pub const MF_TRANSFORM_ASYNC: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4162480538,
@@ -6375,6 +7349,7 @@ pub const MF_TRANSFORM_CATEGORY_Attribute: ::windows_sys::core::GUID = ::windows
 pub const MF_TRANSFORM_FLAGS_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2472131454, data2: 25205, data3: 18116, data4: [160, 37, 28, 1, 228, 95, 26, 134] };
 pub const MF_TYPE_ERR: u32 = 2154840069u32;
 pub const MF_UNKNOWN_DURATION: u32 = 0u32;
+#[repr(C)]
 pub struct MF_URL_TRUST_STATUS(i32);
 pub const MF_USER_DATA_PAYLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3520370781, data2: 56466, data3: 17786, data4: [179, 160, 101, 26, 51, 163, 16, 71] };
 pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3224025798, data2: 65202, data3: 17729, data4: [146, 47, 146, 11, 67, 112, 39, 34] };
@@ -6387,8 +7362,11 @@ pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows_sys::core::GUID = ::windows_sy
     data3: 20406,
     data4: [158, 177, 219, 51, 12, 188, 151, 202],
 };
+#[repr(C)]
 pub struct MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(i32);
+#[repr(C)]
 pub struct MF_VIDEO_PROCESSOR_MIRROR(i32);
+#[repr(C)]
 pub struct MF_VIDEO_PROCESSOR_ROTATION(i32);
 pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3322227328,
@@ -6396,6 +7374,7 @@ pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows_sys::core::GUID =
     data3: 16547,
     data4: [157, 184, 240, 39, 162, 92, 154, 185],
 };
+#[repr(C)]
 pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION(i32);
 pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1703591505,
@@ -6431,11 +7410,15 @@ pub const MF_XVP_DISABLE_FRC: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [158, 232, 22, 212, 252, 81, 141, 140],
 };
 pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2857229097, data2: 20788, data3: 17251, data4: [172, 114, 131, 236, 75, 193, 4, 38] };
+#[repr(C)]
 pub struct MIC_ARRAY_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MOVEREGION_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MOVE_RECT(i32);
+#[repr(C)]
 pub struct MP3ACMCodecWrapper(i32);
 pub const MR_AUDIO_POLICY_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2434783031,
@@ -6460,23 +7443,39 @@ pub const MR_VIDEO_ACCELERATION_SERVICE: ::windows_sys::core::GUID = ::windows_s
 };
 pub const MR_VIDEO_MIXER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 121426684, data2: 27892, data3: 16567, data4: [136, 89, 232, 149, 82, 200, 65, 248] };
 pub const MR_VIDEO_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 278046828, data2: 43802, data3: 17818, data4: [163, 54, 131, 31, 188, 77, 17, 255] };
+#[repr(C)]
 pub struct MSAMRNBDecoder(i32);
+#[repr(C)]
 pub struct MSAMRNBEncoder(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MT_ARBITRARY_HEADER(i32);
+#[repr(C)]
 pub struct MT_CUSTOM_VIDEO_PRIMARIES(i32);
+#[repr(C)]
 pub struct MULawCodecWrapper(i32);
+#[repr(C)]
 pub struct OPM_ACP_AND_CGMSA_SIGNALING(i32);
+#[repr(C)]
 pub struct OPM_ACP_PROTECTION_LEVEL(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[repr(C)]
 pub struct OPM_ACTUAL_OUTPUT_FORMAT(i32);
+#[repr(C)]
 pub struct OPM_BUS_TYPE(i32);
+#[repr(C)]
 pub struct OPM_CGMSA(i32);
+#[repr(C)]
 pub struct OPM_CONFIGURE_PARAMETERS(i32);
+#[repr(C)]
 pub struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION(i32);
+#[repr(C)]
 pub struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS(i32);
+#[repr(C)]
 pub struct OPM_DPCP_PROTECTION_LEVEL(i32);
+#[repr(C)]
 pub struct OPM_DVI_CHARACTERISTIC(i32);
+#[repr(C)]
 pub struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS(i32);
 pub const OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1714005393,
@@ -6498,7 +7497,9 @@ pub const OPM_GET_CODEC_INFO: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17477,
     data4: [157, 186, 149, 88, 143, 107, 88, 180],
 };
+#[repr(C)]
 pub struct OPM_GET_CODEC_INFO_INFORMATION(i32);
+#[repr(C)]
 pub struct OPM_GET_CODEC_INFO_PARAMETERS(i32);
 pub const OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 230006132, data2: 43410, data3: 18734, data4: [160, 189, 194, 63, 218, 86, 78, 0] };
 pub const OPM_GET_CONNECTOR_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -6514,25 +7515,40 @@ pub const OPM_GET_DVI_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys
     data3: 16754,
     data4: [131, 156, 61, 55, 118, 224, 235, 245],
 };
+#[repr(C)]
 pub struct OPM_GET_INFO_PARAMETERS(i32);
 pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 991073673, data2: 11000, data3: 20208, data4: [150, 162, 112, 74, 132, 90, 33, 142] };
 pub const OPM_GET_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1925934579, data2: 9295, data3: 16590, data4: [176, 158, 32, 80, 106, 246, 48, 47] };
 pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 955426817, data2: 39532, data3: 18619, data4: [145, 7, 182, 105, 110, 111, 23, 151] };
 pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2986825815, data2: 16090, data3: 19805, data4: [136, 219, 116, 143, 140, 26, 5, 73] };
+#[repr(C)]
 pub struct OPM_HDCP_FLAGS(i32);
+#[repr(C)]
 pub struct OPM_HDCP_KEY_SELECTION_VECTOR(i32);
+#[repr(C)]
 pub struct OPM_HDCP_PROTECTION_LEVEL(i32);
+#[repr(C)]
 pub struct OPM_HDCP_STATUS(i32);
+#[repr(C)]
 pub struct OPM_HDCP_TYPE(i32);
+#[repr(C)]
 pub struct OPM_IMAGE_ASPECT_RATIO_EN300294(i32);
+#[repr(C)]
 pub struct OPM_OMAC(i32);
+#[repr(C)]
 pub struct OPM_OUTPUT_HARDWARE_PROTECTION(i32);
+#[repr(C)]
 pub struct OPM_OUTPUT_ID_DATA(i32);
+#[repr(C)]
 pub struct OPM_PROTECTION_STANDARD_TYPE(i32);
+#[repr(C)]
 pub struct OPM_PROTECTION_TYPE(i32);
+#[repr(C)]
 pub struct OPM_RANDOM_NUMBER(i32);
+#[repr(C)]
 pub struct OPM_REQUESTED_INFORMATION(i32);
 pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 161886629, data2: 54916, data3: 19552, data4: [142, 77, 211, 187, 15, 11, 227, 238] };
+#[repr(C)]
 pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS(i32);
 pub const OPM_SET_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2338256337,
@@ -6540,6 +7556,7 @@ pub const OPM_SET_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17663,
     data4: [132, 165, 234, 113, 220, 231, 143, 19],
 };
+#[repr(C)]
 pub struct OPM_SET_HDCP_SRM_PARAMETERS(i32);
 pub const OPM_SET_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2612605564, data2: 20149, data3: 18215, data4: [159, 0, 180, 43, 9, 25, 192, 218] };
 pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -6548,39 +7565,70 @@ pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_sys::core::GU
     data3: 17582,
     data4: [191, 204, 218, 80, 181, 248, 46, 114],
 };
+#[repr(C)]
 pub struct OPM_SET_PROTECTION_LEVEL_PARAMETERS(i32);
+#[repr(C)]
 pub struct OPM_STANDARD_INFORMATION(i32);
+#[repr(C)]
 pub struct OPM_STATUS(i32);
+#[repr(C)]
 pub struct OPM_TYPE(i32);
+#[repr(C)]
 pub struct OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(i32);
+#[repr(C)]
 pub struct OPM_VIDEO_OUTPUT_SEMANTICS(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_CreateDevice(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_CreateVideoProcessor(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_DestroyDevice(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_DestroyVideoProcessor(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessBltStatePrivate(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessStreamStatePrivate(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessorCaps(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessorCustomRates(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessorDeviceCaps(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessorFilterRange(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessorInputFormats(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_GetVideoProcessorOutputFormats(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_Plugin(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_ProposeVideoPrivateFormat(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_SetVideoProcessBltState(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_SetVideoProcessStreamState(i32);
+#[repr(C)]
 pub struct PDXVAHDSW_VideoProcessBltHD(i32);
+#[repr(C)]
 pub struct PDXVAHD_CreateDevice(i32);
+#[repr(C)]
 pub struct PLAYTO_SOURCE_CREATEFLAGS(i32);
+#[repr(C)]
 pub struct PM_CONNECTOR_TYPE(i32);
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ROI_AREA(i32);
+#[repr(C)]
 pub struct SAMPLE_PROTECTION_VERSION(i32);
+#[repr(C)]
 pub struct SEEK_ORIGIN(i32);
+#[repr(C)]
 pub struct SENSORPROFILEID(i32);
 pub const SHA_HASH_LEN: u32 = 20u32;
+#[repr(C)]
 pub struct STREAM_MEDIUM(i32);
 pub const SYSFXUI_DONOTSHOW_BASSBOOST: u32 = 8u32;
 pub const SYSFXUI_DONOTSHOW_BASSMANAGEMENT: u32 = 4u32;
@@ -6590,10 +7638,13 @@ pub const SYSFXUI_DONOTSHOW_LOUDNESSEQUALIZATION: u32 = 1u32;
 pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2u32;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64u32;
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32u32;
+#[repr(C)]
 pub struct TOC_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct TOC_ENTRY_DESCRIPTOR(i32);
 pub const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535u32;
 pub const TOC_MAX_DESCRIPTION_SIZE: u32 = 65535u32;
+#[repr(C)]
 pub struct TOC_POS_TYPE(i32);
 pub const VIDEO_ZOOM_RECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2057967160,
@@ -6601,97 +7652,183 @@ pub const VIDEO_ZOOM_RECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 19603,
     data4: [189, 137, 91, 156, 159, 182, 252, 240],
 };
+#[repr(C)]
 pub struct VorbisDecoderMFT(i32);
 pub const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514u32;
+#[repr(C)]
 pub struct WMT_PROP_DATATYPE(i32);
+#[repr(C)]
 pub struct WMV_DYNAMIC_FLAGS(i32);
 pub const WM_CODEC_ONEPASS_CBR: u32 = 1u32;
 pub const WM_CODEC_ONEPASS_VBR: u32 = 2u32;
 pub const WM_CODEC_TWOPASS_CBR: u32 = 4u32;
 pub const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: u32 = 16u32;
 pub const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: u32 = 8u32;
+#[repr(C)]
 pub struct _MFP_CREDENTIAL_FLAGS(i32);
+#[repr(C)]
 pub struct _MFP_MEDIAITEM_CHARACTERISTICS(i32);
+#[repr(C)]
 pub struct _MFT_ENUM_FLAG(i32);
+#[repr(C)]
 pub struct _MFT_INPUT_DATA_BUFFER_FLAGS(i32);
+#[repr(C)]
 pub struct _MFT_INPUT_STATUS_FLAGS(i32);
+#[repr(C)]
 pub struct _MFT_INPUT_STREAM_INFO_FLAGS(i32);
+#[repr(C)]
 pub struct _MFT_OUTPUT_DATA_BUFFER_FLAGS(i32);
+#[repr(C)]
 pub struct _MFT_OUTPUT_STATUS_FLAGS(i32);
+#[repr(C)]
 pub struct _MFT_OUTPUT_STREAM_INFO_FLAGS(i32);
+#[repr(C)]
 pub struct _MFT_PROCESS_OUTPUT_FLAGS(i32);
+#[repr(C)]
 pub struct _MFT_PROCESS_OUTPUT_STATUS(i32);
+#[repr(C)]
 pub struct _MFT_SET_TYPE_FLAGS(i32);
+#[repr(C)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001(i32);
+#[repr(C)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(i32);
+#[repr(C)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(i32);
+#[repr(C)]
 pub struct eAVAudioChannelConfig(i32);
+#[repr(C)]
 pub struct eAVDDSurroundMode(i32);
+#[repr(C)]
 pub struct eAVDSPLoudnessEqualization(i32);
+#[repr(C)]
 pub struct eAVDSPSpeakerFill(i32);
+#[repr(C)]
 pub struct eAVDecAACDownmixMode(i32);
+#[repr(C)]
 pub struct eAVDecAudioDualMono(i32);
+#[repr(C)]
 pub struct eAVDecAudioDualMonoReproMode(i32);
+#[repr(C)]
 pub struct eAVDecDDMatrixDecodingMode(i32);
+#[repr(C)]
 pub struct eAVDecDDOperationalMode(i32);
+#[repr(C)]
 pub struct eAVDecDDStereoDownMixMode(i32);
+#[repr(C)]
 pub struct eAVDecHEAACDynamicRangeControl(i32);
+#[repr(C)]
 pub struct eAVDecVideoCodecType(i32);
+#[repr(C)]
 pub struct eAVDecVideoDXVABusEncryption(i32);
+#[repr(C)]
 pub struct eAVDecVideoDXVAMode(i32);
+#[repr(C)]
 pub struct eAVDecVideoH264ErrorConcealment(i32);
+#[repr(C)]
 pub struct eAVDecVideoInputScanType(i32);
+#[repr(C)]
 pub struct eAVDecVideoMPEG2ErrorConcealment(i32);
+#[repr(C)]
 pub struct eAVDecVideoSWPowerLevel(i32);
+#[repr(C)]
 pub struct eAVDecVideoSoftwareDeinterlaceMode(i32);
+#[repr(C)]
 pub struct eAVEncAdaptiveMode(i32);
+#[repr(C)]
 pub struct eAVEncAudioDualMono(i32);
+#[repr(C)]
 pub struct eAVEncAudioInputContent(i32);
+#[repr(C)]
 pub struct eAVEncChromaEncodeMode(i32);
+#[repr(C)]
 pub struct eAVEncCommonRateControlMode(i32);
+#[repr(C)]
 pub struct eAVEncCommonStreamEndHandling(i32);
+#[repr(C)]
 pub struct eAVEncDDAtoDConverterType(i32);
+#[repr(C)]
 pub struct eAVEncDDDynamicRangeCompressionControl(i32);
+#[repr(C)]
 pub struct eAVEncDDHeadphoneMode(i32);
+#[repr(C)]
 pub struct eAVEncDDPreferredStereoDownMixMode(i32);
+#[repr(C)]
 pub struct eAVEncDDProductionRoomType(i32);
+#[repr(C)]
 pub struct eAVEncDDService(i32);
+#[repr(C)]
 pub struct eAVEncDDSurroundExMode(i32);
+#[repr(C)]
 pub struct eAVEncH263PictureType(i32);
+#[repr(C)]
 pub struct eAVEncH263VLevel(i32);
+#[repr(C)]
 pub struct eAVEncH263VProfile(i32);
+#[repr(C)]
 pub struct eAVEncH264PictureType(i32);
+#[repr(C)]
 pub struct eAVEncH264VLevel(i32);
+#[repr(C)]
 pub struct eAVEncH264VProfile(i32);
+#[repr(C)]
 pub struct eAVEncH265VLevel(i32);
+#[repr(C)]
 pub struct eAVEncH265VProfile(i32);
+#[repr(C)]
 pub struct eAVEncInputVideoSystem(i32);
+#[repr(C)]
 pub struct eAVEncMPACodingMode(i32);
+#[repr(C)]
 pub struct eAVEncMPAEmphasisType(i32);
+#[repr(C)]
 pub struct eAVEncMPALayer(i32);
+#[repr(C)]
 pub struct eAVEncMPVFrameFieldMode(i32);
+#[repr(C)]
 pub struct eAVEncMPVIntraVLCTable(i32);
+#[repr(C)]
 pub struct eAVEncMPVLevel(i32);
+#[repr(C)]
 pub struct eAVEncMPVProfile(i32);
+#[repr(C)]
 pub struct eAVEncMPVQScaleType(i32);
+#[repr(C)]
 pub struct eAVEncMPVScanPattern(i32);
+#[repr(C)]
 pub struct eAVEncMPVSceneDetection(i32);
+#[repr(C)]
 pub struct eAVEncMuxOutput(i32);
+#[repr(C)]
 pub struct eAVEncVP9VProfile(i32);
+#[repr(C)]
 pub struct eAVEncVideoChromaResolution(i32);
+#[repr(C)]
 pub struct eAVEncVideoChromaSubsampling(i32);
+#[repr(C)]
 pub struct eAVEncVideoColorLighting(i32);
+#[repr(C)]
 pub struct eAVEncVideoColorNominalRange(i32);
+#[repr(C)]
 pub struct eAVEncVideoColorPrimaries(i32);
+#[repr(C)]
 pub struct eAVEncVideoColorTransferFunction(i32);
+#[repr(C)]
 pub struct eAVEncVideoColorTransferMatrix(i32);
+#[repr(C)]
 pub struct eAVEncVideoContentType(i32);
+#[repr(C)]
 pub struct eAVEncVideoFilmContent(i32);
+#[repr(C)]
 pub struct eAVEncVideoOutputFrameRateConversion(i32);
+#[repr(C)]
 pub struct eAVEncVideoOutputScanType(i32);
+#[repr(C)]
 pub struct eAVEncVideoSourceScanType(i32);
+#[repr(C)]
 pub struct eAVFastDecodeMode(i32);
+#[repr(C)]
 pub struct eAVScenarioInfo(i32);
+#[repr(C)]
 pub struct eVideoEncoderDisplayContentType(i32);
 pub const g_wszSpeechFormatCaps: &'static str = "SpeechFormatCap";
 pub const g_wszWMCPAudioVBRQuality: &'static str = "_VBRQUALITY";

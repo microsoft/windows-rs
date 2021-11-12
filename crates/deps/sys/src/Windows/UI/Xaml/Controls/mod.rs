@@ -11,6 +11,7 @@ pub struct AnchorRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AppBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBarButton(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBarClosedDisplayMode(i32);
 #[repr(transparent)]
 pub struct AppBarElementContainer(pub *mut ::core::ffi::c_void);
@@ -26,11 +27,13 @@ pub struct AutoSuggestBoxQuerySubmittedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AutoSuggestBoxSuggestionChosenEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutoSuggestBoxTextChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutoSuggestionBoxTextChangeReason(i32);
 #[repr(transparent)]
 pub struct BackClickEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackClickEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundSizing(i32);
 #[repr(transparent)]
 pub struct BitmapIcon(pub *mut ::core::ffi::c_void);
@@ -52,10 +55,13 @@ pub struct CalendarViewDayItem(pub *mut ::core::ffi::c_void);
 pub struct CalendarViewDayItemChangingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CalendarViewDayItemChangingEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CalendarViewDisplayMode(i32);
 #[repr(transparent)]
 pub struct CalendarViewSelectedDatesChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CalendarViewSelectionMode(i32);
+#[repr(C)]
 pub struct CandidateWindowAlignment(i32);
 #[repr(transparent)]
 pub struct CandidateWindowBoundsChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -63,6 +69,7 @@ pub struct CandidateWindowBoundsChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct Canvas(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CaptureElement(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CharacterCasing(i32);
 #[repr(transparent)]
 pub struct CheckBox(pub *mut ::core::ffi::c_void);
@@ -74,13 +81,17 @@ pub struct ChoosingItemContainerEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CleanUpVirtualizedItemEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CleanUpVirtualizedItemEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ClickMode(i32);
 #[repr(transparent)]
 pub struct ColorChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ColorPicker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ColorPickerHsvChannel(i32);
+#[repr(C)]
 pub struct ColorSpectrumComponents(i32);
+#[repr(C)]
 pub struct ColorSpectrumShape(i32);
 #[repr(transparent)]
 pub struct ColumnDefinition(pub *mut ::core::ffi::c_void);
@@ -90,16 +101,21 @@ pub struct ColumnDefinitionCollection(pub *mut ::core::ffi::c_void);
 pub struct ComboBox(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ComboBoxItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ComboBoxSelectionChangedTrigger(i32);
 #[repr(transparent)]
 pub struct ComboBoxTextSubmittedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CommandBar(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CommandBarDefaultLabelPosition(i32);
+#[repr(C)]
 pub struct CommandBarDynamicOverflowAction(i32);
 #[repr(transparent)]
 pub struct CommandBarFlyout(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CommandBarLabelPosition(i32);
+#[repr(C)]
 pub struct CommandBarOverflowButtonVisibility(i32);
 #[repr(transparent)]
 pub struct CommandBarOverflowPresenter(pub *mut ::core::ffi::c_void);
@@ -109,6 +125,7 @@ pub struct ContainerContentChangingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ContentControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContentDialog(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContentDialogButton(i32);
 #[repr(transparent)]
 pub struct ContentDialogButtonClickDeferral(pub *mut ::core::ffi::c_void);
@@ -122,8 +139,11 @@ pub struct ContentDialogClosingDeferral(pub *mut ::core::ffi::c_void);
 pub struct ContentDialogClosingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContentDialogOpenedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContentDialogPlacement(i32);
+#[repr(C)]
 pub struct ContentDialogResult(i32);
+#[repr(C)]
 pub struct ContentLinkChangeKind(i32);
 #[repr(transparent)]
 pub struct ContentLinkChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -153,6 +173,7 @@ pub struct DatePickerFlyoutPresenter(pub *mut ::core::ffi::c_void);
 pub struct DatePickerSelectedValueChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DatePickerValueChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisabledFormattingAccelerators(i32);
 #[repr(transparent)]
 pub struct DragItemsCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -202,6 +223,7 @@ pub struct GroupStyleSelector(pub *mut ::core::ffi::c_void);
 pub struct HandwritingPanelClosedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HandwritingPanelOpenedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HandwritingPanelPlacementAlignment(i32);
 #[repr(transparent)]
 pub struct HandwritingView(pub *mut ::core::ffi::c_void);
@@ -1929,6 +1951,7 @@ pub struct IconSource(pub *mut ::core::ffi::c_void);
 pub struct IconSourceElement(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Image(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IncrementalLoadingTrigger(i32);
 #[repr(transparent)]
 pub struct InkCanvas(pub *mut ::core::ffi::c_void);
@@ -1936,6 +1959,7 @@ pub struct InkCanvas(pub *mut ::core::ffi::c_void);
 pub struct InkToolbar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarBallpointPenButton(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkToolbarButtonFlyoutPlacement(i32);
 #[repr(transparent)]
 pub struct InkToolbarCustomPen(pub *mut ::core::ffi::c_void);
@@ -1949,14 +1973,17 @@ pub struct InkToolbarCustomToolButton(pub *mut ::core::ffi::c_void);
 pub struct InkToolbarEraserButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarFlyoutItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkToolbarFlyoutItemKind(i32);
 #[repr(transparent)]
 pub struct InkToolbarHighlighterButton(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkToolbarInitialControls(i32);
 #[repr(transparent)]
 pub struct InkToolbarIsStencilButtonCheckedChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarMenuButton(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkToolbarMenuKind(i32);
 #[repr(transparent)]
 pub struct InkToolbarPenButton(pub *mut ::core::ffi::c_void);
@@ -1968,10 +1995,13 @@ pub struct InkToolbarPencilButton(pub *mut ::core::ffi::c_void);
 pub struct InkToolbarRulerButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkToolbarStencilButton(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkToolbarStencilKind(i32);
+#[repr(C)]
 pub struct InkToolbarToggle(i32);
 #[repr(transparent)]
 pub struct InkToolbarToggleButton(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkToolbarTool(i32);
 #[repr(transparent)]
 pub struct InkToolbarToolButton(pub *mut ::core::ffi::c_void);
@@ -1995,9 +2025,11 @@ pub struct ItemsPickedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ItemsPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ItemsStackPanel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ItemsUpdatingScrollMode(i32);
 #[repr(transparent)]
 pub struct ItemsWrapGrid(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LightDismissOverlayMode(i32);
 #[repr(transparent)]
 pub struct ListBox(pub *mut ::core::ffi::c_void);
@@ -2007,6 +2039,7 @@ pub struct ListBoxItem(pub *mut ::core::ffi::c_void);
 pub struct ListPickerFlyout(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ListPickerFlyoutPresenter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ListPickerFlyoutSelectionMode(i32);
 #[repr(transparent)]
 pub struct ListView(pub *mut ::core::ffi::c_void);
@@ -2024,7 +2057,9 @@ pub struct ListViewItemToKeyHandler(pub *mut ::core::ffi::c_void);
 pub struct ListViewKeyToItemHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ListViewPersistenceHelper(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ListViewReorderMode(i32);
+#[repr(C)]
 pub struct ListViewSelectionMode(i32);
 #[repr(transparent)]
 pub struct MediaElement(pub *mut ::core::ffi::c_void);
@@ -2056,9 +2091,11 @@ pub struct MenuFlyoutSeparator(pub *mut ::core::ffi::c_void);
 pub struct MenuFlyoutSubItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationView(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NavigationViewBackButtonVisible(i32);
 #[repr(transparent)]
 pub struct NavigationViewBackRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NavigationViewDisplayMode(i32);
 #[repr(transparent)]
 pub struct NavigationViewDisplayModeChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2074,13 +2111,17 @@ pub struct NavigationViewItemInvokedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct NavigationViewItemSeparator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NavigationViewList(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NavigationViewOverflowLabelMode(i32);
 #[repr(transparent)]
 pub struct NavigationViewPaneClosingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NavigationViewPaneDisplayMode(i32);
 #[repr(transparent)]
 pub struct NavigationViewSelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NavigationViewSelectionFollowsFocus(i32);
+#[repr(C)]
 pub struct NavigationViewShoulderNavigationEnabled(i32);
 #[repr(transparent)]
 pub struct NavigationViewTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -2088,12 +2129,15 @@ pub struct NavigationViewTemplateSettings(pub *mut ::core::ffi::c_void);
 pub struct NotifyEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NotifyEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Orientation(i32);
 #[repr(transparent)]
 pub struct Page(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Panel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PanelScrollingDirection(i32);
+#[repr(C)]
 pub struct ParallaxSourceOffsetKind(i32);
 #[repr(transparent)]
 pub struct ParallaxView(pub *mut ::core::ffi::c_void);
@@ -2101,6 +2145,7 @@ pub struct ParallaxView(pub *mut ::core::ffi::c_void);
 pub struct PasswordBox(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PasswordBoxPasswordChangingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PasswordRevealMode(i32);
 #[repr(transparent)]
 pub struct PathIcon(pub *mut ::core::ffi::c_void);
@@ -2116,11 +2161,13 @@ pub struct PickerFlyout(pub *mut ::core::ffi::c_void);
 pub struct PickerFlyoutPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Pivot(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PivotHeaderFocusVisualPlacement(i32);
 #[repr(transparent)]
 pub struct PivotItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PivotItemEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PivotSlideInAnimationGroup(i32);
 #[repr(transparent)]
 pub struct ProgressBar(pub *mut ::core::ffi::c_void);
@@ -2140,6 +2187,7 @@ pub struct RatingItemInfo(pub *mut ::core::ffi::c_void);
 pub struct RefreshContainer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RefreshInteractionRatioChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RefreshPullDirection(i32);
 #[repr(transparent)]
 pub struct RefreshRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2147,10 +2195,13 @@ pub struct RefreshRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RefreshStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RefreshVisualizer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RefreshVisualizerOrientation(i32);
+#[repr(C)]
 pub struct RefreshVisualizerState(i32);
 #[repr(transparent)]
 pub struct RelativePanel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RequiresPointer(i32);
 #[repr(transparent)]
 pub struct RichEditBox(pub *mut ::core::ffi::c_void);
@@ -2158,6 +2209,7 @@ pub struct RichEditBox(pub *mut ::core::ffi::c_void);
 pub struct RichEditBoxSelectionChangingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RichEditBoxTextChangingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RichEditClipboardFormat(i32);
 #[repr(transparent)]
 pub struct RichTextBlock(pub *mut ::core::ffi::c_void);
@@ -2167,10 +2219,13 @@ pub struct RichTextBlockOverflow(pub *mut ::core::ffi::c_void);
 pub struct RowDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RowDefinitionCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ScrollBarVisibility(i32);
 #[repr(transparent)]
 pub struct ScrollContentPresenter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ScrollIntoViewAlignment(i32);
+#[repr(C)]
 pub struct ScrollMode(i32);
 #[repr(transparent)]
 pub struct ScrollViewer(pub *mut ::core::ffi::c_void);
@@ -2198,6 +2253,7 @@ pub struct SectionsInViewChangedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct SelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SelectionChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SelectionMode(i32);
 #[repr(transparent)]
 pub struct SemanticZoom(pub *mut ::core::ffi::c_void);
@@ -2211,6 +2267,7 @@ pub struct SemanticZoomViewChangedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct SettingsFlyout(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Slider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SnapPointsType(i32);
 #[repr(transparent)]
 pub struct SplitButton(pub *mut ::core::ffi::c_void);
@@ -2220,12 +2277,15 @@ pub struct SplitButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 pub struct SplitButtonClickEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SplitView(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SplitViewDisplayMode(i32);
 #[repr(transparent)]
 pub struct SplitViewPaneClosingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SplitViewPanePlacement(i32);
 #[repr(transparent)]
 pub struct StackPanel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StretchDirection(i32);
 #[repr(transparent)]
 pub struct StyleSelector(pub *mut ::core::ffi::c_void);
@@ -2233,6 +2293,7 @@ pub struct StyleSelector(pub *mut ::core::ffi::c_void);
 pub struct SwapChainBackgroundPanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SwapChainPanel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SwipeBehaviorOnInvoked(i32);
 #[repr(transparent)]
 pub struct SwipeControl(pub *mut ::core::ffi::c_void);
@@ -2242,7 +2303,9 @@ pub struct SwipeItem(pub *mut ::core::ffi::c_void);
 pub struct SwipeItemInvokedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SwipeItems(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SwipeMode(i32);
+#[repr(C)]
 pub struct Symbol(i32);
 #[repr(transparent)]
 pub struct SymbolIcon(pub *mut ::core::ffi::c_void);
@@ -2324,12 +2387,17 @@ pub struct TreeViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
 pub struct TreeViewList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TreeViewNode(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TreeViewSelectionMode(i32);
 #[repr(transparent)]
 pub struct TwoPaneView(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TwoPaneViewMode(i32);
+#[repr(C)]
 pub struct TwoPaneViewPriority(i32);
+#[repr(C)]
 pub struct TwoPaneViewTallModeConfiguration(i32);
+#[repr(C)]
 pub struct TwoPaneViewWideModeConfiguration(i32);
 #[repr(transparent)]
 pub struct UIElementCollection(pub *mut ::core::ffi::c_void);
@@ -2339,6 +2407,7 @@ pub struct UserControl(pub *mut ::core::ffi::c_void);
 pub struct VariableSizedWrapGrid(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Viewbox(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VirtualizationMode(i32);
 #[repr(transparent)]
 pub struct VirtualizingPanel(pub *mut ::core::ffi::c_void);
@@ -2354,6 +2423,7 @@ pub struct WebViewContentLoadingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct WebViewDOMContentLoadedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewDeferredPermissionRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebViewExecutionMode(i32);
 #[repr(transparent)]
 pub struct WebViewLongRunningScriptDetectedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2371,7 +2441,9 @@ pub struct WebViewNewWindowRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct WebViewPermissionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewPermissionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebViewPermissionState(i32);
+#[repr(C)]
 pub struct WebViewPermissionType(i32);
 #[repr(transparent)]
 pub struct WebViewSeparateProcessLostEventArgs(pub *mut ::core::ffi::c_void);
@@ -2385,4 +2457,5 @@ pub struct WebViewUnviewableContentIdentifiedEventArgs(pub *mut ::core::ffi::c_v
 pub struct WebViewWebResourceRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WrapGrid(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ZoomMode(i32);

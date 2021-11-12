@@ -1,10 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct ATTENDEE_DISCONNECT_REASON(i32);
+#[repr(C)]
 pub struct CHANNEL_ACCESS_ENUM(i32);
+#[repr(C)]
 pub struct CHANNEL_FLAGS(i32);
+#[repr(C)]
 pub struct CHANNEL_PRIORITY(i32);
+#[repr(C)]
 pub struct CTRL_LEVEL(i32);
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
 pub const DISPID_RDPSRAPI_EVENT_ON_APPFILTER_UPDATE: u32 = 322u32;
@@ -184,30 +189,55 @@ pub struct IRDPSRAPIWindow(pub *mut ::core::ffi::c_void);
 pub struct IRDPSRAPIWindowList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IRDPViewerInputSink(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(i32);
+#[repr(C)]
 pub struct RDPSRAPIApplication(i32);
+#[repr(C)]
 pub struct RDPSRAPIApplicationFilter(i32);
+#[repr(C)]
 pub struct RDPSRAPIApplicationList(i32);
+#[repr(C)]
 pub struct RDPSRAPIAttendee(i32);
+#[repr(C)]
 pub struct RDPSRAPIAttendeeDisconnectInfo(i32);
+#[repr(C)]
 pub struct RDPSRAPIAttendeeManager(i32);
+#[repr(C)]
 pub struct RDPSRAPIFrameBuffer(i32);
+#[repr(C)]
 pub struct RDPSRAPIInvitation(i32);
+#[repr(C)]
 pub struct RDPSRAPIInvitationManager(i32);
+#[repr(C)]
 pub struct RDPSRAPISessionProperties(i32);
+#[repr(C)]
 pub struct RDPSRAPITcpConnectionInfo(i32);
+#[repr(C)]
 pub struct RDPSRAPIWindow(i32);
+#[repr(C)]
 pub struct RDPSRAPIWindowList(i32);
+#[repr(C)]
 pub struct RDPSRAPI_APP_FLAGS(i32);
+#[repr(C)]
 pub struct RDPSRAPI_KBD_CODE_TYPE(i32);
+#[repr(C)]
 pub struct RDPSRAPI_KBD_SYNC_FLAG(i32);
+#[repr(C)]
 pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(i32);
+#[repr(C)]
 pub struct RDPSRAPI_WND_FLAGS(i32);
+#[repr(C)]
 pub struct RDPSession(i32);
+#[repr(C)]
 pub struct RDPTransportStreamBuffer(i32);
+#[repr(C)]
 pub struct RDPTransportStreamEvents(i32);
+#[repr(C)]
 pub struct RDPViewer(i32);
 #[repr(transparent)]
 pub struct _IRDPSessionEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(i32);
+#[repr(C)]
 pub struct __ReferenceRemainingTypes__(i32);

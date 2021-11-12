@@ -15,8 +15,13 @@ pub struct ISerialDeviceStatics(pub *mut ::core::ffi::c_void);
 pub struct PinChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SerialDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SerialError(i32);
+#[repr(C)]
 pub struct SerialHandshake(i32);
+#[repr(C)]
 pub struct SerialParity(i32);
+#[repr(C)]
 pub struct SerialPinChange(i32);
+#[repr(C)]
 pub struct SerialStopBitCount(i32);

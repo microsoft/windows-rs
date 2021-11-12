@@ -19,10 +19,13 @@ pub struct IMdmSession(pub *mut ::core::ffi::c_void);
 pub struct IMdmSessionManagerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MdmAlert(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MdmAlertDataType(i32);
+#[repr(C)]
 pub struct MdmAlertMark(i32);
 #[repr(transparent)]
 pub struct MdmSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MdmSessionManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MdmSessionState(i32);

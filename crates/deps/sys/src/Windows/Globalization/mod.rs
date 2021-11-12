@@ -23,9 +23,11 @@ pub struct ClockIdentifiers(pub *mut ::core::ffi::c_void);
 pub struct CurrencyAmount(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CurrencyIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DayOfWeek(i32);
 #[repr(transparent)]
 pub struct GeographicRegion(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GlobalizationJapanesePhoneticAnalyzerContract(i32);
 #[repr(transparent)]
 pub struct IApplicationLanguagesStatics(pub *mut ::core::ffi::c_void);
@@ -93,6 +95,7 @@ pub struct JapanesePhoneme(pub *mut ::core::ffi::c_void);
 pub struct JapanesePhoneticAnalyzer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Language(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LanguageLayoutDirection(i32);
 #[repr(transparent)]
 pub struct NumeralSystemIdentifiers(pub *mut ::core::ffi::c_void);

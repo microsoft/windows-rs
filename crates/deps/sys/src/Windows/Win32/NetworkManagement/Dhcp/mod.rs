@@ -419,12 +419,16 @@ pub const CLIENT_TYPE_DHCP: u32 = 1u32;
 pub const CLIENT_TYPE_NONE: u32 = 100u32;
 pub const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4u32;
 pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
+#[repr(C)]
 pub struct DATE_TIME(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPAPI_PARAMS(i32);
+#[repr(C)]
 pub struct DHCPCAPI_CLASSID(i32);
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPCAPI_PARAMS_ARRAY(i32);
 pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
@@ -433,26 +437,39 @@ pub const DHCPCAPI_REQUEST_MASK: u32 = 15u32;
 pub const DHCPCAPI_REQUEST_PERSISTENT: u32 = 1u32;
 pub const DHCPCAPI_REQUEST_SYNCHRONOUS: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPDS_SERVER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPDS_SERVERS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX(i32);
+#[repr(C)]
 pub struct DHCPV6CAPI_CLASSID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV6CAPI_PARAMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV6CAPI_PARAMS_ARRAY(i32);
+#[repr(C)]
 pub struct DHCPV6Prefix(i32);
+#[repr(C)]
 pub struct DHCPV6PrefixLeaseInformation(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV6_BIND_ELEMENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY(i32);
+#[repr(C)]
 pub struct DHCPV6_IP_ARRAY(i32);
 pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
 pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
@@ -476,21 +493,31 @@ pub const DHCPV6_OPTION_USER_CLASS: u32 = 15u32;
 pub const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16u32;
 pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCPV6_STATELESS_PARAMS(i32);
+#[repr(C)]
 pub struct DHCPV6_STATELESS_PARAM_TYPE(i32);
+#[repr(C)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS(i32);
+#[repr(C)]
 pub struct DHCPV6_STATELESS_STATS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_ADDR_PATTERN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_ALL_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_ALL_OPTION_VALUES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_ALL_OPTION_VALUES_PB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_ATTRIB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_ATTRIB_ARRAY(i32);
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
 pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
@@ -500,56 +527,82 @@ pub const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1u32;
 pub const DHCP_ATTRIB_TYPE_BOOL: u32 = 1u32;
 pub const DHCP_ATTRIB_TYPE_ULONG: u32 = 2u32;
 pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6u32;
+#[repr(C)]
 pub struct DHCP_BINARY_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_BIND_ELEMENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_BIND_ELEMENT_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_BOOTP_IP_RANGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CALLOUT_TABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLASS_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLASS_INFO_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLASS_INFO_V6(i32);
 pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
 pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_EX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_PB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_V4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_V5(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_CLIENT_INFO_VQ(i32);
+#[repr(C)]
 pub struct DHCP_CLIENT_SEARCH_UNION(i32);
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
@@ -571,163 +624,258 @@ pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
 pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
 pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
+#[repr(C)]
 pub struct DHCP_FAILOVER_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_FAILOVER_RELATIONSHIP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_FAILOVER_SERVER(i32);
+#[repr(C)]
 pub struct DHCP_FAILOVER_STATISTICS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_FILTER_ADD_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_FILTER_ENUM_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_FILTER_GLOBAL_INFO(i32);
+#[repr(C)]
 pub struct DHCP_FILTER_LIST_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_FILTER_RECORD(i32);
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
+#[repr(C)]
 pub struct DHCP_FORCE_FLAG(i32);
 pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
 pub const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_HOST_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_HOST_INFO_V6(i32);
+#[repr(C)]
 pub struct DHCP_IPV6_ADDRESS(i32);
+#[repr(C)]
 pub struct DHCP_IP_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_IP_CLUSTER(i32);
+#[repr(C)]
 pub struct DHCP_IP_RANGE(i32);
+#[repr(C)]
 pub struct DHCP_IP_RANGE_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_IP_RANGE_V6(i32);
+#[repr(C)]
 pub struct DHCP_IP_RESERVATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_IP_RESERVATION_INFO(i32);
+#[repr(C)]
 pub struct DHCP_IP_RESERVATION_V4(i32);
+#[repr(C)]
 pub struct DHCP_IP_RESERVATION_V6(i32);
 pub const DHCP_MAX_DELAY: u32 = 1000u32;
+#[repr(C)]
 pub struct DHCP_MIB_INFO(i32);
+#[repr(C)]
 pub struct DHCP_MIB_INFO_V5(i32);
+#[repr(C)]
 pub struct DHCP_MIB_INFO_V6(i32);
+#[repr(C)]
 pub struct DHCP_MIB_INFO_VQ(i32);
 pub const DHCP_MIN_DELAY: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION_DATA_ELEMENT(i32);
+#[repr(C)]
 pub struct DHCP_OPTION_DATA_TYPE(i32);
+#[repr(C)]
 pub struct DHCP_OPTION_ELEMENT_UNION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION_LIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION_SCOPE_INFO(i32);
+#[repr(C)]
 pub struct DHCP_OPTION_SCOPE_INFO6(i32);
+#[repr(C)]
 pub struct DHCP_OPTION_SCOPE_TYPE(i32);
+#[repr(C)]
 pub struct DHCP_OPTION_SCOPE_TYPE6(i32);
+#[repr(C)]
 pub struct DHCP_OPTION_SCOPE_UNION6(i32);
+#[repr(C)]
 pub struct DHCP_OPTION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION_VALUE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_OPTION_VALUE_ARRAY(i32);
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
+#[repr(C)]
 pub struct DHCP_PERF_STATS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_POLICY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_POLICY_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_POLICY_EX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_POLICY_EX_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_POLICY_FIELDS_TO_UPDATE(i32);
+#[repr(C)]
 pub struct DHCP_POL_ATTR_TYPE(i32);
+#[repr(C)]
 pub struct DHCP_POL_COMPARATOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_POL_COND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_POL_COND_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_POL_EXPR(i32);
+#[repr(C)]
 pub struct DHCP_POL_EXPR_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_POL_LOGIC_OPER(i32);
 pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
 pub const DHCP_PROB_DECLINE: u32 = 536870914u32;
 pub const DHCP_PROB_NACKED: u32 = 536870916u32;
 pub const DHCP_PROB_RELEASE: u32 = 536870915u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_PROPERTY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_PROPERTY_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct DHCP_PROPERTY_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_RESERVATION_INFO_ARRAY(i32);
+#[repr(C)]
 pub struct DHCP_RESERVED_SCOPE(i32);
+#[repr(C)]
 pub struct DHCP_RESERVED_SCOPE6(i32);
+#[repr(C)]
 pub struct DHCP_SCAN_FLAG(i32);
+#[repr(C)]
 pub struct DHCP_SCAN_ITEM(i32);
+#[repr(C)]
 pub struct DHCP_SCAN_LIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SEARCH_INFO(i32);
+#[repr(C)]
 pub struct DHCP_SEARCH_INFO_TYPE(i32);
+#[repr(C)]
 pub struct DHCP_SEARCH_INFO_TYPE_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SEARCH_INFO_V6(i32);
 pub const DHCP_SEND_PACKET: u32 = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SERVER_CONFIG_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SERVER_CONFIG_INFO_V4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SERVER_CONFIG_INFO_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SERVER_CONFIG_INFO_VQ(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SERVER_OPTIONS(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SERVER_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V5(i32);
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5(i32);
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6(i32);
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE(i32);
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(i32);
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_UNION(i32);
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V4(i32);
+#[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_INFO_V6(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUBNET_INFO_VQ(i32);
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
+#[repr(C)]
 pub struct DHCP_SUBNET_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUPER_SCOPE_TABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY(i32);
 pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
 pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
@@ -736,6 +884,7 @@ pub const DNS_FLAG_HAS_DNS_SUFFIX: u32 = 128u32;
 pub const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16u32;
 pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
 pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
+#[repr(C)]
 pub struct DWORD_DWORD(i32);
 pub const ERROR_DDS_CLASS_DOES_NOT_EXIST: u32 = 20078u32;
 pub const ERROR_DDS_CLASS_EXISTS: u32 = 20077u32;
@@ -860,15 +1009,24 @@ pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
 pub const FILTER_STATUS_NONE: u32 = 1u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
+#[repr(C)]
 pub struct FSM_STATE(i32);
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
+#[repr(C)]
 pub struct LPDHCP_CONTROL(i32);
+#[repr(C)]
 pub struct LPDHCP_DELETE_CLIENT(i32);
+#[repr(C)]
 pub struct LPDHCP_DROP_SEND(i32);
+#[repr(C)]
 pub struct LPDHCP_ENTRY_POINT_FUNC(i32);
+#[repr(C)]
 pub struct LPDHCP_GIVE_ADDRESS(i32);
+#[repr(C)]
 pub struct LPDHCP_HANDLE_OPTIONS(i32);
+#[repr(C)]
 pub struct LPDHCP_NEWPKT(i32);
+#[repr(C)]
 pub struct LPDHCP_PROB(i32);
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
@@ -945,11 +1103,16 @@ pub const PREVSTATE: u32 = 32u32;
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
 pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
+#[repr(C)]
 pub struct QuarantineStatus(i32);
 pub const SAFEPERIOD: u32 = 2u32;
+#[repr(C)]
 pub struct SCOPE_MIB_INFO(i32);
+#[repr(C)]
 pub struct SCOPE_MIB_INFO_V5(i32);
+#[repr(C)]
 pub struct SCOPE_MIB_INFO_V6(i32);
+#[repr(C)]
 pub struct SCOPE_MIB_INFO_VQ(i32);
 pub const SHAREDSECRET: u32 = 64u32;
 pub const Set_APIProtocolSupport: u32 = 1u32;
@@ -974,6 +1137,7 @@ pub const Set_T2: u32 = 32u32;
 pub const Set_UnicastFlag: u32 = 1u32;
 pub const Set_ValidLifetime: u32 = 8u32;
 pub const Set_ValidLifetimeIATA: u32 = 128u32;
+#[repr(C)]
 pub struct StatusCode(i32);
 pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;
 pub const V5_ADDRESS_BIT_DELETED: u32 = 128u32;

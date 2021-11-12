@@ -9,6 +9,7 @@ pub mod TraceReporting;
 extern "system" {}
 #[repr(transparent)]
 pub struct DiagnosticActionResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DiagnosticActionState(i32);
 #[repr(transparent)]
 pub struct DiagnosticInvoker(pub *mut ::core::ffi::c_void);

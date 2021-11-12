@@ -492,21 +492,37 @@ pub const EFFECT_CANGOFULLSCREEN: u32 = 1u32;
 pub const EFFECT_HASPROPERTYPAGE: u32 = 2u32;
 pub const EFFECT_VARIABLEFREQSTEP: u32 = 4u32;
 pub const EFFECT_WINDOWEDONLY: u32 = 8u32;
+#[repr(C)]
 pub struct FEEDS_BACKGROUNDSYNC_ACTION(i32);
+#[repr(C)]
 pub struct FEEDS_BACKGROUNDSYNC_STATUS(i32);
+#[repr(C)]
 pub struct FEEDS_DOWNLOAD_ERROR(i32);
+#[repr(C)]
 pub struct FEEDS_DOWNLOAD_STATUS(i32);
+#[repr(C)]
 pub struct FEEDS_ERROR_CODE(i32);
+#[repr(C)]
 pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(i32);
+#[repr(C)]
 pub struct FEEDS_EVENTS_MASK(i32);
+#[repr(C)]
 pub struct FEEDS_EVENTS_SCOPE(i32);
+#[repr(C)]
 pub struct FEEDS_SYNC_SETTING(i32);
+#[repr(C)]
 pub struct FEEDS_XML_FILTER_FLAGS(i32);
+#[repr(C)]
 pub struct FEEDS_XML_INCLUDE_FLAGS(i32);
+#[repr(C)]
 pub struct FEEDS_XML_SORT_ORDER(i32);
+#[repr(C)]
 pub struct FEEDS_XML_SORT_PROPERTY(i32);
+#[repr(C)]
 pub struct FeedFolderWatcher(i32);
+#[repr(C)]
 pub struct FeedWatcher(i32);
+#[repr(C)]
 pub struct FeedsManager(i32);
 #[repr(transparent)]
 pub struct IFeed(pub *mut ::core::ffi::c_void);
@@ -734,6 +750,7 @@ pub const PLUGIN_TYPE_DISPLAYAREA: u32 = 3u32;
 pub const PLUGIN_TYPE_METADATAAREA: u32 = 5u32;
 pub const PLUGIN_TYPE_SEPARATEWINDOW: u32 = 2u32;
 pub const PLUGIN_TYPE_SETTINGSAREA: u32 = 4u32;
+#[repr(C)]
 pub struct PlayerState(i32);
 pub const SA_BUFFER_SIZE: u32 = 1024u32;
 pub const SUBSCRIPTION_CAP_ALLOWCDBURN: u32 = 2u32;
@@ -746,9 +763,13 @@ pub const SUBSCRIPTION_CAP_IS_CONTENTPARTNER: u32 = 64u32;
 pub const SUBSCRIPTION_CAP_PREPAREFORSYNC: u32 = 32u32;
 pub const SUBSCRIPTION_CAP_UILESSMODE_ALLOWPLAY: u32 = 256u32;
 pub const SUBSCRIPTION_V1_CAPS: u32 = 15u32;
+#[repr(C)]
 pub struct TimedLevel(i32);
+#[repr(C)]
 pub struct WMPAccountType(i32);
+#[repr(C)]
 pub struct WMPBurnFormat(i32);
+#[repr(C)]
 pub struct WMPBurnState(i32);
 pub const WMPCOREEVENT_BASE: u32 = 5000u32;
 pub const WMPCOREEVENT_CDROM_BASE: u32 = 5700u32;
@@ -759,34 +780,56 @@ pub const WMPCOREEVENT_NETWORK_BASE: u32 = 5400u32;
 pub const WMPCOREEVENT_PLAYLIST_BASE: u32 = 5800u32;
 pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
 pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
+#[repr(C)]
 pub struct WMPCallbackNotification(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WMPContextMenuInfo(i32);
+#[repr(C)]
 pub struct WMPDeviceStatus(i32);
+#[repr(C)]
 pub struct WMPFolderScanState(i32);
 pub const WMPGC_FLAGS_ALLOW_PREROLL: u32 = 1u32;
 pub const WMPGC_FLAGS_DISABLE_PLUGINS: u32 = 8u32;
 pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
 pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
 pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
+#[repr(C)]
 pub struct WMPLib(i32);
+#[repr(C)]
 pub struct WMPLibraryType(i32);
 pub const WMPOCXEVENT_BASE: u32 = 6500u32;
+#[repr(C)]
 pub struct WMPOpenState(i32);
+#[repr(C)]
 pub struct WMPPartnerNotification(i32);
+#[repr(C)]
 pub struct WMPPlayState(i32);
+#[repr(C)]
 pub struct WMPPlaylistChangeEventType(i32);
+#[repr(C)]
 pub struct WMPPlugin_Caps(i32);
+#[repr(C)]
 pub struct WMPRemoteMediaServices(i32);
+#[repr(C)]
 pub struct WMPRipState(i32);
+#[repr(C)]
 pub struct WMPServices_StreamState(i32);
+#[repr(C)]
 pub struct WMPStreamingType(i32);
+#[repr(C)]
 pub struct WMPStringCollectionChangeEventType(i32);
+#[repr(C)]
 pub struct WMPSubscriptionDownloadState(i32);
+#[repr(C)]
 pub struct WMPSubscriptionServiceEvent(i32);
+#[repr(C)]
 pub struct WMPSyncState(i32);
+#[repr(C)]
 pub struct WMPTaskType(i32);
+#[repr(C)]
 pub struct WMPTemplateSize(i32);
+#[repr(C)]
 pub struct WMPTransactionType(i32);
 pub const WMPUE_EC_USER: u32 = 33024u32;
 pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
@@ -799,7 +842,9 @@ pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows_sys::core::GUID = ::windows_sy
     data4: [154, 79, 35, 153, 17, 143, 243, 140],
 };
 pub const WMP_PLUGINTYPE_RENDERING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2824160577, data2: 4445, data3: 16490, data4: [164, 199, 81, 17, 28, 51, 1, 131] };
+#[repr(C)]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC(i32);
+#[repr(C)]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE(i32);
 pub const WMProfile_V40_100Video: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2409225688,
@@ -1045,6 +1090,7 @@ pub const WMProfile_V80_HIGHVBRVideo: ::windows_sys::core::GUID = ::windows_sys:
     data3: 20400,
     data4: [163, 211, 136, 212, 172, 133, 74, 204],
 };
+#[repr(C)]
 pub struct WindowsMediaPlayer(i32);
 #[repr(transparent)]
 pub struct _WMPOCXEvents(pub *mut ::core::ffi::c_void);

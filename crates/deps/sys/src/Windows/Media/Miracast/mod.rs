@@ -41,7 +41,9 @@ pub struct IMiracastTransmitter(pub *mut ::core::ffi::c_void);
 pub struct MiracastReceiver(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MiracastReceiverApplySettingsResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MiracastReceiverApplySettingsStatus(i32);
+#[repr(C)]
 pub struct MiracastReceiverAuthorizationMethod(i32);
 #[repr(transparent)]
 pub struct MiracastReceiverConnection(pub *mut ::core::ffi::c_void);
@@ -51,16 +53,19 @@ pub struct MiracastReceiverConnectionCreatedEventArgs(pub *mut ::core::ffi::c_vo
 pub struct MiracastReceiverCursorImageChannel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MiracastReceiverCursorImageChannelSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MiracastReceiverDisconnectReason(i32);
 #[repr(transparent)]
 pub struct MiracastReceiverDisconnectedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MiracastReceiverGameControllerDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(i32);
 #[repr(transparent)]
 pub struct MiracastReceiverInputDevices(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MiracastReceiverKeyboardDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MiracastReceiverListeningStatus(i32);
 #[repr(transparent)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -68,6 +73,7 @@ pub struct MiracastReceiverMediaSourceCreatedEventArgs(pub *mut ::core::ffi::c_v
 pub struct MiracastReceiverSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MiracastReceiverSessionStartResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MiracastReceiverSessionStartStatus(i32);
 #[repr(transparent)]
 pub struct MiracastReceiverSettings(pub *mut ::core::ffi::c_void);
@@ -77,7 +83,9 @@ pub struct MiracastReceiverStatus(pub *mut ::core::ffi::c_void);
 pub struct MiracastReceiverStreamControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MiracastReceiverVideoStreamSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MiracastReceiverWiFiStatus(i32);
 #[repr(transparent)]
 pub struct MiracastTransmitter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MiracastTransmitterAuthorizationStatus(i32);

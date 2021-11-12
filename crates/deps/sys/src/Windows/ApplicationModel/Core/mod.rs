@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct AppListEntry(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppRestartFailureReason(i32);
 #[repr(transparent)]
 pub struct CoreApplication(pub *mut ::core::ffi::c_void);

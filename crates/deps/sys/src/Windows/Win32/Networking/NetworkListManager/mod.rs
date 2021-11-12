@@ -25,21 +25,35 @@ pub struct INetworkEvents(pub *mut ::core::ffi::c_void);
 pub struct INetworkListManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct INetworkListManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NLM_CONNECTION_COST(i32);
+#[repr(C)]
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(i32);
+#[repr(C)]
 pub struct NLM_CONNECTIVITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NLM_DATAPLAN_STATUS(i32);
+#[repr(C)]
 pub struct NLM_DOMAIN_TYPE(i32);
+#[repr(C)]
 pub struct NLM_ENUM_NETWORK(i32);
+#[repr(C)]
 pub struct NLM_INTERNET_CONNECTIVITY(i32);
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
+#[repr(C)]
 pub struct NLM_NETWORK_CATEGORY(i32);
+#[repr(C)]
 pub struct NLM_NETWORK_CLASS(i32);
+#[repr(C)]
 pub struct NLM_NETWORK_PROPERTY_CHANGE(i32);
+#[repr(C)]
 pub struct NLM_SIMULATED_PROFILE_INFO(i32);
+#[repr(C)]
 pub struct NLM_SOCKADDR(i32);
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NLM_USAGE_DATA(i32);
+#[repr(C)]
 pub struct NetworkListManager(i32);

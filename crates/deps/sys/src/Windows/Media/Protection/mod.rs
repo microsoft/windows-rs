@@ -9,10 +9,13 @@ pub struct ComponentLoadFailedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ComponentLoadFailedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ComponentRenewal(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GraphicsTrustStatus(i32);
+#[repr(C)]
 pub struct HdcpProtection(i32);
 #[repr(transparent)]
 pub struct HdcpSession(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HdcpSetProtectionResult(i32);
 #[repr(transparent)]
 pub struct IComponentLoadFailedEventArgs(pub *mut ::core::ffi::c_void);
@@ -48,15 +51,19 @@ pub struct MediaProtectionPMPServer(pub *mut ::core::ffi::c_void);
 pub struct MediaProtectionServiceCompletion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProtectionCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ProtectionCapabilityResult(i32);
+#[repr(C)]
 pub struct ProtectionRenewalContract(i32);
 #[repr(transparent)]
 pub struct RebootNeededEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RenewalStatus(i32);
 #[repr(transparent)]
 pub struct RevocationAndRenewalInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RevocationAndRenewalItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RevocationAndRenewalReasons(i32);
 #[repr(transparent)]
 pub struct ServiceRequestedEventArgs(pub *mut ::core::ffi::c_void);

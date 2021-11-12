@@ -30,8 +30,10 @@ extern "system" {
     pub fn D3DX11CreateScan(pdevicecontext: ID3D11DeviceContext, maxelementscansize: u32, maxscancount: u32, ppscan: *mut ID3DX11Scan) -> ::windows_sys::core::HRESULT;
     pub fn D3DX11CreateSegmentedScan(pdevicecontext: ID3D11DeviceContext, maxelementscansize: u32, ppscan: *mut ID3DX11SegmentedScan) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct CD3D11_VIDEO_DEFAULT(i32);
 pub const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
+#[repr(C)]
 pub struct D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG(i32);
 pub const D3D11_1_UAV_SLOT_COUNT: u32 = 64u32;
 pub const D3D11_2_TILED_RESOURCE_TILE_SIZE_IN_BYTES: u32 = 65536u32;
@@ -39,16 +41,21 @@ pub const D3D11_32BIT_INDEX_STRIP_CUT_VALUE: u32 = 4294967295u32;
 pub const D3D11_4_VIDEO_DECODER_HISTOGRAM_OFFSET_ALIGNMENT: u32 = 256u32;
 pub const D3D11_4_VIDEO_DECODER_MAX_HISTOGRAM_COMPONENTS: u32 = 4u32;
 pub const D3D11_8BIT_INDEX_STRIP_CUT_VALUE: u32 = 255u32;
+#[repr(C)]
 pub struct D3D11_AES_CTR_IV(i32);
 pub const D3D11_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 pub const D3D11_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 pub const D3D11_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
+#[repr(C)]
 pub struct D3D11_ASYNC_GETDATA_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CHANNEL_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT(i32);
 pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1665584212, data2: 11516, data3: 19156, data4: [130, 36, 209, 88, 55, 222, 119, 0] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT(i32);
 pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1107292806,
@@ -63,10 +70,13 @@ pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows_sys::core::GUID = 
     data4: [141, 202, 251, 194, 132, 81, 84, 240],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1346721368,
@@ -75,11 +85,15 @@ pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows_sys::core::GUID = 
     data4: [191, 153, 191, 223, 205, 233, 237, 41],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT(i32);
 pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 124964935, data2: 6976, data3: 18664, data4: [156, 166, 181, 245, 16, 222, 159, 1] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT(i32);
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_PROTECTION_FLAGS(i32);
 pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1645533650,
@@ -88,12 +102,16 @@ pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows_sys::cor
     data4: [159, 206, 33, 110, 234, 38, 158, 59],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3155892389,
@@ -102,13 +120,17 @@ pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows_sys::core::GUID = ::
     data4: [189, 148, 181, 130, 139, 75, 247, 190],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640960926, data2: 53272, data3: 19828, data4: [172, 23, 127, 114, 64, 89, 82, 141] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3960967623,
@@ -123,12 +145,15 @@ pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows_sys::core::GUID = :
     data4: [188, 196, 245, 105, 47, 153, 244, 128],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4164573528, data2: 59782, data3: 19418, data4: [190, 176, 65, 31, 106, 122, 1, 183] };
 pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3004133478, data2: 8252, data3: 19207, data4: [147, 252, 206, 170, 253, 97, 36, 30] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2208160931,
@@ -143,12 +168,16 @@ pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows_sys::core::GUID =
     data4: [170, 190, 143, 117, 203, 173, 76, 49],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2823730564,
@@ -157,6 +186,7 @@ pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows_sys::core::GUID = ::wi
     data4: [185, 77, 139, 210, 214, 251, 206, 5],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687927515, data2: 61684, data3: 17977, data4: [161, 91, 36, 57, 63, 195, 171, 172] };
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -166,36 +196,58 @@ pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::
     data4: [130, 222, 27, 150, 212, 79, 156, 242],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT(i32);
 pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19860438, data2: 58978, data3: 17524, data4: [190, 253, 170, 83, 229, 20, 60, 109] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT(i32);
+#[repr(C)]
 pub struct D3D11_BIND_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_BLEND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_BLEND_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_BLEND_DESC1(i32);
+#[repr(C)]
 pub struct D3D11_BLEND_OP(i32);
+#[repr(C)]
 pub struct D3D11_BOX(i32);
+#[repr(C)]
 pub struct D3D11_BUFFEREX_SRV(i32);
+#[repr(C)]
 pub struct D3D11_BUFFEREX_SRV_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_BUFFER_DESC(i32);
+#[repr(C)]
 pub struct D3D11_BUFFER_RTV(i32);
+#[repr(C)]
 pub struct D3D11_BUFFER_SRV(i32);
+#[repr(C)]
 pub struct D3D11_BUFFER_UAV(i32);
+#[repr(C)]
 pub struct D3D11_BUFFER_UAV_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_BUS_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_CLASS_INSTANCE_DESC(i32);
+#[repr(C)]
 pub struct D3D11_CLEAR_FLAG(i32);
 pub const D3D11_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 pub const D3D11_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
+#[repr(C)]
 pub struct D3D11_COLOR_WRITE_ENABLE(i32);
 pub const D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14u32;
 pub const D3D11_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS: u32 = 4u32;
@@ -233,20 +285,35 @@ pub const D3D11_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MIN: i32 = -10i32;
 pub const D3D11_COMMONSHADER_TEXEL_OFFSET_MAX_NEGATIVE: i32 = -8i32;
 pub const D3D11_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7u32;
 pub const D3D11_COMPARISON_FILTERING_BIT: u32 = 128u32;
+#[repr(C)]
 pub struct D3D11_COMPARISON_FUNC(i32);
+#[repr(C)]
 pub struct D3D11_COMPUTE_SHADER_TRACE_DESC(i32);
+#[repr(C)]
 pub struct D3D11_CONSERVATIVE_RASTERIZATION_MODE(i32);
+#[repr(C)]
 pub struct D3D11_CONSERVATIVE_RASTERIZATION_TIER(i32);
+#[repr(C)]
 pub struct D3D11_CONTENT_PROTECTION_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_CONTEXT_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_COPY_FLAGS(i32);
+#[repr(C)]
 pub struct D3D11_COUNTER(i32);
+#[repr(C)]
 pub struct D3D11_COUNTER_DESC(i32);
+#[repr(C)]
 pub struct D3D11_COUNTER_INFO(i32);
+#[repr(C)]
 pub struct D3D11_COUNTER_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_CPU_ACCESS_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_CREATE_DEVICE_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D11_CRYPTO_SESSION_STATUS(i32);
 pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2607535889,
@@ -313,6 +380,7 @@ pub const D3D11_CS_THREAD_GROUP_MIN_X: u32 = 1u32;
 pub const D3D11_CS_THREAD_GROUP_MIN_Y: u32 = 1u32;
 pub const D3D11_CS_THREAD_GROUP_MIN_Z: u32 = 1u32;
 pub const D3D11_CS_THREAD_LOCAL_TEMP_REGISTER_POOL: u32 = 16384u32;
+#[repr(C)]
 pub struct D3D11_CULL_MODE(i32);
 pub const D3D11_DEBUG_FEATURE_ALWAYS_DISCARD_OFFERED_RESOURCE: u32 = 8u32;
 pub const D3D11_DEBUG_FEATURE_AVOID_BEHAVIOR_CHANGING_DEBUG_AIDS: u32 = 64u32;
@@ -463,17 +531,27 @@ pub const D3D11_DEFAULT_VIEWPORT_MIN_DEPTH: f32 = 0f32;
 pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0u32;
 pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0u32;
 pub const D3D11_DEFAULT_VIEWPORT_WIDTH: u32 = 0u32;
+#[repr(C)]
 pub struct D3D11_DEPTH_STENCILOP_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_DEPTH_STENCIL_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_DEPTH_STENCIL_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D11_DEPTH_WRITE_MASK(i32);
+#[repr(C)]
 pub struct D3D11_DEVICE_CONTEXT_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_DOMAIN_SHADER_TRACE_DESC(i32);
+#[repr(C)]
 pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS(i32);
+#[repr(C)]
 pub struct D3D11_DRAW_INSTANCED_INDIRECT_ARGS(i32);
+#[repr(C)]
 pub struct D3D11_DSV_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D11_DSV_FLAG(i32);
 pub const D3D11_DS_INPUT_CONTROL_POINTS_MAX_TOTAL_SCALARS: u32 = 3968u32;
 pub const D3D11_DS_INPUT_CONTROL_POINT_REGISTER_COMPONENTS: u32 = 4u32;
@@ -499,55 +577,85 @@ pub const D3D11_DS_INPUT_PRIMITIVE_ID_REGISTER_READ_PORTS: u32 = 1u32;
 pub const D3D11_DS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D11_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D11_DS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
+#[repr(C)]
 pub struct D3D11_ENCRYPTED_BLOCK_INFO(i32);
+#[repr(C)]
 pub struct D3D11_FEATURE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_ARCHITECTURE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS4(i32);
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS5(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D9_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D9_OPTIONS1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_DISPLAYABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_DOUBLES(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT2(i32);
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_MARKER_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_SHADER_CACHE(i32);
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_THREADING(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM(i32);
+#[repr(C)]
 pub struct D3D11_FEATURE_VIDEO(i32);
+#[repr(C)]
 pub struct D3D11_FENCE_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_FILL_MODE(i32);
+#[repr(C)]
 pub struct D3D11_FILTER(i32);
+#[repr(C)]
 pub struct D3D11_FILTER_REDUCTION_TYPE(i32);
 pub const D3D11_FILTER_REDUCTION_TYPE_MASK: u32 = 3u32;
 pub const D3D11_FILTER_REDUCTION_TYPE_SHIFT: u32 = 7u32;
+#[repr(C)]
 pub struct D3D11_FILTER_TYPE(i32);
 pub const D3D11_FILTER_TYPE_MASK: u32 = 3u32;
 pub const D3D11_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6f64;
@@ -559,14 +667,18 @@ pub const D3D11_FLOAT_TO_SRGB_OFFSET: f32 = 0.055f32;
 pub const D3D11_FLOAT_TO_SRGB_SCALE_1: f32 = 12.92f32;
 pub const D3D11_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
 pub const D3D11_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
+#[repr(C)]
 pub struct D3D11_FORMAT_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D11_FORMAT_SUPPORT2(i32);
 pub const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600f32;
 pub const D3D11_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600f32;
 pub const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300f32;
 pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0f32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D11_FUNCTION_DESC(i32);
+#[repr(C)]
 pub struct D3D11_GEOMETRY_SHADER_TRACE_DESC(i32);
 pub const D3D11_GS_INPUT_INSTANCE_ID_READS_PER_INST: u32 = 2u32;
 pub const D3D11_GS_INPUT_INSTANCE_ID_READ_PORTS: u32 = 1u32;
@@ -627,6 +739,7 @@ pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_COUNT: u32 = 32u32;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READS_PER_INST: u32 = 2u32;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READ_PORTS: u32 = 1u32;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_SCALAR_COMPONENTS: u32 = 128u32;
+#[repr(C)]
 pub struct D3D11_HULL_SHADER_TRACE_DESC(i32);
 pub const D3D11_IA_DEFAULT_INDEX_BUFFER_OFFSET_IN_BYTES: u32 = 0u32;
 pub const D3D11_IA_DEFAULT_PRIMITIVE_TOPOLOGY: u32 = 0u32;
@@ -641,10 +754,14 @@ pub const D3D11_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 32u32;
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128u32;
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
+#[repr(C)]
 pub struct D3D11_INFO_QUEUE_FILTER(i32);
+#[repr(C)]
 pub struct D3D11_INFO_QUEUE_FILTER_DESC(i32);
+#[repr(C)]
 pub struct D3D11_INPUT_CLASSIFICATION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D11_INPUT_ELEMENT_DESC(i32);
 pub const D3D11_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
 pub const D3D11_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
@@ -656,18 +773,26 @@ pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows_sys::core::GUID = ::window
     data3: 19875,
     data4: [173, 59, 130, 221, 176, 139, 73, 112],
 };
+#[repr(C)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA(i32);
+#[repr(C)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA(i32);
+#[repr(C)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA(i32);
 pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_LIBRARY_DESC(i32);
 pub const D3D11_LINEAR_GAMMA: f32 = 1f32;
+#[repr(C)]
 pub struct D3D11_LOGIC_OP(i32);
 pub const D3D11_MAG_FILTER_SHIFT: u32 = 2u32;
 pub const D3D11_MAJOR_VERSION: u32 = 11u32;
+#[repr(C)]
 pub struct D3D11_MAP(i32);
+#[repr(C)]
 pub struct D3D11_MAPPED_SUBRESOURCE(i32);
+#[repr(C)]
 pub struct D3D11_MAP_FLAG(i32);
 pub const D3D11_MAX_BORDER_COLOR_COMPONENT: f32 = 1f32;
 pub const D3D11_MAX_DEPTH: f32 = 1f32;
@@ -675,9 +800,13 @@ pub const D3D11_MAX_MAXANISOTROPY: u32 = 16u32;
 pub const D3D11_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32u32;
 pub const D3D11_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000f32;
 pub const D3D11_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17u32;
+#[repr(C)]
 pub struct D3D11_MESSAGE(i32);
+#[repr(C)]
 pub struct D3D11_MESSAGE_CATEGORY(i32);
+#[repr(C)]
 pub struct D3D11_MESSAGE_ID(i32);
+#[repr(C)]
 pub struct D3D11_MESSAGE_SEVERITY(i32);
 pub const D3D11_MINOR_VERSION: u32 = 0u32;
 pub const D3D11_MIN_BORDER_COLOR_COMPONENT: f32 = 0f32;
@@ -691,12 +820,16 @@ pub const D3D11_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
+#[repr(C)]
 pub struct D3D11_OMAC(i32);
+#[repr(C)]
 pub struct D3D11_PACKED_MIP_DESC(i32);
 pub const D3D11_PACKED_TILE: u32 = 4294967295u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D11_PARAMETER_DESC(i32);
 pub const D3D11_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
+#[repr(C)]
 pub struct D3D11_PIXEL_SHADER_TRACE_DESC(i32);
 pub const D3D11_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
 pub const D3D11_PS_CS_UAV_REGISTER_COMPONENTS: u32 = 1u32;
@@ -722,29 +855,44 @@ pub const D3D11_PS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D11_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D11_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
 pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
+#[repr(C)]
 pub struct D3D11_QUERY(i32);
+#[repr(C)]
 pub struct D3D11_QUERY_DATA_PIPELINE_STATISTICS(i32);
+#[repr(C)]
 pub struct D3D11_QUERY_DATA_SO_STATISTICS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_QUERY_DATA_TIMESTAMP_DISJOINT(i32);
+#[repr(C)]
 pub struct D3D11_QUERY_DESC(i32);
+#[repr(C)]
 pub struct D3D11_QUERY_DESC1(i32);
+#[repr(C)]
 pub struct D3D11_QUERY_MISC_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_RAISE_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_RASTERIZER_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_RASTERIZER_DESC1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_RASTERIZER_DESC2(i32);
 pub const D3D11_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC1(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_RENDER_TARGET_VIEW_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_RENDER_TARGET_VIEW_DESC1(i32);
 pub const D3D11_REQ_BLEND_OBJECT_COUNT_PER_DEVICE: u32 = 4096u32;
 pub const D3D11_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27u32;
@@ -772,19 +920,28 @@ pub const D3D11_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 16384u32;
 pub const D3D11_REQ_TEXTURE3D_U_V_OR_W_DIMENSION: u32 = 2048u32;
 pub const D3D11_REQ_TEXTURECUBE_DIMENSION: u32 = 16384u32;
 pub const D3D11_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0u32;
+#[repr(C)]
 pub struct D3D11_RESOURCE_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D11_RESOURCE_MISC_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_RLDO_FLAGS(i32);
+#[repr(C)]
 pub struct D3D11_RTV_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D11_SAMPLER_DESC(i32);
 pub const D3D11_SDK_LAYERS_VERSION: u32 = 1u32;
 pub const D3D11_SDK_VERSION: u32 = 7u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D11_SHADER_BUFFER_DESC(i32);
+#[repr(C)]
 pub struct D3D11_SHADER_CACHE_SUPPORT_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D11_SHADER_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D11_SHADER_INPUT_BIND_DESC(i32);
 pub const D3D11_SHADER_MAJOR_VERSION: u32 = 5u32;
 pub const D3D11_SHADER_MAX_INSTANCES: u32 = 65535u32;
@@ -792,26 +949,38 @@ pub const D3D11_SHADER_MAX_INTERFACES: u32 = 253u32;
 pub const D3D11_SHADER_MAX_INTERFACE_CALL_SITES: u32 = 4096u32;
 pub const D3D11_SHADER_MAX_TYPES: u32 = 65535u32;
 pub const D3D11_SHADER_MINOR_VERSION: u32 = 0u32;
+#[repr(C)]
 pub struct D3D11_SHADER_MIN_PRECISION_SUPPORT(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D11_SHADER_RESOURCE_VIEW_DESC(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D11_SHADER_RESOURCE_VIEW_DESC1(i32);
+#[repr(C)]
 pub struct D3D11_SHADER_TRACE_DESC(i32);
 pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_READS: u32 = 2u32;
 pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_WRITES: u32 = 1u32;
+#[repr(C)]
 pub struct D3D11_SHADER_TRACKING_OPTIONS(i32);
+#[repr(C)]
 pub struct D3D11_SHADER_TRACKING_RESOURCE_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_SHADER_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D11_SHADER_TYPE_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_SHADER_VARIABLE_DESC(i32);
+#[repr(C)]
 pub struct D3D11_SHADER_VERSION_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_SHARED_RESOURCE_TIER(i32);
 pub const D3D11_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 pub const D3D11_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D11_SIGNATURE_PARAMETER_DESC(i32);
 pub const D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
 pub const D3D11_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048u32;
@@ -819,6 +988,7 @@ pub const D3D11_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 512u32;
 pub const D3D11_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 pub const D3D11_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_SO_DECLARATION_ENTRY(i32);
 pub const D3D11_SO_NO_RASTERIZED_STREAM: u32 = 4294967295u32;
 pub const D3D11_SO_OUTPUT_COMPONENT_COUNT: u32 = 128u32;
@@ -837,15 +1007,19 @@ pub const D3D11_SRGB_TO_FLOAT_TOLERANCE_IN_ULP: f32 = 0.5f32;
 pub const D3D11_STANDARD_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D11_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: u32 = 64u32;
 pub const D3D11_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: u32 = 4u32;
+#[repr(C)]
 pub struct D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS(i32);
 pub const D3D11_STANDARD_PIXEL_COMPONENT_COUNT: u32 = 128u32;
 pub const D3D11_STANDARD_PIXEL_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D11_STANDARD_VECTOR_SIZE: u32 = 4u32;
 pub const D3D11_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D11_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64u32;
+#[repr(C)]
 pub struct D3D11_STENCIL_OP(i32);
 pub const D3D11_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
+#[repr(C)]
 pub struct D3D11_SUBRESOURCE_DATA(i32);
+#[repr(C)]
 pub struct D3D11_SUBRESOURCE_TILING(i32);
 pub const D3D11_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub const D3D11_TESSELLATOR_MAX_EVEN_TESSELLATION_FACTOR: u32 = 64u32;
@@ -855,69 +1029,122 @@ pub const D3D11_TESSELLATOR_MAX_TESSELLATION_FACTOR: u32 = 64u32;
 pub const D3D11_TESSELLATOR_MIN_EVEN_TESSELLATION_FACTOR: u32 = 2u32;
 pub const D3D11_TESSELLATOR_MIN_ISOLINE_DENSITY_TESSELLATION_FACTOR: u32 = 1u32;
 pub const D3D11_TESSELLATOR_MIN_ODD_TESSELLATION_FACTOR: u32 = 1u32;
+#[repr(C)]
 pub struct D3D11_TEX1D_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D11_TEX1D_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D11_TEX1D_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEX1D_ARRAY_UAV(i32);
+#[repr(C)]
 pub struct D3D11_TEX1D_DSV(i32);
+#[repr(C)]
 pub struct D3D11_TEX1D_RTV(i32);
+#[repr(C)]
 pub struct D3D11_TEX1D_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEX1D_UAV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2DMS_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2DMS_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2DMS_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2DMS_DSV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2DMS_RTV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2DMS_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_RTV1(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_SRV1(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_UAV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_UAV1(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_ARRAY_VPOV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_DSV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_RTV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_RTV1(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_SRV1(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_UAV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_UAV1(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_VDOV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_VPIV(i32);
+#[repr(C)]
 pub struct D3D11_TEX2D_VPOV(i32);
+#[repr(C)]
 pub struct D3D11_TEX3D_RTV(i32);
+#[repr(C)]
 pub struct D3D11_TEX3D_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEX3D_UAV(i32);
+#[repr(C)]
 pub struct D3D11_TEXCUBE_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D11_TEXCUBE_SRV(i32);
 pub const D3D11_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_TEXTURE1D_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_TEXTURE2D_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_TEXTURE2D_DESC1(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_TEXTURE3D_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_TEXTURE3D_DESC1(i32);
+#[repr(C)]
 pub struct D3D11_TEXTURECUBE_FACE(i32);
+#[repr(C)]
 pub struct D3D11_TEXTURE_ADDRESS_MODE(i32);
+#[repr(C)]
 pub struct D3D11_TEXTURE_LAYOUT(i32);
+#[repr(C)]
 pub struct D3D11_TILED_RESOURCES_TIER(i32);
+#[repr(C)]
 pub struct D3D11_TILED_RESOURCE_COORDINATE(i32);
+#[repr(C)]
 pub struct D3D11_TILE_COPY_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_TILE_MAPPING_FLAG(i32);
+#[repr(C)]
 pub struct D3D11_TILE_RANGE_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_TILE_REGION_SIZE(i32);
+#[repr(C)]
 pub struct D3D11_TILE_SHAPE(i32);
 pub const D3D11_TRACE_COMPONENT_W: u32 = 8u32;
 pub const D3D11_TRACE_COMPONENT_X: u32 = 1u32;
 pub const D3D11_TRACE_COMPONENT_Y: u32 = 2u32;
 pub const D3D11_TRACE_COMPONENT_Z: u32 = 4u32;
+#[repr(C)]
 pub struct D3D11_TRACE_GS_INPUT_PRIMITIVE(i32);
 pub const D3D11_TRACE_MISC_GS_CUT: u32 = 2u32;
 pub const D3D11_TRACE_MISC_GS_CUT_STREAM: u32 = 16u32;
@@ -926,83 +1153,144 @@ pub const D3D11_TRACE_MISC_GS_EMIT_STREAM: u32 = 8u32;
 pub const D3D11_TRACE_MISC_HALT: u32 = 32u32;
 pub const D3D11_TRACE_MISC_MESSAGE: u32 = 64u32;
 pub const D3D11_TRACE_MISC_PS_DISCARD: u32 = 4u32;
+#[repr(C)]
 pub struct D3D11_TRACE_REGISTER(i32);
 pub const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: u32 = 1u32;
+#[repr(C)]
 pub struct D3D11_TRACE_REGISTER_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_TRACE_STATS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_TRACE_STEP(i32);
+#[repr(C)]
 pub struct D3D11_TRACE_VALUE(i32);
+#[repr(C)]
 pub struct D3D11_UAV_DIMENSION(i32);
 pub const D3D11_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC1(i32);
+#[repr(C)]
 pub struct D3D11_USAGE(i32);
+#[repr(C)]
 pub struct D3D11_VDOV_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D11_VERTEX_SHADER_TRACE_DESC(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_COLOR(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_COLOR_RGBA(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_COLOR_YCbCrA(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC1(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC2(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_TYPE(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_CONFIG(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_DESC(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_EXTENSION(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_FRAME_FORMAT(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_DEVICE_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_FEATURE_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER_RANGE(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_FORMAT_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_OUTPUT_RATE(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_ROTATION(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_CAPS(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_FORMAT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D11_VIDEO_SAMPLE_DESC(i32);
+#[repr(C)]
 pub struct D3D11_VIDEO_USAGE(i32);
+#[repr(C)]
 pub struct D3D11_VIEWPORT(i32);
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;
 pub const D3D11_VIEWPORT_BOUNDS_MAX: u32 = 32767u32;
 pub const D3D11_VIEWPORT_BOUNDS_MIN: i32 = -32768i32;
+#[repr(C)]
 pub struct D3D11_VPIV_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D11_VPOV_DIMENSION(i32);
 pub const D3D11_VS_INPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D11_VS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
@@ -1015,16 +1303,24 @@ pub const D3D11_VS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
 pub const D3D11_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: u32 = 10u32;
 pub const D3D11_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25u32;
 pub const D3D11_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25u32;
+#[repr(C)]
 pub struct D3DX11_FFT_BUFFER_INFO(i32);
+#[repr(C)]
 pub struct D3DX11_FFT_CREATE_FLAG(i32);
+#[repr(C)]
 pub struct D3DX11_FFT_DATA_TYPE(i32);
+#[repr(C)]
 pub struct D3DX11_FFT_DESC(i32);
+#[repr(C)]
 pub struct D3DX11_FFT_DIM_MASK(i32);
 pub const D3DX11_FFT_MAX_DIMENSIONS: u32 = 32u32;
 pub const D3DX11_FFT_MAX_PRECOMPUTE_BUFFERS: u32 = 4u32;
 pub const D3DX11_FFT_MAX_TEMP_BUFFERS: u32 = 4u32;
+#[repr(C)]
 pub struct D3DX11_SCAN_DATA_TYPE(i32);
+#[repr(C)]
 pub struct D3DX11_SCAN_DIRECTION(i32);
+#[repr(C)]
 pub struct D3DX11_SCAN_OPCODE(i32);
 pub const D3D_RETURN_PARAMETER_INDEX: i32 = -1i32;
 pub const D3D_SHADER_REQUIRES_11_1_DOUBLE_EXTENSIONS: u32 = 32u32;
@@ -1226,6 +1522,8 @@ pub struct ID3DX11FFT(pub *mut ::core::ffi::c_void);
 pub struct ID3DX11Scan(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ID3DX11SegmentedScan(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PFN_D3D11_CREATE_DEVICE(i32);
+#[repr(C)]
 pub struct PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(i32);
 pub const _FACD3D11: u32 = 2172u32;

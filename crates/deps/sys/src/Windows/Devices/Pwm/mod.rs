@@ -17,4 +17,5 @@ pub struct IPwmPin(pub *mut ::core::ffi::c_void);
 pub struct PwmController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PwmPin(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PwmPulsePolarity(i32);

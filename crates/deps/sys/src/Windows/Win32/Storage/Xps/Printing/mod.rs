@@ -40,9 +40,15 @@ pub struct IPrintDocumentPackageTargetFactory(pub *mut ::core::ffi::c_void);
 pub struct IXpsPrintJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXpsPrintJobStream(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintDocumentPackageCompletion(i32);
+#[repr(C)]
 pub struct PrintDocumentPackageStatus(i32);
+#[repr(C)]
 pub struct PrintDocumentPackageTarget(i32);
+#[repr(C)]
 pub struct PrintDocumentPackageTargetFactory(i32);
+#[repr(C)]
 pub struct XPS_JOB_COMPLETION(i32);
+#[repr(C)]
 pub struct XPS_JOB_STATUS(i32);

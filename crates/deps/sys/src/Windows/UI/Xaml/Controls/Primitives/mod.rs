@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AnimationDirection(i32);
 #[repr(transparent)]
 pub struct AppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -28,6 +29,7 @@ pub struct CommandBarFlyoutCommandBar(pub *mut ::core::ffi::c_void);
 pub struct CommandBarFlyoutCommandBarTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CommandBarTemplateSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ComponentResourceLocation(i32);
 #[repr(transparent)]
 pub struct DragCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -41,16 +43,21 @@ pub struct DragDeltaEventHandler(pub *mut ::core::ffi::c_void);
 pub struct DragStartedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DragStartedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EdgeTransitionLocation(i32);
 #[repr(transparent)]
 pub struct FlyoutBase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FlyoutBaseClosingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FlyoutPlacementMode(i32);
+#[repr(C)]
 pub struct FlyoutShowMode(i32);
 #[repr(transparent)]
 pub struct FlyoutShowOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GeneratorDirection(i32);
+#[repr(C)]
 pub struct GeneratorPosition(i32);
 #[repr(transparent)]
 pub struct GeneratorPositionHelper(pub *mut ::core::ffi::c_void);
@@ -58,6 +65,7 @@ pub struct GeneratorPositionHelper(pub *mut ::core::ffi::c_void);
 pub struct GridViewItemPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GridViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GroupHeaderPlacement(i32);
 #[repr(transparent)]
 pub struct IAppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -333,7 +341,9 @@ pub struct JumpListItemForegroundConverter(pub *mut ::core::ffi::c_void);
 pub struct LayoutInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ListViewItemPresenter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ListViewItemPresenterCheckMode(i32);
+#[repr(C)]
 pub struct ListViewItemPresenterSelectionIndicatorMode(i32);
 #[repr(transparent)]
 pub struct ListViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -359,9 +369,11 @@ pub struct PivotHeaderItem(pub *mut ::core::ffi::c_void);
 pub struct PivotHeaderPanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PivotPanel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlacementMode(i32);
 #[repr(transparent)]
 pub struct Popup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PopupPlacementMode(i32);
 #[repr(transparent)]
 pub struct ProgressBarTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -381,7 +393,9 @@ pub struct ScrollBar(pub *mut ::core::ffi::c_void);
 pub struct ScrollEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ScrollEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ScrollEventType(i32);
+#[repr(C)]
 pub struct ScrollingIndicatorMode(i32);
 #[repr(transparent)]
 pub struct Selector(pub *mut ::core::ffi::c_void);
@@ -389,7 +403,9 @@ pub struct Selector(pub *mut ::core::ffi::c_void);
 pub struct SelectorItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SettingsFlyoutTemplateSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SliderSnapsTo(i32);
+#[repr(C)]
 pub struct SnapPointsAlignment(i32);
 #[repr(transparent)]
 pub struct SplitViewTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -397,6 +413,7 @@ pub struct SplitViewTemplateSettings(pub *mut ::core::ffi::c_void);
 pub struct Thumb(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TickBar(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TickPlacement(i32);
 #[repr(transparent)]
 pub struct ToggleButton(pub *mut ::core::ffi::c_void);

@@ -55,22 +55,31 @@ pub struct IIsolatedWindowsHostMessengerStatics(pub *mut ::core::ffi::c_void);
 pub struct IIsolatedWindowsHostMessengerStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironment(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentActivator(i32);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(i32);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(i32);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(i32);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentContract(i32);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentCreateProgress(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentFile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentHost(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentHostError(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOptions(pub *mut ::core::ffi::c_void);
@@ -80,26 +89,33 @@ pub struct IsolatedWindowsEnvironmentOwnerRegistration(pub *mut ::core::ffi::c_v
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcess(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentProcessState(i32);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentProgressState(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(pub *mut ::core::ffi::c_void);

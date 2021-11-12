@@ -5,7 +5,9 @@ extern "system" {}
 pub struct CastingConnection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CastingConnectionErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CastingConnectionErrorStatus(i32);
+#[repr(C)]
 pub struct CastingConnectionState(i32);
 #[repr(transparent)]
 pub struct CastingDevice(pub *mut ::core::ffi::c_void);
@@ -15,6 +17,7 @@ pub struct CastingDevicePicker(pub *mut ::core::ffi::c_void);
 pub struct CastingDevicePickerFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CastingDeviceSelectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CastingPlaybackTypes(i32);
 #[repr(transparent)]
 pub struct CastingSource(pub *mut ::core::ffi::c_void);

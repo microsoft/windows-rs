@@ -13,6 +13,7 @@ pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(pub *mut ::c
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(i32);
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(pub *mut ::core::ffi::c_void);

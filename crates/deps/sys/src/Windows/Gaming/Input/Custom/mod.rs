@@ -3,13 +3,17 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct GameControllerFactoryManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameControllerVersionInfo(i32);
+#[repr(C)]
 pub struct GipFirmwareUpdateProgress(i32);
 #[repr(transparent)]
 pub struct GipFirmwareUpdateResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GipFirmwareUpdateStatus(i32);
 #[repr(transparent)]
 pub struct GipGameControllerProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GipMessageClass(i32);
 #[repr(transparent)]
 pub struct HidGameControllerProvider(pub *mut ::core::ffi::c_void);
@@ -37,7 +41,9 @@ pub struct IHidGameControllerProvider(pub *mut ::core::ffi::c_void);
 pub struct IXusbGameControllerInputSink(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXusbGameControllerProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XusbDeviceSubtype(i32);
+#[repr(C)]
 pub struct XusbDeviceType(i32);
 #[repr(transparent)]
 pub struct XusbGameControllerProvider(pub *mut ::core::ffi::c_void);

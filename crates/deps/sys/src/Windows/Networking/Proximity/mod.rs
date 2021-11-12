@@ -33,19 +33,23 @@ pub struct ITriggeredConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_voi
 pub struct MessageReceivedHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MessageTransmittedHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PeerDiscoveryTypes(i32);
 #[repr(transparent)]
 pub struct PeerFinder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PeerInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PeerRole(i32);
 #[repr(transparent)]
 pub struct PeerWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PeerWatcherStatus(i32);
 #[repr(transparent)]
 pub struct ProximityDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProximityMessage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TriggeredConnectState(i32);
 #[repr(transparent)]
 pub struct TriggeredConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_void);

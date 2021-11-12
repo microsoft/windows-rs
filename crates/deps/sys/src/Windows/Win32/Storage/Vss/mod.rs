@@ -29,6 +29,7 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt3(pub *mut ::core::ffi::c_void);
 pub struct IVssEnumMgmtObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVssEnumObject(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IVssExamineWriterMetadata(i32);
 #[repr(transparent)]
 pub struct IVssExpressWriter(pub *mut ::core::ffi::c_void);
@@ -56,16 +57,25 @@ pub struct IVssWMFiledesc(pub *mut ::core::ffi::c_void);
 pub struct IVssWriterComponents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVssWriterImpl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VSSCoordinator(i32);
+#[repr(C)]
 pub struct VSS_ALTERNATE_WRITER_STATE(i32);
+#[repr(C)]
 pub struct VSS_APPLICATION_LEVEL(i32);
 pub const VSS_ASSOC_NO_MAX_SPACE: i32 = -1i32;
 pub const VSS_ASSOC_REMOVE: u32 = 0u32;
+#[repr(C)]
 pub struct VSS_BACKUP_SCHEMA(i32);
+#[repr(C)]
 pub struct VSS_BACKUP_TYPE(i32);
+#[repr(C)]
 pub struct VSS_COMPONENT_FLAGS(i32);
+#[repr(C)]
 pub struct VSS_COMPONENT_TYPE(i32);
+#[repr(C)]
 pub struct VSS_DIFF_AREA_PROP(i32);
+#[repr(C)]
 pub struct VSS_DIFF_VOLUME_PROP(i32);
 pub const VSS_E_ASRERROR_CRITICAL_DISKS_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212280i32 as _);
 pub const VSS_E_ASRERROR_CRITICAL_DISK_CANNOT_BE_EXCLUDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212267i32 as _);
@@ -144,41 +154,74 @@ pub const VSS_E_WRITER_ALREADY_SUBSCRIBED: ::windows_sys::core::HRESULT = ::wind
 pub const VSS_E_WRITER_INFRASTRUCTURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212520i32 as _);
 pub const VSS_E_WRITER_NOT_RESPONDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212519i32 as _);
 pub const VSS_E_WRITER_STATUS_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212279i32 as _);
+#[repr(C)]
 pub struct VSS_FILE_RESTORE_STATUS(i32);
+#[repr(C)]
 pub struct VSS_FILE_SPEC_BACKUP_TYPE(i32);
+#[repr(C)]
 pub struct VSS_HARDWARE_OPTIONS(i32);
+#[repr(C)]
 pub struct VSS_MGMT_OBJECT_PROP(i32);
+#[repr(C)]
 pub struct VSS_MGMT_OBJECT_TYPE(i32);
+#[repr(C)]
 pub struct VSS_MGMT_OBJECT_UNION(i32);
+#[repr(C)]
 pub struct VSS_OBJECT_PROP(i32);
+#[repr(C)]
 pub struct VSS_OBJECT_TYPE(i32);
+#[repr(C)]
 pub struct VSS_OBJECT_UNION(i32);
+#[repr(C)]
 pub struct VSS_PROTECTION_FAULT(i32);
+#[repr(C)]
 pub struct VSS_PROTECTION_LEVEL(i32);
+#[repr(C)]
 pub struct VSS_PROVIDER_CAPABILITIES(i32);
+#[repr(C)]
 pub struct VSS_PROVIDER_PROP(i32);
+#[repr(C)]
 pub struct VSS_PROVIDER_TYPE(i32);
+#[repr(C)]
 pub struct VSS_RECOVERY_OPTIONS(i32);
+#[repr(C)]
 pub struct VSS_RESTOREMETHOD_ENUM(i32);
+#[repr(C)]
 pub struct VSS_RESTORE_TARGET(i32);
+#[repr(C)]
 pub struct VSS_RESTORE_TYPE(i32);
+#[repr(C)]
 pub struct VSS_ROLLFORWARD_TYPE(i32);
+#[repr(C)]
 pub struct VSS_SNAPSHOT_COMPATIBILITY(i32);
+#[repr(C)]
 pub struct VSS_SNAPSHOT_CONTEXT(i32);
+#[repr(C)]
 pub struct VSS_SNAPSHOT_PROP(i32);
+#[repr(C)]
 pub struct VSS_SNAPSHOT_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct VSS_SNAPSHOT_STATE(i32);
+#[repr(C)]
 pub struct VSS_SOURCE_TYPE(i32);
+#[repr(C)]
 pub struct VSS_SUBSCRIBE_MASK(i32);
 pub const VSS_S_ASYNC_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271115i32 as _);
 pub const VSS_S_ASYNC_FINISHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271114i32 as _);
 pub const VSS_S_ASYNC_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271113i32 as _);
 pub const VSS_S_SOME_SNAPSHOTS_NOT_IMPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271137i32 as _);
+#[repr(C)]
 pub struct VSS_USAGE_TYPE(i32);
+#[repr(C)]
 pub struct VSS_VOLUME_PROP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VSS_VOLUME_PROTECTION_INFO(i32);
+#[repr(C)]
 pub struct VSS_VOLUME_SNAPSHOT_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct VSS_WRITERRESTORE_ENUM(i32);
+#[repr(C)]
 pub struct VSS_WRITER_STATE(i32);
+#[repr(C)]
 pub struct VssSnapshotMgmt(i32);

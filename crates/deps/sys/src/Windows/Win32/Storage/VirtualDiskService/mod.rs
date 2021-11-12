@@ -89,23 +89,36 @@ pub struct IVdsSubSystemNaming(pub *mut ::core::ffi::c_void);
 pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32u32;
 pub const MAX_FS_FORMAT_SUPPORT_NAME_SIZE: u32 = 32u32;
 pub const MAX_FS_NAME_SIZE: u32 = 8u32;
+#[repr(C)]
 pub struct VDS_ASYNC_OUTPUT(i32);
+#[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_TYPE(i32);
 pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1u32;
+#[repr(C)]
 pub struct VDS_CONTROLLER_NOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_CONTROLLER_PROP(i32);
+#[repr(C)]
 pub struct VDS_CONTROLLER_STATUS(i32);
+#[repr(C)]
 pub struct VDS_DISK_NOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_DRIVE_EXTENT(i32);
+#[repr(C)]
 pub struct VDS_DRIVE_FLAG(i32);
+#[repr(C)]
 pub struct VDS_DRIVE_LETTER_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_DRIVE_NOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_DRIVE_PROP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_DRIVE_PROP2(i32);
+#[repr(C)]
 pub struct VDS_DRIVE_STATUS(i32);
 pub const VDS_E_ACCESS_DENIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212249i32 as _);
 pub const VDS_E_ACTIVE_PARTITION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212232i32 as _);
@@ -456,16 +469,25 @@ pub const VDS_E_VOLUME_SYNCHRONIZING: ::windows_sys::core::HRESULT = ::windows_s
 pub const VDS_E_VOLUME_TEMPORARILY_DISMOUNTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212196i32 as _);
 pub const VDS_E_VOLUME_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212243i32 as _);
 pub const VDS_E_VOLUME_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212244i32 as _);
+#[repr(C)]
 pub struct VDS_FILE_SYSTEM_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_FILE_SYSTEM_TYPE(i32);
+#[repr(C)]
 pub struct VDS_HBAPORT_PROP(i32);
+#[repr(C)]
 pub struct VDS_HBAPORT_SPEED_FLAG(i32);
+#[repr(C)]
 pub struct VDS_HBAPORT_STATUS(i32);
+#[repr(C)]
 pub struct VDS_HBAPORT_TYPE(i32);
+#[repr(C)]
 pub struct VDS_HEALTH(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_HINTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_HINTS2(i32);
 pub const VDS_HINT_ALLOCATEHOTSPARE: i32 = 512i32;
 pub const VDS_HINT_BUSTYPE: i32 = 1024i32;
@@ -483,54 +505,92 @@ pub const VDS_HINT_REMAPENABLED: i32 = 32i32;
 pub const VDS_HINT_USEMIRROREDCACHE: i32 = 2048i32;
 pub const VDS_HINT_WRITECACHINGENABLED: i32 = 8192i32;
 pub const VDS_HINT_WRITETHROUGHCACHINGENABLED: i32 = 64i32;
+#[repr(C)]
 pub struct VDS_HWPROVIDER_TYPE(i32);
+#[repr(C)]
 pub struct VDS_INTERCONNECT(i32);
+#[repr(C)]
 pub struct VDS_INTERCONNECT_ADDRESS_TYPE(i32);
+#[repr(C)]
 pub struct VDS_INTERCONNECT_FLAG(i32);
+#[repr(C)]
 pub struct VDS_IPADDRESS(i32);
+#[repr(C)]
 pub struct VDS_IPADDRESS_TYPE(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_AUTH_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_IPSEC_FLAG(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_IPSEC_KEY(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_LOGIN_FLAG(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_LOGIN_TYPE(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_PORTALGROUP_PROP(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_PORTAL_PROP(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_PORTAL_STATUS(i32);
+#[repr(C)]
 pub struct VDS_ISCSI_SHARED_SECRET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_ISCSI_TARGET_PROP(i32);
+#[repr(C)]
 pub struct VDS_LOADBALANCE_POLICY_ENUM(i32);
+#[repr(C)]
 pub struct VDS_LUN_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_LUN_INFORMATION(i32);
+#[repr(C)]
 pub struct VDS_LUN_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_LUN_PLEX_FLAG(i32);
+#[repr(C)]
 pub struct VDS_LUN_PLEX_PROP(i32);
+#[repr(C)]
 pub struct VDS_LUN_PLEX_STATUS(i32);
+#[repr(C)]
 pub struct VDS_LUN_PLEX_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_LUN_PROP(i32);
+#[repr(C)]
 pub struct VDS_LUN_STATUS(i32);
+#[repr(C)]
 pub struct VDS_LUN_TYPE(i32);
+#[repr(C)]
 pub struct VDS_MAINTENANCE_OPERATION(i32);
+#[repr(C)]
 pub struct VDS_MOUNT_POINT_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_NF_CONTROLLER(i32);
+#[repr(C)]
 pub struct VDS_NF_DISK(i32);
+#[repr(C)]
 pub struct VDS_NF_DRIVE(i32);
 pub const VDS_NF_DRIVE_LETTER_ASSIGN: u32 = 202u32;
 pub const VDS_NF_DRIVE_LETTER_FREE: u32 = 201u32;
+#[repr(C)]
 pub struct VDS_NF_FILE_SYSTEM(i32);
 pub const VDS_NF_FILE_SYSTEM_SHRINKING_PROGRESS: u32 = 206u32;
+#[repr(C)]
 pub struct VDS_NF_LUN(i32);
 pub const VDS_NF_MOUNT_POINTS_CHANGE: u32 = 205u32;
+#[repr(C)]
 pub struct VDS_NF_PACK(i32);
 pub const VDS_NF_PARTITION_ARRIVE: u32 = 11u32;
 pub const VDS_NF_PARTITION_DEPART: u32 = 12u32;
 pub const VDS_NF_PARTITION_MODIFY: u32 = 13u32;
+#[repr(C)]
 pub struct VDS_NF_PORT(i32);
 pub const VDS_NF_PORTAL_ARRIVE: u32 = 123u32;
 pub const VDS_NF_PORTAL_DEPART: u32 = 124u32;
@@ -549,17 +609,27 @@ pub const VDS_NF_VOLUME_ARRIVE: u32 = 4u32;
 pub const VDS_NF_VOLUME_DEPART: u32 = 5u32;
 pub const VDS_NF_VOLUME_MODIFY: u32 = 6u32;
 pub const VDS_NF_VOLUME_REBUILDING_PROGRESS: u32 = 7u32;
+#[repr(C)]
 pub struct VDS_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_NOTIFICATION_TARGET_TYPE(i32);
+#[repr(C)]
 pub struct VDS_OBJECT_TYPE(i32);
+#[repr(C)]
 pub struct VDS_PACK_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_PARTITION_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_PATH_ID(i32);
+#[repr(C)]
 pub struct VDS_PATH_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_PATH_POLICY(i32);
+#[repr(C)]
 pub struct VDS_PATH_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_POOL_ATTRIBUTES(i32);
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216i32;
 pub const VDS_POOL_ATTRIB_ACCS_DIR_HINT: i32 = 2097152i32;
@@ -590,41 +660,69 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MAX: i32 = 4096i32;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: i32 = 8192i32;
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: i32 = 8i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct VDS_PORTAL_GROUP_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_PORTAL_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_PORT_NOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_PORT_PROP(i32);
+#[repr(C)]
 pub struct VDS_PORT_STATUS(i32);
+#[repr(C)]
 pub struct VDS_PROVIDER_FLAG(i32);
+#[repr(C)]
 pub struct VDS_PROVIDER_LBSUPPORT_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_PROVIDER_PROP(i32);
+#[repr(C)]
 pub struct VDS_PROVIDER_TYPE(i32);
+#[repr(C)]
 pub struct VDS_RAID_TYPE(i32);
 pub const VDS_REBUILD_PRIORITY_MAX: u32 = 16u32;
 pub const VDS_REBUILD_PRIORITY_MIN: u32 = 0u32;
+#[repr(C)]
 pub struct VDS_RECOVER_ACTION(i32);
+#[repr(C)]
 pub struct VDS_SERVICE_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_STORAGE_BUS_TYPE(i32);
+#[repr(C)]
 pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct VDS_STORAGE_IDENTIFIER(i32);
+#[repr(C)]
 pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(i32);
+#[repr(C)]
 pub struct VDS_STORAGE_IDENTIFIER_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_STORAGE_POOL_PROP(i32);
+#[repr(C)]
 pub struct VDS_STORAGE_POOL_STATUS(i32);
+#[repr(C)]
 pub struct VDS_STORAGE_POOL_TYPE(i32);
+#[repr(C)]
 pub struct VDS_SUB_SYSTEM_FLAG(i32);
+#[repr(C)]
 pub struct VDS_SUB_SYSTEM_NOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_SUB_SYSTEM_PROP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VDS_SUB_SYSTEM_PROP2(i32);
+#[repr(C)]
 pub struct VDS_SUB_SYSTEM_STATUS(i32);
+#[repr(C)]
 pub struct VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(i32);
 pub const VDS_S_ACCESS_PATH_NOT_DELETED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(279108i32 as _);
 pub const VDS_S_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(272148i32 as _);
@@ -660,9 +758,14 @@ pub const VDS_S_VOLUME_COMPRESS_FAILED: ::windows_sys::core::HRESULT = ::windows
 pub const VDS_S_VSS_FLUSH_AND_HOLD_WRITES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271745i32 as _);
 pub const VDS_S_VSS_RELEASE_WRITES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271746i32 as _);
 pub const VDS_S_WINPE_BOOTENTRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271758i32 as _);
+#[repr(C)]
 pub struct VDS_TARGET_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_TRANSITION_STATE(i32);
+#[repr(C)]
 pub struct VDS_VERSION_SUPPORT_FLAG(i32);
+#[repr(C)]
 pub struct VDS_VOLUME_NOTIFICATION(i32);
+#[repr(C)]
 pub struct VDS_WWN(i32);
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;

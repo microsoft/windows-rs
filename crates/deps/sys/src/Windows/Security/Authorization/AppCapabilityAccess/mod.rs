@@ -5,6 +5,7 @@ extern "system" {}
 pub struct AppCapability(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppCapabilityAccessChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppCapabilityAccessStatus(i32);
 #[repr(transparent)]
 pub struct IAppCapability(pub *mut ::core::ffi::c_void);

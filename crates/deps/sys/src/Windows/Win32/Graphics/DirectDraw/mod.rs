@@ -14,11 +14,13 @@ extern "system" {
     pub fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ACCESSRECTLIST(i32);
 pub const ACCESSRECT_BROKEN: i32 = 4i32;
 pub const ACCESSRECT_NOTHOLDINGWIN16LOCK: i32 = 2i32;
 pub const ACCESSRECT_VRAMSTYLE: i32 = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ATTACHLIST(i32);
 pub const CCHDEVICENAME: u32 = 32u32;
 pub const CLSID_DirectDraw: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3619098336, data2: 17216, data3: 4559, data4: [176, 99, 0, 32, 175, 194, 205, 53] };
@@ -55,12 +57,15 @@ pub const D3DFORMAT_OP_VOLUMETEXTURE: i32 = 2i32;
 pub const D3DFORMAT_OP_ZSTENCIL: i32 = 64i32;
 pub const D3DFORMAT_OP_ZSTENCIL_WITH_ARBITRARY_COLOR_DEPTH: i32 = 128i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DBLNODE(i32);
 pub const DCICOMMAND: u32 = 3075u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD32BITDRIVERDATA(i32);
 pub const DDABLT_SRCOVERDEST: i32 = 1i32;
 pub const DDAL_IMPLICIT: i32 = 1i32;
+#[repr(C)]
 pub struct DDARGB(i32);
 pub const DDBD_1: i32 = 16384i32;
 pub const DDBD_16: i32 = 1024i32;
@@ -70,12 +75,14 @@ pub const DDBD_32: i32 = 256i32;
 pub const DDBD_4: i32 = 4096i32;
 pub const DDBD_8: i32 = 2048i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDBLTBATCH(i32);
 pub const DDBLTFAST_DESTCOLORKEY: u32 = 2u32;
 pub const DDBLTFAST_DONOTWAIT: u32 = 32u32;
 pub const DDBLTFAST_NOCOLORKEY: u32 = 0u32;
 pub const DDBLTFAST_SRCCOLORKEY: u32 = 1u32;
 pub const DDBLTFAST_WAIT: u32 = 16u32;
+#[repr(C)]
 pub struct DDBLTFX(i32);
 pub const DDBLTFX_ARITHSTRETCHY: i32 = 1i32;
 pub const DDBLTFX_MIRRORLEFTRIGHT: i32 = 2i32;
@@ -118,6 +125,7 @@ pub const DDBLT_ZBUFFERDESTCONSTOVERRIDE: i32 = 1048576i32;
 pub const DDBLT_ZBUFFERDESTOVERRIDE: i32 = 2097152i32;
 pub const DDBLT_ZBUFFERSRCCONSTOVERRIDE: i32 = 4194304i32;
 pub const DDBLT_ZBUFFERSRCOVERRIDE: i32 = 8388608i32;
+#[repr(C)]
 pub struct DDBOBNEXTFIELDINFO(i32);
 pub const DDCAPS2_AUTOFLIPOVERLAY: i32 = 8i32;
 pub const DDCAPS2_CANAUTOGENMIPMAP: i32 = 1073741824i32;
@@ -168,10 +176,15 @@ pub const DDCAPS_CANCLIP: i32 = 536870912i32;
 pub const DDCAPS_CANCLIPSTRETCHED: i32 = 1073741824i32;
 pub const DDCAPS_COLORKEY: i32 = 4194304i32;
 pub const DDCAPS_COLORKEYHWASSIST: i32 = 16777216i32;
+#[repr(C)]
 pub struct DDCAPS_DX1(i32);
+#[repr(C)]
 pub struct DDCAPS_DX3(i32);
+#[repr(C)]
 pub struct DDCAPS_DX5(i32);
+#[repr(C)]
 pub struct DDCAPS_DX6(i32);
+#[repr(C)]
 pub struct DDCAPS_DX7(i32);
 pub const DDCAPS_GDI: i32 = 1024i32;
 pub const DDCAPS_NOHARDWARE: i32 = 33554432i32;
@@ -210,7 +223,9 @@ pub const DDCKEY_DESTBLT: i32 = 2i32;
 pub const DDCKEY_DESTOVERLAY: i32 = 4i32;
 pub const DDCKEY_SRCBLT: i32 = 8i32;
 pub const DDCKEY_SRCOVERLAY: i32 = 16i32;
+#[repr(C)]
 pub struct DDCOLORCONTROL(i32);
+#[repr(C)]
 pub struct DDCOLORKEY(i32);
 pub const DDCOLOR_BRIGHTNESS: i32 = 1i32;
 pub const DDCOLOR_COLORENABLE: i32 = 64i32;
@@ -219,19 +234,24 @@ pub const DDCOLOR_GAMMA: i32 = 32i32;
 pub const DDCOLOR_HUE: i32 = 4i32;
 pub const DDCOLOR_SATURATION: i32 = 8i32;
 pub const DDCOLOR_SHARPNESS: i32 = 16i32;
+#[repr(C)]
 pub struct DDCOMPBUFFERINFO(i32);
+#[repr(C)]
 pub struct DDCORECAPS(i32);
 pub const DDCREATEDRIVEROBJECT: u32 = 10u32;
 pub const DDCREATE_EMULATIONONLY: i32 = 2i32;
 pub const DDCREATE_HARDWAREONLY: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDDEVICEIDENTIFIER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDDEVICEIDENTIFIER2(i32);
 pub const DDEDM_REFRESHRATES: i32 = 1i32;
 pub const DDEDM_STANDARDVGAMODES: i32 = 2i32;
 pub const DDEM_MODEFAILED: i32 = 2i32;
 pub const DDEM_MODEPASSED: i32 = 1i32;
+#[repr(C)]
 pub struct DDENABLEIRQINFO(i32);
 pub const DDENUMOVERLAYZ_BACKTOFRONT: i32 = 0i32;
 pub const DDENUMOVERLAYZ_FRONTTOBACK: i32 = 1i32;
@@ -246,7 +266,9 @@ pub const DDENUM_ATTACHEDSECONDARYDEVICES: i32 = 1i32;
 pub const DDENUM_DETACHEDSECONDARYDEVICES: i32 = 2i32;
 pub const DDENUM_NONDISPLAYDEVICES: i32 = 4i32;
 pub const DDERR_NOTINITIALIZED: i32 = -2147221008i32;
+#[repr(C)]
 pub struct DDFLIPOVERLAYINFO(i32);
+#[repr(C)]
 pub struct DDFLIPVIDEOPORTINFO(i32);
 pub const DDFLIP_DONOTWAIT: i32 = 32i32;
 pub const DDFLIP_EVEN: i32 = 2i32;
@@ -298,41 +320,59 @@ pub const DDFXCAPS_OVERLAYSTRETCHX: i32 = 8388608i32;
 pub const DDFXCAPS_OVERLAYSTRETCHXN: i32 = 16777216i32;
 pub const DDFXCAPS_OVERLAYSTRETCHY: i32 = 33554432i32;
 pub const DDFXCAPS_OVERLAYSTRETCHYN: i32 = 67108864i32;
+#[repr(C)]
 pub struct DDGAMMARAMP(i32);
 pub const DDGBS_CANBLT: i32 = 1i32;
 pub const DDGBS_ISBLTDONE: i32 = 2i32;
 pub const DDGDI_GETHOSTIDENTIFIER: i32 = 1i32;
 pub const DDGET32BITDRIVERNAME: u32 = 11u32;
+#[repr(C)]
 pub struct DDGETCURRENTAUTOFLIPININFO(i32);
+#[repr(C)]
 pub struct DDGETCURRENTAUTOFLIPOUTINFO(i32);
+#[repr(C)]
 pub struct DDGETIRQINFO(i32);
+#[repr(C)]
 pub struct DDGETPOLARITYININFO(i32);
+#[repr(C)]
 pub struct DDGETPOLARITYOUTINFO(i32);
+#[repr(C)]
 pub struct DDGETPREVIOUSAUTOFLIPININFO(i32);
+#[repr(C)]
 pub struct DDGETPREVIOUSAUTOFLIPOUTINFO(i32);
+#[repr(C)]
 pub struct DDGETTRANSFERSTATUSOUTINFO(i32);
 pub const DDGFS_CANFLIP: i32 = 1i32;
 pub const DDGFS_ISFLIPDONE: i32 = 2i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHALDDRAWFNS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHALINFO(i32);
 pub const DDHALINFO_GETDRIVERINFO2: i32 = 8i32;
 pub const DDHALINFO_GETDRIVERINFOSET: i32 = 4i32;
 pub const DDHALINFO_ISPRIMARYDISPLAY: i32 = 1i32;
 pub const DDHALINFO_MODEXILLEGAL: i32 = 2i32;
+#[repr(C)]
 pub struct DDHALMODEINFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_ADDATTACHEDSURFACEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_BEGINMOCOMPFRAMEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_BLTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CANCREATESURFACEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CANCREATEVPORTDATA(i32);
 pub const DDHAL_CB32_CANCREATESURFACE: i32 = 32i32;
 pub const DDHAL_CB32_CREATEPALETTE: i32 = 64i32;
@@ -346,18 +386,24 @@ pub const DDHAL_CB32_SETEXCLUSIVEMODE: i32 = 256i32;
 pub const DDHAL_CB32_SETMODE: i32 = 8i32;
 pub const DDHAL_CB32_WAITFORVERTICALBLANK: i32 = 16i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_COLORCONTROLDATA(i32);
 pub const DDHAL_COLOR_COLORCONTROL: i32 = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CREATEMOCOMPDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CREATEPALETTEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CREATESURFACEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CREATESURFACEEXDATA(i32);
 pub const DDHAL_CREATESURFACEEX_SWAPHANDLES: i32 = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_CREATEVPORTDATA(i32);
 pub const DDHAL_D3DBUFCB32_CANCREATED3DBUF: i32 = 1i32;
 pub const DDHAL_D3DBUFCB32_CREATED3DBUF: i32 = 2i32;
@@ -365,43 +411,61 @@ pub const DDHAL_D3DBUFCB32_DESTROYD3DBUF: i32 = 4i32;
 pub const DDHAL_D3DBUFCB32_LOCKD3DBUF: i32 = 8i32;
 pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDCALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDCOLORCONTROLCALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDEXEBUFCALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDKERNELCALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDMISCELLANEOUSCALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDMOTIONCOMPCALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDPALETTECALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDSURFACECALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DDVIDEOPORTCALLBACKS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DESTROYDDLOCALDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DESTROYDRIVERDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DESTROYMOCOMPDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DESTROYPALETTEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DESTROYSURFACEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DESTROYVPORTDATA(i32);
 pub const DDHAL_DRIVER_HANDLED: i32 = 1i32;
 pub const DDHAL_DRIVER_NOCKEYHW: i32 = 2i32;
 pub const DDHAL_DRIVER_NOTHANDLED: i32 = 0i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_DRVSETCOLORKEYDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_ENDMOCOMPFRAMEDATA(i32);
 pub const DDHAL_EXEBUFCB32_CANCREATEEXEBUF: i32 = 1i32;
 pub const DDHAL_EXEBUFCB32_CREATEEXEBUF: i32 = 2i32;
@@ -409,49 +473,72 @@ pub const DDHAL_EXEBUFCB32_DESTROYEXEBUF: i32 = 4i32;
 pub const DDHAL_EXEBUFCB32_LOCKEXEBUF: i32 = 8i32;
 pub const DDHAL_EXEBUFCB32_UNLOCKEXEBUF: i32 = 16i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_FLIPDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_FLIPTOGDISURFACEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_FLIPVPORTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETAVAILDRIVERMEMORYDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETBLTSTATUSDATA(i32);
+#[repr(C)]
 pub struct DDHAL_GETDRIVERINFODATA(i32);
+#[repr(C)]
 pub struct DDHAL_GETDRIVERSTATEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETFLIPSTATUSDATA(i32);
+#[repr(C)]
 pub struct DDHAL_GETHEAPALIGNMENTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETINTERNALMOCOMPDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETMOCOMPCOMPBUFFDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETMOCOMPFORMATSDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETMOCOMPGUIDSDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETSCANLINEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTBANDWIDTHDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTCONNECTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTFIELDDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTFLIPSTATUSDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTINPUTFORMATDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTLINEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTOUTPUTFORMATDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_GETVPORTSIGNALDATA(i32);
 pub const DDHAL_KERNEL_SYNCSURFACEDATA: i32 = 1i32;
 pub const DDHAL_KERNEL_SYNCVIDEOPORTDATA: i32 = 2i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_LOCKDATA(i32);
 pub const DDHAL_MISC2CB32_ALPHABLT: i32 = 1i32;
 pub const DDHAL_MISC2CB32_CREATESURFACEEX: i32 = 2i32;
@@ -483,22 +570,31 @@ pub const DDHAL_PRIVATECAP_ATOMICSURFACECREATION: i32 = 1i32;
 pub const DDHAL_PRIVATECAP_NOTIFYPRIMARYCREATION: i32 = 2i32;
 pub const DDHAL_PRIVATECAP_RESERVED1: i32 = 4i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_QUERYMOCOMPSTATUSDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_RENDERMOCOMPDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SETCLIPLISTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SETCOLORKEYDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SETENTRIESDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SETEXCLUSIVEMODEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SETMODEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SETOVERLAYPOSITIONDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SETPALETTEDATA(i32);
 pub const DDHAL_SURFCB32_ADDATTACHEDSURFACE: i32 = 128i32;
 pub const DDHAL_SURFCB32_BLT: i32 = 32i32;
@@ -515,16 +611,22 @@ pub const DDHAL_SURFCB32_SETPALETTE: i32 = 8192i32;
 pub const DDHAL_SURFCB32_UNLOCK: i32 = 16i32;
 pub const DDHAL_SURFCB32_UPDATEOVERLAY: i32 = 1024i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SYNCSURFACEDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_SYNCVIDEOPORTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_UNLOCKDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_UPDATENONLOCALHEAPDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_UPDATEOVERLAYDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_UPDATEVPORTDATA(i32);
 pub const DDHAL_VPORT32_CANCREATEVIDEOPORT: i32 = 1i32;
 pub const DDHAL_VPORT32_COLORCONTROL: i32 = 32768i32;
@@ -543,10 +645,13 @@ pub const DDHAL_VPORT32_GETSIGNALSTATUS: i32 = 16384i32;
 pub const DDHAL_VPORT32_UPDATE: i32 = 4096i32;
 pub const DDHAL_VPORT32_WAITFORSYNC: i32 = 8192i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_VPORTCOLORDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_WAITFORVERTICALBLANKDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDHAL_WAITFORVPORTSYNCDATA(i32);
 pub const DDIRQ_BUSMASTER: i32 = 2i32;
 pub const DDIRQ_DISPLAY_VSYNC: i32 = 1i32;
@@ -571,6 +676,7 @@ pub const DDIRQ_VPORT8_LINE: i32 = 524288i32;
 pub const DDIRQ_VPORT8_VSYNC: i32 = 262144i32;
 pub const DDIRQ_VPORT9_LINE: i32 = 131072i32;
 pub const DDIRQ_VPORT9_VSYNC: i32 = 65536i32;
+#[repr(C)]
 pub struct DDKERNELCAPS(i32);
 pub const DDKERNELCAPS_AUTOFLIP: i32 = 2i32;
 pub const DDKERNELCAPS_CAPTURE_INVERTED: i32 = 512i32;
@@ -582,7 +688,9 @@ pub const DDKERNELCAPS_FLIPVIDEOPORT: i32 = 16i32;
 pub const DDKERNELCAPS_LOCK: i32 = 8i32;
 pub const DDKERNELCAPS_SETSTATE: i32 = 4i32;
 pub const DDKERNELCAPS_SKIPFIELDS: i32 = 1i32;
+#[repr(C)]
 pub struct DDLOCKININFO(i32);
+#[repr(C)]
 pub struct DDLOCKOUTINFO(i32);
 pub const DDLOCK_DISCARDCONTENTS: i32 = 8192i32;
 pub const DDLOCK_DONOTWAIT: i32 = 16384i32;
@@ -597,10 +705,13 @@ pub const DDLOCK_SURFACEMEMORYPTR: i32 = 0i32;
 pub const DDLOCK_WAIT: i32 = 1i32;
 pub const DDLOCK_WRITEONLY: i32 = 32i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDMCBUFFERINFO(i32);
+#[repr(C)]
 pub struct DDMCCOMPBUFFERINFO(i32);
 pub const DDMCQUERY_READ: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDMOCOMPBUFFERINFO(i32);
 pub const DDMODEINFO_MAXREFRESH: u32 = 16u32;
 pub const DDMODEINFO_MODEX: u32 = 2u32;
@@ -608,12 +719,18 @@ pub const DDMODEINFO_PALETTIZED: u32 = 1u32;
 pub const DDMODEINFO_STANDARDVGA: u32 = 8u32;
 pub const DDMODEINFO_STEREO: u32 = 32u32;
 pub const DDMODEINFO_UNSUPPORTED: u32 = 4u32;
+#[repr(C)]
 pub struct DDMONITORINFO(i32);
+#[repr(C)]
 pub struct DDMORESURFACECAPS(i32);
 pub const DDNEWCALLBACKFNS: u32 = 12u32;
+#[repr(C)]
 pub struct DDNONLOCALVIDMEMCAPS(i32);
+#[repr(C)]
 pub struct DDNTCORECAPS(i32);
+#[repr(C)]
 pub struct DDOPTSURFACEDESC(i32);
+#[repr(C)]
 pub struct DDOSCAPS(i32);
 pub const DDOSDCAPS_MONOLITHICMIPMAP: i32 = 4i32;
 pub const DDOSDCAPS_OPTCOMPRESSED: i32 = 1i32;
@@ -629,6 +746,7 @@ pub const DDOVERFX_ARITHSTRETCHY: i32 = 1i32;
 pub const DDOVERFX_DEINTERLACE: i32 = 8i32;
 pub const DDOVERFX_MIRRORLEFTRIGHT: i32 = 2i32;
 pub const DDOVERFX_MIRRORUPDOWN: i32 = 4i32;
+#[repr(C)]
 pub struct DDOVERLAYFX(i32);
 pub const DDOVERZ_INSERTINBACKOF: i32 = 5i32;
 pub const DDOVERZ_INSERTINFRONTOF: i32 = 4i32;
@@ -694,6 +812,7 @@ pub const DDPF_STENCILBUFFER: i32 = 16384i32;
 pub const DDPF_YUV: i32 = 512i32;
 pub const DDPF_ZBUFFER: i32 = 1024i32;
 pub const DDPF_ZPIXELS: i32 = 8192i32;
+#[repr(C)]
 pub struct DDPIXELFORMAT(i32);
 pub const DDRAWICLIP_INMASTERSPRITELIST: i32 = 4i32;
 pub const DDRAWICLIP_ISINITIALIZED: i32 = 2i32;
@@ -800,40 +919,58 @@ pub const DDRAWI_ATTACHEDTODESKTOP: i32 = 16777216i32;
 pub const DDRAWI_BADPDEV: i32 = 1073741824i32;
 pub const DDRAWI_CHANGINGMODE: i32 = 4194304i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDMOTIONCOMP_INT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDMOTIONCOMP_LCL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWCLIPPER_GBL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWCLIPPER_INT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWCLIPPER_LCL(i32);
 pub const DDRAWI_DDRAWDATANOTFETCHED: i32 = 67108864i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWPALETTE_GBL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWPALETTE_INT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWPALETTE_LCL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWSURFACE_GBL(i32);
+#[repr(C)]
 pub struct DDRAWI_DDRAWSURFACE_GBL_MORE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWSURFACE_INT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWSURFACE_LCL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDRAWSURFACE_MORE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDVIDEOPORT_INT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DDVIDEOPORT_LCL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DIRECTDRAW_GBL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DIRECTDRAW_INT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DDRAWI_DIRECTDRAW_LCL(i32);
 pub const DDRAWI_DISPLAYDRV: i32 = 32i32;
 pub const DDRAWI_DRIVERINFO2: i32 = 536870912i32;
@@ -868,8 +1005,11 @@ pub const DDRAWI_VPORTSTOP: u32 = 2u32;
 pub const DDRAWI_VPORTUPDATE: u32 = 3u32;
 pub const DDRAWI_xxxxxxxxx1: i32 = 1i32;
 pub const DDRAWI_xxxxxxxxx2: i32 = 2i32;
+#[repr(C)]
 pub struct DDRGBA(i32);
+#[repr(C)]
 pub struct DDSCAPS(i32);
+#[repr(C)]
 pub struct DDSCAPS2(i32);
 pub const DDSCAPS2_ADDITIONALPRIMARY: i32 = -2147483648i32;
 pub const DDSCAPS2_COMMANDBUFFER: i32 = 64i32;
@@ -916,6 +1056,7 @@ pub const DDSCAPS3_READONLYRESOURCE: i32 = 16384i32;
 pub const DDSCAPS3_RESERVED1: i32 = 256i32;
 pub const DDSCAPS3_RESERVED2: i32 = 512i32;
 pub const DDSCAPS3_VIDEO: i32 = 512i32;
+#[repr(C)]
 pub struct DDSCAPSEX(i32);
 pub const DDSCAPS_3DDEVICE: i32 = 8192i32;
 pub const DDSCAPS_ALLOCONLOAD: i32 = 67108864i32;
@@ -984,12 +1125,15 @@ pub const DDSD_SRCVBHANDLE: i32 = 4194304i32;
 pub const DDSD_TEXTURESTAGE: i32 = 1048576i32;
 pub const DDSD_WIDTH: i32 = 4i32;
 pub const DDSD_ZBUFFERBITDEPTH: i32 = 64i32;
+#[repr(C)]
 pub struct DDSETSTATEININFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDSETSTATEOUTINFO(i32);
 pub const DDSETSURFACEDESC_PRESERVEDC: i32 = 1i32;
 pub const DDSETSURFACEDESC_RECREATEDC: i32 = 0i32;
 pub const DDSGR_CALIBRATE: i32 = 1i32;
+#[repr(C)]
 pub struct DDSKIPNEXTFIELDINFO(i32);
 pub const DDSKIP_ENABLENEXT: u32 = 2u32;
 pub const DDSKIP_SKIPNEXT: u32 = 1u32;
@@ -997,16 +1141,22 @@ pub const DDSMT_ISTESTREQUIRED: i32 = 1i32;
 pub const DDSPD_IUNKNOWNPOINTER: i32 = 1i32;
 pub const DDSPD_VOLATILE: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDSTEREOMODE(i32);
+#[repr(C)]
 pub struct DDSURFACEDATA(i32);
+#[repr(C)]
 pub struct DDSURFACEDESC(i32);
+#[repr(C)]
 pub struct DDSURFACEDESC2(i32);
 pub const DDSVCAPS_RESERVED1: i32 = 1i32;
 pub const DDSVCAPS_RESERVED2: i32 = 2i32;
 pub const DDSVCAPS_RESERVED3: i32 = 4i32;
 pub const DDSVCAPS_RESERVED4: i32 = 8i32;
 pub const DDSVCAPS_STEREOSEQUENTIAL: i32 = 16i32;
+#[repr(C)]
 pub struct DDTRANSFERININFO(i32);
+#[repr(C)]
 pub struct DDTRANSFEROUTINFO(i32);
 pub const DDTRANSFER_CANCEL: u32 = 128u32;
 pub const DDTRANSFER_HALFLINES: u32 = 256u32;
@@ -1014,17 +1164,26 @@ pub const DDTRANSFER_INVERT: u32 = 4u32;
 pub const DDTRANSFER_NONLOCALVIDMEM: u32 = 2u32;
 pub const DDTRANSFER_SYSTEMMEMORY: u32 = 1u32;
 pub const DDUNSUPPORTEDMODE: u32 = 4294967295u32;
+#[repr(C)]
 pub struct DDVERSIONDATA(i32);
 pub const DDVERSIONINFO: u32 = 13u32;
+#[repr(C)]
 pub struct DDVIDEOPORTBANDWIDTH(i32);
+#[repr(C)]
 pub struct DDVIDEOPORTCAPS(i32);
+#[repr(C)]
 pub struct DDVIDEOPORTCONNECT(i32);
+#[repr(C)]
 pub struct DDVIDEOPORTDATA(i32);
+#[repr(C)]
 pub struct DDVIDEOPORTDESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDVIDEOPORTINFO(i32);
+#[repr(C)]
 pub struct DDVIDEOPORTNOTIFY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DDVIDEOPORTSTATUS(i32);
 pub const DDVPBCAPS_DESTINATION: i32 = 2i32;
 pub const DDVPBCAPS_SOURCE: i32 = 1i32;
@@ -1126,154 +1285,245 @@ pub const DDWAITVB_BLOCKBEGINEVENT: i32 = 2i32;
 pub const DDWAITVB_BLOCKEND: i32 = 4i32;
 pub const DDWAITVB_I_TESTVB: i32 = -2147483642i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_ADDATTACHEDSURFACEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_ATTACHLIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_BEGINMOCOMPFRAMEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_BLTDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DD_CALLBACKS(i32);
+#[repr(C)]
 pub struct DD_CANCREATESURFACEDATA(i32);
+#[repr(C)]
 pub struct DD_CANCREATEVPORTDATA(i32);
+#[repr(C)]
 pub struct DD_CLIPPER_GLOBAL(i32);
+#[repr(C)]
 pub struct DD_CLIPPER_LOCAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_COLORCONTROLCALLBACKS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_COLORCONTROLDATA(i32);
+#[repr(C)]
 pub struct DD_CREATEMOCOMPDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct DD_CREATEPALETTEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_CREATESURFACEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_CREATESURFACEEXDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_CREATEVPORTDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_D3DBUFCALLBACKS(i32);
+#[repr(C)]
 pub struct DD_DESTROYDDLOCALDATA(i32);
+#[repr(C)]
 pub struct DD_DESTROYMOCOMPDATA(i32);
+#[repr(C)]
 pub struct DD_DESTROYPALETTEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_DESTROYSURFACEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_DESTROYVPORTDATA(i32);
+#[repr(C)]
 pub struct DD_DIRECTDRAW_GLOBAL(i32);
+#[repr(C)]
 pub struct DD_DIRECTDRAW_LOCAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_DRVSETCOLORKEYDATA(i32);
+#[repr(C)]
 pub struct DD_ENDMOCOMPFRAMEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_FLIPDATA(i32);
+#[repr(C)]
 pub struct DD_FLIPTOGDISURFACEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_FLIPVPORTDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_FREEDRIVERMEMORYDATA(i32);
+#[repr(C)]
 pub struct DD_GETAVAILDRIVERMEMORYDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETBLTSTATUSDATA(i32);
+#[repr(C)]
 pub struct DD_GETDRIVERINFODATA(i32);
+#[repr(C)]
 pub struct DD_GETDRIVERSTATEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETFLIPSTATUSDATA(i32);
+#[repr(C)]
 pub struct DD_GETHEAPALIGNMENTDATA(i32);
+#[repr(C)]
 pub struct DD_GETINTERNALMOCOMPDATA(i32);
+#[repr(C)]
 pub struct DD_GETMOCOMPCOMPBUFFDATA(i32);
+#[repr(C)]
 pub struct DD_GETMOCOMPFORMATSDATA(i32);
+#[repr(C)]
 pub struct DD_GETMOCOMPGUIDSDATA(i32);
+#[repr(C)]
 pub struct DD_GETSCANLINEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETVPORTBANDWIDTHDATA(i32);
+#[repr(C)]
 pub struct DD_GETVPORTCONNECTDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETVPORTFIELDDATA(i32);
+#[repr(C)]
 pub struct DD_GETVPORTFLIPSTATUSDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETVPORTINPUTFORMATDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETVPORTLINEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETVPORTOUTPUTFORMATDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_GETVPORTSIGNALDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_HALINFO(i32);
+#[repr(C)]
 pub struct DD_HALINFO_V4(i32);
 pub const DD_HAL_VERSION: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_KERNELCALLBACKS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_LOCKDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_MAPMEMORYDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_MISCELLANEOUS2CALLBACKS(i32);
+#[repr(C)]
 pub struct DD_MISCELLANEOUSCALLBACKS(i32);
+#[repr(C)]
 pub struct DD_MORECAPS(i32);
+#[repr(C)]
 pub struct DD_MORESURFACECAPS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_MOTIONCOMPCALLBACKS(i32);
+#[repr(C)]
 pub struct DD_MOTIONCOMP_LOCAL(i32);
+#[repr(C)]
 pub struct DD_NONLOCALVIDMEMCAPS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_NTCALLBACKS(i32);
+#[repr(C)]
 pub struct DD_NTPRIVATEDRIVERCAPS(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct DD_PALETTECALLBACKS(i32);
+#[repr(C)]
 pub struct DD_PALETTE_GLOBAL(i32);
+#[repr(C)]
 pub struct DD_PALETTE_LOCAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_QUERYMOCOMPSTATUSDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_RENDERMOCOMPDATA(i32);
 pub const DD_RUNTIME_VERSION: i32 = 2306i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SETCLIPLISTDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SETCOLORKEYDATA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct DD_SETENTRIESDATA(i32);
+#[repr(C)]
 pub struct DD_SETEXCLUSIVEMODEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SETOVERLAYPOSITIONDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SETPALETTEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_STEREOMODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SURFACECALLBACKS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SURFACE_GLOBAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SURFACE_INT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SURFACE_LOCAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SURFACE_MORE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SYNCSURFACEDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_SYNCVIDEOPORTDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_UNLOCKDATA(i32);
+#[repr(C)]
 pub struct DD_UPDATENONLOCALHEAPDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_UPDATEOVERLAYDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_UPDATEVPORTDATA(i32);
 pub const DD_VERSION: i32 = 512i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_VIDEOPORTCALLBACKS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_VIDEOPORT_LOCAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_VPORTCOLORDATA(i32);
+#[repr(C)]
 pub struct DD_WAITFORVERTICALBLANKDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DD_WAITFORVPORTSYNCDATA(i32);
 pub const DELETED_LASTONE: u32 = 1u32;
 pub const DELETED_NOTFOUND: u32 = 2u32;
@@ -1281,10 +1531,12 @@ pub const DELETED_OK: u32 = 0u32;
 pub const DIRECTDRAW_VERSION: u32 = 1792u32;
 pub const DXAPI_HALVERSION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DXAPI_INTERFACE(i32);
 pub const DXERR_GENERIC: u32 = 2147500037u32;
 pub const DXERR_OUTOFCAPS: u32 = 2289434984u32;
 pub const DXERR_UNSUPPORTED: u32 = 2147500033u32;
+#[repr(C)]
 pub struct DX_IRQDATA(i32);
 pub const DX_OK: u32 = 0u32;
 pub const GUID_ColorControlCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023782594, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
@@ -1331,156 +1583,263 @@ pub const GUID_VPE2Callbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { 
 pub const GUID_VideoPortCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023782593, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
 pub const GUID_VideoPortCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023782595, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
 pub const GUID_ZPixelFormats: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2475071616, data2: 14031, data3: 4561, data4: [155, 27, 0, 170, 0, 187, 184, 174] };
+#[repr(C)]
 pub struct HEAPALIAS(i32);
+#[repr(C)]
 pub struct HEAPALIASINFO(i32);
 pub const HEAPALIASINFO_MAPPEDDUMMY: i32 = 2i32;
 pub const HEAPALIASINFO_MAPPEDREAL: i32 = 1i32;
+#[repr(C)]
 pub struct HEAPALIGNMENT(i32);
 #[repr(transparent)]
 pub struct IDDVideoPortContainer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDDVideoPortContainerVtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDraw(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectDraw2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDraw2Vtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDraw4(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDraw4Vtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDraw7(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDraw7Vtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawClipper(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawClipperVtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawColorControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawColorControlVtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawGammaControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawGammaControlVtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawKernel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawKernelVtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawPalette(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawPaletteVtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawSurface(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectDrawSurface2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawSurface2Vtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawSurface3(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawSurface3Vtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawSurface4(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawSurface4Vtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawSurface7(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawSurface7Vtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawSurfaceKernel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawSurfaceKernelVtbl(i32);
+#[repr(C)]
 pub struct IDirectDrawSurfaceVtbl(i32);
 #[repr(transparent)]
 pub struct IDirectDrawVideoPort(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectDrawVideoPortNotify(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IDirectDrawVideoPortNotifyVtbl(i32);
+#[repr(C)]
 pub struct IDirectDrawVideoPortVtbl(i32);
+#[repr(C)]
 pub struct IDirectDrawVtbl(i32);
 pub const IRQINFO_HANDLED: u32 = 1u32;
 pub const IRQINFO_NOTHANDLED: u32 = 2u32;
+#[repr(C)]
 pub struct IUNKNOWN_LIST(i32);
+#[repr(C)]
 pub struct LPCLIPPERCALLBACK(i32);
+#[repr(C)]
 pub struct LPDD32BITDRIVERINIT(i32);
+#[repr(C)]
 pub struct LPDDENUMCALLBACKA(i32);
+#[repr(C)]
 pub struct LPDDENUMCALLBACKEXA(i32);
+#[repr(C)]
 pub struct LPDDENUMCALLBACKEXW(i32);
+#[repr(C)]
 pub struct LPDDENUMCALLBACKW(i32);
+#[repr(C)]
 pub struct LPDDENUMMODESCALLBACK(i32);
+#[repr(C)]
 pub struct LPDDENUMMODESCALLBACK2(i32);
+#[repr(C)]
 pub struct LPDDENUMSURFACESCALLBACK(i32);
+#[repr(C)]
 pub struct LPDDENUMSURFACESCALLBACK2(i32);
+#[repr(C)]
 pub struct LPDDENUMSURFACESCALLBACK7(i32);
+#[repr(C)]
 pub struct LPDDENUMVIDEOCALLBACK(i32);
+#[repr(C)]
 pub struct LPDDGAMMACALIBRATORPROC(i32);
+#[repr(C)]
 pub struct LPDDHALCOLORCB_COLORCONTROL(i32);
+#[repr(C)]
 pub struct LPDDHALEXEBUFCB_CANCREATEEXEBUF(i32);
+#[repr(C)]
 pub struct LPDDHALEXEBUFCB_CREATEEXEBUF(i32);
+#[repr(C)]
 pub struct LPDDHALEXEBUFCB_DESTROYEXEBUF(i32);
+#[repr(C)]
 pub struct LPDDHALEXEBUFCB_LOCKEXEBUF(i32);
+#[repr(C)]
 pub struct LPDDHALEXEBUFCB_UNLOCKEXEBUF(i32);
+#[repr(C)]
 pub struct LPDDHALKERNELCB_SYNCSURFACE(i32);
+#[repr(C)]
 pub struct LPDDHALKERNELCB_SYNCVIDEOPORT(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_BEGINFRAME(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_CREATE(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_DESTROY(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_ENDFRAME(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_GETCOMPBUFFINFO(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_GETFORMATS(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_GETGUIDS(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_GETINTERNALINFO(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_QUERYSTATUS(i32);
+#[repr(C)]
 pub struct LPDDHALMOCOMPCB_RENDER(i32);
+#[repr(C)]
 pub struct LPDDHALPALCB_DESTROYPALETTE(i32);
+#[repr(C)]
 pub struct LPDDHALPALCB_SETENTRIES(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_ADDATTACHEDSURFACE(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_BLT(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_DESTROYSURFACE(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_FLIP(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_GETBLTSTATUS(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_GETFLIPSTATUS(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_LOCK(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_SETCLIPLIST(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_SETCOLORKEY(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_SETOVERLAYPOSITION(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_SETPALETTE(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_UNLOCK(i32);
+#[repr(C)]
 pub struct LPDDHALSURFCB_UPDATEOVERLAY(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_CANCREATEVIDEOPORT(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_COLORCONTROL(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_CREATEVIDEOPORT(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_DESTROYVPORT(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_FLIP(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETBANDWIDTH(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETFIELD(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETFLIPSTATUS(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETINPUTFORMATS(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETLINE(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETOUTPUTFORMATS(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETSIGNALSTATUS(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_GETVPORTCONNECT(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_UPDATE(i32);
+#[repr(C)]
 pub struct LPDDHALVPORTCB_WAITFORSYNC(i32);
+#[repr(C)]
 pub struct LPDDHAL_CANCREATESURFACE(i32);
+#[repr(C)]
 pub struct LPDDHAL_CREATEPALETTE(i32);
+#[repr(C)]
 pub struct LPDDHAL_CREATESURFACE(i32);
+#[repr(C)]
 pub struct LPDDHAL_CREATESURFACEEX(i32);
+#[repr(C)]
 pub struct LPDDHAL_DESTROYDDLOCAL(i32);
+#[repr(C)]
 pub struct LPDDHAL_DESTROYDRIVER(i32);
+#[repr(C)]
 pub struct LPDDHAL_FLIPTOGDISURFACE(i32);
+#[repr(C)]
 pub struct LPDDHAL_GETAVAILDRIVERMEMORY(i32);
+#[repr(C)]
 pub struct LPDDHAL_GETDRIVERINFO(i32);
+#[repr(C)]
 pub struct LPDDHAL_GETDRIVERSTATE(i32);
+#[repr(C)]
 pub struct LPDDHAL_GETHEAPALIGNMENT(i32);
+#[repr(C)]
 pub struct LPDDHAL_GETSCANLINE(i32);
+#[repr(C)]
 pub struct LPDDHAL_SETCOLORKEY(i32);
+#[repr(C)]
 pub struct LPDDHAL_SETEXCLUSIVEMODE(i32);
+#[repr(C)]
 pub struct LPDDHAL_SETINFO(i32);
+#[repr(C)]
 pub struct LPDDHAL_SETMODE(i32);
+#[repr(C)]
 pub struct LPDDHAL_UPDATENONLOCALHEAP(i32);
+#[repr(C)]
 pub struct LPDDHAL_VIDMEMALLOC(i32);
+#[repr(C)]
 pub struct LPDDHAL_VIDMEMFREE(i32);
+#[repr(C)]
 pub struct LPDDHAL_WAITFORVERTICALBLANK(i32);
+#[repr(C)]
 pub struct LPDDHEL_INIT(i32);
+#[repr(C)]
 pub struct LPDIRECTDRAWENUMERATEEXA(i32);
+#[repr(C)]
 pub struct LPDIRECTDRAWENUMERATEEXW(i32);
 pub const MAX_AUTOFLIP_BUFFERS: u32 = 10u32;
 pub const MAX_DDDEVICEID_STRING: u32 = 512u32;
 pub const MAX_DRIVER_NAME: u32 = 32u32;
 pub const MAX_PALETTE_SIZE: u32 = 256u32;
+#[repr(C)]
 pub struct MDL(i32);
 pub const MDL_64_BIT_VA: u32 = 32768u32;
 pub const MDL_ALLOCATED_FIXED_SIZE: u32 = 8u32;
@@ -1499,94 +1858,176 @@ pub const MDL_SCATTER_GATHER_VA: u32 = 1024u32;
 pub const MDL_SOURCE_IS_NONPAGED_POOL: u32 = 4u32;
 pub const MDL_WRITE_OPERATION: u32 = 128u32;
 pub const OBJECT_ISROOT: i32 = -2147483648i32;
+#[repr(C)]
 pub struct PDD_ALPHABLT(i32);
+#[repr(C)]
 pub struct PDD_CANCREATESURFACE(i32);
+#[repr(C)]
 pub struct PDD_COLORCB_COLORCONTROL(i32);
+#[repr(C)]
 pub struct PDD_CREATEPALETTE(i32);
+#[repr(C)]
 pub struct PDD_CREATESURFACE(i32);
+#[repr(C)]
 pub struct PDD_CREATESURFACEEX(i32);
+#[repr(C)]
 pub struct PDD_DESTROYDDLOCAL(i32);
+#[repr(C)]
 pub struct PDD_DESTROYDRIVER(i32);
+#[repr(C)]
 pub struct PDD_FLIPTOGDISURFACE(i32);
+#[repr(C)]
 pub struct PDD_FREEDRIVERMEMORY(i32);
+#[repr(C)]
 pub struct PDD_GETAVAILDRIVERMEMORY(i32);
+#[repr(C)]
 pub struct PDD_GETDRIVERINFO(i32);
+#[repr(C)]
 pub struct PDD_GETDRIVERSTATE(i32);
+#[repr(C)]
 pub struct PDD_GETSCANLINE(i32);
+#[repr(C)]
 pub struct PDD_KERNELCB_SYNCSURFACE(i32);
+#[repr(C)]
 pub struct PDD_KERNELCB_SYNCVIDEOPORT(i32);
+#[repr(C)]
 pub struct PDD_MAPMEMORY(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_BEGINFRAME(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_CREATE(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_DESTROY(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_ENDFRAME(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_GETCOMPBUFFINFO(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_GETFORMATS(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_GETGUIDS(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_GETINTERNALINFO(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_QUERYSTATUS(i32);
+#[repr(C)]
 pub struct PDD_MOCOMPCB_RENDER(i32);
+#[repr(C)]
 pub struct PDD_PALCB_DESTROYPALETTE(i32);
+#[repr(C)]
 pub struct PDD_PALCB_SETENTRIES(i32);
+#[repr(C)]
 pub struct PDD_SETCOLORKEY(i32);
+#[repr(C)]
 pub struct PDD_SETEXCLUSIVEMODE(i32);
+#[repr(C)]
 pub struct PDD_SETMODE(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_ADDATTACHEDSURFACE(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_BLT(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_DESTROYSURFACE(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_FLIP(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_GETBLTSTATUS(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_GETFLIPSTATUS(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_LOCK(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_SETCLIPLIST(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_SETCOLORKEY(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_SETOVERLAYPOSITION(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_SETPALETTE(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_UNLOCK(i32);
+#[repr(C)]
 pub struct PDD_SURFCB_UPDATEOVERLAY(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_CANCREATEVIDEOPORT(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_COLORCONTROL(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_CREATEVIDEOPORT(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_DESTROYVPORT(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_FLIP(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETAUTOFLIPSURF(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETBANDWIDTH(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETFIELD(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETFLIPSTATUS(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETINPUTFORMATS(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETLINE(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETOUTPUTFORMATS(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETSIGNALSTATUS(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_GETVPORTCONNECT(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_UPDATE(i32);
+#[repr(C)]
 pub struct PDD_VPORTCB_WAITFORSYNC(i32);
+#[repr(C)]
 pub struct PDD_WAITFORVERTICALBLANK(i32);
+#[repr(C)]
 pub struct PDX_BOBNEXTFIELD(i32);
+#[repr(C)]
 pub struct PDX_ENABLEIRQ(i32);
+#[repr(C)]
 pub struct PDX_FLIPOVERLAY(i32);
+#[repr(C)]
 pub struct PDX_FLIPVIDEOPORT(i32);
+#[repr(C)]
 pub struct PDX_GETCURRENTAUTOFLIP(i32);
+#[repr(C)]
 pub struct PDX_GETIRQINFO(i32);
+#[repr(C)]
 pub struct PDX_GETPOLARITY(i32);
+#[repr(C)]
 pub struct PDX_GETPREVIOUSAUTOFLIP(i32);
+#[repr(C)]
 pub struct PDX_GETTRANSFERSTATUS(i32);
+#[repr(C)]
 pub struct PDX_IRQCALLBACK(i32);
+#[repr(C)]
 pub struct PDX_LOCK(i32);
+#[repr(C)]
 pub struct PDX_SETSTATE(i32);
+#[repr(C)]
 pub struct PDX_SKIPNEXTFIELD(i32);
+#[repr(C)]
 pub struct PDX_TRANSFER(i32);
 pub const PFINDEX_UNINITIALIZED: u32 = 0u32;
+#[repr(C)]
 pub struct PROCESS_LIST(i32);
 pub const ROP_HAS_PATTERN: i32 = 2i32;
 pub const ROP_HAS_SOURCE: i32 = 1i32;
+#[repr(C)]
 pub struct SURFACEALIGNMENT(i32);
 pub const SURFACEALIGN_DISCARDABLE: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDEOMEMORY(i32);
+#[repr(C)]
 pub struct VIDEOMEMORYINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDMEM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VIDMEMINFO(i32);
 pub const VIDMEM_HEAPDISABLED: i32 = 32i32;
 pub const VIDMEM_ISHEAP: i32 = 4i32;
@@ -1595,16 +2036,23 @@ pub const VIDMEM_ISNONLOCAL: i32 = 8i32;
 pub const VIDMEM_ISRECTANGULAR: i32 = 2i32;
 pub const VIDMEM_ISWC: i32 = 16i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VMEMHEAP(i32);
 pub const VMEMHEAP_ALIGNMENT: i32 = 4i32;
 pub const VMEMHEAP_LINEAR: i32 = 1i32;
 pub const VMEMHEAP_RECTANGULAR: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VMEML(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VMEMR(i32);
+#[repr(C)]
 pub struct _DDFXROP(i32);
+#[repr(C)]
 pub struct _DD_DESTROYDRIVERDATA(i32);
+#[repr(C)]
 pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(i32);
+#[repr(C)]
 pub struct _DD_SETMODEDATA(i32);
 pub const _FACDD: u32 = 2166u32;

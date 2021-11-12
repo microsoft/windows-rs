@@ -59,16 +59,21 @@ pub struct IVoiceCommandManager(pub *mut ::core::ffi::c_void);
 pub struct IVoiceCommandSet(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpeechContinuousRecognitionMode(i32);
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionSession(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpeechRecognitionAudioProblem(i32);
 #[repr(transparent)]
 pub struct SpeechRecognitionCompilationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpeechRecognitionConfidence(i32);
+#[repr(C)]
 pub struct SpeechRecognitionConstraintProbability(i32);
+#[repr(C)]
 pub struct SpeechRecognitionConstraintType(i32);
 #[repr(transparent)]
 pub struct SpeechRecognitionGrammarFileConstraint(pub *mut ::core::ffi::c_void);
@@ -82,7 +87,9 @@ pub struct SpeechRecognitionListConstraint(pub *mut ::core::ffi::c_void);
 pub struct SpeechRecognitionQualityDegradingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechRecognitionResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpeechRecognitionResultStatus(i32);
+#[repr(C)]
 pub struct SpeechRecognitionScenario(i32);
 #[repr(transparent)]
 pub struct SpeechRecognitionSemanticInterpretation(pub *mut ::core::ffi::c_void);
@@ -92,6 +99,7 @@ pub struct SpeechRecognitionTopicConstraint(pub *mut ::core::ffi::c_void);
 pub struct SpeechRecognitionVoiceCommandDefinitionConstraint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpeechRecognizerState(i32);
 #[repr(transparent)]
 pub struct SpeechRecognizerStateChangedEventArgs(pub *mut ::core::ffi::c_void);

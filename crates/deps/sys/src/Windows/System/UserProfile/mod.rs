@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AccountPictureKind(i32);
 #[repr(transparent)]
 pub struct AdvertisingManager(pub *mut ::core::ffi::c_void);
@@ -54,11 +55,15 @@ pub struct IUserProfilePersonalizationSettings(pub *mut ::core::ffi::c_void);
 pub struct IUserProfilePersonalizationSettingsStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LockScreen(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SetAccountPictureResult(i32);
+#[repr(C)]
 pub struct SetImageFeedResult(i32);
 #[repr(transparent)]
 pub struct UserInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserProfileContract(i32);
+#[repr(C)]
 pub struct UserProfileLockScreenContract(i32);
 #[repr(transparent)]
 pub struct UserProfilePersonalizationSettings(pub *mut ::core::ffi::c_void);

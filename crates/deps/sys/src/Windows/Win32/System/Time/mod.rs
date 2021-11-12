@@ -33,8 +33,10 @@ extern "system" {
     pub fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TIME_ZONE_INFORMATION(i32);
 pub const TSF_Authenticated: u32 = 2u32;
 pub const TSF_Hardware: u32 = 1u32;

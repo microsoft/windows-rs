@@ -25,6 +25,7 @@ pub struct IPrintDocumentStatics(pub *mut ::core::ffi::c_void);
 pub struct PaginateEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaginateEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PreviewPageCountType(i32);
 #[repr(transparent)]
 pub struct PrintDocument(pub *mut ::core::ffi::c_void);

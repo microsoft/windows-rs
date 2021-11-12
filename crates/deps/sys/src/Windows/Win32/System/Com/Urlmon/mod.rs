@@ -124,21 +124,34 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct AUTHENTICATEF(i32);
+#[repr(C)]
 pub struct BINDF(i32);
+#[repr(C)]
 pub struct BINDF2(i32);
+#[repr(C)]
 pub struct BINDHANDLETYPES(i32);
+#[repr(C)]
 pub struct BINDINFO_OPTIONS(i32);
+#[repr(C)]
 pub struct BINDSTATUS(i32);
+#[repr(C)]
 pub struct BINDSTRING(i32);
+#[repr(C)]
 pub struct BINDVERB(i32);
+#[repr(C)]
 pub struct BSCF(i32);
 pub const CF_NULL: u32 = 0u32;
+#[repr(C)]
 pub struct CIP_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CODEBASEHOLD(i32);
+#[repr(C)]
 pub struct CONFIRMSAFETY(i32);
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
+#[repr(C)]
 pub struct DATAINFO(i32);
 pub const E_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147483638i32 as _);
 pub const FIEF_FLAG_FORCE_JITUI: u32 = 1u32;
@@ -163,6 +176,7 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HIT_LOGGING_INFO(i32);
 #[repr(transparent)]
 pub struct IBindCallbackRedirect(pub *mut ::core::ffi::c_void);
@@ -176,6 +190,7 @@ pub struct ICatalogFileInfo(pub *mut ::core::ffi::c_void);
 pub struct ICodeInstall(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDataFilter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IEObjectType(i32);
 #[repr(transparent)]
 pub struct IEncodingFilterFactory(pub *mut ::core::ffi::c_void);
@@ -281,7 +296,9 @@ pub const INET_E_USE_DEFAULT_PROTOCOLHANDLER: ::windows_sys::core::HRESULT = ::w
 pub const INET_E_USE_DEFAULT_SETTING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146697198i32 as _);
 pub const INET_E_USE_EXTEND_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146697193i32 as _);
 pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146697187i32 as _);
+#[repr(C)]
 pub struct INET_ZONE_MANAGER_CONSTANTS(i32);
+#[repr(C)]
 pub struct INTERNETFEATURELIST(i32);
 #[repr(transparent)]
 pub struct IPersistMoniker(pub *mut ::core::ffi::c_void);
@@ -314,6 +331,7 @@ pub struct IZoneIdentifier2(pub *mut ::core::ffi::c_void);
 pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;
 pub const MKSYS_URLMONIKER: u32 = 6u32;
 pub const MK_S_ASYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262632i32 as _);
+#[repr(C)]
 pub struct MONIKERPROPERTY(i32);
 pub const MUTZ_ACCEPT_WILDCARD_SCHEME: u32 = 128u32;
 pub const MUTZ_DONT_UNESCAPE: u32 = 2048u32;
@@ -325,22 +343,35 @@ pub const MUTZ_ISFILE: u32 = 2u32;
 pub const MUTZ_NOSAVEDFILECHECK: u32 = 1u32;
 pub const MUTZ_REQUIRESAVEDFILECHECK: u32 = 1024u32;
 pub const MUTZ_RESERVED: u32 = 512u32;
+#[repr(C)]
 pub struct OIBDG_FLAGS(i32);
+#[repr(C)]
 pub struct PARSEACTION(i32);
+#[repr(C)]
 pub struct PI_FLAGS(i32);
+#[repr(C)]
 pub struct PROTOCOLDATA(i32);
+#[repr(C)]
 pub struct PROTOCOLFILTERDATA(i32);
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROTOCOL_ARGUMENT(i32);
+#[repr(C)]
 pub struct PSUACTION(i32);
+#[repr(C)]
 pub struct PUAF(i32);
+#[repr(C)]
 pub struct PUAFOUT(i32);
+#[repr(C)]
 pub struct QUERYOPTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REMSECURITY_ATTRIBUTES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RemBINDINFO(i32);
+#[repr(C)]
 pub struct RemFORMATETC(i32);
 pub const SECURITY_IE_STATE_GREEN: u32 = 0u32;
 pub const SECURITY_IE_STATE_RED: u32 = 1u32;
@@ -353,6 +384,7 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128u32;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOFTDISTINFO(i32);
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: u32 = 2u32;
@@ -362,8 +394,10 @@ pub const SOFTDIST_FLAG_DELETE_SUBSCRIPTION: u32 = 8u32;
 pub const SOFTDIST_FLAG_USAGE_AUTOINSTALL: u32 = 4u32;
 pub const SOFTDIST_FLAG_USAGE_EMAIL: u32 = 1u32;
 pub const SOFTDIST_FLAG_USAGE_PRECACHE: u32 = 2u32;
+#[repr(C)]
 pub struct SZM_FLAGS(i32);
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
+#[repr(C)]
 pub struct StartParam(i32);
 pub const UAS_EXACTLEGACY: u32 = 4096u32;
 pub const URLACTION_ACTIVEX_ALLOW_TDC: u32 = 4620u32;
@@ -542,10 +576,14 @@ pub const URLPOLICY_MASK_PERMISSIONS: u32 = 15u32;
 pub const URLPOLICY_NOTIFY_ON_ALLOW: u32 = 16u32;
 pub const URLPOLICY_NOTIFY_ON_DISALLOW: u32 = 32u32;
 pub const URLPOLICY_QUERY: u32 = 1u32;
+#[repr(C)]
 pub struct URLTEMPLATE(i32);
+#[repr(C)]
 pub struct URLZONE(i32);
+#[repr(C)]
 pub struct URLZONEREG(i32);
 pub const URLZONE_ESC_FLAG: u32 = 256u32;
+#[repr(C)]
 pub struct URL_ENCODING(i32);
 pub const URL_MK_LEGACY: u32 = 0u32;
 pub const URL_MK_NO_CANONICALIZE: u32 = 2u32;
@@ -561,8 +599,11 @@ pub const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_CP: u32 = 64u32;
 pub const Uri_ENCODING_QUERY_AND_FRAGMENT_IS_PERCENT_ENCODED_UTF8: u32 = 32u32;
 pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_CP: u32 = 2u32;
 pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_PERCENT_ENCODED_UTF8: u32 = 1u32;
+#[repr(C)]
 pub struct Uri_HOST_TYPE(i32);
 pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
 pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
+#[repr(C)]
 pub struct ZAFLAGS(i32);
+#[repr(C)]
 pub struct ZONEATTRIBUTES(i32);

@@ -621,48 +621,71 @@ extern "system" {
     pub fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ACTCTXA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ACTCTXW(i32);
+#[repr(C)]
 pub struct ACTCTX_COMPATIBILITY_ELEMENT_TYPE(i32);
+#[repr(C)]
 pub struct ACTCTX_REQUESTED_RUN_LEVEL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[repr(C)]
 pub struct ACTCTX_SECTION_KEYED_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION(i32);
+#[repr(C)]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION(i32);
+#[repr(C)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX(i32);
+#[repr(C)]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION(i32);
+#[repr(C)]
 pub struct ADVERTISEFLAGS(i32);
 pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2u32;
 pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1u32;
 pub const APPLY_OPTION_TEST_ONLY: u32 = 4u32;
 pub const APPLY_OPTION_VALID_FLAGS: u32 = 7u32;
+#[repr(C)]
 pub struct ASM_BIND_FLAGS(i32);
+#[repr(C)]
 pub struct ASM_CMP_FLAGS(i32);
+#[repr(C)]
 pub struct ASM_DISPLAY_FLAGS(i32);
+#[repr(C)]
 pub struct ASM_NAME(i32);
 pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
 pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ASSEMBLY_INFO(i32);
 pub const CLSID_EvalCom2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1851660560, data2: 32851, data3: 18016, data4: [183, 149, 107, 97, 46, 41, 188, 88] };
 pub const CLSID_MsmMerge2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4182345173, data2: 10745, data3: 18243, data4: [152, 5, 153, 188, 63, 53, 182, 120] };
+#[repr(C)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT(i32);
+#[repr(C)]
 pub struct CREATE_ASM_NAME_OBJ_FLAGS(i32);
 pub const DEFAULT_DISK_ID: u32 = 2u32;
 pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2u32;
 pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100u32;
+#[repr(C)]
 pub struct DELTA_HASH(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DELTA_HEADER_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DELTA_INPUT(i32);
 pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
+#[repr(C)]
 pub struct DELTA_OUTPUT(i32);
 pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525u32;
 pub const ERROR_PATCH_CORRUPT: u32 = 3222159618u32;
@@ -846,6 +869,7 @@ pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787u32;
 pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859u32;
 pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FUSION_INSTALL_REFERENCE(i32);
 pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2955910501,
@@ -869,6 +893,7 @@ pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED: u32 = 3u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED: u32 = 1u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2u32;
 pub const IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: u32 = 1u32;
+#[repr(C)]
 pub struct IASSEMBLYCACHE_UNINSTALL_DISPOSITION(i32);
 #[repr(transparent)]
 pub struct IAssemblyCache(pub *mut ::core::ffi::c_void);
@@ -915,17 +940,28 @@ pub const INFO_SUCCESSFUL_PATCH_CREATION: u32 = 3222229271u32;
 pub const INFO_TEMP_DIR: u32 = 3222229253u32;
 pub const INFO_TEMP_DIR_CLEANUP: u32 = 3222229266u32;
 pub const INFO_USING_USER_MSI_FOR_PATCH_TABLES: u32 = 3222229270u32;
+#[repr(C)]
 pub struct INSTALLFEATUREATTRIBUTE(i32);
+#[repr(C)]
 pub struct INSTALLLEVEL(i32);
+#[repr(C)]
 pub struct INSTALLLOGATTRIBUTES(i32);
+#[repr(C)]
 pub struct INSTALLMESSAGE(i32);
 pub const INSTALLMESSAGE_TYPEMASK: i32 = -16777216i32;
+#[repr(C)]
 pub struct INSTALLMODE(i32);
+#[repr(C)]
 pub struct INSTALLOGMODE(i32);
+#[repr(C)]
 pub struct INSTALLSTATE(i32);
+#[repr(C)]
 pub struct INSTALLTYPE(i32);
+#[repr(C)]
 pub struct INSTALLUILEVEL(i32);
+#[repr(C)]
 pub struct INSTALLUI_HANDLERA(i32);
+#[repr(C)]
 pub struct INSTALLUI_HANDLERW(i32);
 #[repr(transparent)]
 pub struct IPMApplicationInfo(pub *mut ::core::ffi::c_void);
@@ -991,51 +1027,86 @@ pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3u32;
 pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 pub const LOGWARN: u32 = 2u32;
+#[repr(C)]
 pub struct LPDISPLAYVAL(i32);
+#[repr(C)]
 pub struct LPEVALCOMCALLBACK(i32);
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
 pub const MAX_GUID_CHARS: u32 = 38u32;
+#[repr(C)]
 pub struct MSIADVERTISEOPTIONFLAGS(i32);
+#[repr(C)]
 pub struct MSIARCHITECTUREFLAGS(i32);
+#[repr(C)]
 pub struct MSIASSEMBLYINFO(i32);
+#[repr(C)]
 pub struct MSICODE(i32);
+#[repr(C)]
 pub struct MSICOLINFO(i32);
+#[repr(C)]
 pub struct MSICONDITION(i32);
+#[repr(C)]
 pub struct MSICOSTTREE(i32);
+#[repr(C)]
 pub struct MSIDBERROR(i32);
+#[repr(C)]
 pub struct MSIDBSTATE(i32);
+#[repr(C)]
 pub struct MSIFILEHASHINFO(i32);
+#[repr(C)]
 pub struct MSIHANDLE(i32);
+#[repr(C)]
 pub struct MSIINSTALLCONTEXT(i32);
+#[repr(C)]
 pub struct MSIMODIFY(i32);
+#[repr(C)]
 pub struct MSIOPENPACKAGEFLAGS(i32);
+#[repr(C)]
 pub struct MSIPATCHDATATYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MSIPATCHSEQUENCEINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MSIPATCHSEQUENCEINFOW(i32);
+#[repr(C)]
 pub struct MSIPATCHSTATE(i32);
+#[repr(C)]
 pub struct MSIRUNMODE(i32);
+#[repr(C)]
 pub struct MSISOURCETYPE(i32);
+#[repr(C)]
 pub struct MSITRANSACTION(i32);
+#[repr(C)]
 pub struct MSITRANSACTIONSTATE(i32);
+#[repr(C)]
 pub struct MSITRANSFORM_ERROR(i32);
+#[repr(C)]
 pub struct MSITRANSFORM_VALIDATE(i32);
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
+#[repr(C)]
 pub struct MsmMerge(i32);
+#[repr(C)]
 pub struct PACKMAN_RUNTIME(i32);
+#[repr(C)]
 pub struct PATCH_IGNORE_RANGE(i32);
+#[repr(C)]
 pub struct PATCH_INTERLEAVE_MAP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PATCH_OLD_FILE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PATCH_OLD_FILE_INFO_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PATCH_OLD_FILE_INFO_H(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PATCH_OLD_FILE_INFO_W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PATCH_OPTION_DATA(i32);
 pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288u32;
@@ -1054,6 +1125,7 @@ pub const PATCH_OPTION_USE_LZX_B: u32 = 2u32;
 pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3u32;
 pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4u32;
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159u32;
+#[repr(C)]
 pub struct PATCH_RETAIN_RANGE(i32);
 pub const PATCH_SYMBOL_NO_FAILURES: u32 = 2u32;
 pub const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1u32;
@@ -1081,53 +1153,91 @@ pub const PID_TEMPLATE: u32 = 7u32;
 pub const PID_THUMBNAIL: u32 = 17u32;
 pub const PID_TITLE: u32 = 2u32;
 pub const PID_WORDCOUNT: u32 = 15u32;
+#[repr(C)]
 pub struct PINSTALLUI_HANDLER_RECORD(i32);
+#[repr(C)]
 pub struct PMSIHANDLE(i32);
+#[repr(C)]
 pub struct PMSvc(i32);
+#[repr(C)]
 pub struct PM_ACTIVATION_POLICY(i32);
+#[repr(C)]
 pub struct PM_APPLICATION_HUBTYPE(i32);
+#[repr(C)]
 pub struct PM_APPLICATION_INSTALL_TYPE(i32);
+#[repr(C)]
 pub struct PM_APPLICATION_STATE(i32);
+#[repr(C)]
 pub struct PM_APP_GENRE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_BSATASKID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_BWTASKID(i32);
+#[repr(C)]
 pub struct PM_ENUM_APP_FILTER(i32);
+#[repr(C)]
 pub struct PM_ENUM_BSA_FILTER(i32);
+#[repr(C)]
 pub struct PM_ENUM_BW_FILTER(i32);
+#[repr(C)]
 pub struct PM_ENUM_EXTENSION_FILTER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_ENUM_FILTER(i32);
+#[repr(C)]
 pub struct PM_ENUM_TASK_FILTER(i32);
+#[repr(C)]
 pub struct PM_ENUM_TILE_FILTER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_EXTENSIONCONSUMER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_INSTALLINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_INVOCATIONINFO(i32);
+#[repr(C)]
 pub struct PM_LIVETILE_RECURRENCE_TYPE(i32);
+#[repr(C)]
 pub struct PM_LOGO_SIZE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_STARTAPPBLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_STARTTILEBLOB(i32);
+#[repr(C)]
 pub struct PM_STARTTILE_TYPE(i32);
+#[repr(C)]
 pub struct PM_TASK_TRANSITION(i32);
+#[repr(C)]
 pub struct PM_TASK_TYPE(i32);
+#[repr(C)]
 pub struct PM_TILE_HUBTYPE(i32);
+#[repr(C)]
 pub struct PM_TILE_SIZE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_UPDATEINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PM_UPDATEINFO_LEGACY(i32);
+#[repr(C)]
 pub struct PPATCH_PROGRESS_CALLBACK(i32);
+#[repr(C)]
 pub struct PPATCH_SYMLOAD_CALLBACK(i32);
+#[repr(C)]
 pub struct PROTECTED_FILE_DATA(i32);
+#[repr(C)]
 pub struct QUERYASMINFO_FLAGS(i32);
+#[repr(C)]
 pub struct REINSTALLMODE(i32);
+#[repr(C)]
 pub struct RESULTTYPES(i32);
+#[repr(C)]
 pub struct SCRIPTFLAGS(i32);
 pub const SFC_DISABLE_ASK: u32 = 1u32;
 pub const SFC_DISABLE_NOPOPUPS: u32 = 4u32;
@@ -1139,11 +1249,13 @@ pub const SFC_SCAN_ALWAYS: u32 = 1u32;
 pub const SFC_SCAN_IMMEDIATE: u32 = 3u32;
 pub const SFC_SCAN_NORMAL: u32 = 0u32;
 pub const SFC_SCAN_ONCE: u32 = 2u32;
+#[repr(C)]
 pub struct STATUSTYPES(i32);
 pub const STREAM_FORMAT_COMPLIB_MANIFEST: u32 = 1u32;
 pub const STREAM_FORMAT_COMPLIB_MODULE: u32 = 0u32;
 pub const STREAM_FORMAT_WIN32_MANIFEST: u32 = 4u32;
 pub const STREAM_FORMAT_WIN32_MODULE: u32 = 2u32;
+#[repr(C)]
 pub struct TILE_TEMPLATE_TYPE(i32);
 pub const TXTLOG_BACKUP: u32 = 128u32;
 pub const TXTLOG_CMI: u32 = 268435456u32;
@@ -1183,6 +1295,7 @@ pub const TXTLOG_WARNING: u32 = 2u32;
 pub const UIALL: u32 = 32768u32;
 pub const UILOGBITS: u32 = 15u32;
 pub const UINONE: u32 = 0u32;
+#[repr(C)]
 pub struct USERINFOSTATE(i32);
 pub const WARN_BAD_MAJOR_VERSION: u32 = 3222294792u32;
 pub const WARN_BASE: u32 = 3222294785u32;
@@ -1201,31 +1314,58 @@ pub const WARN_SEQUENCE_DATA_GENERATION_DISABLED: u32 = 3222294786u32;
 pub const WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED: u32 = 3222294787u32;
 pub const _WIN32_MSI: u32 = 500u32;
 pub const _WIN32_MSM: u32 = 100u32;
+#[repr(C)]
 pub struct _tagAPPTASKTYPE(i32);
 pub const cchMaxInteger: i32 = 12i32;
+#[repr(C)]
 pub struct msidbAssemblyAttributes(i32);
+#[repr(C)]
 pub struct msidbClassAttributes(i32);
+#[repr(C)]
 pub struct msidbComponentAttributes(i32);
+#[repr(C)]
 pub struct msidbControlAttributes(i32);
+#[repr(C)]
 pub struct msidbCustomActionType(i32);
+#[repr(C)]
 pub struct msidbDialogAttributes(i32);
+#[repr(C)]
 pub struct msidbEmbeddedUIAttributes(i32);
+#[repr(C)]
 pub struct msidbFeatureAttributes(i32);
+#[repr(C)]
 pub struct msidbFileAttributes(i32);
+#[repr(C)]
 pub struct msidbIniFileAction(i32);
+#[repr(C)]
 pub struct msidbLocatorType(i32);
+#[repr(C)]
 pub struct msidbMoveFileOptions(i32);
+#[repr(C)]
 pub struct msidbODBCDataSourceRegistration(i32);
+#[repr(C)]
 pub struct msidbPatchAttributes(i32);
+#[repr(C)]
 pub struct msidbRegistryRoot(i32);
+#[repr(C)]
 pub struct msidbRemoveFileInstallMode(i32);
+#[repr(C)]
 pub struct msidbServiceConfigEvent(i32);
+#[repr(C)]
 pub struct msidbServiceControlEvent(i32);
+#[repr(C)]
 pub struct msidbServiceInstallErrorControl(i32);
+#[repr(C)]
 pub struct msidbSumInfoSourceType(i32);
+#[repr(C)]
 pub struct msidbTextStyleStyleBits(i32);
+#[repr(C)]
 pub struct msidbUpgradeAttributes(i32);
+#[repr(C)]
 pub struct msifiFastInstallBits(i32);
+#[repr(C)]
 pub struct msirbRebootReason(i32);
+#[repr(C)]
 pub struct msirbRebootType(i32);
+#[repr(C)]
 pub struct msmErrorType(i32);

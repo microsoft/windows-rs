@@ -7,6 +7,7 @@ pub struct CoreIncrementalInkStroke(pub *mut ::core::ffi::c_void);
 pub struct CoreInkIndependentInputSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreInkPresenterHost(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreWetStrokeDisposition(i32);
 #[repr(transparent)]
 pub struct CoreWetStrokeUpdateEventArgs(pub *mut ::core::ffi::c_void);

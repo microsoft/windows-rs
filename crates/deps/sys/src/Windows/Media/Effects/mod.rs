@@ -7,6 +7,7 @@ pub struct AudioCaptureEffectsManager(pub *mut ::core::ffi::c_void);
 pub struct AudioEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioEffectDefinition(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioEffectType(i32);
 #[repr(transparent)]
 pub struct AudioEffectsManager(pub *mut ::core::ffi::c_void);
@@ -56,7 +57,9 @@ pub struct IVideoTransformEffectDefinition(pub *mut ::core::ffi::c_void);
 pub struct IVideoTransformEffectDefinition2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVideoTransformSphericalProjection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaEffectClosedReason(i32);
+#[repr(C)]
 pub struct MediaMemoryTypes(i32);
 #[repr(transparent)]
 pub struct ProcessAudioFrameContext(pub *mut ::core::ffi::c_void);

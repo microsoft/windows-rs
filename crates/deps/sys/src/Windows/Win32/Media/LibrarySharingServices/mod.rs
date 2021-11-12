@@ -11,5 +11,7 @@ pub struct IWindowsMediaLibrarySharingDeviceProperty(pub *mut ::core::ffi::c_voi
 pub struct IWindowsMediaLibrarySharingDevices(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingServices(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(i32);
+#[repr(C)]
 pub struct WindowsMediaLibrarySharingServices(i32);

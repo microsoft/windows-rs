@@ -209,4 +209,5 @@ pub struct IMarshal(pub *mut ::core::ffi::c_void);
 pub struct IMarshal2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMarshalingStream(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct STDMSHLFLAGS(i32);

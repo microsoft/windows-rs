@@ -52,16 +52,25 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn FilterVolumeInstanceFindNext(hvolumeinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION(i32);
+#[repr(C)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION(i32);
+#[repr(C)]
 pub struct FILTER_FULL_INFORMATION(i32);
+#[repr(C)]
 pub struct FILTER_INFORMATION_CLASS(i32);
+#[repr(C)]
 pub struct FILTER_MESSAGE_HEADER(i32);
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILTER_REPLY_HEADER(i32);
+#[repr(C)]
 pub struct FILTER_VOLUME_BASIC_INFORMATION(i32);
+#[repr(C)]
 pub struct FILTER_VOLUME_INFORMATION_CLASS(i32);
+#[repr(C)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION(i32);
 pub const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1u32;
@@ -72,19 +81,31 @@ pub const FLTFL_IASIM_DETACHED_VOLUME: u32 = 1u32;
 pub const FLTFL_IASI_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_IASI_IS_MINIFILTER: u32 = 1u32;
 pub const FLTFL_VSI_DETACHED_VOLUME: u32 = 1u32;
+#[repr(C)]
 pub struct FLT_FILESYSTEM_TYPE(i32);
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
+#[repr(C)]
 pub struct FilterFindHandle(i32);
+#[repr(C)]
 pub struct FilterInstanceFindHandle(i32);
+#[repr(C)]
 pub struct FilterVolumeFindHandle(i32);
+#[repr(C)]
 pub struct FilterVolumeInstanceFindHandle(i32);
+#[repr(C)]
 pub struct HFILTER(i32);
+#[repr(C)]
 pub struct HFILTER_INSTANCE(i32);
+#[repr(C)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION(i32);
+#[repr(C)]
 pub struct INSTANCE_BASIC_INFORMATION(i32);
+#[repr(C)]
 pub struct INSTANCE_FULL_INFORMATION(i32);
+#[repr(C)]
 pub struct INSTANCE_INFORMATION_CLASS(i32);
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
+#[repr(C)]
 pub struct INSTANCE_PARTIAL_INFORMATION(i32);
 pub const VOLUME_NAME_MAX_CHARS: u32 = 1024u32;
 pub const WNNC_CRED_MANAGER: u32 = 4294901760u32;

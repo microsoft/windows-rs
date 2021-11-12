@@ -73,36 +73,60 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteFmtUserTypeStg(pstg: IStorage, cf: u16, lpszusertype: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct BSTRBLOB(i32);
+#[repr(C)]
 pub struct CABOOL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CABSTR(i32);
+#[repr(C)]
 pub struct CABSTRBLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CAC(i32);
+#[repr(C)]
 pub struct CACLIPDATA(i32);
+#[repr(C)]
 pub struct CACLSID(i32);
+#[repr(C)]
 pub struct CACY(i32);
+#[repr(C)]
 pub struct CADATE(i32);
+#[repr(C)]
 pub struct CADBL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CAFILETIME(i32);
+#[repr(C)]
 pub struct CAFLT(i32);
+#[repr(C)]
 pub struct CAH(i32);
+#[repr(C)]
 pub struct CAI(i32);
+#[repr(C)]
 pub struct CAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CALPSTR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CALPWSTR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CAPROPVARIANT(i32);
+#[repr(C)]
 pub struct CASCODE(i32);
+#[repr(C)]
 pub struct CAUB(i32);
+#[repr(C)]
 pub struct CAUH(i32);
+#[repr(C)]
 pub struct CAUI(i32);
+#[repr(C)]
 pub struct CAUL(i32);
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
+#[repr(C)]
 pub struct CLIPDATA(i32);
 pub const CWCSTORAGENAME: u32 = 32u32;
 #[repr(transparent)]
@@ -133,8 +157,11 @@ pub struct IPropertyStorage(pub *mut ::core::ffi::c_void);
 pub struct IRootStorage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IStorage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LOCKTYPE(i32);
+#[repr(C)]
 pub struct OLESTREAM(i32);
+#[repr(C)]
 pub struct OLESTREAMVTBL(i32);
 pub const PIDDI_THUMBNAIL: i32 = 2i32;
 pub const PIDDSI_BYTECOUNT: u32 = 4u32;
@@ -161,6 +188,7 @@ pub const PIDMSI_RATING: i32 = 9i32;
 pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
 pub const PIDMSI_SOURCE: i32 = 4i32;
 pub const PIDMSI_STATUS: i32 = 7i32;
+#[repr(C)]
 pub struct PIDMSI_STATUS_VALUE(i32);
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
 pub const PIDSI_APPNAME: i32 = 18i32;
@@ -192,8 +220,10 @@ pub const PID_MAX_READONLY: u32 = 3221225471u32;
 pub const PID_MIN_READONLY: u32 = 2147483648u32;
 pub const PID_MODIFY_TIME: u32 = 2147483649u32;
 pub const PID_SECURITY: u32 = 2147483650u32;
+#[repr(C)]
 pub struct PMemoryAllocator(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROPBAG2(i32);
 pub const PROPSETFLAG_ANSI: u32 = 2u32;
 pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
@@ -203,18 +233,27 @@ pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROPSPEC(i32);
+#[repr(C)]
 pub struct PROPSPEC_KIND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROPVARIANT(i32);
 pub const PRSPEC_INVALID: u32 = 4294967295u32;
+#[repr(C)]
 pub struct RemSNB(i32);
+#[repr(C)]
 pub struct SERIALIZEDPROPERTYVALUE(i32);
+#[repr(C)]
 pub struct STATFLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STATPROPSETSTG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STATPROPSTG(i32);
+#[repr(C)]
 pub struct STGC(i32);
 pub const STGFMT_ANY: u32 = 4u32;
 pub const STGFMT_DOCFILE: u32 = 5u32;
@@ -222,6 +261,7 @@ pub const STGFMT_DOCUMENT: u32 = 0u32;
 pub const STGFMT_FILE: u32 = 3u32;
 pub const STGFMT_NATIVE: u32 = 1u32;
 pub const STGFMT_STORAGE: u32 = 0u32;
+#[repr(C)]
 pub struct STGMOVE(i32);
 pub const STGM_CONVERT: i32 = 131072i32;
 pub const STGM_CREATE: i32 = 4096i32;
@@ -242,6 +282,8 @@ pub const STGM_SIMPLE: i32 = 134217728i32;
 pub const STGM_TRANSACTED: i32 = 65536i32;
 pub const STGM_WRITE: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STGOPTIONS(i32);
 pub const STGOPTIONS_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct VERSIONEDSTREAM(i32);

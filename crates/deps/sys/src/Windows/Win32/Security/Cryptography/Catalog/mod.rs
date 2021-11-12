@@ -69,14 +69,19 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsCatalogFile(hfile: super::super::super::Foundation::HANDLE, pwszfilename: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct CATALOG_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CRYPTCATATTRIBUTE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CRYPTCATCDF(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[repr(C)]
 pub struct CRYPTCATMEMBER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CRYPTCATSTORE(i32);
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
@@ -102,6 +107,9 @@ pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
 pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
 pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
+#[repr(C)]
 pub struct CRYPTCAT_OPEN_FLAGS(i32);
+#[repr(C)]
 pub struct CRYPTCAT_VERSION(i32);
+#[repr(C)]
 pub struct PFN_CDF_PARSE_ERROR_CALLBACK(i32);

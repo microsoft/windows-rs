@@ -485,7 +485,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32;
 }
+#[repr(C)]
 pub struct DBGPRINT(i32);
+#[repr(C)]
 pub struct DEREFERENCECONNECTION(i32);
 pub const LAPI_MAJOR_VER1: u32 = 1u32;
 pub const LAPI_MINOR_VER1: u32 = 1u32;
@@ -495,10 +497,13 @@ pub const LBER_TRANSLATE_STRINGS: u32 = 4u32;
 pub const LBER_USE_DER: u32 = 1u32;
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LDAPAPIFeatureInfoA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LDAPAPIFeatureInfoW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LDAPMessage(i32);
 pub const LDAP_ABANDON_CMD: i32 = 80i32;
 pub const LDAP_ADD_CMD: i32 = 104i32;
@@ -509,6 +514,7 @@ pub const LDAP_AUTH_OTHERKIND: i32 = 134i32;
 pub const LDAP_AUTH_SASL: i32 = 131i32;
 pub const LDAP_AUTH_SIMPLE: i32 = 128i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LDAP_BERVAL(i32);
 pub const LDAP_BIND_CMD: i32 = 96i32;
 pub const LDAP_CHASE_EXTERNAL_REFERRALS: u32 = 64u32;
@@ -606,6 +612,7 @@ pub const LDAP_OPT_VERSION: u32 = 17u32;
 pub const LDAP_POLICYHINT_APPLY_FULLPWDPOLICY: u32 = 1u32;
 pub const LDAP_PORT: u32 = 389u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LDAP_REFERRAL_CALLBACK(i32);
 pub const LDAP_RES_ADD: i32 = 105i32;
 pub const LDAP_RES_ANY: i32 = -1i32;
@@ -619,6 +626,7 @@ pub const LDAP_RES_REFERRAL: i32 = 115i32;
 pub const LDAP_RES_SEARCH_ENTRY: i32 = 100i32;
 pub const LDAP_RES_SEARCH_RESULT: i32 = 101i32;
 pub const LDAP_RES_SESSION: i32 = 114i32;
+#[repr(C)]
 pub struct LDAP_RETCODE(i32);
 pub const LDAP_SCOPE_BASE: u32 = 0u32;
 pub const LDAP_SCOPE_ONELEVEL: u32 = 1u32;
@@ -630,6 +638,7 @@ pub const LDAP_SSL_PORT: u32 = 636u32;
 pub const LDAP_SUBSTRING_ANY: i32 = 129i32;
 pub const LDAP_SUBSTRING_FINAL: i32 = 130i32;
 pub const LDAP_SUBSTRING_INITIAL: i32 = 128i32;
+#[repr(C)]
 pub struct LDAP_TIMEVAL(i32);
 pub const LDAP_UNBIND_CMD: i32 = 66i32;
 pub const LDAP_UNICODE: u32 = 1u32;
@@ -641,33 +650,50 @@ pub const LDAP_VERSION3: u32 = 3u32;
 pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;
 pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct NOTIFYOFNEWCONNECTION(i32);
+#[repr(C)]
 pub struct QUERYCLIENTCERT(i32);
+#[repr(C)]
 pub struct QUERYFORCONNECTION(i32);
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
+#[repr(C)]
 pub struct VERIFYSERVERCERT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct berelement(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldap(i32);
+#[repr(C)]
 pub struct ldap_version_info(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapapiinfoA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapapiinfoW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapcontrolA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapcontrolW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapmodA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapmodW(i32);
+#[repr(C)]
 pub struct ldapsearch(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapsortkeyA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapsortkeyW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ldapvlvinfo(i32);

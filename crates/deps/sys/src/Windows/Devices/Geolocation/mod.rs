@@ -3,7 +3,9 @@
 pub mod Geofencing;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AltitudeReferenceSystem(i32);
+#[repr(C)]
 pub struct BasicGeoposition(i32);
 #[repr(transparent)]
 pub struct CivicAddress(pub *mut ::core::ffi::c_void);
@@ -15,6 +17,7 @@ pub struct Geocircle(pub *mut ::core::ffi::c_void);
 pub struct Geocoordinate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GeocoordinateSatelliteData(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GeolocationAccessStatus(i32);
 #[repr(transparent)]
 pub struct Geolocator(pub *mut ::core::ffi::c_void);
@@ -24,6 +27,7 @@ pub struct Geopath(pub *mut ::core::ffi::c_void);
 pub struct Geopoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Geoposition(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GeoshapeType(i32);
 #[repr(transparent)]
 pub struct Geovisit(pub *mut ::core::ffi::c_void);
@@ -99,14 +103,19 @@ pub struct IPositionChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct IStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVenueData(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PositionAccuracy(i32);
 #[repr(transparent)]
 pub struct PositionChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PositionSource(i32);
+#[repr(C)]
 pub struct PositionStatus(i32);
 #[repr(transparent)]
 pub struct StatusChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VenueData(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VisitMonitoringScope(i32);
+#[repr(C)]
 pub struct VisitStateChange(i32);

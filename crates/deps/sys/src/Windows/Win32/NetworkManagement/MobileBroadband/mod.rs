@@ -85,58 +85,108 @@ pub struct IMbnSubscriberInformation(pub *mut ::core::ffi::c_void);
 pub struct IMbnVendorSpecificEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMbnVendorSpecificOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MBN_ACTIVATION_STATE(i32);
+#[repr(C)]
 pub struct MBN_AUTH_PROTOCOL(i32);
+#[repr(C)]
 pub struct MBN_BAND_CLASS(i32);
+#[repr(C)]
 pub struct MBN_CELLULAR_CLASS(i32);
+#[repr(C)]
 pub struct MBN_COMPRESSION(i32);
+#[repr(C)]
 pub struct MBN_CONNECTION_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MBN_CONTEXT(i32);
+#[repr(C)]
 pub struct MBN_CONTEXT_CONSTANTS(i32);
+#[repr(C)]
 pub struct MBN_CONTEXT_TYPE(i32);
+#[repr(C)]
 pub struct MBN_CTRL_CAPS(i32);
+#[repr(C)]
 pub struct MBN_DATA_CLASS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MBN_DEVICE_SERVICE(i32);
+#[repr(C)]
 pub struct MBN_DEVICE_SERVICES_INTERFACE_STATE(i32);
+#[repr(C)]
 pub struct MBN_DEVICE_SERVICE_SESSIONS_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MBN_INTERFACE_CAPS(i32);
+#[repr(C)]
 pub struct MBN_INTERFACE_CAPS_CONSTANTS(i32);
+#[repr(C)]
 pub struct MBN_MSG_STATUS(i32);
+#[repr(C)]
 pub struct MBN_PIN_CONSTANTS(i32);
+#[repr(C)]
 pub struct MBN_PIN_FORMAT(i32);
+#[repr(C)]
 pub struct MBN_PIN_INFO(i32);
+#[repr(C)]
 pub struct MBN_PIN_MODE(i32);
+#[repr(C)]
 pub struct MBN_PIN_STATE(i32);
+#[repr(C)]
 pub struct MBN_PIN_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MBN_PROVIDER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MBN_PROVIDER2(i32);
+#[repr(C)]
 pub struct MBN_PROVIDER_CONSTANTS(i32);
+#[repr(C)]
 pub struct MBN_PROVIDER_STATE(i32);
+#[repr(C)]
 pub struct MBN_RADIO(i32);
+#[repr(C)]
 pub struct MBN_READY_STATE(i32);
+#[repr(C)]
 pub struct MBN_REGISTER_MODE(i32);
+#[repr(C)]
 pub struct MBN_REGISTER_STATE(i32);
+#[repr(C)]
 pub struct MBN_REGISTRATION_CONSTANTS(i32);
+#[repr(C)]
 pub struct MBN_SIGNAL_CONSTANTS(i32);
+#[repr(C)]
 pub struct MBN_SMS_CAPS(i32);
+#[repr(C)]
 pub struct MBN_SMS_CDMA_ENCODING(i32);
+#[repr(C)]
 pub struct MBN_SMS_CDMA_LANG(i32);
+#[repr(C)]
 pub struct MBN_SMS_FILTER(i32);
+#[repr(C)]
 pub struct MBN_SMS_FLAG(i32);
+#[repr(C)]
 pub struct MBN_SMS_FORMAT(i32);
+#[repr(C)]
 pub struct MBN_SMS_STATUS_FLAG(i32);
+#[repr(C)]
 pub struct MBN_SMS_STATUS_INFO(i32);
+#[repr(C)]
 pub struct MBN_VOICE_CALL_STATE(i32);
+#[repr(C)]
 pub struct MBN_VOICE_CLASS(i32);
+#[repr(C)]
 pub struct MbnConnectionManager(i32);
+#[repr(C)]
 pub struct MbnConnectionProfileManager(i32);
+#[repr(C)]
 pub struct MbnDeviceServicesManager(i32);
+#[repr(C)]
 pub struct MbnInterfaceManager(i32);
+#[repr(C)]
 pub struct WWAEXT_SMS_CONSTANTS(i32);
+#[repr(C)]
 pub struct __DummyPinType__(i32);
+#[repr(C)]
 pub struct __mbnapi_ReferenceRemainingTypes__(i32);

@@ -46,6 +46,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WaitNamedPipeW(lpnamedpipename: super::super::Foundation::PWSTR, ntimeout: u32) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct NAMED_PIPE_MODE(i32);
 pub const NMPWAIT_NOWAIT: u32 = 1u32;
 pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;

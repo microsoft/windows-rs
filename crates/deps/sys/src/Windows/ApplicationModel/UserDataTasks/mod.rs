@@ -31,35 +31,49 @@ pub struct IUserDataTaskStore(pub *mut ::core::ffi::c_void);
 pub struct UserDataTask(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataTaskBatch(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskDaysOfWeek(i32);
+#[repr(C)]
 pub struct UserDataTaskDetailsKind(i32);
+#[repr(C)]
 pub struct UserDataTaskKind(i32);
 #[repr(transparent)]
 pub struct UserDataTaskList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataTaskListLimitedWriteOperations(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskListOtherAppReadAccess(i32);
+#[repr(C)]
 pub struct UserDataTaskListOtherAppWriteAccess(i32);
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskListSyncStatus(i32);
 #[repr(transparent)]
 pub struct UserDataTaskManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskPriority(i32);
+#[repr(C)]
 pub struct UserDataTaskQueryKind(i32);
 #[repr(transparent)]
 pub struct UserDataTaskQueryOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskQuerySortProperty(i32);
 #[repr(transparent)]
 pub struct UserDataTaskReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskRecurrenceUnit(i32);
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskRegenerationUnit(i32);
+#[repr(C)]
 pub struct UserDataTaskSensitivity(i32);
 #[repr(transparent)]
 pub struct UserDataTaskStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataTaskStoreAccessType(i32);
+#[repr(C)]
 pub struct UserDataTaskWeekOfMonth(i32);

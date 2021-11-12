@@ -33,6 +33,7 @@ pub const D3D12ExperimentalShaderModels: ::windows_sys::core::GUID = ::windows_s
     data3: 16629,
     data4: [178, 151, 129, 206, 158, 24, 147, 63],
 };
+#[repr(C)]
 pub struct D3D12MessageFunc(i32);
 pub const D3D12MetaCommand: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3342125438,
@@ -53,42 +54,72 @@ pub const D3D12_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 pub const D3D12_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 pub const D3D12_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE1(i32);
+#[repr(C)]
 pub struct D3D12_AUTO_BREADCRUMB_OP(i32);
+#[repr(C)]
 pub struct D3D12_AXIS_SHADING_RATE(i32);
+#[repr(C)]
 pub struct D3D12_BACKGROUND_PROCESSING_MODE(i32);
+#[repr(C)]
 pub struct D3D12_BLEND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_BLEND_DESC(i32);
+#[repr(C)]
 pub struct D3D12_BLEND_OP(i32);
+#[repr(C)]
 pub struct D3D12_BOX(i32);
+#[repr(C)]
 pub struct D3D12_BUFFER_RTV(i32);
+#[repr(C)]
 pub struct D3D12_BUFFER_SRV(i32);
+#[repr(C)]
 pub struct D3D12_BUFFER_SRV_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_BUFFER_UAV(i32);
+#[repr(C)]
 pub struct D3D12_BUFFER_UAV_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS(i32);
+#[repr(C)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER(i32);
+#[repr(C)]
 pub struct D3D12_CACHED_PIPELINE_STATE(i32);
+#[repr(C)]
 pub struct D3D12_CLEAR_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_CLEAR_VALUE(i32);
 pub const D3D12_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 pub const D3D12_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
+#[repr(C)]
 pub struct D3D12_COLOR_WRITE_ENABLE(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_LIST_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_LIST_SUPPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_LIST_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_POOL_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_QUEUE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_QUEUE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_QUEUE_PRIORITY(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_RECORDER_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_COMMAND_SIGNATURE_DESC(i32);
 pub const D3D12_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14u32;
 pub const D3D12_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS: u32 = 4u32;
@@ -125,14 +156,22 @@ pub const D3D12_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MAX: u32 = 10u32;
 pub const D3D12_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MIN: i32 = -10i32;
 pub const D3D12_COMMONSHADER_TEXEL_OFFSET_MAX_NEGATIVE: i32 = -8i32;
 pub const D3D12_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7u32;
+#[repr(C)]
 pub struct D3D12_COMPARISON_FUNC(i32);
+#[repr(C)]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_CONSERVATIVE_RASTERIZATION_MODE(i32);
+#[repr(C)]
 pub struct D3D12_CONSERVATIVE_RASTERIZATION_TIER(i32);
 pub const D3D12_CONSTANT_BUFFER_DATA_PLACEMENT_ALIGNMENT: u32 = 256u32;
+#[repr(C)]
 pub struct D3D12_CONSTANT_BUFFER_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D12_CPU_DESCRIPTOR_HANDLE(i32);
+#[repr(C)]
 pub struct D3D12_CPU_PAGE_PROPERTY(i32);
+#[repr(C)]
 pub struct D3D12_CROSS_NODE_SHARING_TIER(i32);
 pub const D3D12_CS_4_X_BUCKET00_MAX_BYTES_TGSM_WRITABLE_PER_THREAD: u32 = 256u32;
 pub const D3D12_CS_4_X_BUCKET00_MAX_NUM_THREADS_PER_GROUP: u32 = 64u32;
@@ -193,12 +232,19 @@ pub const D3D12_CS_THREAD_GROUP_MIN_X: u32 = 1u32;
 pub const D3D12_CS_THREAD_GROUP_MIN_Y: u32 = 1u32;
 pub const D3D12_CS_THREAD_GROUP_MIN_Z: u32 = 1u32;
 pub const D3D12_CS_THREAD_LOCAL_TEMP_REGISTER_POOL: u32 = 16384u32;
+#[repr(C)]
 pub struct D3D12_CULL_MODE(i32);
+#[repr(C)]
 pub struct D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS(i32);
+#[repr(C)]
 pub struct D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS(i32);
+#[repr(C)]
 pub struct D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR(i32);
+#[repr(C)]
 pub struct D3D12_DEBUG_DEVICE_PARAMETER_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_DEBUG_FEATURE(i32);
 pub const D3D12_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1f32;
 pub const D3D12_DEFAULT_BLEND_FACTOR_BLUE: f32 = 1f32;
@@ -229,64 +275,104 @@ pub const D3D12_DEFAULT_VIEWPORT_MIN_DEPTH: f32 = 0f32;
 pub const D3D12_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0u32;
 pub const D3D12_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0u32;
 pub const D3D12_DEFAULT_VIEWPORT_WIDTH: u32 = 0u32;
+#[repr(C)]
 pub struct D3D12_DEPTH_STENCILOP_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DEPTH_STENCIL_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DEPTH_STENCIL_DESC1(i32);
+#[repr(C)]
 pub struct D3D12_DEPTH_STENCIL_VALUE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_DEPTH_STENCIL_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D12_DEPTH_WRITE_MASK(i32);
+#[repr(C)]
 pub struct D3D12_DESCRIPTOR_HEAP_DESC(i32);
+#[repr(C)]
 pub struct D3D12_DESCRIPTOR_HEAP_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_DESCRIPTOR_HEAP_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_DESCRIPTOR_RANGE(i32);
+#[repr(C)]
 pub struct D3D12_DESCRIPTOR_RANGE1(i32);
+#[repr(C)]
 pub struct D3D12_DESCRIPTOR_RANGE_FLAGS(i32);
 pub const D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND: u32 = 4294967295u32;
+#[repr(C)]
 pub struct D3D12_DESCRIPTOR_RANGE_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DISCARD_REGION(i32);
+#[repr(C)]
 pub struct D3D12_DISPATCH_ARGUMENTS(i32);
+#[repr(C)]
 pub struct D3D12_DISPATCH_MESH_ARGUMENTS(i32);
+#[repr(C)]
 pub struct D3D12_DISPATCH_RAYS_DESC(i32);
+#[repr(C)]
 pub struct D3D12_DRAW_ARGUMENTS(i32);
+#[repr(C)]
 pub struct D3D12_DRAW_INDEXED_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_ALLOCATION_NODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_ALLOCATION_NODE1(i32);
+#[repr(C)]
 pub struct D3D12_DRED_ALLOCATION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_BREADCRUMB_CONTEXT(i32);
+#[repr(C)]
 pub struct D3D12_DRED_DEVICE_STATE(i32);
+#[repr(C)]
 pub struct D3D12_DRED_ENABLEMENT(i32);
+#[repr(C)]
 pub struct D3D12_DRED_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_DRED_PAGE_FAULT_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT2(i32);
+#[repr(C)]
 pub struct D3D12_DRED_VERSION(i32);
+#[repr(C)]
 pub struct D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS(i32);
 pub const D3D12_DRIVER_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967287u32;
 pub const D3D12_DRIVER_RESERVED_REGISTER_SPACE_VALUES_START: u32 = 4294967280u32;
+#[repr(C)]
 pub struct D3D12_DSV_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D12_DSV_FLAGS(i32);
 pub const D3D12_DS_INPUT_CONTROL_POINTS_MAX_TOTAL_SCALARS: u32 = 3968u32;
 pub const D3D12_DS_INPUT_CONTROL_POINT_REGISTER_COMPONENTS: u32 = 4u32;
@@ -313,74 +399,117 @@ pub const D3D12_DS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D12_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D12_DS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DXIL_LIBRARY_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION(i32);
+#[repr(C)]
 pub struct D3D12_ELEMENTS_LAYOUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_EXISTING_COLLECTION_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_EXPORT_DESC(i32);
+#[repr(C)]
 pub struct D3D12_EXPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_CROSS_NODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS10(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS11(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS5(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS6(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS7(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS8(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS9(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_DISPLAYABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_EXISTING_HEAPS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_FEATURE_LEVELS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_FORMAT_INFO(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_FORMAT_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_QUERY_META_COMMAND(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_ROOT_SIGNATURE(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_SERIALIZATION(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_SHADER_CACHE(i32);
+#[repr(C)]
 pub struct D3D12_FEATURE_DATA_SHADER_MODEL(i32);
+#[repr(C)]
 pub struct D3D12_FENCE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_FILL_MODE(i32);
+#[repr(C)]
 pub struct D3D12_FILTER(i32);
+#[repr(C)]
 pub struct D3D12_FILTER_REDUCTION_TYPE(i32);
 pub const D3D12_FILTER_REDUCTION_TYPE_MASK: u32 = 3u32;
 pub const D3D12_FILTER_REDUCTION_TYPE_SHIFT: u32 = 7u32;
+#[repr(C)]
 pub struct D3D12_FILTER_TYPE(i32);
 pub const D3D12_FILTER_TYPE_MASK: u32 = 3u32;
 pub const D3D12_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6f64;
@@ -392,24 +521,37 @@ pub const D3D12_FLOAT_TO_SRGB_OFFSET: f32 = 0.055f32;
 pub const D3D12_FLOAT_TO_SRGB_SCALE_1: f32 = 12.92f32;
 pub const D3D12_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
 pub const D3D12_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
+#[repr(C)]
 pub struct D3D12_FORMAT_SUPPORT1(i32);
+#[repr(C)]
 pub struct D3D12_FORMAT_SUPPORT2(i32);
 pub const D3D12_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600f32;
 pub const D3D12_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600f32;
 pub const D3D12_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300f32;
 pub const D3D12_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0f32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D12_FUNCTION_DESC(i32);
+#[repr(C)]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE(i32);
+#[repr(C)]
 pub struct D3D12_GPU_BASED_VALIDATION_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE(i32);
+#[repr(C)]
 pub struct D3D12_GPU_DESCRIPTOR_HANDLE(i32);
+#[repr(C)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE(i32);
+#[repr(C)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE(i32);
+#[repr(C)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_GRAPHICS_STATES(i32);
 pub const D3D12_GS_INPUT_INSTANCE_ID_READS_PER_INST: u32 = 2u32;
 pub const D3D12_GS_INPUT_INSTANCE_ID_READ_PORTS: u32 = 1u32;
@@ -433,14 +575,22 @@ pub const D3D12_GS_OUTPUT_ELEMENTS: u32 = 32u32;
 pub const D3D12_GS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D12_GS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D12_GS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
+#[repr(C)]
 pub struct D3D12_HEAP_DESC(i32);
+#[repr(C)]
 pub struct D3D12_HEAP_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_HEAP_PROPERTIES(i32);
+#[repr(C)]
 pub struct D3D12_HEAP_SERIALIZATION_TIER(i32);
+#[repr(C)]
 pub struct D3D12_HEAP_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_HIT_GROUP_DESC(i32);
+#[repr(C)]
 pub struct D3D12_HIT_GROUP_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_HIT_KIND(i32);
 pub const D3D12_HS_CONTROL_POINT_PHASE_INPUT_REGISTER_COUNT: u32 = 32u32;
 pub const D3D12_HS_CONTROL_POINT_PHASE_OUTPUT_REGISTER_COUNT: u32 = 32u32;
@@ -491,28 +641,41 @@ pub const D3D12_IA_VERTEX_ID_BIT_COUNT: u32 = 32u32;
 pub const D3D12_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 32u32;
 pub const D3D12_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128u32;
 pub const D3D12_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32u32;
+#[repr(C)]
 pub struct D3D12_INDEX_BUFFER_STRIP_CUT_VALUE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_INDEX_BUFFER_VIEW(i32);
+#[repr(C)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC(i32);
+#[repr(C)]
 pub struct D3D12_INDIRECT_ARGUMENT_TYPE(i32);
 pub const D3D12_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
+#[repr(C)]
 pub struct D3D12_INFO_QUEUE_FILTER(i32);
+#[repr(C)]
 pub struct D3D12_INFO_QUEUE_FILTER_DESC(i32);
+#[repr(C)]
 pub struct D3D12_INPUT_CLASSIFICATION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_INPUT_ELEMENT_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_INPUT_LAYOUT_DESC(i32);
 pub const D3D12_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
 pub const D3D12_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
 pub const D3D12_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295u32;
 pub const D3D12_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_LIBRARY_DESC(i32);
+#[repr(C)]
 pub struct D3D12_LIFETIME_STATE(i32);
 pub const D3D12_LINEAR_GAMMA: f32 = 1f32;
+#[repr(C)]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE(i32);
+#[repr(C)]
 pub struct D3D12_LOGIC_OP(i32);
 pub const D3D12_MAG_FILTER_SHIFT: u32 = 2u32;
 pub const D3D12_MAJOR_VERSION: u32 = 12u32;
@@ -528,21 +691,35 @@ pub const D3D12_MAX_SHADER_VISIBLE_DESCRIPTOR_HEAP_SIZE_TIER_2: u32 = 1000000u32
 pub const D3D12_MAX_SHADER_VISIBLE_SAMPLER_HEAP_SIZE: u32 = 2048u32;
 pub const D3D12_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17u32;
 pub const D3D12_MAX_VIEW_INSTANCE_COUNT: u32 = 4u32;
+#[repr(C)]
 pub struct D3D12_MEASUREMENTS_ACTION(i32);
+#[repr(C)]
 pub struct D3D12_MEMCPY_DEST(i32);
+#[repr(C)]
 pub struct D3D12_MEMORY_POOL(i32);
+#[repr(C)]
 pub struct D3D12_MESH_SHADER_TIER(i32);
+#[repr(C)]
 pub struct D3D12_MESSAGE(i32);
+#[repr(C)]
 pub struct D3D12_MESSAGE_CALLBACK_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_MESSAGE_CATEGORY(i32);
+#[repr(C)]
 pub struct D3D12_MESSAGE_ID(i32);
+#[repr(C)]
 pub struct D3D12_MESSAGE_SEVERITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_META_COMMAND_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_META_COMMAND_PARAMETER_DESC(i32);
+#[repr(C)]
 pub struct D3D12_META_COMMAND_PARAMETER_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_META_COMMAND_PARAMETER_STAGE(i32);
+#[repr(C)]
 pub struct D3D12_META_COMMAND_PARAMETER_TYPE(i32);
 pub const D3D12_MINOR_VERSION: u32 = 0u32;
 pub const D3D12_MIN_BORDER_COLOR_COMPONENT: f32 = 0f32;
@@ -554,33 +731,51 @@ pub const D3D12_MIP_LOD_BIAS_MAX: f32 = 15.99f32;
 pub const D3D12_MIP_LOD_BIAS_MIN: f32 = -16f32;
 pub const D3D12_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub const D3D12_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
+#[repr(C)]
 pub struct D3D12_MIP_REGION(i32);
+#[repr(C)]
 pub struct D3D12_MULTIPLE_FENCE_WAIT_FLAGS(i32);
 pub const D3D12_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
+#[repr(C)]
 pub struct D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_NODE_MASK(i32);
 pub const D3D12_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 pub const D3D12_OS_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295u32;
 pub const D3D12_OS_RESERVED_REGISTER_SPACE_VALUES_START: u32 = 4294967288u32;
+#[repr(C)]
 pub struct D3D12_PACKED_MIP_INFO(i32);
 pub const D3D12_PACKED_TILE: u32 = 4294967295u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D12_PARAMETER_DESC(i32);
+#[repr(C)]
 pub struct D3D12_PIPELINE_STATE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_PIPELINE_STATE_STREAM_DESC(i32);
+#[repr(C)]
 pub struct D3D12_PIPELINE_STATE_SUBOBJECT_TYPE(i32);
 pub const D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_PLACED_SUBRESOURCE_FOOTPRINT(i32);
+#[repr(C)]
 pub struct D3D12_PREDICATION_OP(i32);
 pub const D3D12_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
+#[repr(C)]
 pub struct D3D12_PRIMITIVE_TOPOLOGY_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER(i32);
 pub const D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1655703630, data2: 50958, data3: 19882, data4: [161, 9, 48, 255, 141, 90, 4, 130] };
+#[repr(C)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC(i32);
+#[repr(C)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC1(i32);
+#[repr(C)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_PROTECTED_SESSION_STATUS(i32);
 pub const D3D12_PS_CS_UAV_REGISTER_COMPONENTS: u32 = 1u32;
 pub const D3D12_PS_CS_UAV_REGISTER_COUNT: u32 = 8u32;
@@ -605,40 +800,68 @@ pub const D3D12_PS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D12_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D12_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
 pub const D3D12_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
+#[repr(C)]
 pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS(i32);
+#[repr(C)]
 pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1(i32);
+#[repr(C)]
 pub struct D3D12_QUERY_DATA_SO_STATISTICS(i32);
+#[repr(C)]
 pub struct D3D12_QUERY_HEAP_DESC(i32);
+#[repr(C)]
 pub struct D3D12_QUERY_HEAP_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_QUERY_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_RANGE(i32);
+#[repr(C)]
 pub struct D3D12_RANGE_UINT64(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_RASTERIZER_DESC(i32);
 pub const D3D12_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
+#[repr(C)]
 pub struct D3D12_RAYTRACING_AABB(i32);
 pub const D3D12_RAYTRACING_AABB_BYTE_ALIGNMENT: u32 = 8u32;
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS(i32);
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BYTE_ALIGNMENT: u32 = 256u32;
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_GEOMETRY_AABBS_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RAYTRACING_GEOMETRY_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_GEOMETRY_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_GEOMETRY_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_INSTANCE_DESC(i32);
 pub const D3D12_RAYTRACING_INSTANCE_DESCS_BYTE_ALIGNMENT: u32 = 16u32;
+#[repr(C)]
 pub struct D3D12_RAYTRACING_INSTANCE_FLAGS(i32);
 pub const D3D12_RAYTRACING_MAX_ATTRIBUTE_SIZE_IN_BYTES: u32 = 32u32;
 pub const D3D12_RAYTRACING_MAX_DECLARABLE_TRACE_RECURSION_DEPTH: u32 = 31u32;
@@ -647,36 +870,55 @@ pub const D3D12_RAYTRACING_MAX_INSTANCES_PER_TOP_LEVEL_ACCELERATION_STRUCTURE: u
 pub const D3D12_RAYTRACING_MAX_PRIMITIVES_PER_BOTTOM_LEVEL_ACCELERATION_STRUCTURE: u32 = 536870912u32;
 pub const D3D12_RAYTRACING_MAX_RAY_GENERATION_SHADER_THREADS: u32 = 1073741824u32;
 pub const D3D12_RAYTRACING_MAX_SHADER_RECORD_STRIDE: u32 = 4096u32;
+#[repr(C)]
 pub struct D3D12_RAYTRACING_PIPELINE_CONFIG(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_PIPELINE_CONFIG1(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_PIPELINE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_RAYTRACING_SHADER_CONFIG(i32);
 pub const D3D12_RAYTRACING_SHADER_RECORD_BYTE_ALIGNMENT: u32 = 32u32;
 pub const D3D12_RAYTRACING_SHADER_TABLE_BYTE_ALIGNMENT: u32 = 64u32;
+#[repr(C)]
 pub struct D3D12_RAYTRACING_TIER(i32);
 pub const D3D12_RAYTRACING_TRANSFORM3X4_BYTE_ALIGNMENT: u32 = 16u32;
+#[repr(C)]
 pub struct D3D12_RAY_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS(i32);
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS(i32);
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC(i32);
+#[repr(C)]
 pub struct D3D12_RENDER_PASS_TIER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_RENDER_TARGET_BLEND_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RENDER_TARGET_VIEW_DESC(i32);
 pub const D3D12_REQ_BLEND_OBJECT_COUNT_PER_DEVICE: u32 = 4096u32;
 pub const D3D12_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27u32;
@@ -704,69 +946,119 @@ pub const D3D12_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION: u32 = 2048u32;
 pub const D3D12_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 16384u32;
 pub const D3D12_REQ_TEXTURE3D_U_V_OR_W_DIMENSION: u32 = 2048u32;
 pub const D3D12_REQ_TEXTURECUBE_DIMENSION: u32 = 16384u32;
+#[repr(C)]
 pub struct D3D12_RESIDENCY_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_RESIDENCY_PRIORITY(i32);
 pub const D3D12_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0u32;
+#[repr(C)]
 pub struct D3D12_RESOLVE_MODE(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_ALLOCATION_INFO(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_ALLOCATION_INFO1(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_BARRIER(i32);
 pub const D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES: u32 = 4294967295u32;
+#[repr(C)]
 pub struct D3D12_RESOURCE_BARRIER_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_BARRIER_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_BINDING_TIER(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RESOURCE_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RESOURCE_DESC1(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_HEAP_TIER(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_STATES(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER(i32);
+#[repr(C)]
 pub struct D3D12_RESOURCE_UAV_BARRIER(i32);
+#[repr(C)]
 pub struct D3D12_RLDO_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_CONSTANTS(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_DESCRIPTOR1(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_DESCRIPTOR_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_DESCRIPTOR_TABLE(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_DESCRIPTOR_TABLE1(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_PARAMETER(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_PARAMETER1(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_PARAMETER_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_SIGNATURE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_SIGNATURE_DESC1(i32);
+#[repr(C)]
 pub struct D3D12_ROOT_SIGNATURE_FLAGS(i32);
 pub const D3D12_RS_SET_SHADING_RATE_COMBINER_COUNT: u32 = 2u32;
+#[repr(C)]
 pub struct D3D12_RTV_DIMENSION(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_RT_FORMAT_ARRAY(i32);
+#[repr(C)]
 pub struct D3D12_SAMPLER_DESC(i32);
+#[repr(C)]
 pub struct D3D12_SAMPLER_FEEDBACK_TIER(i32);
+#[repr(C)]
 pub struct D3D12_SAMPLE_POSITION(i32);
 pub const D3D12_SDK_VERSION: u32 = 5u32;
+#[repr(C)]
 pub struct D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER(i32);
+#[repr(C)]
 pub struct D3D12_SERIALIZED_DATA_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D12_SHADER_BUFFER_DESC(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_BYTECODE(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_CACHE_CONTROL_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_CACHE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_CACHE_KIND_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_CACHE_MODE(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_CACHE_SESSION_DESC(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_CACHE_SUPPORT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_COMPONENT_MAPPING(i32);
 pub const D3D12_SHADER_COMPONENT_MAPPING_ALWAYS_SET_BIT_AVOIDING_ZEROMEM_MISTAKES: u32 = 4096u32;
 pub const D3D12_SHADER_COMPONENT_MAPPING_MASK: u32 = 7u32;
 pub const D3D12_SHADER_COMPONENT_MAPPING_SHIFT: u32 = 3u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D12_SHADER_DESC(i32);
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D12_SHADER_INPUT_BIND_DESC(i32);
 pub const D3D12_SHADER_MAJOR_VERSION: u32 = 5u32;
 pub const D3D12_SHADER_MAX_INSTANCES: u32 = 65535u32;
@@ -774,23 +1066,33 @@ pub const D3D12_SHADER_MAX_INTERFACES: u32 = 253u32;
 pub const D3D12_SHADER_MAX_INTERFACE_CALL_SITES: u32 = 4096u32;
 pub const D3D12_SHADER_MAX_TYPES: u32 = 65535u32;
 pub const D3D12_SHADER_MINOR_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct D3D12_SHADER_MIN_PRECISION_SUPPORT(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_SHADER_RESOURCE_VIEW_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D12_SHADER_TYPE_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_SHADER_VARIABLE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_VERSION_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_SHADER_VISIBILITY(i32);
+#[repr(C)]
 pub struct D3D12_SHADING_RATE(i32);
+#[repr(C)]
 pub struct D3D12_SHADING_RATE_COMBINER(i32);
 pub const D3D12_SHADING_RATE_VALID_MASK: u32 = 3u32;
 pub const D3D12_SHADING_RATE_X_AXIS_SHIFT: u32 = 2u32;
+#[repr(C)]
 pub struct D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER(i32);
 pub const D3D12_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 pub const D3D12_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[repr(C)]
 pub struct D3D12_SIGNATURE_PARAMETER_DESC(i32);
 pub const D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
 pub const D3D12_SMALL_MSAA_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 65536u32;
@@ -800,6 +1102,7 @@ pub const D3D12_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 512u32;
 pub const D3D12_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 pub const D3D12_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_SO_DECLARATION_ENTRY(i32);
 pub const D3D12_SO_NO_RASTERIZED_STREAM: u32 = 4294967295u32;
 pub const D3D12_SO_OUTPUT_COMPONENT_COUNT: u32 = 128u32;
@@ -815,6 +1118,7 @@ pub const D3D12_SRGB_TO_FLOAT_EXPONENT: f32 = 2.4f32;
 pub const D3D12_SRGB_TO_FLOAT_OFFSET: f32 = 0.055f32;
 pub const D3D12_SRGB_TO_FLOAT_THRESHOLD: f32 = 0.04045f32;
 pub const D3D12_SRGB_TO_FLOAT_TOLERANCE_IN_ULP: f32 = 0.5f32;
+#[repr(C)]
 pub struct D3D12_SRV_DIMENSION(i32);
 pub const D3D12_STANDARD_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D12_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: u32 = 64u32;
@@ -824,26 +1128,43 @@ pub const D3D12_STANDARD_PIXEL_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D12_STANDARD_VECTOR_SIZE: u32 = 4u32;
 pub const D3D12_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D12_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64u32;
+#[repr(C)]
 pub struct D3D12_STATE_OBJECT_CONFIG(i32);
+#[repr(C)]
 pub struct D3D12_STATE_OBJECT_DESC(i32);
+#[repr(C)]
 pub struct D3D12_STATE_OBJECT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_STATE_OBJECT_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_STATE_SUBOBJECT(i32);
+#[repr(C)]
 pub struct D3D12_STATE_SUBOBJECT_TYPE(i32);
+#[repr(C)]
 pub struct D3D12_STATIC_BORDER_COLOR(i32);
+#[repr(C)]
 pub struct D3D12_STATIC_SAMPLER_DESC(i32);
+#[repr(C)]
 pub struct D3D12_STENCIL_OP(i32);
+#[repr(C)]
 pub struct D3D12_STREAM_OUTPUT_BUFFER_VIEW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_STREAM_OUTPUT_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION(i32);
 pub const D3D12_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
+#[repr(C)]
 pub struct D3D12_SUBRESOURCE_DATA(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_SUBRESOURCE_FOOTPRINT(i32);
+#[repr(C)]
 pub struct D3D12_SUBRESOURCE_INFO(i32);
+#[repr(C)]
 pub struct D3D12_SUBRESOURCE_RANGE_UINT64(i32);
+#[repr(C)]
 pub struct D3D12_SUBRESOURCE_TILING(i32);
 pub const D3D12_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub const D3D12_SYSTEM_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295u32;
@@ -855,61 +1176,105 @@ pub const D3D12_TESSELLATOR_MAX_TESSELLATION_FACTOR: u32 = 64u32;
 pub const D3D12_TESSELLATOR_MIN_EVEN_TESSELLATION_FACTOR: u32 = 2u32;
 pub const D3D12_TESSELLATOR_MIN_ISOLINE_DENSITY_TESSELLATION_FACTOR: u32 = 1u32;
 pub const D3D12_TESSELLATOR_MIN_ODD_TESSELLATION_FACTOR: u32 = 1u32;
+#[repr(C)]
 pub struct D3D12_TEX1D_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D12_TEX1D_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D12_TEX1D_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEX1D_ARRAY_UAV(i32);
+#[repr(C)]
 pub struct D3D12_TEX1D_DSV(i32);
+#[repr(C)]
 pub struct D3D12_TEX1D_RTV(i32);
+#[repr(C)]
 pub struct D3D12_TEX1D_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEX1D_UAV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2DMS_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2DMS_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2DMS_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2DMS_DSV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2DMS_RTV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2DMS_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_ARRAY_DSV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_ARRAY_RTV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_ARRAY_UAV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_DSV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_RTV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEX2D_UAV(i32);
+#[repr(C)]
 pub struct D3D12_TEX3D_RTV(i32);
+#[repr(C)]
 pub struct D3D12_TEX3D_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEX3D_UAV(i32);
+#[repr(C)]
 pub struct D3D12_TEXCUBE_ARRAY_SRV(i32);
+#[repr(C)]
 pub struct D3D12_TEXCUBE_SRV(i32);
 pub const D3D12_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
+#[repr(C)]
 pub struct D3D12_TEXTURE_ADDRESS_MODE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_TEXTURE_COPY_LOCATION(i32);
+#[repr(C)]
 pub struct D3D12_TEXTURE_COPY_TYPE(i32);
 pub const D3D12_TEXTURE_DATA_PITCH_ALIGNMENT: u32 = 256u32;
 pub const D3D12_TEXTURE_DATA_PLACEMENT_ALIGNMENT: u32 = 512u32;
+#[repr(C)]
 pub struct D3D12_TEXTURE_LAYOUT(i32);
+#[repr(C)]
 pub struct D3D12_TILED_RESOURCES_TIER(i32);
+#[repr(C)]
 pub struct D3D12_TILED_RESOURCE_COORDINATE(i32);
 pub const D3D12_TILED_RESOURCE_TILE_SIZE_IN_BYTES: u32 = 65536u32;
+#[repr(C)]
 pub struct D3D12_TILE_COPY_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_TILE_MAPPING_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_TILE_RANGE_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_TILE_REGION_SIZE(i32);
+#[repr(C)]
 pub struct D3D12_TILE_SHAPE(i32);
 pub const D3D12_TRACKED_WORKLOAD_MAX_INSTANCES: u32 = 32u32;
 pub const D3D12_UAV_COUNTER_PLACEMENT_ALIGNMENT: u32 = 4096u32;
+#[repr(C)]
 pub struct D3D12_UAV_DIMENSION(i32);
 pub const D3D12_UAV_SLOT_COUNT: u32 = 64u32;
 pub const D3D12_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct D3D12_UNORDERED_ACCESS_VIEW_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VARIABLE_SHADING_RATE_TIER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA(i32);
+#[repr(C)]
 pub struct D3D12_VERSIONED_ROOT_SIGNATURE_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VERTEX_BUFFER_VIEW(i32);
 pub const D3D12_VIDEO_DECODE_MAX_ARGUMENTS: u32 = 10u32;
 pub const D3D12_VIDEO_DECODE_MAX_HISTOGRAM_COMPONENTS: u32 = 4u32;
@@ -918,14 +1283,19 @@ pub const D3D12_VIDEO_DECODE_MIN_HISTOGRAM_OFFSET_ALIGNMENT: u32 = 256u32;
 pub const D3D12_VIDEO_DECODE_STATUS_MACROBLOCKS_AFFECTED_UNKNOWN: u32 = 4294967295u32;
 pub const D3D12_VIDEO_PROCESS_MAX_FILTERS: u32 = 32u32;
 pub const D3D12_VIDEO_PROCESS_STEREO_VIEWS: u32 = 2u32;
+#[repr(C)]
 pub struct D3D12_VIEWPORT(i32);
 pub const D3D12_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 pub const D3D12_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;
 pub const D3D12_VIEWPORT_BOUNDS_MAX: u32 = 32767u32;
 pub const D3D12_VIEWPORT_BOUNDS_MIN: i32 = -32768i32;
+#[repr(C)]
 pub struct D3D12_VIEW_INSTANCE_LOCATION(i32);
+#[repr(C)]
 pub struct D3D12_VIEW_INSTANCING_DESC(i32);
+#[repr(C)]
 pub struct D3D12_VIEW_INSTANCING_FLAGS(i32);
+#[repr(C)]
 pub struct D3D12_VIEW_INSTANCING_TIER(i32);
 pub const D3D12_VS_INPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D12_VS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
@@ -935,13 +1305,18 @@ pub const D3D12_VS_INPUT_REGISTER_READ_PORTS: u32 = 1u32;
 pub const D3D12_VS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D12_VS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D12_VS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
+#[repr(C)]
 pub struct D3D12_WAVE_MMA_TIER(i32);
 pub const D3D12_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: u32 = 10u32;
 pub const D3D12_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25u32;
 pub const D3D12_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25u32;
+#[repr(C)]
 pub struct D3D12_WRITEBUFFERIMMEDIATE_MODE(i32);
+#[repr(C)]
 pub struct D3D12_WRITEBUFFERIMMEDIATE_PARAMETER(i32);
+#[repr(C)]
 pub struct D3D_ROOT_SIGNATURE_VERSION(i32);
+#[repr(C)]
 pub struct D3D_SHADER_MODEL(i32);
 pub const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_DESCRIPTOR_HEAP_RESOURCE: u32 = 268435456u32;
 pub const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_GROUP_SHARED: u32 = 8388608u32;
@@ -1128,12 +1503,19 @@ pub struct ID3D12Tools(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ID3D12VersionedRootSignatureDeserializer(pub *mut ::core::ffi::c_void);
 pub const LUID_DEFINED: u32 = 1u32;
+#[repr(C)]
 pub struct PFN_D3D12_CREATE_DEVICE(i32);
+#[repr(C)]
 pub struct PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER(i32);
+#[repr(C)]
 pub struct PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER(i32);
+#[repr(C)]
 pub struct PFN_D3D12_GET_DEBUG_INTERFACE(i32);
+#[repr(C)]
 pub struct PFN_D3D12_GET_INTERFACE(i32);
+#[repr(C)]
 pub struct PFN_D3D12_SERIALIZE_ROOT_SIGNATURE(i32);
+#[repr(C)]
 pub struct PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE(i32);
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3566218806,

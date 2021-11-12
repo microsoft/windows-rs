@@ -16,4 +16,5 @@ extern "system" {
     pub fn UnregisterApplicationRecoveryCallback() -> ::windows_sys::core::HRESULT;
     pub fn UnregisterApplicationRestart() -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct REGISTER_APPLICATION_RESTART_FLAGS(i32);

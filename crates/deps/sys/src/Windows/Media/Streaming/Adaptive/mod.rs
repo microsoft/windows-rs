@@ -9,14 +9,17 @@ pub struct AdaptiveMediaSourceAdvancedSettings(pub *mut ::core::ffi::c_void);
 pub struct AdaptiveMediaSourceCorrelatedTimes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceCreationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AdaptiveMediaSourceCreationStatus(i32);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnosticAvailableEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AdaptiveMediaSourceDiagnosticType(i32);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnostics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(i32);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -32,6 +35,7 @@ pub struct AdaptiveMediaSourceDownloadResult(pub *mut ::core::ffi::c_void);
 pub struct AdaptiveMediaSourceDownloadStatistics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdaptiveMediaSourcePlaybackBitrateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AdaptiveMediaSourceResourceType(i32);
 #[repr(transparent)]
 pub struct IAdaptiveMediaSource(pub *mut ::core::ffi::c_void);

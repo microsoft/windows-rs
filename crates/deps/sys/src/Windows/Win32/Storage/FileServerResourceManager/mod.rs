@@ -1,10 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AdSyncTask(i32);
+#[repr(C)]
 pub struct AdrClientDisplayFlags(i32);
+#[repr(C)]
 pub struct AdrClientErrorType(i32);
+#[repr(C)]
 pub struct AdrClientFlags(i32);
+#[repr(C)]
 pub struct AdrEmailFlags(i32);
 #[repr(transparent)]
 pub struct DIFsrmClassificationEvents(pub *mut ::core::ffi::c_void);
@@ -151,29 +156,52 @@ pub const FSRM_E_XML_CORRUPTED: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283398i32 as _);
 pub const FSRM_S_PARTIAL_BATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283396i32 as _);
 pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283397i32 as _);
+#[repr(C)]
 pub struct FsrmAccessDeniedRemediationClient(i32);
+#[repr(C)]
 pub struct FsrmAccountType(i32);
+#[repr(C)]
 pub struct FsrmActionType(i32);
+#[repr(C)]
 pub struct FsrmClassificationLoggingFlags(i32);
+#[repr(C)]
 pub struct FsrmClassificationManager(i32);
+#[repr(C)]
 pub struct FsrmCollectionState(i32);
+#[repr(C)]
 pub struct FsrmCommitOptions(i32);
 pub const FsrmDaysNotSpecified: i32 = -1i32;
+#[repr(C)]
 pub struct FsrmEnumOptions(i32);
+#[repr(C)]
 pub struct FsrmEventType(i32);
+#[repr(C)]
 pub struct FsrmExecutionOption(i32);
+#[repr(C)]
 pub struct FsrmExportImport(i32);
+#[repr(C)]
 pub struct FsrmFileConditionType(i32);
+#[repr(C)]
 pub struct FsrmFileGroupManager(i32);
+#[repr(C)]
 pub struct FsrmFileManagementJobManager(i32);
+#[repr(C)]
 pub struct FsrmFileManagementLoggingFlags(i32);
+#[repr(C)]
 pub struct FsrmFileManagementType(i32);
+#[repr(C)]
 pub struct FsrmFileScreenFlags(i32);
+#[repr(C)]
 pub struct FsrmFileScreenManager(i32);
+#[repr(C)]
 pub struct FsrmFileScreenTemplateManager(i32);
+#[repr(C)]
 pub struct FsrmFileStreamingInterfaceType(i32);
+#[repr(C)]
 pub struct FsrmFileStreamingMode(i32);
+#[repr(C)]
 pub struct FsrmFileSystemPropertyId(i32);
+#[repr(C)]
 pub struct FsrmGetFilePropertyOptions(i32);
 pub const FsrmMaxExcludeFolders: u32 = 32u32;
 pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
@@ -181,33 +209,61 @@ pub const FsrmMaxNumberThresholds: u32 = 16u32;
 pub const FsrmMaxThresholdValue: u32 = 250u32;
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
 pub const FsrmMinThresholdValue: u32 = 1u32;
+#[repr(C)]
 pub struct FsrmPathMapper(i32);
+#[repr(C)]
 pub struct FsrmPipelineModuleConnector(i32);
+#[repr(C)]
 pub struct FsrmPipelineModuleType(i32);
+#[repr(C)]
 pub struct FsrmPropertyBagField(i32);
+#[repr(C)]
 pub struct FsrmPropertyBagFlags(i32);
+#[repr(C)]
 pub struct FsrmPropertyConditionType(i32);
+#[repr(C)]
 pub struct FsrmPropertyDefinitionAppliesTo(i32);
+#[repr(C)]
 pub struct FsrmPropertyDefinitionFlags(i32);
+#[repr(C)]
 pub struct FsrmPropertyDefinitionType(i32);
+#[repr(C)]
 pub struct FsrmPropertyFlags(i32);
+#[repr(C)]
 pub struct FsrmPropertyValueType(i32);
+#[repr(C)]
 pub struct FsrmQuotaFlags(i32);
+#[repr(C)]
 pub struct FsrmQuotaManager(i32);
+#[repr(C)]
 pub struct FsrmQuotaTemplateManager(i32);
+#[repr(C)]
 pub struct FsrmReportFilter(i32);
+#[repr(C)]
 pub struct FsrmReportFormat(i32);
+#[repr(C)]
 pub struct FsrmReportGenerationContext(i32);
+#[repr(C)]
 pub struct FsrmReportLimit(i32);
+#[repr(C)]
 pub struct FsrmReportManager(i32);
+#[repr(C)]
 pub struct FsrmReportRunningStatus(i32);
+#[repr(C)]
 pub struct FsrmReportScheduler(i32);
+#[repr(C)]
 pub struct FsrmReportType(i32);
+#[repr(C)]
 pub struct FsrmRuleFlags(i32);
+#[repr(C)]
 pub struct FsrmRuleType(i32);
+#[repr(C)]
 pub struct FsrmSetting(i32);
+#[repr(C)]
 pub struct FsrmStorageModuleCaps(i32);
+#[repr(C)]
 pub struct FsrmStorageModuleType(i32);
+#[repr(C)]
 pub struct FsrmTemplateApplyOptions(i32);
 #[repr(transparent)]
 pub struct IFsrmAccessDeniedRemediationClient(pub *mut ::core::ffi::c_void);

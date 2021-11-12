@@ -95,6 +95,7 @@ pub struct ISpatialRecognitionStartedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ISpatialTappedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialGestureRecognizer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialGestureSettings(i32);
 #[repr(transparent)]
 pub struct SpatialHoldCanceledEventArgs(pub *mut ::core::ffi::c_void);
@@ -112,15 +113,19 @@ pub struct SpatialInteractionControllerProperties(pub *mut ::core::ffi::c_void);
 pub struct SpatialInteractionDetectedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialInteractionManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialInteractionPressKind(i32);
 #[repr(transparent)]
 pub struct SpatialInteractionSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialInteractionSourceEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialInteractionSourceHandedness(i32);
+#[repr(C)]
 pub struct SpatialInteractionSourceKind(i32);
 #[repr(transparent)]
 pub struct SpatialInteractionSourceLocation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialInteractionSourcePositionAccuracy(i32);
 #[repr(transparent)]
 pub struct SpatialInteractionSourceProperties(pub *mut ::core::ffi::c_void);

@@ -1674,10 +1674,15 @@ pub const C3_NONSPACING: u32 = 1u32;
 pub const C3_NOTAPPLICABLE: u32 = 0u32;
 pub const C3_SYMBOL: u32 = 8u32;
 pub const C3_VOWELMARK: u32 = 4u32;
+#[repr(C)]
 pub struct CALINFO_ENUMPROCA(i32);
+#[repr(C)]
 pub struct CALINFO_ENUMPROCEXA(i32);
+#[repr(C)]
 pub struct CALINFO_ENUMPROCEXEX(i32);
+#[repr(C)]
 pub struct CALINFO_ENUMPROCEXW(i32);
+#[repr(C)]
 pub struct CALINFO_ENUMPROCW(i32);
 pub const CAL_GREGORIAN: u32 = 1u32;
 pub const CAL_GREGORIAN_ARABIC: u32 = 10u32;
@@ -1759,17 +1764,28 @@ pub const CAL_THAI: u32 = 7u32;
 pub const CAL_UMALQURA: u32 = 23u32;
 pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
 pub const CANITER_SKIP_ZEROES: u32 = 1u32;
+#[repr(C)]
 pub struct CHARSETINFO(i32);
+#[repr(C)]
 pub struct CMLangConvertCharset(i32);
+#[repr(C)]
 pub struct CMLangString(i32);
+#[repr(C)]
 pub struct CMultiLanguage(i32);
+#[repr(C)]
 pub struct CODEPAGE_ENUMPROCA(i32);
+#[repr(C)]
 pub struct CODEPAGE_ENUMPROCW(i32);
+#[repr(C)]
 pub struct COMPARE_STRING_FLAGS(i32);
+#[repr(C)]
 pub struct CORRECTIVE_ACTION(i32);
+#[repr(C)]
 pub struct CPINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CPINFOEXA(i32);
+#[repr(C)]
 pub struct CPINFOEXW(i32);
 pub const CPIOD_FORCE_PROMPT: i32 = -2147483648i32;
 pub const CPIOD_PEEK: i32 = 1073741824i32;
@@ -1899,14 +1915,22 @@ pub const CT_CTYPE1: u32 = 1u32;
 pub const CT_CTYPE2: u32 = 2u32;
 pub const CT_CTYPE3: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CURRENCYFMTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CURRENCYFMTW(i32);
+#[repr(C)]
 pub struct DATEFMT_ENUMPROCA(i32);
+#[repr(C)]
 pub struct DATEFMT_ENUMPROCEXA(i32);
+#[repr(C)]
 pub struct DATEFMT_ENUMPROCEXEX(i32);
+#[repr(C)]
 pub struct DATEFMT_ENUMPROCEXW(i32);
+#[repr(C)]
 pub struct DATEFMT_ENUMPROCW(i32);
+#[repr(C)]
 pub struct DetectEncodingInfo(i32);
 pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
 pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1938,30 +1962,44 @@ pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::w
 pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2745709371, data2: 62716, data3: 17142, data4: [160, 196, 4, 98, 254, 115, 23, 203] };
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3636036529, data2: 63679, data3: 18987, data4: [188, 213, 91, 94, 162, 6, 19, 225] };
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ENUMTEXTMETRICA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ENUMTEXTMETRICW(i32);
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
+#[repr(C)]
 pub struct ENUM_DATE_FORMATS_FLAGS(i32);
+#[repr(C)]
 pub struct ENUM_SYSTEM_CODE_PAGES_FLAGS(i32);
+#[repr(C)]
 pub struct ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(i32);
+#[repr(C)]
 pub struct FILEMUIINFO(i32);
 pub const FIND_ENDSWITH: u32 = 2097152u32;
 pub const FIND_FROMEND: u32 = 8388608u32;
 pub const FIND_FROMSTART: u32 = 4194304u32;
 pub const FIND_STARTSWITH: u32 = 1048576u32;
+#[repr(C)]
 pub struct FOLD_STRING_MAP_FLAGS(i32);
+#[repr(C)]
 pub struct FONTSIGNATURE(i32);
 pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
+#[repr(C)]
 pub struct GEO_ENUMNAMEPROC(i32);
+#[repr(C)]
 pub struct GEO_ENUMPROC(i32);
+#[repr(C)]
 pub struct GOFFSET(i32);
 pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
 pub const HIGH_SURROGATE_END: u32 = 56319u32;
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
+#[repr(C)]
 pub struct HIMC(i32);
+#[repr(C)]
 pub struct HIMCC(i32);
+#[repr(C)]
 pub struct HSAVEDUILANGUAGES(i32);
 #[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(pub *mut ::core::ffi::c_void);
@@ -2017,7 +2055,9 @@ pub struct IMultiLanguage2(pub *mut ::core::ffi::c_void);
 pub struct IMultiLanguage3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IOptionDescription(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IS_TEXT_UNICODE_RESULT(i32);
+#[repr(C)]
 pub struct IS_VALID_LOCALE_FLAGS(i32);
 #[repr(transparent)]
 pub struct ISpellCheckProvider(pub *mut ::core::ffi::c_void);
@@ -2035,9 +2075,13 @@ pub struct ISpellCheckerFactory(pub *mut ::core::ffi::c_void);
 pub struct ISpellingError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserDictionariesRegistrar(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LANGGROUPLOCALE_ENUMPROCA(i32);
+#[repr(C)]
 pub struct LANGGROUPLOCALE_ENUMPROCW(i32);
+#[repr(C)]
 pub struct LANGUAGEGROUP_ENUMPROCA(i32);
+#[repr(C)]
 pub struct LANGUAGEGROUP_ENUMPROCW(i32);
 pub const LCID_ALTERNATE_SORTS: u32 = 4u32;
 pub const LCMAP_BYTEREV: u32 = 2048u32;
@@ -2072,12 +2116,16 @@ pub const LGRPID_TURKIC: u32 = 6u32;
 pub const LGRPID_TURKISH: u32 = 6u32;
 pub const LGRPID_VIETNAMESE: u32 = 14u32;
 pub const LGRPID_WESTERN_EUROPE: u32 = 1u32;
+#[repr(C)]
 pub struct LOCALESIGNATURE(i32);
 pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
+#[repr(C)]
 pub struct LOCALE_ENUMPROCA(i32);
+#[repr(C)]
 pub struct LOCALE_ENUMPROCEX(i32);
+#[repr(C)]
 pub struct LOCALE_ENUMPROCW(i32);
 pub const LOCALE_FONTSIGNATURE: u32 = 88u32;
 pub const LOCALE_ICALENDARTYPE: u32 = 4105u32;
@@ -2250,14 +2298,19 @@ pub const LOWLEVEL_SERVICE_TYPES: u32 = 2u32;
 pub const LOW_SURROGATE_END: u32 = 57343u32;
 pub const LOW_SURROGATE_START: u32 = 56320u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MAPPING_DATA_RANGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MAPPING_ENUM_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MAPPING_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MAPPING_PROPERTY_BAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MAPPING_SERVICE_INFO(i32);
 pub const MAX_DEFAULTCHAR: u32 = 2u32;
 pub const MAX_LEADBYTES: u32 = 12u32;
@@ -2267,11 +2320,16 @@ pub const MAX_MIMECSET_NAME: u32 = 50u32;
 pub const MAX_MIMEFACE_NAME: u32 = 32u32;
 pub const MAX_RFC1766_NAME: u32 = 6u32;
 pub const MAX_SCRIPT_NAME: u32 = 48u32;
+#[repr(C)]
 pub struct MIMECONTF(i32);
+#[repr(C)]
 pub struct MIMECPINFO(i32);
+#[repr(C)]
 pub struct MIMECSETINFO(i32);
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
+#[repr(C)]
 pub struct MLDETECTCP(i32);
+#[repr(C)]
 pub struct MLSTR_FLAGS(i32);
 pub const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512u32;
 pub const MUI_CONSOLE_FILTER: u32 = 256u32;
@@ -2306,46 +2364,71 @@ pub const MUI_USER_PREFERRED_UI_LANGUAGES: u32 = 16u32;
 pub const MUI_USE_INSTALLED_LANGUAGES: u32 = 32u32;
 pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64u32;
 pub const MUI_VERIFY_FILE_EXISTS: u32 = 4u32;
+#[repr(C)]
 pub struct MULTI_BYTE_TO_WIDE_CHAR_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct NEWTEXTMETRICEXA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct NEWTEXTMETRICEXW(i32);
+#[repr(C)]
 pub struct NLSVERSIONINFO(i32);
+#[repr(C)]
 pub struct NLSVERSIONINFOEX(i32);
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
 pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
 pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
+#[repr(C)]
 pub struct NORM_FORM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NUMBERFMTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NUMBERFMTW(i32);
 pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
 pub const OFFLINE_SERVICES: u32 = 2u32;
 pub const ONLINE_SERVICES: u32 = 1u32;
+#[repr(C)]
 pub struct PFN_MAPPINGCALLBACKPROC(i32);
+#[repr(C)]
 pub struct RFC1766INFO(i32);
+#[repr(C)]
 pub struct SCRIPTCONTF(i32);
+#[repr(C)]
 pub struct SCRIPTFONTCONTF(i32);
+#[repr(C)]
 pub struct SCRIPTINFO(i32);
+#[repr(C)]
 pub struct SCRIPT_ANALYSIS(i32);
+#[repr(C)]
 pub struct SCRIPT_CONTROL(i32);
+#[repr(C)]
 pub struct SCRIPT_DIGITSUBSTITUTE(i32);
 pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1u32;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3u32;
+#[repr(C)]
 pub struct SCRIPT_FONTPROPERTIES(i32);
+#[repr(C)]
 pub struct SCRIPT_IS_COMPLEX_FLAGS(i32);
+#[repr(C)]
 pub struct SCRIPT_ITEM(i32);
+#[repr(C)]
 pub struct SCRIPT_JUSTIFY(i32);
+#[repr(C)]
 pub struct SCRIPT_LOGATTR(i32);
+#[repr(C)]
 pub struct SCRIPT_PROPERTIES(i32);
+#[repr(C)]
 pub struct SCRIPT_STATE(i32);
+#[repr(C)]
 pub struct SCRIPT_TABDEF(i32);
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
 pub const SCRIPT_UNDEFINED: u32 = 0u32;
+#[repr(C)]
 pub struct SCRIPT_VISATTR(i32);
 pub const SGCM_RTL: u32 = 1u32;
 pub const SORTING_PARADIGM_ICU: u32 = 16777216u32;
@@ -2371,18 +2454,29 @@ pub const SSA_PASSWORD: u32 = 1u32;
 pub const SSA_PIDX: u32 = 268435456u32;
 pub const SSA_RTL: u32 = 256u32;
 pub const SSA_TAB: u32 = 2u32;
+#[repr(C)]
 pub struct SYSGEOCLASS(i32);
+#[repr(C)]
 pub struct SYSGEOTYPE(i32);
+#[repr(C)]
 pub struct SYSNLS_FUNCTION(i32);
+#[repr(C)]
 pub struct SpellCheckerFactory(i32);
+#[repr(C)]
 pub struct TIMEFMT_ENUMPROCA(i32);
+#[repr(C)]
 pub struct TIMEFMT_ENUMPROCEX(i32);
+#[repr(C)]
 pub struct TIMEFMT_ENUMPROCW(i32);
+#[repr(C)]
 pub struct TIME_FORMAT_FLAGS(i32);
+#[repr(C)]
 pub struct TRANSLATE_CHARSET_INFO_FLAGS(i32);
 pub const U16_MAX_LENGTH: u32 = 2u32;
 pub const U8_MAX_LENGTH: u32 = 4u32;
+#[repr(C)]
 pub struct UAcceptResult(i32);
+#[repr(C)]
 pub struct UAlphabeticIndexLabelType(i32);
 pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
 pub const UBIDI_DEFAULT_RTL: u32 = 255u32;
@@ -2394,17 +2488,29 @@ pub const UBIDI_MAP_NOWHERE: i32 = -1i32;
 pub const UBIDI_MAX_EXPLICIT_LEVEL: u32 = 125u32;
 pub const UBIDI_OUTPUT_REVERSE: u32 = 16u32;
 pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
+#[repr(C)]
 pub struct UBiDi(i32);
+#[repr(C)]
 pub struct UBiDiClassCallback(i32);
+#[repr(C)]
 pub struct UBiDiDirection(i32);
+#[repr(C)]
 pub struct UBiDiMirroring(i32);
+#[repr(C)]
 pub struct UBiDiOrder(i32);
+#[repr(C)]
 pub struct UBiDiReorderingMode(i32);
+#[repr(C)]
 pub struct UBiDiReorderingOption(i32);
+#[repr(C)]
 pub struct UBiDiTransform(i32);
+#[repr(C)]
 pub struct UBidiPairedBracketType(i32);
+#[repr(C)]
 pub struct UBlockCode(i32);
+#[repr(C)]
 pub struct UBreakIterator(i32);
+#[repr(C)]
 pub struct UBreakIteratorType(i32);
 pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
 pub const UCHAR_MIN_VALUE: u32 = 0u32;
@@ -2413,8 +2519,11 @@ pub const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60u32;
 pub const UCNV_SI: u32 = 15u32;
 pub const UCNV_SO: u32 = 14u32;
 pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
+#[repr(C)]
 pub struct UCPMap(i32);
+#[repr(C)]
 pub struct UCPMapRangeOption(i32);
+#[repr(C)]
 pub struct UCPMapValueFilter(i32);
 pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
 pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
@@ -2422,103 +2531,199 @@ pub const UCPTRIE_FAST_DATA_MASK: i32 = 63i32;
 pub const UCPTRIE_FAST_SHIFT: i32 = 6i32;
 pub const UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET: i32 = 2i32;
 pub const UCPTRIE_SMALL_MAX: i32 = 4095i32;
+#[repr(C)]
 pub struct UCPTrie(i32);
+#[repr(C)]
 pub struct UCPTrieData(i32);
+#[repr(C)]
 pub struct UCPTrieType(i32);
+#[repr(C)]
 pub struct UCPTrieValueWidth(i32);
+#[repr(C)]
 pub struct UCalendarAMPMs(i32);
+#[repr(C)]
 pub struct UCalendarAttribute(i32);
+#[repr(C)]
 pub struct UCalendarDateFields(i32);
+#[repr(C)]
 pub struct UCalendarDaysOfWeek(i32);
+#[repr(C)]
 pub struct UCalendarDisplayNameType(i32);
+#[repr(C)]
 pub struct UCalendarLimitType(i32);
+#[repr(C)]
 pub struct UCalendarMonths(i32);
+#[repr(C)]
 pub struct UCalendarType(i32);
+#[repr(C)]
 pub struct UCalendarWallTimeOption(i32);
+#[repr(C)]
 pub struct UCalendarWeekdayType(i32);
+#[repr(C)]
 pub struct UCaseMap(i32);
+#[repr(C)]
 pub struct UCharCategory(i32);
+#[repr(C)]
 pub struct UCharDirection(i32);
+#[repr(C)]
 pub struct UCharEnumTypeRange(i32);
+#[repr(C)]
 pub struct UCharIterator(i32);
+#[repr(C)]
 pub struct UCharIteratorCurrent(i32);
+#[repr(C)]
 pub struct UCharIteratorGetIndex(i32);
+#[repr(C)]
 pub struct UCharIteratorGetState(i32);
+#[repr(C)]
 pub struct UCharIteratorHasNext(i32);
+#[repr(C)]
 pub struct UCharIteratorHasPrevious(i32);
+#[repr(C)]
 pub struct UCharIteratorMove(i32);
+#[repr(C)]
 pub struct UCharIteratorNext(i32);
+#[repr(C)]
 pub struct UCharIteratorOrigin(i32);
+#[repr(C)]
 pub struct UCharIteratorPrevious(i32);
+#[repr(C)]
 pub struct UCharIteratorReserved(i32);
+#[repr(C)]
 pub struct UCharIteratorSetState(i32);
+#[repr(C)]
 pub struct UCharNameChoice(i32);
+#[repr(C)]
 pub struct UCharsetDetector(i32);
+#[repr(C)]
 pub struct UCharsetMatch(i32);
+#[repr(C)]
 pub struct UColAttribute(i32);
+#[repr(C)]
 pub struct UColAttributeValue(i32);
+#[repr(C)]
 pub struct UColBoundMode(i32);
+#[repr(C)]
 pub struct UColReorderCode(i32);
+#[repr(C)]
 pub struct UColRuleOption(i32);
+#[repr(C)]
 pub struct UCollationElements(i32);
+#[repr(C)]
 pub struct UCollationResult(i32);
+#[repr(C)]
 pub struct UCollator(i32);
+#[repr(C)]
 pub struct UConstrainedFieldPosition(i32);
+#[repr(C)]
 pub struct UConverter(i32);
+#[repr(C)]
 pub struct UConverterCallbackReason(i32);
+#[repr(C)]
 pub struct UConverterFromUCallback(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UConverterFromUnicodeArgs(i32);
+#[repr(C)]
 pub struct UConverterPlatform(i32);
+#[repr(C)]
 pub struct UConverterSelector(i32);
+#[repr(C)]
 pub struct UConverterToUCallback(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UConverterToUnicodeArgs(i32);
+#[repr(C)]
 pub struct UConverterType(i32);
+#[repr(C)]
 pub struct UConverterUnicodeSet(i32);
+#[repr(C)]
 pub struct UCurrCurrencyType(i32);
+#[repr(C)]
 pub struct UCurrNameStyle(i32);
+#[repr(C)]
 pub struct UCurrencySpacing(i32);
+#[repr(C)]
 pub struct UCurrencyUsage(i32);
+#[repr(C)]
 pub struct UDateAbsoluteUnit(i32);
+#[repr(C)]
 pub struct UDateDirection(i32);
+#[repr(C)]
 pub struct UDateFormatBooleanAttribute(i32);
+#[repr(C)]
 pub struct UDateFormatField(i32);
+#[repr(C)]
 pub struct UDateFormatStyle(i32);
+#[repr(C)]
 pub struct UDateFormatSymbolType(i32);
+#[repr(C)]
 pub struct UDateFormatSymbols(i32);
+#[repr(C)]
 pub struct UDateIntervalFormat(i32);
+#[repr(C)]
 pub struct UDateRelativeDateTimeFormatterStyle(i32);
+#[repr(C)]
 pub struct UDateRelativeUnit(i32);
+#[repr(C)]
 pub struct UDateTimePGDisplayWidth(i32);
+#[repr(C)]
 pub struct UDateTimePatternConflict(i32);
+#[repr(C)]
 pub struct UDateTimePatternField(i32);
+#[repr(C)]
 pub struct UDateTimePatternMatchOptions(i32);
+#[repr(C)]
 pub struct UDateTimeScale(i32);
+#[repr(C)]
 pub struct UDecompositionType(i32);
+#[repr(C)]
 pub struct UDialectHandling(i32);
+#[repr(C)]
 pub struct UDisplayContext(i32);
+#[repr(C)]
 pub struct UDisplayContextType(i32);
+#[repr(C)]
 pub struct UEastAsianWidth(i32);
+#[repr(C)]
 pub struct UEnumCharNamesFn(i32);
+#[repr(C)]
 pub struct UEnumeration(i32);
+#[repr(C)]
 pub struct UErrorCode(i32);
+#[repr(C)]
 pub struct UFieldCategory(i32);
+#[repr(C)]
 pub struct UFieldPosition(i32);
+#[repr(C)]
 pub struct UFieldPositionIterator(i32);
+#[repr(C)]
 pub struct UFormattableType(i32);
+#[repr(C)]
 pub struct UFormattedDateInterval(i32);
+#[repr(C)]
 pub struct UFormattedList(i32);
+#[repr(C)]
 pub struct UFormattedNumber(i32);
+#[repr(C)]
 pub struct UFormattedNumberRange(i32);
+#[repr(C)]
 pub struct UFormattedRelativeDateTime(i32);
+#[repr(C)]
 pub struct UFormattedValue(i32);
+#[repr(C)]
 pub struct UGender(i32);
+#[repr(C)]
 pub struct UGenderInfo(i32);
+#[repr(C)]
 pub struct UGraphemeClusterBreak(i32);
+#[repr(C)]
 pub struct UHangulSyllableType(i32);
+#[repr(C)]
 pub struct UHashtable(i32);
+#[repr(C)]
 pub struct UIDNA(i32);
+#[repr(C)]
 pub struct UIDNAInfo(i32);
 pub const UIDNA_CHECK_BIDI: i32 = 4i32;
 pub const UIDNA_CHECK_CONTEXTJ: i32 = 8i32;
@@ -2542,12 +2747,18 @@ pub const UIDNA_ERROR_TRAILING_HYPHEN: i32 = 16i32;
 pub const UIDNA_NONTRANSITIONAL_TO_ASCII: i32 = 16i32;
 pub const UIDNA_NONTRANSITIONAL_TO_UNICODE: i32 = 32i32;
 pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
+#[repr(C)]
 pub struct UILANGUAGE_ENUMPROCA(i32);
+#[repr(C)]
 pub struct UILANGUAGE_ENUMPROCW(i32);
 pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
+#[repr(C)]
 pub struct UIndicPositionalCategory(i32);
+#[repr(C)]
 pub struct UIndicSyllabicCategory(i32);
+#[repr(C)]
 pub struct UJoiningGroup(i32);
+#[repr(C)]
 pub struct UJoiningType(i32);
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
 pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
@@ -2558,74 +2769,139 @@ pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
 pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
 pub const ULOC_LANG_CAPACITY: u32 = 12u32;
 pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
+#[repr(C)]
 pub struct ULayoutType(i32);
+#[repr(C)]
 pub struct ULineBreak(i32);
+#[repr(C)]
 pub struct ULineBreakTag(i32);
+#[repr(C)]
 pub struct UListFormatter(i32);
+#[repr(C)]
 pub struct UListFormatterField(i32);
+#[repr(C)]
 pub struct UListFormatterType(i32);
+#[repr(C)]
 pub struct UListFormatterWidth(i32);
+#[repr(C)]
 pub struct ULocAvailableType(i32);
+#[repr(C)]
 pub struct ULocDataLocaleType(i32);
+#[repr(C)]
 pub struct ULocaleData(i32);
+#[repr(C)]
 pub struct ULocaleDataDelimiterType(i32);
+#[repr(C)]
 pub struct ULocaleDataExemplarSetType(i32);
+#[repr(C)]
 pub struct ULocaleDisplayNames(i32);
 pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
 pub const UMSGPAT_ARG_NAME_NOT_VALID: i32 = -2i32;
+#[repr(C)]
 pub struct UMeasureFormatWidth(i32);
+#[repr(C)]
 pub struct UMeasurementSystem(i32);
+#[repr(C)]
 pub struct UMemAllocFn(i32);
+#[repr(C)]
 pub struct UMemFreeFn(i32);
+#[repr(C)]
 pub struct UMemReallocFn(i32);
+#[repr(C)]
 pub struct UMessagePatternApostropheMode(i32);
+#[repr(C)]
 pub struct UMessagePatternArgType(i32);
+#[repr(C)]
 pub struct UMessagePatternPartType(i32);
+#[repr(C)]
 pub struct UMutableCPTrie(i32);
+#[repr(C)]
 pub struct UNESCAPE_CHAR_AT(i32);
+#[repr(C)]
 pub struct UNICODERANGE(i32);
 pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
 pub const UNORM_INPUT_IS_FCD: u32 = 131072u32;
+#[repr(C)]
 pub struct UNormalization2Mode(i32);
+#[repr(C)]
 pub struct UNormalizationCheckResult(i32);
+#[repr(C)]
 pub struct UNormalizationMode(i32);
+#[repr(C)]
 pub struct UNormalizer2(i32);
+#[repr(C)]
 pub struct UNumberCompactStyle(i32);
+#[repr(C)]
 pub struct UNumberDecimalSeparatorDisplay(i32);
+#[repr(C)]
 pub struct UNumberFormatAttribute(i32);
+#[repr(C)]
 pub struct UNumberFormatAttributeValue(i32);
+#[repr(C)]
 pub struct UNumberFormatFields(i32);
+#[repr(C)]
 pub struct UNumberFormatPadPosition(i32);
+#[repr(C)]
 pub struct UNumberFormatRoundingMode(i32);
+#[repr(C)]
 pub struct UNumberFormatStyle(i32);
+#[repr(C)]
 pub struct UNumberFormatSymbol(i32);
+#[repr(C)]
 pub struct UNumberFormatTextAttribute(i32);
+#[repr(C)]
 pub struct UNumberFormatter(i32);
+#[repr(C)]
 pub struct UNumberGroupingStrategy(i32);
+#[repr(C)]
 pub struct UNumberRangeCollapse(i32);
+#[repr(C)]
 pub struct UNumberRangeIdentityFallback(i32);
+#[repr(C)]
 pub struct UNumberRangeIdentityResult(i32);
+#[repr(C)]
 pub struct UNumberSignDisplay(i32);
+#[repr(C)]
 pub struct UNumberUnitWidth(i32);
+#[repr(C)]
 pub struct UNumberingSystem(i32);
+#[repr(C)]
 pub struct UNumericType(i32);
+#[repr(C)]
 pub struct UParseError(i32);
+#[repr(C)]
 pub struct UPluralRules(i32);
+#[repr(C)]
 pub struct UPluralType(i32);
+#[repr(C)]
 pub struct UProperty(i32);
+#[repr(C)]
 pub struct UPropertyNameChoice(i32);
+#[repr(C)]
 pub struct URegexFindProgressCallback(i32);
+#[repr(C)]
 pub struct URegexMatchCallback(i32);
+#[repr(C)]
 pub struct URegexpFlag(i32);
+#[repr(C)]
 pub struct URegion(i32);
+#[repr(C)]
 pub struct URegionType(i32);
+#[repr(C)]
 pub struct URegularExpression(i32);
+#[repr(C)]
 pub struct URelativeDateTimeFormatter(i32);
+#[repr(C)]
 pub struct URelativeDateTimeFormatterField(i32);
+#[repr(C)]
 pub struct URelativeDateTimeUnit(i32);
+#[repr(C)]
 pub struct UReplaceableCallbacks(i32);
+#[repr(C)]
 pub struct UResType(i32);
+#[repr(C)]
 pub struct UResourceBundle(i32);
+#[repr(C)]
 pub struct URestrictionLevel(i32);
 pub const USEARCH_DONE: i32 = -1i32;
 pub const USET_ADD_CASE_MAPPINGS: i32 = 4i32;
@@ -2635,25 +2911,45 @@ pub const USET_SERIALIZED_STATIC_ARRAY_CAPACITY: i32 = 8i32;
 pub const USPREP_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const USPREP_DEFAULT: u32 = 0u32;
 pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
+#[repr(C)]
 pub struct UScriptCode(i32);
+#[repr(C)]
 pub struct UScriptUsage(i32);
+#[repr(C)]
 pub struct USearch(i32);
+#[repr(C)]
 pub struct USearchAttribute(i32);
+#[repr(C)]
 pub struct USearchAttributeValue(i32);
+#[repr(C)]
 pub struct USentenceBreak(i32);
+#[repr(C)]
 pub struct USentenceBreakTag(i32);
+#[repr(C)]
 pub struct USerializedSet(i32);
+#[repr(C)]
 pub struct USet(i32);
+#[repr(C)]
 pub struct USetSpanCondition(i32);
+#[repr(C)]
 pub struct USpoofCheckResult(i32);
+#[repr(C)]
 pub struct USpoofChecker(i32);
+#[repr(C)]
 pub struct USpoofChecks(i32);
+#[repr(C)]
 pub struct UStringCaseMapper(i32);
+#[repr(C)]
 pub struct UStringPrepProfile(i32);
+#[repr(C)]
 pub struct UStringPrepProfileType(i32);
+#[repr(C)]
 pub struct UStringSearch(i32);
+#[repr(C)]
 pub struct UStringTrieBuildOption(i32);
+#[repr(C)]
 pub struct UStringTrieResult(i32);
+#[repr(C)]
 pub struct USystemTimeZoneType(i32);
 pub const UTEXT_MAGIC: i32 = 878368812i32;
 pub const UTEXT_PROVIDER_HAS_META_DATA: i32 = 4i32;
@@ -2669,33 +2965,61 @@ pub const UTF8_MAX_CHAR_LENGTH: u32 = 4u32;
 pub const UTF_ERROR_VALUE: u32 = 65535u32;
 pub const UTF_MAX_CHAR_LENGTH: u32 = 2u32;
 pub const UTF_SIZE: u32 = 16u32;
+#[repr(C)]
 pub struct UText(i32);
+#[repr(C)]
 pub struct UTextAccess(i32);
+#[repr(C)]
 pub struct UTextClone(i32);
+#[repr(C)]
 pub struct UTextClose(i32);
+#[repr(C)]
 pub struct UTextCopy(i32);
+#[repr(C)]
 pub struct UTextExtract(i32);
+#[repr(C)]
 pub struct UTextFuncs(i32);
+#[repr(C)]
 pub struct UTextMapNativeIndexToUTF16(i32);
+#[repr(C)]
 pub struct UTextMapOffsetToNative(i32);
+#[repr(C)]
 pub struct UTextNativeLength(i32);
+#[repr(C)]
 pub struct UTextReplace(i32);
+#[repr(C)]
 pub struct UTimeScaleValue(i32);
+#[repr(C)]
 pub struct UTimeZoneFormatGMTOffsetPatternType(i32);
+#[repr(C)]
 pub struct UTimeZoneFormatParseOption(i32);
+#[repr(C)]
 pub struct UTimeZoneFormatStyle(i32);
+#[repr(C)]
 pub struct UTimeZoneFormatTimeType(i32);
+#[repr(C)]
 pub struct UTimeZoneNameType(i32);
+#[repr(C)]
 pub struct UTimeZoneTransitionType(i32);
+#[repr(C)]
 pub struct UTraceData(i32);
+#[repr(C)]
 pub struct UTraceEntry(i32);
+#[repr(C)]
 pub struct UTraceExit(i32);
+#[repr(C)]
 pub struct UTraceFunctionNumber(i32);
+#[repr(C)]
 pub struct UTraceLevel(i32);
+#[repr(C)]
 pub struct UTransDirection(i32);
+#[repr(C)]
 pub struct UTransPosition(i32);
+#[repr(C)]
 pub struct UVerticalOrientation(i32);
+#[repr(C)]
 pub struct UWordBreak(i32);
+#[repr(C)]
 pub struct UWordBreakValues(i32);
 pub const U_ASCII_FAMILY: u32 = 0u32;
 pub const U_CHECK_DYLOAD: u32 = 1u32;
@@ -2813,11 +3137,19 @@ pub const WC_DISCARDNS: u32 = 16u32;
 pub const WC_ERR_INVALID_CHARS: u32 = 128u32;
 pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
 pub const WC_SEPCHARS: u32 = 32u32;
+#[repr(C)]
 pub struct WORDLIST_TYPE(i32);
+#[repr(C)]
 pub struct opentype_feature_record(i32);
+#[repr(C)]
 pub struct script_charprop(i32);
+#[repr(C)]
 pub struct script_glyphprop(i32);
+#[repr(C)]
 pub struct tagMLCONVCHARF(i32);
+#[repr(C)]
 pub struct tagMLCPF(i32);
+#[repr(C)]
 pub struct tagSCRIPFONTINFO(i32);
+#[repr(C)]
 pub struct textrange_properties(i32);

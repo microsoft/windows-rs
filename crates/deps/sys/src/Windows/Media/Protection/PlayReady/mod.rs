@@ -109,12 +109,17 @@ pub struct IPlayReadyStatics3(pub *mut ::core::ffi::c_void);
 pub struct IPlayReadyStatics4(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPlayReadyStatics5(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NDCertificateFeature(i32);
+#[repr(C)]
 pub struct NDCertificatePlatformID(i32);
+#[repr(C)]
 pub struct NDCertificateType(i32);
 #[repr(transparent)]
 pub struct NDClient(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NDClosedCaptionFormat(i32);
+#[repr(C)]
 pub struct NDContentIDType(i32);
 #[repr(transparent)]
 pub struct NDCustomData(pub *mut ::core::ffi::c_void);
@@ -122,8 +127,11 @@ pub struct NDCustomData(pub *mut ::core::ffi::c_void);
 pub struct NDDownloadEngineNotifier(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NDLicenseFetchDescriptor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NDMediaStreamType(i32);
+#[repr(C)]
 pub struct NDProximityDetectionType(i32);
+#[repr(C)]
 pub struct NDStartAsyncOptions(i32);
 #[repr(transparent)]
 pub struct NDStorageFileHelper(pub *mut ::core::ffi::c_void);
@@ -135,6 +143,7 @@ pub struct NDTCPMessenger(pub *mut ::core::ffi::c_void);
 pub struct PlayReadyContentHeader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayReadyContentResolver(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlayReadyDecryptorSetup(i32);
 #[repr(transparent)]
 pub struct PlayReadyDomain(pub *mut ::core::ffi::c_void);
@@ -146,8 +155,11 @@ pub struct PlayReadyDomainIterator(pub *mut ::core::ffi::c_void);
 pub struct PlayReadyDomainJoinServiceRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayReadyDomainLeaveServiceRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlayReadyEncryptionAlgorithm(i32);
+#[repr(C)]
 pub struct PlayReadyHardwareDRMFeatures(i32);
+#[repr(C)]
 pub struct PlayReadyITADataFormat(i32);
 #[repr(transparent)]
 pub struct PlayReadyITADataGenerator(pub *mut ::core::ffi::c_void);

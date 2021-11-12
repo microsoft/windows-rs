@@ -21,29 +21,44 @@ extern "system" {
     pub fn WcmSetProperty(pinterface: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NET_INTERFACE_CONTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NET_INTERFACE_CONTEXT_TABLE(i32);
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
+#[repr(C)]
 pub struct ONDEMAND_NOTIFICATION_CALLBACK(i32);
 pub const WCM_API_VERSION: u32 = 1u32;
 pub const WCM_API_VERSION_1_0: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCM_BILLING_CYCLE_INFO(i32);
+#[repr(C)]
 pub struct WCM_CONNECTION_COST(i32);
+#[repr(C)]
 pub struct WCM_CONNECTION_COST_DATA(i32);
+#[repr(C)]
 pub struct WCM_CONNECTION_COST_SOURCE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCM_DATAPLAN_STATUS(i32);
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
+#[repr(C)]
 pub struct WCM_MEDIA_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCM_POLICY_VALUE(i32);
+#[repr(C)]
 pub struct WCM_PROFILE_INFO(i32);
+#[repr(C)]
 pub struct WCM_PROFILE_INFO_LIST(i32);
+#[repr(C)]
 pub struct WCM_PROPERTY(i32);
+#[repr(C)]
 pub struct WCM_TIME_INTERVAL(i32);
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCM_USAGE_DATA(i32);

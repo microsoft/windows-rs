@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct ExtensionsContract(i32);
 #[repr(transparent)]
 pub struct IPrint3DWorkflow(pub *mut ::core::ffi::c_void);
@@ -24,11 +25,13 @@ pub struct IPrintTaskConfigurationSaveRequestedDeferral(pub *mut ::core::ffi::c_
 pub struct IPrintTaskConfigurationSaveRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Print3DWorkflow(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Print3DWorkflowDetail(i32);
 #[repr(transparent)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Print3DWorkflowStatus(i32);
 #[repr(transparent)]
 pub struct PrintExtensionContext(pub *mut ::core::ffi::c_void);

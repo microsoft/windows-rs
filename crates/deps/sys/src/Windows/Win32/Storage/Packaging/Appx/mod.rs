@@ -115,44 +115,78 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32;
 }
+#[repr(C)]
 pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(i32);
+#[repr(C)]
 pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(i32);
+#[repr(C)]
 pub struct APPX_CAPABILITIES(i32);
+#[repr(C)]
 pub struct APPX_CAPABILITY_CLASS_TYPE(i32);
+#[repr(C)]
 pub struct APPX_COMPRESSION_OPTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS(i32);
+#[repr(C)]
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2(i32);
+#[repr(C)]
 pub struct APPX_FOOTPRINT_FILE_TYPE(i32);
+#[repr(C)]
 pub struct APPX_KEY_INFO(i32);
+#[repr(C)]
 pub struct APPX_PACKAGE_ARCHITECTURE(i32);
+#[repr(C)]
 pub struct APPX_PACKAGE_ARCHITECTURE2(i32);
+#[repr(C)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(i32);
+#[repr(C)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct APPX_PACKAGE_SETTINGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM(i32);
+#[repr(C)]
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(i32);
+#[repr(C)]
 pub struct AddPackageDependencyOptions(i32);
+#[repr(C)]
 pub struct AppPolicyClrCompat(i32);
+#[repr(C)]
 pub struct AppPolicyCreateFileAccess(i32);
+#[repr(C)]
 pub struct AppPolicyLifecycleManagement(i32);
+#[repr(C)]
 pub struct AppPolicyMediaFoundationCodecLoading(i32);
+#[repr(C)]
 pub struct AppPolicyProcessTerminationMethod(i32);
+#[repr(C)]
 pub struct AppPolicyShowDeveloperDiagnostic(i32);
+#[repr(C)]
 pub struct AppPolicyThreadInitializationType(i32);
+#[repr(C)]
 pub struct AppPolicyWindowingModel(i32);
+#[repr(C)]
 pub struct AppxBundleFactory(i32);
+#[repr(C)]
 pub struct AppxEncryptionFactory(i32);
+#[repr(C)]
 pub struct AppxFactory(i32);
+#[repr(C)]
 pub struct AppxPackageEditor(i32);
+#[repr(C)]
 pub struct AppxPackagingDiagnosticEventSinkManager(i32);
+#[repr(C)]
 pub struct CreatePackageDependencyOptions(i32);
+#[repr(C)]
 pub struct DX_FEATURE_LEVEL(i32);
 #[repr(transparent)]
 pub struct IAppxBlockMapBlock(pub *mut ::core::ffi::c_void);
@@ -316,6 +350,7 @@ pub struct IAppxPackagingDiagnosticEventSink(pub *mut ::core::ffi::c_void);
 pub struct IAppxPackagingDiagnosticEventSinkManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAppxSourceContentGroupMapReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PACKAGEDEPENDENCY_CONTEXT__(i32);
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
 pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
@@ -329,8 +364,10 @@ pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
 pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
 pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PACKAGE_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PACKAGE_INFO(i32);
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
 pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
@@ -343,10 +380,17 @@ pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
 pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
 pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
 pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
+#[repr(C)]
 pub struct PACKAGE_VERSION(i32);
+#[repr(C)]
 pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__(i32);
+#[repr(C)]
 pub struct PackageDependencyLifetimeKind(i32);
+#[repr(C)]
 pub struct PackageDependencyProcessorArchitectures(i32);
+#[repr(C)]
 pub struct PackageOrigin(i32);
+#[repr(C)]
 pub struct PackagePathType(i32);
+#[repr(C)]
 pub struct _PACKAGE_INFO_REFERENCE(i32);

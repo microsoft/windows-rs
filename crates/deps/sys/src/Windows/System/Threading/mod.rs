@@ -19,5 +19,7 @@ pub struct TimerDestroyedHandler(pub *mut ::core::ffi::c_void);
 pub struct TimerElapsedHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WorkItemHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WorkItemOptions(i32);
+#[repr(C)]
 pub struct WorkItemPriority(i32);

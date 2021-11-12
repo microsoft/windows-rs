@@ -59,7 +59,9 @@ pub struct ISceneSurfaceMaterialInputStatics(pub *mut ::core::ffi::c_void);
 pub struct ISceneVisual(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISceneVisualStatics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SceneAlphaMode(i32);
+#[repr(C)]
 pub struct SceneAttributeSemantic(i32);
 #[repr(transparent)]
 pub struct SceneBoundingBox(pub *mut ::core::ffi::c_void);
@@ -67,6 +69,7 @@ pub struct SceneBoundingBox(pub *mut ::core::ffi::c_void);
 pub struct SceneComponent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneComponentCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SceneComponentType(i32);
 #[repr(transparent)]
 pub struct SceneMaterial(pub *mut ::core::ffi::c_void);
@@ -96,4 +99,5 @@ pub struct SceneRendererComponent(pub *mut ::core::ffi::c_void);
 pub struct SceneSurfaceMaterialInput(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneVisual(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SceneWrappingMode(i32);

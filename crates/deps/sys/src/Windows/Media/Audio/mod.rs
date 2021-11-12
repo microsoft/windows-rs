@@ -3,11 +3,13 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct AudioDeviceInputNode(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioDeviceNodeCreationStatus(i32);
 #[repr(transparent)]
 pub struct AudioDeviceOutputNode(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioFileInputNode(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioFileNodeCreationStatus(i32);
 #[repr(transparent)]
 pub struct AudioFileOutputNode(pub *mut ::core::ffi::c_void);
@@ -23,9 +25,11 @@ pub struct AudioGraph(pub *mut ::core::ffi::c_void);
 pub struct AudioGraphBatchUpdater(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioGraphConnection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioGraphCreationStatus(i32);
 #[repr(transparent)]
 pub struct AudioGraphSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioGraphUnrecoverableError(i32);
 #[repr(transparent)]
 pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);
@@ -33,14 +37,17 @@ pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(pub *mut ::core::ffi::c
 pub struct AudioNodeEmitter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioNodeEmitterConeProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioNodeEmitterDecayKind(i32);
 #[repr(transparent)]
 pub struct AudioNodeEmitterDecayModel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioNodeEmitterNaturalDecayModelProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioNodeEmitterSettings(i32);
 #[repr(transparent)]
 pub struct AudioNodeEmitterShape(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioNodeEmitterShapeKind(i32);
 #[repr(transparent)]
 pub struct AudioNodeListener(pub *mut ::core::ffi::c_void);
@@ -48,7 +55,9 @@ pub struct AudioNodeListener(pub *mut ::core::ffi::c_void);
 pub struct AudioPlaybackConnection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionOpenResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioPlaybackConnectionOpenResultStatus(i32);
+#[repr(C)]
 pub struct AudioPlaybackConnectionState(i32);
 #[repr(transparent)]
 pub struct AudioStateMonitor(pub *mut ::core::ffi::c_void);
@@ -208,13 +217,17 @@ pub struct ISpatialAudioFormatSubtypeStatics2(pub *mut ::core::ffi::c_void);
 pub struct LimiterEffectDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaSourceAudioInputNode(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaSourceAudioInputNodeCreationStatus(i32);
+#[repr(C)]
 pub struct MixedRealitySpatialAudioFormatPolicy(i32);
+#[repr(C)]
 pub struct QuantumSizeSelectionMode(i32);
 #[repr(transparent)]
 pub struct ReverbEffectDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SetDefaultSpatialAudioFormatResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SetDefaultSpatialAudioFormatStatus(i32);
 #[repr(transparent)]
 pub struct SpatialAudioDeviceConfiguration(pub *mut ::core::ffi::c_void);
@@ -222,4 +235,5 @@ pub struct SpatialAudioDeviceConfiguration(pub *mut ::core::ffi::c_void);
 pub struct SpatialAudioFormatConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAudioFormatSubtype(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialAudioModel(i32);

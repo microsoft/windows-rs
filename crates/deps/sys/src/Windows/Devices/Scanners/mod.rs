@@ -19,17 +19,23 @@ pub struct IImageScannerStatics(pub *mut ::core::ffi::c_void);
 pub struct ImageScanner(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageScannerAutoConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ImageScannerAutoCroppingMode(i32);
+#[repr(C)]
 pub struct ImageScannerColorMode(i32);
 #[repr(transparent)]
 pub struct ImageScannerFeederConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageScannerFlatbedConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ImageScannerFormat(i32);
 #[repr(transparent)]
 pub struct ImageScannerPreviewResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ImageScannerResolution(i32);
 #[repr(transparent)]
 pub struct ImageScannerScanResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ImageScannerScanSource(i32);
+#[repr(C)]
 pub struct ScannerDeviceContract(i32);

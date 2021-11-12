@@ -3,7 +3,9 @@
 pub mod InstallControl;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct DeliveryOptimizationDownloadMode(i32);
+#[repr(C)]
 pub struct DeliveryOptimizationDownloadModeSource(i32);
 #[repr(transparent)]
 pub struct DeliveryOptimizationSettings(pub *mut ::core::ffi::c_void);
@@ -37,16 +39,19 @@ pub struct IWebAuthenticationCoreManagerHelper(pub *mut ::core::ffi::c_void);
 pub struct StoreConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoreHardwareManufacturerInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreLogOptions(i32);
 #[repr(transparent)]
 pub struct StorePreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorePreviewProductInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StorePreviewProductPurchaseStatus(i32);
 #[repr(transparent)]
 pub struct StorePreviewPurchaseResults(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorePreviewSkuInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StoreSystemFeature(i32);
 #[repr(transparent)]
 pub struct WebAuthenticationCoreManagerHelper(pub *mut ::core::ffi::c_void);

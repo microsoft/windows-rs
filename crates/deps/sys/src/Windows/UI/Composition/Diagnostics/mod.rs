@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct CompositionDebugHeatMaps(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CompositionDebugOverdrawContentKinds(i32);
 #[repr(transparent)]
 pub struct CompositionDebugSettings(pub *mut ::core::ffi::c_void);

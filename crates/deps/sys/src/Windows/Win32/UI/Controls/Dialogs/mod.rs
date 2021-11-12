@@ -58,29 +58,39 @@ pub const CD_LBSELNOITEMS: i32 = -1i32;
 pub const CD_LBSELSUB: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHOOSECOLORA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHOOSECOLORA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHOOSECOLORW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHOOSECOLORW(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct CHOOSEFONTA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct CHOOSEFONTA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct CHOOSEFONTW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct CHOOSEFONTW(i32);
+#[repr(C)]
 pub struct CHOOSEFONT_FLAGS(i32);
+#[repr(C)]
 pub struct CHOOSEFONT_FONT_TYPE(i32);
 pub const COLOR_ADD: u32 = 712u32;
 pub const COLOR_BLUE: u32 = 708u32;
@@ -112,25 +122,33 @@ pub const COLOR_SOLID: u32 = 713u32;
 pub const COLOR_SOLID_LEFT: u32 = 730u32;
 pub const COLOR_SOLID_RIGHT: u32 = 731u32;
 pub const COLOR_TUNE: u32 = 714u32;
+#[repr(C)]
 pub struct COMMON_DLG_ERRORS(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct DEVNAMES(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct DEVNAMES(i32);
 pub const DLG_COLOR: u32 = 10u32;
 pub const DN_DEFAULTPRN: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDREPLACEA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDREPLACEA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDREPLACEW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDREPLACEW(i32);
+#[repr(C)]
 pub struct FINDREPLACE_FLAGS(i32);
 pub const FRM_FIRST: u32 = 1124u32;
 pub const FRM_LAST: u32 = 1224u32;
@@ -144,113 +162,155 @@ pub const FR_WRAPAROUND: u32 = 1048576u32;
 pub struct IPrintDialogCallback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintDialogServices(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LPCCHOOKPROC(i32);
+#[repr(C)]
 pub struct LPCFHOOKPROC(i32);
+#[repr(C)]
 pub struct LPFRHOOKPROC(i32);
+#[repr(C)]
 pub struct LPOFNHOOKPROC(i32);
+#[repr(C)]
 pub struct LPPAGEPAINTHOOK(i32);
+#[repr(C)]
 pub struct LPPAGESETUPHOOK(i32);
+#[repr(C)]
 pub struct LPPRINTHOOKPROC(i32);
+#[repr(C)]
 pub struct LPSETUPHOOKPROC(i32);
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYEXA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYEXA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYEXW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYEXW(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OFNOTIFYW(i32);
 pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
 pub const OFN_SHARENOWARN: u32 = 1u32;
 pub const OFN_SHAREWARN: u32 = 0u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAMEA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAMEA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAMEW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAMEW(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAME_NT4A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAME_NT4A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAME_NT4W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPENFILENAME_NT4W(i32);
+#[repr(C)]
 pub struct OPEN_FILENAME_FLAGS(i32);
+#[repr(C)]
 pub struct OPEN_FILENAME_FLAGS_EX(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PAGESETUPDLGA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PAGESETUPDLGA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PAGESETUPDLGW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PAGESETUPDLGW(i32);
+#[repr(C)]
 pub struct PAGESETUPDLG_FLAGS(i32);
 pub const PD_RESULT_APPLY: u32 = 2u32;
 pub const PD_RESULT_CANCEL: u32 = 0u32;
 pub const PD_RESULT_PRINT: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGEXA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGEXA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGEXW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGEXW(i32);
+#[repr(C)]
 pub struct PRINTDLGEX_FLAGS(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct PRINTDLGW(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct PRINTPAGERANGE(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct PRINTPAGERANGE(i32);
 pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
 pub const START_PAGE_GENERAL: u32 = 4294967295u32;

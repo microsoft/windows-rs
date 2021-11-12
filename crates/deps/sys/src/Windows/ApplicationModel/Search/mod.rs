@@ -41,6 +41,7 @@ pub struct ISearchSuggestionsRequest(pub *mut ::core::ffi::c_void);
 pub struct ISearchSuggestionsRequestDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LocalContentSuggestionSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SearchContract(i32);
 #[repr(transparent)]
 pub struct SearchPane(pub *mut ::core::ffi::c_void);

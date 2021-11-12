@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct CredentialPromptType(i32);
 #[repr(transparent)]
 pub struct IOnlineIdAuthenticator(pub *mut ::core::ffi::c_void);
@@ -34,6 +35,7 @@ pub struct OnlineIdSystemAuthenticatorForUser(pub *mut ::core::ffi::c_void);
 pub struct OnlineIdSystemIdentity(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct OnlineIdSystemTicketStatus(i32);
 #[repr(transparent)]
 pub struct SignOutUserOperation(pub *mut ::core::ffi::c_void);

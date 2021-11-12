@@ -51,15 +51,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(i32);
+#[repr(C)]
 pub struct DIALOG_DPI_CHANGE_BEHAVIORS(i32);
+#[repr(C)]
 pub struct DPI_AWARENESS(i32);
+#[repr(C)]
 pub struct DPI_AWARENESS_CONTEXT(i32);
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i32 as _);
 pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-2i32 as _);
 pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-1i32 as _);
 pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-5i32 as _);
+#[repr(C)]
 pub struct DPI_HOSTING_BEHAVIOR(i32);
+#[repr(C)]
 pub struct MONITOR_DPI_TYPE(i32);
+#[repr(C)]
 pub struct PROCESS_DPI_AWARENESS(i32);

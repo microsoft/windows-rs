@@ -1,11 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AppRecordingContract(i32);
 #[repr(transparent)]
 pub struct AppRecordingManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppRecordingResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppRecordingSaveScreenshotOption(i32);
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotResult(pub *mut ::core::ffi::c_void);

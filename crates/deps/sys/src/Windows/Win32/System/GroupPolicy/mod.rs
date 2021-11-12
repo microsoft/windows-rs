@@ -76,6 +76,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct APPSTATE(i32);
 pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771700, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3931121442, data2: 41533, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
@@ -85,6 +86,7 @@ pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17805,
     data4: [173, 176, 154, 7, 226, 174, 31, 162],
 };
+#[repr(C)]
 pub struct CriticalPolicySectionHandle(i32);
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
 pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
@@ -98,50 +100,95 @@ pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
 pub const FLAG_NO_USER: u32 = 1u32;
 pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
 pub const GPC_BLOCK_POLICY: u32 = 1u32;
+#[repr(C)]
 pub struct GPM(i32);
+#[repr(C)]
 pub struct GPMAsyncCancel(i32);
+#[repr(C)]
 pub struct GPMBackup(i32);
+#[repr(C)]
 pub struct GPMBackupCollection(i32);
+#[repr(C)]
 pub struct GPMBackupDir(i32);
+#[repr(C)]
 pub struct GPMBackupDirEx(i32);
+#[repr(C)]
 pub struct GPMBackupType(i32);
+#[repr(C)]
 pub struct GPMCSECollection(i32);
+#[repr(C)]
 pub struct GPMClientSideExtension(i32);
+#[repr(C)]
 pub struct GPMConstants(i32);
+#[repr(C)]
 pub struct GPMDestinationOption(i32);
+#[repr(C)]
 pub struct GPMDomain(i32);
+#[repr(C)]
 pub struct GPMEntryType(i32);
+#[repr(C)]
 pub struct GPMGPO(i32);
+#[repr(C)]
 pub struct GPMGPOCollection(i32);
+#[repr(C)]
 pub struct GPMGPOLink(i32);
+#[repr(C)]
 pub struct GPMGPOLinksCollection(i32);
+#[repr(C)]
 pub struct GPMMapEntry(i32);
+#[repr(C)]
 pub struct GPMMapEntryCollection(i32);
+#[repr(C)]
 pub struct GPMMigrationTable(i32);
+#[repr(C)]
 pub struct GPMPermission(i32);
+#[repr(C)]
 pub struct GPMPermissionType(i32);
+#[repr(C)]
 pub struct GPMRSOP(i32);
+#[repr(C)]
 pub struct GPMRSOPMode(i32);
+#[repr(C)]
 pub struct GPMReportType(i32);
+#[repr(C)]
 pub struct GPMReportingOptions(i32);
+#[repr(C)]
 pub struct GPMResult(i32);
+#[repr(C)]
 pub struct GPMSOM(i32);
+#[repr(C)]
 pub struct GPMSOMCollection(i32);
+#[repr(C)]
 pub struct GPMSOMType(i32);
+#[repr(C)]
 pub struct GPMSearchCriteria(i32);
+#[repr(C)]
 pub struct GPMSearchOperation(i32);
+#[repr(C)]
 pub struct GPMSearchProperty(i32);
+#[repr(C)]
 pub struct GPMSecurityInfo(i32);
+#[repr(C)]
 pub struct GPMSitesContainer(i32);
+#[repr(C)]
 pub struct GPMStarterGPOBackup(i32);
+#[repr(C)]
 pub struct GPMStarterGPOBackupCollection(i32);
+#[repr(C)]
 pub struct GPMStarterGPOCollection(i32);
+#[repr(C)]
 pub struct GPMStarterGPOType(i32);
+#[repr(C)]
 pub struct GPMStatusMessage(i32);
+#[repr(C)]
 pub struct GPMStatusMsgCollection(i32);
+#[repr(C)]
 pub struct GPMTemplate(i32);
+#[repr(C)]
 pub struct GPMTrustee(i32);
+#[repr(C)]
 pub struct GPMWMIFilter(i32);
+#[repr(C)]
 pub struct GPMWMIFilterCollection(i32);
 pub const GPM_DONOTUSE_W2KDC: u32 = 2u32;
 pub const GPM_DONOT_VALIDATEDC: u32 = 1u32;
@@ -150,6 +197,7 @@ pub const GPM_PROCESS_SECURITY: u32 = 2u32;
 pub const GPM_USE_ANYDC: u32 = 1u32;
 pub const GPM_USE_PDC: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GPOBROWSEINFO(i32);
 pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
 pub const GPO_BROWSE_INITTOALL: u32 = 16u32;
@@ -170,6 +218,7 @@ pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
 pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
 pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
 pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
+#[repr(C)]
 pub struct GPO_LINK(i32);
 pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
@@ -182,11 +231,15 @@ pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
 pub const GPO_SECTION_MACHINE: u32 = 2u32;
 pub const GPO_SECTION_ROOT: u32 = 0u32;
 pub const GPO_SECTION_USER: u32 = 1u32;
+#[repr(C)]
 pub struct GROUP_POLICY_HINT_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GROUP_POLICY_OBJECTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GROUP_POLICY_OBJECTW(i32);
+#[repr(C)]
 pub struct GROUP_POLICY_OBJECT_TYPE(i32);
 #[repr(transparent)]
 pub struct IGPEInformation(pub *mut ::core::ffi::c_void);
@@ -275,13 +328,17 @@ pub struct IGPMWMIFilterCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IGroupPolicyObject(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct INSTALLDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct INSTALLSPEC(i32);
+#[repr(C)]
 pub struct INSTALLSPECTYPE(i32);
 #[repr(transparent)]
 pub struct IRSOPInformation(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LOCALMANAGEDAPPLICATION(i32);
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
@@ -291,6 +348,7 @@ pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MANAGEDAPPLICATION(i32);
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
@@ -321,13 +379,18 @@ pub const NODEID_RSOPUserSWSettings: ::windows_sys::core::GUID = ::windows_sys::
 };
 pub const NODEID_User: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771704, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 pub const NODEID_UserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771708, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+#[repr(C)]
 pub struct PFNGENERATEGROUPPOLICY(i32);
+#[repr(C)]
 pub struct PFNPROCESSGROUPPOLICY(i32);
+#[repr(C)]
 pub struct PFNPROCESSGROUPPOLICYEX(i32);
+#[repr(C)]
 pub struct PFNSTATUSMESSAGECALLBACK(i32);
 pub const PI_APPLYPOLICY: u32 = 2u32;
 pub const PI_NOUI: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POLICYSETTINGSTATUSINFO(i32);
 pub const PT_MANDATORY: u32 = 4u32;
 pub const PT_ROAMING: u32 = 2u32;
@@ -345,7 +408,9 @@ pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
 pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+#[repr(C)]
 pub struct RSOP_TARGET(i32);
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
+#[repr(C)]
 pub struct SETTINGSTATUS(i32);

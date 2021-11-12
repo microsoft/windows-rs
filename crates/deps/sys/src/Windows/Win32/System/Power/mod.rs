@@ -180,18 +180,24 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WritePwrScheme(puiid: *const u32, lpszschemename: super::super::Foundation::PWSTR, lpszdescription: super::super::Foundation::PWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
 }
+#[repr(C)]
 pub struct ACPI_REAL_TIME(i32);
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
 pub const ACTIVE_COOLING: u32 = 0u32;
+#[repr(C)]
 pub struct ADMINISTRATOR_POWER_POLICY(i32);
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824u32;
+#[repr(C)]
 pub struct BATTERY_CHARGER_STATUS(i32);
 pub const BATTERY_CHARGING: u32 = 4u32;
+#[repr(C)]
 pub struct BATTERY_CHARGING_SOURCE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION(i32);
+#[repr(C)]
 pub struct BATTERY_CHARGING_SOURCE_TYPE(i32);
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
@@ -200,14 +206,19 @@ pub const BATTERY_CRITICAL: u32 = 8u32;
 pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4019772196, data2: 20, data3: 19493, data4: [165, 11, 199, 36, 174, 92, 211, 113] };
 pub const BATTERY_DISCHARGING: u32 = 2u32;
 pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1085539685, data2: 38647, data3: 17461, data4: [134, 148, 151, 224, 228, 57, 89, 5] };
+#[repr(C)]
 pub struct BATTERY_INFORMATION(i32);
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
+#[repr(C)]
 pub struct BATTERY_MANUFACTURE_DATE(i32);
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
+#[repr(C)]
 pub struct BATTERY_QUERY_INFORMATION(i32);
+#[repr(C)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(i32);
+#[repr(C)]
 pub struct BATTERY_REPORTING_SCALE(i32);
 pub const BATTERY_RUNTIME_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1398421351, data2: 6850, data3: 18876, data4: [160, 119, 63, 122, 2, 228, 10, 236] };
 pub const BATTERY_SEALED: u32 = 268435456u32;
@@ -215,9 +226,12 @@ pub const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8u32;
 pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1u32;
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4u32;
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2u32;
+#[repr(C)]
 pub struct BATTERY_SET_INFORMATION(i32);
+#[repr(C)]
 pub struct BATTERY_SET_INFORMATION_LEVEL(i32);
 pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 98690147, data2: 58594, data3: 20137, data4: [128, 203, 155, 212, 179, 202, 6, 85] };
+#[repr(C)]
 pub struct BATTERY_STATUS(i32);
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3453984963, data2: 31835, data3: 20035, data4: [160, 52, 5, 159, 165, 184, 67, 100] };
 pub const BATTERY_STATUS_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4232474833, data2: 60351, data3: 16750, data4: [135, 206, 55, 74, 78, 188, 17, 26] };
@@ -240,10 +254,13 @@ pub const BATTERY_UNKNOWN_CURRENT: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648u32;
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295u32;
+#[repr(C)]
 pub struct BATTERY_USB_CHARGER_STATUS(i32);
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2u32;
+#[repr(C)]
 pub struct BATTERY_WAIT_STATUS(i32);
+#[repr(C)]
 pub struct CM_POWER_DATA(i32);
 pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824u32;
 pub const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2u32;
@@ -254,33 +271,49 @@ pub const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728u32;
 pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864u32;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
+#[repr(C)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS(i32);
+#[repr(C)]
 pub struct DEVICE_POWER_STATE(i32);
+#[repr(C)]
 pub struct EFFECTIVE_POWER_MODE(i32);
+#[repr(C)]
 pub struct EFFECTIVE_POWER_MODE_CALLBACK(i32);
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
+#[repr(C)]
 pub struct EMI_CHANNEL_MEASUREMENT_DATA(i32);
+#[repr(C)]
 pub struct EMI_CHANNEL_V2(i32);
+#[repr(C)]
 pub struct EMI_MEASUREMENT_DATA_V2(i32);
+#[repr(C)]
 pub struct EMI_MEASUREMENT_UNIT(i32);
+#[repr(C)]
 pub struct EMI_METADATA_SIZE(i32);
+#[repr(C)]
 pub struct EMI_METADATA_V1(i32);
+#[repr(C)]
 pub struct EMI_METADATA_V2(i32);
 pub const EMI_NAME_MAX: u32 = 16u32;
+#[repr(C)]
 pub struct EMI_VERSION(i32);
 pub const EMI_VERSION_V1: u32 = 1u32;
 pub const EMI_VERSION_V2: u32 = 2u32;
+#[repr(C)]
 pub struct EXECUTION_STATE(i32);
 pub const EnableMultiBatteryDisplay: u32 = 2u32;
 pub const EnablePasswordLogon: u32 = 4u32;
 pub const EnableSysTrayBatteryMeter: u32 = 1u32;
 pub const EnableVideoDimDisplay: u32 = 16u32;
 pub const EnableWakeOnRing: u32 = 8u32;
+#[repr(C)]
 pub struct GLOBAL_MACHINE_POWER_POLICY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GLOBAL_POWER_POLICY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GLOBAL_USER_POWER_POLICY(i32);
 pub const GUID_CLASS_INPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1293833650, data2: 61807, data3: 4559, data4: [136, 203, 0, 17, 17, 0, 0, 48] };
 pub const GUID_DEVICE_ACPI_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -321,6 +354,7 @@ pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windo
     data4: [172, 228, 224, 229, 208, 95, 12, 159],
 };
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457780371, data2: 27044, data3: 19392, data4: [189, 2, 113, 22, 100, 113, 68, 99] };
+#[repr(C)]
 pub struct HPOWERNOTIFY(i32);
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
 pub const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276u32;
@@ -350,8 +384,11 @@ pub const IOCTL_THERMAL_READ_POLICY: u32 = 2703508u32;
 pub const IOCTL_THERMAL_READ_TEMPERATURE: u32 = 2703504u32;
 pub const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876u32;
 pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
+#[repr(C)]
 pub struct LATENCY_TIME(i32);
+#[repr(C)]
 pub struct MACHINE_POWER_POLICY(i32);
+#[repr(C)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY(i32);
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128u32;
@@ -366,43 +403,69 @@ pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576u32;
 pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
+#[repr(C)]
 pub struct PDEVICE_NOTIFY_CALLBACK_ROUTINE(i32);
+#[repr(C)]
 pub struct POWERBROADCAST_SETTING(i32);
+#[repr(C)]
 pub struct POWER_ACTION(i32);
+#[repr(C)]
 pub struct POWER_ACTION_POLICY(i32);
+#[repr(C)]
 pub struct POWER_ACTION_POLICY_EVENT_CODE(i32);
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
+#[repr(C)]
 pub struct POWER_DATA_ACCESSOR(i32);
+#[repr(C)]
 pub struct POWER_INFORMATION_LEVEL(i32);
+#[repr(C)]
 pub struct POWER_PLATFORM_ROLE(i32);
+#[repr(C)]
 pub struct POWER_PLATFORM_ROLE_VERSION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct POWER_POLICY(i32);
+#[repr(C)]
 pub struct POWER_REQUEST_TYPE(i32);
+#[repr(C)]
 pub struct POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1462028317, data2: 54703, data3: 19487, data4: [161, 3, 160, 110, 40, 242, 4, 198] },
     pid: 1u32,
 };
+#[repr(C)]
 pub struct PROCESSOR_OBJECT_INFO(i32);
+#[repr(C)]
 pub struct PROCESSOR_OBJECT_INFO_EX(i32);
+#[repr(C)]
 pub struct PROCESSOR_POWER_POLICY(i32);
+#[repr(C)]
 pub struct PROCESSOR_POWER_POLICY_INFO(i32);
+#[repr(C)]
 pub struct PWRSCHEMESENUMPROC(i32);
+#[repr(C)]
 pub struct PWRSCHEMESENUMPROC_V1(i32);
+#[repr(C)]
 pub struct SET_POWER_SETTING_VALUE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SYSTEM_BATTERY_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SYSTEM_POWER_CAPABILITIES(i32);
+#[repr(C)]
 pub struct SYSTEM_POWER_CONDITION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SYSTEM_POWER_LEVEL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SYSTEM_POWER_POLICY(i32);
+#[repr(C)]
 pub struct SYSTEM_POWER_STATE(i32);
+#[repr(C)]
 pub struct SYSTEM_POWER_STATUS(i32);
 pub const SYS_BUTTON_LID: u32 = 4u32;
 pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
@@ -416,13 +479,17 @@ pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
 pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct THERMAL_EVENT(i32);
 pub const THERMAL_EVENT_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct THERMAL_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct THERMAL_POLICY(i32);
 pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
 pub const THERMAL_POLICY_VERSION_2: u32 = 2u32;
+#[repr(C)]
 pub struct THERMAL_WAIT_READ(i32);
 pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
 pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
@@ -430,7 +497,10 @@ pub const UNKNOWN_CAPACITY: u32 = 4294967295u32;
 pub const UNKNOWN_CURRENT: u32 = 4294967295u32;
 pub const UNKNOWN_RATE: u32 = 2147483648u32;
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
+#[repr(C)]
 pub struct USB_CHARGER_PORT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct USER_POWER_POLICY(i32);
+#[repr(C)]
 pub struct WAKE_ALARM_INFORMATION(i32);

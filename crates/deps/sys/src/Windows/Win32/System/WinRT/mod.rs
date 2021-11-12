@@ -118,21 +118,33 @@ extern "system" {
     pub fn WindowsTrimStringEnd(string: ::windows_sys::core::HSTRING, trimstring: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
     pub fn WindowsTrimStringStart(string: ::windows_sys::core::HSTRING, trimstring: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct ACTIVATIONTYPE(i32);
+#[repr(C)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(i32);
+#[repr(C)]
 pub struct AgileReferenceOptions(i32);
+#[repr(C)]
 pub struct BSOS_OPTIONS(i32);
+#[repr(C)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(i32);
+#[repr(C)]
 pub struct CASTING_CONNECTION_STATE(i32);
 pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
 pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
+#[repr(C)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(i32);
+#[repr(C)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(i32);
+#[repr(C)]
 pub struct DispatcherQueueOptions(i32);
+#[repr(C)]
 pub struct EventRegistrationToken(i32);
+#[repr(C)]
 pub struct HSTRING_BUFFER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HSTRING_HEADER(i32);
 #[repr(transparent)]
 pub struct IAccountsSettingsPaneInterop(pub *mut ::core::ffi::c_void);
@@ -207,12 +219,21 @@ pub struct IWeakReferenceSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerInterop(pub *mut ::core::ffi::c_void);
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
+#[repr(C)]
 pub struct PINSPECT_HSTRING_CALLBACK(i32);
+#[repr(C)]
 pub struct PINSPECT_HSTRING_CALLBACK2(i32);
+#[repr(C)]
 pub struct PINSPECT_MEMORY_CALLBACK(i32);
+#[repr(C)]
 pub struct ROPARAMIIDHANDLE(i32);
+#[repr(C)]
 pub struct RO_ERROR_REPORTING_FLAGS(i32);
+#[repr(C)]
 pub struct RO_INIT_TYPE(i32);
+#[repr(C)]
 pub struct ServerInformation(i32);
+#[repr(C)]
 pub struct TrustLevel(i32);
+#[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(i32);

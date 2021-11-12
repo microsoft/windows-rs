@@ -197,6 +197,7 @@ pub const HTTP_STATUS_URI_TOO_LONG: u32 = 414u32;
 pub const HTTP_STATUS_USE_PROXY: u32 = 305u32;
 pub const HTTP_STATUS_VERSION_NOT_SUP: u32 = 505u32;
 pub const HTTP_STATUS_WEBDAV_MULTI_STATUS: u32 = 207u32;
+#[repr(C)]
 pub struct HTTP_VERSION_INFO(i32);
 pub const ICU_BROWSER_MODE: u32 = 33554432u32;
 pub const ICU_ENCODE_PERCENT: u32 = 4096u32;
@@ -204,7 +205,9 @@ pub const ICU_ENCODE_SPACES_ONLY: u32 = 67108864u32;
 pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
 pub const ICU_NO_ENCODE: u32 = 536870912u32;
 pub const ICU_NO_META: u32 = 134217728u32;
+#[repr(C)]
 pub struct INTERNET_PORT(i32);
+#[repr(C)]
 pub struct LPWINHTTP_STATUS_CALLBACK(i32);
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;
@@ -216,7 +219,9 @@ pub const SECURITY_FLAG_STRENGTH_MEDIUM: u32 = 1073741824u32;
 pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
 pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct URL_COMPONENTS(i32);
+#[repr(C)]
 pub struct WINHTTP_ACCESS_TYPE(i32);
 pub const WINHTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 pub const WINHTTP_ADDREQ_FLAG_ADD: u32 = 536870912u32;
@@ -226,6 +231,7 @@ pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: u32 = 1073741824u32;
 pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: u32 = 16777216u32;
 pub const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648u32;
 pub const WINHTTP_ADDREQ_INDEX_MASK: u32 = 65535u32;
+#[repr(C)]
 pub struct WINHTTP_ASYNC_RESULT(i32);
 pub const WINHTTP_AUTH_SCHEME_DIGEST: u32 = 8u32;
 pub const WINHTTP_AUTH_SCHEME_PASSPORT: u32 = 4u32;
@@ -246,6 +252,7 @@ pub const WINHTTP_AUTOPROXY_NO_CACHE_CLIENT: u32 = 524288u32;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_SVC: u32 = 1048576u32;
 pub const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_AUTOPROXY_OPTIONS(i32);
 pub const WINHTTP_AUTOPROXY_RUN_INPROCESS: u32 = 65536u32;
 pub const WINHTTP_AUTOPROXY_RUN_OUTPROCESS_ONLY: u32 = 131072u32;
@@ -300,24 +307,32 @@ pub const WINHTTP_CALLBACK_STATUS_SETTINGS_WRITE_COMPLETE: u32 = 268435456u32;
 pub const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: u32 = 67108864u32;
 pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: u32 = 1048576u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_CERTIFICATE_INFO(i32);
+#[repr(C)]
 pub struct WINHTTP_CONNECTION_GROUP(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct WINHTTP_CONNECTION_INFO(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct WINHTTP_CONNECTION_INFO(i32);
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_SSL_HANDSHAKE: u32 = 2u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_STALE_CONNECTION: u32 = 4u32;
 pub const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_CREDS(i32);
+#[repr(C)]
 pub struct WINHTTP_CREDS_AUTHSCHEME(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_CREDS_EX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG(i32);
 pub const WINHTTP_DECOMPRESSION_FLAG_DEFLATE: u32 = 2u32;
 pub const WINHTTP_DECOMPRESSION_FLAG_GZIP: u32 = 1u32;
@@ -336,8 +351,10 @@ pub const WINHTTP_ENABLE_SSL_REVOCATION: u32 = 1u32;
 pub const WINHTTP_ERROR_BASE: u32 = 12000u32;
 pub const WINHTTP_ERROR_LAST: u32 = 12192u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_EXTENDED_HEADER(i32);
 pub const WINHTTP_EXTENDED_HEADER_FLAG_UNICODE: u32 = 1u32;
+#[repr(C)]
 pub struct WINHTTP_FAILED_CONNECTION_RETRIES(i32);
 pub const WINHTTP_FLAG_ASYNC: u32 = 268435456u32;
 pub const WINHTTP_FLAG_SECURE_DEFAULTS: u32 = 805306368u32;
@@ -351,19 +368,26 @@ pub const WINHTTP_HANDLE_TYPE_CONNECT: u32 = 2u32;
 pub const WINHTTP_HANDLE_TYPE_REQUEST: u32 = 3u32;
 pub const WINHTTP_HANDLE_TYPE_SESSION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_HEADER_NAME(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_HOST_CONNECTION_GROUP(i32);
+#[repr(C)]
 pub struct WINHTTP_HTTP2_RECEIVE_WINDOW(i32);
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
+#[repr(C)]
 pub struct WINHTTP_INTERNET_SCHEME(i32);
 pub const WINHTTP_LAST_OPTION: u32 = 183u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct WINHTTP_MATCH_CONNECTION_GUID(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct WINHTTP_MATCH_CONNECTION_GUID(i32);
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAGS_MASK: u32 = 1u32;
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAG_REQUIRE_MARKED_CONNECTION: u32 = 1u32;
+#[repr(C)]
 pub struct WINHTTP_OPEN_REQUEST_FLAGS(i32);
 pub const WINHTTP_OPTION_AGGREGATE_PROXY_CONFIG: u32 = 181u32;
 pub const WINHTTP_OPTION_ASSURED_NON_BLOCKING_CALLBACKS: u32 = 111u32;
@@ -492,14 +516,19 @@ pub const WINHTTP_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP2: u32 = 1u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP3: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_PROXY_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_PROXY_RESULT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_PROXY_RESULT_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_PROXY_RESULT_EX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_PROXY_SETTINGS(i32);
 pub const WINHTTP_PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 pub const WINHTTP_PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
@@ -517,6 +546,7 @@ pub const WINHTTP_QUERY_AUTHORIZATION: u32 = 28u32;
 pub const WINHTTP_QUERY_CACHE_CONTROL: u32 = 49u32;
 pub const WINHTTP_QUERY_CONNECTION: u32 = 23u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT(i32);
 pub const WINHTTP_QUERY_CONTENT_BASE: u32 = 50u32;
 pub const WINHTTP_QUERY_CONTENT_DESCRIPTION: u32 = 4u32;
@@ -592,9 +622,12 @@ pub const WINHTTP_QUERY_VIA: u32 = 66u32;
 pub const WINHTTP_QUERY_WARNING: u32 = 67u32;
 pub const WINHTTP_QUERY_WWW_AUTHENTICATE: u32 = 40u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct WINHTTP_REQUEST_STATS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct WINHTTP_REQUEST_STATS(i32);
+#[repr(C)]
 pub struct WINHTTP_REQUEST_STAT_ENTRY(i32);
 pub const WINHTTP_REQUEST_STAT_FLAG_FIRST_REQUEST: u32 = 32u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_PROXY_TLS_FALSE_START: u32 = 16u32;
@@ -603,9 +636,12 @@ pub const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct WINHTTP_REQUEST_TIMES(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct WINHTTP_REQUEST_TIMES(i32);
+#[repr(C)]
 pub struct WINHTTP_REQUEST_TIME_ENTRY(i32);
 pub const WINHTTP_RESET_ALL: u32 = 65535u32;
 pub const WINHTTP_RESET_DISCARD_RESOLVERS: u32 = 262144u32;
@@ -616,22 +652,33 @@ pub const WINHTTP_RESET_STATE: u32 = 1u32;
 pub const WINHTTP_RESET_SWPAD_ALL: u32 = 4u32;
 pub const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: u32 = 2u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG(i32);
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE: u32 = 2u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_CONN_USE_TTL: u32 = 8u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT: u32 = 1u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
+#[repr(C)]
 pub struct WINHTTP_SECURE_DNS_SETTING(i32);
+#[repr(C)]
 pub struct WINHTTP_STATUS_CALLBACK(i32);
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
+#[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT(i32);
+#[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(i32);
+#[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(i32);
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
+#[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_OPERATION(i32);
+#[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_STATUS(i32);
+#[repr(C)]
 pub struct WIN_HTTP_CREATE_URL_FLAGS(i32);
+#[repr(C)]
 pub struct _WinHttpProxyNetworkKey(i32);

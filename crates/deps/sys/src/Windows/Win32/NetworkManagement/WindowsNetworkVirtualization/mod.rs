@@ -8,20 +8,31 @@ extern "system" {
 }
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
+#[repr(C)]
 pub struct WNV_CA_NOTIFICATION_TYPE(i32);
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct WNV_IP_ADDRESS(i32);
+#[repr(C)]
 pub struct WNV_NOTIFICATION_PARAM(i32);
+#[repr(C)]
 pub struct WNV_NOTIFICATION_TYPE(i32);
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct WNV_OBJECT_CHANGE_PARAM(i32);
+#[repr(C)]
 pub struct WNV_OBJECT_HEADER(i32);
+#[repr(C)]
 pub struct WNV_OBJECT_TYPE(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct WNV_POLICY_MISMATCH_PARAM(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct WNV_REDIRECT_PARAM(i32);

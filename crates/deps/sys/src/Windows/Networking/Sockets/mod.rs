@@ -1,12 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct BandwidthStatistics(i32);
 #[repr(transparent)]
 pub struct ControlChannelTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ControlChannelTriggerContract(i32);
+#[repr(C)]
 pub struct ControlChannelTriggerResetReason(i32);
+#[repr(C)]
 pub struct ControlChannelTriggerResourceType(i32);
+#[repr(C)]
 pub struct ControlChannelTriggerStatus(i32);
 #[repr(transparent)]
 pub struct DatagramSocket(pub *mut ::core::ffi::c_void);
@@ -146,7 +151,9 @@ pub struct MessageWebSocketControl(pub *mut ::core::ffi::c_void);
 pub struct MessageWebSocketInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MessageWebSocketMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MessageWebSocketReceiveMode(i32);
+#[repr(C)]
 pub struct RoundTripTimeStatistics(i32);
 #[repr(transparent)]
 pub struct ServerMessageWebSocket(pub *mut ::core::ffi::c_void);
@@ -158,21 +165,29 @@ pub struct ServerMessageWebSocketInformation(pub *mut ::core::ffi::c_void);
 pub struct ServerStreamWebSocket(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ServerStreamWebSocketInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SocketActivityConnectedStandbyAction(i32);
 #[repr(transparent)]
 pub struct SocketActivityContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SocketActivityInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SocketActivityKind(i32);
 #[repr(transparent)]
 pub struct SocketActivityTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SocketActivityTriggerReason(i32);
 #[repr(transparent)]
 pub struct SocketError(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SocketErrorStatus(i32);
+#[repr(C)]
 pub struct SocketMessageType(i32);
+#[repr(C)]
 pub struct SocketProtectionLevel(i32);
+#[repr(C)]
 pub struct SocketQualityOfService(i32);
+#[repr(C)]
 pub struct SocketSslErrorSeverity(i32);
 #[repr(transparent)]
 pub struct StreamSocket(pub *mut ::core::ffi::c_void);

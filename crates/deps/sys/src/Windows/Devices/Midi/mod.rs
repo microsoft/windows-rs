@@ -71,6 +71,7 @@ pub struct MidiControlChangeMessage(pub *mut ::core::ffi::c_void);
 pub struct MidiInPort(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MidiMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MidiMessageType(i32);
 #[repr(transparent)]
 pub struct MidiNoteOffMessage(pub *mut ::core::ffi::c_void);

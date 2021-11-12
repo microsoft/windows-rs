@@ -1,13 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct CommonFileQuery(i32);
+#[repr(C)]
 pub struct CommonFolderQuery(i32);
 #[repr(transparent)]
 pub struct ContentIndexer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContentIndexerQuery(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DateStackOption(i32);
+#[repr(C)]
 pub struct FolderDepth(i32);
 #[repr(transparent)]
 pub struct IContentIndexer(pub *mut ::core::ffi::c_void);
@@ -45,10 +49,13 @@ pub struct IStorageQueryResultBase(pub *mut ::core::ffi::c_void);
 pub struct IValueAndLanguage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IndexableContent(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IndexedState(i32);
+#[repr(C)]
 pub struct IndexerOption(i32);
 #[repr(transparent)]
 pub struct QueryOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SortEntry(i32);
 #[repr(transparent)]
 pub struct SortEntryVector(pub *mut ::core::ffi::c_void);

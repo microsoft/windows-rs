@@ -43,9 +43,11 @@ pub struct IVolumeChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MuteChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayToConnection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlayToConnectionError(i32);
 #[repr(transparent)]
 pub struct PlayToConnectionErrorEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlayToConnectionState(i32);
 #[repr(transparent)]
 pub struct PlayToConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_void);

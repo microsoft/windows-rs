@@ -3,6 +3,7 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct I2cBusSpeed(i32);
 #[repr(transparent)]
 pub struct I2cConnectionSettings(pub *mut ::core::ffi::c_void);
@@ -10,8 +11,11 @@ pub struct I2cConnectionSettings(pub *mut ::core::ffi::c_void);
 pub struct I2cController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct I2cDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct I2cSharingMode(i32);
+#[repr(C)]
 pub struct I2cTransferResult(i32);
+#[repr(C)]
 pub struct I2cTransferStatus(i32);
 #[repr(transparent)]
 pub struct II2cConnectionSettings(pub *mut ::core::ffi::c_void);

@@ -251,16 +251,27 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdatePerfNameFilesW(sznewctrfilepath: super::super::Foundation::PWSTR, sznewhlpfilepath: super::super::Foundation::PWSTR, szlanguageid: super::super::Foundation::PWSTR, dwflags: usize) -> u32;
 }
+#[repr(C)]
 pub struct AppearPropPage(i32);
+#[repr(C)]
 pub struct AutoPathFormat(i32);
+#[repr(C)]
 pub struct BootTraceSession(i32);
+#[repr(C)]
 pub struct BootTraceSessionCollection(i32);
+#[repr(C)]
 pub struct ClockType(i32);
+#[repr(C)]
 pub struct CommitMode(i32);
+#[repr(C)]
 pub struct CounterItem(i32);
+#[repr(C)]
 pub struct CounterItem2(i32);
+#[repr(C)]
 pub struct CounterPathCallBack(i32);
+#[repr(C)]
 pub struct CounterPropPage(i32);
+#[repr(C)]
 pub struct Counters(i32);
 #[repr(transparent)]
 pub struct DICounterItem(pub *mut ::core::ffi::c_void);
@@ -282,16 +293,27 @@ pub struct DISystemMonitor(pub *mut ::core::ffi::c_void);
 pub struct DISystemMonitorEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DISystemMonitorInternal(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DataCollectorSet(i32);
+#[repr(C)]
 pub struct DataCollectorSetCollection(i32);
+#[repr(C)]
 pub struct DataCollectorSetStatus(i32);
+#[repr(C)]
 pub struct DataCollectorType(i32);
+#[repr(C)]
 pub struct DataManagerSteps(i32);
+#[repr(C)]
 pub struct DataSourceTypeConstants(i32);
+#[repr(C)]
 pub struct DisplayTypeConstants(i32);
+#[repr(C)]
 pub struct FileFormat(i32);
+#[repr(C)]
 pub struct FolderActionSteps(i32);
+#[repr(C)]
 pub struct GeneralPropPage(i32);
+#[repr(C)]
 pub struct GraphPropPage(i32);
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
 #[repr(transparent)]
@@ -347,11 +369,17 @@ pub struct IValueMap(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IValueMapItem(pub *mut ::core::ffi::c_void);
 pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
+#[repr(C)]
 pub struct LegacyDataCollectorSet(i32);
+#[repr(C)]
 pub struct LegacyDataCollectorSetCollection(i32);
+#[repr(C)]
 pub struct LegacyTraceSession(i32);
+#[repr(C)]
 pub struct LegacyTraceSessionCollection(i32);
+#[repr(C)]
 pub struct LogFileItem(i32);
+#[repr(C)]
 pub struct LogFiles(i32);
 pub const MAX_COUNTER_PATH: u32 = 256u32;
 pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
@@ -359,12 +387,16 @@ pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
 pub const PDH_ASYNC_QUERY_TIMEOUT: i32 = -2147481637i32;
 pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_BROWSE_DLG_CONFIG_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_BROWSE_DLG_CONFIG_W(i32);
 pub const PDH_CALC_NEGATIVE_DENOMINATOR: i32 = -2147481642i32;
 pub const PDH_CALC_NEGATIVE_TIMEBASE: i32 = -2147481641i32;
@@ -375,12 +407,16 @@ pub const PDH_CANNOT_READ_NAME_STRINGS: i32 = -1073738808i32;
 pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: i32 = -2147481636i32;
 pub const PDH_COUNTER_ALREADY_IN_QUERY: i32 = -1073738762i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_COUNTER_INFO_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_COUNTER_INFO_W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W(i32);
 pub const PDH_CSTATUS_BAD_COUNTERNAME: i32 = -1073738816i32;
 pub const PDH_CSTATUS_INVALID_DATA: i32 = -1073738822i32;
@@ -393,23 +429,30 @@ pub const PDH_CSTATUS_NO_MACHINE: i32 = -2147481648i32;
 pub const PDH_CSTATUS_NO_OBJECT: i32 = -1073738824i32;
 pub const PDH_CSTATUS_VALID_DATA: i32 = 0i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W(i32);
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
 pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
 pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
+#[repr(C)]
 pub struct PDH_DLL_VERSION(i32);
 pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
 pub const PDH_ENTRY_NOT_IN_LOG_FILE: i32 = -1073738803i32;
 pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
 pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
+#[repr(C)]
 pub struct PDH_FMT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_FMT_COUNTERVALUE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W(i32);
 pub const PDH_FUNCTION_NOT_FOUND: i32 = -1073738818i32;
 pub const PDH_INCORRECT_APPEND_TIME: i32 = -1073738757i32;
@@ -423,6 +466,7 @@ pub const PDH_INVALID_INSTANCE: i32 = -1073738811i32;
 pub const PDH_INVALID_PATH: i32 = -1073738812i32;
 pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
 pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
+#[repr(C)]
 pub struct PDH_LOG(i32);
 pub const PDH_LOGSVC_NOT_OPENED: i32 = -1073738791i32;
 pub const PDH_LOGSVC_QUERY_NOT_FOUND: i32 = -1073738792i32;
@@ -431,9 +475,12 @@ pub const PDH_LOG_FILE_OPEN_ERROR: i32 = -1073738806i32;
 pub const PDH_LOG_FILE_TOO_SMALL: i32 = -1073738788i32;
 pub const PDH_LOG_SAMPLE_TOO_SMALL: i32 = -1073738760i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W(i32);
+#[repr(C)]
 pub struct PDH_LOG_TYPE(i32);
 pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
 pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
@@ -456,6 +503,7 @@ pub const PDH_NO_DIALOG_DATA: i32 = -1073738809i32;
 pub const PDH_NO_MORE_DATA: i32 = -1073738804i32;
 pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
 pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
+#[repr(C)]
 pub struct PDH_PATH_FLAGS(i32);
 pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: i32 = -1073738775i32;
 pub const PDH_PLA_COLLECTION_NOT_FOUND: i32 = -1073738773i32;
@@ -471,14 +519,19 @@ pub const PDH_PLA_VALIDATION_ERROR: i32 = -1073738766i32;
 pub const PDH_PLA_VALIDATION_WARNING: i32 = -2147480589i32;
 pub const PDH_QUERY_PERF_DATA_TIMEOUT: i32 = -1073738754i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_RAW_COUNTER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_RAW_COUNTER_ITEM_A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_RAW_COUNTER_ITEM_W(i32);
+#[repr(C)]
 pub struct PDH_RAW_LOG_RECORD(i32);
 pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 pub const PDH_RETRY: i32 = -2147481644i32;
+#[repr(C)]
 pub struct PDH_SELECT_DATA_SOURCE_FLAGS(i32);
 pub const PDH_SQL_ALLOCCON_FAILED: i32 = -1073738783i32;
 pub const PDH_SQL_ALLOC_FAILED: i32 = -1073738784i32;
@@ -490,8 +543,10 @@ pub const PDH_SQL_FETCH_FAILED: i32 = -1073738781i32;
 pub const PDH_SQL_MORE_RESULTS_FAILED: i32 = -1073738779i32;
 pub const PDH_SQL_ROWCOUNT_FAILED: i32 = -1073738780i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PDH_STATISTICS(i32);
 pub const PDH_STRING_NOT_FOUND: i32 = -1073738796i32;
+#[repr(C)]
 pub struct PDH_TIME_INFO(i32);
 pub const PDH_UNABLE_MAP_NAME_FILES: i32 = -2147480619i32;
 pub const PDH_UNABLE_READ_LOG_HEADER: i32 = -1073738800i32;
@@ -499,6 +554,7 @@ pub const PDH_UNKNOWN_LOGSVC_COMMAND: i32 = -1073738793i32;
 pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
 pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
 pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
+#[repr(C)]
 pub struct PERFLIBREQUEST(i32);
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 pub const PERF_AGGREGATE_MAX: u32 = 4u32;
@@ -513,43 +569,59 @@ pub const PERF_COUNTERSET_FLAG_AGGREGATE: u32 = 4u32;
 pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8u32;
 pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16u32;
 pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2u32;
+#[repr(C)]
 pub struct PERF_COUNTERSET_INFO(i32);
+#[repr(C)]
 pub struct PERF_COUNTERSET_INSTANCE(i32);
 pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
+#[repr(C)]
 pub struct PERF_COUNTERSET_REG_INFO(i32);
 pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
 pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
+#[repr(C)]
 pub struct PERF_COUNTER_AGGREGATE_FUNC(i32);
 pub const PERF_COUNTER_BASE: u32 = 196608u32;
+#[repr(C)]
 pub struct PERF_COUNTER_BLOCK(i32);
+#[repr(C)]
 pub struct PERF_COUNTER_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PERF_COUNTER_DEFINITION(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PERF_COUNTER_DEFINITION(i32);
 pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
 pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
+#[repr(C)]
 pub struct PERF_COUNTER_HEADER(i32);
 pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
 pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
+#[repr(C)]
 pub struct PERF_COUNTER_IDENTIFIER(i32);
+#[repr(C)]
 pub struct PERF_COUNTER_IDENTITY(i32);
+#[repr(C)]
 pub struct PERF_COUNTER_INFO(i32);
 pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
 pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
 pub const PERF_COUNTER_RATE: u32 = 65536u32;
+#[repr(C)]
 pub struct PERF_COUNTER_REG_INFO(i32);
 pub const PERF_COUNTER_VALUE: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PERF_DATA_BLOCK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PERF_DATA_HEADER(i32);
 pub const PERF_DATA_REVISION: u32 = 1u32;
 pub const PERF_DATA_VERSION: u32 = 1u32;
 pub const PERF_DELTA_BASE: u32 = 8388608u32;
 pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
+#[repr(C)]
 pub struct PERF_DETAIL(i32);
 pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
 pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
@@ -558,16 +630,22 @@ pub const PERF_DISPLAY_PER_SEC: u32 = 268435456u32;
 pub const PERF_DISPLAY_SECONDS: u32 = 805306368u32;
 pub const PERF_ENUM_INSTANCES: u32 = 3u32;
 pub const PERF_FILTER: u32 = 9u32;
+#[repr(C)]
 pub struct PERF_INSTANCE_DEFINITION(i32);
+#[repr(C)]
 pub struct PERF_INSTANCE_HEADER(i32);
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
 pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
+#[repr(C)]
 pub struct PERF_MEM_ALLOC(i32);
+#[repr(C)]
 pub struct PERF_MEM_FREE(i32);
 pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
 pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
 pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
+#[repr(C)]
 pub struct PERF_MULTI_COUNTERS(i32);
+#[repr(C)]
 pub struct PERF_MULTI_INSTANCES(i32);
 pub const PERF_NO_INSTANCES: i32 = -1i32;
 pub const PERF_NO_UNIQUE_ID: i32 = -1i32;
@@ -577,10 +655,13 @@ pub const PERF_NUMBER_HEX: u32 = 0u32;
 pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PERF_OBJECT_TYPE(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PERF_OBJECT_TYPE(i32);
+#[repr(C)]
 pub struct PERF_PROVIDER_CONTEXT(i32);
 pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
 pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
@@ -590,7 +671,9 @@ pub const PERF_SIZE_DWORD: u32 = 0u32;
 pub const PERF_SIZE_LARGE: u32 = 256u32;
 pub const PERF_SIZE_VARIABLE_LEN: u32 = 768u32;
 pub const PERF_SIZE_ZERO: u32 = 512u32;
+#[repr(C)]
 pub struct PERF_STRING_BUFFER_HEADER(i32);
+#[repr(C)]
 pub struct PERF_STRING_COUNTER_HEADER(i32);
 pub const PERF_TEXT_ASCII: u32 = 65536u32;
 pub const PERF_TEXT_UNICODE: u32 = 0u32;
@@ -601,6 +684,7 @@ pub const PERF_TYPE_NUMBER: u32 = 0u32;
 pub const PERF_TYPE_TEXT: u32 = 2048u32;
 pub const PERF_TYPE_ZERO: u32 = 3072u32;
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
+#[repr(C)]
 pub struct PLA_CABEXTRACT_CALLBACK(i32);
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
 pub const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8u32;
@@ -609,37 +693,64 @@ pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
 pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
 pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
+#[repr(C)]
 pub struct PM_CLOSE_PROC(i32);
+#[repr(C)]
 pub struct PM_COLLECT_PROC(i32);
+#[repr(C)]
 pub struct PM_OPEN_PROC(i32);
+#[repr(C)]
 pub struct PerfCounterDataType(i32);
+#[repr(C)]
 pub struct PerfProviderHandle(i32);
+#[repr(C)]
 pub struct PerfQueryHandle(i32);
+#[repr(C)]
 pub struct PerfRegInfoType(i32);
+#[repr(C)]
 pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(i32);
+#[repr(C)]
 pub struct ReportValueTypeConstants(i32);
+#[repr(C)]
 pub struct ResourcePolicy(i32);
 pub const S_PDH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 81159000, data2: 50337, data3: 16795, data4: [128, 35, 35, 183, 57, 2, 222, 44] };
+#[repr(C)]
 pub struct ServerDataCollectorSet(i32);
+#[repr(C)]
 pub struct ServerDataCollectorSetCollection(i32);
+#[repr(C)]
 pub struct SourcePropPage(i32);
+#[repr(C)]
 pub struct StreamMode(i32);
+#[repr(C)]
 pub struct SysmonBatchReason(i32);
+#[repr(C)]
 pub struct SysmonDataType(i32);
+#[repr(C)]
 pub struct SysmonFileType(i32);
+#[repr(C)]
 pub struct SystemDataCollectorSet(i32);
+#[repr(C)]
 pub struct SystemDataCollectorSetCollection(i32);
+#[repr(C)]
 pub struct SystemMonitor(i32);
+#[repr(C)]
 pub struct SystemMonitor2(i32);
+#[repr(C)]
 pub struct TraceDataProvider(i32);
+#[repr(C)]
 pub struct TraceDataProviderCollection(i32);
+#[repr(C)]
 pub struct TraceSession(i32);
+#[repr(C)]
 pub struct TraceSessionCollection(i32);
+#[repr(C)]
 pub struct ValueMapType(i32);
 pub const WINPERF_LOG_DEBUG: u32 = 2u32;
 pub const WINPERF_LOG_NONE: u32 = 0u32;
 pub const WINPERF_LOG_USER: u32 = 1u32;
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
+#[repr(C)]
 pub struct WeekDays(i32);
 #[repr(transparent)]
 pub struct _ICounterItemUnion(pub *mut ::core::ffi::c_void);

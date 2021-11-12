@@ -56,18 +56,32 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn K32QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct ENUM_PAGE_FILE_INFORMATION(i32);
+#[repr(C)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(i32);
+#[repr(C)]
 pub struct MODULEINFO(i32);
+#[repr(C)]
 pub struct PENUM_PAGE_FILE_CALLBACKA(i32);
+#[repr(C)]
 pub struct PENUM_PAGE_FILE_CALLBACKW(i32);
+#[repr(C)]
 pub struct PERFORMANCE_INFORMATION(i32);
+#[repr(C)]
 pub struct PROCESS_MEMORY_COUNTERS(i32);
+#[repr(C)]
 pub struct PROCESS_MEMORY_COUNTERS_EX(i32);
 pub const PSAPI_VERSION: u32 = 2u32;
+#[repr(C)]
 pub struct PSAPI_WORKING_SET_BLOCK(i32);
+#[repr(C)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK(i32);
+#[repr(C)]
 pub struct PSAPI_WORKING_SET_EX_INFORMATION(i32);
+#[repr(C)]
 pub struct PSAPI_WORKING_SET_INFORMATION(i32);
+#[repr(C)]
 pub struct PSAPI_WS_WATCH_INFORMATION(i32);
+#[repr(C)]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX(i32);

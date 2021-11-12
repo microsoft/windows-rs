@@ -166,8 +166,10 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub fn ImmUnregisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszunregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct APPLETIDLIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct APPLYCANDEXPARAM(i32);
 pub const ATTR_CONVERTED: u32 = 2u32;
 pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
@@ -176,8 +178,11 @@ pub const ATTR_INPUT_ERROR: u32 = 4u32;
 pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CANDIDATEFORM(i32);
+#[repr(C)]
 pub struct CANDIDATEINFO(i32);
+#[repr(C)]
 pub struct CANDIDATELIST(i32);
 pub const CATID_MSIME_IImePadApplet: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1969670865,
@@ -206,6 +211,7 @@ pub const CATID_MSIME_IImePadApplet900: ::windows_sys::core::GUID = ::windows_sy
 pub const CATID_MSIME_IImePadApplet_VER7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1242533425, data2: 50158, data3: 4561, data4: [175, 239, 0, 128, 95, 12, 139, 109] };
 pub const CATID_MSIME_IImePadApplet_VER80: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459070866, data2: 65265, data3: 4563, data4: [132, 99, 0, 192, 79, 122, 6, 229] };
 pub const CATID_MSIME_IImePadApplet_VER81: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1701126320, data2: 48008, data3: 4564, data4: [132, 192, 0, 192, 79, 122, 6, 229] };
+#[repr(C)]
 pub struct CActiveIMM(i32);
 pub const CFS_CANDIDATEPOS: u32 = 64u32;
 pub const CFS_DEFAULT: u32 = 0u32;
@@ -235,7 +241,9 @@ pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::
     data4: [174, 231, 125, 51, 39, 133, 102, 13],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COMPOSITIONFORM(i32);
+#[repr(C)]
 pub struct COMPOSITIONSTRING(i32);
 pub const CS_INSERTCHAR: u32 = 8192u32;
 pub const CS_NOMOVECARET: u32 = 16384u32;
@@ -311,7 +319,9 @@ pub const GCS_RESULTCLAUSE: u32 = 4096u32;
 pub const GCS_RESULTREADCLAUSE: u32 = 1024u32;
 pub const GCS_RESULTREADSTR: u32 = 512u32;
 pub const GCS_RESULTSTR: u32 = 2048u32;
+#[repr(C)]
 pub struct GET_CONVERSION_LIST_FLAG(i32);
+#[repr(C)]
 pub struct GET_GUIDE_LINE_TYPE(i32);
 pub const GL_ID_CANNOTSAVE: u32 = 17u32;
 pub const GL_ID_CHOOSECANDIDATE: u32 = 40u32;
@@ -334,6 +344,7 @@ pub const GL_LEVEL_FATAL: u32 = 1u32;
 pub const GL_LEVEL_INFORMATION: u32 = 4u32;
 pub const GL_LEVEL_NOGUIDELINE: u32 = 0u32;
 pub const GL_LEVEL_WARNING: u32 = 3u32;
+#[repr(C)]
 pub struct GUIDELINE(i32);
 pub const IACE_CHILDREN: u32 = 1u32;
 pub const IACE_DEFAULT: u32 = 16u32;
@@ -437,6 +448,7 @@ pub struct IImePadApplet(pub *mut ::core::ffi::c_void);
 pub struct IImePlugInDictDictionaryList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IImeSpecifyApplets(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IMCENUMPROC(i32);
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
 pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
@@ -459,24 +471,35 @@ pub const IMC_SETSOFTKBDPOS: u32 = 20u32;
 pub const IMC_SETSOFTKBDSUBTYPE: u32 = 22u32;
 pub const IMC_SETSTATUSWINDOWPOS: u32 = 16u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct IMEAPPLETCFG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMEAPPLETUI(i32);
+#[repr(C)]
 pub struct IMECHARINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMECHARPOSITION(i32);
+#[repr(C)]
 pub struct IMECOMPOSITIONSTRINGINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMEDLG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMEDP(i32);
 pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
 pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
 pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
 pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
+#[repr(C)]
 pub struct IMEFMT(i32);
+#[repr(C)]
 pub struct IMEINFO(i32);
+#[repr(C)]
 pub struct IMEITEM(i32);
+#[repr(C)]
 pub struct IMEITEMCANDIDATE(i32);
 pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
 pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
@@ -484,16 +507,23 @@ pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 pub const IMEKEYCTRL_UP: u32 = 1u32;
 #[cfg(feature = "Win32_Globalization")]
+#[repr(C)]
 pub struct IMEKMS(i32);
+#[repr(C)]
 pub struct IMEKMSFUNCDESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMEKMSINIT(i32);
 #[cfg(feature = "Win32_Globalization")]
+#[repr(C)]
 pub struct IMEKMSINVK(i32);
+#[repr(C)]
 pub struct IMEKMSKEY(i32);
 #[cfg(feature = "Win32_Globalization")]
+#[repr(C)]
 pub struct IMEKMSKMP(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+#[repr(C)]
 pub struct IMEKMSNTFY(i32);
 pub const IMEKMS_2NDLEVEL: u32 = 4u32;
 pub const IMEKMS_CANDIDATE: u32 = 6u32;
@@ -504,8 +534,10 @@ pub const IMEKMS_NOCOMPOSITION: u32 = 0u32;
 pub const IMEKMS_SELECTION: u32 = 2u32;
 pub const IMEKMS_TYPECAND: u32 = 7u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct IMEMENUITEMINFOA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct IMEMENUITEMINFOW(i32);
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
 pub const IMEMOUSERET_NOTHANDLED: i32 = -1i32;
@@ -564,18 +596,25 @@ pub const IMEPN_SHOW: u32 = 260u32;
 pub const IMEPN_SIZECHANGED: u32 = 263u32;
 pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
+#[repr(C)]
 pub struct IMEREG(i32);
+#[repr(C)]
 pub struct IMEREL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMESHF(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMESTRINGCANDIDATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMESTRINGCANDIDATEINFO(i32);
+#[repr(C)]
 pub struct IMEUCT(i32);
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct IMEWRD(i32);
 pub const IME_CAND_CODE: u32 = 2u32;
 pub const IME_CAND_MEANING: u32 = 3u32;
@@ -623,6 +662,7 @@ pub const IME_JHOTKEY_CLOSE_OPEN: u32 = 48u32;
 pub const IME_KHOTKEY_ENGLISH: u32 = 82u32;
 pub const IME_KHOTKEY_HANJACONVERT: u32 = 81u32;
 pub const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80u32;
+#[repr(C)]
 pub struct IME_PAD_REQUEST_FLAGS(i32);
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 pub const IME_PROP_AT_CARET: u32 = 65536u32;
@@ -694,6 +734,7 @@ pub const INIT_SENTENCE: u32 = 4u32;
 pub const INIT_SOFTKBDPOS: u32 = 32u32;
 pub const INIT_STATUSWNDPOS: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct INPUTCONTEXT(i32);
 pub const IPACFG_CATEGORY: i32 = 262144i32;
 pub const IPACFG_HELP: i32 = 2i32;
@@ -903,42 +944,58 @@ pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 pub const MOD_RIGHT: u32 = 16384u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MORRSLT(i32);
 pub const NI_CONTEXTUPDATED: u32 = 3u32;
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
+#[repr(C)]
 pub struct NOTIFY_IME_ACTION(i32);
+#[repr(C)]
 pub struct NOTIFY_IME_INDEX(i32);
+#[repr(C)]
 pub struct PFNLOG(i32);
+#[repr(C)]
 pub struct POSTBL(i32);
 pub const POS_UNDEFINED: u32 = 0u32;
+#[repr(C)]
 pub struct RECONVERTSTRING(i32);
 pub const RECONVOPT_NONE: u32 = 0u32;
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REGISTERWORDA(i32);
+#[repr(C)]
 pub struct REGISTERWORDENUMPROCA(i32);
+#[repr(C)]
 pub struct REGISTERWORDENUMPROCW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REGISTERWORDW(i32);
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
 pub const SCS_CAP_MAKEREAD: u32 = 2u32;
 pub const SCS_CAP_SETRECONVERTSTRING: u32 = 4u32;
 pub const SELECT_CAP_CONVERSION: u32 = 1u32;
 pub const SELECT_CAP_SENTENCE: u32 = 2u32;
+#[repr(C)]
 pub struct SET_COMPOSITION_STRING_TYPE(i32);
 pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 pub const SHOWIMEPAD_DEFAULT: u32 = 0u32;
 pub const SHOWIMEPAD_GUID: u32 = 2u32;
+#[repr(C)]
 pub struct SOFTKBDDATA(i32);
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STYLEBUFA(i32);
+#[repr(C)]
 pub struct STYLEBUFW(i32);
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TRANSMSG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TRANSMSGLIST(i32);
 pub const UI_CAP_2700: u32 = 1u32;
 pub const UI_CAP_ROT90: u32 = 2u32;
@@ -953,10 +1010,16 @@ pub const VERSION_MODEBIAS: u32 = 1u32;
 pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
+#[repr(C)]
 pub struct WDD(i32);
+#[repr(C)]
 pub struct fpCreateIFECommonInstanceType(i32);
+#[repr(C)]
 pub struct fpCreateIFEDictionaryInstanceType(i32);
+#[repr(C)]
 pub struct fpCreateIFELanguageInstanceType(i32);
+#[repr(C)]
 pub struct tabIMEFAREASTINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct tabIMESTRINGINFO(i32);

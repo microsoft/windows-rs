@@ -19,10 +19,13 @@ pub struct INotifyCollectionChanged(pub *mut ::core::ffi::c_void);
 pub struct INotifyCollectionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct INotifyCollectionChangedEventArgsFactory(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NotifyCollectionChangedAction(i32);
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TypeKind(i32);
+#[repr(C)]
 pub struct TypeName(i32);

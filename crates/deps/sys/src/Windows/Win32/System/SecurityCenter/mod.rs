@@ -21,11 +21,19 @@ pub struct IWscProduct(pub *mut ::core::ffi::c_void);
 pub struct IWscProduct2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWscProduct3(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SECURITY_PRODUCT_TYPE(i32);
+#[repr(C)]
 pub struct WSCDefaultProduct(i32);
+#[repr(C)]
 pub struct WSCProductList(i32);
+#[repr(C)]
 pub struct WSC_SECURITY_PRODUCT_STATE(i32);
+#[repr(C)]
 pub struct WSC_SECURITY_PRODUCT_SUBSTATUS(i32);
+#[repr(C)]
 pub struct WSC_SECURITY_PROVIDER(i32);
+#[repr(C)]
 pub struct WSC_SECURITY_PROVIDER_HEALTH(i32);
+#[repr(C)]
 pub struct WSC_SECURITY_SIGNATURE_STATUS(i32);

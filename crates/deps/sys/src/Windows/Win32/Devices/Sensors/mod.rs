@@ -79,9 +79,13 @@ extern "system" {
     pub fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
     pub fn SerializationBufferFree(buffer: *const u8);
 }
+#[repr(C)]
 pub struct ACTIVITY_STATE(i32);
+#[repr(C)]
 pub struct ACTIVITY_STATE_COUNT(i32);
+#[repr(C)]
 pub struct AXIS(i32);
+#[repr(C)]
 pub struct ELEVATION_CHANGE_MODE(i32);
 pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_SENSOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3122378386, data2: 39802, data3: 18483, data4: [154, 30, 82, 94, 209, 52, 231, 226] };
@@ -187,7 +191,9 @@ pub const GUID_SensorType_RelativeOrientation: ::windows_sys::core::GUID = ::win
 };
 pub const GUID_SensorType_SimpleDeviceOrientation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2258735761, data2: 1154, data3: 16428, data4: [191, 76, 173, 218, 197, 43, 28, 57] };
 pub const GUID_SensorType_Temperature: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 83693252, data2: 54746, data3: 17914, data4: [149, 169, 93, 179, 142, 225, 147, 6] };
+#[repr(C)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE(i32);
+#[repr(C)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(i32);
 #[repr(transparent)]
 pub struct ILocationPermissions(pub *mut ::core::ffi::c_void);
@@ -203,14 +209,23 @@ pub struct ISensorEvents(pub *mut ::core::ffi::c_void);
 pub struct ISensorManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISensorManagerEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LOCATION_DESIRED_ACCURACY(i32);
+#[repr(C)]
 pub struct LOCATION_POSITION_SOURCE(i32);
+#[repr(C)]
 pub struct MAGNETOMETER_ACCURACY(i32);
+#[repr(C)]
 pub struct MATRIX3X3(i32);
+#[repr(C)]
 pub struct MagnetometerAccuracy(i32);
+#[repr(C)]
 pub struct PEDOMETER_STEP_TYPE(i32);
+#[repr(C)]
 pub struct PEDOMETER_STEP_TYPE_COUNT(i32);
+#[repr(C)]
 pub struct PROXIMITY_TYPE(i32);
+#[repr(C)]
 pub struct QUATERNION(i32);
 pub const SENSOR_CATEGORY_ALL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3273114246,
@@ -255,7 +270,9 @@ pub const SENSOR_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::GUID
 pub const SENSOR_CATEGORY_SCANNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2952849278, data2: 62901, data3: 16911, data4: [129, 93, 2, 112, 167, 38, 242, 112] };
 pub const SENSOR_CATEGORY_UNSUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 736815098, data2: 6576, data3: 18629, data4: [161, 246, 181, 72, 13, 194, 6, 176] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[repr(C)]
 pub struct SENSOR_COLLECTION_LIST(i32);
+#[repr(C)]
 pub struct SENSOR_CONNECTION_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_DATA_TYPE_ABSOLUTE_PRESSURE_PASCAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -1331,6 +1348,7 @@ pub const SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: super::super::UI::Shell::Propert
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct SENSOR_PROPERTY_LIST(i32);
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1479,6 +1497,7 @@ pub const SENSOR_PROPERTY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPE
     },
     pid: 2u32,
 };
+#[repr(C)]
 pub struct SENSOR_STATE(i32);
 pub const SENSOR_TYPE_ACCELEROMETER_1D: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3226280839,
@@ -1671,13 +1690,23 @@ pub const SENSOR_TYPE_VOLTAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [152, 184, 165, 109, 138, 161, 251, 30],
 };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[repr(C)]
 pub struct SENSOR_VALUE_PAIR(i32);
+#[repr(C)]
 pub struct SIMPLE_DEVICE_ORIENTATION(i32);
+#[repr(C)]
 pub struct Sensor(i32);
+#[repr(C)]
 pub struct SensorCollection(i32);
+#[repr(C)]
 pub struct SensorConnectionType(i32);
+#[repr(C)]
 pub struct SensorDataReport(i32);
+#[repr(C)]
 pub struct SensorManager(i32);
+#[repr(C)]
 pub struct SensorState(i32);
+#[repr(C)]
 pub struct SimpleDeviceOrientation(i32);
+#[repr(C)]
 pub struct VEC3D(i32);

@@ -23,22 +23,35 @@ extern "system" {
 }
 pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
+#[repr(C)]
 pub struct COMPOSITION_FRAME_ID_TYPE(i32);
+#[repr(C)]
 pub struct COMPOSITION_FRAME_STATS(i32);
+#[repr(C)]
 pub struct COMPOSITION_STATS(i32);
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COMPOSITION_TARGET_ID(i32);
+#[repr(C)]
 pub struct COMPOSITION_TARGET_STATS(i32);
+#[repr(C)]
 pub struct DCOMPOSITION_BACKFACE_VISIBILITY(i32);
+#[repr(C)]
 pub struct DCOMPOSITION_BITMAP_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct DCOMPOSITION_BORDER_MODE(i32);
+#[repr(C)]
 pub struct DCOMPOSITION_COMPOSITE_MODE(i32);
+#[repr(C)]
 pub struct DCOMPOSITION_DEPTH_MODE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct DCOMPOSITION_FRAME_STATISTICS(i32);
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
+#[repr(C)]
 pub struct DCOMPOSITION_OPACITY_MODE(i32);
+#[repr(C)]
 pub struct DCompositionInkTrailPoint(i32);
 #[repr(transparent)]
 pub struct IDCompositionAffineTransform2DEffect(pub *mut ::core::ffi::c_void);

@@ -27,16 +27,21 @@ pub struct ApplicationDataCompositeValue(pub *mut ::core::ffi::c_void);
 pub struct ApplicationDataContainer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationDataContainerSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationDataCreateDisposition(i32);
+#[repr(C)]
 pub struct ApplicationDataLocality(i32);
 #[repr(transparent)]
 pub struct ApplicationDataSetVersionHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CachedFileManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CreationCollisionOption(i32);
 #[repr(transparent)]
 pub struct DownloadsFolder(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FileAccessMode(i32);
+#[repr(C)]
 pub struct FileAttributes(i32);
 #[repr(transparent)]
 pub struct FileIO(pub *mut ::core::ffi::c_void);
@@ -172,11 +177,15 @@ pub struct ISystemVideoProperties(pub *mut ::core::ffi::c_void);
 pub struct IUserDataPaths(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserDataPathsStatics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KnownFolderId(i32);
 #[repr(transparent)]
 pub struct KnownFolders(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KnownFoldersAccessStatus(i32);
+#[repr(C)]
 pub struct KnownLibraryId(i32);
+#[repr(C)]
 pub struct NameCollisionOption(i32);
 #[repr(transparent)]
 pub struct PathIO(pub *mut ::core::ffi::c_void);
@@ -184,11 +193,13 @@ pub struct PathIO(pub *mut ::core::ffi::c_void);
 pub struct SetVersionDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SetVersionRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StorageDeleteOption(i32);
 #[repr(transparent)]
 pub struct StorageFile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageFolder(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StorageItemTypes(i32);
 #[repr(transparent)]
 pub struct StorageLibrary(pub *mut ::core::ffi::c_void);
@@ -200,9 +211,11 @@ pub struct StorageLibraryChangeReader(pub *mut ::core::ffi::c_void);
 pub struct StorageLibraryChangeTracker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageLibraryChangeTrackerOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StorageLibraryChangeType(i32);
 #[repr(transparent)]
 pub struct StorageLibraryLastChangeId(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StorageOpenOptions(i32);
 #[repr(transparent)]
 pub struct StorageProvider(pub *mut ::core::ffi::c_void);
@@ -212,6 +225,7 @@ pub struct StorageStreamTransaction(pub *mut ::core::ffi::c_void);
 pub struct StreamedFileDataRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StreamedFileDataRequestedHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StreamedFileFailureMode(i32);
 #[repr(transparent)]
 pub struct SystemAudioProperties(pub *mut ::core::ffi::c_void);

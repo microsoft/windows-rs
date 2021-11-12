@@ -9,16 +9,21 @@ pub struct AppInstallManager(pub *mut ::core::ffi::c_void);
 pub struct AppInstallManagerItemEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppInstallOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppInstallState(i32);
 #[repr(transparent)]
 pub struct AppInstallStatus(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppInstallType(i32);
+#[repr(C)]
 pub struct AppInstallationToastNotificationMode(i32);
 #[repr(transparent)]
 pub struct AppUpdateOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutoUpdateSetting(i32);
 #[repr(transparent)]
 pub struct GetEntitlementResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GetEntitlementStatus(i32);
 #[repr(transparent)]
 pub struct IAppInstallItem(pub *mut ::core::ffi::c_void);

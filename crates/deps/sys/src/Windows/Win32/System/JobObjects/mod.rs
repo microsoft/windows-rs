@@ -29,46 +29,80 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UserHandleGrantAccess(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct JOBOBJECTINFOCLASS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT(i32);
+#[repr(C)]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(i32);
 #[cfg(feature = "Win32_System_Threading")]
+#[repr(C)]
 pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST(i32);
+#[repr(C)]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS(i32);
+#[repr(C)]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION(i32);
 #[cfg(feature = "Win32_System_Threading")]
+#[repr(C)]
 pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(i32);
+#[repr(C)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_STATS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3(i32);
+#[repr(C)]
 pub struct JOBOBJECT_JOBSET_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2(i32);
+#[repr(C)]
 pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION(i32);
+#[repr(C)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2(i32);
+#[repr(C)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(i32);
+#[repr(C)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION(i32);
+#[repr(C)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(i32);
+#[repr(C)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(i32);
+#[repr(C)]
 pub struct JOB_OBJECT_LIMIT(i32);
+#[repr(C)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(i32);
+#[repr(C)]
 pub struct JOB_OBJECT_SECURITY(i32);
+#[repr(C)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(i32);
+#[repr(C)]
 pub struct JOB_OBJECT_UILIMIT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOB_SET_ARRAY(i32);

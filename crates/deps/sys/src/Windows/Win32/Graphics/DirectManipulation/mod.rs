@@ -32,28 +32,49 @@ pub const CLSID_VirtualViewportContent: ::windows_sys::core::GUID = ::windows_sy
     data3: 19636,
     data4: [167, 243, 22, 227, 183, 226, 216, 82],
 };
+#[repr(C)]
 pub struct DCompManipulationCompositor(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_CONFIGURATION(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_STATUS(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_GESTURE_CONFIGURATION(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_HITTEST_TYPE(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_HORIZONTALALIGNMENT(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_INPUT_MODE(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_INTERACTION_TYPE(i32);
 pub const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294u32;
+#[repr(C)]
 pub struct DIRECTMANIPULATION_MOTION_TYPES(i32);
 pub const DIRECTMANIPULATION_MOUSEFOCUS: u32 = 4294967293u32;
+#[repr(C)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_COORDINATE(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_TYPE(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_STATUS(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_VERTICALALIGNMENT(i32);
+#[repr(C)]
 pub struct DIRECTMANIPULATION_VIEWPORT_OPTIONS(i32);
+#[repr(C)]
 pub struct DirectManipulationManager(i32);
+#[repr(C)]
 pub struct DirectManipulationPrimaryContent(i32);
+#[repr(C)]
 pub struct DirectManipulationSharedManager(i32);
+#[repr(C)]
 pub struct DirectManipulationUpdateManager(i32);
+#[repr(C)]
 pub struct DirectManipulationViewport(i32);
 #[repr(transparent)]
 pub struct IDirectManipulationAutoScrollBehavior(pub *mut ::core::ffi::c_void);

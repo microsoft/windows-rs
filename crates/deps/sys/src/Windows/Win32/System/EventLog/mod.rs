@@ -107,45 +107,79 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct EVENTLOGRECORD(i32);
+#[repr(C)]
 pub struct EVENTLOG_FULL_INFORMATION(i32);
+#[repr(C)]
 pub struct EVENTSFORLOGFILE(i32);
 pub const EVT_ALL_ACCESS: u32 = 7u32;
+#[repr(C)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(i32);
+#[repr(C)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(i32);
+#[repr(C)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_CHANNEL_SID_TYPE(i32);
+#[repr(C)]
 pub struct EVT_CHANNEL_TYPE(i32);
 pub const EVT_CLEAR_ACCESS: u32 = 4u32;
+#[repr(C)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct EVT_EVENT_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct EVT_EXPORTLOG_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_LOGIN_CLASS(i32);
+#[repr(C)]
 pub struct EVT_LOG_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct EVT_OPEN_LOG_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct EVT_QUERY_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_QUERY_PROPERTY_ID(i32);
 pub const EVT_READ_ACCESS: u32 = 1u32;
+#[repr(C)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_RENDER_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EVT_RPC_LOGIN(i32);
+#[repr(C)]
 pub struct EVT_RPC_LOGIN_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_SEEK_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_SUBSCRIBE_CALLBACK(i32);
+#[repr(C)]
 pub struct EVT_SUBSCRIBE_FLAGS(i32);
+#[repr(C)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(i32);
+#[repr(C)]
 pub struct EVT_SYSTEM_PROPERTY_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EVT_VARIANT(i32);
+#[repr(C)]
 pub struct EVT_VARIANT_TYPE(i32);
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
+#[repr(C)]
 pub struct EventLogHandle(i32);
+#[repr(C)]
 pub struct EventSourceHandle(i32);
+#[repr(C)]
 pub struct READ_EVENT_LOG_READ_FLAGS(i32);
+#[repr(C)]
 pub struct REPORT_EVENT_TYPE(i32);

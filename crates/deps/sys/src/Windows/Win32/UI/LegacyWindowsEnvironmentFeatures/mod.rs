@@ -36,4 +36,5 @@ pub const REC_S_IDIDTHEUPDATES: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const REC_S_NOTCOMPLETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266241i32 as _);
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266242i32 as _);
 pub const STATEBITS_FLAT: u32 = 1u32;
+#[repr(C)]
 pub struct _reconcilef(i32);

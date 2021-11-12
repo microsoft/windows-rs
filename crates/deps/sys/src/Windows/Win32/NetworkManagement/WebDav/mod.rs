@@ -23,6 +23,7 @@ extern "system" {
     pub fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32;
     pub fn DavUnregisterAuthCallback(hcallback: u32);
 }
+#[repr(C)]
 pub struct AUTHNEXTSTEP(i32);
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
@@ -31,10 +32,15 @@ pub const DAV_AUTHN_SCHEME_FBA: u32 = 1048576u32;
 pub const DAV_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
 pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
+#[repr(C)]
 pub struct DAV_CALLBACK_AUTH_BLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DAV_CALLBACK_AUTH_UNP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DAV_CALLBACK_CRED(i32);
+#[repr(C)]
 pub struct PFNDAVAUTHCALLBACK(i32);
+#[repr(C)]
 pub struct PFNDAVAUTHCALLBACK_FREECRED(i32);

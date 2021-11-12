@@ -39,7 +39,9 @@ pub struct IWebAccountProviderFactory(pub *mut ::core::ffi::c_void);
 pub struct KeyCredential(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyCredentialAttestationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KeyCredentialAttestationStatus(i32);
+#[repr(C)]
 pub struct KeyCredentialCreationOption(i32);
 #[repr(transparent)]
 pub struct KeyCredentialManager(pub *mut ::core::ffi::c_void);
@@ -47,6 +49,7 @@ pub struct KeyCredentialManager(pub *mut ::core::ffi::c_void);
 pub struct KeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyCredentialRetrievalResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KeyCredentialStatus(i32);
 #[repr(transparent)]
 pub struct PasswordCredential(pub *mut ::core::ffi::c_void);
@@ -56,7 +59,9 @@ pub struct PasswordCredentialPropertyStore(pub *mut ::core::ffi::c_void);
 pub struct PasswordVault(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccount(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebAccountPictureSize(i32);
 #[repr(transparent)]
 pub struct WebAccountProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebAccountState(i32);

@@ -1,19 +1,25 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct GuidanceAudioMeasurementSystem(i32);
+#[repr(C)]
 pub struct GuidanceAudioNotificationKind(i32);
 #[repr(transparent)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GuidanceAudioNotifications(i32);
 #[repr(transparent)]
 pub struct GuidanceLaneInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GuidanceLaneMarkers(i32);
 #[repr(transparent)]
 pub struct GuidanceManeuver(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GuidanceManeuverKind(i32);
 #[repr(transparent)]
 pub struct GuidanceMapMatchedCoordinate(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GuidanceMode(i32);
 #[repr(transparent)]
 pub struct GuidanceNavigator(pub *mut ::core::ffi::c_void);

@@ -73,6 +73,7 @@ pub struct PrintWorkflowConfiguration(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowForegroundSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintWorkflowJobAbortReason(i32);
 #[repr(transparent)]
 pub struct PrintWorkflowJobActivatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -90,6 +91,7 @@ pub struct PrintWorkflowJobUISession(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowObjectModelSourceFileContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelTargetPackage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintWorkflowPdlConversionType(i32);
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConverter(pub *mut ::core::ffi::c_void);
@@ -103,7 +105,9 @@ pub struct PrintWorkflowPdlSourceContent(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowPdlTargetStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJob(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintWorkflowPrinterJobStatus(i32);
+#[repr(C)]
 pub struct PrintWorkflowSessionStatus(i32);
 #[repr(transparent)]
 pub struct PrintWorkflowSourceContent(pub *mut ::core::ffi::c_void);
@@ -115,6 +119,7 @@ pub struct PrintWorkflowStreamTarget(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowSubmittedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintWorkflowSubmittedStatus(i32);
 #[repr(transparent)]
 pub struct PrintWorkflowTarget(pub *mut ::core::ffi::c_void);
@@ -122,6 +127,7 @@ pub struct PrintWorkflowTarget(pub *mut ::core::ffi::c_void);
 pub struct PrintWorkflowTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintWorkflowUIActivatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintWorkflowUICompletionStatus(i32);
 #[repr(transparent)]
 pub struct PrintWorkflowUILauncher(pub *mut ::core::ffi::c_void);

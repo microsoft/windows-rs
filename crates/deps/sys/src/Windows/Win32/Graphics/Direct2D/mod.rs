@@ -263,251 +263,464 @@ pub const CLSID_D2D1YCbCr: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17865,
     data4: [168, 117, 138, 216, 167, 145, 68, 1],
 };
+#[repr(C)]
 pub struct D2D1_2DAFFINETRANSFORM_PROP(i32);
+#[repr(C)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(i32);
+#[repr(C)]
 pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_3DTRANSFORM_PROP(i32);
+#[repr(C)]
 pub struct D2D1_ANTIALIAS_MODE(i32);
 pub const D2D1_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_ARC_SEGMENT(i32);
+#[repr(C)]
 pub struct D2D1_ARC_SIZE(i32);
+#[repr(C)]
 pub struct D2D1_ARITHMETICCOMPOSITE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_ATLAS_PROP(i32);
+#[repr(C)]
 pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(i32);
+#[repr(C)]
 pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_BITMAPSOURCE_ORIENTATION(i32);
+#[repr(C)]
 pub struct D2D1_BITMAPSOURCE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES1(i32);
+#[repr(C)]
 pub struct D2D1_BITMAP_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_BITMAP_OPTIONS(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D2D1_BITMAP_PROPERTIES(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D2D1_BITMAP_PROPERTIES1(i32);
+#[repr(C)]
 pub struct D2D1_BLEND(i32);
+#[repr(C)]
 pub struct D2D1_BLEND_DESCRIPTION(i32);
+#[repr(C)]
 pub struct D2D1_BLEND_OPERATION(i32);
+#[repr(C)]
 pub struct D2D1_BLEND_PROP(i32);
+#[repr(C)]
 pub struct D2D1_BORDER_EDGE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_BORDER_PROP(i32);
+#[repr(C)]
 pub struct D2D1_BRIGHTNESS_PROP(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct D2D1_BRUSH_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_BUFFER_PRECISION(i32);
+#[repr(C)]
 pub struct D2D1_CAP_STYLE(i32);
+#[repr(C)]
 pub struct D2D1_CHANGE_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_CHANNEL_DEPTH(i32);
+#[repr(C)]
 pub struct D2D1_CHANNEL_SELECTOR(i32);
+#[repr(C)]
 pub struct D2D1_CHROMAKEY_PROP(i32);
+#[repr(C)]
 pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(i32);
+#[repr(C)]
 pub struct D2D1_COLORMANAGEMENT_PROP(i32);
+#[repr(C)]
 pub struct D2D1_COLORMANAGEMENT_QUALITY(i32);
+#[repr(C)]
 pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(i32);
+#[repr(C)]
 pub struct D2D1_COLORMATRIX_PROP(i32);
+#[repr(C)]
 pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(i32);
+#[repr(C)]
 pub struct D2D1_COLOR_CONTEXT_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_COLOR_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_COLOR_SPACE(i32);
+#[repr(C)]
 pub struct D2D1_COMBINE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_COMPOSITE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_CONTRAST_PROP(i32);
+#[repr(C)]
 pub struct D2D1_CONVOLVEMATRIX_PROP(i32);
+#[repr(C)]
 pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_CREATION_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_CROP_PROP(i32);
+#[repr(C)]
 pub struct D2D1_CROSSFADE_PROP(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_DASH_STYLE(i32);
+#[repr(C)]
 pub struct D2D1_DC_INITIALIZE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_DEBUG_LEVEL(i32);
 pub const D2D1_DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25f32;
+#[repr(C)]
 pub struct D2D1_DEVICE_CONTEXT_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(i32);
+#[repr(C)]
 pub struct D2D1_DIRECTIONALBLUR_PROP(i32);
+#[repr(C)]
 pub struct D2D1_DISCRETETRANSFER_PROP(i32);
+#[repr(C)]
 pub struct D2D1_DISPLACEMENTMAP_PROP(i32);
+#[repr(C)]
 pub struct D2D1_DISTANTDIFFUSE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_DISTANTSPECULAR_PROP(i32);
+#[repr(C)]
 pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_DPICOMPENSATION_PROP(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION1(i32);
+#[repr(C)]
 pub struct D2D1_DRAW_TEXT_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_EDGEDETECTION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_EDGEDETECTION_PROP(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_EFFECT_INPUT_DESCRIPTION(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_ELLIPSE(i32);
+#[repr(C)]
 pub struct D2D1_EMBOSS_PROP(i32);
+#[repr(C)]
 pub struct D2D1_EXPOSURE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_EXTEND_MODE(i32);
+#[repr(C)]
 pub struct D2D1_FACTORY_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_FACTORY_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_FEATURE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D2D1_FEATURE_DATA_DOUBLES(i32);
+#[repr(C)]
 pub struct D2D1_FEATURE_LEVEL(i32);
+#[repr(C)]
 pub struct D2D1_FILTER(i32);
+#[repr(C)]
 pub struct D2D1_FLOOD_PROP(i32);
+#[repr(C)]
 pub struct D2D1_GAMMA(i32);
+#[repr(C)]
 pub struct D2D1_GAMMA1(i32);
+#[repr(C)]
 pub struct D2D1_GAMMATRANSFER_PROP(i32);
+#[repr(C)]
 pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(i32);
+#[repr(C)]
 pub struct D2D1_GAUSSIANBLUR_PROP(i32);
+#[repr(C)]
 pub struct D2D1_GEOMETRY_RELATION(i32);
+#[repr(C)]
 pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_GRADIENT_MESH_PATCH(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_GRADIENT_STOP(i32);
+#[repr(C)]
 pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(i32);
+#[repr(C)]
 pub struct D2D1_HDRTONEMAP_PROP(i32);
+#[repr(C)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(i32);
+#[repr(C)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(i32);
+#[repr(C)]
 pub struct D2D1_HISTOGRAM_PROP(i32);
+#[repr(C)]
 pub struct D2D1_HUEROTATION_PROP(i32);
+#[repr(C)]
 pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(i32);
+#[repr(C)]
 pub struct D2D1_HUETORGB_PROP(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+#[repr(C)]
 pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_IMAGE_BRUSH_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_INK_BEZIER_SEGMENT(i32);
+#[repr(C)]
 pub struct D2D1_INK_NIB_SHAPE(i32);
+#[repr(C)]
 pub struct D2D1_INK_POINT(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct D2D1_INK_STYLE_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_INPUT_DESCRIPTION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D2D1_INPUT_ELEMENT_DESC(i32);
+#[repr(C)]
 pub struct D2D1_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_INTERPOLATION_MODE_DEFINITION(i32);
+#[repr(C)]
 pub struct D2D1_LAYER_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_LAYER_OPTIONS1(i32);
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[repr(C)]
 pub struct D2D1_LAYER_PARAMETERS(i32);
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+#[repr(C)]
 pub struct D2D1_LAYER_PARAMETERS1(i32);
+#[repr(C)]
 pub struct D2D1_LINEARTRANSFER_PROP(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_LINE_JOIN(i32);
+#[repr(C)]
 pub struct D2D1_LOOKUPTABLE3D_PROP(i32);
+#[repr(C)]
 pub struct D2D1_MAPPED_RECT(i32);
+#[repr(C)]
 pub struct D2D1_MAP_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_MORPHOLOGY_MODE(i32);
+#[repr(C)]
 pub struct D2D1_MORPHOLOGY_PROP(i32);
+#[repr(C)]
 pub struct D2D1_OPACITYMETADATA_PROP(i32);
+#[repr(C)]
 pub struct D2D1_OPACITY_MASK_CONTENT(i32);
+#[repr(C)]
 pub struct D2D1_OPACITY_PROP(i32);
+#[repr(C)]
 pub struct D2D1_ORIENTATION(i32);
+#[repr(C)]
 pub struct D2D1_PATCH_EDGE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_PIXEL_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_POINTDIFFUSE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_POINTDIFFUSE_SCALE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_POINTSPECULAR_PROP(i32);
+#[repr(C)]
 pub struct D2D1_POINTSPECULAR_SCALE_MODE(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_POINT_DESCRIPTION(i32);
+#[repr(C)]
 pub struct D2D1_POSTERIZE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_PRESENT_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_PRIMITIVE_BLEND(i32);
+#[repr(C)]
 pub struct D2D1_PRINT_CONTROL_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_PRINT_FONT_SUBSET_MODE(i32);
+#[repr(C)]
 pub struct D2D1_PROPERTY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D2D1_PROPERTY_BINDING(i32);
+#[repr(C)]
 pub struct D2D1_PROPERTY_TYPE(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_QUADRATIC_BEZIER_SEGMENT(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_RENDERING_CONTROLS(i32);
+#[repr(C)]
 pub struct D2D1_RENDERING_PRIORITY(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct D2D1_RENDER_TARGET_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_RENDER_TARGET_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_RENDER_TARGET_USAGE(i32);
+#[repr(C)]
 pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(i32);
+#[repr(C)]
 pub struct D2D1_RGBTOHUE_PROP(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_ROUNDED_RECT(i32);
+#[repr(C)]
 pub struct D2D1_SATURATION_PROP(i32);
+#[repr(C)]
 pub struct D2D1_SCALE_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_SCALE_PROP(i32);
 pub const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80f32;
+#[repr(C)]
 pub struct D2D1_SEPIA_PROP(i32);
+#[repr(C)]
 pub struct D2D1_SHADOW_OPTIMIZATION(i32);
+#[repr(C)]
 pub struct D2D1_SHADOW_PROP(i32);
+#[repr(C)]
 pub struct D2D1_SHARPEN_PROP(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_SIMPLE_COLOR_PROFILE(i32);
+#[repr(C)]
 pub struct D2D1_SPOTDIFFUSE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_SPOTSPECULAR_PROP(i32);
+#[repr(C)]
 pub struct D2D1_SPOTSPECULAR_SCALE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_SPRITE_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_STRAIGHTEN_PROP(i32);
+#[repr(C)]
 pub struct D2D1_STRAIGHTEN_SCALE_MODE(i32);
+#[repr(C)]
 pub struct D2D1_STROKE_STYLE_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_STROKE_STYLE_PROPERTIES1(i32);
+#[repr(C)]
 pub struct D2D1_STROKE_TRANSFORM_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_SUBPROPERTY(i32);
+#[repr(C)]
 pub struct D2D1_SVG_ASPECT_ALIGN(i32);
+#[repr(C)]
 pub struct D2D1_SVG_ASPECT_SCALING(i32);
+#[repr(C)]
 pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_SVG_DISPLAY(i32);
+#[repr(C)]
 pub struct D2D1_SVG_LENGTH(i32);
+#[repr(C)]
 pub struct D2D1_SVG_LENGTH_UNITS(i32);
+#[repr(C)]
 pub struct D2D1_SVG_LINE_CAP(i32);
+#[repr(C)]
 pub struct D2D1_SVG_LINE_JOIN(i32);
+#[repr(C)]
 pub struct D2D1_SVG_OVERFLOW(i32);
+#[repr(C)]
 pub struct D2D1_SVG_PAINT_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_SVG_PATH_COMMAND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO(i32);
+#[repr(C)]
 pub struct D2D1_SVG_UNIT_TYPE(i32);
+#[repr(C)]
 pub struct D2D1_SVG_VIEWBOX(i32);
+#[repr(C)]
 pub struct D2D1_SVG_VISIBILITY(i32);
+#[repr(C)]
 pub struct D2D1_SWEEP_DIRECTION(i32);
+#[repr(C)]
 pub struct D2D1_TABLETRANSFER_PROP(i32);
+#[repr(C)]
 pub struct D2D1_TEMPERATUREANDTINT_PROP(i32);
+#[repr(C)]
 pub struct D2D1_TEXT_ANTIALIAS_MODE(i32);
+#[repr(C)]
 pub struct D2D1_THREADING_MODE(i32);
+#[repr(C)]
 pub struct D2D1_TILE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_TINT_PROP(i32);
+#[repr(C)]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct D2D1_TRIANGLE(i32);
+#[repr(C)]
 pub struct D2D1_TURBULENCE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_UNIT_MODE(i32);
+#[repr(C)]
 pub struct D2D1_VERTEX_BUFFER_PROPERTIES(i32);
+#[repr(C)]
 pub struct D2D1_VERTEX_OPTIONS(i32);
+#[repr(C)]
 pub struct D2D1_VERTEX_RANGE(i32);
+#[repr(C)]
 pub struct D2D1_VERTEX_USAGE(i32);
+#[repr(C)]
 pub struct D2D1_VIGNETTE_PROP(i32);
+#[repr(C)]
 pub struct D2D1_WHITELEVELADJUSTMENT_PROP(i32);
+#[repr(C)]
 pub struct D2D1_WINDOW_STATE(i32);
+#[repr(C)]
 pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(i32);
+#[repr(C)]
 pub struct D2D1_YCBCR_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D2D1_YCBCR_PROP(i32);
 pub const FACILITY_D2D: u32 = 2201u32;
 #[repr(transparent)]
@@ -733,11 +946,17 @@ pub struct ID2D1TransformedImageSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ID2D1VertexBuffer(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct Matrix4x3F(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct Matrix4x4F(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[repr(C)]
 pub struct Matrix5x4F(i32);
+#[repr(C)]
 pub struct PD2D1_EFFECT_FACTORY(i32);
+#[repr(C)]
 pub struct PD2D1_PROPERTY_GET_FUNCTION(i32);
+#[repr(C)]
 pub struct PD2D1_PROPERTY_SET_FUNCTION(i32);

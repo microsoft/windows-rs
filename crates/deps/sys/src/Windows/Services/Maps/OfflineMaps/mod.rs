@@ -13,8 +13,11 @@ pub struct IOfflineMapPackageStatics(pub *mut ::core::ffi::c_void);
 pub struct OfflineMapPackage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct OfflineMapPackageQueryStatus(i32);
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct OfflineMapPackageStartDownloadStatus(i32);
+#[repr(C)]
 pub struct OfflineMapPackageStatus(i32);

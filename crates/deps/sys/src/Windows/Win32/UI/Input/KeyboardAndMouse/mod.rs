@@ -92,6 +92,7 @@ extern "system" {
     pub fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
     pub fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize);
 }
+#[repr(C)]
 pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(i32);
 pub const ACUTE: u32 = 769u32;
 pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
@@ -100,6 +101,7 @@ pub const CAPLOK: u32 = 1u32;
 pub const CAPLOKALTGR: u32 = 4u32;
 pub const CEDILLA: u32 = 807u32;
 pub const CIRCUMFLEX: u32 = 770u32;
+#[repr(C)]
 pub struct DEADKEY(i32);
 pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
 pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
@@ -114,14 +116,19 @@ pub const FAKE_KEYSTROKE: u32 = 33554432u32;
 pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
 pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
 pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
+#[repr(C)]
 pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(i32);
 pub const GRAVE: u32 = 768u32;
 pub const GRPSELTAP: u32 = 128u32;
 pub const HACEK: u32 = 780u32;
+#[repr(C)]
 pub struct HARDWAREINPUT(i32);
 pub const HOOK_ABOVE: u32 = 777u32;
+#[repr(C)]
 pub struct HOT_KEY_MODIFIERS(i32);
+#[repr(C)]
 pub struct INPUT(i32);
+#[repr(C)]
 pub struct INPUT_TYPE(i32);
 pub const KANALOK: u32 = 8u32;
 pub const KBDALT: u32 = 4u32;
@@ -153,13 +160,18 @@ pub const KBDNLS_TYPE_NULL: u32 = 0u32;
 pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
 pub const KBDROYA: u32 = 16u32;
 pub const KBDSHIFT: u32 = 1u32;
+#[repr(C)]
 pub struct KBDTABLE_DESC(i32);
+#[repr(C)]
 pub struct KBDTABLE_MULTI(i32);
 pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
 pub const KBD_TYPE: u32 = 4u32;
+#[repr(C)]
 pub struct KBD_TYPE_INFO(i32);
 pub const KBD_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct KEYBDINPUT(i32);
+#[repr(C)]
 pub struct KEYBD_EVENT_FLAGS(i32);
 pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
 pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
@@ -169,11 +181,17 @@ pub const KLLF_ALTGR: u32 = 1u32;
 pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
 pub const KLLF_LRM_RLM: u32 = 4u32;
 pub const KLLF_SHIFTLOCK: u32 = 2u32;
+#[repr(C)]
 pub struct LASTINPUTINFO(i32);
+#[repr(C)]
 pub struct LIGATURE1(i32);
+#[repr(C)]
 pub struct LIGATURE2(i32);
+#[repr(C)]
 pub struct LIGATURE3(i32);
+#[repr(C)]
 pub struct LIGATURE4(i32);
+#[repr(C)]
 pub struct LIGATURE5(i32);
 pub const MACRON: u32 = 772u32;
 pub const MICROSOFT_KBD_001_TYPE: u32 = 4u32;
@@ -186,9 +204,13 @@ pub const MICROSOFT_KBD_103_TYPE: u32 = 6u32;
 pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
 pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
 pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
+#[repr(C)]
 pub struct MODIFIERS(i32);
+#[repr(C)]
 pub struct MOUSEINPUT(i32);
+#[repr(C)]
 pub struct MOUSEMOVEPOINT(i32);
+#[repr(C)]
 pub struct MOUSE_EVENT_FLAGS(i32);
 pub const NEC_KBD_106_TYPE: u32 = 5u32;
 pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
@@ -227,9 +249,12 @@ pub const TONOS: u32 = 900u32;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TRACKMOUSEEVENT(i32);
+#[repr(C)]
 pub struct TRACKMOUSEEVENT_FLAGS(i32);
 pub const UMLAUT: u32 = 776u32;
+#[repr(C)]
 pub struct VIRTUAL_KEY(i32);
 pub const VK_ABNT_C1: u32 = 193u32;
 pub const VK_ABNT_C2: u32 = 194u32;
@@ -247,28 +272,47 @@ pub const VK_DBE_NOCODEINPUT: u32 = 251u32;
 pub const VK_DBE_NOROMAN: u32 = 246u32;
 pub const VK_DBE_ROMAN: u32 = 245u32;
 pub const VK_DBE_SBCSCHAR: u32 = 243u32;
+#[repr(C)]
 pub struct VK_TO_BIT(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS1(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS10(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS2(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS3(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS4(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS5(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS6(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS7(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS8(i32);
+#[repr(C)]
 pub struct VK_TO_WCHARS9(i32);
+#[repr(C)]
 pub struct VK_TO_WCHAR_TABLE(i32);
+#[repr(C)]
 pub struct VK_VSC(i32);
 pub const VK__none_: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VSC_LPWSTR(i32);
+#[repr(C)]
 pub struct VSC_VK(i32);
 pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;
+#[repr(C)]
 pub struct _VK_FUNCTION_PARAM(i32);
+#[repr(C)]
 pub struct _VK_TO_FUNCTION_TABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct tagKbdLayer(i32);
+#[repr(C)]
 pub struct tagKbdNlsLayer(i32);

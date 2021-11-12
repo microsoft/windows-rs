@@ -7,5 +7,7 @@ pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows_sys::core::GUID = ::
     data3: 18879,
     data4: [146, 202, 249, 221, 247, 132, 210, 151],
 };
+#[repr(C)]
 pub struct PERCEPTION_PAYLOAD_FIELD(i32);
+#[repr(C)]
 pub struct PERCEPTION_STATE_STREAM_TIMESTAMPS(i32);

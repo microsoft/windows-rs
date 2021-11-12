@@ -359,9 +359,13 @@ pub const FTS5_TOKENIZE_PREFIX: u32 = 2u32;
 pub const FTS5_TOKENIZE_QUERY: u32 = 1u32;
 pub const FTS5_TOKEN_COLOCATED: u32 = 1u32;
 pub const FULLY_WITHIN: u32 = 2u32;
+#[repr(C)]
 pub struct Fts5Context(i32);
+#[repr(C)]
 pub struct Fts5ExtensionApi(i32);
+#[repr(C)]
 pub struct Fts5PhraseIter(i32);
+#[repr(C)]
 pub struct Fts5Tokenizer(i32);
 pub const NOT_WITHIN: u32 = 0u32;
 pub const PARTLY_WITHIN: u32 = 1u32;
@@ -740,44 +744,77 @@ pub const SQLITE_WARNING: u32 = 28u32;
 pub const SQLITE_WIN32_DATA_DIRECTORY_TYPE: u32 = 1u32;
 pub const SQLITE_WIN32_TEMP_DIRECTORY_TYPE: u32 = 2u32;
 pub const __SQLITESESSION_H_: u32 = 1u32;
+#[repr(C)]
 pub struct fts5_api(i32);
+#[repr(C)]
 pub struct fts5_extension_function(i32);
+#[repr(C)]
 pub struct fts5_tokenizer(i32);
+#[repr(C)]
 pub struct sqlite3(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sqlite3_api_routines(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sqlite3_api_routines(i32);
+#[repr(C)]
 pub struct sqlite3_backup(i32);
+#[repr(C)]
 pub struct sqlite3_blob(i32);
+#[repr(C)]
 pub struct sqlite3_callback(i32);
+#[repr(C)]
 pub struct sqlite3_context(i32);
+#[repr(C)]
 pub struct sqlite3_destructor_type(i32);
+#[repr(C)]
 pub struct sqlite3_file(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sqlite3_index_info(i32);
+#[repr(C)]
 pub struct sqlite3_io_methods(i32);
+#[repr(C)]
 pub struct sqlite3_loadext_entry(i32);
+#[repr(C)]
 pub struct sqlite3_mem_methods(i32);
+#[repr(C)]
 pub struct sqlite3_module(i32);
+#[repr(C)]
 pub struct sqlite3_mutex(i32);
+#[repr(C)]
 pub struct sqlite3_mutex_methods(i32);
+#[repr(C)]
 pub struct sqlite3_pcache(i32);
+#[repr(C)]
 pub struct sqlite3_pcache_methods(i32);
+#[repr(C)]
 pub struct sqlite3_pcache_methods2(i32);
+#[repr(C)]
 pub struct sqlite3_pcache_page(i32);
+#[repr(C)]
 pub struct sqlite3_rtree_geometry(i32);
+#[repr(C)]
 pub struct sqlite3_rtree_query_info(i32);
+#[repr(C)]
 pub struct sqlite3_snapshot(i32);
+#[repr(C)]
 pub struct sqlite3_stmt(i32);
+#[repr(C)]
 pub struct sqlite3_str(i32);
+#[repr(C)]
 pub struct sqlite3_syscall_ptr(i32);
+#[repr(C)]
 pub struct sqlite3_value(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sqlite3_vfs(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sqlite3_vtab(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct sqlite3_vtab_cursor(i32);

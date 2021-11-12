@@ -25,6 +25,7 @@ pub struct IInkAnalysisWritingRegion(pub *mut ::core::ffi::c_void);
 pub struct IInkAnalyzer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IInkAnalyzerFactory(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkAnalysisDrawingKind(i32);
 #[repr(transparent)]
 pub struct InkAnalysisInkBullet(pub *mut ::core::ffi::c_void);
@@ -38,6 +39,7 @@ pub struct InkAnalysisLine(pub *mut ::core::ffi::c_void);
 pub struct InkAnalysisListItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkAnalysisNode(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkAnalysisNodeKind(i32);
 #[repr(transparent)]
 pub struct InkAnalysisParagraph(pub *mut ::core::ffi::c_void);
@@ -45,7 +47,9 @@ pub struct InkAnalysisParagraph(pub *mut ::core::ffi::c_void);
 pub struct InkAnalysisResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkAnalysisRoot(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkAnalysisStatus(i32);
+#[repr(C)]
 pub struct InkAnalysisStrokeKind(i32);
 #[repr(transparent)]
 pub struct InkAnalysisWritingRegion(pub *mut ::core::ffi::c_void);

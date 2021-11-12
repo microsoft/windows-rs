@@ -1,11 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct BitmapCreateOptions(i32);
 #[repr(transparent)]
 pub struct BitmapImage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BitmapSource(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DecodePixelType(i32);
 #[repr(transparent)]
 pub struct DownloadProgressEventArgs(pub *mut ::core::ffi::c_void);
@@ -77,6 +79,7 @@ pub struct SurfaceImageSource(pub *mut ::core::ffi::c_void);
 pub struct SvgImageSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SvgImageSourceFailedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SvgImageSourceLoadStatus(i32);
 #[repr(transparent)]
 pub struct SvgImageSourceOpenedEventArgs(pub *mut ::core::ffi::c_void);

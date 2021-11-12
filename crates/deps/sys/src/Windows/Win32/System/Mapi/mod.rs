@@ -3,18 +3,31 @@
 extern "system" {
     pub fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
 }
+#[repr(C)]
 pub struct LPMAPIADDRESS(i32);
+#[repr(C)]
 pub struct LPMAPIDELETEMAIL(i32);
+#[repr(C)]
 pub struct LPMAPIDETAILS(i32);
+#[repr(C)]
 pub struct LPMAPIFINDNEXT(i32);
+#[repr(C)]
 pub struct LPMAPIFREEBUFFER(i32);
+#[repr(C)]
 pub struct LPMAPILOGOFF(i32);
+#[repr(C)]
 pub struct LPMAPILOGON(i32);
+#[repr(C)]
 pub struct LPMAPIREADMAIL(i32);
+#[repr(C)]
 pub struct LPMAPIRESOLVENAME(i32);
+#[repr(C)]
 pub struct LPMAPISAVEMAIL(i32);
+#[repr(C)]
 pub struct LPMAPISENDDOCUMENTS(i32);
+#[repr(C)]
 pub struct LPMAPISENDMAIL(i32);
+#[repr(C)]
 pub struct LPMAPISENDMAILW(i32);
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;
 pub const MAPI_BCC: u32 = 3u32;
@@ -71,16 +84,23 @@ pub const MAPI_UNREAD: u32 = 1u32;
 pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 pub const MAPI_USER_ABORT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MapiFileDesc(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MapiFileDescW(i32);
+#[repr(C)]
 pub struct MapiFileTagExt(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MapiMessage(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MapiMessageW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MapiRecipDesc(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MapiRecipDescW(i32);
 pub const SUCCESS_SUCCESS: u32 = 0u32;

@@ -193,7 +193,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct ACCESSTIMEOUT(i32);
+#[repr(C)]
 pub struct ACC_UTILITY_STATE_FLAGS(i32);
 pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 pub const AcceleratorKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1363699167, data2: 9559, data3: 19641, data4: [174, 237, 108, 237, 8, 76, 229, 44] };
@@ -203,6 +205,7 @@ pub const AccessKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GU
     data3: 18965,
     data4: [145, 124, 255, 165, 173, 62, 176, 167],
 };
+#[repr(C)]
 pub struct ActiveEnd(i32);
 pub const ActiveTextPositionChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2780864156,
@@ -210,7 +213,9 @@ pub const ActiveTextPositionChanged_Event_GUID: ::windows_sys::core::GUID = ::wi
     data3: 20261,
     data4: [180, 145, 229, 187, 112, 23, 203, 212],
 };
+#[repr(C)]
 pub struct AnimationStyle(i32);
+#[repr(C)]
 pub struct AnnoScope(i32);
 pub const AnnotationObjects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 822677704, data2: 31854, data3: 20256, data4: [190, 205, 74, 175, 109, 25, 17, 86] };
 pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
@@ -373,6 +378,7 @@ pub const AriaProperties_Property_GUID: ::windows_sys::core::GUID = ::windows_sy
     data4: [190, 181, 228, 59, 160, 142, 98, 33],
 };
 pub const AriaRole_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3709893525, data2: 48714, data3: 19981, data4: [183, 39, 99, 172, 233, 75, 105, 22] };
+#[repr(C)]
 pub struct AsyncContentLoadedState(i32);
 pub const AsyncContentLoaded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1608442140,
@@ -380,6 +386,7 @@ pub const AsyncContentLoaded_Event_GUID: ::windows_sys::core::GUID = ::windows_s
     data3: 20409,
     data4: [144, 78, 92, 190, 232, 148, 213, 239],
 };
+#[repr(C)]
 pub struct AutomationElementMode(i32);
 pub const AutomationFocusChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3062505239,
@@ -388,6 +395,7 @@ pub const AutomationFocusChanged_Event_GUID: ::windows_sys::core::GUID = ::windo
     data4: [163, 204, 176, 82, 146, 21, 95, 224],
 };
 pub const AutomationId_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3358328064, data2: 46606, data3: 17168, data4: [162, 103, 48, 60, 83, 31, 142, 229] };
+#[repr(C)]
 pub struct AutomationIdentifierType(i32);
 pub const AutomationPropertyChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 623377313, data2: 36218, data3: 17968, data4: [164, 204, 230, 99, 21, 148, 47, 82] };
 pub const BoundingRectangle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -396,6 +404,7 @@ pub const BoundingRectangle_Property_GUID: ::windows_sys::core::GUID = ::windows
     data3: 18653,
     data4: [183, 41, 199, 148, 184, 70, 233, 161],
 };
+#[repr(C)]
 pub struct BulletStyle(i32);
 pub const Button_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1517871977,
@@ -403,6 +412,7 @@ pub const Button_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20275,
     data4: [169, 215, 121, 242, 13, 12, 120, 142],
 };
+#[repr(C)]
 pub struct CAccPropServices(i32);
 pub const CLSID_AccPropServices: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3052942603,
@@ -410,12 +420,18 @@ pub const CLSID_AccPropServices: ::windows_sys::core::GUID = ::windows_sys::GUID
     data3: 18609,
     data4: [166, 238, 136, 189, 0, 180, 165, 231],
 };
+#[repr(C)]
 pub struct CUIAutomation(i32);
+#[repr(C)]
 pub struct CUIAutomation8(i32);
+#[repr(C)]
 pub struct CUIAutomationRegistrar(i32);
 pub const Calendar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2299784072, data2: 229, data3: 18108, data4: [142, 78, 20, 167, 134, 225, 101, 161] };
+#[repr(C)]
 pub struct CapStyle(i32);
+#[repr(C)]
 pub struct CaretBidiMode(i32);
+#[repr(C)]
 pub struct CaretPosition(i32);
 pub const CenterPoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 212864008, data2: 21516, data3: 20187, data4: [148, 69, 38, 53, 158, 166, 151, 133] };
 pub const Changes_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -438,6 +454,7 @@ pub const ClassName_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [132, 226, 170, 192, 218, 8, 177, 107],
 };
 pub const ClickablePoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 26644539, data2: 45571, data3: 18456, data4: [169, 243, 240, 142, 103, 95, 35, 65] };
+#[repr(C)]
 pub struct CoalesceEventsOptions(i32);
 pub const ComboBox_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1422606956,
@@ -445,7 +462,9 @@ pub const ComboBox_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID
     data3: 20479,
     data4: [170, 161, 174, 246, 13, 172, 93, 235],
 };
+#[repr(C)]
 pub struct ConditionType(i32);
+#[repr(C)]
 pub struct ConnectionRecoveryBehaviorOptions(i32);
 pub const ControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3396816874,
@@ -504,6 +523,7 @@ pub const DescribedBy_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data3: 16637,
     data4: [141, 176, 107, 241, 211, 23, 249, 152],
 };
+#[repr(C)]
 pub struct DockPosition(i32);
 pub const Dock_DockPosition_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1835528238,
@@ -573,7 +593,9 @@ pub const Edit_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 20359,
     data4: [174, 123, 26, 189, 220, 129, 12, 249],
 };
+#[repr(C)]
 pub struct EventArgsType(i32);
+#[repr(C)]
 pub struct ExpandCollapseState(i32);
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660229192, data2: 34215, data3: 20329, data4: [171, 160, 175, 21, 118, 16, 0, 43] };
 pub const ExpandCollapse_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -583,7 +605,9 @@ pub const ExpandCollapse_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys
     data4: [131, 76, 83, 165, 197, 47, 155, 139],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ExtendedProperty(i32);
+#[repr(C)]
 pub struct FILTERKEYS(i32);
 pub const FillColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1846461648,
@@ -591,6 +615,7 @@ pub const FillColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GU
     data3: 19030,
     data4: [157, 231, 149, 51, 137, 147, 59, 57],
 };
+#[repr(C)]
 pub struct FillType(i32);
 pub const FillType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3338433764,
@@ -598,6 +623,7 @@ pub const FillType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUI
     data3: 17052,
     data4: [169, 225, 155, 196, 172, 55, 43, 98],
 };
+#[repr(C)]
 pub struct FlowDirections(i32);
 pub const FlowsFrom_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 96896079, data2: 6622, data3: 18680, data4: [149, 250, 136, 13, 91, 15, 214, 21] };
 pub const FlowsTo_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -649,14 +675,22 @@ pub const Group_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [174, 27, 221, 134, 223, 11, 59, 220],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HIGHCONTRASTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HIGHCONTRASTW(i32);
+#[repr(C)]
 pub struct HIGHCONTRASTW_FLAGS(i32);
+#[repr(C)]
 pub struct HUIAEVENT(i32);
+#[repr(C)]
 pub struct HUIANODE(i32);
+#[repr(C)]
 pub struct HUIAPATTERNOBJECT(i32);
+#[repr(C)]
 pub struct HUIATEXTRANGE(i32);
+#[repr(C)]
 pub struct HWINEVENTHOOK(i32);
 pub const HasKeyboardFocus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481992505, data2: 16198, data3: 18432, data4: [150, 86, 178, 191, 18, 82, 153, 5] };
 pub const HeaderItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -683,6 +717,7 @@ pub const HeadingLevel9: i32 = 80059i32;
 pub const HeadingLevel_None: i32 = 80050i32;
 pub const HeadingLevel_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 688407154, data2: 43695, data3: 18992, data4: [135, 150, 60, 18, 246, 43, 107, 187] };
 pub const HelpText_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 139810437, data2: 2423, data3: 17863, data4: [167, 166, 171, 175, 86, 132, 18, 26] };
+#[repr(C)]
 pub struct HorizontalTextAlignment(i32);
 pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3871191102,
@@ -1181,11 +1216,17 @@ pub const ItemContainer_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys:
 pub const ItemStatus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1373504289, data2: 14707, data3: 17383, data4: [137, 19, 11, 8, 232, 19, 195, 127] };
 pub const ItemType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3453633357, data2: 25122, data3: 16699, data4: [166, 138, 50, 93, 209, 212, 15, 57] };
 pub const LIBID_Accessibility: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 514120688, data2: 15419, data3: 4559, data4: [129, 12, 0, 170, 0, 56, 155, 113] };
+#[repr(C)]
 pub struct LPFNACCESSIBLECHILDREN(i32);
+#[repr(C)]
 pub struct LPFNACCESSIBLEOBJECTFROMPOINT(i32);
+#[repr(C)]
 pub struct LPFNACCESSIBLEOBJECTFROMWINDOW(i32);
+#[repr(C)]
 pub struct LPFNCREATESTDACCESSIBLEOBJECT(i32);
+#[repr(C)]
 pub struct LPFNLRESULTFROMOBJECT(i32);
+#[repr(C)]
 pub struct LPFNOBJECTFROMLRESULT(i32);
 pub const LabeledBy_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3854078539,
@@ -1265,6 +1306,7 @@ pub const LiveRegionChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sy
     data3: 16822,
     data4: [177, 197, 169, 177, 146, 157, 149, 16],
 };
+#[repr(C)]
 pub struct LiveSetting(i32);
 pub const LiveSetting_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3240873358, data2: 10894, data3: 18768, data4: [138, 231, 54, 37, 17, 29, 88, 235] };
 pub const LocalizedControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2271428687, data2: 41405, data3: 17706, data4: [137, 196, 63, 1, 211, 131, 56, 6] };
@@ -1274,8 +1316,10 @@ pub const LocalizedLandmarkType_Property_GUID: ::windows_sys::core::GUID = ::win
     data3: 20402,
     data4: [191, 145, 244, 133, 190, 245, 232, 225],
 };
+#[repr(C)]
 pub struct MOUSEKEYS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MSAAMENUINFO(i32);
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3426239056, data2: 3707, data3: 19176, data4: [149, 174, 160, 143, 38, 27, 82, 238] };
@@ -1309,6 +1353,7 @@ pub const NAVDIR_PREVIOUS: u32 = 6u32;
 pub const NAVDIR_RIGHT: u32 = 4u32;
 pub const NAVDIR_UP: u32 = 1u32;
 pub const Name_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3282473499, data2: 19097, data3: 17649, data4: [188, 166, 97, 24, 112, 82, 196, 49] };
+#[repr(C)]
 pub struct NavigateDirection(i32);
 pub const NewNativeWindowHandle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1368830779,
@@ -1316,8 +1361,11 @@ pub const NewNativeWindowHandle_Property_GUID: ::windows_sys::core::GUID = ::win
     data3: 18818,
     data4: [149, 225, 145, 243, 239, 96, 224, 36],
 };
+#[repr(C)]
 pub struct NormalizeState(i32);
+#[repr(C)]
 pub struct NotificationKind(i32);
+#[repr(C)]
 pub struct NotificationProcessing(i32);
 pub const Notification_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1925554935, data2: 38792, data3: 18447, data4: [184, 235, 77, 238, 0, 246, 24, 111] };
 pub const ObjectModel_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1040493822, data2: 2300, data3: 18412, data4: [150, 188, 53, 63, 163, 179, 74, 167] };
@@ -1327,6 +1375,7 @@ pub const OptimizeForVisualContent_Property_GUID: ::windows_sys::core::GUID = ::
     data3: 20061,
     data4: [184, 88, 227, 129, 176, 247, 136, 97],
 };
+#[repr(C)]
 pub struct OrientationType(i32);
 pub const Orientation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2686381666,
@@ -1335,6 +1384,7 @@ pub const Orientation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data4: [136, 126, 103, 142, 194, 30, 57, 186],
 };
 pub const OutlineColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3281376960, data2: 19285, data3: 18274, data4: [160, 115, 253, 48, 58, 99, 79, 82] };
+#[repr(C)]
 pub struct OutlineStyles(i32);
 pub const OutlineThickness_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 333872327, data2: 56002, data3: 18568, data4: [189, 211, 55, 92, 98, 250, 150, 24] };
 pub const PROPID_ACC_DEFAULTACTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 403441451, data2: 49791, data3: 17351, data4: [153, 34, 246, 53, 98, 164, 99, 43] };
@@ -1411,6 +1461,7 @@ pub const ProgressBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::G
     data3: 18363,
     data4: [159, 182, 165, 131, 75, 252, 83, 164],
 };
+#[repr(C)]
 pub struct PropertyConditionFlags(i32);
 pub const ProviderDescription_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3701829770,
@@ -1418,7 +1469,9 @@ pub const ProviderDescription_Property_GUID: ::windows_sys::core::GUID = ::windo
     data3: 19673,
     data4: [184, 137, 190, 177, 106, 128, 73, 4],
 };
+#[repr(C)]
 pub struct ProviderOptions(i32);
+#[repr(C)]
 pub struct ProviderType(i32);
 pub const ROLE_SYSTEM_ALERT: u32 = 8u32;
 pub const ROLE_SYSTEM_ANIMATION: u32 = 54u32;
@@ -1508,6 +1561,7 @@ pub const RangeValue_SmallChange_Property_GUID: ::windows_sys::core::GUID = ::wi
 };
 pub const RangeValue_Value_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 320822680, data2: 50444, data3: 18589, data4: [171, 229, 174, 34, 8, 152, 197, 247] };
 pub const Rotation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1987894397, data2: 44736, data3: 16656, data4: [173, 50, 48, 237, 212, 3, 73, 46] };
+#[repr(C)]
 pub struct RowOrColumnMajor(i32);
 pub const RuntimeId_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2745101306,
@@ -1523,9 +1577,12 @@ pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 pub const SELFLAG_VALID: u32 = 31u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERIALKEYSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SERIALKEYSW(i32);
+#[repr(C)]
 pub struct SERIALKEYS_FLAGS(i32);
 pub const SID_ControlElementProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4101578088, data2: 57940, data3: 19363, data4: [154, 83, 38, 165, 197, 73, 121, 70] };
 pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1535,18 +1592,28 @@ pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [132, 43, 199, 5, 157, 237, 185, 208],
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOUNDSENTRYA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOUNDSENTRYW(i32);
+#[repr(C)]
 pub struct SOUNDSENTRY_FLAGS(i32);
+#[repr(C)]
 pub struct SOUNDSENTRY_TEXT_EFFECT(i32);
+#[repr(C)]
 pub struct SOUNDSENTRY_WINDOWS_EFFECT(i32);
+#[repr(C)]
 pub struct SOUND_SENTRY_GRAPHICS_EFFECT(i32);
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
+#[repr(C)]
 pub struct STICKYKEYS(i32);
+#[repr(C)]
 pub struct STICKYKEYS_FLAGS(i32);
+#[repr(C)]
 pub struct SayAsInterpretAs(i32);
+#[repr(C)]
 pub struct ScrollAmount(i32);
 pub const ScrollBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3673377590, data2: 20581, data3: 18758, data4: [178, 47, 146, 89, 95, 192, 117, 26] };
 pub const ScrollItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1167183877, data2: 43011, data3: 19804, data4: [180, 213, 141, 40, 0, 249, 6, 167] };
@@ -1676,6 +1743,7 @@ pub const SpreadsheetItem_Formula_Property_GUID: ::windows_sys::core::GUID = ::w
 pub const SpreadsheetItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 852460543, data2: 61864, data3: 19084, data4: [134, 88, 212, 123, 167, 78, 32, 186] };
 pub const Spreadsheet_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1784358089, data2: 40222, data3: 19333, data4: [158, 68, 192, 46, 49, 105, 177, 11] };
 pub const StatusBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3562962203, data2: 22643, data3: 18271, data4: [149, 164, 4, 51, 225, 241, 176, 10] };
+#[repr(C)]
 pub struct StructureChangeType(i32);
 pub const StructureChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1503099233,
@@ -1804,7 +1872,9 @@ pub const Styles_StyleId_Property_GUID: ::windows_sys::core::GUID = ::windows_sy
     data4: [130, 175, 2, 39, 158, 114, 204, 119],
 };
 pub const Styles_StyleName_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 470986805, data2: 1489, data3: 20309, data4: [158, 142, 20, 137, 243, 255, 85, 13] };
+#[repr(C)]
 pub struct SupportedTextSelection(i32);
+#[repr(C)]
 pub struct SynchronizedInputType(i32);
 pub const SynchronizedInput_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 96635046, data2: 50299, data3: 18571, data4: [182, 83, 51, 151, 122, 85, 27, 139] };
 pub const SystemAlert_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1813,6 +1883,7 @@ pub const SystemAlert_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUI
     data3: 18343,
     data4: [132, 116, 129, 210, 154, 36, 81, 201],
 };
+#[repr(C)]
 pub struct TOGGLEKEYS(i32);
 pub const TabItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 745169743, data2: 37403, data3: 20078, data4: [178, 110, 8, 252, 176, 121, 143, 76] };
 pub const Tab_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1850,7 +1921,9 @@ pub const TextChild_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUI
     data3: 16879,
     data4: [158, 133, 226, 99, 140, 190, 22, 158],
 };
+#[repr(C)]
 pub struct TextDecorationLineStyle(i32);
+#[repr(C)]
 pub struct TextEditChangeType(i32);
 pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 864600451, data2: 60751, data3: 19595, data4: [155, 170, 54, 77, 81, 216, 132, 127] };
 pub const TextEdit_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1777598345, data2: 23289, data3: 19573, data4: [147, 64, 242, 222, 41, 46, 69, 145] };
@@ -1860,7 +1933,9 @@ pub const TextEdit_TextChanged_Event_GUID: ::windows_sys::core::GUID = ::windows
     data3: 20152,
     data4: [156, 152, 152, 103, 205, 161, 177, 101],
 };
+#[repr(C)]
 pub struct TextPatternRangeEndpoint(i32);
+#[repr(C)]
 pub struct TextUnit(i32);
 pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1485617976,
@@ -2065,6 +2140,7 @@ pub const Thumb_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [182, 68, 121, 126, 79, 174, 162, 19],
 };
 pub const TitleBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2561299903, data2: 15280, data3: 19301, data4: [131, 110, 46, 163, 13, 188, 23, 31] };
+#[repr(C)]
 pub struct ToggleState(i32);
 pub const Toggle_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 188847968, data2: 58100, data3: 17407, data4: [140, 95, 148, 87, 200, 43, 86, 233] };
 pub const Toggle_ToggleState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2122,7 +2198,9 @@ pub const Transform_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUI
     data4: [156, 74, 216, 233, 139, 102, 75, 123],
 };
 pub const TreeItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1657405113, data2: 36860, data3: 18552, data4: [163, 164, 150, 176, 48, 49, 92, 24] };
+#[repr(C)]
 pub struct TreeScope(i32);
+#[repr(C)]
 pub struct TreeTraversalOptions(i32);
 pub const Tree_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1969304732,
@@ -2482,40 +2560,64 @@ pub const UIA_WindowWindowVisualStatePropertyId: i32 = 30075i32;
 pub const UIA_Window_WindowClosedEventId: i32 = 20017i32;
 pub const UIA_Window_WindowOpenedEventId: i32 = 20016i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UIAutomationEventInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UIAutomationMethodInfo(i32);
+#[repr(C)]
 pub struct UIAutomationParameter(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UIAutomationPatternInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UIAutomationPropertyInfo(i32);
+#[repr(C)]
 pub struct UIAutomationType(i32);
+#[repr(C)]
 pub struct UiaAndOrCondition(i32);
 pub const UiaAppendRuntimeId: u32 = 3u32;
+#[repr(C)]
 pub struct UiaAsyncContentLoadedEventArgs(i32);
+#[repr(C)]
 pub struct UiaCacheRequest(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct UiaChangeInfo(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct UiaChangesEventArgs(i32);
+#[repr(C)]
 pub struct UiaCondition(i32);
+#[repr(C)]
 pub struct UiaEventArgs(i32);
+#[repr(C)]
 pub struct UiaEventCallback(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UiaFindParams(i32);
+#[repr(C)]
 pub struct UiaNotCondition(i32);
+#[repr(C)]
 pub struct UiaPoint(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct UiaPropertyChangedEventArgs(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct UiaPropertyCondition(i32);
+#[repr(C)]
 pub struct UiaProviderCallback(i32);
+#[repr(C)]
 pub struct UiaRect(i32);
 pub const UiaRootObjectId: i32 = -25i32;
+#[repr(C)]
 pub struct UiaStructureChangedEventArgs(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct UiaTextEditTextChangedEventArgs(i32);
+#[repr(C)]
 pub struct UiaWindowClosedEventArgs(i32);
 pub const Value_IsReadOnly_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3943239472, data2: 57932, data3: 18329, data4: [167, 5, 13, 36, 123, 192, 55, 248] };
 pub const Value_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 402304414, data2: 51319, data3: 18267, data4: [185, 51, 119, 51, 39, 121, 182, 55] };
@@ -2531,6 +2633,7 @@ pub const VirtualizedItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sy
     data3: 17897,
     data4: [166, 229, 98, 246, 237, 130, 137, 213],
 };
+#[repr(C)]
 pub struct VisualEffects(i32);
 pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3860497765,
@@ -2538,8 +2641,11 @@ pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys
     data3: 18135,
     data4: [158, 112, 78, 138, 132, 32, 212, 32],
 };
+#[repr(C)]
 pub struct WINEVENTPROC(i32);
+#[repr(C)]
 pub struct WindowInteractionState(i32);
+#[repr(C)]
 pub struct WindowVisualState(i32);
 pub const Window_CanMaximize_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1694496063,
@@ -2581,4 +2687,5 @@ pub const Window_WindowOpened_Event_GUID: ::windows_sys::core::GUID = ::windows_
     data4: [150, 51, 222, 158, 2, 251, 101, 175],
 };
 pub const Window_WindowVisualState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1253544031, data2: 59488, data3: 17726, data4: [163, 10, 246, 67, 30, 93, 170, 213] };
+#[repr(C)]
 pub struct ZoomUnit(i32);

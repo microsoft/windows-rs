@@ -9,27 +9,39 @@ pub mod Text;
 extern "system" {}
 #[repr(transparent)]
 pub struct AnnotationPatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AnnotationType(i32);
+#[repr(C)]
 pub struct AutomationActiveEnd(i32);
+#[repr(C)]
 pub struct AutomationAnimationStyle(i32);
 #[repr(transparent)]
 pub struct AutomationAnnotation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutomationBulletStyle(i32);
+#[repr(C)]
 pub struct AutomationCaretBidiMode(i32);
+#[repr(C)]
 pub struct AutomationCaretPosition(i32);
 #[repr(transparent)]
 pub struct AutomationElementIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutomationFlowDirections(i32);
+#[repr(C)]
 pub struct AutomationOutlineStyles(i32);
 #[repr(transparent)]
 pub struct AutomationProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AutomationProperty(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AutomationStyleId(i32);
+#[repr(C)]
 pub struct AutomationTextDecorationLineStyle(i32);
+#[repr(C)]
 pub struct AutomationTextEditChangeType(i32);
 #[repr(transparent)]
 pub struct DockPatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DockPosition(i32);
 #[repr(transparent)]
 pub struct DragPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -37,6 +49,7 @@ pub struct DragPatternIdentifiers(pub *mut ::core::ffi::c_void);
 pub struct DropTargetPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ExpandCollapsePatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ExpandCollapseState(i32);
 #[repr(transparent)]
 pub struct GridItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -176,7 +189,9 @@ pub struct IWindowPatternIdentifiersStatics(pub *mut ::core::ffi::c_void);
 pub struct MultipleViewPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RangeValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RowOrColumnMajor(i32);
+#[repr(C)]
 pub struct ScrollAmount(i32);
 #[repr(transparent)]
 pub struct ScrollPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -188,7 +203,9 @@ pub struct SelectionPatternIdentifiers(pub *mut ::core::ffi::c_void);
 pub struct SpreadsheetItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StylesPatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SupportedTextSelection(i32);
+#[repr(C)]
 pub struct SynchronizedInputType(i32);
 #[repr(transparent)]
 pub struct TableItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -196,6 +213,7 @@ pub struct TableItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
 pub struct TablePatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TogglePatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ToggleState(i32);
 #[repr(transparent)]
 pub struct TransformPattern2Identifiers(pub *mut ::core::ffi::c_void);
@@ -203,8 +221,11 @@ pub struct TransformPattern2Identifiers(pub *mut ::core::ffi::c_void);
 pub struct TransformPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ValuePatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WindowInteractionState(i32);
 #[repr(transparent)]
 pub struct WindowPatternIdentifiers(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WindowVisualState(i32);
+#[repr(C)]
 pub struct ZoomUnit(i32);

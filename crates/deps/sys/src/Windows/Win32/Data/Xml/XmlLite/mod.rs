@@ -14,6 +14,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn CreateXmlWriterOutputWithEncodingName(poutputstream: ::windows_sys::core::IUnknown, pmalloc: super::super::super::System::Com::IMalloc, pwszencodingname: super::super::super::Foundation::PWSTR, ppoutput: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct DtdProcessing(i32);
 #[repr(transparent)]
 pub struct IXmlReader(pub *mut ::core::ffi::c_void);
@@ -23,12 +24,19 @@ pub struct IXmlResolver(pub *mut ::core::ffi::c_void);
 pub struct IXmlWriter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXmlWriterLite(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XmlConformanceLevel(i32);
+#[repr(C)]
 pub struct XmlError(i32);
+#[repr(C)]
 pub struct XmlNodeType(i32);
+#[repr(C)]
 pub struct XmlReadState(i32);
+#[repr(C)]
 pub struct XmlReaderProperty(i32);
+#[repr(C)]
 pub struct XmlStandalone(i32);
+#[repr(C)]
 pub struct XmlWriterProperty(i32);
 pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
 pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };

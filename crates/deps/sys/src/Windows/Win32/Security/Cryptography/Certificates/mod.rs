@@ -47,16 +47,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PstValidate(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: super::super::super::Foundation::BOOL, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const *const ::core::ffi::c_void, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::NTSTATUS;
 }
+#[repr(C)]
 pub struct ADDED_CERT_TYPE(i32);
+#[repr(C)]
 pub struct AlgorithmFlags(i32);
+#[repr(C)]
 pub struct AlgorithmOperationFlags(i32);
+#[repr(C)]
 pub struct AlgorithmType(i32);
+#[repr(C)]
 pub struct AlternativeNameType(i32);
 pub const CAIF_DSENTRY: u32 = 1u32;
 pub const CAIF_LOCAL: u32 = 8u32;
 pub const CAIF_REGISTRY: u32 = 4u32;
 pub const CAIF_REGISTRYPARENT: u32 = 16u32;
 pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
+#[repr(C)]
 pub struct CAINFO(i32);
 pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
 pub const CA_ACCESS_MASKROLES: u32 = 255u32;
@@ -69,67 +75,124 @@ pub const CA_DISP_INVALID: u32 = 4u32;
 pub const CA_DISP_REVOKED: u32 = 2u32;
 pub const CA_DISP_UNDER_SUBMISSION: u32 = 5u32;
 pub const CA_DISP_VALID: u32 = 3u32;
+#[repr(C)]
 pub struct CAlternativeName(i32);
+#[repr(C)]
 pub struct CAlternativeNames(i32);
+#[repr(C)]
 pub struct CBinaryConverter(i32);
 pub const CCLOCKSKEWMINUTESDEFAULT: u32 = 10u32;
 pub const CC_UIPICKCONFIGSKIPLOCALCA: u32 = 5u32;
+#[repr(C)]
 pub struct CCertAdmin(i32);
+#[repr(C)]
 pub struct CCertConfig(i32);
+#[repr(C)]
 pub struct CCertEncodeAltName(i32);
+#[repr(C)]
 pub struct CCertEncodeBitString(i32);
+#[repr(C)]
 pub struct CCertEncodeCRLDistInfo(i32);
+#[repr(C)]
 pub struct CCertEncodeDateArray(i32);
+#[repr(C)]
 pub struct CCertEncodeLongArray(i32);
+#[repr(C)]
 pub struct CCertEncodeStringArray(i32);
+#[repr(C)]
 pub struct CCertGetConfig(i32);
+#[repr(C)]
 pub struct CCertProperties(i32);
+#[repr(C)]
 pub struct CCertProperty(i32);
+#[repr(C)]
 pub struct CCertPropertyArchived(i32);
+#[repr(C)]
 pub struct CCertPropertyArchivedKeyHash(i32);
+#[repr(C)]
 pub struct CCertPropertyAutoEnroll(i32);
+#[repr(C)]
 pub struct CCertPropertyBackedUp(i32);
+#[repr(C)]
 pub struct CCertPropertyDescription(i32);
+#[repr(C)]
 pub struct CCertPropertyEnrollment(i32);
+#[repr(C)]
 pub struct CCertPropertyEnrollmentPolicyServer(i32);
+#[repr(C)]
 pub struct CCertPropertyFriendlyName(i32);
+#[repr(C)]
 pub struct CCertPropertyKeyProvInfo(i32);
+#[repr(C)]
 pub struct CCertPropertyRenewal(i32);
+#[repr(C)]
 pub struct CCertPropertyRequestOriginator(i32);
+#[repr(C)]
 pub struct CCertPropertySHA1Hash(i32);
+#[repr(C)]
 pub struct CCertRequest(i32);
+#[repr(C)]
 pub struct CCertServerExit(i32);
+#[repr(C)]
 pub struct CCertServerPolicy(i32);
+#[repr(C)]
 pub struct CCertView(i32);
+#[repr(C)]
 pub struct CCertificateAttestationChallenge(i32);
+#[repr(C)]
 pub struct CCertificatePolicies(i32);
+#[repr(C)]
 pub struct CCertificatePolicy(i32);
+#[repr(C)]
 pub struct CCryptAttribute(i32);
+#[repr(C)]
 pub struct CCryptAttributes(i32);
+#[repr(C)]
 pub struct CCspInformation(i32);
+#[repr(C)]
 pub struct CCspInformations(i32);
+#[repr(C)]
 pub struct CCspStatus(i32);
+#[repr(C)]
 pub struct CERTADMIN_GET_ROLES_FLAGS(i32);
 pub const CERTENROLL_INDEX_BASE: u32 = 0u32;
+#[repr(C)]
 pub struct CERTENROLL_OBJECTID(i32);
+#[repr(C)]
 pub struct CERTENROLL_PROPERTYID(i32);
+#[repr(C)]
 pub struct CERTTRANSBLOB(i32);
+#[repr(C)]
 pub struct CERTVIEWRESTRICTION(i32);
+#[repr(C)]
 pub struct CERT_ALT_NAME(i32);
+#[repr(C)]
 pub struct CERT_CREATE_REQUEST_FLAGS(i32);
+#[repr(C)]
 pub struct CERT_DELETE_ROW_FLAGS(i32);
+#[repr(C)]
 pub struct CERT_EXIT_EVENT_MASK(i32);
+#[repr(C)]
 pub struct CERT_GET_CONFIG_FLAGS(i32);
+#[repr(C)]
 pub struct CERT_IMPORT_FLAGS(i32);
+#[repr(C)]
 pub struct CERT_PROPERTY_TYPE(i32);
+#[repr(C)]
 pub struct CERT_REQUEST_OUT_TYPE(i32);
+#[repr(C)]
 pub struct CERT_VIEW_COLUMN_INDEX(i32);
+#[repr(C)]
 pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(i32);
+#[repr(C)]
 pub struct CEnroll(i32);
+#[repr(C)]
 pub struct CEnroll2(i32);
 pub const CMM_READONLY: u32 = 2u32;
 pub const CMM_REFRESHONLY: u32 = 1u32;
+#[repr(C)]
 pub struct CObjectId(i32);
+#[repr(C)]
 pub struct CObjectIds(i32);
 pub const CPF_BADURL_ERROR: u32 = 32u32;
 pub const CPF_BASE: u32 = 1u32;
@@ -145,7 +208,9 @@ pub const CPF_POSTPONED_BASE_FILE_ERROR: u32 = 8192u32;
 pub const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096u32;
 pub const CPF_SHADOW: u32 = 8u32;
 pub const CPF_SIGNATURE_ERROR: u32 = 128u32;
+#[repr(C)]
 pub struct CPolicyQualifier(i32);
+#[repr(C)]
 pub struct CPolicyQualifiers(i32);
 pub const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536u32;
 pub const CRLF_BUILD_ROOTCA_CRLENTRIES_BASEDONKEY: u32 = 2097152u32;
@@ -169,8 +234,10 @@ pub const CRLF_REVCHECK_IGNORE_OFFLINE: u32 = 8u32;
 pub const CRLF_SAVE_FAILED_CERTS: u32 = 64u32;
 pub const CRLF_USE_CROSS_CERT_TEMPLATE: u32 = 32768u32;
 pub const CRLF_USE_XCHG_CERT_TEMPLATE: u32 = 16384u32;
+#[repr(C)]
 pub struct CRLRevocationReason(i32);
 pub const CRYPT_ENUM_ALL_PROVIDERS: u32 = 1u32;
+#[repr(C)]
 pub struct CR_DISP(i32);
 pub const CR_DISP_REVOKED: u32 = 6u32;
 pub const CR_FLG_CACROSSCERT: u32 = 128u32;
@@ -278,6 +345,7 @@ pub const CR_PROP_SHAREDFOLDER: u32 = 8u32;
 pub const CR_PROP_SUBJECTTEMPLATE_OIDS: u32 = 45u32;
 pub const CR_PROP_TEMPLATES: u32 = 29u32;
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295u32;
+#[repr(C)]
 pub struct CSBACKUP_TYPE(i32);
 pub const CSBACKUP_TYPE_MASK: u32 = 3u32;
 pub const CSBFT_DATABASE_DIRECTORY: u32 = 64u32;
@@ -287,6 +355,7 @@ pub const CSCONTROL_RESTART: u64 = 3u64;
 pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
 pub const CSCONTROL_SUSPEND: u64 = 2u64;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CSEDB_RSTMAPW(i32);
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
 pub const CSRESTORE_TYPE_FULL: u32 = 1u32;
@@ -317,11 +386,16 @@ pub const CSVER_MINOR_WIN2K: u32 = 1u32;
 pub const CSVER_MINOR_WIN7: u32 = 1u32;
 pub const CSVER_MINOR_WIN8: u32 = 1u32;
 pub const CSVER_MINOR_WINBLUE: u32 = 1u32;
+#[repr(C)]
 pub struct CSignerCertificate(i32);
+#[repr(C)]
 pub struct CSmimeCapabilities(i32);
+#[repr(C)]
 pub struct CSmimeCapability(i32);
 pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
+#[repr(C)]
 pub struct CVRC_COLUMN(i32);
+#[repr(C)]
 pub struct CVRC_TABLE(i32);
 pub const CVRC_TABLE_MASK: u32 = 61440u32;
 pub const CVRC_TABLE_SHIFT: u32 = 12u32;
@@ -339,51 +413,97 @@ pub const CV_OUT_ENCODEMASK: u32 = 255u32;
 pub const CV_OUT_HEXRAW: u32 = 12u32;
 pub const CV_OUT_NOCR: u32 = 2147483648u32;
 pub const CV_OUT_NOCRLF: u32 = 1073741824u32;
+#[repr(C)]
 pub struct CX500DistinguishedName(i32);
+#[repr(C)]
 pub struct CX509Attribute(i32);
+#[repr(C)]
 pub struct CX509AttributeArchiveKey(i32);
+#[repr(C)]
 pub struct CX509AttributeArchiveKeyHash(i32);
+#[repr(C)]
 pub struct CX509AttributeClientId(i32);
+#[repr(C)]
 pub struct CX509AttributeCspProvider(i32);
+#[repr(C)]
 pub struct CX509AttributeExtensions(i32);
+#[repr(C)]
 pub struct CX509AttributeOSVersion(i32);
+#[repr(C)]
 pub struct CX509AttributeRenewalCertificate(i32);
+#[repr(C)]
 pub struct CX509Attributes(i32);
+#[repr(C)]
 pub struct CX509CertificateRequestCertificate(i32);
+#[repr(C)]
 pub struct CX509CertificateRequestCmc(i32);
+#[repr(C)]
 pub struct CX509CertificateRequestPkcs10(i32);
+#[repr(C)]
 pub struct CX509CertificateRequestPkcs7(i32);
+#[repr(C)]
 pub struct CX509CertificateRevocationList(i32);
+#[repr(C)]
 pub struct CX509CertificateRevocationListEntries(i32);
+#[repr(C)]
 pub struct CX509CertificateRevocationListEntry(i32);
+#[repr(C)]
 pub struct CX509CertificateTemplateADWritable(i32);
+#[repr(C)]
 pub struct CX509EndorsementKey(i32);
+#[repr(C)]
 pub struct CX509Enrollment(i32);
+#[repr(C)]
 pub struct CX509EnrollmentHelper(i32);
+#[repr(C)]
 pub struct CX509EnrollmentPolicyActiveDirectory(i32);
+#[repr(C)]
 pub struct CX509EnrollmentPolicyWebService(i32);
+#[repr(C)]
 pub struct CX509EnrollmentWebClassFactory(i32);
+#[repr(C)]
 pub struct CX509Extension(i32);
+#[repr(C)]
 pub struct CX509ExtensionAlternativeNames(i32);
+#[repr(C)]
 pub struct CX509ExtensionAuthorityKeyIdentifier(i32);
+#[repr(C)]
 pub struct CX509ExtensionBasicConstraints(i32);
+#[repr(C)]
 pub struct CX509ExtensionCertificatePolicies(i32);
+#[repr(C)]
 pub struct CX509ExtensionEnhancedKeyUsage(i32);
+#[repr(C)]
 pub struct CX509ExtensionKeyUsage(i32);
+#[repr(C)]
 pub struct CX509ExtensionMSApplicationPolicies(i32);
+#[repr(C)]
 pub struct CX509ExtensionSmimeCapabilities(i32);
+#[repr(C)]
 pub struct CX509ExtensionSubjectKeyIdentifier(i32);
+#[repr(C)]
 pub struct CX509ExtensionTemplate(i32);
+#[repr(C)]
 pub struct CX509ExtensionTemplateName(i32);
+#[repr(C)]
 pub struct CX509Extensions(i32);
+#[repr(C)]
 pub struct CX509MachineEnrollmentFactory(i32);
+#[repr(C)]
 pub struct CX509NameValuePair(i32);
+#[repr(C)]
 pub struct CX509PolicyServerListManager(i32);
+#[repr(C)]
 pub struct CX509PolicyServerUrl(i32);
+#[repr(C)]
 pub struct CX509PrivateKey(i32);
+#[repr(C)]
 pub struct CX509PublicKey(i32);
+#[repr(C)]
 pub struct CX509SCEPEnrollment(i32);
+#[repr(C)]
 pub struct CX509SCEPEnrollmentHelper(i32);
+#[repr(C)]
 pub struct CommitTemplateFlags(i32);
 pub const DBFLAGS_CHECKPOINTDEPTH60MB: u32 = 32u32;
 pub const DBFLAGS_CIRCULARLOGGING: u32 = 4u32;
@@ -411,6 +531,7 @@ pub const DB_DISP_LOG_MIN: u32 = 20u32;
 pub const DB_DISP_PENDING: u32 = 9u32;
 pub const DB_DISP_QUEUE_MAX: u32 = 9u32;
 pub const DB_DISP_REVOKED: u32 = 21u32;
+#[repr(C)]
 pub struct DelayRetryAction(i32);
 pub const EANR_SUPPRESS_IA5CONVERSION: u32 = 2147483648u32;
 pub const EAN_NAMEOBJECTID: u32 = 2147483648u32;
@@ -443,7 +564,9 @@ pub const EDITF_IGNOREREQUESTERGROUP: u32 = 1024u32;
 pub const EDITF_REQUESTEXTENSIONLIST: u32 = 2u32;
 pub const EDITF_SERVERUPGRADED: u32 = 16384u32;
 pub const ENUMEXT_OBJECTID: u32 = 1u32;
+#[repr(C)]
 pub struct ENUM_CATYPES(i32);
+#[repr(C)]
 pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(i32);
 pub const EXITEVENT_CERTIMPORTED: u32 = 512u32;
 pub const EXITEVENT_INVALID: u32 = 0u32;
@@ -467,34 +590,62 @@ pub const EXTENSION_ORIGIN_RENEWALCERT: u32 = 327680u32;
 pub const EXTENSION_ORIGIN_REQUEST: u32 = 65536u32;
 pub const EXTENSION_ORIGIN_SERVER: u32 = 262144u32;
 pub const EXTENSION_POLICY_MASK: u32 = 65535u32;
+#[repr(C)]
 pub struct EncodingType(i32);
+#[repr(C)]
 pub struct EnrollmentCAProperty(i32);
+#[repr(C)]
 pub struct EnrollmentDisplayStatus(i32);
+#[repr(C)]
 pub struct EnrollmentEnrollStatus(i32);
+#[repr(C)]
 pub struct EnrollmentPolicyFlags(i32);
+#[repr(C)]
 pub struct EnrollmentPolicyServerPropertyFlags(i32);
+#[repr(C)]
 pub struct EnrollmentSelectionStatus(i32);
+#[repr(C)]
 pub struct EnrollmentTemplateProperty(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPCLOSE(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPEND(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPFREE(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPGETBACKUPLOGSW(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPGETDATABASENAMESW(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPGETDYNAMICFILELISTW(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPOPENFILEW(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPPREPAREW(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPREAD(i32);
+#[repr(C)]
 pub struct FNCERTSRVBACKUPTRUNCATELOGS(i32);
+#[repr(C)]
 pub struct FNCERTSRVISSERVERONLINEW(i32);
+#[repr(C)]
 pub struct FNCERTSRVRESTOREEND(i32);
+#[repr(C)]
 pub struct FNCERTSRVRESTOREGETDATABASELOCATIONSW(i32);
+#[repr(C)]
 pub struct FNCERTSRVRESTOREPREPAREW(i32);
+#[repr(C)]
 pub struct FNCERTSRVRESTOREREGISTERCOMPLETE(i32);
+#[repr(C)]
 pub struct FNCERTSRVRESTOREREGISTERW(i32);
+#[repr(C)]
 pub struct FNCERTSRVSERVERCONTROLW(i32);
+#[repr(C)]
 pub struct FNIMPORTPFXTOPROVIDER(i32);
+#[repr(C)]
 pub struct FNIMPORTPFXTOPROVIDERFREEDATA(i32);
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
+#[repr(C)]
 pub struct FULL_RESPONSE_PROPERTY_ID(i32);
 #[repr(transparent)]
 pub struct IAlternativeName(pub *mut ::core::ffi::c_void);
@@ -814,8 +965,11 @@ pub struct IX509SCEPEnrollment2(pub *mut ::core::ffi::c_void);
 pub struct IX509SCEPEnrollmentHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IX509SignatureInformation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ImportPFXFlags(i32);
+#[repr(C)]
 pub struct InnerRequestLevel(i32);
+#[repr(C)]
 pub struct InstallResponseRestrictionFlags(i32);
 pub const KRAF_DISABLEUSEDEFAULTPROVIDER: u32 = 8u32;
 pub const KRAF_ENABLEARCHIVEALL: u32 = 4u32;
@@ -830,17 +984,27 @@ pub const KRA_DISP_UNTRUSTED: u32 = 5u32;
 pub const KRA_DISP_VALID: u32 = 3u32;
 pub const KR_ENABLE_MACHINE: u32 = 1u32;
 pub const KR_ENABLE_USER: u32 = 2u32;
+#[repr(C)]
 pub struct KeyAttestationClaimType(i32);
+#[repr(C)]
 pub struct KeyIdentifierHashAlgorithm(i32);
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
 pub const LDAPF_SSLENABLE: u32 = 1u32;
+#[repr(C)]
 pub struct OCSPAdmin(i32);
+#[repr(C)]
 pub struct OCSPPropertyCollection(i32);
+#[repr(C)]
 pub struct OCSPRequestFlag(i32);
+#[repr(C)]
 pub struct OCSPSigningFlag(i32);
+#[repr(C)]
 pub struct ObjectIdGroupId(i32);
+#[repr(C)]
 pub struct ObjectIdPublicKeyFlags(i32);
+#[repr(C)]
 pub struct PENDING_REQUEST_DESIRED_PROPERTY(i32);
+#[repr(C)]
 pub struct PFXExportOptions(i32);
 pub const PROCFLG_ENFORCEGOODKEYS: u32 = 1u32;
 pub const PROCFLG_NONE: u32 = 0u32;
@@ -852,9 +1016,13 @@ pub const PROPCALLER_REQUEST: u32 = 1280u32;
 pub const PROPCALLER_SERVER: u32 = 256u32;
 pub const PROPFLAGS_INDEXED: u32 = 65536u32;
 pub const PROPTYPE_MASK: u32 = 255u32;
+#[repr(C)]
 pub struct Pkcs10AllowedSignatureTypes(i32);
+#[repr(C)]
 pub struct PolicyQualifierType(i32);
+#[repr(C)]
 pub struct PolicyServerUrlFlags(i32);
+#[repr(C)]
 pub struct PolicyServerUrlPropertyID(i32);
 pub const REQDISP_DEFAULT_ENTERPRISE: u32 = 1u32;
 pub const REQDISP_DENY: u32 = 2u32;
@@ -872,6 +1040,7 @@ pub const REVEXT_CDPLDAPURL_OLD: u32 = 1u32;
 pub const REVEXT_CDPURLMASK_OLD: u32 = 255u32;
 pub const REVEXT_DEFAULT_DS: u32 = 256u32;
 pub const REVEXT_DEFAULT_NODS: u32 = 256u32;
+#[repr(C)]
 pub struct RequestClientInfoClientId(i32);
 pub const SETUP_ATTEMPT_VROOT_CREATE: u32 = 128u32;
 pub const SETUP_CLIENT_FLAG: u32 = 2u32;
@@ -892,31 +1061,57 @@ pub const TP_MACHINEPOLICY: u32 = 1u32;
 pub const VR_INSTANT_BAD: u32 = 2u32;
 pub const VR_INSTANT_OK: u32 = 1u32;
 pub const VR_PENDING: u32 = 0u32;
+#[repr(C)]
 pub struct WebEnrollmentFlags(i32);
+#[repr(C)]
 pub struct WebSecurityLevel(i32);
+#[repr(C)]
 pub struct X500NameFlags(i32);
+#[repr(C)]
 pub struct X509CertificateEnrollmentContext(i32);
+#[repr(C)]
 pub struct X509CertificateTemplateEnrollmentFlag(i32);
+#[repr(C)]
 pub struct X509CertificateTemplateGeneralFlag(i32);
+#[repr(C)]
 pub struct X509CertificateTemplatePrivateKeyFlag(i32);
+#[repr(C)]
 pub struct X509CertificateTemplateSubjectNameFlag(i32);
+#[repr(C)]
 pub struct X509EnrollmentAuthFlags(i32);
+#[repr(C)]
 pub struct X509EnrollmentPolicyExportFlags(i32);
+#[repr(C)]
 pub struct X509EnrollmentPolicyLoadOption(i32);
+#[repr(C)]
 pub struct X509HardwareKeyUsageFlags(i32);
+#[repr(C)]
 pub struct X509KeyParametersExportType(i32);
+#[repr(C)]
 pub struct X509KeySpec(i32);
+#[repr(C)]
 pub struct X509KeyUsageFlags(i32);
+#[repr(C)]
 pub struct X509PrivateKeyExportFlags(i32);
+#[repr(C)]
 pub struct X509PrivateKeyProtection(i32);
+#[repr(C)]
 pub struct X509PrivateKeyUsageFlags(i32);
+#[repr(C)]
 pub struct X509PrivateKeyVerify(i32);
+#[repr(C)]
 pub struct X509ProviderType(i32);
+#[repr(C)]
 pub struct X509RequestInheritOptions(i32);
+#[repr(C)]
 pub struct X509RequestType(i32);
+#[repr(C)]
 pub struct X509SCEPDisposition(i32);
+#[repr(C)]
 pub struct X509SCEPFailInfo(i32);
+#[repr(C)]
 pub struct X509SCEPMessageType(i32);
+#[repr(C)]
 pub struct X509SCEPProcessMessageFlags(i32);
 pub const XECI_AUTOENROLL: u32 = 2u32;
 pub const XECI_CERTREQ: u32 = 4u32;
@@ -924,8 +1119,10 @@ pub const XECI_DISABLE: u32 = 0u32;
 pub const XECI_REQWIZARD: u32 = 3u32;
 pub const XECI_XENROLL: u32 = 1u32;
 pub const XECP_STRING_PROPERTY: u32 = 1u32;
+#[repr(C)]
 pub struct XEKL_KEYSIZE(i32);
 pub const XEKL_KEYSIZE_DEFAULT: u32 = 4u32;
+#[repr(C)]
 pub struct XEKL_KEYSPEC(i32);
 pub const XEPR_DATE: u32 = 5u32;
 pub const XEPR_ENUM_FIRST: i32 = -1i32;

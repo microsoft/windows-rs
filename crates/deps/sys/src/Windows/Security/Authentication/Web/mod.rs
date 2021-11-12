@@ -11,10 +11,13 @@ pub struct IWebAuthenticationBrokerStatics(pub *mut ::core::ffi::c_void);
 pub struct IWebAuthenticationBrokerStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWebAuthenticationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TokenBindingKeyType(i32);
 #[repr(transparent)]
 pub struct WebAuthenticationBroker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebAuthenticationOptions(i32);
 #[repr(transparent)]
 pub struct WebAuthenticationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebAuthenticationStatus(i32);

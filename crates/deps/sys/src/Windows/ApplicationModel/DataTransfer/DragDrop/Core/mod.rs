@@ -7,6 +7,7 @@ pub struct CoreDragDropManager(pub *mut ::core::ffi::c_void);
 pub struct CoreDragInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreDragOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreDragUIContentMode(i32);
 #[repr(transparent)]
 pub struct CoreDragUIOverride(pub *mut ::core::ffi::c_void);

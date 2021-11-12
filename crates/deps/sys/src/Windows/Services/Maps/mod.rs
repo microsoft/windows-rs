@@ -9,6 +9,7 @@ pub mod OfflineMaps;
 extern "system" {}
 #[repr(transparent)]
 pub struct EnhancedWaypoint(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GuidanceContract(i32);
 #[repr(transparent)]
 pub struct IEnhancedWaypoint(pub *mut ::core::ffi::c_void);
@@ -78,23 +79,29 @@ pub struct IPlaceInfoCreateOptions(pub *mut ::core::ffi::c_void);
 pub struct IPlaceInfoStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPlaceInfoStatics2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LocalSearchContract(i32);
 #[repr(transparent)]
 pub struct ManeuverWarning(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ManeuverWarningKind(i32);
+#[repr(C)]
 pub struct ManeuverWarningSeverity(i32);
 #[repr(transparent)]
 pub struct MapAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapLocation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapLocationDesiredAccuracy(i32);
 #[repr(transparent)]
 pub struct MapLocationFinder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapLocationFinderResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapLocationFinderStatus(i32);
 #[repr(transparent)]
 pub struct MapManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapManeuverNotices(i32);
 #[repr(transparent)]
 pub struct MapRoute(pub *mut ::core::ffi::c_void);
@@ -104,20 +111,27 @@ pub struct MapRouteDrivingOptions(pub *mut ::core::ffi::c_void);
 pub struct MapRouteFinder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapRouteFinderResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapRouteFinderStatus(i32);
 #[repr(transparent)]
 pub struct MapRouteLeg(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapRouteManeuver(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapRouteManeuverKind(i32);
+#[repr(C)]
 pub struct MapRouteOptimization(i32);
+#[repr(C)]
 pub struct MapRouteRestrictions(i32);
 #[repr(transparent)]
 pub struct MapService(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MapServiceDataUsagePreference(i32);
 #[repr(transparent)]
 pub struct PlaceInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlaceInfoCreateOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TrafficCongestion(i32);
+#[repr(C)]
 pub struct WaypointKind(i32);

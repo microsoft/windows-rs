@@ -115,6 +115,7 @@ pub const CLSID_DirectInput: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const CLSID_DirectInput8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832804, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const CLSID_DirectInputDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832801, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const CLSID_DirectInputDevice8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832805, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+#[repr(C)]
 pub struct CPOINT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -232,12 +233,16 @@ pub const DI8DEVTYPE_REMOTE: u32 = 27u32;
 pub const DI8DEVTYPE_SCREENPOINTER: u32 = 26u32;
 pub const DI8DEVTYPE_SUPPLEMENTAL: u32 = 28u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIACTIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIACTIONFORMATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIACTIONFORMATW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIACTIONW(i32);
 pub const DIAFTS_NEWDEVICEHIGH: u32 = 4294967295u32;
 pub const DIAFTS_NEWDEVICELOW: u32 = 4294967295u32;
@@ -1082,13 +1087,19 @@ pub const DIBUTTON_TPS_USE: u32 = 167773188u32;
 pub const DIBUTTON_TPS_VIEW: u32 = 167789574u32;
 pub const DICD_DEFAULT: u32 = 0u32;
 pub const DICD_EDIT: u32 = 1u32;
+#[repr(C)]
 pub struct DICOLORSET(i32);
+#[repr(C)]
 pub struct DICONDITION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DICONFIGUREDEVICESPARAMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DICONFIGUREDEVICESPARAMSW(i32);
+#[repr(C)]
 pub struct DICONSTANTFORCE(i32);
+#[repr(C)]
 pub struct DICUSTOMFORCE(i32);
 pub const DIDAL_BOTTOMALIGNED: u32 = 8u32;
 pub const DIDAL_CENTERED: u32 = 0u32;
@@ -1096,6 +1107,7 @@ pub const DIDAL_LEFTALIGNED: u32 = 1u32;
 pub const DIDAL_MIDDLE: u32 = 0u32;
 pub const DIDAL_RIGHTALIGNED: u32 = 2u32;
 pub const DIDAL_TOPALIGNED: u32 = 4u32;
+#[repr(C)]
 pub struct DIDATAFORMAT(i32);
 pub const DIDBAM_DEFAULT: u32 = 0u32;
 pub const DIDBAM_HWDEFAULTS: u32 = 4u32;
@@ -1116,30 +1128,47 @@ pub const DIDC_POSNEGCOEFFICIENTS: u32 = 4096u32;
 pub const DIDC_POSNEGSATURATION: u32 = 8192u32;
 pub const DIDC_SATURATION: u32 = 2048u32;
 pub const DIDC_STARTDELAY: u32 = 32768u32;
+#[repr(C)]
 pub struct DIDEVCAPS(i32);
+#[repr(C)]
 pub struct DIDEVCAPS_DX3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEIMAGEINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEIMAGEINFOHEADERA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEIMAGEINFOHEADERW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEIMAGEINFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEINSTANCEA(i32);
+#[repr(C)]
 pub struct DIDEVICEINSTANCEW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEINSTANCE_DX3A(i32);
+#[repr(C)]
 pub struct DIDEVICEINSTANCE_DX3W(i32);
+#[repr(C)]
 pub struct DIDEVICEOBJECTDATA(i32);
+#[repr(C)]
 pub struct DIDEVICEOBJECTDATA_DX3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCEA(i32);
+#[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCEW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A(i32);
+#[repr(C)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W(i32);
+#[repr(C)]
 pub struct DIDEVICESTATE(i32);
 pub const DIDEVTYPEJOYSTICK_FLIGHTSTICK: u32 = 3u32;
 pub const DIDEVTYPEJOYSTICK_GAMEPAD: u32 = 4u32;
@@ -1203,6 +1232,7 @@ pub const DIDOI_FFACTUATOR: u32 = 1u32;
 pub const DIDOI_FFEFFECTTRIGGER: u32 = 2u32;
 pub const DIDOI_GUIDISUSAGE: u32 = 65536u32;
 pub const DIDOI_POLLED: u32 = 32768u32;
+#[repr(C)]
 pub struct DIDRIVERVERSIONS(i32);
 pub const DIDSAM_DEFAULT: u32 = 0u32;
 pub const DIDSAM_FORCESAVE: u32 = 2u32;
@@ -1225,12 +1255,18 @@ pub const DIEDFL_FORCEFEEDBACK: u32 = 256u32;
 pub const DIEDFL_INCLUDEALIASES: u32 = 65536u32;
 pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144u32;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072u32;
+#[repr(C)]
 pub struct DIEFFECT(i32);
+#[repr(C)]
 pub struct DIEFFECTATTRIBUTES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIEFFECTINFOA(i32);
+#[repr(C)]
 pub struct DIEFFECTINFOW(i32);
+#[repr(C)]
 pub struct DIEFFECT_DX5(i32);
+#[repr(C)]
 pub struct DIEFFESCAPE(i32);
 pub const DIEFF_CARTESIAN: u32 = 16u32;
 pub const DIEFF_OBJECTIDS: u32 = 1u32;
@@ -1255,6 +1291,7 @@ pub const DIEGES_EMULATED: u32 = 2u32;
 pub const DIEGES_PLAYING: u32 = 1u32;
 pub const DIENUM_CONTINUE: u32 = 1u32;
 pub const DIENUM_STOP: u32 = 0u32;
+#[repr(C)]
 pub struct DIENVELOPE(i32);
 pub const DIEP_ALLPARAMS: u32 = 1023u32;
 pub const DIEP_ALLPARAMS_DX5: u32 = 511u32;
@@ -1314,9 +1351,12 @@ pub const DIES_SOLO: u32 = 1u32;
 pub const DIFEF_DEFAULT: u32 = 0u32;
 pub const DIFEF_INCLUDENONSTANDARD: u32 = 1u32;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16u32;
+#[repr(C)]
 pub struct DIFFDEVICEATTRIBUTES(i32);
+#[repr(C)]
 pub struct DIFFOBJECTATTRIBUTES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIFILEEFFECT(i32);
 pub const DIGDD_PEEK: u32 = 1u32;
 pub const DIGFFS_ACTUATORSOFF: u32 = 32u32;
@@ -1363,19 +1403,28 @@ pub const DIHATSWITCH_SPACESIM_GLANCE: u32 = 117458433u32;
 pub const DIHATSWITCH_STRATEGYR_GLANCE: u32 = 184567297u32;
 pub const DIHATSWITCH_TPS_GLANCE: u32 = 167790081u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DIHIDFFINITINFO(i32);
 pub const DIJC_CALLOUT: u32 = 8u32;
 pub const DIJC_GAIN: u32 = 4u32;
 pub const DIJC_GUIDINSTANCE: u32 = 1u32;
 pub const DIJC_REGHWCONFIGTYPE: u32 = 2u32;
 pub const DIJC_WDMGAMEPORT: u32 = 16u32;
+#[repr(C)]
 pub struct DIJOYCONFIG(i32);
+#[repr(C)]
 pub struct DIJOYCONFIG_DX5(i32);
+#[repr(C)]
 pub struct DIJOYSTATE(i32);
+#[repr(C)]
 pub struct DIJOYSTATE2(i32);
+#[repr(C)]
 pub struct DIJOYTYPEINFO(i32);
+#[repr(C)]
 pub struct DIJOYTYPEINFO_DX5(i32);
+#[repr(C)]
 pub struct DIJOYTYPEINFO_DX6(i32);
+#[repr(C)]
 pub struct DIJOYUSERVALUES(i32);
 pub const DIJU_GAMEPORTEMULATOR: u32 = 4u32;
 pub const DIJU_GLOBALDRIVER: u32 = 2u32;
@@ -1684,19 +1733,26 @@ pub const DIK_X: u32 = 45u32;
 pub const DIK_Y: u32 = 21u32;
 pub const DIK_YEN: u32 = 125u32;
 pub const DIK_Z: u32 = 44u32;
+#[repr(C)]
 pub struct DIMOUSESTATE(i32);
+#[repr(C)]
 pub struct DIMOUSESTATE2(i32);
 pub const DIMSGWP_DX8APPSTART: u32 = 2u32;
 pub const DIMSGWP_DX8MAPPERAPPSTART: u32 = 3u32;
 pub const DIMSGWP_NEWAPPSTART: u32 = 1u32;
+#[repr(C)]
 pub struct DIOBJECTATTRIBUTES(i32);
+#[repr(C)]
 pub struct DIOBJECTCALIBRATION(i32);
+#[repr(C)]
 pub struct DIOBJECTDATAFORMAT(i32);
+#[repr(C)]
 pub struct DIPERIODIC(i32);
 pub const DIPH_BYID: u32 = 2u32;
 pub const DIPH_BYOFFSET: u32 = 1u32;
 pub const DIPH_BYUSAGE: u32 = 3u32;
 pub const DIPH_DEVICE: u32 = 0u32;
+#[repr(C)]
 pub struct DIPOVCALIBRATION(i32);
 pub const DIPOV_ANY_1: u32 = 4278208001u32;
 pub const DIPOV_ANY_2: u32 = 4278208002u32;
@@ -1706,17 +1762,27 @@ pub const DIPROPAUTOCENTER_OFF: u32 = 0u32;
 pub const DIPROPAUTOCENTER_ON: u32 = 1u32;
 pub const DIPROPAXISMODE_ABS: u32 = 0u32;
 pub const DIPROPAXISMODE_REL: u32 = 1u32;
+#[repr(C)]
 pub struct DIPROPCAL(i32);
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
+#[repr(C)]
 pub struct DIPROPCALPOV(i32);
+#[repr(C)]
 pub struct DIPROPCPOINTS(i32);
+#[repr(C)]
 pub struct DIPROPDWORD(i32);
+#[repr(C)]
 pub struct DIPROPGUIDANDPATH(i32);
+#[repr(C)]
 pub struct DIPROPHEADER(i32);
+#[repr(C)]
 pub struct DIPROPPOINTER(i32);
+#[repr(C)]
 pub struct DIPROPRANGE(i32);
+#[repr(C)]
 pub struct DIPROPSTRING(i32);
+#[repr(C)]
 pub struct DIRAMPFORCE(i32);
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 pub const DIRECTINPUT_VERSION: u32 = 2048u32;
@@ -1810,6 +1876,7 @@ pub const DI_SETTINGSNOTSAVED: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const DI_TRUNCATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(8i32 as _);
 pub const DI_TRUNCATEDANDRESTARTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(12i32 as _);
 pub const DI_WRITEPROTECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(19i32 as _);
+#[repr(C)]
 pub struct GPIOBUTTONS_BUTTON_TYPE(i32);
 pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830384, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279328, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
@@ -1855,25 +1922,40 @@ pub const GUID_Unknown: ::windows_sys::core::GUID = ::windows_sys::GUID { data1:
 pub const GUID_XAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830368, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_YAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830369, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ZAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830370, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+#[repr(C)]
 pub struct HIDD_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct HIDD_CONFIGURATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HIDP_BUTTON_ARRAY_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HIDP_BUTTON_CAPS(i32);
+#[repr(C)]
 pub struct HIDP_CAPS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HIDP_DATA(i32);
+#[repr(C)]
 pub struct HIDP_EXTENDED_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct HIDP_KEYBOARD_DIRECTION(i32);
+#[repr(C)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE(i32);
+#[repr(C)]
 pub struct HIDP_LINK_COLLECTION_NODE(i32);
+#[repr(C)]
 pub struct HIDP_REPORT_TYPE(i32);
+#[repr(C)]
 pub struct HIDP_UNKNOWN_TOKEN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HIDP_VALUE_CAPS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HID_COLLECTION_INFORMATION(i32);
+#[repr(C)]
 pub struct HID_DRIVER_CONFIG(i32);
 pub const HID_REVISION: u32 = 1u32;
 pub const HID_USAGE_ALPHANUMERIC_14_SEGMENT_DIRECT_MAP: u16 = 69u16;
@@ -2488,6 +2570,7 @@ pub const HID_USAGE_VR_HEAD_TRACKER: u16 = 5u16;
 pub const HID_USAGE_VR_OCULOMETER: u16 = 8u16;
 pub const HID_USAGE_VR_STEREO_ENABLE: u16 = 32u16;
 pub const HID_USAGE_VR_VEST: u16 = 9u16;
+#[repr(C)]
 pub struct HID_XFER_PACKET(i32);
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[repr(transparent)]
@@ -2530,8 +2613,10 @@ pub struct IDirectInputJoyConfig(pub *mut ::core::ffi::c_void);
 pub struct IDirectInputJoyConfig8(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectInputW(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct INDICATOR_LIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct INPUT_BUTTON_ENABLE_INFO(i32);
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580u32;
 pub const IOCTL_BUTTON_SET_ENABLED_ON_IDLE: u32 = 721576u32;
@@ -2547,12 +2632,19 @@ pub const IOCTL_KEYBOARD_SET_INDICATORS: u32 = 720904u32;
 pub const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900u32;
 pub const IOCTL_MOUSE_INSERT_DATA: u32 = 983044u32;
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: u32 = 983040u32;
+#[repr(C)]
 pub struct JOYCALIBRATE(i32);
+#[repr(C)]
 pub struct JOYPOS(i32);
+#[repr(C)]
 pub struct JOYRANGE(i32);
+#[repr(C)]
 pub struct JOYREGHWCONFIG(i32);
+#[repr(C)]
 pub struct JOYREGHWSETTINGS(i32);
+#[repr(C)]
 pub struct JOYREGHWVALUES(i32);
+#[repr(C)]
 pub struct JOYREGUSERVALUES(i32);
 pub const JOYTYPE_ANALOGCOMPAT: i32 = 8i32;
 pub const JOYTYPE_DEFAULTPROPSHEET: i32 = -2147483648i32;
@@ -2637,15 +2729,22 @@ pub const JOY_US_ISOEM: i32 = 4i32;
 pub const JOY_US_PRESENT: i32 = 2i32;
 pub const JOY_US_RESERVED: i32 = -2147483648i32;
 pub const JOY_US_VOLATILE: i32 = 8i32;
+#[repr(C)]
 pub struct KEYBOARD_ATTRIBUTES(i32);
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4u32;
 pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000u32;
+#[repr(C)]
 pub struct KEYBOARD_EXTENDED_ATTRIBUTES(i32);
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1u32;
+#[repr(C)]
 pub struct KEYBOARD_ID(i32);
+#[repr(C)]
 pub struct KEYBOARD_IME_STATUS(i32);
+#[repr(C)]
 pub struct KEYBOARD_INDICATOR_PARAMETERS(i32);
+#[repr(C)]
 pub struct KEYBOARD_INDICATOR_TRANSLATION(i32);
+#[repr(C)]
 pub struct KEYBOARD_INPUT_DATA(i32);
 pub const KEYBOARD_KANA_LOCK_ON: u32 = 8u32;
 pub const KEYBOARD_LED_INJECTED: u32 = 32768u32;
@@ -2653,7 +2752,9 @@ pub const KEYBOARD_NUM_LOCK_ON: u32 = 2u32;
 pub const KEYBOARD_OVERRUN_MAKE_CODE: u32 = 255u32;
 pub const KEYBOARD_SCROLL_LOCK_ON: u32 = 1u32;
 pub const KEYBOARD_SHADOW: u32 = 16384u32;
+#[repr(C)]
 pub struct KEYBOARD_TYPEMATIC_PARAMETERS(i32);
+#[repr(C)]
 pub struct KEYBOARD_UNIT_ID_PARAMETER(i32);
 pub const KEY_BREAK: u32 = 1u32;
 pub const KEY_E0: u32 = 2u32;
@@ -2666,22 +2767,36 @@ pub const KEY_TERMSRV_SHADOW: u32 = 16u32;
 pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
+#[repr(C)]
 pub struct LPDICONFIGUREDEVICESCALLBACK(i32);
+#[repr(C)]
 pub struct LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(i32);
+#[repr(C)]
 pub struct LPDIENUMDEVICEOBJECTSCALLBACKA(i32);
+#[repr(C)]
 pub struct LPDIENUMDEVICEOBJECTSCALLBACKW(i32);
+#[repr(C)]
 pub struct LPDIENUMDEVICESBYSEMANTICSCBA(i32);
+#[repr(C)]
 pub struct LPDIENUMDEVICESBYSEMANTICSCBW(i32);
+#[repr(C)]
 pub struct LPDIENUMDEVICESCALLBACKA(i32);
+#[repr(C)]
 pub struct LPDIENUMDEVICESCALLBACKW(i32);
+#[repr(C)]
 pub struct LPDIENUMEFFECTSCALLBACKA(i32);
+#[repr(C)]
 pub struct LPDIENUMEFFECTSCALLBACKW(i32);
+#[repr(C)]
 pub struct LPDIENUMEFFECTSINFILECALLBACK(i32);
+#[repr(C)]
 pub struct LPDIJOYTYPECALLBACK(i32);
+#[repr(C)]
 pub struct LPFNSHOWJOYCPL(i32);
 pub const MAXCPOINTSNUM: u32 = 8u32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260u32;
 pub const MAX_JOYSTRING: u32 = 256u32;
+#[repr(C)]
 pub struct MOUSE_ATTRIBUTES(i32);
 pub const MOUSE_ATTRIBUTES_CHANGED: u32 = 4u32;
 pub const MOUSE_BUTTON_1_DOWN: u32 = 1u32;
@@ -2699,6 +2814,7 @@ pub const MOUSE_HID_HARDWARE: u32 = 128u32;
 pub const MOUSE_HWHEEL: u32 = 2048u32;
 pub const MOUSE_I8042_HARDWARE: u32 = 2u32;
 pub const MOUSE_INPORT_HARDWARE: u32 = 1u32;
+#[repr(C)]
 pub struct MOUSE_INPUT_DATA(i32);
 pub const MOUSE_LEFT_BUTTON_DOWN: u32 = 1u32;
 pub const MOUSE_LEFT_BUTTON_UP: u32 = 2u32;
@@ -2711,13 +2827,18 @@ pub const MOUSE_RIGHT_BUTTON_DOWN: u32 = 4u32;
 pub const MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 pub const MOUSE_SERIAL_HARDWARE: u32 = 4u32;
 pub const MOUSE_TERMSRV_SRC_SHADOW: u32 = 256u32;
+#[repr(C)]
 pub struct MOUSE_UNIT_ID_PARAMETER(i32);
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 pub const MOUSE_WHEEL: u32 = 1024u32;
+#[repr(C)]
 pub struct PFN_HidP_GetVersionInternal(i32);
+#[repr(C)]
 pub struct PHIDP_INSERT_SCANCODES(i32);
+#[repr(C)]
 pub struct USAGE_AND_PAGE(i32);
 pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;
 pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32u32;
 pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
+#[repr(C)]
 pub struct _HIDP_PREPARSED_DATA(i32);

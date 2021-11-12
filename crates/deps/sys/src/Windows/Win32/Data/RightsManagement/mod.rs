@@ -181,27 +181,36 @@ extern "system" {
     pub fn DRMVerify(wszdata: super::super::Foundation::PWSTR, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
+#[repr(C)]
 pub struct DRMATTESTTYPE(i32);
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRMBOUNDLICENSEPARAMS(i32);
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
+#[repr(C)]
 pub struct DRMCALLBACK(i32);
 pub const DRMCALLBACKVERSION: u32 = 1u32;
 pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
+#[repr(C)]
 pub struct DRMENCODINGTYPE(i32);
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
+#[repr(C)]
 pub struct DRMGLOBALOPTIONS(i32);
 pub const DRMHANDLE_INVALID: u32 = 0u32;
 pub const DRMHSESSION_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRMID(i32);
 pub const DRMIDVERSION: u32 = 0u32;
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
 pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
+#[repr(C)]
 pub struct DRMSECURITYPROVIDERTYPE(i32);
+#[repr(C)]
 pub struct DRMSPECTYPE(i32);
+#[repr(C)]
 pub struct DRMTIMETYPE(i32);
 pub const DRM_ACTIVATE_CANCEL: u32 = 8u32;
 pub const DRM_ACTIVATE_DELAYED: u32 = 64u32;
@@ -211,6 +220,7 @@ pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
 pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
 pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRM_ACTSERV_INFO(i32);
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
 pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
@@ -223,7 +233,9 @@ pub const DRM_AL_NONSILENT: u32 = 1u32;
 pub const DRM_AL_NOPERSIST: u32 = 2u32;
 pub const DRM_AL_NOUI: u32 = 16u32;
 pub const DRM_AUTO_GENERATE_KEY: u32 = 16u32;
+#[repr(C)]
 pub struct DRM_CLIENT_VERSION_INFO(i32);
+#[repr(C)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(i32);
 pub const DRM_EL_CLIENTLICENSOR: u32 = 128u32;
 pub const DRM_EL_CLIENTLICENSOR_LID: u32 = 256u32;
@@ -242,6 +254,7 @@ pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048u32;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512u32;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRM_LICENSE_ACQ_DATA(i32);
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;
@@ -260,7 +273,9 @@ pub const DRM_SERVICE_TYPE_SILENT: u32 = 16u32;
 pub const DRM_SIGN_CANCEL: u32 = 4u32;
 pub const DRM_SIGN_OFFLINE: u32 = 2u32;
 pub const DRM_SIGN_ONLINE: u32 = 1u32;
+#[repr(C)]
 pub struct DRM_STATUS_MSG(i32);
+#[repr(C)]
 pub struct DRM_USAGEPOLICY_TYPE(i32);
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;

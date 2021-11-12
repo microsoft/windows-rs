@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct CellularClass(i32);
 #[repr(transparent)]
 pub struct DeleteSmsMessageOperation(pub *mut ::core::ffi::c_void);
@@ -68,6 +69,7 @@ pub struct ISmsTextMessageStatics(pub *mut ::core::ffi::c_void);
 pub struct ISmsVoicemailMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISmsWapMessage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LegacySmsApiContract(i32);
 #[repr(transparent)]
 pub struct SendSmsMessageOperation(pub *mut ::core::ffi::c_void);
@@ -77,7 +79,9 @@ pub struct SmsAppMessage(pub *mut ::core::ffi::c_void);
 pub struct SmsBinaryMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmsBroadcastMessage(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmsBroadcastType(i32);
+#[repr(C)]
 pub struct SmsDataFormat(i32);
 #[repr(transparent)]
 pub struct SmsDevice(pub *mut ::core::ffi::c_void);
@@ -85,18 +89,25 @@ pub struct SmsDevice(pub *mut ::core::ffi::c_void);
 pub struct SmsDevice2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmsDeviceMessageStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmsDeviceStatus(i32);
 #[repr(transparent)]
 pub struct SmsDeviceStatusChangedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmsEncodedLength(i32);
+#[repr(C)]
 pub struct SmsEncoding(i32);
+#[repr(C)]
 pub struct SmsFilterActionType(i32);
 #[repr(transparent)]
 pub struct SmsFilterRule(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmsFilterRules(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmsGeographicalScope(i32);
+#[repr(C)]
 pub struct SmsMessageClass(i32);
+#[repr(C)]
 pub struct SmsMessageFilter(i32);
 #[repr(transparent)]
 pub struct SmsMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -106,7 +117,9 @@ pub struct SmsMessageReceivedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct SmsMessageReceivedTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmsMessageRegistration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmsMessageType(i32);
+#[repr(C)]
 pub struct SmsModemErrorCode(i32);
 #[repr(transparent)]
 pub struct SmsReceivedEventDetails(pub *mut ::core::ffi::c_void);

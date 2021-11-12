@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct FOREIGN_STATUS(i32);
 #[repr(transparent)]
 pub struct IMSMQApplication(pub *mut ::core::ffi::c_void);
@@ -87,25 +88,45 @@ pub struct IMSMQTransactionDispenser2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMSMQTransactionDispenser3(pub *mut ::core::ffi::c_void);
 pub const LONG_LIVED: u32 = 4294967294u32;
+#[repr(C)]
 pub struct MQACCESS(i32);
+#[repr(C)]
 pub struct MQAUTHENTICATE(i32);
+#[repr(C)]
 pub struct MQCALG(i32);
+#[repr(C)]
 pub struct MQCERT_REGISTER(i32);
+#[repr(C)]
 pub struct MQDEFAULT(i32);
+#[repr(C)]
 pub struct MQERROR(i32);
+#[repr(C)]
 pub struct MQJOURNAL(i32);
+#[repr(C)]
 pub struct MQMAX(i32);
+#[repr(C)]
 pub struct MQMSGACKNOWLEDGEMENT(i32);
+#[repr(C)]
 pub struct MQMSGAUTHENTICATION(i32);
+#[repr(C)]
 pub struct MQMSGAUTHLEVEL(i32);
+#[repr(C)]
 pub struct MQMSGCLASS(i32);
+#[repr(C)]
 pub struct MQMSGCURSOR(i32);
+#[repr(C)]
 pub struct MQMSGDELIVERY(i32);
+#[repr(C)]
 pub struct MQMSGIDSIZE(i32);
+#[repr(C)]
 pub struct MQMSGJOURNAL(i32);
+#[repr(C)]
 pub struct MQMSGMAX(i32);
+#[repr(C)]
 pub struct MQMSGPRIVLEVEL(i32);
+#[repr(C)]
 pub struct MQMSGSENDERIDTYPE(i32);
+#[repr(C)]
 pub struct MQMSGTRACE(i32);
 pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
 pub const MQMSG_FIRST_IN_XACT: u32 = 1u32;
@@ -113,7 +134,9 @@ pub const MQMSG_LAST_IN_XACT: u32 = 1u32;
 pub const MQMSG_NOT_FIRST_IN_XACT: u32 = 0u32;
 pub const MQMSG_NOT_LAST_IN_XACT: u32 = 0u32;
 pub const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5u32;
+#[repr(C)]
 pub struct MQPRIORITY(i32);
+#[repr(C)]
 pub struct MQPRIVLEVEL(i32);
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: u32 = 262144u32;
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: u32 = 8u32;
@@ -125,9 +148,13 @@ pub const MQSEC_QUEUE_GENERIC_EXECUTE: u32 = 0u32;
 pub const MQSEC_SET_QUEUE_PROPERTIES: u32 = 16u32;
 pub const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288u32;
 pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
+#[repr(C)]
 pub struct MQSHARE(i32);
+#[repr(C)]
 pub struct MQTRANSACTION(i32);
+#[repr(C)]
 pub struct MQTRANSACTIONAL(i32);
+#[repr(C)]
 pub struct MQWARNING(i32);
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
 pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649u32;
@@ -149,20 +176,35 @@ pub const MQ_LOOKUP_RECEIVE_NEXT: u32 = 1073741857u32;
 pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
 pub const MQ_MOVE_ACCESS: u32 = 4u32;
 pub const MQ_OK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(0i32 as _);
+#[repr(C)]
 pub struct MSMQApplication(i32);
+#[repr(C)]
 pub struct MSMQCollection(i32);
+#[repr(C)]
 pub struct MSMQCoordinatedTransactionDispenser(i32);
+#[repr(C)]
 pub struct MSMQDestination(i32);
+#[repr(C)]
 pub struct MSMQEvent(i32);
+#[repr(C)]
 pub struct MSMQManagement(i32);
+#[repr(C)]
 pub struct MSMQMessage(i32);
+#[repr(C)]
 pub struct MSMQOutgoingQueueManagement(i32);
+#[repr(C)]
 pub struct MSMQQuery(i32);
+#[repr(C)]
 pub struct MSMQQueue(i32);
+#[repr(C)]
 pub struct MSMQQueueInfo(i32);
+#[repr(C)]
 pub struct MSMQQueueInfos(i32);
+#[repr(C)]
 pub struct MSMQQueueManagement(i32);
+#[repr(C)]
 pub struct MSMQTransaction(i32);
+#[repr(C)]
 pub struct MSMQTransactionDispenser(i32);
 pub const PREQ: u32 = 4u32;
 pub const PRGE: u32 = 3u32;
@@ -312,9 +354,13 @@ pub const PROPID_Q_TRANSACTION: u32 = 113u32;
 pub const PROPID_Q_TYPE: u32 = 102u32;
 pub const QUERY_SORTASCEND: u32 = 0u32;
 pub const QUERY_SORTDESCEND: u32 = 1u32;
+#[repr(C)]
 pub struct QUEUE_STATE(i32);
+#[repr(C)]
 pub struct QUEUE_TYPE(i32);
+#[repr(C)]
 pub struct RELOPS(i32);
+#[repr(C)]
 pub struct XACT_STATUS(i32);
 #[repr(transparent)]
 pub struct _DMSMQEventEvents(pub *mut ::core::ffi::c_void);

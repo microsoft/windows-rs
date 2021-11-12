@@ -3,6 +3,7 @@
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AddPackageByAppInstallerOptions(i32);
 #[repr(transparent)]
 pub struct AddPackageOptions(pub *mut ::core::ffi::c_void);
@@ -18,8 +19,11 @@ pub struct CreateSharedPackageContainerResult(pub *mut ::core::ffi::c_void);
 pub struct DeleteSharedPackageContainerOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeleteSharedPackageContainerResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DeploymentOptions(i32);
+#[repr(C)]
 pub struct DeploymentProgress(i32);
+#[repr(C)]
 pub struct DeploymentProgressState(i32);
 #[repr(transparent)]
 pub struct DeploymentResult(pub *mut ::core::ffi::c_void);
@@ -99,14 +103,19 @@ pub struct IUpdateSharedPackageContainerOptions(pub *mut ::core::ffi::c_void);
 pub struct IUpdateSharedPackageContainerResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageAllUserProvisioningOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PackageInstallState(i32);
 #[repr(transparent)]
 pub struct PackageManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageManagerDebugSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PackageState(i32);
+#[repr(C)]
 pub struct PackageStatus(i32);
+#[repr(C)]
 pub struct PackageStubPreference(i32);
+#[repr(C)]
 pub struct PackageTypes(i32);
 #[repr(transparent)]
 pub struct PackageUserInformation(pub *mut ::core::ffi::c_void);
@@ -114,18 +123,23 @@ pub struct PackageUserInformation(pub *mut ::core::ffi::c_void);
 pub struct PackageVolume(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RegisterPackageOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemovalOptions(i32);
 #[repr(transparent)]
 pub struct SharedPackageContainer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SharedPackageContainerContract(i32);
+#[repr(C)]
 pub struct SharedPackageContainerCreationCollisionOptions(i32);
 #[repr(transparent)]
 pub struct SharedPackageContainerManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SharedPackageContainerMember(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SharedPackageContainerOperationStatus(i32);
 #[repr(transparent)]
 pub struct StagePackageOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StubPackageOption(i32);
 #[repr(transparent)]
 pub struct UpdateSharedPackageContainerOptions(pub *mut ::core::ffi::c_void);

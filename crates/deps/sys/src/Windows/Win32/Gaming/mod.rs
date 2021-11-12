@@ -37,14 +37,23 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TryCancelPendingGameUI() -> super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct GAMESTATS_OPEN_RESULT(i32);
+#[repr(C)]
 pub struct GAMESTATS_OPEN_TYPE(i32);
+#[repr(C)]
 pub struct GAME_INSTALL_SCOPE(i32);
+#[repr(C)]
 pub struct GAMING_DEVICE_DEVICE_ID(i32);
+#[repr(C)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION(i32);
+#[repr(C)]
 pub struct GAMING_DEVICE_VENDOR_ID(i32);
+#[repr(C)]
 pub struct GameExplorer(i32);
+#[repr(C)]
 pub struct GameStatistics(i32);
+#[repr(C)]
 pub struct GameUICompletionRoutine(i32);
 #[repr(transparent)]
 pub struct IGameExplorer(pub *mut ::core::ffi::c_void);
@@ -60,8 +69,13 @@ pub struct IXblIdpAuthManager(pub *mut ::core::ffi::c_void);
 pub struct IXblIdpAuthTokenResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXblIdpAuthTokenResult2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KnownGamingPrivileges(i32);
+#[repr(C)]
 pub struct PlayerPickerUICompletionRoutine(i32);
+#[repr(C)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(i32);
+#[repr(C)]
 pub struct XblIdpAuthManager(i32);
+#[repr(C)]
 pub struct XblIdpAuthTokenResult(i32);

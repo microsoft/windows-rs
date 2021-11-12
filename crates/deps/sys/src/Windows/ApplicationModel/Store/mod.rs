@@ -9,6 +9,7 @@ extern "system" {}
 pub struct CurrentApp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CurrentAppSimulator(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FulfillmentResult(i32);
 #[repr(transparent)]
 pub struct ICurrentApp(pub *mut ::core::ffi::c_void);
@@ -66,7 +67,9 @@ pub struct ProductLicense(pub *mut ::core::ffi::c_void);
 pub struct ProductListing(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProductPurchaseDisplayProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ProductPurchaseStatus(i32);
+#[repr(C)]
 pub struct ProductType(i32);
 #[repr(transparent)]
 pub struct PurchaseResults(pub *mut ::core::ffi::c_void);

@@ -22,7 +22,9 @@ pub const BATTERY_TYPE_DISCONNECTED: u32 = 0u32;
 pub const BATTERY_TYPE_NIMH: u32 = 3u32;
 pub const BATTERY_TYPE_UNKNOWN: u32 = 255u32;
 pub const BATTERY_TYPE_WIRED: u32 = 1u32;
+#[repr(C)]
 pub struct XINPUT_BATTERY_INFORMATION(i32);
+#[repr(C)]
 pub struct XINPUT_CAPABILITIES(i32);
 pub const XINPUT_CAPS_FFB_SUPPORTED: u32 = 1u32;
 pub const XINPUT_CAPS_NO_NAVIGATION: u32 = 16u32;
@@ -42,6 +44,7 @@ pub const XINPUT_DEVSUBTYPE_UNKNOWN: u32 = 0u32;
 pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
+#[repr(C)]
 pub struct XINPUT_GAMEPAD(i32);
 pub const XINPUT_GAMEPAD_A: u32 = 4096u32;
 pub const XINPUT_GAMEPAD_B: u32 = 8192u32;
@@ -60,12 +63,16 @@ pub const XINPUT_GAMEPAD_START: u32 = 16u32;
 pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30u32;
 pub const XINPUT_GAMEPAD_X: u32 = 16384u32;
 pub const XINPUT_GAMEPAD_Y: u32 = 32768u32;
+#[repr(C)]
 pub struct XINPUT_KEYSTROKE(i32);
 pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
 pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2u32;
 pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4u32;
+#[repr(C)]
 pub struct XINPUT_STATE(i32);
+#[repr(C)]
 pub struct XINPUT_VIBRATION(i32);
+#[repr(C)]
 pub struct XINPUT_VIRTUAL_KEY(i32);
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 pub const XUSER_MAX_COUNT: u32 = 4u32;

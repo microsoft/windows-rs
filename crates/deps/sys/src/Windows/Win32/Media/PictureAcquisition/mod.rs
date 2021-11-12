@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct DEVICE_SELECTION_DEVICE_TYPE(i32);
 pub const DSF_ALL_DEVICES: u32 = 65535u32;
 pub const DSF_CPL_MODE: u32 = 65536u32;
@@ -12,7 +13,9 @@ pub const DSF_TWAIN_DEVICES: u32 = 16u32;
 pub const DSF_WIA_CAMERAS: u32 = 2u32;
 pub const DSF_WIA_SCANNERS: u32 = 4u32;
 pub const DSF_WPD_DEVICES: u32 = 1u32;
+#[repr(C)]
 pub struct ERROR_ADVISE_MESSAGE_TYPE(i32);
+#[repr(C)]
 pub struct ERROR_ADVISE_RESULT(i32);
 #[repr(transparent)]
 pub struct IPhotoAcquire(pub *mut ::core::ffi::c_void);
@@ -99,13 +102,22 @@ pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesS
     fmtid: ::windows_sys::GUID { data1: 15872887, data2: 31430, data3: 19322, data4: [132, 67, 52, 94, 115, 31, 165, 122] },
     pid: 5u32,
 };
+#[repr(C)]
 pub struct PROGRESS_DIALOG_CHECKBOX_ID(i32);
+#[repr(C)]
 pub struct PROGRESS_DIALOG_IMAGE_TYPE(i32);
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
+#[repr(C)]
 pub struct PhotoAcquire(i32);
+#[repr(C)]
 pub struct PhotoAcquireAutoPlayDropTarget(i32);
+#[repr(C)]
 pub struct PhotoAcquireAutoPlayHWEventHandler(i32);
+#[repr(C)]
 pub struct PhotoAcquireDeviceSelectionDialog(i32);
+#[repr(C)]
 pub struct PhotoAcquireOptionsDialog(i32);
+#[repr(C)]
 pub struct PhotoProgressDialog(i32);
+#[repr(C)]
 pub struct USER_INPUT_STRING_TYPE(i32);

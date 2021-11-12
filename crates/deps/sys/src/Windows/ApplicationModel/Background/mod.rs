@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ActivitySensorTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AlarmAccessStatus(i32);
 #[repr(transparent)]
 pub struct AlarmApplicationManager(pub *mut ::core::ffi::c_void);
@@ -14,11 +15,15 @@ pub struct AppBroadcastTriggerProviderInfo(pub *mut ::core::ffi::c_void);
 pub struct ApplicationTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationTriggerResult(i32);
 #[repr(transparent)]
 pub struct AppointmentStoreNotificationTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundAccessRequestKind(i32);
+#[repr(C)]
 pub struct BackgroundAccessStatus(i32);
+#[repr(C)]
 pub struct BackgroundAlarmApplicationContract(i32);
 #[repr(transparent)]
 pub struct BackgroundExecutionManager(pub *mut ::core::ffi::c_void);
@@ -26,6 +31,7 @@ pub struct BackgroundExecutionManager(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTaskBuilder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTaskCanceledEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundTaskCancellationReason(i32);
 #[repr(transparent)]
 pub struct BackgroundTaskCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -41,9 +47,11 @@ pub struct BackgroundTaskProgressEventHandler(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTaskRegistration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTaskRegistrationGroup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundTaskThrottleCounter(i32);
 #[repr(transparent)]
 pub struct BackgroundWorkCost(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BackgroundWorkCostValue(i32);
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherTrigger(pub *mut ::core::ffi::c_void);
@@ -67,6 +75,7 @@ pub struct ContentPrefetchTrigger(pub *mut ::core::ffi::c_void);
 pub struct ConversationalAgentTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CustomSystemEventTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CustomSystemEventTriggerRecurrence(i32);
 #[repr(transparent)]
 pub struct DeviceConnectionChangeTrigger(pub *mut ::core::ffi::c_void);
@@ -74,6 +83,7 @@ pub struct DeviceConnectionChangeTrigger(pub *mut ::core::ffi::c_void);
 pub struct DeviceManufacturerNotificationTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DeviceServicingTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DeviceTriggerResult(i32);
 #[repr(transparent)]
 pub struct DeviceUseTrigger(pub *mut ::core::ffi::c_void);
@@ -283,11 +293,13 @@ pub struct IToastNotificationHistoryChangedTriggerFactory(pub *mut ::core::ffi::
 pub struct IUserNotificationChangedTriggerFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LocationTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LocationTriggerType(i32);
 #[repr(transparent)]
 pub struct MaintenanceTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaProcessingTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaProcessingTriggerResult(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(pub *mut ::core::ffi::c_void);
@@ -331,9 +343,11 @@ pub struct StorageLibraryChangeTrackerTrigger(pub *mut ::core::ffi::c_void);
 pub struct StorageLibraryContentChangedTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemCondition(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SystemConditionType(i32);
 #[repr(transparent)]
 pub struct SystemTrigger(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SystemTriggerType(i32);
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTrigger(pub *mut ::core::ffi::c_void);

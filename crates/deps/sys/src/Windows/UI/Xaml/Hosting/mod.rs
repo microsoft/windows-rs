@@ -7,6 +7,7 @@ pub struct DesignerAppExitedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct DesignerAppManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DesignerAppView(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DesignerAppViewState(i32);
 #[repr(transparent)]
 pub struct DesktopWindowXamlSource(pub *mut ::core::ffi::c_void);
@@ -16,6 +17,7 @@ pub struct DesktopWindowXamlSourceGotFocusEventArgs(pub *mut ::core::ffi::c_void
 pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ElementCompositionPreview(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HostingContract(i32);
 #[repr(transparent)]
 pub struct IDesignerAppExitedEventArgs(pub *mut ::core::ffi::c_void);
@@ -67,6 +69,7 @@ pub struct IXamlUIPresenterStatics(pub *mut ::core::ffi::c_void);
 pub struct IXamlUIPresenterStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WindowsXamlManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XamlSourceFocusNavigationReason(i32);
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationRequest(pub *mut ::core::ffi::c_void);

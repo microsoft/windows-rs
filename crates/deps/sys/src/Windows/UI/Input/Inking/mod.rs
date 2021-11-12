@@ -7,6 +7,7 @@ pub mod Core;
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct HandwritingLineHeight(i32);
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(pub *mut ::core::ffi::c_void);
@@ -106,34 +107,43 @@ pub struct IPenAndInkSettings2(pub *mut ::core::ffi::c_void);
 pub struct IPenAndInkSettingsStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkDrawingAttributes(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkDrawingAttributesKind(i32);
 #[repr(transparent)]
 pub struct InkDrawingAttributesPencilProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkHighContrastAdjustment(i32);
 #[repr(transparent)]
 pub struct InkInputConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkInputProcessingConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkInputProcessingMode(i32);
+#[repr(C)]
 pub struct InkInputRightDragAction(i32);
 #[repr(transparent)]
 pub struct InkManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkManipulationMode(i32);
 #[repr(transparent)]
 pub struct InkModelerAttributes(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkPersistenceFormat(i32);
 #[repr(transparent)]
 pub struct InkPoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkPresenter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkPresenterPredefinedConfiguration(i32);
 #[repr(transparent)]
 pub struct InkPresenterProtractor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkPresenterRuler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkPresenterStencilKind(i32);
 #[repr(transparent)]
 pub struct InkRecognitionResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InkRecognitionTarget(i32);
 #[repr(transparent)]
 pub struct InkRecognizer(pub *mut ::core::ffi::c_void);
@@ -159,5 +169,7 @@ pub struct InkSynchronizer(pub *mut ::core::ffi::c_void);
 pub struct InkUnprocessedInput(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PenAndInkSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PenHandedness(i32);
+#[repr(C)]
 pub struct PenTipShape(i32);

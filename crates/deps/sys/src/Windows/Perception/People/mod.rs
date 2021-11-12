@@ -3,10 +3,12 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct EyesPose(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HandJointKind(i32);
 #[repr(transparent)]
 pub struct HandMeshObserver(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct HandMeshVertex(i32);
 #[repr(transparent)]
 pub struct HandMeshVertexState(pub *mut ::core::ffi::c_void);
@@ -27,5 +29,7 @@ pub struct IHandPose(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IHeadPose(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct JointPose(i32);
+#[repr(C)]
 pub struct JointPoseAccuracy(i32);

@@ -5,14 +5,19 @@ pub mod Dxc;
 pub mod Fxc;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct D3DMATRIX(i32);
+#[repr(C)]
 pub struct D3DVECTOR(i32);
+#[repr(C)]
 pub struct D3D_CBUFFER_TYPE(i32);
 pub const D3D_COMPONENT_MASK_W: u32 = 8u32;
 pub const D3D_COMPONENT_MASK_X: u32 = 1u32;
 pub const D3D_COMPONENT_MASK_Y: u32 = 2u32;
 pub const D3D_COMPONENT_MASK_Z: u32 = 4u32;
+#[repr(C)]
 pub struct D3D_DRIVER_TYPE(i32);
+#[repr(C)]
 pub struct D3D_FEATURE_LEVEL(i32);
 pub const D3D_FL9_1_DEFAULT_MAX_ANISOTROPY: u32 = 2u32;
 pub const D3D_FL9_1_IA_PRIMITIVE_MAX_COUNT: u32 = 65535u32;
@@ -29,15 +34,25 @@ pub const D3D_FL9_3_REQ_TEXTURE1D_U_DIMENSION: u32 = 4096u32;
 pub const D3D_FL9_3_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 4096u32;
 pub const D3D_FL9_3_REQ_TEXTURECUBE_DIMENSION: u32 = 4096u32;
 pub const D3D_FL9_3_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 4u32;
+#[repr(C)]
 pub struct D3D_INCLUDE_TYPE(i32);
+#[repr(C)]
 pub struct D3D_INTERPOLATION_MODE(i32);
+#[repr(C)]
 pub struct D3D_MIN_PRECISION(i32);
+#[repr(C)]
 pub struct D3D_NAME(i32);
+#[repr(C)]
 pub struct D3D_PARAMETER_FLAGS(i32);
+#[repr(C)]
 pub struct D3D_PRIMITIVE(i32);
+#[repr(C)]
 pub struct D3D_PRIMITIVE_TOPOLOGY(i32);
+#[repr(C)]
 pub struct D3D_REGISTER_COMPONENT_TYPE(i32);
+#[repr(C)]
 pub struct D3D_RESOURCE_RETURN_TYPE(i32);
+#[repr(C)]
 pub struct D3D_SHADER_CBUFFER_FLAGS(i32);
 pub const D3D_SHADER_FEATURE_11_1_DOUBLE_EXTENSIONS: u32 = 32u32;
 pub const D3D_SHADER_FEATURE_11_1_SHADER_EXTENSIONS: u32 = 64u32;
@@ -68,16 +83,26 @@ pub const D3D_SHADER_FEATURE_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING
 pub const D3D_SHADER_FEATURE_VIEW_ID: u32 = 65536u32;
 pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
 pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
+#[repr(C)]
 pub struct D3D_SHADER_INPUT_FLAGS(i32);
+#[repr(C)]
 pub struct D3D_SHADER_INPUT_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct D3D_SHADER_MACRO(i32);
+#[repr(C)]
 pub struct D3D_SHADER_VARIABLE_CLASS(i32);
+#[repr(C)]
 pub struct D3D_SHADER_VARIABLE_FLAGS(i32);
+#[repr(C)]
 pub struct D3D_SHADER_VARIABLE_TYPE(i32);
+#[repr(C)]
 pub struct D3D_SRV_DIMENSION(i32);
+#[repr(C)]
 pub struct D3D_TESSELLATOR_DOMAIN(i32);
+#[repr(C)]
 pub struct D3D_TESSELLATOR_OUTPUT_PRIMITIVE(i32);
+#[repr(C)]
 pub struct D3D_TESSELLATOR_PARTITIONING(i32);
 pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1276062179, data2: 16223, data3: 19765, data4: [132, 201, 188, 9, 131, 182, 44, 40] };
 pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -92,6 +117,7 @@ pub struct ID3DBlob(pub *mut ::core::ffi::c_void);
 pub struct ID3DDestructionNotifier(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ID3DInclude(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PFN_DESTRUCTION_CALLBACK(i32);
 pub const WKPDID_CommentStringW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3491012032, data2: 37096, data3: 20168, data4: [129, 68, 233, 0, 173, 38, 107, 178] };
 pub const WKPDID_D3D12UniqueObjectId: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456777237, data2: 60420, data3: 19374, data4: [186, 77, 140, 239, 121, 252, 4, 193] };

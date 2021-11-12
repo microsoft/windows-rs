@@ -91,13 +91,21 @@ pub const WPCEVENT_WEBOVERRIDE_value: u32 = 18u32;
 pub const WPCEVENT_WEB_FILEDOWNLOAD_value: u32 = 10u32;
 pub const WPCEVENT_WEB_URLVISIT_value: u32 = 3u32;
 pub const WPCEVENT_WEB_WEBSITEVISIT_value: u32 = 19u32;
+#[repr(C)]
 pub struct WPCFLAG_IM_FEATURE(i32);
+#[repr(C)]
 pub struct WPCFLAG_IM_LEAVE(i32);
+#[repr(C)]
 pub struct WPCFLAG_ISBLOCKED(i32);
+#[repr(C)]
 pub struct WPCFLAG_LOGOFF_TYPE(i32);
+#[repr(C)]
 pub struct WPCFLAG_OVERRIDE(i32);
+#[repr(C)]
 pub struct WPCFLAG_RESTRICTION(i32);
+#[repr(C)]
 pub struct WPCFLAG_VISIBILITY(i32);
+#[repr(C)]
 pub struct WPCFLAG_WEB_SETTING(i32);
 pub const WPCPROV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 17367141, data2: 46183, data3: 17667, data4: [155, 40, 83, 55, 102, 118, 16, 135] };
 pub const WPCPROV_KEYWORD_ThirdParty: u32 = 32u32;
@@ -124,35 +132,63 @@ pub const WPCPROV_TASK_UrlVisit: u32 = 3u32;
 pub const WPCPROV_TASK_WebOverride: u32 = 18u32;
 pub const WPCPROV_TASK_WebsiteVisit: u32 = 19u32;
 pub const WPC_APP_LAUNCH: u32 = 22u32;
+#[repr(C)]
 pub struct WPC_ARGS_APPLICATIONEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_APPOVERRIDEEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_COMPUTERUSAGEEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_CONTENTUSAGEEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_CONVERSATIONINITEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_CONVERSATIONJOINEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_CONVERSATIONLEAVEEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_CUSTOMEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_EMAILCONTACTEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_EMAILRECEIEVEDEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_EMAILSENTEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_FILEDOWNLOADEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_GAMESTARTEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_IMCONTACTEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_IMFEATUREEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_MEDIADOWNLOADEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_MEDIAPLAYBACKEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_SAFERAPPBLOCKED(i32);
+#[repr(C)]
 pub struct WPC_ARGS_SETTINGSCHANGEEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_URLVISITEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_WEBOVERRIDEEVENT(i32);
+#[repr(C)]
 pub struct WPC_ARGS_WEBSITEVISITEVENT(i32);
+#[repr(C)]
 pub struct WPC_MEDIA_EXPLICIT(i32);
+#[repr(C)]
 pub struct WPC_MEDIA_TYPE(i32);
+#[repr(C)]
 pub struct WPC_SETTINGS(i32);
 pub const WPC_SETTINGS_LOCATE: u32 = 20u32;
 pub const WPC_SETTINGS_MODIFY: u32 = 21u32;
 pub const WPC_SYSTEM: u32 = 23u32;
 pub const WPC_WEB: u32 = 24u32;
+#[repr(C)]
 pub struct WindowsParentalControls(i32);
+#[repr(C)]
 pub struct WpcProviderSupport(i32);
+#[repr(C)]
 pub struct WpcSettingsProvider(i32);

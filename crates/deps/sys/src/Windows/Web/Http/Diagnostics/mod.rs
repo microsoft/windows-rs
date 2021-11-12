@@ -11,9 +11,11 @@ pub struct HttpDiagnosticProviderRequestResponseTimestamps(pub *mut ::core::ffi:
 pub struct HttpDiagnosticProviderRequestSentEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HttpDiagnosticRequestInitiator(i32);
 #[repr(transparent)]
 pub struct HttpDiagnosticSourceLocation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HttpDiagnosticsContract(i32);
 #[repr(transparent)]
 pub struct IHttpDiagnosticProvider(pub *mut ::core::ffi::c_void);

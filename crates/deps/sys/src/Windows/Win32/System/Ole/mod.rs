@@ -780,21 +780,29 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VectorFromBstr(bstr: super::super::Foundation::BSTR, ppsa: *mut *mut super::Com::SAFEARRAY) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct ACTIVATEFLAGS(i32);
 pub const ACTIVEOBJECT_STRONG: u32 = 0u32;
 pub const ACTIVEOBJECT_WEAK: u32 = 1u32;
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct ARRAYDESC(i32);
+#[repr(C)]
 pub struct AspectInfo(i32);
+#[repr(C)]
 pub struct AspectInfoFlag(i32);
+#[repr(C)]
 pub struct BINDSPEED(i32);
 pub const BZ_DISABLECANCELBUTTON: i32 = 1i32;
 pub const BZ_DISABLERETRYBUTTON: i32 = 4i32;
 pub const BZ_DISABLESWITCHTOBUTTON: i32 = 2i32;
 pub const BZ_NOTRESPONDINGDIALOG: i32 = 8i32;
+#[repr(C)]
 pub struct CADWORD(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CALPOLESTR(i32);
+#[repr(C)]
 pub struct CAUUID(i32);
 pub const CF_CONVERTONLY: i32 = 256i32;
 pub const CF_DISABLEACTIVATEAS: i32 = 64i32;
@@ -805,12 +813,14 @@ pub const CF_SELECTCONVERTTO: i32 = 8i32;
 pub const CF_SETACTIVATEDEFAULT: i32 = 4i32;
 pub const CF_SETCONVERTDEFAULT: i32 = 2i32;
 pub const CF_SHOWHELPBUTTON: i32 = 1i32;
+#[repr(C)]
 pub struct CHANGEKIND(i32);
 pub const CIF_SELECTCURRENT: i32 = 2i32;
 pub const CIF_SELECTDEFAULT: i32 = 4i32;
 pub const CIF_SELECTFROMFILE: i32 = 8i32;
 pub const CIF_SHOWHELP: i32 = 1i32;
 pub const CIF_USEICONEXE: i32 = 16i32;
+#[repr(C)]
 pub struct CLEANLOCALSTORAGE(i32);
 pub const CLSID_CColorPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447041, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
 pub const CLSID_CFontPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447040, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
@@ -828,18 +838,21 @@ pub const CONNECT_E_OVERRIDDEN: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const CONNECT_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262656i32 as _);
 pub const CONNECT_S_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262671i32 as _);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[repr(C)]
 pub struct CONTROLINFO(i32);
 pub const CSF_EXPLORER: i32 = 8i32;
 pub const CSF_ONLYGETSOURCE: i32 = 4i32;
 pub const CSF_SHOWHELP: i32 = 1i32;
 pub const CSF_VALIDSOURCE: i32 = 2i32;
 pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
+#[repr(C)]
 pub struct CTRLINFO(i32);
 pub const DD_DEFDRAGDELAY: u32 = 200u32;
 pub const DD_DEFDRAGMINDIST: u32 = 2u32;
 pub const DD_DEFSCROLLDELAY: u32 = 50u32;
 pub const DD_DEFSCROLLINSET: u32 = 11u32;
 pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
+#[repr(C)]
 pub struct DISCARDCACHE(i32);
 pub const DISPATCH_CONSTRUCT: u32 = 16384u32;
 pub const DISPATCH_METHOD: u32 = 1u32;
@@ -963,12 +976,14 @@ pub const DISPID_UNKNOWN: i32 = -1i32;
 pub const DISPID_VALID: i32 = -524i32;
 pub const DISPID_VALUE: u32 = 0u32;
 pub const DISPID_WORDWRAP: i32 = -536i32;
+#[repr(C)]
 pub struct DOCMISC(i32);
 pub const DROPEFFECT_COPY: u32 = 1u32;
 pub const DROPEFFECT_LINK: u32 = 4u32;
 pub const DROPEFFECT_MOVE: u32 = 2u32;
 pub const DROPEFFECT_NONE: u32 = 0u32;
 pub const DROPEFFECT_SCROLL: u32 = 2147483648u32;
+#[repr(C)]
 pub struct DVASPECT2(i32);
 pub const ELF_DISABLECANCELLINK: i32 = 16i32;
 pub const ELF_DISABLECHANGESOURCE: i32 = 8i32;
@@ -979,9 +994,12 @@ pub const EMBDHLP_CREATENOW: i32 = 0i32;
 pub const EMBDHLP_DELAYCREATE: i32 = 65536i32;
 pub const EMBDHLP_INPROC_HANDLER: i32 = 0i32;
 pub const EMBDHLP_INPROC_SERVER: i32 = 1i32;
+#[repr(C)]
 pub struct ENUM_CONTROLS_WHICH_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ExtentInfo(i32);
+#[repr(C)]
 pub struct ExtentMode(i32);
 pub const FADF_AUTO: u32 = 1u32;
 pub const FADF_BSTR: u32 = 256u32;
@@ -996,9 +1014,12 @@ pub const FADF_STATIC: u32 = 2u32;
 pub const FADF_UNKNOWN: u32 = 512u32;
 pub const FADF_VARIANT: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct FONTDESC(i32);
+#[repr(C)]
 pub struct FUNCFLAGS(i32);
 pub const GC_WCH_SIBLING: i32 = 1i32;
+#[repr(C)]
 pub struct GUIDKIND(i32);
 pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub const GUID_COLOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536065, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
@@ -1020,6 +1041,7 @@ pub const GUID_YPOS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 17
 pub const GUID_YPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536067, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub const GUID_YSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536073, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub const GUID_YSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536069, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+#[repr(C)]
 pub struct HITRESULT(i32);
 #[repr(transparent)]
 pub struct IAdviseSinkEx(pub *mut ::core::ffi::c_void);
@@ -1206,6 +1228,7 @@ pub struct IFont(pub *mut ::core::ffi::c_void);
 pub struct IFontDisp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IFontEventsDisp(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IGNOREMIME(i32);
 #[repr(transparent)]
 pub struct IGetOleObject(pub *mut ::core::ffi::c_void);
@@ -1219,6 +1242,7 @@ pub const INSTALL_SCOPE_INVALID: u32 = 0u32;
 pub const INSTALL_SCOPE_MACHINE: u32 = 1u32;
 pub const INSTALL_SCOPE_USER: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct INTERFACEDATA(i32);
 pub const IOF_CHECKDISPLAYASICON: i32 = 16i32;
 pub const IOF_CHECKLINK: i32 = 8i32;
@@ -1370,20 +1394,25 @@ pub struct IViewObject2(pub *mut ::core::ffi::c_void);
 pub struct IViewObjectEx(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IZoomEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LIBFLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LICINFO(i32);
 pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
+#[repr(C)]
 pub struct LPFNOLEUIHOOK(i32);
 pub const LP_COLOR: u32 = 4u32;
 pub const LP_DEFAULT: u32 = 0u32;
 pub const LP_MONOCHROME: u32 = 1u32;
 pub const LP_VGACOLOR: u32 = 2u32;
+#[repr(C)]
 pub struct MEDIAPLAYBACK_STATE(i32);
 pub const MEMBERID_NIL: i32 = -1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct METHODDATA(i32);
 pub const MK_ALT: u32 = 32u32;
 pub const MSOCMDERR_E_CANCELED: i32 = -2147221245i32;
@@ -1392,7 +1421,9 @@ pub const MSOCMDERR_E_FIRST: i32 = -2147221248i32;
 pub const MSOCMDERR_E_NOHELP: i32 = -2147221246i32;
 pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244i32;
+#[repr(C)]
 pub struct MULTICLASSINFO_FLAGS(i32);
+#[repr(C)]
 pub struct NUMPARSE(i32);
 pub const NUMPRS_CURRENCY: u32 = 1024u32;
 pub const NUMPRS_DECIMAL: u32 = 256u32;
@@ -1411,16 +1442,21 @@ pub const NUMPRS_TRAILING_PLUS: u32 = 8u32;
 pub const NUMPRS_TRAILING_WHITE: u32 = 2u32;
 pub const NUMPRS_USE_ALL: u32 = 4096u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OBJECTDESCRIPTOR(i32);
 pub const OCM__BASE: u32 = 8192u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OCPFIPARAMS(i32);
 pub const OF_GET: u32 = 2u32;
 pub const OF_HANDLER: u32 = 4u32;
 pub const OF_SET: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OIFI(i32);
+#[repr(C)]
 pub struct OLECLOSE(i32);
+#[repr(C)]
 pub struct OLECMD(i32);
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2u32;
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: u32 = 1u32;
@@ -1436,21 +1472,35 @@ pub const OLECMDERR_E_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core:
 pub const OLECMDERR_E_NOHELP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221246i32 as _);
 pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 pub const OLECMDERR_E_UNKNOWNGROUP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221244i32 as _);
+#[repr(C)]
 pub struct OLECMDEXECOPT(i32);
+#[repr(C)]
 pub struct OLECMDF(i32);
+#[repr(C)]
 pub struct OLECMDID(i32);
+#[repr(C)]
 pub struct OLECMDID_BROWSERSTATEFLAG(i32);
+#[repr(C)]
 pub struct OLECMDID_OPTICAL_ZOOMFLAG(i32);
+#[repr(C)]
 pub struct OLECMDID_PAGEACTIONFLAG(i32);
+#[repr(C)]
 pub struct OLECMDID_REFRESHFLAG(i32);
+#[repr(C)]
 pub struct OLECMDID_VIEWPORT_MODE_FLAG(i32);
+#[repr(C)]
 pub struct OLECMDID_WINDOWSTATE_FLAG(i32);
+#[repr(C)]
 pub struct OLECMDTEXT(i32);
+#[repr(C)]
 pub struct OLECMDTEXTF(i32);
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
+#[repr(C)]
 pub struct OLECONTF(i32);
 pub const OLECREATE_LEAVERUNNING: u32 = 1u32;
+#[repr(C)]
 pub struct OLEDCFLAGS(i32);
+#[repr(C)]
 pub struct OLEGETMONIKER(i32);
 pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6i32;
 pub const OLEIVERB_HIDE: i32 = -3i32;
@@ -1460,57 +1510,85 @@ pub const OLEIVERB_PRIMARY: i32 = 0i32;
 pub const OLEIVERB_PROPERTIES: i32 = -7i32;
 pub const OLEIVERB_SHOW: i32 = -1i32;
 pub const OLEIVERB_UIACTIVATE: i32 = -4i32;
+#[repr(C)]
 pub struct OLELINKBIND(i32);
+#[repr(C)]
 pub struct OLEMISC(i32);
+#[repr(C)]
 pub struct OLERENDER(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
+#[repr(C)]
 pub struct OLEUIBUSYA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
+#[repr(C)]
 pub struct OLEUIBUSYW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OLEUICHANGEICONA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OLEUICHANGEICONW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
+#[repr(C)]
 pub struct OLEUICHANGESOURCEA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
+#[repr(C)]
 pub struct OLEUICHANGESOURCEW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OLEUICONVERTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OLEUICONVERTW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OLEUIEDITLINKSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OLEUIEDITLINKSW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUIGNRLPROPSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUIGNRLPROPSW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct OLEUIINSERTOBJECTA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[repr(C)]
 pub struct OLEUIINSERTOBJECTW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUILINKPROPSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUILINKPROPSW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUIOBJECTPROPSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUIOBJECTPROPSW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct OLEUIPASTEENTRYA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct OLEUIPASTEENTRYW(i32);
+#[repr(C)]
 pub struct OLEUIPASTEFLAG(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct OLEUIPASTESPECIALA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct OLEUIPASTESPECIALW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUIVIEWPROPSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct OLEUIVIEWPROPSW(i32);
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
 pub const OLEUI_BZ_CALLUNBLOCKED: u32 = 119u32;
@@ -1595,12 +1673,17 @@ pub const OLEUI_QUERY_LINKBROKEN: u32 = 65281u32;
 pub const OLEUI_SUCCESS: u32 = 1u32;
 pub const OLEUI_VPERR_DVASPECTINVALID: u32 = 132u32;
 pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
+#[repr(C)]
 pub struct OLEUPDATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OLEVERB(i32);
+#[repr(C)]
 pub struct OLEVERBATTRIB(i32);
 pub const OLEVERB_PRIMARY: u32 = 0u32;
+#[repr(C)]
 pub struct OLEWHICHMK(i32);
+#[repr(C)]
 pub struct OLE_TRISTATE(i32);
 pub const OPF_DISABLECONVERT: i32 = 8i32;
 pub const OPF_NOFILLDEFAULT: i32 = 2i32;
@@ -1609,16 +1692,23 @@ pub const OPF_SHOWHELP: i32 = 4i32;
 pub const OT_EMBEDDED: i32 = 2i32;
 pub const OT_LINK: i32 = 1i32;
 pub const OT_STATIC: i32 = 3i32;
+#[repr(C)]
 pub struct OleMenuGroupWidths(i32);
+#[repr(C)]
 pub struct PAGEACTION_UI(i32);
+#[repr(C)]
 pub struct PAGERANGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PAGESET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PARAMDATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct PARAMDESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct PARAMDESCEX(i32);
 pub const PARAMFLAG_FHASCUSTDATA: u32 = 64u32;
 pub const PARAMFLAG_FHASDEFAULT: u32 = 32u32;
@@ -1634,6 +1724,7 @@ pub const PERPROP_E_NOPAGEAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sy
 pub const PERPROP_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262656i32 as _);
 pub const PERPROP_S_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262671i32 as _);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct PICTDESC(i32);
 pub const PICTYPE_BITMAP: u32 = 1u32;
 pub const PICTYPE_ENHMETAFILE: u32 = 4u32;
@@ -1641,12 +1732,18 @@ pub const PICTYPE_ICON: u32 = 3u32;
 pub const PICTYPE_METAFILE: u32 = 2u32;
 pub const PICTYPE_NONE: u32 = 0u32;
 pub const PICTYPE_UNINITIALIZED: i32 = -1i32;
+#[repr(C)]
 pub struct POINTERINACTIVE(i32);
+#[repr(C)]
 pub struct POINTF(i32);
+#[repr(C)]
 pub struct PRINTFLAG(i32);
+#[repr(C)]
 pub struct PROPBAG2_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROPPAGEINFO(i32);
+#[repr(C)]
 pub struct PROPPAGESTATUS(i32);
 pub const PSF_CHECKDISPLAYASICON: i32 = 8i32;
 pub const PSF_DISABLEDISPLAYASICON: i32 = 16i32;
@@ -1657,12 +1754,18 @@ pub const PSF_SELECTPASTELINK: i32 = 4i32;
 pub const PSF_SHOWHELP: i32 = 1i32;
 pub const PSF_STAYONCLIPBOARDCHANGE: i32 = 64i32;
 pub const PS_MAXLINKTYPES: u32 = 8u32;
+#[repr(C)]
 pub struct PictureAttributes(i32);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct QACONTAINER(i32);
+#[repr(C)]
 pub struct QACONTAINERFLAGS(i32);
+#[repr(C)]
 pub struct QACONTROL(i32);
+#[repr(C)]
 pub struct READYSTATE(i32);
+#[repr(C)]
 pub struct REGKIND(i32);
 pub const SELFREG_E_CLASS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const SELFREG_E_FIRST: i32 = -2147220992i32;
@@ -1670,6 +1773,7 @@ pub const SELFREG_E_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HR
 pub const SELFREG_E_TYPELIB: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
 pub const SELFREG_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262656i32 as _);
 pub const SELFREG_S_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262671i32 as _);
+#[repr(C)]
 pub struct SF_TYPE(i32);
 pub const SID_GetCaller: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1192741952, data2: 48313, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
 pub const SID_ProvideRuntimeContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1956971532, data2: 56588, data3: 18672, data4: [172, 133, 25, 76, 50, 89, 24, 10] };
@@ -1681,17 +1785,24 @@ pub const STDOLE_LCID: u32 = 0u32;
 pub const STDOLE_MAJORVERNUM: u32 = 1u32;
 pub const STDOLE_MINORVERNUM: u32 = 0u32;
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
+#[repr(C)]
 pub struct TYPEFLAGS(i32);
+#[repr(C)]
 pub struct UASFLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct UDATE(i32);
+#[repr(C)]
 pub struct UPDFCACHE_FLAGS(i32);
+#[repr(C)]
 pub struct USERCLASSTYPE(i32);
 pub const VARCMP_EQ: u32 = 1u32;
 pub const VARCMP_GT: u32 = 2u32;
 pub const VARCMP_LT: u32 = 0u32;
 pub const VARCMP_NULL: u32 = 3u32;
+#[repr(C)]
 pub struct VARENUM(i32);
+#[repr(C)]
 pub struct VARFLAGS(i32);
 pub const VARIANT_ALPHABOOL: u32 = 2u32;
 pub const VARIANT_CALENDAR_GREGORIAN: u32 = 64u32;
@@ -1701,6 +1812,7 @@ pub const VARIANT_LOCALBOOL: u32 = 16u32;
 pub const VARIANT_NOUSEROVERRIDE: u32 = 4u32;
 pub const VARIANT_NOVALUEPROP: u32 = 1u32;
 pub const VARIANT_USE_NLS: u32 = 128u32;
+#[repr(C)]
 pub struct VIEWSTATUS(i32);
 pub const VPF_DISABLERELATIVE: i32 = 2i32;
 pub const VPF_DISABLESCALE: i32 = 4i32;
@@ -1712,21 +1824,33 @@ pub const VT_STORED_PROPSET: u32 = 74u32;
 pub const VT_STREAMED_PROPSET: u32 = 73u32;
 pub const VT_VERBOSE_ENUM: u32 = 76u32;
 pub const WIN32: u32 = 100u32;
+#[repr(C)]
 pub struct WPCSETTING(i32);
+#[repr(C)]
 pub struct XFORMCOORDS(i32);
+#[repr(C)]
 pub struct _wireBRECORD(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct _wireSAFEARRAY(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct _wireSAFEARRAY_UNION(i32);
+#[repr(C)]
 pub struct _wireSAFEARR_BRECORD(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct _wireSAFEARR_BSTR(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct _wireSAFEARR_DISPATCH(i32);
+#[repr(C)]
 pub struct _wireSAFEARR_HAVEIID(i32);
+#[repr(C)]
 pub struct _wireSAFEARR_UNKNOWN(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct _wireSAFEARR_VARIANT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct _wireVARIANT(i32);

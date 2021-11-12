@@ -46,7 +46,9 @@ pub const FMTID_WSD: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18212,
     data4: [160, 90, 91, 129, 136, 90, 124, 146],
 };
+#[repr(C)]
 pub struct FunctionDiscovery(i32);
+#[repr(C)]
 pub struct FunctionInstanceCollection(i32);
 #[repr(transparent)]
 pub struct IFunctionDiscovery(pub *mut ::core::ffi::c_void);
@@ -1979,16 +1981,23 @@ pub const PKEY_WNET_Usage: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     },
     pid: 4u32,
 };
+#[repr(C)]
 pub struct PNPXAssociation(i32);
+#[repr(C)]
 pub struct PNPXPairingHandler(i32);
 pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
 pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
 pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
+#[repr(C)]
 pub struct PropertyConstraint(i32);
+#[repr(C)]
 pub struct PropertyStore(i32);
+#[repr(C)]
 pub struct PropertyStoreCollection(i32);
+#[repr(C)]
 pub struct QueryCategoryType(i32);
+#[repr(C)]
 pub struct QueryUpdateAction(i32);
 pub const SID_DeviceDisplayStatusManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4120552787, data2: 33545, data3: 18122, data4: [151, 54, 26, 195, 198, 45, 96, 49] };
 pub const SID_EnumDeviceFunction: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2032,4 +2041,5 @@ pub const SID_UninstallDeviceFunction: ::windows_sys::core::GUID = ::windows_sys
     data4: [128, 37, 191, 11, 137, 189, 68, 205],
 };
 pub const SID_UnpairProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2309292796, data2: 34171, data3: 18072, data4: [160, 183, 2, 113, 146, 0, 47, 158] };
+#[repr(C)]
 pub struct SystemVisibilityFlags(i32);

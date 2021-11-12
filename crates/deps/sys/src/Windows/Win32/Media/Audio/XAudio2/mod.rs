@@ -7,13 +7,16 @@ extern "system" {
     pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
     pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut IXAudio2, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct AudioReverb(i32);
+#[repr(C)]
 pub struct AudioVolumeMeter(i32);
 pub const FACILITY_XAPO: u32 = 2199u32;
 pub const FACILITY_XAUDIO2: u32 = 2198u32;
 pub const FXECHO_DEFAULT_DELAY: f32 = 500f32;
 pub const FXECHO_DEFAULT_FEEDBACK: f32 = 0.5f32;
 pub const FXECHO_DEFAULT_WETDRYMIX: f32 = 0.5f32;
+#[repr(C)]
 pub struct FXECHO_INITDATA(i32);
 pub const FXECHO_MAX_DELAY: f32 = 2000f32;
 pub const FXECHO_MAX_FEEDBACK: f32 = 1f32;
@@ -21,7 +24,9 @@ pub const FXECHO_MAX_WETDRYMIX: f32 = 1f32;
 pub const FXECHO_MIN_DELAY: f32 = 1f32;
 pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
 pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
+#[repr(C)]
 pub struct FXECHO_PARAMETERS(i32);
+#[repr(C)]
 pub struct FXEQ(i32);
 pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
 pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100f32;
@@ -37,7 +42,9 @@ pub const FXEQ_MIN_BANDWIDTH: f32 = 0.1f32;
 pub const FXEQ_MIN_FRAMERATE: u32 = 22000u32;
 pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
 pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
+#[repr(C)]
 pub struct FXEQ_PARAMETERS(i32);
+#[repr(C)]
 pub struct FXEcho(i32);
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
 pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
@@ -47,7 +54,9 @@ pub const FXMASTERINGLIMITER_MAX_LOUDNESS: u32 = 1800u32;
 pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20u32;
 pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
 pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
+#[repr(C)]
 pub struct FXMASTERINGLIMITER_PARAMETERS(i32);
+#[repr(C)]
 pub struct FXMasteringLimiter(i32);
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
 pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
@@ -55,21 +64,33 @@ pub const FXREVERB_MAX_DIFFUSION: f32 = 1f32;
 pub const FXREVERB_MAX_ROOMSIZE: f32 = 1f32;
 pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
 pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
+#[repr(C)]
 pub struct FXREVERB_PARAMETERS(i32);
+#[repr(C)]
 pub struct FXReverb(i32);
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
 pub const HRTF_MAX_GAIN_LIMIT: f32 = 12f32;
 pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;
 pub const HRTF_MIN_UNITY_GAIN_DISTANCE: f32 = 0.05f32;
+#[repr(C)]
 pub struct HrtfApoInit(i32);
+#[repr(C)]
 pub struct HrtfDirectivity(i32);
+#[repr(C)]
 pub struct HrtfDirectivityCardioid(i32);
+#[repr(C)]
 pub struct HrtfDirectivityCone(i32);
+#[repr(C)]
 pub struct HrtfDirectivityType(i32);
+#[repr(C)]
 pub struct HrtfDistanceDecay(i32);
+#[repr(C)]
 pub struct HrtfDistanceDecayType(i32);
+#[repr(C)]
 pub struct HrtfEnvironment(i32);
+#[repr(C)]
 pub struct HrtfOrientation(i32);
+#[repr(C)]
 pub struct HrtfPosition(i32);
 #[repr(transparent)]
 pub struct IXAPO(pub *mut ::core::ffi::c_void);
@@ -139,6 +160,7 @@ pub const X3DAUDIO_CALCULATE_ZEROCENTER: u32 = 65536u32;
 pub const X3DAUDIO_HANDLE_BYTESIZE: u32 = 20u32;
 pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
+#[repr(C)]
 pub struct XAPO_BUFFER_FLAGS(i32);
 pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003369983i32 as _);
 pub const XAPO_FLAG_BITSPERSAMPLE_MUST_MATCH: u32 = 4u32;
@@ -147,12 +169,15 @@ pub const XAPO_FLAG_CHANNELS_MUST_MATCH: u32 = 1u32;
 pub const XAPO_FLAG_FRAMERATE_MUST_MATCH: u32 = 2u32;
 pub const XAPO_FLAG_INPLACE_REQUIRED: u32 = 32u32;
 pub const XAPO_FLAG_INPLACE_SUPPORTED: u32 = 16u32;
+#[repr(C)]
 pub struct XAPO_LOCKFORPROCESS_PARAMETERS(i32);
 pub const XAPO_MAX_CHANNELS: u32 = 64u32;
 pub const XAPO_MAX_FRAMERATE: u32 = 200000u32;
 pub const XAPO_MIN_CHANNELS: u32 = 1u32;
 pub const XAPO_MIN_FRAMERATE: u32 = 1000u32;
+#[repr(C)]
 pub struct XAPO_PROCESS_BUFFER_PARAMETERS(i32);
+#[repr(C)]
 pub struct XAPO_REGISTRATION_PROPERTIES(i32);
 pub const XAPO_REGISTRATION_STRING_LENGTH: u32 = 256u32;
 pub const XAUDIO2FX_REVERB_DEFAULT_7POINT1_REAR_DELAY: u32 = 20u32;
@@ -178,6 +203,7 @@ pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_HF: f32 = 0f32;
 pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_MAIN: f32 = 0f32;
 pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_SIZE: f32 = 100f32;
 pub const XAUDIO2FX_REVERB_DEFAULT_WET_DRY_MIX: f32 = 100f32;
+#[repr(C)]
 pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS(i32);
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_REAR_DELAY: u32 = 20u32;
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_SIDE_DELAY: u32 = 5u32;
@@ -221,15 +247,20 @@ pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_MAIN: f32 = -100f32;
 pub const XAUDIO2FX_REVERB_MIN_ROOM_SIZE: f32 = 0f32;
 pub const XAUDIO2FX_REVERB_MIN_WET_DRY_MIX: f32 = 0f32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct XAUDIO2FX_REVERB_PARAMETERS(i32);
+#[repr(C)]
 pub struct XAUDIO2FX_VOLUMEMETER_LEVELS(i32);
 pub const XAUDIO2_1024_QUANTUM: u32 = 32768u32;
 pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295u32;
+#[repr(C)]
 pub struct XAUDIO2_BUFFER(i32);
+#[repr(C)]
 pub struct XAUDIO2_BUFFER_WMA(i32);
 pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
 pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct XAUDIO2_DEBUG_CONFIGURATION(i32);
 pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
 pub const XAUDIO2_DEFAULT_CHANNELS: u32 = 0u32;
@@ -239,15 +270,19 @@ pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2f32;
 pub const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1u32;
 pub const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct XAUDIO2_EFFECT_CHAIN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR(i32);
 pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
 pub const XAUDIO2_E_DEVICE_INVALIDATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003435516i32 as _);
 pub const XAUDIO2_E_INVALID_CALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003435519i32 as _);
 pub const XAUDIO2_E_XAPO_CREATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003435517i32 as _);
 pub const XAUDIO2_E_XMA_DECODER_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003435518i32 as _);
+#[repr(C)]
 pub struct XAUDIO2_FILTER_PARAMETERS(i32);
+#[repr(C)]
 pub struct XAUDIO2_FILTER_TYPE(i32);
 pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
 pub const XAUDIO2_LOG_DETAIL: u32 = 8u32;
@@ -276,18 +311,23 @@ pub const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216f32;
 pub const XAUDIO2_MIN_SAMPLE_RATE: u32 = 1000u32;
 pub const XAUDIO2_NO_LOOP_REGION: u32 = 0u32;
 pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: u32 = 65536u32;
+#[repr(C)]
 pub struct XAUDIO2_PERFORMANCE_DATA(i32);
 pub const XAUDIO2_PLAY_TAILS: u32 = 32u32;
 pub const XAUDIO2_QUANTUM_DENOMINATOR: u32 = 100u32;
 pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
+#[repr(C)]
 pub struct XAUDIO2_SEND_DESCRIPTOR(i32);
 pub const XAUDIO2_SEND_USEFILTER: u32 = 128u32;
 pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: u32 = 8192u32;
 pub const XAUDIO2_USE_DEFAULT_PROCESSOR: u32 = 0u32;
+#[repr(C)]
 pub struct XAUDIO2_VOICE_DETAILS(i32);
 pub const XAUDIO2_VOICE_NOPITCH: u32 = 2u32;
 pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;
 pub const XAUDIO2_VOICE_NOSRC: u32 = 4u32;
+#[repr(C)]
 pub struct XAUDIO2_VOICE_SENDS(i32);
+#[repr(C)]
 pub struct XAUDIO2_VOICE_STATE(i32);
 pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;

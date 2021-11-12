@@ -49,6 +49,7 @@ pub struct ITouchCapabilities(pub *mut ::core::ffi::c_void);
 pub struct KeyboardCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MouseCapabilities(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MouseDelta(i32);
 #[repr(transparent)]
 pub struct MouseDevice(pub *mut ::core::ffi::c_void);
@@ -72,7 +73,9 @@ pub struct PenTailButtonLongPressedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct PenUndockedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PointerDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PointerDeviceType(i32);
+#[repr(C)]
 pub struct PointerDeviceUsage(i32);
 #[repr(transparent)]
 pub struct TouchCapabilities(pub *mut ::core::ffi::c_void);

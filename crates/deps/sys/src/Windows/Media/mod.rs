@@ -57,9 +57,11 @@ pub mod Transcoding;
 extern "system" {}
 #[repr(transparent)]
 pub struct AudioBuffer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioBufferAccessMode(i32);
 #[repr(transparent)]
 pub struct AudioFrame(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioProcessing(i32);
 #[repr(transparent)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -141,22 +143,28 @@ pub struct IVideoFrameStatics(pub *mut ::core::ffi::c_void);
 pub struct ImageDisplayProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaControlContract(i32);
 #[repr(transparent)]
 pub struct MediaExtensionManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaMarkerTypes(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlaybackAutoRepeatMode(i32);
+#[repr(C)]
 pub struct MediaPlaybackStatus(i32);
+#[repr(C)]
 pub struct MediaPlaybackType(i32);
 #[repr(transparent)]
 pub struct MediaProcessingTriggerDetails(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct MediaTimeRange(i32);
 #[repr(transparent)]
 pub struct MediaTimelineController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaTimelineControllerFailedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaTimelineControllerState(i32);
 #[repr(transparent)]
 pub struct MusicDisplayProperties(pub *mut ::core::ffi::c_void);
@@ -166,14 +174,17 @@ pub struct PlaybackPositionChangeRequestedEventArgs(pub *mut ::core::ffi::c_void
 pub struct PlaybackRateChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SoundLevel(i32);
 #[repr(transparent)]
 pub struct SystemMediaTransportControls(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SystemMediaTransportControlsButton(i32);
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsDisplayUpdater(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SystemMediaTransportControlsProperty(i32);
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(pub *mut ::core::ffi::c_void);

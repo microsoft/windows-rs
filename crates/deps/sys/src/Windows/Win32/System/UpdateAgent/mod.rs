@@ -1,16 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AddServiceFlag(i32);
+#[repr(C)]
 pub struct AutoDownloadMode(i32);
+#[repr(C)]
 pub struct AutoSelectionMode(i32);
+#[repr(C)]
 pub struct AutomaticUpdates(i32);
+#[repr(C)]
 pub struct AutomaticUpdatesNotificationLevel(i32);
+#[repr(C)]
 pub struct AutomaticUpdatesPermissionType(i32);
+#[repr(C)]
 pub struct AutomaticUpdatesScheduledInstallationDay(i32);
+#[repr(C)]
 pub struct AutomaticUpdatesUserType(i32);
+#[repr(C)]
 pub struct DeploymentAction(i32);
+#[repr(C)]
 pub struct DownloadPhase(i32);
+#[repr(C)]
 pub struct DownloadPriority(i32);
 #[repr(transparent)]
 pub struct IAutomaticUpdates(pub *mut ::core::ffi::c_void);
@@ -164,27 +175,47 @@ pub struct IWindowsDriverUpdateEntry(pub *mut ::core::ffi::c_void);
 pub struct IWindowsDriverUpdateEntryCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWindowsUpdateAgentInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InstallationAgent(i32);
+#[repr(C)]
 pub struct InstallationImpact(i32);
+#[repr(C)]
 pub struct InstallationRebootBehavior(i32);
 pub const LIBID_WUApiLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3046558879, data2: 22245, data3: 16798, data4: [166, 34, 224, 27, 180, 87, 67, 30] };
+#[repr(C)]
 pub struct OperationResultCode(i32);
+#[repr(C)]
 pub struct SearchScope(i32);
+#[repr(C)]
 pub struct ServerSelection(i32);
+#[repr(C)]
 pub struct StringCollection(i32);
+#[repr(C)]
 pub struct SystemInformation(i32);
 pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
+#[repr(C)]
 pub struct UpdateCollection(i32);
+#[repr(C)]
 pub struct UpdateDownloader(i32);
+#[repr(C)]
 pub struct UpdateExceptionContext(i32);
+#[repr(C)]
 pub struct UpdateInstaller(i32);
+#[repr(C)]
 pub struct UpdateLockdownOption(i32);
+#[repr(C)]
 pub struct UpdateOperation(i32);
+#[repr(C)]
 pub struct UpdateSearcher(i32);
+#[repr(C)]
 pub struct UpdateServiceManager(i32);
+#[repr(C)]
 pub struct UpdateServiceOption(i32);
+#[repr(C)]
 pub struct UpdateServiceRegistrationState(i32);
+#[repr(C)]
 pub struct UpdateSession(i32);
+#[repr(C)]
 pub struct UpdateType(i32);
 pub const WU_E_ALL_UPDATES_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145124318i32 as _);
 pub const WU_E_AUCLIENT_UNEXPECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145107969i32 as _);
@@ -651,5 +682,7 @@ pub const WU_S_SOME_UPDATES_SKIPPED_ON_BATTERY: ::windows_sys::core::HRESULT = :
 pub const WU_S_UH_DOWNLOAD_SIZE_CALCULATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2367510i32 as _);
 pub const WU_S_UH_INSTALLSTILLPENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2367509i32 as _);
 pub const WU_S_UPDATE_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2359299i32 as _);
+#[repr(C)]
 pub struct WebProxy(i32);
+#[repr(C)]
 pub struct WindowsUpdateAgentInfo(i32);

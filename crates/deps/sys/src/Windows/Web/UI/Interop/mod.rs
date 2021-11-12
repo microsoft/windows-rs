@@ -19,12 +19,15 @@ pub struct IWebViewControlSite2(pub *mut ::core::ffi::c_void);
 pub struct WebViewControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewControlAcceleratorKeyPressedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(i32);
+#[repr(C)]
 pub struct WebViewControlMoveFocusReason(i32);
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewControlProcess(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebViewControlProcessCapabilityState(i32);
 #[repr(transparent)]
 pub struct WebViewControlProcessOptions(pub *mut ::core::ffi::c_void);

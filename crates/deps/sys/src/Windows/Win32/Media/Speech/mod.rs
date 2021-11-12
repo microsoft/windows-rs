@@ -2,55 +2,105 @@
 #[link(name = "windows")]
 extern "system" {}
 pub const DEFAULT_WEIGHT: u32 = 1u32;
+#[repr(C)]
 pub struct DISPIDSPRG(i32);
+#[repr(C)]
 pub struct DISPIDSPTSI(i32);
+#[repr(C)]
 pub struct DISPID_SpeechAudio(i32);
+#[repr(C)]
 pub struct DISPID_SpeechAudioBufferInfo(i32);
+#[repr(C)]
 pub struct DISPID_SpeechAudioFormat(i32);
+#[repr(C)]
 pub struct DISPID_SpeechAudioStatus(i32);
+#[repr(C)]
 pub struct DISPID_SpeechBaseStream(i32);
+#[repr(C)]
 pub struct DISPID_SpeechCustomStream(i32);
+#[repr(C)]
 pub struct DISPID_SpeechDataKey(i32);
+#[repr(C)]
 pub struct DISPID_SpeechFileStream(i32);
+#[repr(C)]
 pub struct DISPID_SpeechGrammarRule(i32);
+#[repr(C)]
 pub struct DISPID_SpeechGrammarRuleState(i32);
+#[repr(C)]
 pub struct DISPID_SpeechGrammarRuleStateTransition(i32);
+#[repr(C)]
 pub struct DISPID_SpeechGrammarRuleStateTransitions(i32);
+#[repr(C)]
 pub struct DISPID_SpeechGrammarRules(i32);
+#[repr(C)]
 pub struct DISPID_SpeechLexicon(i32);
+#[repr(C)]
 pub struct DISPID_SpeechLexiconProns(i32);
+#[repr(C)]
 pub struct DISPID_SpeechLexiconPronunciation(i32);
+#[repr(C)]
 pub struct DISPID_SpeechLexiconWord(i32);
+#[repr(C)]
 pub struct DISPID_SpeechLexiconWords(i32);
+#[repr(C)]
 pub struct DISPID_SpeechMMSysAudio(i32);
+#[repr(C)]
 pub struct DISPID_SpeechMemoryStream(i32);
+#[repr(C)]
 pub struct DISPID_SpeechObjectToken(i32);
+#[repr(C)]
 pub struct DISPID_SpeechObjectTokenCategory(i32);
+#[repr(C)]
 pub struct DISPID_SpeechObjectTokens(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhoneConverter(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseAlternate(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseAlternates(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseBuilder(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseElement(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseElements(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseInfo(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseProperties(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseProperty(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseReplacement(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseReplacements(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseRule(i32);
+#[repr(C)]
 pub struct DISPID_SpeechPhraseRules(i32);
+#[repr(C)]
 pub struct DISPID_SpeechRecoContext(i32);
+#[repr(C)]
 pub struct DISPID_SpeechRecoContextEvents(i32);
+#[repr(C)]
 pub struct DISPID_SpeechRecoResult(i32);
+#[repr(C)]
 pub struct DISPID_SpeechRecoResult2(i32);
+#[repr(C)]
 pub struct DISPID_SpeechRecoResultTimes(i32);
+#[repr(C)]
 pub struct DISPID_SpeechRecognizer(i32);
+#[repr(C)]
 pub struct DISPID_SpeechRecognizerStatus(i32);
+#[repr(C)]
 pub struct DISPID_SpeechVoice(i32);
+#[repr(C)]
 pub struct DISPID_SpeechVoiceEvent(i32);
+#[repr(C)]
 pub struct DISPID_SpeechVoiceStatus(i32);
+#[repr(C)]
 pub struct DISPID_SpeechWaveFormatEx(i32);
+#[repr(C)]
 pub struct DISPID_SpeechXMLRecoResult(i32);
 #[repr(transparent)]
 pub struct IEnumSpObjectTokens(pub *mut ::core::ffi::c_void);
@@ -244,109 +294,191 @@ pub struct ISpeechVoiceStatus(pub *mut ::core::ffi::c_void);
 pub struct ISpeechWaveFormatEx(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISpeechXMLRecoResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PHONETICALPHABET(i32);
 pub const SAPI_ERROR_BASE: u32 = 20480u32;
+#[repr(C)]
 pub struct SPADAPTATIONRELEVANCE(i32);
+#[repr(C)]
 pub struct SPADAPTATIONSETTINGS(i32);
+#[repr(C)]
 pub struct SPAUDIOBUFFERINFO(i32);
+#[repr(C)]
 pub struct SPAUDIOOPTIONS(i32);
+#[repr(C)]
 pub struct SPAUDIOSTATE(i32);
+#[repr(C)]
 pub struct SPAUDIOSTATUS(i32);
+#[repr(C)]
 pub struct SPBINARYGRAMMAR(i32);
+#[repr(C)]
 pub struct SPBOOKMARKOPTIONS(i32);
+#[repr(C)]
 pub struct SPCFGRULEATTRIBUTES(i32);
+#[repr(C)]
 pub struct SPCOMMITFLAGS(i32);
+#[repr(C)]
 pub struct SPCONTEXTSTATE(i32);
+#[repr(C)]
 pub struct SPDATAKEYLOCATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPDISPLAYPHRASE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPDISPLAYTOKEN(i32);
+#[repr(C)]
 pub struct SPDISPLYATTRIBUTES(i32);
+#[repr(C)]
 pub struct SPEAKFLAGS(i32);
+#[repr(C)]
 pub struct SPENDSRSTREAMFLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPEVENT(i32);
+#[repr(C)]
 pub struct SPEVENTENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPEVENTEX(i32);
+#[repr(C)]
 pub struct SPEVENTLPARAMTYPE(i32);
+#[repr(C)]
 pub struct SPEVENTSOURCEINFO(i32);
+#[repr(C)]
 pub struct SPFILEMODE(i32);
+#[repr(C)]
 pub struct SPGRAMMAROPTIONS(i32);
+#[repr(C)]
 pub struct SPGRAMMARSTATE(i32);
+#[repr(C)]
 pub struct SPGRAMMARWORDTYPE(i32);
+#[repr(C)]
 pub struct SPINTERFERENCE(i32);
+#[repr(C)]
 pub struct SPLEXICONTYPE(i32);
+#[repr(C)]
 pub struct SPLOADOPTIONS(i32);
+#[repr(C)]
 pub struct SPMATCHINGMODE(i32);
+#[repr(C)]
 pub struct SPNORMALIZATIONLIST(i32);
+#[repr(C)]
 pub struct SPNOTIFYCALLBACK(i32);
+#[repr(C)]
 pub struct SPPARTOFSPEECH(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct SPPHRASE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPPHRASEELEMENT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct SPPHRASEPROPERTY(i32);
+#[repr(C)]
 pub struct SPPHRASEPROPERTYUNIONTYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPPHRASEREPLACEMENT(i32);
+#[repr(C)]
 pub struct SPPHRASERNG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPPHRASERULE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct SPPHRASE_50(i32);
+#[repr(C)]
 pub struct SPPRONUNCIATIONFLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct SPPROPERTYINFO(i32);
+#[repr(C)]
 pub struct SPRECOCONTEXTSTATUS(i32);
+#[repr(C)]
 pub struct SPRECOEVENTFLAGS(i32);
+#[repr(C)]
 pub struct SPRECOGNIZERSTATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPRECORESULTTIMES(i32);
+#[repr(C)]
 pub struct SPRECOSTATE(i32);
 pub const SPRP_NORMAL: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPRULE(i32);
+#[repr(C)]
 pub struct SPRULESTATE(i32);
+#[repr(C)]
 pub struct SPRUNSTATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPSEMANTICERRORINFO(i32);
+#[repr(C)]
 pub struct SPSEMANTICFORMAT(i32);
+#[repr(C)]
 pub struct SPSERIALIZEDEVENT(i32);
+#[repr(C)]
 pub struct SPSERIALIZEDEVENT64(i32);
+#[repr(C)]
 pub struct SPSERIALIZEDPHRASE(i32);
+#[repr(C)]
 pub struct SPSERIALIZEDRESULT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPSHORTCUTPAIR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPSHORTCUTPAIRLIST(i32);
+#[repr(C)]
 pub struct SPSHORTCUTTYPE(i32);
+#[repr(C)]
 pub struct SPSTATEHANDLE__(i32);
+#[repr(C)]
 pub struct SPSTREAMFORMAT(i32);
+#[repr(C)]
 pub struct SPTEXTSELECTIONINFO(i32);
+#[repr(C)]
 pub struct SPVACTIONS(i32);
+#[repr(C)]
 pub struct SPVALUETYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPVCONTEXT(i32);
+#[repr(C)]
 pub struct SPVFEATURE(i32);
+#[repr(C)]
 pub struct SPVISEMES(i32);
+#[repr(C)]
 pub struct SPVLIMITS(i32);
+#[repr(C)]
 pub struct SPVOICESTATUS(i32);
+#[repr(C)]
 pub struct SPVPITCH(i32);
+#[repr(C)]
 pub struct SPVPRIORITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPVSTATE(i32);
+#[repr(C)]
 pub struct SPWAVEFORMATTYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPWORD(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SPWORDLIST(i32);
+#[repr(C)]
 pub struct SPWORDPRONOUNCEABLE(i32);
+#[repr(C)]
 pub struct SPWORDPRONUNCIATION(i32);
+#[repr(C)]
 pub struct SPWORDPRONUNCIATIONLIST(i32);
+#[repr(C)]
 pub struct SPWORDTYPE(i32);
+#[repr(C)]
 pub struct SPXMLRESULTOPTIONS(i32);
 pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
 pub const SP_LOW_CONFIDENCE: i32 = -1i32;
@@ -356,70 +488,134 @@ pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
 pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
 pub const SP_STREAMPOS_ASAP: u32 = 0u32;
 pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
+#[repr(C)]
 pub struct SpAudioFormat(i32);
+#[repr(C)]
 pub struct SpCompressedLexicon(i32);
+#[repr(C)]
 pub struct SpCustomStream(i32);
+#[repr(C)]
 pub struct SpFileStream(i32);
+#[repr(C)]
 pub struct SpInProcRecoContext(i32);
+#[repr(C)]
 pub struct SpInprocRecognizer(i32);
+#[repr(C)]
 pub struct SpLexicon(i32);
+#[repr(C)]
 pub struct SpMMAudioEnum(i32);
+#[repr(C)]
 pub struct SpMMAudioIn(i32);
+#[repr(C)]
 pub struct SpMMAudioOut(i32);
+#[repr(C)]
 pub struct SpMemoryStream(i32);
+#[repr(C)]
 pub struct SpNotifyTranslator(i32);
+#[repr(C)]
 pub struct SpNullPhoneConverter(i32);
+#[repr(C)]
 pub struct SpObjectToken(i32);
+#[repr(C)]
 pub struct SpObjectTokenCategory(i32);
+#[repr(C)]
 pub struct SpPhoneConverter(i32);
+#[repr(C)]
 pub struct SpPhoneticAlphabetConverter(i32);
+#[repr(C)]
 pub struct SpPhraseInfoBuilder(i32);
+#[repr(C)]
 pub struct SpResourceManager(i32);
+#[repr(C)]
 pub struct SpSharedRecoContext(i32);
+#[repr(C)]
 pub struct SpSharedRecognizer(i32);
+#[repr(C)]
 pub struct SpShortcut(i32);
+#[repr(C)]
 pub struct SpStream(i32);
+#[repr(C)]
 pub struct SpStreamFormatConverter(i32);
+#[repr(C)]
 pub struct SpTextSelectionInformation(i32);
+#[repr(C)]
 pub struct SpUnCompressedLexicon(i32);
+#[repr(C)]
 pub struct SpVoice(i32);
+#[repr(C)]
 pub struct SpWaveFormatEx(i32);
 pub const SpeechAllElements: i32 = -1i32;
+#[repr(C)]
 pub struct SpeechAudioFormatType(i32);
+#[repr(C)]
 pub struct SpeechAudioState(i32);
+#[repr(C)]
 pub struct SpeechBookmarkOptions(i32);
+#[repr(C)]
 pub struct SpeechDataKeyLocation(i32);
+#[repr(C)]
 pub struct SpeechDiscardType(i32);
+#[repr(C)]
 pub struct SpeechDisplayAttributes(i32);
+#[repr(C)]
 pub struct SpeechEmulationCompareFlags(i32);
+#[repr(C)]
 pub struct SpeechEngineConfidence(i32);
+#[repr(C)]
 pub struct SpeechFormatType(i32);
+#[repr(C)]
 pub struct SpeechGrammarRuleStateTransitionType(i32);
+#[repr(C)]
 pub struct SpeechGrammarState(i32);
+#[repr(C)]
 pub struct SpeechGrammarWordType(i32);
+#[repr(C)]
 pub struct SpeechInterference(i32);
+#[repr(C)]
 pub struct SpeechLexiconType(i32);
+#[repr(C)]
 pub struct SpeechLoadOption(i32);
+#[repr(C)]
 pub struct SpeechPartOfSpeech(i32);
+#[repr(C)]
 pub struct SpeechRecoContextState(i32);
+#[repr(C)]
 pub struct SpeechRecoEvents(i32);
+#[repr(C)]
 pub struct SpeechRecognitionType(i32);
+#[repr(C)]
 pub struct SpeechRecognizerState(i32);
+#[repr(C)]
 pub struct SpeechRetainedAudioOptions(i32);
+#[repr(C)]
 pub struct SpeechRuleAttributes(i32);
+#[repr(C)]
 pub struct SpeechRuleState(i32);
+#[repr(C)]
 pub struct SpeechRunState(i32);
+#[repr(C)]
 pub struct SpeechSpecialTransitionType(i32);
+#[repr(C)]
 pub struct SpeechStreamFileMode(i32);
+#[repr(C)]
 pub struct SpeechStreamSeekPositionType(i32);
+#[repr(C)]
 pub struct SpeechTokenContext(i32);
+#[repr(C)]
 pub struct SpeechTokenShellFolder(i32);
+#[repr(C)]
 pub struct SpeechVisemeFeature(i32);
+#[repr(C)]
 pub struct SpeechVisemeType(i32);
+#[repr(C)]
 pub struct SpeechVoiceEvents(i32);
+#[repr(C)]
 pub struct SpeechVoicePriority(i32);
+#[repr(C)]
 pub struct SpeechVoiceSpeakFlags(i32);
+#[repr(C)]
 pub struct SpeechWordPronounceable(i32);
+#[repr(C)]
 pub struct SpeechWordType(i32);
 pub const Speech_Default_Weight: f32 = 1f32;
 pub const Speech_Max_Pron_Length: i32 = 384i32;

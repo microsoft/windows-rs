@@ -143,6 +143,7 @@ pub const RTCAU_NTLM: u32 = 4u32;
 pub const RTCAU_USE_LOGON_CRED: u32 = 65536u32;
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
+#[repr(C)]
 pub struct RTCClient(i32);
 pub const RTCEF_ALL: u32 = 33554431u32;
 pub const RTCEF_BUDDY: u32 = 256u32;
@@ -197,13 +198,21 @@ pub const RTCSI_PHONE_TO_PHONE: u32 = 4u32;
 pub const RTCTR_TCP: u32 = 2u32;
 pub const RTCTR_TLS: u32 = 4u32;
 pub const RTCTR_UDP: u32 = 1u32;
+#[repr(C)]
 pub struct RTC_ACE_SCOPE(i32);
+#[repr(C)]
 pub struct RTC_ANSWER_MODE(i32);
+#[repr(C)]
 pub struct RTC_AUDIO_DEVICE(i32);
+#[repr(C)]
 pub struct RTC_BUDDY_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(i32);
+#[repr(C)]
 pub struct RTC_CLIENT_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_DTMF(i32);
+#[repr(C)]
 pub struct RTC_EVENT(i32);
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885961i32 as _);
 pub const RTC_E_BASIC_AUTH_SET_TLS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131886017i32 as _);
@@ -392,38 +401,70 @@ pub const RTC_E_TOO_MANY_GROUPS: ::windows_sys::core::HRESULT = ::windows_sys::c
 pub const RTC_E_TOO_MANY_RETRIES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885989i32 as _);
 pub const RTC_E_TOO_SMALL_EXPIRES_VALUE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885976i32 as _);
 pub const RTC_E_UDP_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885954i32 as _);
+#[repr(C)]
 pub struct RTC_GROUP_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_LISTEN_MODE(i32);
+#[repr(C)]
 pub struct RTC_MEDIA_EVENT_REASON(i32);
+#[repr(C)]
 pub struct RTC_MEDIA_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_MESSAGING_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_MESSAGING_USER_STATUS(i32);
+#[repr(C)]
 pub struct RTC_OFFER_WATCHER_MODE(i32);
+#[repr(C)]
 pub struct RTC_PARTICIPANT_STATE(i32);
+#[repr(C)]
 pub struct RTC_PORT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_PRESENCE_PROPERTY(i32);
+#[repr(C)]
 pub struct RTC_PRESENCE_STATUS(i32);
+#[repr(C)]
 pub struct RTC_PRIVACY_MODE(i32);
+#[repr(C)]
 pub struct RTC_PROFILE_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_PROVIDER_URI(i32);
+#[repr(C)]
 pub struct RTC_REGISTRATION_STATE(i32);
+#[repr(C)]
 pub struct RTC_REINVITE_STATE(i32);
+#[repr(C)]
 pub struct RTC_RING_TYPE(i32);
+#[repr(C)]
 pub struct RTC_ROAMING_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_SECURITY_LEVEL(i32);
+#[repr(C)]
 pub struct RTC_SECURITY_TYPE(i32);
+#[repr(C)]
 pub struct RTC_SESSION_REFER_STATUS(i32);
+#[repr(C)]
 pub struct RTC_SESSION_STATE(i32);
+#[repr(C)]
 pub struct RTC_SESSION_TYPE(i32);
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(15597633i32 as _);
+#[repr(C)]
 pub struct RTC_T120_APPLET(i32);
+#[repr(C)]
 pub struct RTC_TERMINATE_REASON(i32);
+#[repr(C)]
 pub struct RTC_USER_SEARCH_COLUMN(i32);
+#[repr(C)]
 pub struct RTC_USER_SEARCH_PREFERENCE(i32);
+#[repr(C)]
 pub struct RTC_VIDEO_DEVICE(i32);
+#[repr(C)]
 pub struct RTC_WATCHER_EVENT_TYPE(i32);
+#[repr(C)]
 pub struct RTC_WATCHER_MATCH_MODE(i32);
+#[repr(C)]
 pub struct RTC_WATCHER_STATE(i32);
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct TRANSPORT_SETTING(i32);

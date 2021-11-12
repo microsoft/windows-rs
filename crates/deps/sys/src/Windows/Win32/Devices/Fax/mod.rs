@@ -132,38 +132,60 @@ pub const DEVPKEY_WIA_USDClassId: super::super::UI::Shell::PropertiesSystem::PRO
 };
 pub const FAXDEVRECEIVE_SIZE: u32 = 4096u32;
 pub const FAXDEVREPORTSTATUS_SIZE: u32 = 4096u32;
+#[repr(C)]
 pub struct FAXROUTE_ENABLE(i32);
+#[repr(C)]
 pub struct FAX_ACCESS_RIGHTS_ENUM(i32);
+#[repr(C)]
 pub struct FAX_ACCESS_RIGHTS_ENUM_2(i32);
+#[repr(C)]
 pub struct FAX_ACCOUNT_EVENTS_TYPE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_CONFIGURATIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_CONFIGURATIONW(i32);
 pub const FAX_CONFIG_QUERY: u32 = 4u32;
 pub const FAX_CONFIG_SET: u32 = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct FAX_CONTEXT_INFOA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct FAX_CONTEXT_INFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_COVERPAGE_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_COVERPAGE_INFOW(i32);
+#[repr(C)]
 pub struct FAX_COVERPAGE_TYPE_ENUM(i32);
+#[repr(C)]
 pub struct FAX_DEVICE_RECEIVE_MODE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_DEVICE_STATUSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_DEVICE_STATUSW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_DEV_STATUS(i32);
+#[repr(C)]
 pub struct FAX_ENUM_DELIVERY_REPORT_TYPES(i32);
+#[repr(C)]
 pub struct FAX_ENUM_DEVICE_ID_SOURCE(i32);
+#[repr(C)]
 pub struct FAX_ENUM_JOB_COMMANDS(i32);
+#[repr(C)]
 pub struct FAX_ENUM_JOB_SEND_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct FAX_ENUM_LOG_CATEGORIES(i32);
+#[repr(C)]
 pub struct FAX_ENUM_LOG_LEVELS(i32);
+#[repr(C)]
 pub struct FAX_ENUM_PORT_OPEN_TYPE(i32);
 pub const FAX_ERR_BAD_GROUP_CONFIGURATION: i32 = 7003i32;
 pub const FAX_ERR_DEVICE_NUM_LIMIT_EXCEEDED: i32 = 7010i32;
@@ -181,8 +203,10 @@ pub const FAX_ERR_SRV_OUTOFMEMORY: i32 = 7001i32;
 pub const FAX_ERR_START: i32 = 7001i32;
 pub const FAX_ERR_VERSION_MISMATCH: i32 = 7012i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_EVENTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_EVENTW(i32);
 pub const FAX_E_BAD_GROUP_CONFIGURATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214501i32 as _);
 pub const FAX_E_DEVICE_NUM_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214494i32 as _);
@@ -198,61 +222,95 @@ pub const FAX_E_RULE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const FAX_E_SRV_OUTOFMEMORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214503i32 as _);
 pub const FAX_E_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214492i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_GLOBAL_ROUTING_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_GLOBAL_ROUTING_INFOW(i32);
+#[repr(C)]
 pub struct FAX_GROUP_STATUS_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_JOB_ENTRYA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_JOB_ENTRYW(i32);
+#[repr(C)]
 pub struct FAX_JOB_EXTENDED_STATUS_ENUM(i32);
 pub const FAX_JOB_MANAGE: u32 = 64u32;
+#[repr(C)]
 pub struct FAX_JOB_OPERATIONS_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_JOB_PARAMA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_JOB_PARAMW(i32);
 pub const FAX_JOB_QUERY: u32 = 2u32;
+#[repr(C)]
 pub struct FAX_JOB_STATUS_ENUM(i32);
 pub const FAX_JOB_SUBMIT: u32 = 1u32;
+#[repr(C)]
 pub struct FAX_JOB_TYPE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_LOG_CATEGORYA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_LOG_CATEGORYW(i32);
+#[repr(C)]
 pub struct FAX_LOG_LEVEL_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_PORT_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_PORT_INFOW(i32);
 pub const FAX_PORT_QUERY: u32 = 16u32;
 pub const FAX_PORT_SET: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_PRINT_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_PRINT_INFOW(i32);
+#[repr(C)]
 pub struct FAX_PRIORITY_TYPE_ENUM(i32);
+#[repr(C)]
 pub struct FAX_PROVIDER_STATUS_ENUM(i32);
+#[repr(C)]
 pub struct FAX_RECEIPT_TYPE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_RECEIVE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_ROUTE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_ROUTE_CALLBACKROUTINES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_ROUTING_METHODA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_ROUTING_METHODW(i32);
+#[repr(C)]
 pub struct FAX_ROUTING_RULE_CODE_ENUM(i32);
+#[repr(C)]
 pub struct FAX_RULE_STATUS_ENUM(i32);
+#[repr(C)]
 pub struct FAX_SCHEDULE_TYPE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FAX_SEND(i32);
+#[repr(C)]
 pub struct FAX_SERVER_APIVERSION_ENUM(i32);
+#[repr(C)]
 pub struct FAX_SERVER_EVENTS_TYPE_ENUM(i32);
+#[repr(C)]
 pub struct FAX_SMTP_AUTHENTICATION_TYPE_ENUM(i32);
+#[repr(C)]
 pub struct FAX_TIME(i32);
 pub const FEI_ABORTING: u32 = 15u32;
 pub const FEI_ANSWERED: u32 = 21u32;
@@ -325,55 +383,105 @@ pub const FS_NO_DIAL_TONE: u32 = 536871424u32;
 pub const FS_RECEIVING: u32 = 536870916u32;
 pub const FS_TRANSMITTING: u32 = 536870914u32;
 pub const FS_USER_ABORT: u32 = 538968064u32;
+#[repr(C)]
 pub struct FaxAccount(i32);
+#[repr(C)]
 pub struct FaxAccountFolders(i32);
+#[repr(C)]
 pub struct FaxAccountIncomingArchive(i32);
+#[repr(C)]
 pub struct FaxAccountIncomingQueue(i32);
+#[repr(C)]
 pub struct FaxAccountOutgoingArchive(i32);
+#[repr(C)]
 pub struct FaxAccountOutgoingQueue(i32);
+#[repr(C)]
 pub struct FaxAccountSet(i32);
+#[repr(C)]
 pub struct FaxAccounts(i32);
+#[repr(C)]
 pub struct FaxActivity(i32);
+#[repr(C)]
 pub struct FaxActivityLogging(i32);
+#[repr(C)]
 pub struct FaxConfiguration(i32);
+#[repr(C)]
 pub struct FaxDevice(i32);
+#[repr(C)]
 pub struct FaxDeviceIds(i32);
+#[repr(C)]
 pub struct FaxDeviceProvider(i32);
+#[repr(C)]
 pub struct FaxDeviceProviders(i32);
+#[repr(C)]
 pub struct FaxDevices(i32);
+#[repr(C)]
 pub struct FaxDocument(i32);
+#[repr(C)]
 pub struct FaxEventLogging(i32);
+#[repr(C)]
 pub struct FaxFolders(i32);
+#[repr(C)]
 pub struct FaxInboundRouting(i32);
+#[repr(C)]
 pub struct FaxInboundRoutingExtension(i32);
+#[repr(C)]
 pub struct FaxInboundRoutingExtensions(i32);
+#[repr(C)]
 pub struct FaxInboundRoutingMethod(i32);
+#[repr(C)]
 pub struct FaxInboundRoutingMethods(i32);
+#[repr(C)]
 pub struct FaxIncomingArchive(i32);
+#[repr(C)]
 pub struct FaxIncomingJob(i32);
+#[repr(C)]
 pub struct FaxIncomingJobs(i32);
+#[repr(C)]
 pub struct FaxIncomingMessage(i32);
+#[repr(C)]
 pub struct FaxIncomingMessageIterator(i32);
+#[repr(C)]
 pub struct FaxIncomingQueue(i32);
+#[repr(C)]
 pub struct FaxJobStatus(i32);
+#[repr(C)]
 pub struct FaxLoggingOptions(i32);
+#[repr(C)]
 pub struct FaxOutboundRouting(i32);
+#[repr(C)]
 pub struct FaxOutboundRoutingGroup(i32);
+#[repr(C)]
 pub struct FaxOutboundRoutingGroups(i32);
+#[repr(C)]
 pub struct FaxOutboundRoutingRule(i32);
+#[repr(C)]
 pub struct FaxOutboundRoutingRules(i32);
+#[repr(C)]
 pub struct FaxOutgoingArchive(i32);
+#[repr(C)]
 pub struct FaxOutgoingJob(i32);
+#[repr(C)]
 pub struct FaxOutgoingJobs(i32);
+#[repr(C)]
 pub struct FaxOutgoingMessage(i32);
+#[repr(C)]
 pub struct FaxOutgoingMessageIterator(i32);
+#[repr(C)]
 pub struct FaxOutgoingQueue(i32);
+#[repr(C)]
 pub struct FaxReceiptOptions(i32);
+#[repr(C)]
 pub struct FaxRecipient(i32);
+#[repr(C)]
 pub struct FaxRecipients(i32);
+#[repr(C)]
 pub struct FaxSecurity(i32);
+#[repr(C)]
 pub struct FaxSecurity2(i32);
+#[repr(C)]
 pub struct FaxSender(i32);
+#[repr(C)]
 pub struct FaxServer(i32);
 pub const GUID_DeviceArrivedLaunch: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1947049702, data2: 28913, data3: 4561, data4: [173, 16, 0, 160, 36, 56, 173, 72] };
 pub const GUID_STIUserDefined1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3222189973, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
@@ -503,6 +611,7 @@ pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
 pub struct IStiDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IStiDeviceControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IStiDeviceW(i32);
 #[repr(transparent)]
 pub struct IStiUSD(pub *mut ::core::ffi::c_void);
@@ -522,96 +631,187 @@ pub const JT_ROUTING: u32 = 3u32;
 pub const JT_SEND: u32 = 1u32;
 pub const JT_UNKNOWN: u32 = 0u32;
 pub const MAX_NOTIFICATION_DATA: u32 = 64u32;
+#[repr(C)]
 pub struct PFAXABORT(i32);
+#[repr(C)]
 pub struct PFAXACCESSCHECK(i32);
+#[repr(C)]
 pub struct PFAXCLOSE(i32);
+#[repr(C)]
 pub struct PFAXCOMPLETEJOBPARAMSA(i32);
+#[repr(C)]
 pub struct PFAXCOMPLETEJOBPARAMSW(i32);
+#[repr(C)]
 pub struct PFAXCONNECTFAXSERVERA(i32);
+#[repr(C)]
 pub struct PFAXCONNECTFAXSERVERW(i32);
+#[repr(C)]
 pub struct PFAXDEVABORTOPERATION(i32);
+#[repr(C)]
 pub struct PFAXDEVCONFIGURE(i32);
+#[repr(C)]
 pub struct PFAXDEVENDJOB(i32);
+#[repr(C)]
 pub struct PFAXDEVINITIALIZE(i32);
+#[repr(C)]
 pub struct PFAXDEVRECEIVE(i32);
+#[repr(C)]
 pub struct PFAXDEVREPORTSTATUS(i32);
+#[repr(C)]
 pub struct PFAXDEVSEND(i32);
+#[repr(C)]
 pub struct PFAXDEVSHUTDOWN(i32);
+#[repr(C)]
 pub struct PFAXDEVSTARTJOB(i32);
+#[repr(C)]
 pub struct PFAXDEVVIRTUALDEVICECREATION(i32);
+#[repr(C)]
 pub struct PFAXENABLEROUTINGMETHODA(i32);
+#[repr(C)]
 pub struct PFAXENABLEROUTINGMETHODW(i32);
+#[repr(C)]
 pub struct PFAXENUMGLOBALROUTINGINFOA(i32);
+#[repr(C)]
 pub struct PFAXENUMGLOBALROUTINGINFOW(i32);
+#[repr(C)]
 pub struct PFAXENUMJOBSA(i32);
+#[repr(C)]
 pub struct PFAXENUMJOBSW(i32);
+#[repr(C)]
 pub struct PFAXENUMPORTSA(i32);
+#[repr(C)]
 pub struct PFAXENUMPORTSW(i32);
+#[repr(C)]
 pub struct PFAXENUMROUTINGMETHODSA(i32);
+#[repr(C)]
 pub struct PFAXENUMROUTINGMETHODSW(i32);
+#[repr(C)]
 pub struct PFAXFREEBUFFER(i32);
+#[repr(C)]
 pub struct PFAXGETCONFIGURATIONA(i32);
+#[repr(C)]
 pub struct PFAXGETCONFIGURATIONW(i32);
+#[repr(C)]
 pub struct PFAXGETDEVICESTATUSA(i32);
+#[repr(C)]
 pub struct PFAXGETDEVICESTATUSW(i32);
+#[repr(C)]
 pub struct PFAXGETJOBA(i32);
+#[repr(C)]
 pub struct PFAXGETJOBW(i32);
+#[repr(C)]
 pub struct PFAXGETLOGGINGCATEGORIESA(i32);
+#[repr(C)]
 pub struct PFAXGETLOGGINGCATEGORIESW(i32);
+#[repr(C)]
 pub struct PFAXGETPAGEDATA(i32);
+#[repr(C)]
 pub struct PFAXGETPORTA(i32);
+#[repr(C)]
 pub struct PFAXGETPORTW(i32);
+#[repr(C)]
 pub struct PFAXGETROUTINGINFOA(i32);
+#[repr(C)]
 pub struct PFAXGETROUTINGINFOW(i32);
+#[repr(C)]
 pub struct PFAXINITIALIZEEVENTQUEUE(i32);
+#[repr(C)]
 pub struct PFAXOPENPORT(i32);
+#[repr(C)]
 pub struct PFAXPRINTCOVERPAGEA(i32);
+#[repr(C)]
 pub struct PFAXPRINTCOVERPAGEW(i32);
+#[repr(C)]
 pub struct PFAXREGISTERROUTINGEXTENSIONW(i32);
+#[repr(C)]
 pub struct PFAXREGISTERSERVICEPROVIDERW(i32);
+#[repr(C)]
 pub struct PFAXROUTEADDFILE(i32);
+#[repr(C)]
 pub struct PFAXROUTEDELETEFILE(i32);
+#[repr(C)]
 pub struct PFAXROUTEDEVICECHANGENOTIFICATION(i32);
+#[repr(C)]
 pub struct PFAXROUTEDEVICEENABLE(i32);
+#[repr(C)]
 pub struct PFAXROUTEENUMFILE(i32);
+#[repr(C)]
 pub struct PFAXROUTEENUMFILES(i32);
+#[repr(C)]
 pub struct PFAXROUTEGETFILE(i32);
+#[repr(C)]
 pub struct PFAXROUTEGETROUTINGINFO(i32);
+#[repr(C)]
 pub struct PFAXROUTEINITIALIZE(i32);
+#[repr(C)]
 pub struct PFAXROUTEMETHOD(i32);
+#[repr(C)]
 pub struct PFAXROUTEMODIFYROUTINGDATA(i32);
+#[repr(C)]
 pub struct PFAXROUTESETROUTINGINFO(i32);
+#[repr(C)]
 pub struct PFAXSENDDOCUMENTA(i32);
+#[repr(C)]
 pub struct PFAXSENDDOCUMENTFORBROADCASTA(i32);
+#[repr(C)]
 pub struct PFAXSENDDOCUMENTFORBROADCASTW(i32);
+#[repr(C)]
 pub struct PFAXSENDDOCUMENTW(i32);
+#[repr(C)]
 pub struct PFAXSETCONFIGURATIONA(i32);
+#[repr(C)]
 pub struct PFAXSETCONFIGURATIONW(i32);
+#[repr(C)]
 pub struct PFAXSETGLOBALROUTINGINFOA(i32);
+#[repr(C)]
 pub struct PFAXSETGLOBALROUTINGINFOW(i32);
+#[repr(C)]
 pub struct PFAXSETJOBA(i32);
+#[repr(C)]
 pub struct PFAXSETJOBW(i32);
+#[repr(C)]
 pub struct PFAXSETLOGGINGCATEGORIESA(i32);
+#[repr(C)]
 pub struct PFAXSETLOGGINGCATEGORIESW(i32);
+#[repr(C)]
 pub struct PFAXSETPORTA(i32);
+#[repr(C)]
 pub struct PFAXSETPORTW(i32);
+#[repr(C)]
 pub struct PFAXSETROUTINGINFOA(i32);
+#[repr(C)]
 pub struct PFAXSETROUTINGINFOW(i32);
+#[repr(C)]
 pub struct PFAXSTARTPRINTJOBA(i32);
+#[repr(C)]
 pub struct PFAXSTARTPRINTJOBW(i32);
+#[repr(C)]
 pub struct PFAXUNREGISTERSERVICEPROVIDERW(i32);
+#[repr(C)]
 pub struct PFAX_EXT_CONFIG_CHANGE(i32);
+#[repr(C)]
 pub struct PFAX_EXT_FREE_BUFFER(i32);
+#[repr(C)]
 pub struct PFAX_EXT_GET_DATA(i32);
+#[repr(C)]
 pub struct PFAX_EXT_INITIALIZE_CONFIG(i32);
+#[repr(C)]
 pub struct PFAX_EXT_REGISTER_FOR_EVENTS(i32);
+#[repr(C)]
 pub struct PFAX_EXT_SET_DATA(i32);
+#[repr(C)]
 pub struct PFAX_EXT_UNREGISTER_FOR_EVENTS(i32);
+#[repr(C)]
 pub struct PFAX_LINECALLBACK(i32);
+#[repr(C)]
 pub struct PFAX_RECIPIENT_CALLBACKA(i32);
+#[repr(C)]
 pub struct PFAX_RECIPIENT_CALLBACKW(i32);
+#[repr(C)]
 pub struct PFAX_ROUTING_INSTALLATION_CALLBACKW(i32);
+#[repr(C)]
 pub struct PFAX_SEND_CALLBACK(i32);
+#[repr(C)]
 pub struct PFAX_SERVICE_CALLBACK(i32);
 pub const STIEDFL_ALLDEVICES: u32 = 0u32;
 pub const STIEDFL_ATTACHEDONLY: u32 = 1u32;
@@ -637,8 +837,10 @@ pub const STIERR_OUTOFMEMORY: i32 = -2147024882i32;
 pub const STIERR_READONLY: i32 = -2147024891i32;
 pub const STIERR_SHARING_VIOLATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024864i32 as _);
 pub const STIERR_UNSUPPORTED: i32 = -2147467263i32;
+#[repr(C)]
 pub struct STINOTIFY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STISUBSCRIBE(i32);
 pub const STI_CHANGENOEFFECT: i32 = 1i32;
 pub const STI_DEVICE_CREATE_BOTH: u32 = 3u32;
@@ -647,12 +849,17 @@ pub const STI_DEVICE_CREATE_FOR_MONITOR: u32 = 16777216u32;
 pub const STI_DEVICE_CREATE_MASK: u32 = 65535u32;
 pub const STI_DEVICE_CREATE_STATUS: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STI_DEVICE_INFORMATIONW(i32);
+#[repr(C)]
 pub struct STI_DEVICE_MJ_TYPE(i32);
+#[repr(C)]
 pub struct STI_DEVICE_STATUS(i32);
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2u32;
 pub const STI_DEVSTATUS_ONLINE_STATE: u32 = 1u32;
+#[repr(C)]
 pub struct STI_DEV_CAPS(i32);
+#[repr(C)]
 pub struct STI_DIAG(i32);
 pub const STI_DIAGCODE_HWPRESENCE: u32 = 1u32;
 pub const STI_ERROR_NO_ERROR: i32 = 0i32;
@@ -694,6 +901,7 @@ pub const STI_TRACE_ERROR: u32 = 4u32;
 pub const STI_TRACE_INFORMATION: u32 = 1u32;
 pub const STI_TRACE_WARNING: u32 = 2u32;
 pub const STI_UNICODE: u32 = 1u32;
+#[repr(C)]
 pub struct STI_USD_CAPS(i32);
 pub const STI_USD_GENCAP_NATIVE_PUSHSUPPORT: u32 = 1u32;
 pub const STI_VERSION: u32 = 2u32;
@@ -702,10 +910,13 @@ pub const STI_VERSION_FLAG_UNICODE: u32 = 16777216u32;
 pub const STI_VERSION_MIN_ALLOWED: u32 = 2u32;
 pub const STI_VERSION_REAL: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STI_WIA_DEVICE_INFORMATIONW(i32);
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
+#[repr(C)]
 pub struct SendToMode(i32);
 pub const WIA_INCOMPAT_XP: u32 = 1u32;
+#[repr(C)]
 pub struct _ERROR_INFOW(i32);
 #[repr(transparent)]
 pub struct _IFaxAccountNotify(pub *mut ::core::ffi::c_void);

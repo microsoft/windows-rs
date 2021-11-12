@@ -11,10 +11,15 @@ pub struct CallAnswerEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CallRejectEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CallStateChangeEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CallsPhoneContract(i32);
+#[repr(C)]
 pub struct CallsVoipContract(i32);
+#[repr(C)]
 pub struct CellularDtmfMode(i32);
+#[repr(C)]
 pub struct DtmfKey(i32);
+#[repr(C)]
 pub struct DtmfToneAudioPlayback(i32);
 #[repr(transparent)]
 pub struct ICallAnswerEventArgs(pub *mut ::core::ffi::c_void);
@@ -112,6 +117,7 @@ pub struct IVoipPhoneCall(pub *mut ::core::ffi::c_void);
 pub struct IVoipPhoneCall2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVoipPhoneCall3(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LockScreenCallContract(i32);
 #[repr(transparent)]
 pub struct LockScreenCallEndCallDeferral(pub *mut ::core::ffi::c_void);
@@ -121,22 +127,29 @@ pub struct LockScreenCallEndRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct LockScreenCallUI(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MuteChangeEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneAudioRoutingEndpoint(i32);
 #[repr(transparent)]
 pub struct PhoneCall(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneCallAudioDevice(i32);
 #[repr(transparent)]
 pub struct PhoneCallBlocking(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneCallDirection(i32);
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntry(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryAddress(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneCallHistoryEntryMedia(i32);
+#[repr(C)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(i32);
+#[repr(C)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(i32);
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneCallHistoryEntryRawAddressKind(i32);
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryReader(pub *mut ::core::ffi::c_void);
@@ -144,16 +157,21 @@ pub struct PhoneCallHistoryEntryReader(pub *mut ::core::ffi::c_void);
 pub struct PhoneCallHistoryManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneCallHistoryManagerForUser(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneCallHistorySourceIdKind(i32);
 #[repr(transparent)]
 pub struct PhoneCallHistoryStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneCallHistoryStoreAccessType(i32);
 #[repr(transparent)]
 pub struct PhoneCallInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneCallManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneCallMedia(i32);
+#[repr(C)]
 pub struct PhoneCallOperationStatus(i32);
+#[repr(C)]
 pub struct PhoneCallStatus(i32);
 #[repr(transparent)]
 pub struct PhoneCallStore(pub *mut ::core::ffi::c_void);
@@ -173,8 +191,11 @@ pub struct PhoneLineCellularDetails(pub *mut ::core::ffi::c_void);
 pub struct PhoneLineConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneLineDialResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(i32);
+#[repr(C)]
 pub struct PhoneLineOperationStatus(i32);
+#[repr(C)]
 pub struct PhoneLineTransport(i32);
 #[repr(transparent)]
 pub struct PhoneLineTransportDevice(pub *mut ::core::ffi::c_void);
@@ -182,18 +203,27 @@ pub struct PhoneLineTransportDevice(pub *mut ::core::ffi::c_void);
 pub struct PhoneLineWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneLineWatcherEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneLineWatcherStatus(i32);
+#[repr(C)]
 pub struct PhoneNetworkState(i32);
+#[repr(C)]
 pub struct PhoneSimState(i32);
 #[repr(transparent)]
 pub struct PhoneVoicemail(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneVoicemailType(i32);
+#[repr(C)]
 pub struct TransportDeviceAudioRoutingStatus(i32);
 #[repr(transparent)]
 pub struct VoipCallCoordinator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VoipPhoneCall(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VoipPhoneCallMedia(i32);
+#[repr(C)]
 pub struct VoipPhoneCallRejectReason(i32);
+#[repr(C)]
 pub struct VoipPhoneCallResourceReservationStatus(i32);
+#[repr(C)]
 pub struct VoipPhoneCallState(i32);

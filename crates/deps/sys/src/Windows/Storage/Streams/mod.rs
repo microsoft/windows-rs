@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct Buffer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ByteOrder(i32);
 #[repr(transparent)]
 pub struct DataReader(pub *mut ::core::ffi::c_void);
@@ -14,6 +15,7 @@ pub struct DataWriter(pub *mut ::core::ffi::c_void);
 pub struct DataWriterStoreOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FileInputStream(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FileOpenDisposition(i32);
 #[repr(transparent)]
 pub struct FileOutputStream(pub *mut ::core::ffi::c_void);
@@ -59,6 +61,7 @@ pub struct IRandomAccessStreamStatics(pub *mut ::core::ffi::c_void);
 pub struct IRandomAccessStreamWithContentType(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InMemoryRandomAccessStream(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InputStreamOptions(i32);
 #[repr(transparent)]
 pub struct InputStreamOverStream(pub *mut ::core::ffi::c_void);
@@ -70,4 +73,5 @@ pub struct RandomAccessStream(pub *mut ::core::ffi::c_void);
 pub struct RandomAccessStreamOverStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RandomAccessStreamReference(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UnicodeEncoding(i32);

@@ -1,9 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct CONFLICT_RESOLUTION_POLICY(i32);
+#[repr(C)]
 pub struct CONSTRAINT_CONFLICT_REASON(i32);
+#[repr(C)]
 pub struct FILTERING_TYPE(i32);
+#[repr(C)]
 pub struct FILTER_COMBINATION_TYPE(i32);
 #[repr(transparent)]
 pub struct IAsynchronousDataRetriever(pub *mut ::core::ffi::c_void);
@@ -30,8 +34,10 @@ pub struct ICoreFragmentInspector(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ICustomFilterInfo(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ID_PARAMETERS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ID_PARAMETER_PAIR(i32);
 #[repr(transparent)]
 pub struct IDataRetrieverCallback(pub *mut ::core::ffi::c_void);
@@ -167,6 +173,7 @@ pub struct ISyncSessionState(pub *mut ::core::ffi::c_void);
 pub struct ISyncSessionState2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISynchronousDataRetriever(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -391,28 +398,44 @@ pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PRO
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
 pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
+#[repr(C)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SYNC_FILTER_CHANGE(i32);
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
+#[repr(C)]
 pub struct SYNC_FULL_ENUMERATION_ACTION(i32);
+#[repr(C)]
 pub struct SYNC_PROGRESS_STAGE(i32);
+#[repr(C)]
 pub struct SYNC_PROVIDER_ROLE(i32);
+#[repr(C)]
 pub struct SYNC_RANGE(i32);
+#[repr(C)]
 pub struct SYNC_REGISTRATION_EVENT(i32);
+#[repr(C)]
 pub struct SYNC_RESOLVE_ACTION(i32);
+#[repr(C)]
 pub struct SYNC_SERIALIZATION_VERSION(i32);
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
+#[repr(C)]
 pub struct SYNC_SESSION_STATISTICS(i32);
+#[repr(C)]
 pub struct SYNC_STATISTICS(i32);
+#[repr(C)]
 pub struct SYNC_TIME(i32);
+#[repr(C)]
 pub struct SYNC_VERSION(i32);
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SyncProviderConfigUIConfiguration(i32);
+#[repr(C)]
 pub struct SyncProviderConfiguration(i32);
+#[repr(C)]
 pub struct SyncProviderRegistration(i32);

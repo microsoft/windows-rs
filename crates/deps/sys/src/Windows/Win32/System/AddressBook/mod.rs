@@ -98,28 +98,49 @@ extern "system" {
     pub fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows_sys::core::HRESULT;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct ADRENTRY(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct ADRLIST(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct ADRPARM(i32);
+#[repr(C)]
 pub struct CALLERRELEASE(i32);
+#[repr(C)]
 pub struct DTBLBUTTON(i32);
+#[repr(C)]
 pub struct DTBLCHECKBOX(i32);
+#[repr(C)]
 pub struct DTBLCOMBOBOX(i32);
+#[repr(C)]
 pub struct DTBLDDLBX(i32);
+#[repr(C)]
 pub struct DTBLEDIT(i32);
+#[repr(C)]
 pub struct DTBLGROUPBOX(i32);
+#[repr(C)]
 pub struct DTBLLABEL(i32);
+#[repr(C)]
 pub struct DTBLLBX(i32);
+#[repr(C)]
 pub struct DTBLMVDDLBX(i32);
+#[repr(C)]
 pub struct DTBLMVLISTBOX(i32);
+#[repr(C)]
 pub struct DTBLPAGE(i32);
+#[repr(C)]
 pub struct DTBLRADIOBUTTON(i32);
+#[repr(C)]
 pub struct DTCTL(i32);
+#[repr(C)]
 pub struct DTPAGE(i32);
+#[repr(C)]
 pub struct ENTRYID(i32);
+#[repr(C)]
 pub struct ERROR_NOTIFICATION(i32);
+#[repr(C)]
 pub struct EXTENDED_NOTIFICATION(i32);
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600697i32 as _);
 pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599672i32 as _);
@@ -206,10 +227,15 @@ pub const E_IMAPI_RECORDER_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sy
 pub const E_IMAPI_REQUEST_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600702i32 as _);
 pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599935i32 as _);
 pub const FACILITY_IMAPI2: u32 = 170u32;
+#[repr(C)]
 pub struct FLATENTRY(i32);
+#[repr(C)]
 pub struct FLATENTRYLIST(i32);
+#[repr(C)]
 pub struct FLATMTSIDLIST(i32);
+#[repr(C)]
 pub struct FNIDLE(i32);
+#[repr(C)]
 pub struct Gender(i32);
 #[repr(transparent)]
 pub struct IABContainer(pub *mut ::core::ffi::c_void);
@@ -315,42 +341,76 @@ pub struct ITableData(pub *mut ::core::ffi::c_void);
 pub struct IWABExtInit(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWABOBJECT_(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IWABOBJECT_AddRef_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_AllocateBuffer_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_AllocateMore_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_Backup_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_Find_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_FreeBuffer_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_GetLastError_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_GetMe_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_Import_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_LDAPUrl_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_QueryInterface_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_Release_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_SetMe_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_VCardCreate_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_VCardDisplay_METHOD(i32);
+#[repr(C)]
 pub struct IWABOBJECT_VCardRetrieve_METHOD(i32);
 #[repr(transparent)]
 pub struct IWABObject(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LPALLOCATEBUFFER(i32);
+#[repr(C)]
 pub struct LPALLOCATEMORE(i32);
+#[repr(C)]
 pub struct LPCREATECONVERSATIONINDEX(i32);
+#[repr(C)]
 pub struct LPDISPATCHNOTIFICATIONS(i32);
+#[repr(C)]
 pub struct LPFNABSDI(i32);
+#[repr(C)]
 pub struct LPFNBUTTON(i32);
+#[repr(C)]
 pub struct LPFNDISMISS(i32);
+#[repr(C)]
 pub struct LPFREEBUFFER(i32);
+#[repr(C)]
 pub struct LPNOTIFCALLBACK(i32);
+#[repr(C)]
 pub struct LPOPENSTREAMONFILE(i32);
+#[repr(C)]
 pub struct LPWABALLOCATEBUFFER(i32);
+#[repr(C)]
 pub struct LPWABALLOCATEMORE(i32);
+#[repr(C)]
 pub struct LPWABFREEBUFFER(i32);
+#[repr(C)]
 pub struct LPWABOPEN(i32);
+#[repr(C)]
 pub struct LPWABOPENEX(i32);
+#[repr(C)]
 pub struct MAPIERROR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MAPINAMEID(i32);
+#[repr(C)]
 pub struct MAPIUID(i32);
 pub const MAPI_COMPOUND: u32 = 128u32;
 pub const MAPI_DIM: u32 = 1u32;
@@ -371,14 +431,20 @@ pub const MAPI_THISSESSION: u32 = 32u32;
 pub const MAPI_USE_DEFAULT: u32 = 64u32;
 pub const MNID_ID: u32 = 0u32;
 pub const MNID_STRING: u32 = 1u32;
+#[repr(C)]
 pub struct MTSID(i32);
 pub const MV_FLAG: u32 = 4096u32;
 pub const MV_INSTANCE: u32 = 8192u32;
+#[repr(C)]
 pub struct NEWMAIL_NOTIFICATION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct NOTIFICATION(i32);
+#[repr(C)]
 pub struct NOTIFKEY(i32);
+#[repr(C)]
 pub struct OBJECT_NOTIFICATION(i32);
+#[repr(C)]
 pub struct PFNIDLE(i32);
 pub const PRIHIGHEST: u32 = 32767u32;
 pub const PRILOWEST: i32 = -32768i32;
@@ -388,56 +454,90 @@ pub const PROP_ID_NULL: u32 = 0u32;
 pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
 pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SAndRestriction(i32);
+#[repr(C)]
 pub struct SAppTimeArray(i32);
+#[repr(C)]
 pub struct SBinary(i32);
+#[repr(C)]
 pub struct SBinaryArray(i32);
+#[repr(C)]
 pub struct SBitMaskRestriction(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SCommentRestriction(i32);
+#[repr(C)]
 pub struct SComparePropsRestriction(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SContentRestriction(i32);
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct SCurrencyArray(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SDateTimeArray(i32);
+#[repr(C)]
 pub struct SDoubleArray(i32);
 pub const SERVICE_UI_ALLOWED: u32 = 16u32;
 pub const SERVICE_UI_ALWAYS: u32 = 2u32;
+#[repr(C)]
 pub struct SExistRestriction(i32);
+#[repr(C)]
 pub struct SGuidArray(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SLPSTRArray(i32);
+#[repr(C)]
 pub struct SLargeIntegerArray(i32);
+#[repr(C)]
 pub struct SLongArray(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SNotRestriction(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SOrRestriction(i32);
+#[repr(C)]
 pub struct SPropProblem(i32);
+#[repr(C)]
 pub struct SPropProblemArray(i32);
+#[repr(C)]
 pub struct SPropTagArray(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SPropValue(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SPropertyRestriction(i32);
+#[repr(C)]
 pub struct SRealArray(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SRestriction(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SRow(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SRowSet(i32);
+#[repr(C)]
 pub struct SShortArray(i32);
+#[repr(C)]
 pub struct SSizeRestriction(i32);
+#[repr(C)]
 pub struct SSortOrder(i32);
+#[repr(C)]
 pub struct SSortOrderSet(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct SSubRestriction(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct STATUS_OBJECT_NOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SWStringArray(i32);
 pub const S_IMAPI_BOTHADJUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141126i32 as _);
 pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141632i32 as _);
@@ -448,6 +548,7 @@ pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::window
 pub const TABLE_CHANGED: u32 = 1u32;
 pub const TABLE_ERROR: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct TABLE_NOTIFICATION(i32);
 pub const TABLE_RELOAD: u32 = 9u32;
 pub const TABLE_RESTRICT_DONE: u32 = 7u32;
@@ -460,8 +561,10 @@ pub const TAD_ALL_ROWS: u32 = 1u32;
 pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4u32;
 pub const UI_SERVICE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WABEXTDISPLAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WABIMPORTPARAM(i32);
 pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
 pub const WABOBJECT_ME_NEW: u32 = 1u32;
@@ -473,12 +576,16 @@ pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
 pub const WAB_IGNORE_PROFILES: u32 = 8388608u32;
 pub const WAB_LOCAL_CONTAINERS: u32 = 1048576u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WAB_PARAM(i32);
 pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
 pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
 pub const WAB_VCARD_FILE: u32 = 0u32;
 pub const WAB_VCARD_STREAM: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct _PV(i32);
+#[repr(C)]
 pub struct _WABACTIONITEM(i32);
+#[repr(C)]
 pub struct _flaglist(i32);

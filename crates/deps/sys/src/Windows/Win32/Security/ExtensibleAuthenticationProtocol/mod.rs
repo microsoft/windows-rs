@@ -67,31 +67,45 @@ pub const EAPCODE_Failure: u32 = 4u32;
 pub const EAPCODE_Request: u32 = 1u32;
 pub const EAPCODE_Response: u32 = 2u32;
 pub const EAPCODE_Success: u32 = 3u32;
+#[repr(C)]
 pub struct EAPHOST_AUTH_INFO(i32);
+#[repr(C)]
 pub struct EAPHOST_AUTH_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS(i32);
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
 pub const EAPHOST_PEER_API_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct EAP_ATTRIBUTE(i32);
+#[repr(C)]
 pub struct EAP_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct EAP_ATTRIBUTE_TYPE(i32);
+#[repr(C)]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES(i32);
+#[repr(C)]
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA(i32);
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
+#[repr(C)]
 pub struct EAP_CONFIG_INPUT_FIELD_TYPE(i32);
 pub const EAP_CREDENTIAL_VERSION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_CRED_EXPIRY_REQ(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_ERROR(i32);
 pub const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045u32;
 pub const EAP_E_CERT_STORE_INACCESSIBLE: u32 = 2151809040u32;
@@ -161,7 +175,9 @@ pub const EAP_FLAG_USER_AUTH: u32 = 262144u32;
 pub const EAP_FLAG_VPN: u32 = 8388608u32;
 pub const EAP_GROUP_MASK: i32 = 65280i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_INTERACTIVE_UI_DATA(i32);
+#[repr(C)]
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(i32);
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1u32;
 pub const EAP_INVALID_PACKET: u32 = 2151809048u32;
@@ -172,64 +188,98 @@ pub const EAP_I_USER_ACCOUNT_OTHER_ERROR: u32 = 1078067472u32;
 pub const EAP_I_USER_FIRST: i32 = 1078067456i32;
 pub const EAP_I_USER_LAST: i32 = 1078067711i32;
 pub const EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY: u32 = 1u32;
+#[repr(C)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_INFO_ARRAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_INFO_ARRAY_EX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_INFO_EX(i32);
 pub const EAP_METHOD_INVALID_PACKET: u32 = 2151809047u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY_ARRAY(i32);
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY_VALUE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL(i32);
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD(i32);
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING(i32);
+#[repr(C)]
 pub struct EAP_METHOD_PROPERTY_VALUE_TYPE(i32);
+#[repr(C)]
 pub struct EAP_METHOD_TYPE(i32);
 pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64u32;
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768u32;
+#[repr(C)]
 pub struct EAP_PEER_METHOD_ROUTINES(i32);
+#[repr(C)]
 pub struct EAP_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EAP_UI_DATA_FORMAT(i32);
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
 pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapCertificateCredential(i32);
+#[repr(C)]
 pub struct EapCode(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapCredential(i32);
+#[repr(C)]
 pub struct EapCredentialType(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapCredentialTypeData(i32);
+#[repr(C)]
 pub struct EapHostPeerAuthParams(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapHostPeerMethodResult(i32);
+#[repr(C)]
 pub struct EapHostPeerMethodResultReason(i32);
+#[repr(C)]
 pub struct EapHostPeerResponseAction(i32);
+#[repr(C)]
 pub struct EapPacket(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapPeerMethodOutput(i32);
+#[repr(C)]
 pub struct EapPeerMethodResponseAction(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapPeerMethodResult(i32);
+#[repr(C)]
 pub struct EapPeerMethodResultReason(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapSimCredential(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EapUsernamePasswordCredential(i32);
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
 pub const GUID_EapHost_Cause_CertStoreInaccessible: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2517826663, data2: 24912, data3: 16905, data4: [168, 94, 168, 216, 0, 0, 0, 4] };
@@ -303,25 +353,37 @@ pub struct IEAPProviderConfig2(pub *mut ::core::ffi::c_void);
 pub struct IEAPProviderConfig3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IRouterProtocolConfig(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ISOLATION_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LEGACY_IDENTITY_UI_PARAMS(i32);
+#[repr(C)]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS(i32);
 pub const MAXEAPCODE: u32 = 4u32;
 pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256u32;
 pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024u32;
 pub const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NgcTicketContext(i32);
+#[repr(C)]
 pub struct NotificationHandler(i32);
+#[repr(C)]
 pub struct PPP_EAP_ACTION(i32);
+#[repr(C)]
 pub struct PPP_EAP_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PPP_EAP_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PPP_EAP_OUTPUT(i32);
+#[repr(C)]
 pub struct PPP_EAP_PACKET(i32);
+#[repr(C)]
 pub struct RAS_AUTH_ATTRIBUTE(i32);
+#[repr(C)]
 pub struct RAS_AUTH_ATTRIBUTE_TYPE(i32);
 pub const RAS_EAP_FLAG_8021X_AUTH: u32 = 128u32;
 pub const RAS_EAP_FLAG_ALTERNATIVE_USER_DB: u32 = 2048u32;

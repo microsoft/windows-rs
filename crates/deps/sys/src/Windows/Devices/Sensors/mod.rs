@@ -11,6 +11,7 @@ pub struct AccelerometerDataThreshold(pub *mut ::core::ffi::c_void);
 pub struct AccelerometerReading(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AccelerometerReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AccelerometerReadingType(i32);
 #[repr(transparent)]
 pub struct AccelerometerShakenEventArgs(pub *mut ::core::ffi::c_void);
@@ -22,9 +23,11 @@ pub struct ActivitySensorReading(pub *mut ::core::ffi::c_void);
 pub struct ActivitySensorReadingChangeReport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ActivitySensorReadingConfidence(i32);
 #[repr(transparent)]
 pub struct ActivitySensorTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ActivityType(i32);
 #[repr(transparent)]
 pub struct Altimeter(pub *mut ::core::ffi::c_void);
@@ -344,6 +347,7 @@ pub struct LightSensorReading(pub *mut ::core::ffi::c_void);
 pub struct LightSensorReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Magnetometer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MagnetometerAccuracy(i32);
 #[repr(transparent)]
 pub struct MagnetometerDataThreshold(pub *mut ::core::ffi::c_void);
@@ -365,6 +369,7 @@ pub struct PedometerDataThreshold(pub *mut ::core::ffi::c_void);
 pub struct PedometerReading(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PedometerReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PedometerStepKind(i32);
 #[repr(transparent)]
 pub struct ProximitySensor(pub *mut ::core::ffi::c_void);
@@ -378,13 +383,17 @@ pub struct ProximitySensorReading(pub *mut ::core::ffi::c_void);
 pub struct ProximitySensorReadingChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SensorDataThresholdTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SensorOptimizationGoal(i32);
 #[repr(transparent)]
 pub struct SensorQuaternion(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SensorReadingType(i32);
 #[repr(transparent)]
 pub struct SensorRotationMatrix(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SensorType(i32);
+#[repr(C)]
 pub struct SimpleOrientation(i32);
 #[repr(transparent)]
 pub struct SimpleOrientationSensor(pub *mut ::core::ffi::c_void);

@@ -55,7 +55,9 @@ pub struct WebViewControlNewWindowRequestedEventArgs(pub *mut ::core::ffi::c_voi
 pub struct WebViewControlPermissionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebViewControlPermissionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WebViewControlPermissionState(i32);
+#[repr(C)]
 pub struct WebViewControlPermissionType(i32);
 #[repr(transparent)]
 pub struct WebViewControlScriptNotifyEventArgs(pub *mut ::core::ffi::c_void);

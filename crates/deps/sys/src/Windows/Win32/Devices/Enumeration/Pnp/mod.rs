@@ -23,6 +23,7 @@ pub const FAULT_INVALID_ACTION: u32 = 401u32;
 pub const FAULT_INVALID_ARG: u32 = 402u32;
 pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
+#[repr(C)]
 pub struct HSWDEVICE(i32);
 #[repr(transparent)]
 pub struct IUPnPAddressFamilyControl(pub *mut ::core::ffi::c_void);
@@ -76,10 +77,14 @@ pub struct IUPnPServiceDocumentAccess(pub *mut ::core::ffi::c_void);
 pub struct IUPnPServiceEnumProperty(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUPnPServices(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SW_DEVICE_CAPABILITIES(i32);
+#[repr(C)]
 pub struct SW_DEVICE_CREATE_CALLBACK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[repr(C)]
 pub struct SW_DEVICE_CREATE_INFO(i32);
+#[repr(C)]
 pub struct SW_DEVICE_LIFETIME(i32);
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
@@ -119,13 +124,23 @@ pub const UPNP_E_URLBASE_PRESENT: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const UPNP_E_VALUE_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180496i32 as _);
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220974i32 as _);
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
+#[repr(C)]
 pub struct UPnPDescriptionDocument(i32);
+#[repr(C)]
 pub struct UPnPDescriptionDocumentEx(i32);
+#[repr(C)]
 pub struct UPnPDevice(i32);
+#[repr(C)]
 pub struct UPnPDeviceFinder(i32);
+#[repr(C)]
 pub struct UPnPDeviceFinderEx(i32);
+#[repr(C)]
 pub struct UPnPDevices(i32);
+#[repr(C)]
 pub struct UPnPRegistrar(i32);
+#[repr(C)]
 pub struct UPnPRemoteEndpointInfo(i32);
+#[repr(C)]
 pub struct UPnPService(i32);
+#[repr(C)]
 pub struct UPnPServices(i32);

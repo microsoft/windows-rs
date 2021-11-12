@@ -12,7 +12,9 @@ pub const AURL_ENABLEEAURLS: u32 = 8u32;
 pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
 pub const AURL_ENABLETELNO: u32 = 4u32;
 pub const AURL_ENABLEURL: u32 = 1u32;
+#[repr(C)]
 pub struct AutoCorrectProc(i32);
+#[repr(C)]
 pub struct BIDIOPTIONS(i32);
 pub const BOE_CONTEXTALIGNMENT: u32 = 16u32;
 pub const BOE_CONTEXTREADING: u32 = 8u32;
@@ -29,22 +31,35 @@ pub const BOM_LEGACYBIDICLASS: u32 = 64u32;
 pub const BOM_NEUTRALOVERRIDE: u32 = 4u32;
 pub const BOM_PLAINTEXT: u32 = 2u32;
 pub const BOM_UNICODEBIDI: u32 = 128u32;
+#[repr(C)]
 pub struct CARET_FLAGS(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct CARET_INFO(i32);
+#[repr(C)]
 pub struct CFE_EFFECTS(i32);
+#[repr(C)]
 pub struct CFM_MASK(i32);
+#[repr(C)]
 pub struct CHANGENOTIFY(i32);
+#[repr(C)]
 pub struct CHANGETYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHARFORMAT2A(i32);
+#[repr(C)]
 pub struct CHARFORMAT2W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHARFORMATA(i32);
+#[repr(C)]
 pub struct CHARFORMATW(i32);
+#[repr(C)]
 pub struct CHARRANGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CLIPBOARDFORMAT(i32);
+#[repr(C)]
 pub struct COMPCOLOR(i32);
 pub const CTFMODEBIAS_CONVERSATION: u32 = 5u32;
 pub const CTFMODEBIAS_DATETIME: u32 = 4u32;
@@ -72,8 +87,11 @@ pub const ECO_SAVESEL: u32 = 32768u32;
 pub const ECO_SELECTIONBAR: u32 = 16777216u32;
 pub const ECO_VERTICAL: u32 = 4194304u32;
 pub const ECO_WANTRETURN: u32 = 4096u32;
+#[repr(C)]
 pub struct EDITSTREAM(i32);
+#[repr(C)]
 pub struct EDITSTREAMCALLBACK(i32);
+#[repr(C)]
 pub struct EDITWORDBREAKPROCEX(i32);
 pub const ELLIPSIS_END: u32 = 1u32;
 pub const ELLIPSIS_MASK: u32 = 3u32;
@@ -198,15 +216,21 @@ pub const EM_STOPGROUPTYPING: u32 = 1112u32;
 pub const EM_STREAMIN: u32 = 1097u32;
 pub const EM_STREAMOUT: u32 = 1098u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENCORRECTTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENDCOMPOSITIONNOTIFY(i32);
+#[repr(C)]
 pub struct ENDCOMPOSITIONNOTIFY_CODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENDROPFILES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENLINK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENLOWFIRTF(i32);
 pub const ENM_CHANGE: u32 = 1u32;
 pub const ENM_CLIPFORMAT: u32 = 128u32;
@@ -234,10 +258,13 @@ pub const ENM_SELCHANGE: u32 = 524288u32;
 pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
 pub const ENM_UPDATE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENOLEOPFAILED(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENPROTECTED(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENSAVECLIPBOARD(i32);
 pub const EN_ALIGNLTR: u32 = 1808u32;
 pub const EN_ALIGNRTL: u32 = 1809u32;
@@ -275,14 +302,19 @@ pub const ES_SELFIME: u32 = 262144u32;
 pub const ES_SUNKEN: u32 = 16384u32;
 pub const ES_VERTICAL: u32 = 4194304u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDTEXTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDTEXTEXA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDTEXTEXW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FINDTEXTW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct FORMATRANGE(i32);
 pub const FR_MATCHALEFHAMZA: u32 = 2147483648u32;
 pub const FR_MATCHDIAC: u32 = 536870912u32;
@@ -294,12 +326,18 @@ pub const GCMF_TOUCHMENU: u32 = 16384u32;
 pub const GCM_MOUSEMENU: u32 = 8192u32;
 pub const GCM_TOUCHMENU: u32 = 16384u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GETCONTEXTMENUEX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GETTEXTEX(i32);
+#[repr(C)]
 pub struct GETTEXTEX_FLAGS(i32);
+#[repr(C)]
 pub struct GETTEXTLENGTHEX(i32);
+#[repr(C)]
 pub struct GETTEXTLENGTHEX_FLAGS(i32);
+#[repr(C)]
 pub struct HYPHENATEINFO(i32);
 pub const ICM_CTF: u32 = 5u32;
 pub const ICM_LEVEL2: u32 = 2u32;
@@ -307,7 +345,9 @@ pub const ICM_LEVEL2_5: u32 = 3u32;
 pub const ICM_LEVEL2_SUI: u32 = 4u32;
 pub const ICM_LEVEL3: u32 = 1u32;
 pub const ICM_NOTOPEN: u32 = 0u32;
+#[repr(C)]
 pub struct IMECOMPTEXT(i32);
+#[repr(C)]
 pub struct IMECOMPTEXT_FLAGS(i32);
 pub const IMF_AUTOFONT: u32 = 2u32;
 pub const IMF_AUTOFONTSIZEADJUST: u32 = 16u32;
@@ -381,27 +421,40 @@ pub struct ITextStoryRanges(pub *mut ::core::ffi::c_void);
 pub struct ITextStoryRanges2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITextStrings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KHYPH(i32);
+#[repr(C)]
 pub struct MANCODE(i32);
 pub const MAX_TABLE_CELLS: u32 = 63u32;
 pub const MAX_TAB_STOPS: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MSGFILTER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OBJECTPOSITIONS(i32);
+#[repr(C)]
 pub struct OBJECTTYPE(i32);
 pub const OLEOP_DOVERB: u32 = 1u32;
+#[repr(C)]
 pub struct PARAFORMAT(i32);
+#[repr(C)]
 pub struct PARAFORMAT2(i32);
+#[repr(C)]
 pub struct PARAFORMAT_ALIGNMENT(i32);
+#[repr(C)]
 pub struct PARAFORMAT_BORDERS(i32);
+#[repr(C)]
 pub struct PARAFORMAT_MASK(i32);
+#[repr(C)]
 pub struct PARAFORMAT_NUMBERING_STYLE(i32);
+#[repr(C)]
 pub struct PARAFORMAT_SHADING_STYLE(i32);
 pub const PC_DELIMITER: u32 = 4u32;
 pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
 pub const PC_OVERFLOW: u32 = 3u32;
+#[repr(C)]
 pub struct PCreateTextServices(i32);
 pub const PFA_FULL_GLYPHS: u32 = 8u32;
 pub const PFA_FULL_INTERLETTER: u32 = 6u32;
@@ -438,8 +491,10 @@ pub const PFN_LCLETTER: u32 = 3u32;
 pub const PFN_LCROMAN: u32 = 5u32;
 pub const PFN_UCLETTER: u32 = 4u32;
 pub const PFN_UCROMAN: u32 = 6u32;
+#[repr(C)]
 pub struct PShutdownTextServices(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PUNCTUATION(i32);
 pub const RECO_COPY: i32 = 2i32;
 pub const RECO_CUT: i32 = 3i32;
@@ -447,17 +502,24 @@ pub const RECO_DRAG: i32 = 4i32;
 pub const RECO_DROP: i32 = 1i32;
 pub const RECO_PASTE: i32 = 0i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct REOBJECT(i32);
+#[repr(C)]
 pub struct REOBJECT_FLAGS(i32);
 pub const REO_NULL: i32 = 0i32;
 pub const REO_READWRITEMASK: i32 = 2047i32;
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct REPASTESPECIAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REQRESIZE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[repr(C)]
 pub struct RICHEDIT_IMAGE_PARAMETERS(i32);
+#[repr(C)]
 pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(i32);
+#[repr(C)]
 pub struct RICH_EDIT_GET_OBJECT_FLAGS(i32);
 pub const RTO_DISABLEHANDLES: u32 = 2u32;
 pub const RTO_READINGMODE: u32 = 3u32;
@@ -473,6 +535,7 @@ pub const SCF_SMARTFONT: u32 = 128u32;
 pub const SCF_USEUIRULES: u32 = 8u32;
 pub const SCF_WORD: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SELCHANGE(i32);
 pub const SES_ALLOWBEEPS: u32 = 256u32;
 pub const SES_BEEPONMAXTEXT: u32 = 2u32;
@@ -517,6 +580,7 @@ pub const SES_USECRLF: u32 = 32u32;
 pub const SES_USECTF: u32 = 65536u32;
 pub const SES_WORDDRAGDROP: u32 = 33554432u32;
 pub const SES_XLTCRCRLFTOCR: u32 = 16384u32;
+#[repr(C)]
 pub struct SETTEXTEX(i32);
 pub const SFF_KEEPDOCINFO: u32 = 4096u32;
 pub const SFF_PERSISTVIEWSCALE: u32 = 8192u32;
@@ -540,18 +604,24 @@ pub const ST_NEWCHARS: u32 = 4u32;
 pub const ST_SELECTION: u32 = 2u32;
 pub const ST_UNICODE: u32 = 8u32;
 pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
+#[repr(C)]
 pub struct TABLECELLPARMS(i32);
+#[repr(C)]
 pub struct TABLEROWPARMS(i32);
+#[repr(C)]
 pub struct TEXTMODE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TEXTRANGEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TEXTRANGEW(i32);
 pub const TO_ADVANCEDLAYOUT: u32 = 8u32;
 pub const TO_ADVANCEDTYPOGRAPHY: u32 = 1u32;
 pub const TO_DISABLECUSTOMTEXTOUT: u32 = 4u32;
 pub const TO_SIMPLELINEBREAK: u32 = 2u32;
 pub const TXES_ISDIALOG: u32 = 1u32;
+#[repr(C)]
 pub struct TXTBACKSTYLE(i32);
 pub const TXTBIT_ADVANCEDINPUT: u32 = 536870912u32;
 pub const TXTBIT_ALLOWBEEP: u32 = 2048u32;
@@ -583,9 +653,13 @@ pub const TXTBIT_USEPASSWORD: u32 = 16u32;
 pub const TXTBIT_VERTICAL: u32 = 256u32;
 pub const TXTBIT_VIEWINSETCHANGE: u32 = 8192u32;
 pub const TXTBIT_WORDWRAP: u32 = 1024u32;
+#[repr(C)]
 pub struct TXTHITRESULT(i32);
+#[repr(C)]
 pub struct TXTNATURALSIZE(i32);
+#[repr(C)]
 pub struct TXTVIEW(i32);
+#[repr(C)]
 pub struct UNDONAMEID(i32);
 pub const VM_NORMAL: u32 = 4u32;
 pub const VM_OUTLINE: u32 = 2u32;
@@ -605,6 +679,9 @@ pub const WM_NOTIFY: u32 = 78u32;
 pub const WM_PRINTCLIENT: u32 = 792u32;
 pub const WM_UNICHAR: u32 = 265u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct _grouptypingchange(i32);
+#[repr(C)]
 pub struct hyphresult(i32);
+#[repr(C)]
 pub struct tomConstants(i32);

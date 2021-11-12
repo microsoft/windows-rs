@@ -55,26 +55,44 @@ extern "system" {
     pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
 }
 pub const ADDRESSBAND: u32 = 2u32;
+#[repr(C)]
 pub struct ADDURL_FLAG(i32);
+#[repr(C)]
 pub struct AnchorClick(i32);
+#[repr(C)]
 pub struct ApplicationCache(i32);
+#[repr(C)]
 pub struct BEHAVIOR_EVENT(i32);
+#[repr(C)]
 pub struct BEHAVIOR_EVENT_FLAGS(i32);
+#[repr(C)]
 pub struct BEHAVIOR_LAYOUT_INFO(i32);
+#[repr(C)]
 pub struct BEHAVIOR_LAYOUT_MODE(i32);
+#[repr(C)]
 pub struct BEHAVIOR_RELATION(i32);
+#[repr(C)]
 pub struct BEHAVIOR_RENDER_INFO(i32);
+#[repr(C)]
 pub struct BlockFormats(i32);
+#[repr(C)]
 pub struct BoolValue(i32);
+#[repr(C)]
 pub struct CARET_DIRECTION(i32);
 pub const CATID_MSOfficeAntiVirus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459604528, data2: 54168, data3: 4560, data4: [178, 174, 0, 160, 201, 8, 250, 73] };
+#[repr(C)]
 pub struct CClientCaps(i32);
+#[repr(C)]
 pub struct CDeviceRect(i32);
+#[repr(C)]
 pub struct CDownloadBehavior(i32);
+#[repr(C)]
 pub struct CEventObj(i32);
 pub const CGID_DocHostCommandHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4086022722, data2: 47440, data3: 4561, data4: [137, 24, 0, 192, 79, 194, 200, 54] };
 pub const CGID_EditStateCommands: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611894, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+#[repr(C)]
 pub struct CHeaderFooter(i32);
+#[repr(C)]
 pub struct CLayoutRect(i32);
 pub const CMDID_HOSTCONTEXT_URL: u32 = 8u32;
 pub const CMDID_SCRIPTSITE_ALLOWRECOVERY: u32 = 9u32;
@@ -92,6 +110,7 @@ pub const CMD_ZOOM_ONEPAGE: i32 = -2i32;
 pub const CMD_ZOOM_PAGEWIDTH: i32 = -1i32;
 pub const CMD_ZOOM_SELECTION: i32 = -4i32;
 pub const CMD_ZOOM_TWOPAGES: i32 = -3i32;
+#[repr(C)]
 pub struct CMimeTypes(i32);
 pub const COLOR_NO_TRANSPARENT: u32 = 4294967295u32;
 pub const CONTEXT_MENU_ANCHOR: u32 = 5u32;
@@ -116,23 +135,41 @@ pub const COOKIEACTION_NONE: u32 = 0u32;
 pub const COOKIEACTION_READ: u32 = 32u32;
 pub const COOKIEACTION_REJECT: u32 = 2u32;
 pub const COOKIEACTION_SUPPRESS: u32 = 16u32;
+#[repr(C)]
 pub struct COORD_SYSTEM(i32);
+#[repr(C)]
 pub struct COpsProfile(i32);
+#[repr(C)]
 pub struct CPersistDataPeer(i32);
+#[repr(C)]
 pub struct CPersistHistory(i32);
+#[repr(C)]
 pub struct CPersistShortcut(i32);
+#[repr(C)]
 pub struct CPersistSnapshot(i32);
+#[repr(C)]
 pub struct CPersistUserData(i32);
+#[repr(C)]
 pub struct CPlugins(i32);
+#[repr(C)]
 pub struct CPrintManagerTemplatePrinter(i32);
+#[repr(C)]
 pub struct CTemplatePrinter(i32);
+#[repr(C)]
 pub struct CanvasGradient(i32);
+#[repr(C)]
 pub struct CanvasImageData(i32);
+#[repr(C)]
 pub struct CanvasPattern(i32);
+#[repr(C)]
 pub struct CanvasRenderingContext2D(i32);
+#[repr(C)]
 pub struct CanvasTextMetrics(i32);
+#[repr(C)]
 pub struct CoDitherToRGB8(i32);
+#[repr(C)]
 pub struct CoMapMIMEToCLSID(i32);
+#[repr(C)]
 pub struct CoSniffStream(i32);
 pub const DEBUGCALLBACKNOTIFICATION_ANIMATIONFRAME: u32 = 8u32;
 pub const DEBUGCALLBACKNOTIFICATION_DOMEVENT: u32 = 16u32;
@@ -142,6 +179,7 @@ pub const DEBUGCALLBACKNOTIFICATION_TIMEOUT: u32 = 1u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_DEFAULTCANCELED: u32 = 1u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_STOPIMMEDIATEPROPAGATION: u32 = 2u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_STOPPROPAGATION: u32 = 4u32;
+#[repr(C)]
 pub struct DEV_CONSOLE_MESSAGE_LEVEL(i32);
 pub const DISP10_IE10_XMSARIAFLOWFROM: u32 = 66835u32;
 pub const DISPID_1D: u32 = 2000u32;
@@ -6007,8 +6045,11 @@ pub const DISPID_XMLHTTPREQUEST: u32 = 1000u32;
 pub const DISPID_XMLSERIALIZER: u32 = 1000u32;
 pub const DISPID_XOBJ_EXPANDO: u32 = 72536u32;
 pub const DISPID_XOBJ_ORDINAL: u32 = 73536u32;
+#[repr(C)]
 pub struct DISPLAY_BREAK(i32);
+#[repr(C)]
 pub struct DISPLAY_GRAVITY(i32);
+#[repr(C)]
 pub struct DISPLAY_MOVEUNIT(i32);
 pub const DLCTL_BGSOUNDS: u32 = 64u32;
 pub const DLCTL_DLIMAGES: u32 = 16u32;
@@ -6031,38 +6072,70 @@ pub const DLCTL_SILENT: u32 = 1073741824u32;
 pub const DLCTL_URL_ENCODING_DISABLE_UTF8: u32 = 131072u32;
 pub const DLCTL_URL_ENCODING_ENABLE_UTF8: u32 = 262144u32;
 pub const DLCTL_VIDEOS: u32 = 32u32;
+#[repr(C)]
 pub struct DOCHOSTUIDBLCLK(i32);
+#[repr(C)]
 pub struct DOCHOSTUIFLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOCHOSTUIINFO(i32);
+#[repr(C)]
 pub struct DOCHOSTUITYPE(i32);
+#[repr(C)]
 pub struct DOMBeforeUnloadEvent(i32);
+#[repr(C)]
 pub struct DOMChildrenCollection(i32);
+#[repr(C)]
 pub struct DOMCloseEvent(i32);
+#[repr(C)]
 pub struct DOMCompositionEvent(i32);
+#[repr(C)]
 pub struct DOMCustomEvent(i32);
+#[repr(C)]
 pub struct DOMDocumentType(i32);
+#[repr(C)]
 pub struct DOMDragEvent(i32);
+#[repr(C)]
 pub struct DOMEvent(i32);
+#[repr(C)]
 pub struct DOMException(i32);
+#[repr(C)]
 pub struct DOMFocusEvent(i32);
+#[repr(C)]
 pub struct DOMKeyboardEvent(i32);
+#[repr(C)]
 pub struct DOMMSAnimationEvent(i32);
+#[repr(C)]
 pub struct DOMMSManipulationEvent(i32);
+#[repr(C)]
 pub struct DOMMSTransitionEvent(i32);
+#[repr(C)]
 pub struct DOMMessageEvent(i32);
+#[repr(C)]
 pub struct DOMMouseEvent(i32);
+#[repr(C)]
 pub struct DOMMouseWheelEvent(i32);
+#[repr(C)]
 pub struct DOMMutationEvent(i32);
+#[repr(C)]
 pub struct DOMParser(i32);
+#[repr(C)]
 pub struct DOMParserFactory(i32);
+#[repr(C)]
 pub struct DOMProcessingInstruction(i32);
+#[repr(C)]
 pub struct DOMProgressEvent(i32);
+#[repr(C)]
 pub struct DOMSiteModeEvent(i32);
+#[repr(C)]
 pub struct DOMStorageEvent(i32);
+#[repr(C)]
 pub struct DOMTextEvent(i32);
+#[repr(C)]
 pub struct DOMUIEvent(i32);
+#[repr(C)]
 pub struct DOMWheelEvent(i32);
+#[repr(C)]
 pub struct DOM_EVENT_PHASE(i32);
 #[repr(transparent)]
 pub struct DWebBridgeEvents(pub *mut ::core::ffi::c_void);
@@ -6550,11 +6623,17 @@ pub struct DispXDomainRequest(pub *mut ::core::ffi::c_void);
 pub struct DispXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DispXMLSerializer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DomConstructor(i32);
+#[repr(C)]
 pub struct ELEMENTDESCRIPTOR_FLAGS(i32);
+#[repr(C)]
 pub struct ELEMENTNAMESPACE_FLAGS(i32);
+#[repr(C)]
 pub struct ELEMENT_ADJACENCY(i32);
+#[repr(C)]
 pub struct ELEMENT_CORNER(i32);
+#[repr(C)]
 pub struct ELEMENT_TAG_ID(i32);
 pub const E_SURFACE_DISCARDED: i32 = -2147434493i32;
 pub const E_SURFACE_NODC: i32 = -2147434492i32;
@@ -6562,61 +6641,101 @@ pub const E_SURFACE_NOSURFACE: i32 = -2147434496i32;
 pub const E_SURFACE_NOTMYDC: i32 = -2147434491i32;
 pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
 pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
+#[repr(C)]
 pub struct EventException(i32);
+#[repr(C)]
 pub struct ExtensionValidationContexts(i32);
+#[repr(C)]
 pub struct ExtensionValidationResults(i32);
+#[repr(C)]
 pub struct FINDTEXT_FLAGS(i32);
+#[repr(C)]
 pub struct FontNames(i32);
+#[repr(C)]
 pub struct FramesCollection(i32);
+#[repr(C)]
 pub struct HTCAttachBehavior(i32);
+#[repr(C)]
 pub struct HTCDefaultDispatch(i32);
+#[repr(C)]
 pub struct HTCDescBehavior(i32);
+#[repr(C)]
 pub struct HTCEventBehavior(i32);
+#[repr(C)]
 pub struct HTCMethodBehavior(i32);
+#[repr(C)]
 pub struct HTCPropertyBehavior(i32);
+#[repr(C)]
 pub struct HTMLAnchorElement(i32);
 #[repr(transparent)]
 pub struct HTMLAnchorEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLAnchorEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLAppBehavior(i32);
+#[repr(C)]
 pub struct HTMLAppFlag(i32);
+#[repr(C)]
 pub struct HTMLAreaElement(i32);
 #[repr(transparent)]
 pub struct HTMLAreaEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLAreaEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLAreasCollection(i32);
+#[repr(C)]
 pub struct HTMLAttributeCollection(i32);
+#[repr(C)]
 pub struct HTMLAudioElement(i32);
+#[repr(C)]
 pub struct HTMLAudioElementFactory(i32);
+#[repr(C)]
 pub struct HTMLBGsound(i32);
+#[repr(C)]
 pub struct HTMLBRElement(i32);
+#[repr(C)]
 pub struct HTMLBaseElement(i32);
+#[repr(C)]
 pub struct HTMLBaseFontElement(i32);
+#[repr(C)]
 pub struct HTMLBlockElement(i32);
+#[repr(C)]
 pub struct HTMLBody(i32);
+#[repr(C)]
 pub struct HTMLBorder(i32);
+#[repr(C)]
 pub struct HTMLBorderStyle(i32);
+#[repr(C)]
 pub struct HTMLButtonElement(i32);
 #[repr(transparent)]
 pub struct HTMLButtonElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLButtonElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLCSSImportRule(i32);
+#[repr(C)]
 pub struct HTMLCSSMediaList(i32);
+#[repr(C)]
 pub struct HTMLCSSMediaRule(i32);
+#[repr(C)]
 pub struct HTMLCSSNamespaceRule(i32);
+#[repr(C)]
 pub struct HTMLCSSRule(i32);
+#[repr(C)]
 pub struct HTMLCSSStyleDeclaration(i32);
+#[repr(C)]
 pub struct HTMLCanvasElement(i32);
+#[repr(C)]
 pub struct HTMLCaptionFlag(i32);
+#[repr(C)]
 pub struct HTMLCommentElement(i32);
 #[repr(transparent)]
 pub struct HTMLControlElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLControlElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLCurrentStyle(i32);
+#[repr(C)]
 pub struct HTMLDDElement(i32);
 pub const HTMLDLG_ALLOW_UNKNOWN_THREAD: u32 = 512u32;
 pub const HTMLDLG_MODAL: u32 = 32u32;
@@ -6624,23 +6743,41 @@ pub const HTMLDLG_MODELESS: u32 = 64u32;
 pub const HTMLDLG_NOUI: u32 = 16u32;
 pub const HTMLDLG_PRINT_TEMPLATE: u32 = 128u32;
 pub const HTMLDLG_VERIFY: u32 = 256u32;
+#[repr(C)]
 pub struct HTMLDListElement(i32);
+#[repr(C)]
 pub struct HTMLDOMAttribute(i32);
+#[repr(C)]
 pub struct HTMLDOMImplementation(i32);
+#[repr(C)]
 pub struct HTMLDOMRange(i32);
+#[repr(C)]
 pub struct HTMLDOMTextNode(i32);
+#[repr(C)]
 pub struct HTMLDOMXmlSerializerFactory(i32);
+#[repr(C)]
 pub struct HTMLDTElement(i32);
+#[repr(C)]
 pub struct HTMLDefaults(i32);
+#[repr(C)]
 pub struct HTMLDialog(i32);
+#[repr(C)]
 pub struct HTMLDivElement(i32);
+#[repr(C)]
 pub struct HTMLDivPosition(i32);
+#[repr(C)]
 pub struct HTMLDlgBorder(i32);
+#[repr(C)]
 pub struct HTMLDlgCenter(i32);
+#[repr(C)]
 pub struct HTMLDlgEdge(i32);
+#[repr(C)]
 pub struct HTMLDlgFlag(i32);
+#[repr(C)]
 pub struct HTMLDocument(i32);
+#[repr(C)]
 pub struct HTMLDocumentCompatibleInfo(i32);
+#[repr(C)]
 pub struct HTMLDocumentCompatibleInfoCollection(i32);
 #[repr(transparent)]
 pub struct HTMLDocumentEvents(pub *mut ::core::ffi::c_void);
@@ -6650,6 +6787,7 @@ pub struct HTMLDocumentEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLDocumentEvents3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLDocumentEvents4(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLElementCollection(i32);
 #[repr(transparent)]
 pub struct HTMLElementEvents(pub *mut ::core::ffi::c_void);
@@ -6659,170 +6797,265 @@ pub struct HTMLElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLElementEvents3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLElementEvents4(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLEmbed(i32);
+#[repr(C)]
 pub struct HTMLFieldSetElement(i32);
+#[repr(C)]
 pub struct HTMLFontElement(i32);
+#[repr(C)]
 pub struct HTMLFormElement(i32);
 #[repr(transparent)]
 pub struct HTMLFormElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLFormElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLFrameBase(i32);
+#[repr(C)]
 pub struct HTMLFrameElement(i32);
+#[repr(C)]
 pub struct HTMLFrameSetSite(i32);
 #[repr(transparent)]
 pub struct HTMLFrameSiteEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLFrameSiteEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLGenericElement(i32);
+#[repr(C)]
 pub struct HTMLHRElement(i32);
+#[repr(C)]
 pub struct HTMLHeadElement(i32);
+#[repr(C)]
 pub struct HTMLHeaderElement(i32);
+#[repr(C)]
 pub struct HTMLHistory(i32);
+#[repr(C)]
 pub struct HTMLHtmlElement(i32);
+#[repr(C)]
 pub struct HTMLIFrame(i32);
+#[repr(C)]
 pub struct HTMLImageElementFactory(i32);
+#[repr(C)]
 pub struct HTMLImg(i32);
 #[repr(transparent)]
 pub struct HTMLImgEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLImgEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLInputButtonElement(i32);
+#[repr(C)]
 pub struct HTMLInputElement(i32);
+#[repr(C)]
 pub struct HTMLInputFileElement(i32);
 #[repr(transparent)]
 pub struct HTMLInputFileElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputFileElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLInputImage(i32);
 #[repr(transparent)]
 pub struct HTMLInputImageEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputImageEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLInputTextElement(i32);
 #[repr(transparent)]
 pub struct HTMLInputTextElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputTextElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLIsIndexElement(i32);
+#[repr(C)]
 pub struct HTMLLIElement(i32);
+#[repr(C)]
 pub struct HTMLLabelElement(i32);
 #[repr(transparent)]
 pub struct HTMLLabelEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLLabelEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLLegendElement(i32);
+#[repr(C)]
 pub struct HTMLLinkElement(i32);
 #[repr(transparent)]
 pub struct HTMLLinkElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLLinkElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLListElement(i32);
+#[repr(C)]
 pub struct HTMLLocation(i32);
+#[repr(C)]
 pub struct HTMLMSCSSKeyframeRule(i32);
+#[repr(C)]
 pub struct HTMLMSCSSKeyframesRule(i32);
+#[repr(C)]
 pub struct HTMLMapElement(i32);
 #[repr(transparent)]
 pub struct HTMLMapEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLMapEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLMarqueeElement(i32);
 #[repr(transparent)]
 pub struct HTMLMarqueeElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLMarqueeElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLMaximizeFlag(i32);
+#[repr(C)]
 pub struct HTMLMediaElement(i32);
+#[repr(C)]
 pub struct HTMLMediaError(i32);
+#[repr(C)]
 pub struct HTMLMetaElement(i32);
+#[repr(C)]
 pub struct HTMLMinimizeFlag(i32);
+#[repr(C)]
 pub struct HTMLNamespace(i32);
+#[repr(C)]
 pub struct HTMLNamespaceCollection(i32);
 #[repr(transparent)]
 pub struct HTMLNamespaceEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLNavigator(i32);
+#[repr(C)]
 pub struct HTMLNextIdElement(i32);
+#[repr(C)]
 pub struct HTMLNoShowElement(i32);
+#[repr(C)]
 pub struct HTMLOListElement(i32);
+#[repr(C)]
 pub struct HTMLObjectElement(i32);
 #[repr(transparent)]
 pub struct HTMLObjectElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLObjectElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLOptionButtonElement(i32);
 #[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLOptionElement(i32);
+#[repr(C)]
 pub struct HTMLOptionElementFactory(i32);
+#[repr(C)]
 pub struct HTMLParaElement(i32);
+#[repr(C)]
 pub struct HTMLParamElement(i32);
+#[repr(C)]
 pub struct HTMLPerformance(i32);
+#[repr(C)]
 pub struct HTMLPerformanceNavigation(i32);
+#[repr(C)]
 pub struct HTMLPerformanceTiming(i32);
+#[repr(C)]
 pub struct HTMLPersistEvents(i32);
+#[repr(C)]
 pub struct HTMLPhraseElement(i32);
+#[repr(C)]
 pub struct HTMLPopup(i32);
+#[repr(C)]
 pub struct HTMLProgressElement(i32);
+#[repr(C)]
 pub struct HTMLRenderStyle(i32);
+#[repr(C)]
 pub struct HTMLRichtextElement(i32);
+#[repr(C)]
 pub struct HTMLRuleStyle(i32);
+#[repr(C)]
 pub struct HTMLScreen(i32);
+#[repr(C)]
 pub struct HTMLScriptElement(i32);
 #[repr(transparent)]
 pub struct HTMLScriptEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLScriptEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLSelectElement(i32);
 #[repr(transparent)]
 pub struct HTMLSelectElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLSelectElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLSemanticElement(i32);
+#[repr(C)]
 pub struct HTMLSourceElement(i32);
+#[repr(C)]
 pub struct HTMLSpanElement(i32);
+#[repr(C)]
 pub struct HTMLSpanFlow(i32);
+#[repr(C)]
 pub struct HTMLStorage(i32);
+#[repr(C)]
 pub struct HTMLStyle(i32);
+#[repr(C)]
 pub struct HTMLStyleElement(i32);
 #[repr(transparent)]
 pub struct HTMLStyleElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLStyleElementEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLStyleFontFace(i32);
+#[repr(C)]
 pub struct HTMLStyleMedia(i32);
+#[repr(C)]
 pub struct HTMLStyleSheet(i32);
+#[repr(C)]
 pub struct HTMLStyleSheetPage(i32);
+#[repr(C)]
 pub struct HTMLStyleSheetPagesCollection(i32);
+#[repr(C)]
 pub struct HTMLStyleSheetRule(i32);
+#[repr(C)]
 pub struct HTMLStyleSheetRulesAppliedCollection(i32);
+#[repr(C)]
 pub struct HTMLStyleSheetRulesCollection(i32);
+#[repr(C)]
 pub struct HTMLStyleSheetsCollection(i32);
+#[repr(C)]
 pub struct HTMLSysMenuFlag(i32);
+#[repr(C)]
 pub struct HTMLTable(i32);
+#[repr(C)]
 pub struct HTMLTableCaption(i32);
+#[repr(C)]
 pub struct HTMLTableCell(i32);
+#[repr(C)]
 pub struct HTMLTableCol(i32);
 #[repr(transparent)]
 pub struct HTMLTableEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLTableEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLTableRow(i32);
+#[repr(C)]
 pub struct HTMLTableSection(i32);
+#[repr(C)]
 pub struct HTMLTextAreaElement(i32);
 #[repr(transparent)]
 pub struct HTMLTextContainerEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLTextContainerEvents2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLTextElement(i32);
+#[repr(C)]
 pub struct HTMLTimeRanges(i32);
+#[repr(C)]
 pub struct HTMLTitleElement(i32);
+#[repr(C)]
 pub struct HTMLUListElement(i32);
+#[repr(C)]
 pub struct HTMLUnknownElement(i32);
+#[repr(C)]
 pub struct HTMLUrnCollection(i32);
+#[repr(C)]
 pub struct HTMLVideoElement(i32);
+#[repr(C)]
 pub struct HTMLW3CComputedStyle(i32);
+#[repr(C)]
 pub struct HTMLWindow2(i32);
 #[repr(transparent)]
 pub struct HTMLWindowEvents(pub *mut ::core::ffi::c_void);
@@ -6830,29 +7063,49 @@ pub struct HTMLWindowEvents(pub *mut ::core::ffi::c_void);
 pub struct HTMLWindowEvents2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLWindowEvents3(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLWindowProxy(i32);
+#[repr(C)]
 pub struct HTMLWindowState(i32);
+#[repr(C)]
 pub struct HTMLWndOptionElement(i32);
+#[repr(C)]
 pub struct HTMLWndSelectElement(i32);
+#[repr(C)]
 pub struct HTMLXMLHttpRequest(i32);
 #[repr(transparent)]
 pub struct HTMLXMLHttpRequestEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HTMLXMLHttpRequestFactory(i32);
+#[repr(C)]
 pub struct HTML_PAINTER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HTML_PAINTER_INFO(i32);
+#[repr(C)]
 pub struct HTML_PAINT_DRAW_FLAGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct HTML_PAINT_DRAW_INFO(i32);
+#[repr(C)]
 pub struct HTML_PAINT_DRAW_INFO_FLAGS(i32);
+#[repr(C)]
 pub struct HTML_PAINT_EVENT_FLAGS(i32);
+#[repr(C)]
 pub struct HTML_PAINT_XFORM(i32);
+#[repr(C)]
 pub struct HTML_PAINT_ZORDER(i32);
+#[repr(C)]
 pub struct HT_OPTIONS(i32);
+#[repr(C)]
 pub struct HT_RESULTS(i32);
+#[repr(C)]
 pub struct HomePage(i32);
+#[repr(C)]
 pub struct HomePageSetting(i32);
+#[repr(C)]
 pub struct HostDialogHelper(i32);
+#[repr(C)]
 pub struct HtmlDlgSafeHelper(i32);
 #[repr(transparent)]
 pub struct IActiveXUIHandlerSite(pub *mut ::core::ffi::c_void);
@@ -7491,10 +7744,15 @@ pub const IECMDID_CLEAR_AUTOCOMPLETE_FOR_FORMS: u32 = 0u32;
 pub const IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 6u32;
 pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
 pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
+#[repr(C)]
 pub struct IEISXMLNSREGISTEREDFN(i32);
+#[repr(C)]
 pub struct IELAUNCHOPTION_FLAGS(i32);
+#[repr(C)]
 pub struct IELAUNCHURLINFO(i32);
+#[repr(C)]
 pub struct IEREGISTERXMLNSFN(i32);
+#[repr(C)]
 pub struct IEWebDriverManager(i32);
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
@@ -8341,6 +8599,7 @@ pub struct IMarkupServices2(pub *mut ::core::ffi::c_void);
 pub struct IMarkupTextFrags(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMediaActivityNotifySite(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct INTERNETEXPLORERCONFIGURATION(i32);
 #[repr(transparent)]
 pub struct INavigatorDoNotTrack(pub *mut ::core::ffi::c_void);
@@ -8692,30 +8951,46 @@ pub struct IWebGeopositionError(pub *mut ::core::ffi::c_void);
 pub struct IXMLGenericParse(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IntelliForms(i32);
+#[repr(C)]
 pub struct InternetExplorerManager(i32);
 #[repr(transparent)]
 pub struct Iwfolders(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LINE_DIRECTION(i32);
 pub const LINKSBAND: u32 = 4u32;
+#[repr(C)]
 pub struct LayoutRectEvents(i32);
 pub const MAPMIME_CLSID: u32 = 1u32;
 pub const MAPMIME_DEFAULT: u32 = 0u32;
 pub const MAPMIME_DEFAULT_ALWAYS: u32 = 3u32;
 pub const MAPMIME_DISABLE: u32 = 2u32;
+#[repr(C)]
 pub struct MARKUP_CONTEXT_TYPE(i32);
 pub const MAX_SEARCH_FORMAT_STRING: u32 = 255u32;
 pub const MENUEXT_SHOWDIALOG: u32 = 1u32;
+#[repr(C)]
 pub struct MOVEUNIT_ACTION(i32);
+#[repr(C)]
 pub struct MediaActivityNotifyType(i32);
+#[repr(C)]
 pub struct NodeIterator(i32);
+#[repr(C)]
 pub struct OldHTMLDocument(i32);
+#[repr(C)]
 pub struct OldHTMLFormElement(i32);
+#[repr(C)]
 pub struct OpenServiceActivityContentType(i32);
+#[repr(C)]
 pub struct OpenServiceActivityManager(i32);
+#[repr(C)]
 pub struct OpenServiceErrors(i32);
+#[repr(C)]
 pub struct OpenServiceManager(i32);
+#[repr(C)]
 pub struct PARSE_FLAGS(i32);
+#[repr(C)]
 pub struct POINTER_GRAVITY(i32);
 pub const PRINT_DONTBOTHERUSER: u32 = 1u32;
 pub const PRINT_WAITFORCOMPLETION: u32 = 2u32;
@@ -8725,6 +9000,7 @@ pub const PRIVACY_URLHASPOLICYREFHEADER: u32 = 2097152u32;
 pub const PRIVACY_URLHASPOLICYREFLINK: u32 = 1048576u32;
 pub const PRIVACY_URLHASPOSTDATA: u32 = 524288u32;
 pub const PRIVACY_URLISTOPLEVEL: u32 = 65536u32;
+#[repr(C)]
 pub struct PeerFactory(i32);
 pub const REGSTR_VAL_FONT_SIZE_DEF: u32 = 2u32;
 pub const REGSTR_VAL_JAVAJIT_DEF: u32 = 0u32;
@@ -8744,21 +9020,33 @@ pub const REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF: u32 = 1u32;
 pub const REGSTR_VAL_SMOOTHSCROLL_DEF: u32 = 1u32;
 pub const REGSTR_VAL_USEICM_DEF: u32 = 0u32;
 pub const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7u32;
+#[repr(C)]
 pub struct RangeException(i32);
+#[repr(C)]
 pub struct RulesApplied(i32);
+#[repr(C)]
 pub struct RulesAppliedCollection(i32);
+#[repr(C)]
 pub struct SAVE_SEGMENTS_FLAGS(i32);
+#[repr(C)]
 pub struct SCRIPT_TIMER_TYPE(i32);
+#[repr(C)]
 pub struct SCROLLABLECONTEXTMENU_PLACEMENT(i32);
+#[repr(C)]
 pub struct SECUREURLHOSTVALIDATE_FLAGS(i32);
+#[repr(C)]
 pub struct SELECTION_TYPE(i32);
+#[repr(C)]
 pub struct SHOWHTMLDIALOGEXFN(i32);
+#[repr(C)]
 pub struct SHOWHTMLDIALOGFN(i32);
+#[repr(C)]
 pub struct SHOWMODELESSHTMLDIALOGFN(i32);
 pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STATURL(i32);
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;
@@ -8841,326 +9129,642 @@ pub const STDPROPID_XOBJ_WIDTH: u32 = 65541u32;
 pub const SURFACE_LOCK_ALLOW_DISCARD: u32 = 2u32;
 pub const SURFACE_LOCK_EXCLUSIVE: u32 = 1u32;
 pub const SURFACE_LOCK_WAIT: u32 = 4u32;
+#[repr(C)]
 pub struct SVGAElement(i32);
+#[repr(C)]
 pub struct SVGAngle(i32);
+#[repr(C)]
 pub struct SVGAnimatedAngle(i32);
+#[repr(C)]
 pub struct SVGAnimatedBoolean(i32);
+#[repr(C)]
 pub struct SVGAnimatedEnumeration(i32);
+#[repr(C)]
 pub struct SVGAnimatedInteger(i32);
+#[repr(C)]
 pub struct SVGAnimatedLength(i32);
+#[repr(C)]
 pub struct SVGAnimatedLengthList(i32);
+#[repr(C)]
 pub struct SVGAnimatedNumber(i32);
+#[repr(C)]
 pub struct SVGAnimatedNumberList(i32);
+#[repr(C)]
 pub struct SVGAnimatedPreserveAspectRatio(i32);
+#[repr(C)]
 pub struct SVGAnimatedRect(i32);
+#[repr(C)]
 pub struct SVGAnimatedString(i32);
+#[repr(C)]
 pub struct SVGAnimatedTransformList(i32);
+#[repr(C)]
 pub struct SVGCircleElement(i32);
+#[repr(C)]
 pub struct SVGClipPathElement(i32);
+#[repr(C)]
 pub struct SVGDefsElement(i32);
+#[repr(C)]
 pub struct SVGDescElement(i32);
+#[repr(C)]
 pub struct SVGElement(i32);
+#[repr(C)]
 pub struct SVGElementInstance(i32);
+#[repr(C)]
 pub struct SVGElementInstanceList(i32);
+#[repr(C)]
 pub struct SVGEllipseElement(i32);
+#[repr(C)]
 pub struct SVGException(i32);
+#[repr(C)]
 pub struct SVGGElement(i32);
+#[repr(C)]
 pub struct SVGGradientElement(i32);
+#[repr(C)]
 pub struct SVGImageElement(i32);
+#[repr(C)]
 pub struct SVGLength(i32);
+#[repr(C)]
 pub struct SVGLengthList(i32);
+#[repr(C)]
 pub struct SVGLineElement(i32);
+#[repr(C)]
 pub struct SVGLinearGradientElement(i32);
+#[repr(C)]
 pub struct SVGMarkerElement(i32);
+#[repr(C)]
 pub struct SVGMaskElement(i32);
+#[repr(C)]
 pub struct SVGMatrix(i32);
+#[repr(C)]
 pub struct SVGMetadataElement(i32);
+#[repr(C)]
 pub struct SVGNumber(i32);
+#[repr(C)]
 pub struct SVGNumberList(i32);
+#[repr(C)]
 pub struct SVGPathElement(i32);
+#[repr(C)]
 pub struct SVGPathSeg(i32);
+#[repr(C)]
 pub struct SVGPathSegArcAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegArcRel(i32);
+#[repr(C)]
 pub struct SVGPathSegClosePath(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoCubicAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoCubicRel(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoCubicSmoothAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoCubicSmoothRel(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoQuadraticAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoQuadraticRel(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoQuadraticSmoothAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegCurvetoQuadraticSmoothRel(i32);
+#[repr(C)]
 pub struct SVGPathSegLinetoAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegLinetoHorizontalAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegLinetoHorizontalRel(i32);
+#[repr(C)]
 pub struct SVGPathSegLinetoRel(i32);
+#[repr(C)]
 pub struct SVGPathSegLinetoVerticalAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegLinetoVerticalRel(i32);
+#[repr(C)]
 pub struct SVGPathSegList(i32);
+#[repr(C)]
 pub struct SVGPathSegMovetoAbs(i32);
+#[repr(C)]
 pub struct SVGPathSegMovetoRel(i32);
+#[repr(C)]
 pub struct SVGPatternElement(i32);
+#[repr(C)]
 pub struct SVGPoint(i32);
+#[repr(C)]
 pub struct SVGPointList(i32);
+#[repr(C)]
 pub struct SVGPolygonElement(i32);
+#[repr(C)]
 pub struct SVGPolylineElement(i32);
+#[repr(C)]
 pub struct SVGPreserveAspectRatio(i32);
+#[repr(C)]
 pub struct SVGRadialGradientElement(i32);
+#[repr(C)]
 pub struct SVGRect(i32);
+#[repr(C)]
 pub struct SVGRectElement(i32);
+#[repr(C)]
 pub struct SVGSVGElement(i32);
+#[repr(C)]
 pub struct SVGScriptElement(i32);
+#[repr(C)]
 pub struct SVGStopElement(i32);
+#[repr(C)]
 pub struct SVGStringList(i32);
+#[repr(C)]
 pub struct SVGStyleElement(i32);
+#[repr(C)]
 pub struct SVGSwitchElement(i32);
+#[repr(C)]
 pub struct SVGSymbolElement(i32);
+#[repr(C)]
 pub struct SVGTSpanElement(i32);
+#[repr(C)]
 pub struct SVGTextContentElement(i32);
+#[repr(C)]
 pub struct SVGTextElement(i32);
+#[repr(C)]
 pub struct SVGTextPathElement(i32);
+#[repr(C)]
 pub struct SVGTextPositioningElement(i32);
+#[repr(C)]
 pub struct SVGTitleElement(i32);
+#[repr(C)]
 pub struct SVGTransform(i32);
+#[repr(C)]
 pub struct SVGTransformList(i32);
+#[repr(C)]
 pub struct SVGUseElement(i32);
+#[repr(C)]
 pub struct SVGViewElement(i32);
+#[repr(C)]
 pub struct SVGZoomEvent(i32);
 pub const S_SURFACE_DISCARDED: i32 = 49155i32;
+#[repr(C)]
 pub struct Scriptlet(i32);
+#[repr(C)]
 pub struct StaticNodeList(i32);
 pub const TF_NAVIGATE: u32 = 2142153644u32;
 pub const TIMERMODE_NORMAL: u32 = 0u32;
 pub const TIMERMODE_VISIBILITYAWARE: u32 = 1u32;
 pub const TOOLSBAND: u32 = 1u32;
+#[repr(C)]
 pub struct ThreadDialogProcParam(i32);
+#[repr(C)]
 pub struct TreeWalker(i32);
+#[repr(C)]
 pub struct VIEW_OBJECT_ALPHA_MODE(i32);
+#[repr(C)]
 pub struct VIEW_OBJECT_COMPOSITION_MODE(i32);
 pub const WEBOC_DISPIDBASE: u32 = 70536u32;
 pub const WEBOC_DISPIDMAX: u32 = 70636u32;
+#[repr(C)]
 pub struct WebGeocoordinates(i32);
+#[repr(C)]
 pub struct WebGeolocation(i32);
+#[repr(C)]
 pub struct WebGeoposition(i32);
+#[repr(C)]
 pub struct WebGeopositionError(i32);
+#[repr(C)]
 pub struct XDomainRequest(i32);
+#[repr(C)]
 pub struct XDomainRequestFactory(i32);
+#[repr(C)]
 pub struct XMLHttpRequestEventTarget(i32);
+#[repr(C)]
 pub struct XMLSerializer(i32);
+#[repr(C)]
 pub struct __MIDL_ITargetFrame2_0001(i32);
+#[repr(C)]
 pub struct __MIDL_ITargetFrame2_0002(i32);
+#[repr(C)]
 pub struct __MIDL_ITargetFrame_0001(i32);
+#[repr(C)]
 pub struct bodyScroll(i32);
+#[repr(C)]
 pub struct frameScrolling(i32);
+#[repr(C)]
 pub struct htmlAdjacency(i32);
+#[repr(C)]
 pub struct htmlApplyLocation(i32);
+#[repr(C)]
 pub struct htmlBlockAlign(i32);
+#[repr(C)]
 pub struct htmlCaptionAlign(i32);
+#[repr(C)]
 pub struct htmlCaptionVAlign(i32);
+#[repr(C)]
 pub struct htmlCellAlign(i32);
+#[repr(C)]
 pub struct htmlCellVAlign(i32);
+#[repr(C)]
 pub struct htmlClear(i32);
+#[repr(C)]
 pub struct htmlCompatMode(i32);
+#[repr(C)]
 pub struct htmlComponent(i32);
+#[repr(C)]
 pub struct htmlControlAlign(i32);
+#[repr(C)]
 pub struct htmlDesignMode(i32);
+#[repr(C)]
 pub struct htmlDir(i32);
+#[repr(C)]
 pub struct htmlDirection(i32);
+#[repr(C)]
 pub struct htmlDraggable(i32);
+#[repr(C)]
 pub struct htmlDropEffect(i32);
+#[repr(C)]
 pub struct htmlEditable(i32);
+#[repr(C)]
 pub struct htmlEffectAllowed(i32);
+#[repr(C)]
 pub struct htmlEncoding(i32);
+#[repr(C)]
 pub struct htmlEndPoints(i32);
+#[repr(C)]
 pub struct htmlFrame(i32);
+#[repr(C)]
 pub struct htmlGlyphMode(i32);
+#[repr(C)]
 pub struct htmlInput(i32);
+#[repr(C)]
 pub struct htmlListType(i32);
+#[repr(C)]
 pub struct htmlLoop(i32);
+#[repr(C)]
 pub struct htmlMarqueeBehavior(i32);
+#[repr(C)]
 pub struct htmlMarqueeDirection(i32);
+#[repr(C)]
 pub struct htmlMediaErr(i32);
+#[repr(C)]
 pub struct htmlMediaNetworkState(i32);
+#[repr(C)]
 pub struct htmlMediaReadyState(i32);
+#[repr(C)]
 pub struct htmlMethod(i32);
+#[repr(C)]
 pub struct htmlPersistState(i32);
+#[repr(C)]
 pub struct htmlReadyState(i32);
+#[repr(C)]
 pub struct htmlRules(i32);
+#[repr(C)]
 pub struct htmlSelectExFlag(i32);
+#[repr(C)]
 pub struct htmlSelectType(i32);
+#[repr(C)]
 pub struct htmlSelection(i32);
+#[repr(C)]
 pub struct htmlSpellCheck(i32);
+#[repr(C)]
 pub struct htmlStart(i32);
+#[repr(C)]
 pub struct htmlTabIndex(i32);
+#[repr(C)]
 pub struct htmlUnit(i32);
+#[repr(C)]
 pub struct htmlWrap(i32);
+#[repr(C)]
 pub struct htmlZOrder(i32);
+#[repr(C)]
 pub struct lengthAdjust(i32);
+#[repr(C)]
 pub struct mediaType(i32);
+#[repr(C)]
 pub struct sandboxAllow(i32);
+#[repr(C)]
 pub struct styleAccelerator(i32);
+#[repr(C)]
 pub struct styleAlignContent(i32);
+#[repr(C)]
 pub struct styleAlignItems(i32);
+#[repr(C)]
 pub struct styleAlignSelf(i32);
+#[repr(C)]
 pub struct styleAlignmentBaseline(i32);
+#[repr(C)]
 pub struct styleAttrType(i32);
+#[repr(C)]
 pub struct styleAuto(i32);
+#[repr(C)]
 pub struct styleBackfaceVisibility(i32);
+#[repr(C)]
 pub struct styleBackgroundAttachment(i32);
+#[repr(C)]
 pub struct styleBackgroundAttachment3(i32);
+#[repr(C)]
 pub struct styleBackgroundClip(i32);
+#[repr(C)]
 pub struct styleBackgroundOrigin(i32);
+#[repr(C)]
 pub struct styleBackgroundRepeat(i32);
+#[repr(C)]
 pub struct styleBaselineShift(i32);
+#[repr(C)]
 pub struct styleBidi(i32);
+#[repr(C)]
 pub struct styleBlockProgression(i32);
+#[repr(C)]
 pub struct styleBool(i32);
+#[repr(C)]
 pub struct styleBorderCollapse(i32);
+#[repr(C)]
 pub struct styleBorderImageRepeat(i32);
+#[repr(C)]
 pub struct styleBorderImageSliceFill(i32);
+#[repr(C)]
 pub struct styleBorderStyle(i32);
+#[repr(C)]
 pub struct styleBorderWidth(i32);
+#[repr(C)]
 pub struct styleBoxSizing(i32);
+#[repr(C)]
 pub struct styleBreak(i32);
+#[repr(C)]
 pub struct styleBreakInside(i32);
+#[repr(C)]
 pub struct styleCaptionSide(i32);
+#[repr(C)]
 pub struct styleClipRule(i32);
+#[repr(C)]
 pub struct styleColorInterpolationFilters(i32);
+#[repr(C)]
 pub struct styleColumnFill(i32);
+#[repr(C)]
 pub struct styleColumnSpan(i32);
+#[repr(C)]
 pub struct styleCursor(i32);
+#[repr(C)]
 pub struct styleDataRepeat(i32);
+#[repr(C)]
 pub struct styleDefaultTextSelection(i32);
+#[repr(C)]
 pub struct styleDir(i32);
+#[repr(C)]
 pub struct styleDisplay(i32);
+#[repr(C)]
 pub struct styleDominantBaseline(i32);
+#[repr(C)]
 pub struct styleEmptyCells(i32);
+#[repr(C)]
 pub struct styleEnableBackground(i32);
+#[repr(C)]
 pub struct styleFillRule(i32);
+#[repr(C)]
 pub struct styleFlex(i32);
+#[repr(C)]
 pub struct styleFlexBasis(i32);
+#[repr(C)]
 pub struct styleFlexDirection(i32);
+#[repr(C)]
 pub struct styleFlexWrap(i32);
+#[repr(C)]
 pub struct styleFontSize(i32);
+#[repr(C)]
 pub struct styleFontStretch(i32);
+#[repr(C)]
 pub struct styleFontStyle(i32);
+#[repr(C)]
 pub struct styleFontVariant(i32);
+#[repr(C)]
 pub struct styleFontWeight(i32);
+#[repr(C)]
 pub struct styleGridColumn(i32);
+#[repr(C)]
 pub struct styleGridColumnAlign(i32);
+#[repr(C)]
 pub struct styleGridColumnSpan(i32);
+#[repr(C)]
 pub struct styleGridRow(i32);
+#[repr(C)]
 pub struct styleGridRowAlign(i32);
+#[repr(C)]
 pub struct styleGridRowSpan(i32);
+#[repr(C)]
 pub struct styleHyphenateLimitLines(i32);
+#[repr(C)]
 pub struct styleHyphens(i32);
+#[repr(C)]
 pub struct styleImeMode(i32);
+#[repr(C)]
 pub struct styleInitialColor(i32);
+#[repr(C)]
 pub struct styleInitialString(i32);
+#[repr(C)]
 pub struct styleInterpolation(i32);
+#[repr(C)]
 pub struct styleJustifyContent(i32);
+#[repr(C)]
 pub struct styleLayoutFlow(i32);
+#[repr(C)]
 pub struct styleLayoutGridChar(i32);
+#[repr(C)]
 pub struct styleLayoutGridLine(i32);
+#[repr(C)]
 pub struct styleLayoutGridMode(i32);
+#[repr(C)]
 pub struct styleLayoutGridType(i32);
+#[repr(C)]
 pub struct styleLineBreak(i32);
+#[repr(C)]
 pub struct styleListStylePosition(i32);
+#[repr(C)]
 pub struct styleListStyleType(i32);
+#[repr(C)]
 pub struct styleMsAnimationDirection(i32);
+#[repr(C)]
 pub struct styleMsAnimationFillMode(i32);
+#[repr(C)]
 pub struct styleMsAnimationPlayState(i32);
+#[repr(C)]
 pub struct styleMsContentZoomChaining(i32);
+#[repr(C)]
 pub struct styleMsContentZoomSnapType(i32);
+#[repr(C)]
 pub struct styleMsContentZooming(i32);
+#[repr(C)]
 pub struct styleMsFlexAlign(i32);
+#[repr(C)]
 pub struct styleMsFlexItemAlign(i32);
+#[repr(C)]
 pub struct styleMsFlexLinePack(i32);
+#[repr(C)]
 pub struct styleMsFlexPack(i32);
+#[repr(C)]
 pub struct styleMsHighContrastAdjust(i32);
+#[repr(C)]
 pub struct styleMsImeAlign(i32);
+#[repr(C)]
 pub struct styleMsOverflowStyle(i32);
+#[repr(C)]
 pub struct styleMsScrollChaining(i32);
+#[repr(C)]
 pub struct styleMsScrollRails(i32);
+#[repr(C)]
 pub struct styleMsScrollSnapType(i32);
+#[repr(C)]
 pub struct styleMsScrollTranslation(i32);
+#[repr(C)]
 pub struct styleMsTextCombineHorizontal(i32);
+#[repr(C)]
 pub struct styleMsTouchAction(i32);
+#[repr(C)]
 pub struct styleMsTouchSelect(i32);
+#[repr(C)]
 pub struct styleMsUserSelect(i32);
+#[repr(C)]
 pub struct styleNone(i32);
+#[repr(C)]
 pub struct styleNormal(i32);
+#[repr(C)]
 pub struct styleOutlineStyle(i32);
+#[repr(C)]
 pub struct styleOverflow(i32);
+#[repr(C)]
 pub struct stylePageBreak(i32);
+#[repr(C)]
 pub struct stylePageBreakInside(i32);
+#[repr(C)]
 pub struct stylePerspectiveOriginX(i32);
+#[repr(C)]
 pub struct stylePerspectiveOriginY(i32);
+#[repr(C)]
 pub struct stylePointerEvents(i32);
+#[repr(C)]
 pub struct stylePosition(i32);
+#[repr(C)]
 pub struct styleRubyAlign(i32);
+#[repr(C)]
 pub struct styleRubyOverhang(i32);
+#[repr(C)]
 pub struct styleRubyPosition(i32);
+#[repr(C)]
 pub struct styleStrokeLinecap(i32);
+#[repr(C)]
 pub struct styleStrokeLinejoin(i32);
+#[repr(C)]
 pub struct styleStyleFloat(i32);
+#[repr(C)]
 pub struct styleTableLayout(i32);
+#[repr(C)]
 pub struct styleTextAlignLast(i32);
+#[repr(C)]
 pub struct styleTextAnchor(i32);
+#[repr(C)]
 pub struct styleTextDecoration(i32);
+#[repr(C)]
 pub struct styleTextEffect(i32);
+#[repr(C)]
 pub struct styleTextJustify(i32);
+#[repr(C)]
 pub struct styleTextJustifyTrim(i32);
+#[repr(C)]
 pub struct styleTextLineThroughStyle(i32);
+#[repr(C)]
 pub struct styleTextOverflow(i32);
+#[repr(C)]
 pub struct styleTextSizeAdjust(i32);
+#[repr(C)]
 pub struct styleTextTransform(i32);
+#[repr(C)]
 pub struct styleTextUnderlinePosition(i32);
+#[repr(C)]
 pub struct styleTextUnderlineStyle(i32);
+#[repr(C)]
 pub struct styleTransformOriginX(i32);
+#[repr(C)]
 pub struct styleTransformOriginY(i32);
+#[repr(C)]
 pub struct styleTransformStyle(i32);
+#[repr(C)]
 pub struct styleUserZoom(i32);
+#[repr(C)]
 pub struct styleVerticalAlign(i32);
+#[repr(C)]
 pub struct styleViewportSize(i32);
+#[repr(C)]
 pub struct styleVisibility(i32);
+#[repr(C)]
 pub struct styleWebkitAppearance(i32);
+#[repr(C)]
 pub struct styleWebkitBoxDirection(i32);
+#[repr(C)]
 pub struct styleWebkitBoxOrient(i32);
+#[repr(C)]
 pub struct styleWebkitBoxPack(i32);
+#[repr(C)]
 pub struct styleWhiteSpace(i32);
+#[repr(C)]
 pub struct styleWidowsOrphans(i32);
+#[repr(C)]
 pub struct styleWordBreak(i32);
+#[repr(C)]
 pub struct styleWordWrap(i32);
+#[repr(C)]
 pub struct styleWrapFlow(i32);
+#[repr(C)]
 pub struct styleWrapThrough(i32);
+#[repr(C)]
 pub struct styleWritingMode(i32);
+#[repr(C)]
 pub struct styleZIndex(i32);
+#[repr(C)]
 pub struct svgAngleType(i32);
+#[repr(C)]
 pub struct svgChannel(i32);
+#[repr(C)]
 pub struct svgEdgemode(i32);
+#[repr(C)]
 pub struct svgExternalResourcesRequired(i32);
+#[repr(C)]
 pub struct svgFeblendMode(i32);
+#[repr(C)]
 pub struct svgFecolormatrixType(i32);
+#[repr(C)]
 pub struct svgFecomponenttransferType(i32);
+#[repr(C)]
 pub struct svgFecompositeOperator(i32);
+#[repr(C)]
 pub struct svgFocusable(i32);
+#[repr(C)]
 pub struct svgLengthType(i32);
+#[repr(C)]
 pub struct svgMarkerOrient(i32);
+#[repr(C)]
 pub struct svgMarkerOrientAttribute(i32);
+#[repr(C)]
 pub struct svgMarkerUnits(i32);
+#[repr(C)]
 pub struct svgMorphologyOperator(i32);
+#[repr(C)]
 pub struct svgPathSegType(i32);
+#[repr(C)]
 pub struct svgPreserveAlpha(i32);
+#[repr(C)]
 pub struct svgPreserveAspectMeetOrSliceType(i32);
+#[repr(C)]
 pub struct svgPreserveAspectRatioAlignType(i32);
+#[repr(C)]
 pub struct svgSpreadMethod(i32);
+#[repr(C)]
 pub struct svgStitchtype(i32);
+#[repr(C)]
 pub struct svgTransformType(i32);
+#[repr(C)]
 pub struct svgTurbulenceType(i32);
+#[repr(C)]
 pub struct svgUnitTypes(i32);
+#[repr(C)]
 pub struct tagNavigateData(i32);
+#[repr(C)]
 pub struct textDecoration(i32);
+#[repr(C)]
 pub struct textpathMethodtype(i32);
+#[repr(C)]
 pub struct textpathSpacingtype(i32);
+#[repr(C)]
 pub struct wfolders(i32);

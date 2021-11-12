@@ -466,6 +466,7 @@ extern "system" {
 pub const ALLOW_NO_AUTH: u32 = 1u32;
 pub const ATADDRESSLEN: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AUTH_VALIDATION_EX(i32);
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
 pub const ERROR_ACCESSING_TCPCFGDLL: u32 = 727u32;
@@ -748,25 +749,38 @@ pub const ET_None: u32 = 0u32;
 pub const ET_Optional: u32 = 3u32;
 pub const ET_Require: u32 = 1u32;
 pub const ET_RequireMax: u32 = 2u32;
+#[repr(C)]
 pub struct GRE_CONFIG_PARAMS0(i32);
+#[repr(C)]
 pub struct HRASCONN(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct IKEV2_CONFIG_PARAMS(i32);
+#[repr(C)]
 pub struct IKEV2_ID_PAYLOAD_TYPE(i32);
+#[repr(C)]
 pub struct IKEV2_PROJECTION_INFO(i32);
+#[repr(C)]
 pub struct IKEV2_PROJECTION_INFO2(i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4(i32);
 pub const IPADDRESSLEN: u32 = 15u32;
 pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
 pub const IPXADDRESSLEN: u32 = 22u32;
+#[repr(C)]
 pub struct L2TP_CONFIG_PARAMS0(i32);
+#[repr(C)]
 pub struct L2TP_CONFIG_PARAMS1(i32);
+#[repr(C)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1(i32);
+#[repr(C)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2(i32);
 pub const MAXIPADRESSLEN: u32 = 64u32;
 pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
@@ -779,14 +793,17 @@ pub const METHOD_RIP2_OUTBOUND_INTF: u32 = 2u32;
 pub const METHOD_RIP2_ROUTE_TAG: u32 = 4u32;
 pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
 pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
+#[repr(C)]
 pub struct MGM_ENUM_TYPES(i32);
 pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MGM_IF_ENTRY(i32);
 pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
 pub const MGM_MFE_STATS_0: u32 = 1u32;
 pub const MGM_MFE_STATS_1: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS(i32);
 pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
 pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
@@ -809,7 +826,9 @@ pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4u32;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5u32;
+#[repr(C)]
 pub struct MPRAPI_OBJECT_HEADER(i32);
+#[repr(C)]
 pub struct MPRAPI_OBJECT_TYPE(i32);
 pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
 pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
@@ -820,8 +839,10 @@ pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2u32;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1(i32);
 pub const MPRET_Direct: u32 = 3u32;
 pub const MPRET_Phone: u32 = 1u32;
@@ -855,41 +876,58 @@ pub const MPRNP_Ip: u32 = 4u32;
 pub const MPRNP_Ipv6: u32 = 8u32;
 pub const MPRNP_Ipx: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_CERT_EKU(i32);
+#[repr(C)]
 pub struct MPR_CREDENTIALSEX_0(i32);
+#[repr(C)]
 pub struct MPR_CREDENTIALSEX_1(i32);
+#[repr(C)]
 pub struct MPR_DEVICE_0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_DEVICE_1(i32);
 pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
 pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
+#[repr(C)]
 pub struct MPR_ET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_FILTER_0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_IFTRANSPORT_0(i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
 pub struct MPR_IF_CUSTOMINFOEX0(i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
 pub struct MPR_IF_CUSTOMINFOEX1(i32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct MPR_IF_CUSTOMINFOEX2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_INTERFACE_0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_INTERFACE_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_INTERFACE_2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct MPR_INTERFACE_3(i32);
 pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
 pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
 pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
+#[repr(C)]
 pub struct MPR_INTERFACE_DIAL_MODE(i32);
 pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
 pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32u32;
 pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1u32;
 pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8u32;
+#[repr(C)]
 pub struct MPR_IPINIP_INTERFACE_0(i32);
 pub const MPR_MaxAreaCode: u32 = 10u32;
 pub const MPR_MaxCallbackNumber: u32 = 128u32;
@@ -904,66 +942,113 @@ pub const MPR_MaxPhoneNumber: u32 = 128u32;
 pub const MPR_MaxUserData: u32 = 200u32;
 pub const MPR_MaxX25Address: u32 = 200u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_SERVER_0(i32);
+#[repr(C)]
 pub struct MPR_SERVER_1(i32);
+#[repr(C)]
 pub struct MPR_SERVER_2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct MPR_SERVER_EX0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct MPR_SERVER_EX1(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct MPR_SERVER_SET_CONFIG_EX0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct MPR_SERVER_SET_CONFIG_EX1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MPR_TRANSPORT_0(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct MPR_VPN_TRAFFIC_SELECTORS(i32);
+#[repr(C)]
 pub struct MPR_VPN_TS_TYPE(i32);
+#[repr(C)]
 pub struct MPR_VS(i32);
 pub const MPR_VS_Ikev2First: u32 = 8u32;
 pub const MPR_VS_Ikev2Only: u32 = 7u32;
+#[repr(C)]
 pub struct ORASADFUNC(i32);
 pub const PENDING: u32 = 600u32;
+#[repr(C)]
 pub struct PFNRASFREEBUFFER(i32);
+#[repr(C)]
 pub struct PFNRASGETBUFFER(i32);
+#[repr(C)]
 pub struct PFNRASRECEIVEBUFFER(i32);
+#[repr(C)]
 pub struct PFNRASRETRIEVEBUFFER(i32);
+#[repr(C)]
 pub struct PFNRASSENDBUFFER(i32);
+#[repr(C)]
 pub struct PFNRASSETCOMMSETTINGS(i32);
 pub const PID_ATALK: u32 = 41u32;
 pub const PID_IP: u32 = 33u32;
 pub const PID_IPV6: u32 = 87u32;
 pub const PID_IPX: u32 = 43u32;
 pub const PID_NBF: u32 = 63u32;
+#[repr(C)]
 pub struct PMGM_CREATION_ALERT_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_DISABLE_IGMP_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_ENABLE_IGMP_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_JOIN_ALERT_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_LOCAL_JOIN_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_LOCAL_LEAVE_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_PRUNE_ALERT_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_RPF_CALLBACK(i32);
+#[repr(C)]
 pub struct PMGM_WRONG_IF_CALLBACK(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTNEWCONNECTION(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTNEWCONNECTION2(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTNEWCONNECTION3(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTNEWCONNECTIONEX(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTNEWLINK(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTREAUTHENTICATION(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTREAUTHENTICATIONEX(i32);
+#[repr(C)]
 pub struct PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX(i32);
+#[repr(C)]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION(i32);
+#[repr(C)]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION2(i32);
+#[repr(C)]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION3(i32);
+#[repr(C)]
 pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX(i32);
+#[repr(C)]
 pub struct PMPRADMINGETIPADDRESSFORUSER(i32);
+#[repr(C)]
 pub struct PMPRADMINGETIPV6ADDRESSFORUSER(i32);
+#[repr(C)]
 pub struct PMPRADMINLINKHANGUPNOTIFICATION(i32);
+#[repr(C)]
 pub struct PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX(i32);
+#[repr(C)]
 pub struct PMPRADMINRELEASEIPADRESS(i32);
+#[repr(C)]
 pub struct PMPRADMINRELEASEIPV6ADDRESSFORUSER(i32);
+#[repr(C)]
 pub struct PMPRADMINTERMINATEDLL(i32);
+#[repr(C)]
 pub struct PPP_ATCP_INFO(i32);
 pub const PPP_CCP_COMPRESSION: u32 = 1u32;
 pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
@@ -971,15 +1056,24 @@ pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
 pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16u32;
 pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128u32;
 pub const PPP_CCP_HISTORYLESS: u32 = 16777216u32;
+#[repr(C)]
 pub struct PPP_CCP_INFO(i32);
+#[repr(C)]
 pub struct PPP_INFO(i32);
+#[repr(C)]
 pub struct PPP_INFO_2(i32);
+#[repr(C)]
 pub struct PPP_INFO_3(i32);
+#[repr(C)]
 pub struct PPP_IPCP_INFO(i32);
+#[repr(C)]
 pub struct PPP_IPCP_INFO2(i32);
 pub const PPP_IPCP_VJ: u32 = 1u32;
+#[repr(C)]
 pub struct PPP_IPV6_CP_INFO(i32);
+#[repr(C)]
 pub struct PPP_IPXCP_INFO(i32);
+#[repr(C)]
 pub struct PPP_LCP(i32);
 pub const PPP_LCP_3_DES: u32 = 32u32;
 pub const PPP_LCP_ACFC: u32 = 4u32;
@@ -990,21 +1084,32 @@ pub const PPP_LCP_DES_56: u32 = 16u32;
 pub const PPP_LCP_GCM_AES_128: u32 = 512u32;
 pub const PPP_LCP_GCM_AES_192: u32 = 1024u32;
 pub const PPP_LCP_GCM_AES_256: u32 = 2048u32;
+#[repr(C)]
 pub struct PPP_LCP_INFO(i32);
+#[repr(C)]
 pub struct PPP_LCP_INFO_AUTH_DATA(i32);
 pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1u32;
 pub const PPP_LCP_PFC: u32 = 2u32;
 pub const PPP_LCP_SSHF: u32 = 8u32;
+#[repr(C)]
 pub struct PPP_NBFCP_INFO(i32);
+#[repr(C)]
 pub struct PPP_PROJECTION_INFO(i32);
+#[repr(C)]
 pub struct PPP_PROJECTION_INFO2(i32);
+#[repr(C)]
 pub struct PPTP_CONFIG_PARAMS(i32);
+#[repr(C)]
 pub struct PROJECTION_INFO(i32);
+#[repr(C)]
 pub struct PROJECTION_INFO2(i32);
 pub const RASADFLG_PositionDlg: u32 = 1u32;
+#[repr(C)]
 pub struct RASADFUNCA(i32);
+#[repr(C)]
 pub struct RASADFUNCW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASADPARAMS(i32);
 pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
 pub const RASADP_DisableConnectionQuery: u32 = 0u32;
@@ -1012,11 +1117,16 @@ pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
 pub const RASADP_LoginSessionDisable: u32 = 1u32;
 pub const RASADP_SavedAddressesLimit: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASAMBA(i32);
+#[repr(C)]
 pub struct RASAMBW(i32);
+#[repr(C)]
 pub struct RASAPIVERSION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASAUTODIALENTRYA(i32);
+#[repr(C)]
 pub struct RASAUTODIALENTRYW(i32);
 pub const RASBASE: u32 = 600u32;
 pub const RASBASEEND: u32 = 877u32;
@@ -1045,51 +1155,75 @@ pub const RASCN_Disconnection: u32 = 2u32;
 pub const RASCN_Dormant: u32 = 16u32;
 pub const RASCN_EPDGPacketArrival: u32 = 64u32;
 pub const RASCN_ReConnection: u32 = 32u32;
+#[repr(C)]
 pub struct RASCOMMSETTINGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASCONNA(i32);
+#[repr(C)]
 pub struct RASCONNSTATE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct RASCONNSTATUSA(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RASCONNSTATUSW(i32);
+#[repr(C)]
 pub struct RASCONNSUBSTATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASCONNW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASCREDENTIALSA(i32);
+#[repr(C)]
 pub struct RASCREDENTIALSW(i32);
 pub const RASCSS_DONE: u32 = 8192u32;
 pub const RASCS_DONE: u32 = 8192u32;
 pub const RASCS_PAUSED: u32 = 4096u32;
+#[repr(C)]
 pub struct RASCTRYINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASCUSTOMSCRIPTEXTENSIONS(i32);
 pub const RASDDFLAG_AoacRedial: u32 = 4u32;
 pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
 pub const RASDDFLAG_NoPrompt: u32 = 2u32;
 pub const RASDDFLAG_PositionDlg: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASDEVINFOA(i32);
+#[repr(C)]
 pub struct RASDEVINFOW(i32);
+#[repr(C)]
 pub struct RASDEVSPECIFICINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASDIALDLG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASDIALEXTENSIONS(i32);
+#[repr(C)]
 pub struct RASDIALFUNC(i32);
+#[repr(C)]
 pub struct RASDIALFUNC1(i32);
+#[repr(C)]
 pub struct RASDIALFUNC2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASDIALPARAMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASDIALPARAMSW(i32);
 pub const RASEAPF_Logon: u32 = 4u32;
 pub const RASEAPF_NonInteractive: u32 = 2u32;
 pub const RASEAPF_Preview: u32 = 8u32;
+#[repr(C)]
 pub struct RASEAPINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASEAPUSERIDENTITYA(i32);
+#[repr(C)]
 pub struct RASEAPUSERIDENTITYW(i32);
 pub const RASEDFLAG_CloneEntry: u32 = 4u32;
 pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
@@ -1104,16 +1238,23 @@ pub const RASEDFLAG_NoRename: u32 = 8u32;
 pub const RASEDFLAG_PositionDlg: u32 = 1u32;
 pub const RASEDFLAG_ShellOwned: u32 = 1073741824u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct RASENTRYA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASENTRYDLGA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASENTRYDLGW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASENTRYNAMEA(i32);
+#[repr(C)]
 pub struct RASENTRYNAMEW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct RASENTRYW(i32);
+#[repr(C)]
 pub struct RASENTRY_DIAL_MODE(i32);
 pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
 pub const RASEO2_AutoTriggerCapable: u32 = 67108864u32;
@@ -1189,13 +1330,17 @@ pub const RASFP_Slip: u32 = 2u32;
 pub const RASIDS_Disabled: u32 = 4294967295u32;
 pub const RASIDS_UseGlobalValue: u32 = 0u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RASIKEV2_PROJECTION_INFO(i32);
+#[repr(C)]
 pub struct RASIKEV_PROJECTION_INFO_FLAGS(i32);
 pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
 pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
 pub const RASIKEv2_AUTH_PSK: u32 = 3u32;
+#[repr(C)]
 pub struct RASIPADDR(i32);
 pub const RASIPO_VJ: u32 = 1u32;
+#[repr(C)]
 pub struct RASIPXW(i32);
 pub const RASLCPO_3_DES: u32 = 16u32;
 pub const RASLCPO_ACFC: u32 = 2u32;
@@ -1210,7 +1355,9 @@ pub const RASLCPO_PFC: u32 = 1u32;
 pub const RASLCPO_SSHF: u32 = 4u32;
 pub const RASNAP_ProbationTime: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASNOUSERA(i32);
+#[repr(C)]
 pub struct RASNOUSERW(i32);
 pub const RASNOUSER_SmartCard: u32 = 1u32;
 pub const RASNP_Ip: u32 = 4u32;
@@ -1229,61 +1376,92 @@ pub const RASPBDFLAG_NoUser: u32 = 16u32;
 pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASPBDLGA(i32);
+#[repr(C)]
 pub struct RASPBDLGFUNCA(i32);
+#[repr(C)]
 pub struct RASPBDLGFUNCW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASPBDLGW(i32);
+#[repr(C)]
 pub struct RASPPPCCP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASPPPIPA(i32);
+#[repr(C)]
 pub struct RASPPPIPV6(i32);
+#[repr(C)]
 pub struct RASPPPIPW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASPPPIPXA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASPPPLCPA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASPPPLCPW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASPPPNBFA(i32);
+#[repr(C)]
 pub struct RASPPPNBFW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct RASPPP_PROJECTION_INFO(i32);
+#[repr(C)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(i32);
+#[repr(C)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(i32);
 pub const RASPRIV2_DialinPolicy: u32 = 1u32;
 pub const RASPRIV_AdminSetCallback: u32 = 2u32;
 pub const RASPRIV_CallerSetCallback: u32 = 4u32;
 pub const RASPRIV_DialinPrivilege: u32 = 8u32;
 pub const RASPRIV_NoCallback: u32 = 1u32;
+#[repr(C)]
 pub struct RASPROJECTION(i32);
+#[repr(C)]
 pub struct RASPROJECTION_INFO_TYPE(i32);
+#[repr(C)]
 pub struct RASSECURITYPROC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RASSUBENTRYA(i32);
+#[repr(C)]
 pub struct RASSUBENTRYW(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RASTUNNELENDPOINT(i32);
 pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
 pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
 pub const RASTUNNELENDPOINT_UNKNOWN: u32 = 0u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct RASUPDATECONN(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_CONNECTION_0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_CONNECTION_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_CONNECTION_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_CONNECTION_3(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_CONNECTION_4(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_CONNECTION_EX(i32);
+#[repr(C)]
 pub struct RAS_FLAGS(i32);
 pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
+#[repr(C)]
 pub struct RAS_HARDWARE_CONDITION(i32);
 pub const RAS_MaxAreaCode: u32 = 10u32;
 pub const RAS_MaxCallbackNumber: u32 = 128u32;
@@ -1301,20 +1479,31 @@ pub const RAS_MaxReplyMessage: u32 = 1024u32;
 pub const RAS_MaxUserData: u32 = 200u32;
 pub const RAS_MaxX25Address: u32 = 200u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_PORT_0(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_PORT_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_PORT_2(i32);
+#[repr(C)]
 pub struct RAS_PORT_CONDITION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[repr(C)]
 pub struct RAS_PROJECTION_INFO(i32);
+#[repr(C)]
 pub struct RAS_QUARANTINE_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAS_SECURITY_INFO(i32);
+#[repr(C)]
 pub struct RAS_STATS(i32);
+#[repr(C)]
 pub struct RAS_UPDATE_CONNECTION(i32);
+#[repr(C)]
 pub struct RAS_USER_0(i32);
+#[repr(C)]
 pub struct RAS_USER_1(i32);
 pub const RCD_AllUsers: u32 = 1u32;
 pub const RCD_Eap: u32 = 2u32;
@@ -1338,16 +1527,23 @@ pub const RDEOPT_UseCustomScripting: u32 = 8192u32;
 pub const RDEOPT_UsePrefixSuffix: u32 = 1u32;
 pub const REN_AllUsers: u32 = 1u32;
 pub const REN_User: u32 = 0u32;
+#[repr(C)]
 pub struct ROUTER_CONNECTION_STATE(i32);
+#[repr(C)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0(i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0(i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[repr(C)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1(i32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2(i32);
+#[repr(C)]
 pub struct ROUTER_INTERFACE_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ROUTING_PROTOCOL_CONFIG(i32);
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
 pub const RTM_CHANGE_TYPE_ALL: u32 = 1u32;
@@ -1357,12 +1553,19 @@ pub const RTM_DEST_FLAG_DONT_FORWARD: u32 = 4u32;
 pub const RTM_DEST_FLAG_FWD_ENGIN_ADD: u32 = 2u32;
 pub const RTM_DEST_FLAG_NATURAL_NET: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RTM_DEST_INFO(i32);
+#[repr(C)]
 pub struct RTM_ENTITY_EXPORT_METHOD(i32);
+#[repr(C)]
 pub struct RTM_ENTITY_EXPORT_METHODS(i32);
+#[repr(C)]
 pub struct RTM_ENTITY_ID(i32);
+#[repr(C)]
 pub struct RTM_ENTITY_INFO(i32);
+#[repr(C)]
 pub struct RTM_ENTITY_METHOD_INPUT(i32);
+#[repr(C)]
 pub struct RTM_ENTITY_METHOD_OUTPUT(i32);
 pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
 pub const RTM_ENUM_ALL_ROUTES: u32 = 0u32;
@@ -1371,7 +1574,9 @@ pub const RTM_ENUM_OWN_DESTS: u32 = 16777216u32;
 pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
 pub const RTM_ENUM_RANGE: u32 = 2u32;
 pub const RTM_ENUM_START: u32 = 0u32;
+#[repr(C)]
 pub struct RTM_EVENT_CALLBACK(i32);
+#[repr(C)]
 pub struct RTM_EVENT_TYPE(i32);
 pub const RTM_MATCH_FULL: u32 = 65535u32;
 pub const RTM_MATCH_INTERFACE: u32 = 16u32;
@@ -1382,17 +1587,22 @@ pub const RTM_MATCH_OWNER: u32 = 1u32;
 pub const RTM_MATCH_PREF: u32 = 4u32;
 pub const RTM_MAX_ADDRESS_SIZE: u32 = 16u32;
 pub const RTM_MAX_VIEWS: u32 = 32u32;
+#[repr(C)]
 pub struct RTM_NET_ADDRESS(i32);
 pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
 pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
 pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
+#[repr(C)]
 pub struct RTM_NEXTHOP_INFO(i32);
+#[repr(C)]
 pub struct RTM_NEXTHOP_LIST(i32);
 pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
 pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
 pub const RTM_NOTIFY_ONLY_MARKED_DESTS: u32 = 65536u32;
 pub const RTM_NUM_CHANGE_TYPES: u32 = 3u32;
+#[repr(C)]
 pub struct RTM_PREF_INFO(i32);
+#[repr(C)]
 pub struct RTM_REGN_PROFILE(i32);
 pub const RTM_RESUME_METHODS: u32 = 0u32;
 pub const RTM_ROUTE_CHANGE_BEST: u32 = 65536u32;
@@ -1413,6 +1623,7 @@ pub const RTM_ROUTE_FLAGS_ONES_SUBNETBC: u32 = 32768u32;
 pub const RTM_ROUTE_FLAGS_REMOTE: u32 = 32u32;
 pub const RTM_ROUTE_FLAGS_ZEROS_NETBC: u32 = 4096u32;
 pub const RTM_ROUTE_FLAGS_ZEROS_SUBNETBC: u32 = 8192u32;
+#[repr(C)]
 pub struct RTM_ROUTE_INFO(i32);
 pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
 pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
@@ -1425,21 +1636,33 @@ pub const RTM_VIEW_MASK_MCAST: u32 = 2u32;
 pub const RTM_VIEW_MASK_NONE: u32 = 0u32;
 pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
 pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
+#[repr(C)]
 pub struct RasCustomDeleteEntryNotifyFn(i32);
+#[repr(C)]
 pub struct RasCustomDialDlgFn(i32);
+#[repr(C)]
 pub struct RasCustomDialFn(i32);
+#[repr(C)]
 pub struct RasCustomEntryDlgFn(i32);
+#[repr(C)]
 pub struct RasCustomHangUpFn(i32);
+#[repr(C)]
 pub struct RasCustomScriptExecuteFn(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SECURITY_MESSAGE(i32);
+#[repr(C)]
 pub struct SECURITY_MESSAGE_MSG_ID(i32);
+#[repr(C)]
 pub struct SOURCE_GROUP_ENTRY(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct SSTP_CERT_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[repr(C)]
 pub struct SSTP_CONFIG_PARAMS(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct VPN_TS_IP_ADDRESS(i32);
 pub const VS_Default: u32 = 0u32;
 pub const VS_GREOnly: u32 = 9u32;
@@ -1458,4 +1681,5 @@ pub const VS_SstpOnly: u32 = 5u32;
 pub const WARNING_MSG_ALIAS_NOT_ADDED: u32 = 644u32;
 pub const WM_RASDIALEVENT: u32 = 52429u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[repr(C)]
 pub struct _MPR_VPN_SELECTOR(i32);

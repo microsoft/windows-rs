@@ -67,6 +67,7 @@ pub struct ISpatialStageFrameOfReferenceStatics(pub *mut ::core::ffi::c_void);
 pub struct ISpatialStationaryFrameOfReference(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAnchor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialAnchorExportPurpose(i32);
 #[repr(transparent)]
 pub struct SpatialAnchorExportSufficiency(pub *mut ::core::ffi::c_void);
@@ -81,12 +82,16 @@ pub struct SpatialAnchorStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAnchorTransferManager(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct SpatialBoundingBox(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct SpatialBoundingFrustum(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct SpatialBoundingOrientedBox(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct SpatialBoundingSphere(i32);
 #[repr(transparent)]
 pub struct SpatialBoundingVolume(pub *mut ::core::ffi::c_void);
@@ -104,7 +109,9 @@ pub struct SpatialEntityStore(pub *mut ::core::ffi::c_void);
 pub struct SpatialEntityUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialEntityWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialEntityWatcherStatus(i32);
+#[repr(C)]
 pub struct SpatialLocatability(i32);
 #[repr(transparent)]
 pub struct SpatialLocation(pub *mut ::core::ffi::c_void);
@@ -114,10 +121,14 @@ pub struct SpatialLocator(pub *mut ::core::ffi::c_void);
 pub struct SpatialLocatorAttachedFrameOfReference(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpatialLookDirectionRange(i32);
+#[repr(C)]
 pub struct SpatialMovementRange(i32);
+#[repr(C)]
 pub struct SpatialPerceptionAccessStatus(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct SpatialRay(i32);
 #[repr(transparent)]
 pub struct SpatialStageFrameOfReference(pub *mut ::core::ffi::c_void);

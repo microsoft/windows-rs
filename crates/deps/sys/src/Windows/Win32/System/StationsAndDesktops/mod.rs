@@ -62,16 +62,27 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SwitchDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(i32);
+#[repr(C)]
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BSMINFO(i32);
+#[repr(C)]
 pub struct DESKTOPENUMPROCA(i32);
+#[repr(C)]
 pub struct DESKTOPENUMPROCW(i32);
+#[repr(C)]
 pub struct HDESK(i32);
+#[repr(C)]
 pub struct HWINSTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct USEROBJECTFLAGS(i32);
+#[repr(C)]
 pub struct USER_OBJECT_INFORMATION_INDEX(i32);
+#[repr(C)]
 pub struct WINSTAENUMPROCA(i32);
+#[repr(C)]
 pub struct WINSTAENUMPROCW(i32);

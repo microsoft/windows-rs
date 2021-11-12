@@ -100,12 +100,19 @@ extern "system" {
     pub fn UpdateResourceW(hupdate: super::super::Foundation::HANDLE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
 }
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct ENUMRESLANGPROCA(i32);
+#[repr(C)]
 pub struct ENUMRESLANGPROCW(i32);
+#[repr(C)]
 pub struct ENUMRESNAMEPROCA(i32);
+#[repr(C)]
 pub struct ENUMRESNAMEPROCW(i32);
+#[repr(C)]
 pub struct ENUMRESTYPEPROCA(i32);
+#[repr(C)]
 pub struct ENUMRESTYPEPROCW(i32);
+#[repr(C)]
 pub struct ENUMUILANG(i32);
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
 pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
@@ -113,13 +120,18 @@ pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
 pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
 pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
 pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
+#[repr(C)]
 pub struct LOAD_LIBRARY_FLAGS(i32);
 pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
+#[repr(C)]
 pub struct PGET_MODULE_HANDLE_EXA(i32);
+#[repr(C)]
 pub struct PGET_MODULE_HANDLE_EXW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REDIRECTION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR(i32);
 pub const RESOURCE_ENUM_LN: u32 = 1u32;
 pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;

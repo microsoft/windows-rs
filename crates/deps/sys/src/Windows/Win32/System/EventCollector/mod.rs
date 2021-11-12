@@ -35,16 +35,26 @@ pub const EC_CREATE_NEW: u32 = 1u32;
 pub const EC_OPEN_ALWAYS: u32 = 0u32;
 pub const EC_OPEN_EXISTING: u32 = 2u32;
 pub const EC_READ_ACCESS: u32 = 1u32;
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_CONFIGURATION_MODE(i32);
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_CONTENT_FORMAT(i32);
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_CREDENTIALS_TYPE(i32);
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_DELIVERY_MODE(i32);
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_PROPERTY_ID(i32);
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(i32);
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(i32);
+#[repr(C)]
 pub struct EC_SUBSCRIPTION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct EC_VARIANT(i32);
+#[repr(C)]
 pub struct EC_VARIANT_TYPE(i32);
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;

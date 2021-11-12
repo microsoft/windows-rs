@@ -141,15 +141,19 @@ pub struct LearningModel(pub *mut ::core::ffi::c_void);
 pub struct LearningModelBinding(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LearningModelDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LearningModelDeviceKind(i32);
 #[repr(transparent)]
 pub struct LearningModelEvaluationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LearningModelFeatureKind(i32);
+#[repr(C)]
 pub struct LearningModelPixelRange(i32);
 #[repr(transparent)]
 pub struct LearningModelSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LearningModelSessionOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MachineLearningContract(i32);
 #[repr(transparent)]
 pub struct MapFeatureDescriptor(pub *mut ::core::ffi::c_void);
@@ -173,6 +177,7 @@ pub struct TensorInt32Bit(pub *mut ::core::ffi::c_void);
 pub struct TensorInt64Bit(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TensorInt8Bit(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TensorKind(i32);
 #[repr(transparent)]
 pub struct TensorString(pub *mut ::core::ffi::c_void);

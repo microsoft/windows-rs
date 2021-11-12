@@ -3,4 +3,5 @@
 pub mod Storage;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct StorageApiContract(i32);

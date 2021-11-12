@@ -133,11 +133,13 @@ pub struct PerceptionDepthFrameSourceAddedEventArgs(pub *mut ::core::ffi::c_void
 pub struct PerceptionDepthFrameSourceRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PerceptionFrameSourceAccessStatus(i32);
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertiesChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(i32);
 #[repr(transparent)]
 pub struct PerceptionInfraredFrame(pub *mut ::core::ffi::c_void);

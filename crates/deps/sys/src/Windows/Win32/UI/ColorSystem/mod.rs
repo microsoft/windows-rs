@@ -238,8 +238,10 @@ extern "system" {
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 pub const BEST_MODE: u32 = 3u32;
+#[repr(C)]
 pub struct BMFORMAT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BlackInformation(i32);
 pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2696151776,
@@ -272,16 +274,25 @@ pub const CMS_TARGETOVERFLOW: i32 = 536870912i32;
 pub const CMS_USEAPPLYCALLBACK: u32 = 256u32;
 pub const CMS_USEDESCRIPTION: u32 = 512u32;
 pub const CMS_USEHOOK: u32 = 128u32;
+#[repr(C)]
 pub struct CMYKCOLOR(i32);
+#[repr(C)]
 pub struct COLOR(i32);
+#[repr(C)]
 pub struct COLORDATATYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct COLORMATCHSETUPA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct COLORMATCHSETUPW(i32);
+#[repr(C)]
 pub struct COLORPROFILESUBTYPE(i32);
+#[repr(C)]
 pub struct COLORPROFILETYPE(i32);
+#[repr(C)]
 pub struct COLORTYPE(i32);
+#[repr(C)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(i32);
 pub const COLOR_MATCH_VERSION: u32 = 512u32;
 pub const CSA_A: u32 = 1u32;
@@ -294,13 +305,17 @@ pub const CSA_Lab: u32 = 8u32;
 pub const CSA_RGB: u32 = 6u32;
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct EMRCREATECOLORSPACE(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct EMRCREATECOLORSPACEW(i32);
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUMTYPEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ENUMTYPEW(i32);
 pub const ENUM_TYPE_VERSION: u32 = 768u32;
 pub const ET_ATTRIBUTES: u32 = 8192u32;
@@ -326,15 +341,25 @@ pub const FAST_TRANSLATE: u32 = 262144u32;
 pub const FLAG_DEPENDENTONDATA: u32 = 2u32;
 pub const FLAG_EMBEDDEDPROFILE: u32 = 1u32;
 pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432u32;
+#[repr(C)]
 pub struct GENERIC3CHANNEL(i32);
+#[repr(C)]
 pub struct GRAYCOLOR(i32);
+#[repr(C)]
 pub struct GamutBoundaryDescription(i32);
+#[repr(C)]
 pub struct GamutShell(i32);
+#[repr(C)]
 pub struct GamutShellTriangle(i32);
+#[repr(C)]
 pub struct HCOLORSPACE(i32);
+#[repr(C)]
 pub struct HiFiCOLOR(i32);
+#[repr(C)]
 pub struct ICMENUMPROCA(i32);
+#[repr(C)]
 pub struct ICMENUMPROCW(i32);
+#[repr(C)]
 pub struct ICM_COMMAND(i32);
 #[repr(transparent)]
 pub struct IDeviceModelPlugIn(pub *mut ::core::ffi::c_void);
@@ -345,44 +370,66 @@ pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
 pub const INTENT_PERCEPTUAL: u32 = 0u32;
 pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
 pub const INTENT_SATURATION: u32 = 2u32;
+#[repr(C)]
 pub struct JChColorF(i32);
+#[repr(C)]
 pub struct JabColorF(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct LOGCOLORSPACEA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct LOGCOLORSPACEW(i32);
+#[repr(C)]
 pub struct LPBMCALLBACKFN(i32);
+#[repr(C)]
 pub struct LabCOLOR(i32);
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
+#[repr(C)]
 pub struct NAMEDCOLOR(i32);
+#[repr(C)]
 pub struct NAMED_PROFILE_INFO(i32);
 pub const NORMAL_MODE: u32 = 2u32;
+#[repr(C)]
 pub struct PCMSCALLBACKA(i32);
+#[repr(C)]
 pub struct PCMSCALLBACKW(i32);
 pub const PRESERVEBLACK: u32 = 1048576u32;
+#[repr(C)]
 pub struct PROFILE(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct PROFILEHEADER(i32);
 pub const PROFILE_FILENAME: u32 = 1u32;
 pub const PROFILE_MEMBUFFER: u32 = 2u32;
 pub const PROFILE_READ: u32 = 1u32;
 pub const PROFILE_READWRITE: u32 = 2u32;
 pub const PROOF_MODE: u32 = 1u32;
+#[repr(C)]
 pub struct PrimaryJabColors(i32);
+#[repr(C)]
 pub struct PrimaryXYZColors(i32);
 pub const RESERVED: u32 = 2147483648u32;
+#[repr(C)]
 pub struct RGBCOLOR(i32);
 pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
 pub const WCS_ALWAYS: u32 = 2097152u32;
 pub const WCS_DEFAULT: i32 = 0i32;
+#[repr(C)]
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WCS_DEVICE_VCGT_CAPABILITIES(i32);
 pub const WCS_ICCONLY: i32 = 65536i32;
+#[repr(C)]
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(i32);
+#[repr(C)]
 pub struct XYZCOLOR(i32);
+#[repr(C)]
 pub struct XYZColorF(i32);
+#[repr(C)]
 pub struct YxyCOLOR(i32);

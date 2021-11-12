@@ -131,20 +131,30 @@ extern "system" {
     pub fn WTSWaitSystemEvent(hserver: super::super::Foundation::HANDLE, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AAAccountingData(i32);
+#[repr(C)]
 pub struct AAAccountingDataType(i32);
+#[repr(C)]
 pub struct AAAuthSchemes(i32);
+#[repr(C)]
 pub struct AATrustClassID(i32);
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
+#[repr(C)]
 pub struct ADsTSUserEx(i32);
+#[repr(C)]
 pub struct AE_CURRENT_POSITION(i32);
+#[repr(C)]
 pub struct AE_POSITION_FLAGS(i32);
+#[repr(C)]
 pub struct BITMAP_RENDERER_STATISTICS(i32);
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
 pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHANNEL_DEF(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHANNEL_ENTRY_POINTS(i32);
 pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
 pub const CHANNEL_EVENT_DATA_RECEIVED: u32 = 10u32;
@@ -171,6 +181,7 @@ pub const CHANNEL_OPTION_PRI_LOW: u32 = 33554432u32;
 pub const CHANNEL_OPTION_PRI_MED: u32 = 67108864u32;
 pub const CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT: u32 = 1048576u32;
 pub const CHANNEL_OPTION_SHOW_PROTOCOL: u32 = 2097152u32;
+#[repr(C)]
 pub struct CHANNEL_PDU_HEADER(i32);
 pub const CHANNEL_RC_ALREADY_CONNECTED: u32 = 3u32;
 pub const CHANNEL_RC_ALREADY_INITIALIZED: u32 = 1u32;
@@ -195,8 +206,11 @@ pub const CHANNEL_RC_UNSUPPORTED_VERSION: u32 = 19u32;
 pub const CHANNEL_RC_ZERO_LENGTH: u32 = 17u32;
 pub const CLIENTADDRESS_LENGTH: u32 = 30u32;
 pub const CLIENTNAME_LENGTH: u32 = 20u32;
+#[repr(C)]
 pub struct CLIENT_DISPLAY(i32);
+#[repr(C)]
 pub struct CLIENT_MESSAGE_TYPE(i32);
+#[repr(C)]
 pub struct CONNECTION_CHANGE_NOTIFICATION(i32);
 pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1259668864,
@@ -243,6 +257,7 @@ pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
 pub const DOMAIN_LENGTH: u32 = 17u32;
 pub const FORCE_REJOIN: u32 = 2u32;
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
+#[repr(C)]
 pub struct HwtsVirtualChannelHandle(i32);
 #[repr(transparent)]
 pub struct IADsTSUserEx(pub *mut ::core::ffi::c_void);
@@ -445,6 +460,7 @@ pub struct ItsPubPlugin(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ItsPubPlugin2(pub *mut ::core::ffi::c_void);
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
+#[repr(C)]
 pub struct KeyCombinationType(i32);
 pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
 pub const MAX_ELAPSED_TIME_LENGTH: u32 = 15u32;
@@ -458,9 +474,12 @@ pub const MaxNumOfExposed_IPs: u32 = 12u32;
 pub const MaxUserName_Len: u32 = 104u32;
 pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
 pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
+#[repr(C)]
 pub struct PCHANNEL_INIT_EVENT_FN(i32);
+#[repr(C)]
 pub struct PCHANNEL_OPEN_EVENT_FN(i32);
 pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
+#[repr(C)]
 pub struct PLUGIN_TYPE(i32);
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
@@ -478,15 +497,24 @@ pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::c
 };
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1645401943, data2: 67, data3: 18530, data4: [153, 195, 159, 48, 89, 172, 42, 59] };
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 427573882, data2: 309, data3: 19309, data4: [156, 94, 230, 87, 154, 10, 182, 37] };
+#[repr(C)]
 pub struct PVIRTUALCHANNELCLOSE(i32);
+#[repr(C)]
 pub struct PVIRTUALCHANNELENTRY(i32);
+#[repr(C)]
 pub struct PVIRTUALCHANNELINIT(i32);
+#[repr(C)]
 pub struct PVIRTUALCHANNELOPEN(i32);
+#[repr(C)]
 pub struct PVIRTUALCHANNELWRITE(i32);
+#[repr(C)]
 pub struct PasswordEncodingType(i32);
+#[repr(C)]
 pub struct PolicyAttributeType(i32);
 pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3838576843, data2: 37934, data3: 19225, data4: [133, 4, 189, 90, 137, 167, 71, 245] };
+#[repr(C)]
 pub struct RDV_TASK_STATUS(i32);
+#[repr(C)]
 pub struct RD_FARM_TYPE(i32);
 pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
 pub const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2u32;
@@ -498,50 +526,83 @@ pub const RESERVED_FOR_LEGACY: u32 = 4u32;
 pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
 pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RFX_GFX_MONITOR_INFO(i32);
+#[repr(C)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE(i32);
+#[repr(C)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM(i32);
+#[repr(C)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY(i32);
+#[repr(C)]
 pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET(i32);
+#[repr(C)]
 pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST(i32);
+#[repr(C)]
 pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY(i32);
+#[repr(C)]
 pub struct RFX_GFX_MSG_HEADER(i32);
 pub const RFX_GFX_MSG_PREFIX: u32 = 48u32;
 pub const RFX_GFX_MSG_PREFIX_MASK: u32 = 48u32;
+#[repr(C)]
 pub struct RFX_GFX_MSG_RDP_DATA(i32);
+#[repr(C)]
 pub struct RFX_GFX_RECT(i32);
 pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
+#[repr(C)]
 pub struct RemoteActionType(i32);
 pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
+#[repr(C)]
 pub struct SESSION_TIMEOUT_ACTION_TYPE(i32);
 pub const SINGLE_SESSION: u32 = 1u32;
+#[repr(C)]
 pub struct SnapshotEncodingType(i32);
+#[repr(C)]
 pub struct SnapshotFormatType(i32);
+#[repr(C)]
 pub struct TARGET_CHANGE_TYPE(i32);
+#[repr(C)]
 pub struct TARGET_OWNER(i32);
+#[repr(C)]
 pub struct TARGET_PATCH_STATE(i32);
+#[repr(C)]
 pub struct TARGET_STATE(i32);
+#[repr(C)]
 pub struct TARGET_TYPE(i32);
+#[repr(C)]
 pub struct TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(i32);
+#[repr(C)]
 pub struct TSPUB_PLUGIN_PD_RESOLUTION_TYPE(i32);
+#[repr(C)]
 pub struct TSSB_NOTIFICATION_TYPE(i32);
+#[repr(C)]
 pub struct TSSD_AddrV46Type(i32);
+#[repr(C)]
 pub struct TSSD_ConnectionPoint(i32);
+#[repr(C)]
 pub struct TSSESSION_STATE(i32);
+#[repr(C)]
 pub struct TSUserExInterfaces(i32);
+#[repr(C)]
 pub struct TS_SB_SORT_BY(i32);
 pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
 pub const USERNAME_LENGTH: u32 = 20u32;
 pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20u32;
 pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384u32;
 pub const VIRTUAL_CHANNEL_VERSION_WIN2000: u32 = 1u32;
+#[repr(C)]
 pub struct VM_HOST_NOTIFY_STATUS(i32);
+#[repr(C)]
 pub struct VM_NOTIFY_ENTRY(i32);
+#[repr(C)]
 pub struct VM_NOTIFY_INFO(i32);
+#[repr(C)]
 pub struct VM_NOTIFY_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VM_PATCH_INFO(i32);
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
 pub const WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE: u32 = 1u32;
@@ -551,16 +612,21 @@ pub const WRDS_CLIENTADDRESS_LENGTH: u32 = 30u32;
 pub const WRDS_CLIENTNAME_LENGTH: u32 = 20u32;
 pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WRDS_CONNECTION_SETTING(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WRDS_CONNECTION_SETTINGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WRDS_CONNECTION_SETTINGS_1(i32);
+#[repr(C)]
 pub struct WRDS_CONNECTION_SETTING_LEVEL(i32);
 pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
 pub const WRDS_DIRECTORY_LENGTH: u32 = 256u32;
 pub const WRDS_DOMAIN_LENGTH: u32 = 255u32;
 pub const WRDS_DRIVER_NAME_LENGTH: u32 = 8u32;
+#[repr(C)]
 pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION(i32);
 pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
 pub const WRDS_INITIALPROGRAM_LENGTH: u32 = 256u32;
@@ -568,9 +634,13 @@ pub const WRDS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
 pub const WRDS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
 pub const WRDS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
 pub const WRDS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
+#[repr(C)]
 pub struct WRDS_LISTENER_SETTING(i32);
+#[repr(C)]
 pub struct WRDS_LISTENER_SETTINGS(i32);
+#[repr(C)]
 pub struct WRDS_LISTENER_SETTINGS_1(i32);
+#[repr(C)]
 pub struct WRDS_LISTENER_SETTING_LEVEL(i32);
 pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
 pub const WRDS_MAX_COUNTERS: u32 = 100u32;
@@ -591,59 +661,96 @@ pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3533258573, data2: 719, data3: 17024, data4: [140, 72, 22, 36, 180, 79, 135, 6] };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WRDS_SETTING(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WRDS_SETTINGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WRDS_SETTINGS_1(i32);
+#[repr(C)]
 pub struct WRDS_SETTING_LEVEL(i32);
+#[repr(C)]
 pub struct WRDS_SETTING_STATUS(i32);
+#[repr(C)]
 pub struct WRDS_SETTING_TYPE(i32);
 pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
 pub const WRDS_VALUE_TYPE_BINARY: u32 = 3u32;
 pub const WRDS_VALUE_TYPE_GUID: u32 = 4u32;
 pub const WRDS_VALUE_TYPE_STRING: u32 = 2u32;
 pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
+#[repr(C)]
 pub struct WRdsGraphicsChannelType(i32);
 pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSCLIENTA(i32);
+#[repr(C)]
 pub struct WTSCLIENTW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSCONFIGINFOA(i32);
+#[repr(C)]
 pub struct WTSCONFIGINFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSINFOEXA(i32);
+#[repr(C)]
 pub struct WTSINFOEXW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSINFOEX_LEVEL1_A(i32);
+#[repr(C)]
 pub struct WTSINFOEX_LEVEL1_W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSINFOEX_LEVEL_A(i32);
+#[repr(C)]
 pub struct WTSINFOEX_LEVEL_W(i32);
+#[repr(C)]
 pub struct WTSINFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSLISTENERCONFIGA(i32);
+#[repr(C)]
 pub struct WTSLISTENERCONFIGW(i32);
+#[repr(C)]
 pub struct WTSSBX_ADDRESS_FAMILY(i32);
+#[repr(C)]
 pub struct WTSSBX_IP_ADDRESS(i32);
+#[repr(C)]
 pub struct WTSSBX_MACHINE_CONNECT_INFO(i32);
+#[repr(C)]
 pub struct WTSSBX_MACHINE_DRAIN(i32);
+#[repr(C)]
 pub struct WTSSBX_MACHINE_INFO(i32);
+#[repr(C)]
 pub struct WTSSBX_MACHINE_SESSION_MODE(i32);
+#[repr(C)]
 pub struct WTSSBX_MACHINE_STATE(i32);
+#[repr(C)]
 pub struct WTSSBX_NOTIFICATION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSSBX_SESSION_INFO(i32);
+#[repr(C)]
 pub struct WTSSBX_SESSION_STATE(i32);
+#[repr(C)]
 pub struct WTSSESSION_NOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTSUSERCONFIGA(i32);
+#[repr(C)]
 pub struct WTSUSERCONFIGW(i32);
+#[repr(C)]
 pub struct WTS_CACHE_STATS(i32);
+#[repr(C)]
 pub struct WTS_CACHE_STATS_UN(i32);
+#[repr(C)]
 pub struct WTS_CERT_TYPE(i32);
 pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
 pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8u32;
@@ -653,18 +760,25 @@ pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2u32;
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6u32;
 pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30u32;
 pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
+#[repr(C)]
 pub struct WTS_CLIENT_ADDRESS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_CLIENT_DATA(i32);
+#[repr(C)]
 pub struct WTS_CLIENT_DISPLAY(i32);
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
+#[repr(C)]
 pub struct WTS_CONFIG_CLASS(i32);
+#[repr(C)]
 pub struct WTS_CONFIG_SOURCE(i32);
+#[repr(C)]
 pub struct WTS_CONNECTSTATE_CLASS(i32);
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
 pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
 pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
+#[repr(C)]
 pub struct WTS_DISPLAY_IOCTL(i32);
 pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
 pub const WTS_DRIVER_NAME_LENGTH: u32 = 8u32;
@@ -682,17 +796,20 @@ pub const WTS_EVENT_NONE: u32 = 0u32;
 pub const WTS_EVENT_RENAME: u32 = 4u32;
 pub const WTS_EVENT_STATECHANGE: u32 = 128u32;
 pub const WTS_IMEFILENAME_LENGTH: u32 = 32u32;
+#[repr(C)]
 pub struct WTS_INFO_CLASS(i32);
 pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
 pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
 pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_LICENSE_CAPABILITIES(i32);
 pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
 pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
 pub const WTS_LISTENER_CREATE: u32 = 1u32;
 pub const WTS_LISTENER_NAME_LENGTH: u32 = 32u32;
 pub const WTS_LISTENER_UPDATE: u32 = 16u32;
+#[repr(C)]
 pub struct WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(i32);
 pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
 pub const WTS_MAX_COUNTERS: u32 = 100u32;
@@ -711,22 +828,31 @@ pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
 pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
 pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_POLICY_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_PROCESS_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_PROCESS_INFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_PROCESS_INFO_EXA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_PROCESS_INFO_EXW(i32);
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_PROPERTY_VALUE(i32);
+#[repr(C)]
 pub struct WTS_PROTOCOL_CACHE(i32);
+#[repr(C)]
 pub struct WTS_PROTOCOL_COUNTERS(i32);
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
+#[repr(C)]
 pub struct WTS_PROTOCOL_STATUS(i32);
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
@@ -745,7 +871,9 @@ pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_sys::core::GUID = ::windows_sys
     data3: 19912,
     data4: [149, 213, 219, 116, 158, 47, 29, 148],
 };
+#[repr(C)]
 pub struct WTS_RCM_DRAIN_STATE(i32);
+#[repr(C)]
 pub struct WTS_RCM_SERVICE_STATE(i32);
 pub const WTS_SECURITY_CONNECT: u32 = 256u32;
 pub const WTS_SECURITY_DISCONNECT: u32 = 512u32;
@@ -759,52 +887,77 @@ pub const WTS_SECURITY_RESET: u32 = 4u32;
 pub const WTS_SECURITY_SET_INFORMATION: u32 = 2u32;
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_SERVER_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_SERVER_INFOW(i32);
+#[repr(C)]
 pub struct WTS_SERVICE_STATE(i32);
 pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295u32;
 pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1u32;
+#[repr(C)]
 pub struct WTS_SESSION_ADDRESS(i32);
+#[repr(C)]
 pub struct WTS_SESSION_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_SESSION_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_SESSION_INFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_SESSION_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_SESSION_INFO_1W(i32);
+#[repr(C)]
 pub struct WTS_SMALL_RECT(i32);
+#[repr(C)]
 pub struct WTS_SOCKADDR(i32);
+#[repr(C)]
 pub struct WTS_SYSTEMTIME(i32);
+#[repr(C)]
 pub struct WTS_TIME_ZONE_INFORMATION(i32);
+#[repr(C)]
 pub struct WTS_TYPE_CLASS(i32);
 pub const WTS_USERNAME_LENGTH: u32 = 255u32;
+#[repr(C)]
 pub struct WTS_USER_CREDENTIAL(i32);
+#[repr(C)]
 pub struct WTS_USER_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WTS_VALIDATION_INFORMATIONA(i32);
+#[repr(C)]
 pub struct WTS_VALIDATION_INFORMATIONW(i32);
 pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
 pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
 pub const WTS_VALUE_TYPE_STRING: u32 = 2u32;
 pub const WTS_VALUE_TYPE_ULONG: u32 = 1u32;
+#[repr(C)]
 pub struct WTS_VIRTUAL_CLASS(i32);
 pub const WTS_WSD_FASTREBOOT: u32 = 16u32;
 pub const WTS_WSD_LOGOFF: u32 = 1u32;
 pub const WTS_WSD_POWEROFF: u32 = 8u32;
 pub const WTS_WSD_REBOOT: u32 = 4u32;
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
+#[repr(C)]
 pub struct Workspace(i32);
 #[repr(transparent)]
 pub struct _ITSWkspEvents(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct _WTS_PRODUCT_INFOA(i32);
+#[repr(C)]
 pub struct _WTS_PRODUCT_INFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct pluginResource(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct pluginResource2(i32);
+#[repr(C)]
 pub struct pluginResource2FileAssociation(i32);

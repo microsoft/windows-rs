@@ -11,6 +11,9 @@ pub struct DRendezvousSessionEvents(pub *mut ::core::ffi::c_void);
 pub struct IRendezvousApplication(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IRendezvousSession(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RENDEZVOUS_SESSION_FLAGS(i32);
+#[repr(C)]
 pub struct RENDEZVOUS_SESSION_STATE(i32);
+#[repr(C)]
 pub struct RendezvousApplication(i32);

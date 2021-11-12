@@ -19,6 +19,7 @@ pub struct KnownSimpleHapticsControllerWaveforms(pub *mut ::core::ffi::c_void);
 pub struct SimpleHapticsController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SimpleHapticsControllerFeedback(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VibrationAccessStatus(i32);
 #[repr(transparent)]
 pub struct VibrationDevice(pub *mut ::core::ffi::c_void);

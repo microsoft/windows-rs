@@ -113,20 +113,35 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct CACHE_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct CACHE_RELATIONSHIP(i32);
+#[repr(C)]
 pub struct COMPUTER_NAME_FORMAT(i32);
+#[repr(C)]
 pub struct CPU_SET_INFORMATION_TYPE(i32);
+#[repr(C)]
 pub struct DEP_SYSTEM_POLICY_TYPE(i32);
+#[repr(C)]
 pub struct DEVICEFAMILYDEVICEFORM(i32);
+#[repr(C)]
 pub struct DEVICEFAMILYINFOENUM(i32);
+#[repr(C)]
 pub struct FIRMWARE_TABLE_ID(i32);
+#[repr(C)]
 pub struct FIRMWARE_TABLE_PROVIDER(i32);
+#[repr(C)]
 pub struct FIRMWARE_TYPE(i32);
+#[repr(C)]
 pub struct GROUP_AFFINITY(i32);
+#[repr(C)]
 pub struct GROUP_RELATIONSHIP(i32);
+#[repr(C)]
 pub struct LOGICAL_PROCESSOR_RELATIONSHIP(i32);
+#[repr(C)]
 pub struct MEMORYSTATUS(i32);
+#[repr(C)]
 pub struct MEMORYSTATUSEX(i32);
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
 pub const NTDDI_VERSION: u32 = 167772171u32;
@@ -176,39 +191,61 @@ pub const NTDDI_WS08: u32 = 100663552u32;
 pub const NTDDI_WS08SP2: u32 = 100663808u32;
 pub const NTDDI_WS08SP3: u32 = 100664064u32;
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
+#[repr(C)]
 pub struct NUMA_NODE_RELATIONSHIP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OSVERSIONINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OSVERSIONINFOEXA(i32);
+#[repr(C)]
 pub struct OSVERSIONINFOEXW(i32);
+#[repr(C)]
 pub struct OSVERSIONINFOW(i32);
 pub const OSVERSION_MASK: u32 = 4294901760u32;
+#[repr(C)]
 pub struct OS_DEPLOYEMENT_STATE_VALUES(i32);
+#[repr(C)]
 pub struct OS_PRODUCT_TYPE(i32);
+#[repr(C)]
 pub struct PGET_SYSTEM_WOW64_DIRECTORY_A(i32);
+#[repr(C)]
 pub struct PGET_SYSTEM_WOW64_DIRECTORY_W(i32);
+#[repr(C)]
 pub struct PROCESSOR_CACHE_TYPE(i32);
+#[repr(C)]
 pub struct PROCESSOR_GROUP_INFO(i32);
+#[repr(C)]
 pub struct PROCESSOR_RELATIONSHIP(i32);
+#[repr(C)]
 pub struct RTL_SYSTEM_GLOBAL_DATA_ID(i32);
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
 pub const SPVERSION_MASK: u32 = 65280u32;
 pub const SUBVERSION_MASK: u32 = 255u32;
+#[repr(C)]
 pub struct SYSTEM_CPU_SET_INFORMATION(i32);
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
 pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[repr(C)]
 pub struct SYSTEM_INFO(i32);
+#[repr(C)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION(i32);
+#[repr(C)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION(i32);
+#[repr(C)]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION(i32);
+#[repr(C)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION(i32);
+#[repr(C)]
 pub struct USER_CET_ENVIRONMENT(i32);
+#[repr(C)]
 pub struct VER_FLAGS(i32);
 pub const WDK_NTDDI_VERSION: u32 = 167772171u32;
 pub const _WIN32_IE_IE100: u32 = 2560u32;

@@ -45,5 +45,7 @@ pub struct IFolderPicker2(pub *mut ::core::ffi::c_void);
 pub struct IFolderPicker3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IFolderPickerStatics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PickerLocationId(i32);
+#[repr(C)]
 pub struct PickerViewMode(i32);

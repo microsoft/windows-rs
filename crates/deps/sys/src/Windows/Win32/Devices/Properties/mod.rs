@@ -1537,11 +1537,15 @@ pub const DEVPKEY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY =
     pid: 10u32,
 };
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVPROPCOMPKEY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVPROPERTY(i32);
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
+#[repr(C)]
 pub struct DEVPROPKEY(i32);
+#[repr(C)]
 pub struct DEVPROPSTORE(i32);
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;

@@ -5,9 +5,11 @@ extern "system" {}
 pub struct AppServiceCatalog(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppServiceClosedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppServiceClosedStatus(i32);
 #[repr(transparent)]
 pub struct AppServiceConnection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppServiceConnectionStatus(i32);
 #[repr(transparent)]
 pub struct AppServiceDeferral(pub *mut ::core::ffi::c_void);
@@ -17,6 +19,7 @@ pub struct AppServiceRequest(pub *mut ::core::ffi::c_void);
 pub struct AppServiceRequestReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppServiceResponse(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppServiceResponseStatus(i32);
 #[repr(transparent)]
 pub struct AppServiceTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -50,4 +53,5 @@ pub struct IAppServiceTriggerDetails4(pub *mut ::core::ffi::c_void);
 pub struct IStatelessAppServiceResponse(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StatelessAppServiceResponse(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StatelessAppServiceResponseStatus(i32);

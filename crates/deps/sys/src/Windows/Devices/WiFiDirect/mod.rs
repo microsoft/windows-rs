@@ -37,12 +37,15 @@ pub struct IWiFiDirectInformationElementStatics(pub *mut ::core::ffi::c_void);
 pub struct IWiFiDirectLegacySettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisement(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectAdvertisementListenStateDiscoverability(i32);
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementPublisher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectAdvertisementPublisherStatus(i32);
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementPublisherStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectConfigurationMethod(i32);
 #[repr(transparent)]
 pub struct WiFiDirectConnectionListener(pub *mut ::core::ffi::c_void);
@@ -52,13 +55,17 @@ pub struct WiFiDirectConnectionParameters(pub *mut ::core::ffi::c_void);
 pub struct WiFiDirectConnectionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectConnectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectConnectionStatus(i32);
 #[repr(transparent)]
 pub struct WiFiDirectDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectDeviceSelectorType(i32);
+#[repr(C)]
 pub struct WiFiDirectError(i32);
 #[repr(transparent)]
 pub struct WiFiDirectInformationElement(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WiFiDirectLegacySettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WiFiDirectPairingProcedure(i32);

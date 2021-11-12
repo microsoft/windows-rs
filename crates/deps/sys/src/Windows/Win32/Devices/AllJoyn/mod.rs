@@ -820,125 +820,235 @@ pub const ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE: u32 = 2u32;
 pub const ALLJOYN_WRITE_READY: u32 = 2u32;
 pub const QCC_FALSE: u32 = 0u32;
 pub const QCC_TRUE: u32 = 1u32;
+#[repr(C)]
 pub struct QStatus(i32);
+#[repr(C)]
 pub struct _alljoyn_abouticon_handle(i32);
+#[repr(C)]
 pub struct _alljoyn_abouticonobj_handle(i32);
+#[repr(C)]
 pub struct _alljoyn_abouticonproxy_handle(i32);
+#[repr(C)]
 pub struct alljoyn_about_announced_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_about_announceflag(i32);
+#[repr(C)]
 pub struct alljoyn_aboutdata(i32);
+#[repr(C)]
 pub struct alljoyn_aboutdatalistener(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_aboutdatalistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_aboutdatalistener_getaboutdata_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_aboutdatalistener_getannouncedaboutdata_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_aboutlistener(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_aboutlistener_callback(i32);
+#[repr(C)]
 pub struct alljoyn_aboutobj(i32);
+#[repr(C)]
 pub struct alljoyn_aboutobjectdescription(i32);
+#[repr(C)]
 pub struct alljoyn_aboutproxy(i32);
+#[repr(C)]
 pub struct alljoyn_applicationstate(i32);
+#[repr(C)]
 pub struct alljoyn_applicationstatelistener(i32);
+#[repr(C)]
 pub struct alljoyn_applicationstatelistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_applicationstatelistener_state_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_authlistener(i32);
+#[repr(C)]
 pub struct alljoyn_authlistener_authenticationcomplete_ptr(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_authlistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_authlistener_requestcredentials_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_authlistener_requestcredentialsasync_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_authlistener_securityviolation_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_authlistener_verifycredentials_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_authlistener_verifycredentialsasync_ptr(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_authlistenerasync_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_autopinger(i32);
+#[repr(C)]
 pub struct alljoyn_autopinger_destination_found_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_autopinger_destination_lost_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_busattachment(i32);
+#[repr(C)]
 pub struct alljoyn_busattachment_joinsessioncb_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_busattachment_setlinktimeoutcb_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_bus_disconnected_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_bus_prop_changed_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_bus_stopping_ptr(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_buslistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_found_advertised_name_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_listener_registered_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_listener_unregistered_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_lost_advertised_name_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_buslistener_name_owner_changed_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_busobject(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_busobject_callbacks(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_busobject_methodentry(i32);
+#[repr(C)]
 pub struct alljoyn_busobject_object_registration_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_busobject_prop_get_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_busobject_prop_set_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_certificateid(i32);
+#[repr(C)]
 pub struct alljoyn_certificateidarray(i32);
+#[repr(C)]
 pub struct alljoyn_claimcapability_masks(i32);
+#[repr(C)]
 pub struct alljoyn_claimcapabilityadditionalinfo_masks(i32);
+#[repr(C)]
 pub struct alljoyn_credentials(i32);
+#[repr(C)]
 pub struct alljoyn_interfacedescription(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_interfacedescription_member(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_interfacedescription_property(i32);
+#[repr(C)]
 pub struct alljoyn_interfacedescription_securitypolicy(i32);
+#[repr(C)]
 pub struct alljoyn_interfacedescription_translation_callback_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_keystore(i32);
+#[repr(C)]
 pub struct alljoyn_keystorelistener(i32);
+#[repr(C)]
 pub struct alljoyn_keystorelistener_acquireexclusivelock_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_keystorelistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_keystorelistener_loadrequest_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_keystorelistener_releaseexclusivelock_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_keystorelistener_storerequest_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_manifestarray(i32);
+#[repr(C)]
 pub struct alljoyn_message(i32);
+#[repr(C)]
 pub struct alljoyn_messagereceiver_methodhandler_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_messagereceiver_replyhandler_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_messagereceiver_signalhandler_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_messagetype(i32);
+#[repr(C)]
 pub struct alljoyn_msgarg(i32);
+#[repr(C)]
 pub struct alljoyn_observer(i32);
+#[repr(C)]
 pub struct alljoyn_observer_object_discovered_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_observer_object_lost_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_observerlistener(i32);
+#[repr(C)]
 pub struct alljoyn_observerlistener_callback(i32);
+#[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener(i32);
+#[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_endmanagement_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_factoryreset_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_policychanged_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_startmanagement_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_permissionconfigurator(i32);
+#[repr(C)]
 pub struct alljoyn_pinglistener(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_pinglistener_callback(i32);
+#[repr(C)]
 pub struct alljoyn_proxybusobject(i32);
+#[repr(C)]
 pub struct alljoyn_proxybusobject_listener_getallpropertiescb_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_proxybusobject_listener_getpropertycb_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_proxybusobject_listener_introspectcb_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_proxybusobject_listener_propertieschanged_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_proxybusobject_listener_setpropertycb_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_proxybusobject_ref(i32);
+#[repr(C)]
 pub struct alljoyn_securityapplicationproxy(i32);
+#[repr(C)]
 pub struct alljoyn_sessionlistener(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_sessionlistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_sessionlistener_sessionlost_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_sessionlistener_sessionmemberadded_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_sessionlistener_sessionmemberremoved_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_sessionlostreason(i32);
+#[repr(C)]
 pub struct alljoyn_sessionopts(i32);
+#[repr(C)]
 pub struct alljoyn_sessionportlistener(i32);
+#[repr(C)]
 pub struct alljoyn_sessionportlistener_acceptsessionjoiner_ptr(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct alljoyn_sessionportlistener_callbacks(i32);
+#[repr(C)]
 pub struct alljoyn_sessionportlistener_sessionjoined_ptr(i32);
+#[repr(C)]
 pub struct alljoyn_typeid(i32);

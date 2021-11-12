@@ -191,6 +191,7 @@ pub const BACKGROUND_INTENSITY: u32 = 128u32;
 pub const BACKGROUND_RED: u32 = 64u32;
 pub const CAPSLOCK_ON: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CHAR_INFO(i32);
 pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024u32;
 pub const COMMON_LVB_GRID_LVERTICAL: u32 = 2048u32;
@@ -201,26 +202,36 @@ pub const COMMON_LVB_SBCSDBCS: u32 = 768u32;
 pub const COMMON_LVB_TRAILING_BYTE: u32 = 512u32;
 pub const COMMON_LVB_UNDERSCORE: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CONSOLE_CURSOR_INFO(i32);
+#[repr(C)]
 pub struct CONSOLE_FONT_INFO(i32);
+#[repr(C)]
 pub struct CONSOLE_FONT_INFOEX(i32);
 pub const CONSOLE_FULLSCREEN: u32 = 1u32;
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
+#[repr(C)]
 pub struct CONSOLE_HISTORY_INFO(i32);
+#[repr(C)]
 pub struct CONSOLE_MODE(i32);
 pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
+#[repr(C)]
 pub struct CONSOLE_READCONSOLE_CONTROL(i32);
+#[repr(C)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CONSOLE_SCREEN_BUFFER_INFOEX(i32);
+#[repr(C)]
 pub struct CONSOLE_SELECTION_INFO(i32);
 pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
 pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
 pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
 pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
+#[repr(C)]
 pub struct COORD(i32);
 pub const CTRL_BREAK_EVENT: u32 = 1u32;
 pub const CTRL_CLOSE_EVENT: u32 = 2u32;
@@ -231,6 +242,7 @@ pub const DOUBLE_CLICK: u32 = 2u32;
 pub const ENHANCED_KEY: u32 = 256u32;
 pub const FOCUS_EVENT: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FOCUS_EVENT_RECORD(i32);
 pub const FOREGROUND_BLUE: u32 = 1u32;
 pub const FOREGROUND_GREEN: u32 = 2u32;
@@ -241,17 +253,22 @@ pub const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4u32;
 pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
+#[repr(C)]
 pub struct HPCON(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct INPUT_RECORD(i32);
 pub const KEY_EVENT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct KEY_EVENT_RECORD(i32);
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
 pub const LEFT_CTRL_PRESSED: u32 = 8u32;
 pub const MENU_EVENT: u32 = 8u32;
+#[repr(C)]
 pub struct MENU_EVENT_RECORD(i32);
 pub const MOUSE_EVENT: u32 = 2u32;
+#[repr(C)]
 pub struct MOUSE_EVENT_RECORD(i32);
 pub const MOUSE_HWHEELED: u32 = 8u32;
 pub const MOUSE_MOVED: u32 = 1u32;
@@ -264,6 +281,7 @@ pub const NLS_IME_DISABLE: u32 = 536870912u32;
 pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 pub const NUMLOCK_ON: u32 = 32u32;
+#[repr(C)]
 pub struct PHANDLER_ROUTINE(i32);
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
@@ -271,7 +289,10 @@ pub const RIGHT_ALT_PRESSED: u32 = 1u32;
 pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
 pub const SCROLLLOCK_ON: u32 = 64u32;
 pub const SHIFT_PRESSED: u32 = 16u32;
+#[repr(C)]
 pub struct SMALL_RECT(i32);
+#[repr(C)]
 pub struct STD_HANDLE(i32);
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
+#[repr(C)]
 pub struct WINDOW_BUFFER_SIZE_RECORD(i32);

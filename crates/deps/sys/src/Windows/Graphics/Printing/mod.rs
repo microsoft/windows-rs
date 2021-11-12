@@ -61,18 +61,28 @@ pub struct IStandardPrintTaskOptionsStatic(pub *mut ::core::ffi::c_void);
 pub struct IStandardPrintTaskOptionsStatic2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IStandardPrintTaskOptionsStatic3(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintBinding(i32);
+#[repr(C)]
 pub struct PrintBordering(i32);
+#[repr(C)]
 pub struct PrintCollation(i32);
+#[repr(C)]
 pub struct PrintColorMode(i32);
+#[repr(C)]
 pub struct PrintDuplex(i32);
+#[repr(C)]
 pub struct PrintHolePunch(i32);
 #[repr(transparent)]
 pub struct PrintManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintMediaSize(i32);
+#[repr(C)]
 pub struct PrintMediaType(i32);
+#[repr(C)]
 pub struct PrintOrientation(i32);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct PrintPageDescription(i32);
 #[repr(transparent)]
 pub struct PrintPageInfo(pub *mut ::core::ffi::c_void);
@@ -80,12 +90,15 @@ pub struct PrintPageInfo(pub *mut ::core::ffi::c_void);
 pub struct PrintPageRange(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintPageRangeOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintQuality(i32);
+#[repr(C)]
 pub struct PrintStaple(i32);
 #[repr(transparent)]
 pub struct PrintTask(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintTaskCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PrintTaskCompletion(i32);
 #[repr(transparent)]
 pub struct PrintTaskOptions(pub *mut ::core::ffi::c_void);

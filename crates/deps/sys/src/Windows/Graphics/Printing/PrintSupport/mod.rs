@@ -29,5 +29,7 @@ pub struct PrintSupportSessionInfo(pub *mut ::core::ffi::c_void);
 pub struct PrintSupportSettingsActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintSupportSettingsUISession(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SettingsLaunchKind(i32);
+#[repr(C)]
 pub struct WorkflowPrintTicketValidationStatus(i32);

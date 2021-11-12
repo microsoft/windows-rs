@@ -1,11 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AutoLoadedDisplayPropertyKind(i32);
 #[repr(transparent)]
 pub struct BackgroundMediaPlayer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CurrentMediaPlaybackItemChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FailedMediaStreamKind(i32);
 #[repr(transparent)]
 pub struct IBackgroundMediaPlayerStatics(pub *mut ::core::ffi::c_void);
@@ -141,6 +143,7 @@ pub struct ITimedMetadataPresentationModeChangedEventArgs(pub *mut ::core::ffi::
 pub struct MediaBreak(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaBreakEndedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaBreakInsertionMethod(i32);
 #[repr(transparent)]
 pub struct MediaBreakManager(pub *mut ::core::ffi::c_void);
@@ -152,6 +155,7 @@ pub struct MediaBreakSeekedOverEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MediaBreakSkippedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaBreakStartedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaCommandEnablingRule(i32);
 #[repr(transparent)]
 pub struct MediaItemDisplayProperties(pub *mut ::core::ffi::c_void);
@@ -183,9 +187,11 @@ pub struct MediaPlaybackCommandManagerRewindReceivedEventArgs(pub *mut ::core::f
 pub struct MediaPlaybackCommandManagerShuffleReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlaybackItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlaybackItemChangedReason(i32);
 #[repr(transparent)]
 pub struct MediaPlaybackItemError(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlaybackItemErrorCode(i32);
 #[repr(transparent)]
 pub struct MediaPlaybackItemFailedEventArgs(pub *mut ::core::ffi::c_void);
@@ -199,9 +205,11 @@ pub struct MediaPlaybackSession(pub *mut ::core::ffi::c_void);
 pub struct MediaPlaybackSessionBufferingStartedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlaybackSessionOutputDegradationPolicyState(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlaybackSessionVideoConstrictionReason(i32);
 #[repr(transparent)]
 pub struct MediaPlaybackSphericalVideoProjection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlaybackState(i32);
 #[repr(transparent)]
 pub struct MediaPlaybackTimedMetadataTrackList(pub *mut ::core::ffi::c_void);
@@ -209,15 +217,19 @@ pub struct MediaPlaybackTimedMetadataTrackList(pub *mut ::core::ffi::c_void);
 pub struct MediaPlaybackVideoTrackList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlayer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlayerAudioCategory(i32);
+#[repr(C)]
 pub struct MediaPlayerAudioDeviceType(i32);
 #[repr(transparent)]
 pub struct MediaPlayerDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlayerError(i32);
 #[repr(transparent)]
 pub struct MediaPlayerFailedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaPlayerRateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaPlayerState(i32);
 #[repr(transparent)]
 pub struct MediaPlayerSurface(pub *mut ::core::ffi::c_void);
@@ -227,8 +239,11 @@ pub struct PlaybackMediaMarker(pub *mut ::core::ffi::c_void);
 pub struct PlaybackMediaMarkerReachedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlaybackMediaMarkerSequence(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SphericalVideoProjectionMode(i32);
+#[repr(C)]
 pub struct StereoscopicVideoRenderMode(i32);
 #[repr(transparent)]
 pub struct TimedMetadataPresentationModeChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TimedMetadataTrackPresentationMode(i32);

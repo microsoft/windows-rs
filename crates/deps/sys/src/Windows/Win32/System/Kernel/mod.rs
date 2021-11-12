@@ -9,30 +9,46 @@ extern "system" {
     pub fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
     pub fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
 }
+#[repr(C)]
 pub struct COMPARTMENT_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CSTRING(i32);
+#[repr(C)]
 pub struct EVENT_TYPE(i32);
+#[repr(C)]
 pub struct EXCEPTION_DISPOSITION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[repr(C)]
 pub struct EXCEPTION_REGISTRATION_RECORD(i32);
+#[repr(C)]
 pub struct EXCEPTION_ROUTINE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct FLOATING_SAVE_AREA(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct FLOATING_SAVE_AREA(i32);
+#[repr(C)]
 pub struct LIST_ENTRY(i32);
+#[repr(C)]
 pub struct LIST_ENTRY32(i32);
+#[repr(C)]
 pub struct LIST_ENTRY64(i32);
 pub const MAXUCHAR: u32 = 255u32;
 pub const MAXULONG: u32 = 4294967295u32;
 pub const MAXUSHORT: u32 = 65535u32;
+#[repr(C)]
 pub struct NT_PRODUCT_TYPE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[repr(C)]
 pub struct NT_TIB(i32);
 pub const NULL64: u32 = 0u32;
+#[repr(C)]
 pub struct OBJECTID(i32);
+#[repr(C)]
 pub struct OBJECT_ATTRIBUTES32(i32);
+#[repr(C)]
 pub struct OBJECT_ATTRIBUTES64(i32);
 pub const OBJ_CASE_INSENSITIVE: i32 = 64i32;
 pub const OBJ_DONT_REPARSE: i32 = 4096i32;
@@ -46,24 +62,40 @@ pub const OBJ_OPENIF: i32 = 128i32;
 pub const OBJ_OPENLINK: i32 = 256i32;
 pub const OBJ_PERMANENT: i32 = 16i32;
 pub const OBJ_VALID_ATTRIBUTES: i32 = 8178i32;
+#[repr(C)]
 pub struct PROCESSOR_NUMBER(i32);
+#[repr(C)]
 pub struct QUAD(i32);
+#[repr(C)]
 pub struct RTL_BALANCED_NODE(i32);
 pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
+#[repr(C)]
 pub struct SINGLE_LIST_ENTRY(i32);
+#[repr(C)]
 pub struct SINGLE_LIST_ENTRY32(i32);
+#[repr(C)]
 pub struct SLIST_ENTRY(i32);
 #[cfg(any(target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SLIST_HEADER(i32);
 #[cfg(any(target_arch = "x86_64",))]
+#[repr(C)]
 pub struct SLIST_HEADER(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SLIST_HEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STRING(i32);
+#[repr(C)]
 pub struct STRING32(i32);
+#[repr(C)]
 pub struct STRING64(i32);
+#[repr(C)]
 pub struct SUITE_TYPE(i32);
+#[repr(C)]
 pub struct TIMER_TYPE(i32);
+#[repr(C)]
 pub struct WAIT_TYPE(i32);
+#[repr(C)]
 pub struct WNF_STATE_NAME(i32);

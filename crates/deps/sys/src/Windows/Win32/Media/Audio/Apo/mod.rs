@@ -15,48 +15,75 @@ pub const APOERR_INVALID_INPUTID: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073912i32 as _);
 pub const APOERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073918i32 as _);
 pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073913i32 as _);
+#[repr(C)]
 pub struct APOInitBaseStruct(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct APOInitSystemEffects(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[repr(C)]
 pub struct APOInitSystemEffects2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[repr(C)]
 pub struct APOInitSystemEffects3(i32);
+#[repr(C)]
 pub struct APO_BUFFER_FLAGS(i32);
+#[repr(C)]
 pub struct APO_CONNECTION_BUFFER_TYPE(i32);
+#[repr(C)]
 pub struct APO_CONNECTION_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct APO_CONNECTION_PROPERTY(i32);
+#[repr(C)]
 pub struct APO_CONNECTION_PROPERTY_V2(i32);
+#[repr(C)]
 pub struct APO_FLAG(i32);
+#[repr(C)]
 pub struct APO_LOG_LEVEL(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[repr(C)]
 pub struct APO_NOTIFICATION(i32);
+#[repr(C)]
 pub struct APO_NOTIFICATION_DESCRIPTOR(i32);
+#[repr(C)]
 pub struct APO_NOTIFICATION_TYPE(i32);
+#[repr(C)]
 pub struct APO_REG_PROPERTIES(i32);
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
+#[repr(C)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION(i32);
+#[repr(C)]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION(i32);
+#[repr(C)]
 pub struct AUDIO_FLOW_TYPE(i32);
 pub const AUDIO_MAX_CHANNELS: u32 = 4096u32;
 pub const AUDIO_MAX_FRAMERATE: f64 = 384000f64;
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AUDIO_SYSTEMEFFECT(i32);
+#[repr(C)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[repr(C)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION(i32);
+#[repr(C)]
 pub struct AUDIO_SYSTEMEFFECT_STATE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[repr(C)]
 pub struct AudioFXExtensionParams(i32);
+#[repr(C)]
 pub struct EAudioConstriction(i32);
+#[repr(C)]
 pub struct FNAPONOTIFICATIONCALLBACK(i32);
 #[repr(transparent)]
 pub struct IApoAcousticEchoCancellation(pub *mut ::core::ffi::c_void);
@@ -247,4 +274,5 @@ pub const SID_AudioProcessingObjectLoggingService: ::windows_sys::core::GUID = :
     data4: [161, 115, 189, 181, 132, 153, 188, 231],
 };
 pub const SID_AudioProcessingObjectRTQueue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1166809631, data2: 26777, data3: 19474, data4: [153, 172, 226, 230, 172, 37, 49, 4] };
+#[repr(C)]
 pub struct UNCOMPRESSEDAUDIOFORMAT(i32);

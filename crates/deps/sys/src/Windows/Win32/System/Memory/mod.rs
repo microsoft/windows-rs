@@ -182,41 +182,70 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VirtualUnlockEx(process: super::super::Foundation::HANDLE, address: *const ::core::ffi::c_void, size: usize) -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct CFG_CALL_TARGET_INFO(i32);
 pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
 pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
 pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
 pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
+#[repr(C)]
 pub struct FILE_MAP(i32);
+#[repr(C)]
 pub struct GLOBAL_ALLOC_FLAGS(i32);
+#[repr(C)]
 pub struct HEAP_FLAGS(i32);
+#[repr(C)]
 pub struct HEAP_INFORMATION_CLASS(i32);
+#[repr(C)]
 pub struct HEAP_SUMMARY(i32);
+#[repr(C)]
 pub struct HeapHandle(i32);
+#[repr(C)]
 pub struct LOCAL_ALLOC_FLAGS(i32);
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct MEMORY_BASIC_INFORMATION(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct MEMORY_BASIC_INFORMATION(i32);
+#[repr(C)]
 pub struct MEMORY_BASIC_INFORMATION32(i32);
+#[repr(C)]
 pub struct MEMORY_BASIC_INFORMATION64(i32);
+#[repr(C)]
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MEM_EXTENDED_PARAMETER(i32);
+#[repr(C)]
 pub struct MEM_EXTENDED_PARAMETER_TYPE(i32);
+#[repr(C)]
 pub struct OFFER_PRIORITY(i32);
+#[repr(C)]
 pub struct PAGE_PROTECTION_FLAGS(i32);
+#[repr(C)]
 pub struct PAGE_TYPE(i32);
+#[repr(C)]
 pub struct PBAD_MEMORY_CALLBACK_ROUTINE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PROCESS_HEAP_ENTRY(i32);
+#[repr(C)]
 pub struct PSECURE_MEMORY_CACHE_CALLBACK(i32);
+#[repr(C)]
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(i32);
+#[repr(C)]
 pub struct VIRTUAL_ALLOCATION_TYPE(i32);
+#[repr(C)]
 pub struct VIRTUAL_FREE_TYPE(i32);
+#[repr(C)]
 pub struct WIN32_MEMORY_INFORMATION_CLASS(i32);
+#[repr(C)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION(i32);
+#[repr(C)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(i32);
+#[repr(C)]
 pub struct WIN32_MEMORY_RANGE_ENTRY(i32);
+#[repr(C)]
 pub struct WIN32_MEMORY_REGION_INFORMATION(i32);

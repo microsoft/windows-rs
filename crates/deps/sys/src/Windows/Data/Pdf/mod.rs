@@ -19,4 +19,5 @@ pub struct PdfPage(pub *mut ::core::ffi::c_void);
 pub struct PdfPageDimensions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PdfPageRenderOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PdfPageRotation(i32);

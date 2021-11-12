@@ -5,6 +5,7 @@ extern "system" {}
 pub struct DevicePortalConnection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DevicePortalConnectionClosedReason(i32);
 #[repr(transparent)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(pub *mut ::core::ffi::c_void);

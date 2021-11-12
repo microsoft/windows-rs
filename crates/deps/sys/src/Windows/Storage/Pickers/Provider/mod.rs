@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AddFileResult(i32);
 #[repr(transparent)]
 pub struct FileOpenPickerUI(pub *mut ::core::ffi::c_void);
@@ -8,6 +9,7 @@ pub struct FileOpenPickerUI(pub *mut ::core::ffi::c_void);
 pub struct FileRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FileSavePickerUI(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FileSelectionMode(i32);
 #[repr(transparent)]
 pub struct IFileOpenPickerUI(pub *mut ::core::ffi::c_void);
@@ -33,6 +35,7 @@ pub struct PickerClosingDeferral(pub *mut ::core::ffi::c_void);
 pub struct PickerClosingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PickerClosingOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SetFileNameResult(i32);
 #[repr(transparent)]
 pub struct TargetFileRequest(pub *mut ::core::ffi::c_void);

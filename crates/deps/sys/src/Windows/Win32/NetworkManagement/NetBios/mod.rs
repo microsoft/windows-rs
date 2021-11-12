@@ -4,28 +4,36 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn Netbios(pncb: *mut NCB) -> u8;
 }
+#[repr(C)]
 pub struct ACTION_HEADER(i32);
+#[repr(C)]
 pub struct ADAPTER_STATUS(i32);
 pub const ASYNCH: u32 = 128u32;
 pub const CALL_PENDING: u32 = 2u32;
 pub const DEREGISTERED: u32 = 5u32;
 pub const DUPLICATE: u32 = 6u32;
 pub const DUPLICATE_DEREG: u32 = 7u32;
+#[repr(C)]
 pub struct FIND_NAME_BUFFER(i32);
+#[repr(C)]
 pub struct FIND_NAME_HEADER(i32);
 pub const GROUP_NAME: u32 = 128u32;
 pub const HANGUP_COMPLETE: u32 = 5u32;
 pub const HANGUP_PENDING: u32 = 4u32;
+#[repr(C)]
 pub struct LANA_ENUM(i32);
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
 pub const MAX_LANA: u32 = 254u32;
+#[repr(C)]
 pub struct NAME_BUFFER(i32);
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NCB(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NCB(i32);
 pub const NCBACTION: u32 = 119u32;
 pub const NCBADDGRNAME: u32 = 54u32;
@@ -96,7 +104,9 @@ pub const NRC_TOOMANY: u32 = 34u32;
 pub const REGISTERED: u32 = 4u32;
 pub const REGISTERING: u32 = 0u32;
 pub const SESSION_ABORTED: u32 = 6u32;
+#[repr(C)]
 pub struct SESSION_BUFFER(i32);
 pub const SESSION_ESTABLISHED: u32 = 3u32;
+#[repr(C)]
 pub struct SESSION_HEADER(i32);
 pub const UNIQUE_NAME: u32 = 0u32;

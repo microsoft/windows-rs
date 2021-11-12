@@ -7,6 +7,7 @@ extern "system" {}
 pub struct AdvancedPhotoCaptureSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AdvancedPhotoControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AdvancedPhotoMode(i32);
 #[repr(transparent)]
 pub struct AudioDeviceController(pub *mut ::core::ffi::c_void);
@@ -16,23 +17,31 @@ pub struct AudioDeviceModule(pub *mut ::core::ffi::c_void);
 pub struct AudioDeviceModuleNotificationEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AudioDeviceModulesManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioDeviceRole(i32);
+#[repr(C)]
 pub struct AutoFocusRange(i32);
 #[repr(transparent)]
 pub struct CallControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CallControlContract(i32);
 #[repr(transparent)]
 pub struct CallControlEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CameraOcclusionInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CameraOcclusionKind(i32);
 #[repr(transparent)]
 pub struct CameraOcclusionState(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CameraOcclusionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CameraStreamState(i32);
+#[repr(C)]
 pub struct CaptureSceneMode(i32);
+#[repr(C)]
 pub struct CaptureUse(i32);
+#[repr(C)]
 pub struct ColorTemperaturePreset(i32);
 #[repr(transparent)]
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -48,6 +57,7 @@ pub struct DigitalWindowBounds(pub *mut ::core::ffi::c_void);
 pub struct DigitalWindowCapability(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DigitalWindowControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DigitalWindowMode(i32);
 #[repr(transparent)]
 pub struct ExposureCompensationControl(pub *mut ::core::ffi::c_void);
@@ -59,12 +69,15 @@ pub struct ExposurePriorityVideoControl(pub *mut ::core::ffi::c_void);
 pub struct FlashControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FocusControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FocusMode(i32);
+#[repr(C)]
 pub struct FocusPreset(i32);
 #[repr(transparent)]
 pub struct FocusSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HdrVideoControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HdrVideoMode(i32);
 #[repr(transparent)]
 pub struct IAdvancedPhotoCaptureSettings(pub *mut ::core::ffi::c_void);
@@ -194,9 +207,11 @@ pub struct IZoomControl2(pub *mut ::core::ffi::c_void);
 pub struct IZoomSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InfraredTorchControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InfraredTorchMode(i32);
 #[repr(transparent)]
 pub struct IsoSpeedControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IsoSpeedPreset(i32);
 #[repr(transparent)]
 pub struct KeypadPressedEventArgs(pub *mut ::core::ffi::c_void);
@@ -206,9 +221,13 @@ pub struct KeypadPressedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct LowLagPhotoControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LowLagPhotoSequenceControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ManualFocusDistance(i32);
+#[repr(C)]
 pub struct MediaCaptureFocusState(i32);
+#[repr(C)]
 pub struct MediaCaptureOptimization(i32);
+#[repr(C)]
 pub struct MediaCapturePauseBehavior(i32);
 #[repr(transparent)]
 pub struct MediaDevice(pub *mut ::core::ffi::c_void);
@@ -220,6 +239,7 @@ pub struct MediaDeviceControlCapabilities(pub *mut ::core::ffi::c_void);
 pub struct ModuleCommandResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OpticalImageStabilizationControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct OpticalImageStabilizationMode(i32);
 #[repr(transparent)]
 pub struct PanelBasedOptimizationControl(pub *mut ::core::ffi::c_void);
@@ -231,12 +251,15 @@ pub struct RedialRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RedialRequestedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RegionOfInterest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RegionOfInterestType(i32);
 #[repr(transparent)]
 pub struct RegionsOfInterestControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SceneModeControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SendCommandStatus(i32);
+#[repr(C)]
 pub struct TelephonyKey(i32);
 #[repr(transparent)]
 pub struct TorchControl(pub *mut ::core::ffi::c_void);
@@ -244,10 +267,13 @@ pub struct TorchControl(pub *mut ::core::ffi::c_void);
 pub struct VideoDeviceController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VideoDeviceControllerGetDevicePropertyResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VideoDeviceControllerGetDevicePropertyStatus(i32);
+#[repr(C)]
 pub struct VideoDeviceControllerSetDevicePropertyStatus(i32);
 #[repr(transparent)]
 pub struct VideoTemporalDenoisingControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VideoTemporalDenoisingMode(i32);
 #[repr(transparent)]
 pub struct WhiteBalanceControl(pub *mut ::core::ffi::c_void);
@@ -255,4 +281,5 @@ pub struct WhiteBalanceControl(pub *mut ::core::ffi::c_void);
 pub struct ZoomControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ZoomSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ZoomTransitionMode(i32);

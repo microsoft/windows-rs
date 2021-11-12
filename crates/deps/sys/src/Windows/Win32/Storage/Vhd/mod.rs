@@ -60,79 +60,138 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TakeSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32;
 }
+#[repr(C)]
 pub struct APPLY_SNAPSHOT_VHDSET_FLAG(i32);
+#[repr(C)]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS(i32);
+#[repr(C)]
 pub struct APPLY_SNAPSHOT_VHDSET_VERSION(i32);
+#[repr(C)]
 pub struct ATTACH_VIRTUAL_DISK_FLAG(i32);
+#[repr(C)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct ATTACH_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct COMPACT_VIRTUAL_DISK_FLAG(i32);
+#[repr(C)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct COMPACT_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct CREATE_VIRTUAL_DISK_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS(i32);
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
+#[repr(C)]
 pub struct CREATE_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct DELETE_SNAPSHOT_VHDSET_FLAG(i32);
+#[repr(C)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS(i32);
+#[repr(C)]
 pub struct DELETE_SNAPSHOT_VHDSET_VERSION(i32);
+#[repr(C)]
 pub struct DEPENDENT_DISK_FLAG(i32);
+#[repr(C)]
 pub struct DETACH_VIRTUAL_DISK_FLAG(i32);
+#[repr(C)]
 pub struct EXPAND_VIRTUAL_DISK_FLAG(i32);
+#[repr(C)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct EXPAND_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct FORK_VIRTUAL_DISK_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct FORK_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct GET_STORAGE_DEPENDENCY_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct GET_VIRTUAL_DISK_INFO(i32);
+#[repr(C)]
 pub struct GET_VIRTUAL_DISK_INFO_VERSION(i32);
 pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
+#[repr(C)]
 pub struct MERGE_VIRTUAL_DISK_FLAG(i32);
+#[repr(C)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct MERGE_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct MIRROR_VIRTUAL_DISK_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct MIRROR_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct MODIFY_VHDSET_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MODIFY_VHDSET_PARAMETERS(i32);
+#[repr(C)]
 pub struct MODIFY_VHDSET_VERSION(i32);
+#[repr(C)]
 pub struct OPEN_VIRTUAL_DISK_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS(i32);
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
+#[repr(C)]
 pub struct OPEN_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(i32);
+#[repr(C)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE(i32);
+#[repr(C)]
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE(i32);
+#[repr(C)]
 pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(i32);
+#[repr(C)]
 pub struct RESIZE_VIRTUAL_DISK_FLAG(i32);
+#[repr(C)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS(i32);
+#[repr(C)]
 pub struct RESIZE_VIRTUAL_DISK_VERSION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SET_VIRTUAL_DISK_INFO(i32);
+#[repr(C)]
 pub struct SET_VIRTUAL_DISK_INFO_VERSION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_DEPENDENCY_INFO(i32);
+#[repr(C)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_2(i32);
+#[repr(C)]
 pub struct STORAGE_DEPENDENCY_INFO_VERSION(i32);
+#[repr(C)]
 pub struct TAKE_SNAPSHOT_VHDSET_FLAG(i32);
+#[repr(C)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS(i32);
+#[repr(C)]
 pub struct TAKE_SNAPSHOT_VHDSET_VERSION(i32);
+#[repr(C)]
 pub struct VIRTUAL_DISK_ACCESS_MASK(i32);
 pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256u32;
+#[repr(C)]
 pub struct VIRTUAL_DISK_PROGRESS(i32);
+#[repr(C)]
 pub struct VIRTUAL_STORAGE_TYPE(i32);
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;

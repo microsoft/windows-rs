@@ -39,5 +39,7 @@ pub struct MediaComposition(pub *mut ::core::ffi::c_void);
 pub struct MediaOverlay(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaOverlayLayer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaTrimmingPreference(i32);
+#[repr(C)]
 pub struct VideoFramePrecision(i32);

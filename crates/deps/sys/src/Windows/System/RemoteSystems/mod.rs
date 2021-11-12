@@ -141,6 +141,7 @@ pub struct IRemoteSystemWebAccountFilterFactory(pub *mut ::core::ffi::c_void);
 pub struct KnownRemoteSystemCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemAccessStatus(i32);
 #[repr(transparent)]
 pub struct RemoteSystemAddedEventArgs(pub *mut ::core::ffi::c_void);
@@ -148,6 +149,7 @@ pub struct RemoteSystemAddedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemApp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemAppRegistration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemAuthorizationKind(i32);
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKindFilter(pub *mut ::core::ffi::c_void);
@@ -155,6 +157,7 @@ pub struct RemoteSystemAuthorizationKindFilter(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemConnectionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemConnectionRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemDiscoveryType(i32);
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryTypeFilter(pub *mut ::core::ffi::c_void);
@@ -164,6 +167,7 @@ pub struct RemoteSystemEnumerationCompletedEventArgs(pub *mut ::core::ffi::c_voi
 pub struct RemoteSystemKindFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemKinds(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemPlatform(i32);
 #[repr(transparent)]
 pub struct RemoteSystemRemovedEventArgs(pub *mut ::core::ffi::c_void);
@@ -175,9 +179,11 @@ pub struct RemoteSystemSessionAddedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemSessionController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemSessionCreationStatus(i32);
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemSessionDisconnectedReason(i32);
 #[repr(transparent)]
 pub struct RemoteSystemSessionInfo(pub *mut ::core::ffi::c_void);
@@ -193,9 +199,11 @@ pub struct RemoteSystemSessionJoinRequest(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemSessionJoinRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemSessionJoinStatus(i32);
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemSessionMessageChannelReliability(i32);
 #[repr(transparent)]
 pub struct RemoteSystemSessionOptions(pub *mut ::core::ffi::c_void);
@@ -207,6 +215,7 @@ pub struct RemoteSystemSessionParticipantAddedEventArgs(pub *mut ::core::ffi::c_
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemSessionParticipantWatcherStatus(i32);
 #[repr(transparent)]
 pub struct RemoteSystemSessionRemovedEventArgs(pub *mut ::core::ffi::c_void);
@@ -216,8 +225,11 @@ pub struct RemoteSystemSessionUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemSessionWatcherStatus(i32);
+#[repr(C)]
 pub struct RemoteSystemStatus(i32);
+#[repr(C)]
 pub struct RemoteSystemStatusType(i32);
 #[repr(transparent)]
 pub struct RemoteSystemStatusTypeFilter(pub *mut ::core::ffi::c_void);
@@ -225,6 +237,7 @@ pub struct RemoteSystemStatusTypeFilter(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RemoteSystemWatcherError(i32);
 #[repr(transparent)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);

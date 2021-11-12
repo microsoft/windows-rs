@@ -69,6 +69,7 @@ pub struct IPaymentTokenFactory(pub *mut ::core::ffi::c_void);
 pub struct PaymentAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PaymentCanMakePaymentResultStatus(i32);
 #[repr(transparent)]
 pub struct PaymentCurrencyAmount(pub *mut ::core::ffi::c_void);
@@ -84,11 +85,13 @@ pub struct PaymentMediator(pub *mut ::core::ffi::c_void);
 pub struct PaymentMerchantInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentMethodData(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PaymentOptionPresence(i32);
 #[repr(transparent)]
 pub struct PaymentOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentRequest(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PaymentRequestChangeKind(i32);
 #[repr(transparent)]
 pub struct PaymentRequestChangedArgs(pub *mut ::core::ffi::c_void);
@@ -96,7 +99,9 @@ pub struct PaymentRequestChangedArgs(pub *mut ::core::ffi::c_void);
 pub struct PaymentRequestChangedHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentRequestChangedResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PaymentRequestCompletionStatus(i32);
+#[repr(C)]
 pub struct PaymentRequestStatus(i32);
 #[repr(transparent)]
 pub struct PaymentRequestSubmitResult(pub *mut ::core::ffi::c_void);
@@ -104,6 +109,7 @@ pub struct PaymentRequestSubmitResult(pub *mut ::core::ffi::c_void);
 pub struct PaymentResponse(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PaymentShippingOption(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PaymentShippingType(i32);
 #[repr(transparent)]
 pub struct PaymentToken(pub *mut ::core::ffi::c_void);

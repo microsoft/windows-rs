@@ -1,14 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct CEventClass(i32);
+#[repr(C)]
 pub struct CEventPublisher(i32);
+#[repr(C)]
 pub struct CEventSubscription(i32);
+#[repr(C)]
 pub struct CEventSystem(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COMEVENTSYSCHANGEINFO(i32);
+#[repr(C)]
 pub struct EOC_ChangeType(i32);
+#[repr(C)]
 pub struct EventObjectChange(i32);
+#[repr(C)]
 pub struct EventObjectChange2(i32);
 #[repr(transparent)]
 pub struct IDontSupportEventSubscription(pub *mut ::core::ffi::c_void);

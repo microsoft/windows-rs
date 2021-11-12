@@ -15,13 +15,17 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo(pub *mut ::core::ffi::c_void)
 pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(i32);
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(i32);
+#[repr(C)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(i32);
+#[repr(C)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(i32);
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(pub *mut ::core::ffi::c_void);

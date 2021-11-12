@@ -7,6 +7,7 @@ pub mod Preview;
 extern "system" {}
 #[repr(transparent)]
 pub struct AcceleratorKeyEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppViewBackButtonVisibility(i32);
 #[repr(transparent)]
 pub struct AutomationProviderRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -16,6 +17,7 @@ pub struct BackRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CharacterReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ClosestInteractiveBoundsRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreAcceleratorKeyEventType(i32);
 #[repr(transparent)]
 pub struct CoreAcceleratorKeys(pub *mut ::core::ffi::c_void);
@@ -23,31 +25,44 @@ pub struct CoreAcceleratorKeys(pub *mut ::core::ffi::c_void);
 pub struct CoreComponentInputSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreCursor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreCursorType(i32);
 #[repr(transparent)]
 pub struct CoreDispatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreDispatcherPriority(i32);
+#[repr(C)]
 pub struct CoreIndependentInputFilters(i32);
 #[repr(transparent)]
 pub struct CoreIndependentInputSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreIndependentInputSourceController(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreInputDeviceTypes(i32);
+#[repr(C)]
 pub struct CorePhysicalKeyStatus(i32);
+#[repr(C)]
 pub struct CoreProcessEventsOption(i32);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct CoreProximityEvaluation(i32);
+#[repr(C)]
 pub struct CoreProximityEvaluationScore(i32);
+#[repr(C)]
 pub struct CoreVirtualKeyStates(i32);
 #[repr(transparent)]
 pub struct CoreWindow(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreWindowActivationMode(i32);
+#[repr(C)]
 pub struct CoreWindowActivationState(i32);
 #[repr(transparent)]
 pub struct CoreWindowDialog(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreWindowDialogsContract(i32);
 #[repr(transparent)]
 pub struct CoreWindowEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreWindowFlowDirection(i32);
 #[repr(transparent)]
 pub struct CoreWindowFlyout(pub *mut ::core::ffi::c_void);

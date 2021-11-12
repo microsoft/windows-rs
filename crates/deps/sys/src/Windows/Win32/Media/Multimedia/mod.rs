@@ -290,16 +290,22 @@ pub const ACM_MPEG_PRIVATEBIT: u32 = 1u32;
 pub const ACM_MPEG_PROTECTIONBIT: u32 = 8u32;
 pub const ACM_MPEG_SINGLECHANNEL: u32 = 8u32;
 pub const ACM_MPEG_STEREO: u32 = 1u32;
+#[repr(C)]
 pub struct ADPCMCOEFSET(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct ADPCMEWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct ADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct APTXWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct AUDIOFILE_AF10WAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct AUDIOFILE_AF36WAVEFORMAT(i32);
 pub const AUXDM_GETDEVCAPS: u32 = 4u32;
 pub const AUXDM_GETNUMDEVS: u32 = 3u32;
@@ -311,6 +317,7 @@ pub const AVICOMPRESSF_DATARATE: u32 = 2u32;
 pub const AVICOMPRESSF_INTERLEAVE: u32 = 1u32;
 pub const AVICOMPRESSF_KEYFRAMES: u32 = 4u32;
 pub const AVICOMPRESSF_VALID: u32 = 8u32;
+#[repr(C)]
 pub struct AVICOMPRESSOPTIONS(i32);
 pub const AVIERR_OK: i32 = 0i32;
 pub const AVIFILECAPS_ALLKEYFRAMES: u32 = 16u32;
@@ -321,7 +328,9 @@ pub const AVIFILEHANDLER_CANACCEPTNONRGB: u32 = 4u32;
 pub const AVIFILEHANDLER_CANREAD: u32 = 1u32;
 pub const AVIFILEHANDLER_CANWRITE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AVIFILEINFOA(i32);
+#[repr(C)]
 pub struct AVIFILEINFOW(i32);
 pub const AVIFILEINFO_COPYRIGHTED: u32 = 131072u32;
 pub const AVIFILEINFO_HASINDEX: u32 = 16u32;
@@ -331,10 +340,13 @@ pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
 pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
+#[repr(C)]
 pub struct AVISAVECALLBACK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AVISTREAMINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct AVISTREAMINFOW(i32);
 pub const AVISTREAMINFO_DISABLED: u32 = 1u32;
 pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
@@ -342,40 +354,60 @@ pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
 pub const AVSTREAMMASTER_NONE: u32 = 1u32;
 pub const BI_1632: u32 = 842217009u32;
+#[repr(C)]
 pub struct CAPCONTROLCALLBACK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CAPDRIVERCAPS(i32);
+#[repr(C)]
 pub struct CAPERRORCALLBACKA(i32);
+#[repr(C)]
 pub struct CAPERRORCALLBACKW(i32);
+#[repr(C)]
 pub struct CAPINFOCHUNK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct CAPSTATUS(i32);
+#[repr(C)]
 pub struct CAPSTATUSCALLBACKA(i32);
+#[repr(C)]
 pub struct CAPSTATUSCALLBACKW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CAPTUREPARMS(i32);
+#[repr(C)]
 pub struct CAPVIDEOCALLBACK(i32);
+#[repr(C)]
 pub struct CAPWAVECALLBACK(i32);
+#[repr(C)]
 pub struct CAPYIELDCALLBACK(i32);
+#[repr(C)]
 pub struct CHANNEL_CAPS(i32);
 pub const CLSID_AVIFile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 131072, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
 pub const CLSID_AVISimpleUnMarshal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 131081, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct COMPVARS(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct CONTRESCR10WAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct CONTRESVQLPCWAVEFORMAT(i32);
 pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
 pub const CONTROLCALLBACK_PREROLL: u32 = 1u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct CREATIVEADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT(i32);
 pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct CSIMAADPCMWAVEFORMAT(i32);
 pub const DCB_EVENT: u32 = 5u32;
 pub const DCB_FUNCTION: u32 = 3u32;
@@ -402,30 +434,42 @@ pub const DDF_SAME_HDC: u32 = 4u32;
 pub const DDF_SAME_SIZE: u32 = 8u32;
 pub const DDF_UPDATE: u32 = 2u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DIALOGICOKIADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DIGIADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DIGIFIXWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DIGIREALWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DIGISTDWAVEFORMAT(i32);
 pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
 pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DOLBYAC2WAVEFORMAT(i32);
+#[repr(C)]
 pub struct DRAWDIBTIME(i32);
+#[repr(C)]
 pub struct DRIVERMSGPROC(i32);
+#[repr(C)]
 pub struct DRIVERPROC(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DRMWAVEFORMAT(i32);
 pub const DRVCNF_CANCEL: u32 = 0u32;
 pub const DRVCNF_OK: u32 = 1u32;
 pub const DRVCNF_RESTART: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRVCONFIGINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRVCONFIGINFOEX(i32);
 pub const DRVM_ADD_THRU: u32 = 257u32;
 pub const DRVM_DISABLE: u32 = 102u32;
@@ -436,6 +480,7 @@ pub const DRVM_INIT_EX: u32 = 104u32;
 pub const DRVM_IOCTL: u32 = 256u32;
 pub const DRVM_IOCTL_CMD_SYSTEM: i32 = -2147483648i32;
 pub const DRVM_IOCTL_CMD_USER: i32 = 0i32;
+#[repr(C)]
 pub struct DRVM_IOCTL_DATA(i32);
 pub const DRVM_IOCTL_LAST: u32 = 261u32;
 pub const DRVM_MAPPER_CONSOLEVOICECOM_GET: u32 = 8215u32;
@@ -475,6 +520,7 @@ pub const DRV_RESERVED: u32 = 2048u32;
 pub const DRV_RESTART: u32 = 2u32;
 pub const DRV_USER: u32 = 16384u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct DVIADPCMWAVEFORMAT(i32);
 pub const DVM_CONFIGURE_END: u32 = 8191u32;
 pub const DVM_CONFIGURE_START: u32 = 4096u32;
@@ -521,8 +567,10 @@ pub const DV_VM_DATA: u32 = 978u32;
 pub const DV_VM_ERROR: u32 = 979u32;
 pub const DV_VM_OPEN: u32 = 976u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct ECHOSC1WAVEFORMAT(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct EXBMINFOHEADER(i32);
 pub const FACILITY_NS: u32 = 13u32;
 pub const FACILITY_NS_WIN32: u32 = 7u32;
@@ -541,16 +589,24 @@ pub const FIND_RET: i32 = 61440i32;
 pub const FIND_SIZE: i32 = 12288i32;
 pub const FIND_TYPE: i32 = 240i32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct FMTOWNS_SND_WAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct G721_ADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct G723_ADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct GSM610WAVEFORMAT(i32);
+#[repr(C)]
 pub struct HDRVR(i32);
+#[repr(C)]
 pub struct HIC(i32);
+#[repr(C)]
 pub struct HMMIO(i32);
+#[repr(C)]
 pub struct HVIDEO(i32);
 #[repr(transparent)]
 pub struct IAVIEditStream(pub *mut ::core::ffi::c_void);
@@ -563,24 +619,31 @@ pub struct IAVIStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAVIStreaming(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ICCOMPRESS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ICCOMPRESSFRAMES(i32);
 pub const ICCOMPRESSFRAMES_PADDING: u32 = 1u32;
 pub const ICCOMPRESS_KEYFRAME: i32 = 1i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ICDECOMPRESS(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ICDECOMPRESSEX(i32);
 pub const ICDECOMPRESS_HURRYUP: i32 = -2147483648i32;
 pub const ICDECOMPRESS_NOTKEYFRAME: i32 = 134217728i32;
 pub const ICDECOMPRESS_NULLFRAME: i32 = 268435456i32;
 pub const ICDECOMPRESS_PREROLL: i32 = 536870912i32;
 pub const ICDECOMPRESS_UPDATE: i32 = 1073741824i32;
+#[repr(C)]
 pub struct ICDRAW(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct ICDRAWBEGIN(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ICDRAWSUGGEST(i32);
 pub const ICDRAW_ANIMATE: i32 = 8i32;
 pub const ICDRAW_BUFFER: i32 = 256i32;
@@ -615,6 +678,7 @@ pub const ICERR_NEWPALETTE: i32 = 2i32;
 pub const ICERR_OK: i32 = 0i32;
 pub const ICERR_STOPDRAWING: i32 = 4i32;
 pub const ICERR_UNSUPPORTED: i32 = -1i32;
+#[repr(C)]
 pub struct ICINFO(i32);
 pub const ICINSTALL_DRIVER: u32 = 2u32;
 pub const ICINSTALL_DRIVERW: u32 = 32770u32;
@@ -696,13 +760,16 @@ pub const ICM_SETSTATE: u32 = 20481u32;
 pub const ICM_SET_STATUS_PROC: u32 = 16456u32;
 pub const ICM_USER: u32 = 16384u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ICOPEN(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[repr(C)]
 pub struct ICPALETTE(i32);
 pub const ICQUALITY_DEFAULT: i32 = -1i32;
 pub const ICQUALITY_HIGH: u32 = 10000u32;
 pub const ICQUALITY_LOW: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ICSETSTATUSPROC(i32);
 pub const ICSTATUS_END: u32 = 2u32;
 pub const ICSTATUS_ERROR: u32 = 3u32;
@@ -783,6 +850,7 @@ pub const IDS_CAP_WRITEERROR: u32 = 414u32;
 #[repr(transparent)]
 pub struct IGetFrame(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct IMAADPCMWAVEFORMAT(i32);
 pub const JDD_CONFIGCHANGED: u32 = 2307u32;
 pub const JDD_GETDEVCAPS: u32 = 2050u32;
@@ -850,10 +918,14 @@ pub const JIFMK_SOI: u32 = 65496u32;
 pub const JIFMK_SOS: u32 = 65498u32;
 pub const JIFMK_TEM: u32 = 65281u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOYCAPS2A(i32);
+#[repr(C)]
 pub struct JOYCAPS2W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct JOYCAPSA(i32);
+#[repr(C)]
 pub struct JOYCAPSW(i32);
 pub const JOYCAPS_HASPOV: u32 = 16u32;
 pub const JOYCAPS_HASR: u32 = 2u32;
@@ -866,7 +938,9 @@ pub const JOYERR_NOCANDO: u32 = 166u32;
 pub const JOYERR_NOERROR: u32 = 0u32;
 pub const JOYERR_PARMS: u32 = 165u32;
 pub const JOYERR_UNPLUGGED: u32 = 167u32;
+#[repr(C)]
 pub struct JOYINFO(i32);
+#[repr(C)]
 pub struct JOYINFOEX(i32);
 pub const JOYSTICKID1: u32 = 0u32;
 pub const JOYSTICKID2: u32 = 1u32;
@@ -934,14 +1008,19 @@ pub const JOY_RETURNX: i32 = 1i32;
 pub const JOY_RETURNY: i32 = 2i32;
 pub const JOY_RETURNZ: i32 = 4i32;
 pub const JOY_USEDEADZONE: i32 = 2048i32;
+#[repr(C)]
 pub struct JPEGINFOHEADER(i32);
 pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
 pub const JPEG_RGB: u32 = 3u32;
 pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
+#[repr(C)]
 pub struct KSDATAFORMAT_SUBTYPE_IEEE_FLOAT(i32);
+#[repr(C)]
 pub struct LPFNEXTDEVIO(i32);
+#[repr(C)]
 pub struct LPMMIOPROC(i32);
+#[repr(C)]
 pub struct LPTASKCALLBACK(i32);
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;
 pub const MCIERR_AVI_BADPALETTE: u32 = 620u32;
@@ -1147,11 +1226,14 @@ pub const MCI_ANIM_INFO_TEXT: i32 = 65536i32;
 pub const MCI_ANIM_OPEN_NOSTATIC: i32 = 262144i32;
 pub const MCI_ANIM_OPEN_PARENT: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_ANIM_OPEN_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_ANIM_OPEN_PARMSW(i32);
 pub const MCI_ANIM_OPEN_WS: i32 = 65536i32;
 pub const MCI_ANIM_PLAY_FAST: i32 = 262144i32;
+#[repr(C)]
 pub struct MCI_ANIM_PLAY_PARMS(i32);
 pub const MCI_ANIM_PLAY_REVERSE: i32 = 131072i32;
 pub const MCI_ANIM_PLAY_SCAN: i32 = 1048576i32;
@@ -1163,6 +1245,7 @@ pub const MCI_ANIM_REALIZE_BKGD: i32 = 131072i32;
 pub const MCI_ANIM_REALIZE_NORM: i32 = 65536i32;
 pub const MCI_ANIM_RECT: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_ANIM_RECT_PARMS(i32);
 pub const MCI_ANIM_STATUS_FORWARD: i32 = 16386i32;
 pub const MCI_ANIM_STATUS_HPAL: i32 = 16388i32;
@@ -1170,10 +1253,12 @@ pub const MCI_ANIM_STATUS_HWND: i32 = 16387i32;
 pub const MCI_ANIM_STATUS_SPEED: i32 = 16385i32;
 pub const MCI_ANIM_STATUS_STRETCH: i32 = 16389i32;
 pub const MCI_ANIM_STEP_FRAMES: i32 = 131072i32;
+#[repr(C)]
 pub struct MCI_ANIM_STEP_PARMS(i32);
 pub const MCI_ANIM_STEP_REVERSE: i32 = 65536i32;
 pub const MCI_ANIM_UPDATE_HDC: i32 = 131072i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct MCI_ANIM_UPDATE_PARMS(i32);
 pub const MCI_ANIM_WHERE_DESTINATION: i32 = 262144i32;
 pub const MCI_ANIM_WHERE_SOURCE: i32 = 131072i32;
@@ -1182,8 +1267,10 @@ pub const MCI_ANIM_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
 pub const MCI_ANIM_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
 pub const MCI_ANIM_WINDOW_HWND: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_ANIM_WINDOW_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_ANIM_WINDOW_PARMSW(i32);
 pub const MCI_ANIM_WINDOW_STATE: i32 = 262144i32;
 pub const MCI_ANIM_WINDOW_TEXT: i32 = 524288i32;
@@ -1198,6 +1285,7 @@ pub const MCI_BREAK_HWND: i32 = 512i32;
 pub const MCI_BREAK_KEY: i32 = 256i32;
 pub const MCI_BREAK_OFF: i32 = 1024i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_BREAK_PARMS(i32);
 pub const MCI_CAPTURE: u32 = 2160u32;
 pub const MCI_CDA_STATUS_TYPE_TRACK: i32 = 16385i32;
@@ -1231,26 +1319,32 @@ pub const MCI_DEVTYPE_WAVEFORM_AUDIO: u32 = 522u32;
 pub const MCI_DGV_CAPTURE_AS: i32 = 65536i32;
 pub const MCI_DGV_CAPTURE_AT: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_CAPTURE_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_CAPTURE_PARMSW(i32);
 pub const MCI_DGV_COPY_AT: i32 = 65536i32;
 pub const MCI_DGV_COPY_AUDIO_STREAM: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_COPY_PARMS(i32);
 pub const MCI_DGV_COPY_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_CUE_INPUT: i32 = 65536i32;
 pub const MCI_DGV_CUE_NOSHOW: i32 = 262144i32;
 pub const MCI_DGV_CUE_OUTPUT: i32 = 131072i32;
+#[repr(C)]
 pub struct MCI_DGV_CUE_PARMS(i32);
 pub const MCI_DGV_CUT_AT: i32 = 65536i32;
 pub const MCI_DGV_CUT_AUDIO_STREAM: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_CUT_PARMS(i32);
 pub const MCI_DGV_CUT_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_DELETE_AT: i32 = 65536i32;
 pub const MCI_DGV_DELETE_AUDIO_STREAM: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_DELETE_PARMS(i32);
 pub const MCI_DGV_DELETE_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_FF_AVI: i32 = 16385i32;
@@ -1287,8 +1381,10 @@ pub const MCI_DGV_INFO_AUDIO_ALG: i32 = 16388i32;
 pub const MCI_DGV_INFO_AUDIO_QUALITY: i32 = 16385i32;
 pub const MCI_DGV_INFO_ITEM: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_INFO_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_INFO_PARMSW(i32);
 pub const MCI_DGV_INFO_STILL_ALG: i32 = 16389i32;
 pub const MCI_DGV_INFO_STILL_QUALITY: i32 = 16386i32;
@@ -1305,8 +1401,10 @@ pub const MCI_DGV_LIST_COUNT: i32 = 131072i32;
 pub const MCI_DGV_LIST_ITEM: i32 = 65536i32;
 pub const MCI_DGV_LIST_NUMBER: i32 = 262144i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_LIST_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_LIST_PARMSW(i32);
 pub const MCI_DGV_LIST_STILL_ALG: i32 = 16387i32;
 pub const MCI_DGV_LIST_STILL_QUALITY: i32 = 16388i32;
@@ -1320,6 +1418,7 @@ pub const MCI_DGV_METHOD_PRE: i32 = 40960i32;
 pub const MCI_DGV_MONITOR_FILE: i32 = 16385i32;
 pub const MCI_DGV_MONITOR_INPUT: i32 = 16384i32;
 pub const MCI_DGV_MONITOR_METHOD: i32 = 65536i32;
+#[repr(C)]
 pub struct MCI_DGV_MONITOR_PARMS(i32);
 pub const MCI_DGV_MONITOR_SOURCE: i32 = 131072i32;
 pub const MCI_DGV_OPEN_16BIT: i32 = 524288i32;
@@ -1327,8 +1426,10 @@ pub const MCI_DGV_OPEN_32BIT: i32 = 1048576i32;
 pub const MCI_DGV_OPEN_NOSTATIC: i32 = 262144i32;
 pub const MCI_DGV_OPEN_PARENT: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_OPEN_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_OPEN_PARMSW(i32);
 pub const MCI_DGV_OPEN_WS: i32 = 65536i32;
 pub const MCI_DGV_PASTE_AT: i32 = 65536i32;
@@ -1336,6 +1437,7 @@ pub const MCI_DGV_PASTE_AUDIO_STREAM: i32 = 131072i32;
 pub const MCI_DGV_PASTE_INSERT: i32 = 524288i32;
 pub const MCI_DGV_PASTE_OVERWRITE: i32 = 1048576i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_PASTE_PARMS(i32);
 pub const MCI_DGV_PASTE_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_PLAY_REPEAT: i32 = 65536i32;
@@ -1347,36 +1449,46 @@ pub const MCI_DGV_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_DGV_PUT_VIDEO: i32 = 1048576i32;
 pub const MCI_DGV_PUT_WINDOW: i32 = 2097152i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_QUALITY_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_QUALITY_PARMSW(i32);
 pub const MCI_DGV_REALIZE_BKGD: i32 = 131072i32;
 pub const MCI_DGV_REALIZE_NORM: i32 = 65536i32;
 pub const MCI_DGV_RECORD_AUDIO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_RECORD_HOLD: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_RECORD_PARMS(i32);
 pub const MCI_DGV_RECORD_VIDEO_STREAM: i32 = 524288i32;
 pub const MCI_DGV_RECT: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_RECT_PARMS(i32);
 pub const MCI_DGV_RESERVE_IN: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_RESERVE_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_RESERVE_PARMSW(i32);
 pub const MCI_DGV_RESERVE_SIZE: i32 = 131072i32;
 pub const MCI_DGV_RESTORE_AT: i32 = 131072i32;
 pub const MCI_DGV_RESTORE_FROM: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_RESTORE_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_RESTORE_PARMSW(i32);
 pub const MCI_DGV_SAVE_ABORT: i32 = 131072i32;
 pub const MCI_DGV_SAVE_KEEPRESERVE: i32 = 262144i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_SAVE_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_SAVE_PARMSW(i32);
 pub const MCI_DGV_SETAUDIO_ALG: i32 = 262144i32;
 pub const MCI_DGV_SETAUDIO_AVGBYTESPERSEC: i32 = 16390i32;
@@ -1390,8 +1502,10 @@ pub const MCI_DGV_SETAUDIO_LEFT: i32 = 2097152i32;
 pub const MCI_DGV_SETAUDIO_OUTPUT: i32 = 67108864i32;
 pub const MCI_DGV_SETAUDIO_OVER: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_SETAUDIO_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_SETAUDIO_PARMSW(i32);
 pub const MCI_DGV_SETAUDIO_QUALITY: i32 = 524288i32;
 pub const MCI_DGV_SETAUDIO_RECORD: i32 = 1048576i32;
@@ -1426,8 +1540,10 @@ pub const MCI_DGV_SETVIDEO_OUTPUT: i32 = 67108864i32;
 pub const MCI_DGV_SETVIDEO_OVER: i32 = 2097152i32;
 pub const MCI_DGV_SETVIDEO_PALHANDLE: i32 = 16391i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_SETVIDEO_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_SETVIDEO_PARMSW(i32);
 pub const MCI_DGV_SETVIDEO_QUALITY: i32 = 65536i32;
 pub const MCI_DGV_SETVIDEO_RECORD: i32 = 4194304i32;
@@ -1451,6 +1567,7 @@ pub const MCI_DGV_SETVIDEO_STREAM: i32 = 16390i32;
 pub const MCI_DGV_SETVIDEO_TINT: i32 = 16387i32;
 pub const MCI_DGV_SETVIDEO_VALUE: i32 = 16777216i32;
 pub const MCI_DGV_SET_FILEFORMAT: i32 = 524288i32;
+#[repr(C)]
 pub struct MCI_DGV_SET_PARMS(i32);
 pub const MCI_DGV_SET_SEEK_EXACTLY: i32 = 65536i32;
 pub const MCI_DGV_SET_SPEED: i32 = 131072i32;
@@ -1458,6 +1575,7 @@ pub const MCI_DGV_SET_STILL: i32 = 262144i32;
 pub const MCI_DGV_SIGNAL_AT: i32 = 65536i32;
 pub const MCI_DGV_SIGNAL_CANCEL: i32 = 524288i32;
 pub const MCI_DGV_SIGNAL_EVERY: i32 = 131072i32;
+#[repr(C)]
 pub struct MCI_DGV_SIGNAL_PARMS(i32);
 pub const MCI_DGV_SIGNAL_POSITION: i32 = 1048576i32;
 pub const MCI_DGV_SIGNAL_USERVAL: i32 = 262144i32;
@@ -1492,8 +1610,10 @@ pub const MCI_DGV_STATUS_MONITOR_METHOD: i32 = 16396i32;
 pub const MCI_DGV_STATUS_NOMINAL: i32 = 131072i32;
 pub const MCI_DGV_STATUS_OUTPUT: i32 = 8388608i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_STATUS_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_STATUS_PARMSW(i32);
 pub const MCI_DGV_STATUS_PAUSE_MODE: i32 = 16422i32;
 pub const MCI_DGV_STATUS_RECORD: i32 = 16777216i32;
@@ -1519,12 +1639,14 @@ pub const MCI_DGV_STATUS_WINDOW_MAXIMIZED: i32 = 16419i32;
 pub const MCI_DGV_STATUS_WINDOW_MINIMIZED: i32 = 16418i32;
 pub const MCI_DGV_STATUS_WINDOW_VISIBLE: i32 = 16417i32;
 pub const MCI_DGV_STEP_FRAMES: i32 = 131072i32;
+#[repr(C)]
 pub struct MCI_DGV_STEP_PARMS(i32);
 pub const MCI_DGV_STEP_REVERSE: i32 = 65536i32;
 pub const MCI_DGV_STOP_HOLD: i32 = 65536i32;
 pub const MCI_DGV_UPDATE_HDC: i32 = 131072i32;
 pub const MCI_DGV_UPDATE_PAINT: i32 = 262144i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[repr(C)]
 pub struct MCI_DGV_UPDATE_PARMS(i32);
 pub const MCI_DGV_WHERE_DESTINATION: i32 = 262144i32;
 pub const MCI_DGV_WHERE_FRAME: i32 = 524288i32;
@@ -1535,8 +1657,10 @@ pub const MCI_DGV_WHERE_WINDOW: i32 = 2097152i32;
 pub const MCI_DGV_WINDOW_DEFAULT: i32 = 0i32;
 pub const MCI_DGV_WINDOW_HWND: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_WINDOW_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_DGV_WINDOW_PARMSW(i32);
 pub const MCI_DGV_WINDOW_STATE: i32 = 262144i32;
 pub const MCI_DGV_WINDOW_TEXT: i32 = 524288i32;
@@ -1571,6 +1695,7 @@ pub const MCI_FORMAT_TMSF: u32 = 10u32;
 pub const MCI_FORMAT_TMSF_S: u32 = 543u32;
 pub const MCI_FREEZE: u32 = 2116u32;
 pub const MCI_FROM: i32 = 4i32;
+#[repr(C)]
 pub struct MCI_GENERIC_PARMS(i32);
 pub const MCI_GETDEVCAPS: u32 = 2059u32;
 pub const MCI_GETDEVCAPS_CAN_EJECT: i32 = 7i32;
@@ -1582,6 +1707,7 @@ pub const MCI_GETDEVCAPS_DEVICE_TYPE: i32 = 4i32;
 pub const MCI_GETDEVCAPS_HAS_AUDIO: i32 = 2i32;
 pub const MCI_GETDEVCAPS_HAS_VIDEO: i32 = 3i32;
 pub const MCI_GETDEVCAPS_ITEM: i32 = 256i32;
+#[repr(C)]
 pub struct MCI_GETDEVCAPS_PARMS(i32);
 pub const MCI_GETDEVCAPS_USES_FILES: i32 = 5i32;
 pub const MCI_HDC: u32 = 12u32;
@@ -1594,8 +1720,10 @@ pub const MCI_INFO_MEDIA_IDENTITY: i32 = 2048i32;
 pub const MCI_INFO_MEDIA_UPC: i32 = 1024i32;
 pub const MCI_INFO_NAME: i32 = 4096i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_INFO_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_INFO_PARMSW(i32);
 pub const MCI_INFO_PRODUCT: i32 = 256i32;
 pub const MCI_INFO_VERSION: i32 = 1024i32;
@@ -1607,8 +1735,10 @@ pub const MCI_LIST: u32 = 2168u32;
 pub const MCI_LOAD: u32 = 2128u32;
 pub const MCI_LOAD_FILE: i32 = 256i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_LOAD_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_LOAD_PARMSW(i32);
 pub const MCI_MAX_DEVICE_TYPE_LENGTH: u32 = 80u32;
 pub const MCI_MCIAVI_PLAY_FULLBY2: i32 = 67108864i32;
@@ -1635,12 +1765,15 @@ pub const MCI_OPEN: u32 = 2051u32;
 pub const MCI_OPEN_ALIAS: i32 = 1024i32;
 pub const MCI_OPEN_DRIVER: u32 = 2049u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OPEN_DRIVER_PARMS(i32);
 pub const MCI_OPEN_ELEMENT: i32 = 512i32;
 pub const MCI_OPEN_ELEMENT_ID: i32 = 2048i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OPEN_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OPEN_PARMSW(i32);
 pub const MCI_OPEN_SHAREABLE: i32 = 256i32;
 pub const MCI_OPEN_TYPE: i32 = 8192i32;
@@ -1650,13 +1783,17 @@ pub const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: i32 = 16385i32;
 pub const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: i32 = 16387i32;
 pub const MCI_OVLY_INFO_TEXT: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_LOAD_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_LOAD_PARMSW(i32);
 pub const MCI_OVLY_OPEN_PARENT: i32 = 131072i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_OPEN_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_OPEN_PARMSW(i32);
 pub const MCI_OVLY_OPEN_WS: i32 = 65536i32;
 pub const MCI_OVLY_PUT_DESTINATION: i32 = 262144i32;
@@ -1665,10 +1802,13 @@ pub const MCI_OVLY_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_OVLY_PUT_VIDEO: i32 = 1048576i32;
 pub const MCI_OVLY_RECT: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_RECT_PARMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_SAVE_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_SAVE_PARMSW(i32);
 pub const MCI_OVLY_STATUS_HWND: i32 = 16385i32;
 pub const MCI_OVLY_STATUS_STRETCH: i32 = 16386i32;
@@ -1681,14 +1821,17 @@ pub const MCI_OVLY_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
 pub const MCI_OVLY_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
 pub const MCI_OVLY_WINDOW_HWND: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_WINDOW_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_OVLY_WINDOW_PARMSW(i32);
 pub const MCI_OVLY_WINDOW_STATE: i32 = 262144i32;
 pub const MCI_OVLY_WINDOW_TEXT: i32 = 524288i32;
 pub const MCI_PASTE: u32 = 2131u32;
 pub const MCI_PAUSE: u32 = 2057u32;
 pub const MCI_PLAY: u32 = 2054u32;
+#[repr(C)]
 pub struct MCI_PLAY_PARMS(i32);
 pub const MCI_PUT: u32 = 2114u32;
 pub const MCI_QUALITY: u32 = 2167u32;
@@ -1704,6 +1847,7 @@ pub const MCI_REALIZE: u32 = 2112u32;
 pub const MCI_RECORD: u32 = 2063u32;
 pub const MCI_RECORD_INSERT: i32 = 256i32;
 pub const MCI_RECORD_OVERWRITE: i32 = 512i32;
+#[repr(C)]
 pub struct MCI_RECORD_PARMS(i32);
 pub const MCI_RECT: u32 = 7u32;
 pub const MCI_RESERVE: u32 = 2162u32;
@@ -1715,10 +1859,13 @@ pub const MCI_RETURN: u32 = 4u32;
 pub const MCI_SAVE: u32 = 2067u32;
 pub const MCI_SAVE_FILE: i32 = 256i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_SAVE_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_SAVE_PARMSW(i32);
 pub const MCI_SEEK: u32 = 2055u32;
+#[repr(C)]
 pub struct MCI_SEEK_PARMS(i32);
 pub const MCI_SEEK_TO_END: i32 = 512i32;
 pub const MCI_SEEK_TO_START: i32 = 256i32;
@@ -1734,6 +1881,7 @@ pub const MCI_SEQ_NONE: u32 = 65533u32;
 pub const MCI_SEQ_NONE_S: u32 = 1226u32;
 pub const MCI_SEQ_SET_MASTER: i32 = 524288i32;
 pub const MCI_SEQ_SET_OFFSET: i32 = 16777216i32;
+#[repr(C)]
 pub struct MCI_SEQ_SET_PARMS(i32);
 pub const MCI_SEQ_SET_PORT: i32 = 131072i32;
 pub const MCI_SEQ_SET_SLAVE: i32 = 262144i32;
@@ -1759,6 +1907,7 @@ pub const MCI_SET_DOOR_CLOSED: i32 = 512i32;
 pub const MCI_SET_DOOR_OPEN: i32 = 256i32;
 pub const MCI_SET_OFF: i32 = 16384i32;
 pub const MCI_SET_ON: i32 = 8192i32;
+#[repr(C)]
 pub struct MCI_SET_PARMS(i32);
 pub const MCI_SET_TIME_FORMAT: i32 = 1024i32;
 pub const MCI_SET_VIDEO: i32 = 4096i32;
@@ -1771,6 +1920,7 @@ pub const MCI_STATUS_LENGTH: i32 = 1i32;
 pub const MCI_STATUS_MEDIA_PRESENT: i32 = 5i32;
 pub const MCI_STATUS_MODE: i32 = 4i32;
 pub const MCI_STATUS_NUMBER_OF_TRACKS: i32 = 3i32;
+#[repr(C)]
 pub struct MCI_STATUS_PARMS(i32);
 pub const MCI_STATUS_POSITION: i32 = 2i32;
 pub const MCI_STATUS_READY: i32 = 7i32;
@@ -1784,8 +1934,10 @@ pub const MCI_SYSINFO_INSTALLNAME: i32 = 2048i32;
 pub const MCI_SYSINFO_NAME: i32 = 1024i32;
 pub const MCI_SYSINFO_OPEN: i32 = 512i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_SYSINFO_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_SYSINFO_PARMSW(i32);
 pub const MCI_SYSINFO_QUANTITY: i32 = 256i32;
 pub const MCI_TEST: i32 = 32i32;
@@ -1797,8 +1949,10 @@ pub const MCI_UNFREEZE: u32 = 2117u32;
 pub const MCI_UPDATE: u32 = 2132u32;
 pub const MCI_USER_MESSAGES: u32 = 3072u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_VD_ESCAPE_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_VD_ESCAPE_PARMSW(i32);
 pub const MCI_VD_ESCAPE_STRING: i32 = 256i32;
 pub const MCI_VD_FORMAT_TRACK: u32 = 16385u32;
@@ -1814,6 +1968,7 @@ pub const MCI_VD_MEDIA_CLV: u32 = 1026u32;
 pub const MCI_VD_MEDIA_OTHER: u32 = 1028u32;
 pub const MCI_VD_MODE_PARK: u32 = 1025u32;
 pub const MCI_VD_PLAY_FAST: i32 = 131072i32;
+#[repr(C)]
 pub struct MCI_VD_PLAY_PARMS(i32);
 pub const MCI_VD_PLAY_REVERSE: i32 = 65536i32;
 pub const MCI_VD_PLAY_SCAN: i32 = 524288i32;
@@ -1828,9 +1983,11 @@ pub const MCI_VD_STATUS_MEDIA_TYPE: i32 = 16388i32;
 pub const MCI_VD_STATUS_SIDE: i32 = 16389i32;
 pub const MCI_VD_STATUS_SPEED: i32 = 16386i32;
 pub const MCI_VD_STEP_FRAMES: i32 = 65536i32;
+#[repr(C)]
 pub struct MCI_VD_STEP_PARMS(i32);
 pub const MCI_VD_STEP_REVERSE: i32 = 131072i32;
 pub const MCI_WAIT: i32 = 2i32;
+#[repr(C)]
 pub struct MCI_WAVE_DELETE_PARMS(i32);
 pub const MCI_WAVE_GETDEVCAPS_INPUTS: i32 = 16385i32;
 pub const MCI_WAVE_GETDEVCAPS_OUTPUTS: i32 = 16386i32;
@@ -1838,8 +1995,10 @@ pub const MCI_WAVE_INPUT: i32 = 4194304i32;
 pub const MCI_WAVE_MAPPER: u32 = 1153u32;
 pub const MCI_WAVE_OPEN_BUFFER: i32 = 65536i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_WAVE_OPEN_PARMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MCI_WAVE_OPEN_PARMSW(i32);
 pub const MCI_WAVE_OUTPUT: i32 = 8388608i32;
 pub const MCI_WAVE_PCM: u32 = 1152u32;
@@ -1850,6 +2009,7 @@ pub const MCI_WAVE_SET_BITSPERSAMPLE: i32 = 2097152i32;
 pub const MCI_WAVE_SET_BLOCKALIGN: i32 = 1048576i32;
 pub const MCI_WAVE_SET_CHANNELS: i32 = 131072i32;
 pub const MCI_WAVE_SET_FORMATTAG: i32 = 65536i32;
+#[repr(C)]
 pub struct MCI_WAVE_SET_PARMS(i32);
 pub const MCI_WAVE_SET_SAMPLESPERSEC: i32 = 262144i32;
 pub const MCI_WAVE_STATUS_AVGBYTESPERSEC: i32 = 16388i32;
@@ -1864,8 +2024,10 @@ pub const MCI_WINDOW: u32 = 2113u32;
 pub const MCMADM_E_REGKEY_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072889750i32 as _);
 pub const MCMADM_I_NO_EVENTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074593897i32 as _);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct MEDIASPACEADPCMWAVEFORMAT(i32);
 pub const MIDIMAPPER_S: u32 = 1227u32;
+#[repr(C)]
 pub struct MIDIOPENSTRMID(i32);
 pub const MIDI_IO_COOKED: i32 = 2i32;
 pub const MIDI_IO_PACKED: i32 = 0i32;
@@ -1887,7 +2049,9 @@ pub const MIXERCONTROL_CONTROLTYPE_SRS_MTS: u32 = 536936454u32;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_ONOFF: u32 = 536936455u32;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_SYNTHSELECT: u32 = 536936456u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct MIXEROPENDESC(i32);
+#[repr(C)]
 pub struct MMCKINFO(i32);
 pub const MMIOERR_ACCESSDENIED: u32 = 268u32;
 pub const MMIOERR_BASE: u32 = 256u32;
@@ -1907,6 +2071,7 @@ pub const MMIOERR_SHARINGVIOLATION: u32 = 269u32;
 pub const MMIOERR_TOOMANYOPENFILES: u32 = 271u32;
 pub const MMIOERR_UNBUFFERED: u32 = 266u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMIOINFO(i32);
 pub const MMIOM_CLOSE: u32 = 4u32;
 pub const MMIOM_OPEN: u32 = 3u32;
@@ -3486,6 +3651,7 @@ pub const MPEGLAYER3_ID_MPEG: u32 = 1u32;
 pub const MPEGLAYER3_ID_UNKNOWN: u32 = 0u32;
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: u32 = 12u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct MSAUDIO1WAVEFORMAT(i32);
 pub const MSAUDIO1_BITS_PER_SAMPLE: u32 = 16u32;
 pub const MSAUDIO1_MAX_CHANNELS: u32 = 2u32;
@@ -3502,6 +3668,7 @@ pub const MXDM_OPEN: u32 = 3u32;
 pub const MXDM_SETCONTROLDETAILS: u32 = 8u32;
 pub const MXDM_USER: u32 = 16384u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct NMS_VBXADPCMWAVEFORMAT(i32);
 pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072879730i32 as _);
 pub const NS_DRM_E_MIGRATION_SOURCE_MACHINE_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072879732i32 as _);
@@ -4709,14 +4876,19 @@ pub const NS_W_FILE_BANDWIDTH_LIMIT: ::windows_sys::core::HRESULT = ::windows_sy
 pub const NS_W_SERVER_BANDWIDTH_LIMIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146631677i32 as _);
 pub const NS_W_UNKNOWN_EVENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146631584i32 as _);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct OLIADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct OLICELPWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct OLIGSMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct OLIOPRWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct OLISBCWAVEFORMAT(i32);
 pub const PD_CAN_DRAW_DIB: u32 = 1u32;
 pub const PD_CAN_STRETCHDIB: u32 = 2u32;
@@ -4744,8 +4916,10 @@ pub const SEEK_CUR: u32 = 1u32;
 pub const SEEK_END: u32 = 2u32;
 pub const SEEK_SET: u32 = 0u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct SIERRAADPCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct SONARCWAVEFORMAT(i32);
 pub const TASKERR_NOTASKSUPPORT: u32 = 1u32;
 pub const TASKERR_OUTOFMEMORY: u32 = 2u32;
@@ -4755,14 +4929,17 @@ pub const TDD_GETDEVCAPS: u32 = 2060u32;
 pub const TDD_GETSYSTEMTIME: u32 = 2056u32;
 pub const TDD_KILLTIMEREVENT: u32 = 2048u32;
 pub const TDD_SETTIMEREVENT: u32 = 2052u32;
+#[repr(C)]
 pub struct TIMEREVENT(i32);
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct TRUESPEECHWAVEFORMAT(i32);
 pub const VADMAD_Device_ID: u32 = 1092u32;
 pub const VCAPS_CAN_SCALE: u32 = 8u32;
 pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
+#[repr(C)]
 pub struct VFWWDMExtensionProc(i32);
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;
 pub const VFW_HIDE_SETTINGS_PAGE: u32 = 1u32;
@@ -4783,6 +4960,7 @@ pub const VIDCF_FASTTEMPORALC: u32 = 32u32;
 pub const VIDCF_FASTTEMPORALD: u32 = 128u32;
 pub const VIDCF_QUALITY: u32 = 1u32;
 pub const VIDCF_TEMPORAL: u32 = 4u32;
+#[repr(C)]
 pub struct VIDEOHDR(i32);
 pub const VIDEO_CONFIGURE_CURRENT: u32 = 16u32;
 pub const VIDEO_CONFIGURE_GET: u32 = 8192u32;
@@ -4836,6 +5014,7 @@ pub const VP_TV_STANDARD_SECAM_L: u32 = 16384u32;
 pub const VP_TV_STANDARD_SECAM_L1: u32 = 524288u32;
 pub const VP_TV_STANDARD_WIN_VGA: u32 = 32768u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct WAVEOPENDESC(i32);
 pub const WAVE_FILTER_DEVELOPMENT: u32 = 65535u32;
 pub const WAVE_FILTER_ECHO: u32 = 2u32;
@@ -5125,10 +5304,12 @@ pub const WIDM_START: u32 = 57u32;
 pub const WIDM_STOP: u32 = 58u32;
 pub const WIDM_UNPREPARE: u32 = 55u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct WMAUDIO2WAVEFORMAT(i32);
 pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16u32;
 pub const WMAUDIO2_MAX_CHANNELS: u32 = 2u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct WMAUDIO3WAVEFORMAT(i32);
 pub const WMAUDIO_BITS_PER_SAMPLE: u32 = 16u32;
 pub const WMAUDIO_MAX_CHANNELS: u32 = 2u32;
@@ -5237,7 +5418,10 @@ pub const WODM_SETVOLUME: u32 = 17u32;
 pub const WODM_UNPREPARE: u32 = 8u32;
 pub const WODM_WRITE: u32 = 9u32;
 #[cfg(feature = "Win32_Media_Audio")]
+#[repr(C)]
 pub struct YAMAHA_ADPCMWAVEFORMAT(i32);
+#[repr(C)]
 pub struct YIELDPROC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct s_RIFFWAVE_inst(i32);

@@ -11,14 +11,17 @@ pub struct AppWindowChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AppWindowCloseRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppWindowClosedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppWindowClosedReason(i32);
 #[repr(transparent)]
 pub struct AppWindowFrame(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppWindowFrameStyle(i32);
 #[repr(transparent)]
 pub struct AppWindowPlacement(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppWindowPresentationConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppWindowPresentationKind(i32);
 #[repr(transparent)]
 pub struct AppWindowPresenter(pub *mut ::core::ffi::c_void);
@@ -26,6 +29,7 @@ pub struct AppWindowPresenter(pub *mut ::core::ffi::c_void);
 pub struct AppWindowTitleBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppWindowTitleBarOcclusion(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppWindowTitleBarVisibility(i32);
 #[repr(transparent)]
 pub struct CompactOverlayPresentationConfiguration(pub *mut ::core::ffi::c_void);
@@ -91,6 +95,7 @@ pub struct WindowingEnvironment(pub *mut ::core::ffi::c_void);
 pub struct WindowingEnvironmentAddedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WindowingEnvironmentChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WindowingEnvironmentKind(i32);
 #[repr(transparent)]
 pub struct WindowingEnvironmentRemovedEventArgs(pub *mut ::core::ffi::c_void);

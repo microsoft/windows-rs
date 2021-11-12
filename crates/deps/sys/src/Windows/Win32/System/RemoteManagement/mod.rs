@@ -597,32 +597,47 @@ pub struct IWSManResourceLocator(pub *mut ::core::ffi::c_void);
 pub struct IWSManResourceLocatorInternal(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWSManSession(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WSMAN_API(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_AUTHENTICATION_CREDENTIALS(i32);
+#[repr(C)]
 pub struct WSMAN_AUTHZ_QUOTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_CERTIFICATE_DETAILS(i32);
+#[repr(C)]
 pub struct WSMAN_COMMAND(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_COMMAND_ARG_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_CONNECT_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_CREATE_SHELL_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_DATA(i32);
+#[repr(C)]
 pub struct WSMAN_DATA_BINARY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_DATA_TEXT(i32);
 pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_ERROR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_FILTER(i32);
 pub const WSMAN_FLAG_RECEIVE_FLUSH: u32 = 2u32;
 pub const WSMAN_FLAG_RECEIVE_RESULT_DATA_BOUNDARY: u32 = 4u32;
@@ -631,27 +646,41 @@ pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_0: u32 = 0u32;
 pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_1: u32 = 1u32;
 pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_FRAGMENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_KEY(i32);
+#[repr(C)]
 pub struct WSMAN_OPERATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_OPERATION_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_OPERATION_INFOEX(i32);
 pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
 pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_OPTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_OPTION_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_OPTION_SETEX(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_AUTHORIZE_OPERATION(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_AUTHORIZE_USER(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_COMMAND(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_CONNECT(i32);
 pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
 pub const WSMAN_PLUGIN_PARAMS_GET_REQUESTED_DATA_LOCALE: u32 = 6u32;
@@ -664,56 +693,91 @@ pub const WSMAN_PLUGIN_PARAMS_REMAINING_RESULT_SIZE: u32 = 3u32;
 pub const WSMAN_PLUGIN_PARAMS_RUNAS_USER: u32 = 2u32;
 pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
 pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
+#[repr(C)]
 pub struct WSMAN_PLUGIN_RECEIVE(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_PLUGIN_REQUEST(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_SEND(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_SHELL(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_SHUTDOWN(i32);
 pub const WSMAN_PLUGIN_SHUTDOWN_IDLETIMEOUT_ELAPSED: u32 = 4u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_IISHOST: u32 = 3u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
+#[repr(C)]
 pub struct WSMAN_PLUGIN_SIGNAL(i32);
+#[repr(C)]
 pub struct WSMAN_PLUGIN_STARTUP(i32);
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: u32 = 1u32;
 pub const WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_PROXY_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_RECEIVE_DATA_RESULT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_RESPONSE_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_SELECTOR_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_SENDER_DETAILS(i32);
+#[repr(C)]
 pub struct WSMAN_SESSION(i32);
+#[repr(C)]
 pub struct WSMAN_SHELL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_SHELL_ASYNC(i32);
+#[repr(C)]
 pub struct WSMAN_SHELL_COMPLETION_FUNCTION(i32);
+#[repr(C)]
 pub struct WSMAN_SHELL_DISCONNECT_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V10(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V11(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_STREAM_ID_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WSMAN_USERNAME_PASSWORD_CREDS(i32);
+#[repr(C)]
 pub struct WSMan(i32);
+#[repr(C)]
 pub struct WSManAuthenticationFlags(i32);
+#[repr(C)]
 pub struct WSManCallbackFlags(i32);
+#[repr(C)]
 pub struct WSManDataType(i32);
+#[repr(C)]
 pub struct WSManEnumFlags(i32);
+#[repr(C)]
 pub struct WSManInternal(i32);
+#[repr(C)]
 pub struct WSManProxyAccessType(i32);
+#[repr(C)]
 pub struct WSManProxyAccessTypeFlags(i32);
+#[repr(C)]
 pub struct WSManProxyAuthenticationFlags(i32);
+#[repr(C)]
 pub struct WSManSessionFlags(i32);
+#[repr(C)]
 pub struct WSManSessionOption(i32);
+#[repr(C)]
 pub struct WSManShellFlag(i32);

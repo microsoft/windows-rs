@@ -11,11 +11,15 @@ pub struct IPhoneNumberInfo(pub *mut ::core::ffi::c_void);
 pub struct IPhoneNumberInfoFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPhoneNumberInfoStatics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneNumberFormat(i32);
 #[repr(transparent)]
 pub struct PhoneNumberFormatter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneNumberInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhoneNumberMatchResult(i32);
+#[repr(C)]
 pub struct PhoneNumberParseResult(i32);
+#[repr(C)]
 pub struct PredictedPhoneNumberKind(i32);

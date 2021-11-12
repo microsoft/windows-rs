@@ -40,6 +40,7 @@ extern "system" {
     pub fn SetTextContext(hrc: HRECOCONTEXT, cwcbefore: u32, pwcbefore: super::super::Foundation::PWSTR, cwcafter: u32, pwcafter: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     pub fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct ALT_BREAKS(i32);
 pub const ASYNC_RECO_ADDSTROKE_FAILED: u32 = 4u32;
 pub const ASYNC_RECO_INTERRUPTED: u32 = 1u32;
@@ -51,61 +52,113 @@ pub const ASYNC_RECO_SETFLAGS_FAILED: u32 = 64u32;
 pub const ASYNC_RECO_SETGUIDE_FAILED: u32 = 32u32;
 pub const ASYNC_RECO_SETTEXTCONTEXT_FAILED: u32 = 256u32;
 pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
+#[repr(C)]
 pub struct AppearanceConstants(i32);
 pub const BEST_COMPLETE: u32 = 2u32;
+#[repr(C)]
 pub struct BorderStyleConstants(i32);
 pub const CAC_FULL: u32 = 0u32;
 pub const CAC_PREFIX: u32 = 1u32;
 pub const CAC_RANDOM: u32 = 2u32;
+#[repr(C)]
 pub struct CHARACTER_RANGE(i32);
+#[repr(C)]
 pub struct CONFIDENCE_LEVEL(i32);
+#[repr(C)]
 pub struct CorrectionMode(i32);
+#[repr(C)]
 pub struct CorrectionPosition(i32);
+#[repr(C)]
 pub struct DISPID_Ink(i32);
+#[repr(C)]
 pub struct DISPID_InkCollector(i32);
+#[repr(C)]
 pub struct DISPID_InkCollectorEvent(i32);
+#[repr(C)]
 pub struct DISPID_InkCursor(i32);
+#[repr(C)]
 pub struct DISPID_InkCursorButton(i32);
+#[repr(C)]
 pub struct DISPID_InkCursorButtons(i32);
+#[repr(C)]
 pub struct DISPID_InkCursors(i32);
+#[repr(C)]
 pub struct DISPID_InkCustomStrokes(i32);
+#[repr(C)]
 pub struct DISPID_InkDivider(i32);
+#[repr(C)]
 pub struct DISPID_InkDivisionResult(i32);
+#[repr(C)]
 pub struct DISPID_InkDivisionUnit(i32);
+#[repr(C)]
 pub struct DISPID_InkDivisionUnits(i32);
+#[repr(C)]
 pub struct DISPID_InkDrawingAttributes(i32);
+#[repr(C)]
 pub struct DISPID_InkEdit(i32);
+#[repr(C)]
 pub struct DISPID_InkEditEvents(i32);
+#[repr(C)]
 pub struct DISPID_InkEvent(i32);
+#[repr(C)]
 pub struct DISPID_InkExtendedProperties(i32);
+#[repr(C)]
 pub struct DISPID_InkExtendedProperty(i32);
+#[repr(C)]
 pub struct DISPID_InkGesture(i32);
+#[repr(C)]
 pub struct DISPID_InkRecoAlternate(i32);
+#[repr(C)]
 pub struct DISPID_InkRecoContext(i32);
+#[repr(C)]
 pub struct DISPID_InkRecoContext2(i32);
+#[repr(C)]
 pub struct DISPID_InkRecognitionAlternates(i32);
+#[repr(C)]
 pub struct DISPID_InkRecognitionEvent(i32);
+#[repr(C)]
 pub struct DISPID_InkRecognitionResult(i32);
+#[repr(C)]
 pub struct DISPID_InkRecognizer(i32);
+#[repr(C)]
 pub struct DISPID_InkRecognizer2(i32);
+#[repr(C)]
 pub struct DISPID_InkRecognizerGuide(i32);
+#[repr(C)]
 pub struct DISPID_InkRecognizers(i32);
+#[repr(C)]
 pub struct DISPID_InkRectangle(i32);
+#[repr(C)]
 pub struct DISPID_InkRenderer(i32);
+#[repr(C)]
 pub struct DISPID_InkStrokeDisp(i32);
+#[repr(C)]
 pub struct DISPID_InkStrokes(i32);
+#[repr(C)]
 pub struct DISPID_InkTablet(i32);
+#[repr(C)]
 pub struct DISPID_InkTablet2(i32);
+#[repr(C)]
 pub struct DISPID_InkTablet3(i32);
+#[repr(C)]
 pub struct DISPID_InkTablets(i32);
+#[repr(C)]
 pub struct DISPID_InkTransform(i32);
+#[repr(C)]
 pub struct DISPID_InkWordList(i32);
+#[repr(C)]
 pub struct DISPID_InkWordList2(i32);
+#[repr(C)]
 pub struct DISPID_MathInputControlEvents(i32);
+#[repr(C)]
 pub struct DISPID_PenInputPanel(i32);
+#[repr(C)]
 pub struct DISPID_PenInputPanelEvents(i32);
+#[repr(C)]
 pub struct DISPID_StrokeEvent(i32);
+#[repr(C)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA(i32);
+#[repr(C)]
 pub struct DynamicRenderer(i32);
 pub const EM_GETDRAWATTR: u32 = 1541u32;
 pub const EM_GETFACTOID: u32 = 1549u32;
@@ -133,12 +186,18 @@ pub const EM_SETRECOTIMEOUT: u32 = 1544u32;
 pub const EM_SETSELINK: u32 = 1552u32;
 pub const EM_SETSELINKDISPLAYMODE: u32 = 1561u32;
 pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
+#[repr(C)]
 pub struct EventMask(i32);
 pub const FACILITY_INK: u32 = 40u32;
+#[repr(C)]
 pub struct FLICKACTION_COMMANDCODE(i32);
+#[repr(C)]
 pub struct FLICKDIRECTION(i32);
+#[repr(C)]
 pub struct FLICKMODE(i32);
+#[repr(C)]
 pub struct FLICK_DATA(i32);
+#[repr(C)]
 pub struct FLICK_POINT(i32);
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
 pub const GESTURE_ARROW_DOWN: u32 = 61497u32;
@@ -170,6 +229,7 @@ pub const GESTURE_CIRCLE_TAP: u32 = 61474u32;
 pub const GESTURE_CLOSEUP: u32 = 61455u32;
 pub const GESTURE_CROSS: u32 = 61447u32;
 pub const GESTURE_CURLICUE: u32 = 61456u32;
+#[repr(C)]
 pub struct GESTURE_DATA(i32);
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
 pub const GESTURE_DIAGONAL_LEFTUP: u32 = 61532u32;
@@ -359,12 +419,19 @@ pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows_sys::core::GUID = ::w
 };
 pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 244523913, data2: 7543, data3: 17327, data4: [172, 0, 91, 149, 13, 109, 75, 45] };
 pub const GUID_PACKETPROPERTY_GUID_Z: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935334192, data2: 3771, data3: 18312, data4: [160, 228, 15, 49, 100, 144, 5, 93] };
+#[repr(C)]
 pub struct GestureRecognizer(i32);
+#[repr(C)]
 pub struct HRECOALT(i32);
+#[repr(C)]
 pub struct HRECOCONTEXT(i32);
+#[repr(C)]
 pub struct HRECOGNIZER(i32);
+#[repr(C)]
 pub struct HRECOLATTICE(i32);
+#[repr(C)]
 pub struct HRECOWORDLIST(i32);
+#[repr(C)]
 pub struct HandwrittenTextInsertion(i32);
 #[repr(transparent)]
 pub struct IDynamicRenderer(pub *mut ::core::ffi::c_void);
@@ -373,10 +440,13 @@ pub const IECN_RECOGNITIONRESULT: u32 = 2051u32;
 pub const IECN_STROKE: u32 = 2049u32;
 pub const IECN__BASE: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct IEC_GESTUREINFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct IEC_RECOGNITIONRESULTINFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct IEC_STROKEINFO(i32);
 pub const IEC__BASE: u32 = 1536u32;
 #[repr(transparent)]
@@ -467,6 +537,7 @@ pub struct IInkWordList2(pub *mut ::core::ffi::c_void);
 pub struct IInputPanelWindowHandle(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMathInputControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct INKMETRIC(i32);
 pub const IP_CURSOR_DOWN: u32 = 1u32;
 pub const IP_INVERTED: u32 = 2u32;
@@ -501,69 +572,126 @@ pub struct ITextInputPanelRunInfo(pub *mut ::core::ffi::c_void);
 pub struct ITipAutoCompleteClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITipAutoCompleteProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InPlaceDirection(i32);
+#[repr(C)]
 pub struct InPlaceState(i32);
+#[repr(C)]
 pub struct Ink(i32);
+#[repr(C)]
 pub struct InkApplicationGesture(i32);
+#[repr(C)]
 pub struct InkBoundingBoxMode(i32);
+#[repr(C)]
 pub struct InkClipboardFormats(i32);
+#[repr(C)]
 pub struct InkClipboardModes(i32);
+#[repr(C)]
 pub struct InkCollectionMode(i32);
+#[repr(C)]
 pub struct InkCollector(i32);
 pub const InkCollectorClipInkToMargin: i32 = 0i32;
 pub const InkCollectorDefaultMargin: i32 = -2147483648i32;
+#[repr(C)]
 pub struct InkCollectorEventInterest(i32);
+#[repr(C)]
 pub struct InkCursorButtonState(i32);
+#[repr(C)]
 pub struct InkDisp(i32);
+#[repr(C)]
 pub struct InkDisplayMode(i32);
+#[repr(C)]
 pub struct InkDivider(i32);
+#[repr(C)]
 pub struct InkDivisionType(i32);
+#[repr(C)]
 pub struct InkDrawingAttributes(i32);
+#[repr(C)]
 pub struct InkEdit(i32);
+#[repr(C)]
 pub struct InkEditStatus(i32);
+#[repr(C)]
 pub struct InkExtractFlags(i32);
+#[repr(C)]
 pub struct InkInsertMode(i32);
 pub const InkMaxTransparencyValue: i32 = 255i32;
 pub const InkMinTransparencyValue: i32 = 0i32;
+#[repr(C)]
 pub struct InkMode(i32);
+#[repr(C)]
 pub struct InkMouseButton(i32);
+#[repr(C)]
 pub struct InkMousePointer(i32);
+#[repr(C)]
 pub struct InkOverlay(i32);
+#[repr(C)]
 pub struct InkOverlayAttachMode(i32);
+#[repr(C)]
 pub struct InkOverlayEditingMode(i32);
+#[repr(C)]
 pub struct InkOverlayEraserMode(i32);
+#[repr(C)]
 pub struct InkPenTip(i32);
+#[repr(C)]
 pub struct InkPersistenceCompressionMode(i32);
+#[repr(C)]
 pub struct InkPersistenceFormat(i32);
+#[repr(C)]
 pub struct InkPicture(i32);
+#[repr(C)]
 pub struct InkPictureSizeMode(i32);
+#[repr(C)]
 pub struct InkRasterOperation(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct InkRecoGuide(i32);
+#[repr(C)]
 pub struct InkRecognitionAlternatesSelection(i32);
+#[repr(C)]
 pub struct InkRecognitionConfidence(i32);
+#[repr(C)]
 pub struct InkRecognitionModes(i32);
+#[repr(C)]
 pub struct InkRecognitionStatus(i32);
+#[repr(C)]
 pub struct InkRecognizerCapabilities(i32);
+#[repr(C)]
 pub struct InkRecognizerCharacterAutoCompletionMode(i32);
+#[repr(C)]
 pub struct InkRecognizerContext(i32);
+#[repr(C)]
 pub struct InkRecognizerGuide(i32);
+#[repr(C)]
 pub struct InkRecognizers(i32);
+#[repr(C)]
 pub struct InkRectangle(i32);
+#[repr(C)]
 pub struct InkRenderer(i32);
+#[repr(C)]
 pub struct InkSelectionConstants(i32);
+#[repr(C)]
 pub struct InkShiftKeyModifierFlags(i32);
+#[repr(C)]
 pub struct InkStrokes(i32);
+#[repr(C)]
 pub struct InkSystemGesture(i32);
+#[repr(C)]
 pub struct InkTablets(i32);
+#[repr(C)]
 pub struct InkTransform(i32);
+#[repr(C)]
 pub struct InkWordList(i32);
+#[repr(C)]
 pub struct InteractionMode(i32);
+#[repr(C)]
 pub struct KEYMODIFIER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LATTICE_METRICS(i32);
+#[repr(C)]
 pub struct LINE_METRICS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct LINE_SEGMENT(i32);
 pub const MAX_FRIENDLYNAME: u32 = 64u32;
 pub const MAX_LANGUAGES: u32 = 64u32;
@@ -574,19 +702,32 @@ pub const MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: &'static str = "Microsoft TIP Com
 pub const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: &'static str = "Microsoft TIP No Insert Option";
 pub const MICROSOFT_TIP_OPENING_MSG: &'static str = "TabletInputPanelOpening";
 pub const MICROSOFT_URL_EXPERIENCE_PROPERTY: &'static str = "Microsoft TIP URL Experience";
+#[repr(C)]
 pub struct MICUIELEMENT(i32);
+#[repr(C)]
 pub struct MICUIELEMENTSTATE(i32);
+#[repr(C)]
 pub struct MathInputControl(i32);
+#[repr(C)]
 pub struct MouseButton(i32);
 pub const NUM_FLICK_DIRECTIONS: u32 = 8u32;
+#[repr(C)]
 pub struct PACKET_DESCRIPTION(i32);
+#[repr(C)]
 pub struct PACKET_PROPERTY(i32);
+#[repr(C)]
 pub struct PROPERTY_METRICS(i32);
+#[repr(C)]
 pub struct PROPERTY_UNITS(i32);
+#[repr(C)]
 pub struct PanelInputArea(i32);
+#[repr(C)]
 pub struct PanelType(i32);
+#[repr(C)]
 pub struct PenInputPanel(i32);
+#[repr(C)]
 pub struct PenInputPanel_Internal(i32);
+#[repr(C)]
 pub struct PfnRecoCallback(i32);
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
@@ -599,13 +740,21 @@ pub const RECOFLAG_LINEMODE: u32 = 16u32;
 pub const RECOFLAG_PREFIXOK: u32 = 8u32;
 pub const RECOFLAG_SINGLESEG: u32 = 4u32;
 pub const RECOFLAG_WORDMODE: u32 = 1u32;
+#[repr(C)]
 pub struct RECO_ATTRS(i32);
+#[repr(C)]
 pub struct RECO_GUIDE(i32);
+#[repr(C)]
 pub struct RECO_LATTICE(i32);
+#[repr(C)]
 pub struct RECO_LATTICE_COLUMN(i32);
+#[repr(C)]
 pub struct RECO_LATTICE_ELEMENT(i32);
+#[repr(C)]
 pub struct RECO_LATTICE_PROPERTIES(i32);
+#[repr(C)]
 pub struct RECO_LATTICE_PROPERTY(i32);
+#[repr(C)]
 pub struct RECO_RANGE(i32);
 pub const RF_ADVISEINKCHANGE: i32 = 4096i32;
 pub const RF_ARBITRARY_ANGLE: i32 = 1024i32;
@@ -624,20 +773,33 @@ pub const RF_PERSONALIZABLE: i32 = 16384i32;
 pub const RF_REQUIRESSEGMENTATIONBREAKING: i32 = 131072i32;
 pub const RF_RIGHT_AND_DOWN: i32 = 64i32;
 pub const RF_STROKEREORDER: i32 = 8192i32;
+#[repr(C)]
 pub struct RealTimeStylus(i32);
+#[repr(C)]
 pub struct RealTimeStylusDataInterest(i32);
+#[repr(C)]
 pub struct RealTimeStylusLockType(i32);
 pub const SAFE_PARTIAL: u32 = 1u32;
+#[repr(C)]
 pub struct SCROLLDIRECTION(i32);
+#[repr(C)]
 pub struct STROKE_RANGE(i32);
+#[repr(C)]
 pub struct SYSTEM_EVENT_DATA(i32);
+#[repr(C)]
 pub struct ScrollBarsConstants(i32);
+#[repr(C)]
 pub struct SelAlignmentConstants(i32);
+#[repr(C)]
 pub struct SelectionHitResult(i32);
+#[repr(C)]
 pub struct SketchInk(i32);
+#[repr(C)]
 pub struct StrokeBuilder(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct StylusInfo(i32);
+#[repr(C)]
 pub struct StylusQueue(i32);
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576u32;
 pub const TABLET_DISABLE_FLICKS: u32 = 65536u32;
@@ -651,11 +813,17 @@ pub const TABLET_DISABLE_TOUCHUIFORCEON: u32 = 256u32;
 pub const TABLET_ENABLE_FLICKLEARNINGMODE: u32 = 262144u32;
 pub const TABLET_ENABLE_FLICKSONCONTEXT: u32 = 131072u32;
 pub const TABLET_ENABLE_MULTITOUCHDATA: u32 = 16777216u32;
+#[repr(C)]
 pub struct TabletDeviceKind(i32);
+#[repr(C)]
 pub struct TabletHardwareCapabilities(i32);
+#[repr(C)]
 pub struct TabletPropertyMetricUnit(i32);
+#[repr(C)]
 pub struct TextInputPanel(i32);
+#[repr(C)]
 pub struct TipAutoCompleteClient(i32);
+#[repr(C)]
 pub struct VisualState(i32);
 pub const WM_TABLET_ADDED: u32 = 712u32;
 pub const WM_TABLET_DEFBASE: u32 = 704u32;
@@ -681,6 +849,9 @@ pub struct _IInkStrokesEvents(pub *mut ::core::ffi::c_void);
 pub struct _IMathInputControlEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct _IPenInputPanelEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct enumGetCandidateFlags(i32);
+#[repr(C)]
 pub struct enumINKMETRIC_FLAGS(i32);
+#[repr(C)]
 pub struct enumRECO_TYPE(i32);

@@ -115,23 +115,29 @@ pub struct ISmartCardTriggerDetails3(pub *mut ::core::ffi::c_void);
 pub struct KnownSmartCardAppletIds(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCard(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardActivationPolicyChangeResult(i32);
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardAppletIdGroupActivationPolicy(i32);
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupRegistration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseApdu(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardAutomaticResponseStatus(i32);
+#[repr(C)]
 pub struct SmartCardBackgroundTriggerContract(i32);
 #[repr(transparent)]
 pub struct SmartCardChallengeContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardConnection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardCryptogramAlgorithm(i32);
 #[repr(transparent)]
 pub struct SmartCardCryptogramGenerator(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(i32);
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(pub *mut ::core::ffi::c_void);
@@ -143,23 +149,33 @@ pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(pu
 pub struct SmartCardCryptogramMaterialCharacteristics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(i32);
+#[repr(C)]
 pub struct SmartCardCryptogramMaterialPackageFormat(i32);
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPossessionProof(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(i32);
+#[repr(C)]
 pub struct SmartCardCryptogramMaterialType(i32);
+#[repr(C)]
 pub struct SmartCardCryptogramPlacementOptions(i32);
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementStep(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(i32);
+#[repr(C)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(i32);
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardCryptographicKeyAttestationStatus(i32);
+#[repr(C)]
 pub struct SmartCardEmulationCategory(i32);
+#[repr(C)]
 pub struct SmartCardEmulationType(i32);
 #[repr(transparent)]
 pub struct SmartCardEmulator(pub *mut ::core::ffi::c_void);
@@ -167,13 +183,19 @@ pub struct SmartCardEmulator(pub *mut ::core::ffi::c_void);
 pub struct SmartCardEmulatorApduReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(i32);
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardEmulatorConnectionSource(i32);
+#[repr(C)]
 pub struct SmartCardEmulatorContract(i32);
+#[repr(C)]
 pub struct SmartCardEmulatorEnablementPolicy(i32);
+#[repr(C)]
 pub struct SmartCardLaunchBehavior(i32);
+#[repr(C)]
 pub struct SmartCardPinCharacterPolicyOption(i32);
 #[repr(transparent)]
 pub struct SmartCardPinPolicy(pub *mut ::core::ffi::c_void);
@@ -187,10 +209,15 @@ pub struct SmartCardPinResetRequest(pub *mut ::core::ffi::c_void);
 pub struct SmartCardProvisioning(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SmartCardReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardReaderKind(i32);
+#[repr(C)]
 pub struct SmartCardReaderStatus(i32);
+#[repr(C)]
 pub struct SmartCardStatus(i32);
 #[repr(transparent)]
 pub struct SmartCardTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SmartCardTriggerType(i32);
+#[repr(C)]
 pub struct SmartCardUnlockPromptingBehavior(i32);

@@ -40,12 +40,16 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MagUninitialize() -> super::super::Foundation::BOOL;
 }
+#[repr(C)]
 pub struct MAGCOLOREFFECT(i32);
+#[repr(C)]
 pub struct MAGIMAGEHEADER(i32);
+#[repr(C)]
 pub struct MAGTRANSFORM(i32);
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
 pub const MS_INVERTCOLORS: i32 = 4i32;
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
 pub const MW_FILTERMODE_EXCLUDE: u32 = 0u32;
 pub const MW_FILTERMODE_INCLUDE: u32 = 1u32;
+#[repr(C)]
 pub struct MagImageScalingCallback(i32);

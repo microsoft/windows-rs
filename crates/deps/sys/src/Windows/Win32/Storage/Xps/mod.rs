@@ -28,14 +28,20 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
 }
+#[repr(C)]
 pub struct ABORTPROC(i32);
+#[repr(C)]
 pub struct DEVICE_CAPABILITIES(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOCINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOCINFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DRAWPATRECT(i32);
+#[repr(C)]
 pub struct HPTPROVIDER(i32);
 #[repr(transparent)]
 pub struct IXpsDocumentPackageTarget(pub *mut ::core::ffi::c_void);
@@ -173,17 +179,28 @@ pub struct IXpsSignatureRequest(pub *mut ::core::ffi::c_void);
 pub struct IXpsSignatureRequestCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXpsSigningOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PRINT_WINDOW_FLAGS(i32);
+#[repr(C)]
 pub struct PSFEATURE_CUSTPAPER(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PSFEATURE_OUTPUT(i32);
+#[repr(C)]
 pub struct PSINJECTDATA(i32);
+#[repr(C)]
 pub struct PSINJECT_POINT(i32);
+#[repr(C)]
 pub struct XPS_COLOR(i32);
+#[repr(C)]
 pub struct XPS_COLOR_INTERPOLATION(i32);
+#[repr(C)]
 pub struct XPS_COLOR_TYPE(i32);
+#[repr(C)]
 pub struct XPS_DASH(i32);
+#[repr(C)]
 pub struct XPS_DASH_CAP(i32);
+#[repr(C)]
 pub struct XPS_DOCUMENT_TYPE(i32);
 pub const XPS_E_ABSOLUTE_REFERENCE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142108159i32 as _);
 pub const XPS_E_ALREADY_OWNED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142108413i32 as _);
@@ -270,28 +287,53 @@ pub const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: ::windows_sys::core::HRESULT = ::w
 pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142109679i32 as _);
 pub const XPS_E_VISUAL_CIRCULAR_REF: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142108415i32 as _);
 pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142108672i32 as _);
+#[repr(C)]
 pub struct XPS_FILL_RULE(i32);
+#[repr(C)]
 pub struct XPS_FONT_EMBEDDING(i32);
+#[repr(C)]
 pub struct XPS_GLYPH_INDEX(i32);
+#[repr(C)]
 pub struct XPS_GLYPH_MAPPING(i32);
+#[repr(C)]
 pub struct XPS_IMAGE_TYPE(i32);
+#[repr(C)]
 pub struct XPS_INTERLEAVING(i32);
+#[repr(C)]
 pub struct XPS_LINE_CAP(i32);
+#[repr(C)]
 pub struct XPS_LINE_JOIN(i32);
+#[repr(C)]
 pub struct XPS_MATRIX(i32);
+#[repr(C)]
 pub struct XPS_OBJECT_TYPE(i32);
+#[repr(C)]
 pub struct XPS_POINT(i32);
+#[repr(C)]
 pub struct XPS_RECT(i32);
+#[repr(C)]
 pub struct XPS_SEGMENT_STROKE_PATTERN(i32);
+#[repr(C)]
 pub struct XPS_SEGMENT_TYPE(i32);
+#[repr(C)]
 pub struct XPS_SIGNATURE_STATUS(i32);
+#[repr(C)]
 pub struct XPS_SIGN_FLAGS(i32);
+#[repr(C)]
 pub struct XPS_SIGN_POLICY(i32);
+#[repr(C)]
 pub struct XPS_SIZE(i32);
+#[repr(C)]
 pub struct XPS_SPREAD_METHOD(i32);
+#[repr(C)]
 pub struct XPS_STYLE_SIMULATION(i32);
+#[repr(C)]
 pub struct XPS_THUMBNAIL_SIZE(i32);
+#[repr(C)]
 pub struct XPS_TILE_MODE(i32);
+#[repr(C)]
 pub struct XpsOMObjectFactory(i32);
+#[repr(C)]
 pub struct XpsOMThumbnailGenerator(i32);
+#[repr(C)]
 pub struct XpsSignatureManager(i32);

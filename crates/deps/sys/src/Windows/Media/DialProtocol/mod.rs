@@ -3,13 +3,17 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct DialApp(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DialAppLaunchResult(i32);
+#[repr(C)]
 pub struct DialAppState(i32);
 #[repr(transparent)]
 pub struct DialAppStateDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DialAppStopResult(i32);
 #[repr(transparent)]
 pub struct DialDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DialDeviceDisplayStatus(i32);
 #[repr(transparent)]
 pub struct DialDevicePicker(pub *mut ::core::ffi::c_void);

@@ -37,30 +37,55 @@ extern "system" {
     pub fn SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows_sys::core::HRESULT;
     pub fn StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct CROSS_SLIDE_FLAGS(i32);
+#[repr(C)]
 pub struct CROSS_SLIDE_PARAMETER(i32);
+#[repr(C)]
 pub struct CROSS_SLIDE_THRESHOLD(i32);
+#[repr(C)]
 pub struct HINTERACTIONCONTEXT(i32);
+#[repr(C)]
 pub struct HOLD_PARAMETER(i32);
+#[repr(C)]
 pub struct INERTIA_PARAMETER(i32);
+#[repr(C)]
 pub struct INTERACTION_ARGUMENTS_CROSS_SLIDE(i32);
+#[repr(C)]
 pub struct INTERACTION_ARGUMENTS_MANIPULATION(i32);
+#[repr(C)]
 pub struct INTERACTION_ARGUMENTS_TAP(i32);
+#[repr(C)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(i32);
+#[repr(C)]
 pub struct INTERACTION_CONTEXT_CONFIGURATION(i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[repr(C)]
 pub struct INTERACTION_CONTEXT_OUTPUT(i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[repr(C)]
 pub struct INTERACTION_CONTEXT_OUTPUT2(i32);
+#[repr(C)]
 pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK(i32);
+#[repr(C)]
 pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK2(i32);
+#[repr(C)]
 pub struct INTERACTION_CONTEXT_PROPERTY(i32);
+#[repr(C)]
 pub struct INTERACTION_FLAGS(i32);
+#[repr(C)]
 pub struct INTERACTION_ID(i32);
+#[repr(C)]
 pub struct INTERACTION_STATE(i32);
+#[repr(C)]
 pub struct MANIPULATION_RAILS_STATE(i32);
+#[repr(C)]
 pub struct MANIPULATION_TRANSFORM(i32);
+#[repr(C)]
 pub struct MANIPULATION_VELOCITY(i32);
+#[repr(C)]
 pub struct MOUSE_WHEEL_PARAMETER(i32);
+#[repr(C)]
 pub struct TAP_PARAMETER(i32);
+#[repr(C)]
 pub struct TRANSLATION_PARAMETER(i32);

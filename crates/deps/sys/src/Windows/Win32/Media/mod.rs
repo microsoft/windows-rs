@@ -35,6 +35,7 @@ extern "system" {
     pub fn timeKillEvent(utimerid: u32) -> u32;
     pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
 }
+#[repr(C)]
 pub struct HTASK(i32);
 #[repr(transparent)]
 pub struct IReferenceClock(pub *mut ::core::ffi::c_void);
@@ -43,7 +44,9 @@ pub struct IReferenceClock2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IReferenceClockTimerControl(pub *mut ::core::ffi::c_void);
 pub const JOYERR_BASE: u32 = 160u32;
+#[repr(C)]
 pub struct LPDRVCALLBACK(i32);
+#[repr(C)]
 pub struct LPTIMECALLBACK(i32);
 pub const MAXERRORLENGTH: u32 = 256u32;
 pub const MAXPNAMELEN: u32 = 32u32;
@@ -79,6 +82,7 @@ pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
 pub const MMSYSERR_READERROR: u32 = 16u32;
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
+#[repr(C)]
 pub struct MMTIME(i32);
 pub const MM_ADLIB: u32 = 9u32;
 pub const MM_DRVM_CLOSE: u32 = 977u32;
@@ -129,9 +133,13 @@ pub const MM_WIM_OPEN: u32 = 958u32;
 pub const MM_WOM_CLOSE: u32 = 956u32;
 pub const MM_WOM_DONE: u32 = 957u32;
 pub const MM_WOM_OPEN: u32 = 955u32;
+#[repr(C)]
 pub struct TIMECAPS(i32);
+#[repr(C)]
 pub struct TIMECODE(i32);
+#[repr(C)]
 pub struct TIMECODE_SAMPLE(i32);
+#[repr(C)]
 pub struct TIMECODE_SAMPLE_FLAGS(i32);
 pub const TIMERR_BASE: u32 = 96u32;
 pub const TIMERR_NOCANDO: u32 = 97u32;

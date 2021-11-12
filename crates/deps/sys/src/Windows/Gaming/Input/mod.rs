@@ -9,20 +9,31 @@ pub mod Preview;
 extern "system" {}
 #[repr(transparent)]
 pub struct ArcadeStick(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ArcadeStickButtons(i32);
+#[repr(C)]
 pub struct ArcadeStickReading(i32);
 #[repr(transparent)]
 pub struct FlightStick(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FlightStickButtons(i32);
+#[repr(C)]
 pub struct FlightStickReading(i32);
+#[repr(C)]
 pub struct GameControllerButtonLabel(i32);
+#[repr(C)]
 pub struct GameControllerSwitchKind(i32);
+#[repr(C)]
 pub struct GameControllerSwitchPosition(i32);
 #[repr(transparent)]
 pub struct Gamepad(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GamepadButtons(i32);
+#[repr(C)]
 pub struct GamepadReading(i32);
+#[repr(C)]
 pub struct GamepadVibration(i32);
+#[repr(C)]
 pub struct GamingInputPreviewContract(i32);
 #[repr(transparent)]
 pub struct Headset(pub *mut ::core::ffi::c_void);
@@ -68,14 +79,19 @@ pub struct IUINavigationController(pub *mut ::core::ffi::c_void);
 pub struct IUINavigationControllerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUINavigationControllerStatics2(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct OptionalUINavigationButtons(i32);
 #[repr(transparent)]
 pub struct RacingWheel(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RacingWheelButtons(i32);
+#[repr(C)]
 pub struct RacingWheelReading(i32);
 #[repr(transparent)]
 pub struct RawGameController(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RequiredUINavigationButtons(i32);
 #[repr(transparent)]
 pub struct UINavigationController(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UINavigationReading(i32);

@@ -219,6 +219,7 @@ pub const DOSOPTGF_DEFCLEAN: i32 = 1i32;
 pub const DRIVERSIGN_BLOCKING: u32 = 2u32;
 pub const DRIVERSIGN_NONE: u32 = 0u32;
 pub const DRIVERSIGN_WARNING: u32 = 1u32;
+#[repr(C)]
 pub struct DSKTLSYSTEMTIME(i32);
 pub const DTRESULTFIX: u32 = 1u32;
 pub const DTRESULTOK: u32 = 0u32;
@@ -227,6 +228,7 @@ pub const DTRESULTPROB: u32 = 2u32;
 pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
+#[repr(C)]
 pub struct HKEY(i32);
 pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
 pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
@@ -290,6 +292,7 @@ pub const PIR_STATUS_TABLE_NONE: u32 = 3u32;
 pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
 pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
 pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
+#[repr(C)]
 pub struct PQUERYHANDLER(i32);
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;
 pub const REGDF_CONFLICTDMA: u32 = 524288u32;
@@ -307,18 +310,26 @@ pub const REGDF_NOTDETMEM: u32 = 2u32;
 pub const REGDF_NOTVERIFIED: u32 = 2147483648u32;
 pub const REGSTR_MAX_VALUE_LENGTH: u32 = 256u32;
 pub const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024u32;
+#[repr(C)]
 pub struct REG_CREATE_KEY_DISPOSITION(i32);
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
+#[repr(C)]
 pub struct REG_NOTIFY_FILTER(i32);
+#[repr(C)]
 pub struct REG_OPEN_CREATE_OPTIONS(i32);
 pub const REG_PROCESS_APPKEY: u32 = 1u32;
+#[repr(C)]
 pub struct REG_RESTORE_KEY_FLAGS(i32);
+#[repr(C)]
 pub struct REG_SAM_FLAGS(i32);
+#[repr(C)]
 pub struct REG_SAVE_FORMAT(i32);
 pub const REG_SECURE_CONNECTION: u32 = 1u32;
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
+#[repr(C)]
 pub struct REG_VALUE_TYPE(i32);
 pub const RRF_NOEXPAND: u32 = 268435456u32;
+#[repr(C)]
 pub struct RRF_RT(i32);
 pub const RRF_SUBKEY_WOW6432KEY: u32 = 131072u32;
 pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536u32;
@@ -334,8 +345,10 @@ pub const SUF_NETRPLBOOT: i32 = 128i32;
 pub const SUF_NETSETUP: i32 = 32i32;
 pub const SUF_SBSCOPYOK: i32 = 256i32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VALENTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VALENTW(i32);
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
 pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
@@ -343,9 +356,13 @@ pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
 pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
+#[repr(C)]
 pub struct provider_info(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct pvalueA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct pvalueW(i32);
+#[repr(C)]
 pub struct val_context(i32);

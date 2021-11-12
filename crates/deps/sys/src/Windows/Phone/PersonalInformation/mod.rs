@@ -7,6 +7,7 @@ extern "system" {}
 pub struct ContactAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactChangeRecord(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactChangeType(i32);
 #[repr(transparent)]
 pub struct ContactInformation(pub *mut ::core::ffi::c_void);
@@ -14,10 +15,13 @@ pub struct ContactInformation(pub *mut ::core::ffi::c_void);
 pub struct ContactQueryOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactQueryResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactQueryResultOrdering(i32);
 #[repr(transparent)]
 pub struct ContactStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactStoreApplicationAccessMode(i32);
+#[repr(C)]
 pub struct ContactStoreSystemAccessMode(i32);
 #[repr(transparent)]
 pub struct IContactAddress(pub *mut ::core::ffi::c_void);
@@ -49,4 +53,5 @@ pub struct IStoredContactFactory(pub *mut ::core::ffi::c_void);
 pub struct KnownContactProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoredContact(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct VCardFormat(i32);

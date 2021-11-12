@@ -153,6 +153,7 @@ pub struct InlineUIContainer(pub *mut ::core::ffi::c_void);
 pub struct Italic(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LineBreak(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LogicalDirection(i32);
 #[repr(transparent)]
 pub struct Paragraph(pub *mut ::core::ffi::c_void);
@@ -170,9 +171,11 @@ pub struct TextHighlighter(pub *mut ::core::ffi::c_void);
 pub struct TextHighlighterBase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TextPointer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TextRange(i32);
 #[repr(transparent)]
 pub struct Typography(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Underline(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UnderlineStyle(i32);

@@ -5,8 +5,11 @@ extern "system" {}
 pub struct HttpBaseProtocolFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpCacheControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HttpCacheReadBehavior(i32);
+#[repr(C)]
 pub struct HttpCacheWriteBehavior(i32);
+#[repr(C)]
 pub struct HttpCookieUsageBehavior(i32);
 #[repr(transparent)]
 pub struct HttpServerCustomValidationRequestedEventArgs(pub *mut ::core::ffi::c_void);

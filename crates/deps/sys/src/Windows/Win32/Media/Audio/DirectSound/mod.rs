@@ -42,8 +42,10 @@ pub const DS3DALG_HRTF_FULL: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const DS3DALG_HRTF_LIGHT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052866, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
 pub const DS3DALG_NO_VIRTUALIZATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052863, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[repr(C)]
 pub struct DS3DBUFFER(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[repr(C)]
 pub struct DS3DLISTENER(i32);
 pub const DS3DMODE_DISABLE: u32 = 2u32;
 pub const DS3DMODE_HEADRELATIVE: u32 = 1u32;
@@ -63,6 +65,7 @@ pub const DS3D_MAXROLLOFFFACTOR: f32 = 10f32;
 pub const DS3D_MINCONEANGLE: u32 = 0u32;
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0f32;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0f32;
+#[repr(C)]
 pub struct DSBCAPS(i32);
 pub const DSBCAPS_CTRL3D: u32 = 16u32;
 pub const DSBCAPS_CTRLFREQUENCY: u32 = 32u32;
@@ -97,6 +100,7 @@ pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
 pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSBPOSITIONNOTIFY(i32);
 pub const DSBSIZE_FX_MIN: u32 = 150u32;
 pub const DSBSIZE_MAX: u32 = 268435455u32;
@@ -107,10 +111,13 @@ pub const DSBSTATUS_LOCSOFTWARE: u32 = 16u32;
 pub const DSBSTATUS_LOOPING: u32 = 4u32;
 pub const DSBSTATUS_PLAYING: u32 = 1u32;
 pub const DSBSTATUS_TERMINATED: u32 = 32u32;
+#[repr(C)]
 pub struct DSBUFFERDESC(i32);
+#[repr(C)]
 pub struct DSBUFFERDESC1(i32);
 pub const DSBVOLUME_MAX: u32 = 0u32;
 pub const DSBVOLUME_MIN: i32 = -10000i32;
+#[repr(C)]
 pub struct DSCAPS(i32);
 pub const DSCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCAPS_CONTINUOUSRATE: u32 = 16u32;
@@ -123,6 +130,7 @@ pub const DSCAPS_SECONDARY16BIT: u32 = 2048u32;
 pub const DSCAPS_SECONDARY8BIT: u32 = 1024u32;
 pub const DSCAPS_SECONDARYMONO: u32 = 256u32;
 pub const DSCAPS_SECONDARYSTEREO: u32 = 512u32;
+#[repr(C)]
 pub struct DSCBCAPS(i32);
 pub const DSCBCAPS_CTRLFX: u32 = 512u32;
 pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648u32;
@@ -130,16 +138,22 @@ pub const DSCBLOCK_ENTIREBUFFER: u32 = 1u32;
 pub const DSCBSTART_LOOPING: u32 = 1u32;
 pub const DSCBSTATUS_CAPTURING: u32 = 1u32;
 pub const DSCBSTATUS_LOOPING: u32 = 2u32;
+#[repr(C)]
 pub struct DSCBUFFERDESC(i32);
+#[repr(C)]
 pub struct DSCBUFFERDESC1(i32);
+#[repr(C)]
 pub struct DSCCAPS(i32);
 pub const DSCCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
 pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
+#[repr(C)]
 pub struct DSCEFFECTDESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSCFXAec(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSCFXNoiseSuppress(i32);
 pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
 pub const DSCFXR_LOCSOFTWARE: u32 = 32u32;
@@ -156,6 +170,7 @@ pub const DSDEVID_DefaultCapture: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub const DSDEVID_DefaultPlayback: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3740270592, data2: 40045, data3: 18413, data4: [170, 241, 77, 218, 143, 43, 92, 3] };
 pub const DSDEVID_DefaultVoiceCapture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3740270595, data2: 40045, data3: 18413, data4: [170, 241, 77, 218, 143, 43, 92, 3] };
 pub const DSDEVID_DefaultVoicePlayback: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3740270594, data2: 40045, data3: 18413, data4: [170, 241, 77, 218, 143, 43, 92, 3] };
+#[repr(C)]
 pub struct DSEFFECTDESC(i32);
 pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
 pub const DSFXCHORUS_DELAY_MIN: f32 = 0f32;
@@ -188,7 +203,9 @@ pub const DSFXCOMPRESSOR_RELEASE_MAX: f32 = 3000f32;
 pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60f32;
+#[repr(C)]
 pub struct DSFXChorus(i32);
+#[repr(C)]
 pub struct DSFXCompressor(i32);
 pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
 pub const DSFXDISTORTION_EDGE_MIN: f32 = 0f32;
@@ -200,6 +217,7 @@ pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MAX: f32 = 8000f32;
 pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100f32;
+#[repr(C)]
 pub struct DSFXDistortion(i32);
 pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
 pub const DSFXECHO_FEEDBACK_MIN: f32 = 0f32;
@@ -211,6 +229,7 @@ pub const DSFXECHO_RIGHTDELAY_MAX: f32 = 2000f32;
 pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1f32;
 pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0f32;
+#[repr(C)]
 pub struct DSFXEcho(i32);
 pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
 pub const DSFXFLANGER_DELAY_MIN: f32 = 0f32;
@@ -231,12 +250,15 @@ pub const DSFXFLANGER_WAVE_SIN: u32 = 1u32;
 pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0u32;
 pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0f32;
+#[repr(C)]
 pub struct DSFXFlanger(i32);
 pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
 pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0u32;
+#[repr(C)]
 pub struct DSFXGargle(i32);
+#[repr(C)]
 pub struct DSFXI3DL2Reverb(i32);
 pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
 pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1f32;
@@ -244,6 +266,7 @@ pub const DSFXPARAMEQ_CENTER_MAX: f32 = 16000f32;
 pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80f32;
 pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15f32;
 pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15f32;
+#[repr(C)]
 pub struct DSFXParamEq(i32);
 pub const DSFXR_FAILED: i32 = 4i32;
 pub const DSFXR_LOCHARDWARE: i32 = 1i32;
@@ -252,6 +275,7 @@ pub const DSFXR_PRESENT: i32 = 0i32;
 pub const DSFXR_SENDLOOP: i32 = 6i32;
 pub const DSFXR_UNALLOCATED: i32 = 3i32;
 pub const DSFXR_UNKNOWN: i32 = 5i32;
+#[repr(C)]
 pub struct DSFXWavesReverb(i32);
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2f32;
@@ -474,6 +498,8 @@ pub struct IDirectSoundFullDuplex(pub *mut ::core::ffi::c_void);
 pub struct IDirectSoundNotify(pub *mut ::core::ffi::c_void);
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
+#[repr(C)]
 pub struct LPDSENUMCALLBACKA(i32);
+#[repr(C)]
 pub struct LPDSENUMCALLBACKW(i32);
 pub const _FACDS: u32 = 2168u32;

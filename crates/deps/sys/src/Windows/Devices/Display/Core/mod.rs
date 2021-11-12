@@ -3,9 +3,11 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct DisplayAdapter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayBitsPerChannel(i32);
 #[repr(transparent)]
 pub struct DisplayDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayDeviceCapability(i32);
 #[repr(transparent)]
 pub struct DisplayFence(pub *mut ::core::ffi::c_void);
@@ -17,42 +19,56 @@ pub struct DisplayManagerChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct DisplayManagerDisabledEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayManagerEnabledEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayManagerOptions(i32);
 #[repr(transparent)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayManagerResult(i32);
 #[repr(transparent)]
 pub struct DisplayManagerResultWithState(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayModeInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayModeQueryOptions(i32);
 #[repr(transparent)]
 pub struct DisplayPath(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayPathScaling(i32);
+#[repr(C)]
 pub struct DisplayPathStatus(i32);
+#[repr(C)]
 pub struct DisplayPresentStatus(i32);
 #[cfg(feature = "Foundation_Numerics")]
+#[repr(C)]
 pub struct DisplayPresentationRate(i32);
 #[repr(transparent)]
 pub struct DisplayPrimaryDescription(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayRotation(i32);
 #[repr(transparent)]
 pub struct DisplayScanout(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayScanoutOptions(i32);
 #[repr(transparent)]
 pub struct DisplaySource(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplaySourceStatus(i32);
 #[repr(transparent)]
 pub struct DisplayState(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayStateApplyOptions(i32);
+#[repr(C)]
 pub struct DisplayStateFunctionalizeOptions(i32);
 #[repr(transparent)]
 pub struct DisplayStateOperationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayStateOperationStatus(i32);
 #[repr(transparent)]
 pub struct DisplaySurface(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayTarget(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayTargetPersistence(i32);
 #[repr(transparent)]
 pub struct DisplayTask(pub *mut ::core::ffi::c_void);
@@ -60,14 +76,19 @@ pub struct DisplayTask(pub *mut ::core::ffi::c_void);
 pub struct DisplayTaskPool(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayTaskResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayTaskSignalKind(i32);
 #[repr(transparent)]
 pub struct DisplayView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayWireFormat(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayWireFormatColorSpace(i32);
+#[repr(C)]
 pub struct DisplayWireFormatEotf(i32);
+#[repr(C)]
 pub struct DisplayWireFormatHdrMetadata(i32);
+#[repr(C)]
 pub struct DisplayWireFormatPixelEncoding(i32);
 #[repr(transparent)]
 pub struct IDisplayAdapter(pub *mut ::core::ffi::c_void);

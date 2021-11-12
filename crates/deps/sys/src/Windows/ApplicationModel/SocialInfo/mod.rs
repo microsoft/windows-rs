@@ -21,12 +21,17 @@ pub struct SocialFeedChildItem(pub *mut ::core::ffi::c_void);
 pub struct SocialFeedContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SocialFeedItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SocialFeedItemStyle(i32);
+#[repr(C)]
 pub struct SocialFeedKind(i32);
 #[repr(transparent)]
 pub struct SocialFeedSharedItem(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SocialFeedUpdateMode(i32);
+#[repr(C)]
 pub struct SocialInfoContract(i32);
+#[repr(C)]
 pub struct SocialItemBadgeStyle(i32);
 #[repr(transparent)]
 pub struct SocialItemThumbnail(pub *mut ::core::ffi::c_void);

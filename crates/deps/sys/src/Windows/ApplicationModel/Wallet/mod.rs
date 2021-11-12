@@ -29,16 +29,21 @@ pub struct IWalletTransaction(pub *mut ::core::ffi::c_void);
 pub struct IWalletVerb(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWalletVerbFactory(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WalletActionKind(i32);
 #[repr(transparent)]
 pub struct WalletBarcode(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WalletBarcodeSymbology(i32);
+#[repr(C)]
 pub struct WalletContract(i32);
+#[repr(C)]
 pub struct WalletDetailViewPosition(i32);
 #[repr(transparent)]
 pub struct WalletItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WalletItemCustomProperty(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WalletItemKind(i32);
 #[repr(transparent)]
 pub struct WalletItemStore(pub *mut ::core::ffi::c_void);
@@ -46,6 +51,7 @@ pub struct WalletItemStore(pub *mut ::core::ffi::c_void);
 pub struct WalletManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WalletRelevantLocation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WalletSummaryViewPosition(i32);
 #[repr(transparent)]
 pub struct WalletTransaction(pub *mut ::core::ffi::c_void);

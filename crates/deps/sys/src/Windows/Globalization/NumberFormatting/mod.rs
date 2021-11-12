@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct CurrencyFormatter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CurrencyFormatterMode(i32);
 #[repr(transparent)]
 pub struct DecimalFormatter(pub *mut ::core::ffi::c_void);
@@ -50,6 +51,7 @@ pub struct NumeralSystemTranslator(pub *mut ::core::ffi::c_void);
 pub struct PercentFormatter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PermilleFormatter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RoundingAlgorithm(i32);
 #[repr(transparent)]
 pub struct SignificantDigitsNumberRounder(pub *mut ::core::ffi::c_void);

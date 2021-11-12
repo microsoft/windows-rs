@@ -322,94 +322,155 @@ pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
 pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
+#[repr(C)]
 pub struct ADSI_DIALECT_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADSPROPERROR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADSPROPINITPARAMS(i32);
+#[repr(C)]
 pub struct ADSTYPEENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADSVALUE(i32);
+#[repr(C)]
 pub struct ADS_ACEFLAG_ENUM(i32);
+#[repr(C)]
 pub struct ADS_ACETYPE_ENUM(i32);
 pub const ADS_ATTR_APPEND: u32 = 3u32;
 pub const ADS_ATTR_CLEAR: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_ATTR_DEF(i32);
 pub const ADS_ATTR_DELETE: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_ATTR_INFO(i32);
 pub const ADS_ATTR_UPDATE: u32 = 2u32;
+#[repr(C)]
 pub struct ADS_AUTHENTICATION_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_BACKLINK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_CASEIGNORE_LIST(i32);
+#[repr(C)]
 pub struct ADS_CHASE_REFERRALS_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_CLASS_DEF(i32);
+#[repr(C)]
 pub struct ADS_DEREFENUM(i32);
+#[repr(C)]
 pub struct ADS_DISPLAY_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_DN_WITH_BINARY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_DN_WITH_STRING(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_EMAIL(i32);
+#[repr(C)]
 pub struct ADS_ESCAPE_MODE_ENUM(i32);
 pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
 pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
 pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
 pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_FAXNUMBER(i32);
+#[repr(C)]
 pub struct ADS_FLAGTYPE_ENUM(i32);
+#[repr(C)]
 pub struct ADS_FORMAT_ENUM(i32);
+#[repr(C)]
 pub struct ADS_GROUP_TYPE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_HOLD(i32);
+#[repr(C)]
 pub struct ADS_NAME_INITTYPE_ENUM(i32);
+#[repr(C)]
 pub struct ADS_NAME_TYPE_ENUM(i32);
+#[repr(C)]
 pub struct ADS_NETADDRESS(i32);
+#[repr(C)]
 pub struct ADS_NT_SECURITY_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_OBJECT_INFO(i32);
+#[repr(C)]
 pub struct ADS_OCTET_LIST(i32);
+#[repr(C)]
 pub struct ADS_OCTET_STRING(i32);
+#[repr(C)]
 pub struct ADS_OPTION_ENUM(i32);
+#[repr(C)]
 pub struct ADS_PASSWORD_ENCODING_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_PATH(i32);
+#[repr(C)]
 pub struct ADS_PATHTYPE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_POSTALADDRESS(i32);
+#[repr(C)]
 pub struct ADS_PREFERENCES_ENUM(i32);
+#[repr(C)]
 pub struct ADS_PROPERTY_OPERATION_ENUM(i32);
+#[repr(C)]
 pub struct ADS_PROV_SPECIFIC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_REPLICAPOINTER(i32);
+#[repr(C)]
 pub struct ADS_RIGHTS_ENUM(i32);
+#[repr(C)]
 pub struct ADS_SCOPEENUM(i32);
+#[repr(C)]
 pub struct ADS_SD_CONTROL_ENUM(i32);
+#[repr(C)]
 pub struct ADS_SD_FORMAT_ENUM(i32);
+#[repr(C)]
 pub struct ADS_SD_REVISION_ENUM(i32);
+#[repr(C)]
 pub struct ADS_SEARCHPREF_ENUM(i32);
+#[repr(C)]
 pub struct ADS_SECURITY_INFO_ENUM(i32);
+#[repr(C)]
 pub struct ADS_SETTYPE_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_SORTKEY(i32);
+#[repr(C)]
 pub struct ADS_STATUSENUM(i32);
+#[repr(C)]
 pub struct ADS_SYSTEMFLAG_ENUM(i32);
+#[repr(C)]
 pub struct ADS_TIMESTAMP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_TYPEDNAME(i32);
+#[repr(C)]
 pub struct ADS_USER_FLAG_ENUM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ADS_VLV(i32);
+#[repr(C)]
 pub struct ADSystemInfo(i32);
+#[repr(C)]
 pub struct ADsSecurityUtility(i32);
+#[repr(C)]
 pub struct AccessControlEntry(i32);
+#[repr(C)]
 pub struct AccessControlList(i32);
+#[repr(C)]
 pub struct BackLink(i32);
 pub const CLSID_CommonQuery: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2210160320, data2: 28458, data3: 4560, data4: [161, 196, 0, 170, 0, 193, 110, 101] };
 pub const CLSID_DsAdminCreateObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3808534537, data2: 63745, data3: 4562, data4: [130, 185, 0, 192, 79, 104, 146, 139] };
@@ -438,8 +499,10 @@ pub const CLSID_MicrosoftDS: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const CQFF_ISOPTIONAL: u32 = 2u32;
 pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct CQFORM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct CQPAGE(i32);
 pub const CQPM_CLEARFORM: u32 = 6u32;
 pub const CQPM_ENABLE: u32 = 3u32;
@@ -450,27 +513,35 @@ pub const CQPM_INITIALIZE: u32 = 1u32;
 pub const CQPM_PERSIST: u32 = 7u32;
 pub const CQPM_RELEASE: u32 = 2u32;
 pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
+#[repr(C)]
 pub struct CaseIgnoreList(i32);
 pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
 pub const DBDTF_RETURNFQDN: u32 = 1u32;
 pub const DBDTF_RETURNINBOUND: u32 = 8u32;
 pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
 pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
+#[repr(C)]
 pub struct DNWithBinary(i32);
+#[repr(C)]
 pub struct DNWithString(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOMAINDESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOMAIN_CONTROLLER_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOMAIN_CONTROLLER_INFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DOMAIN_TREE(i32);
 pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
 pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
 pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
 pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[repr(C)]
 pub struct DSA_NEWOBJ_DISPINFO(i32);
 pub const DSA_NOTIFY_DEL: u32 = 1u32;
 pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
@@ -484,8 +555,10 @@ pub const DSBF_STATE: u32 = 1u32;
 pub const DSBID_BANNER: u32 = 256u32;
 pub const DSBID_CONTAINERLIST: u32 = 257u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSBITEMA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSBITEMW(i32);
 pub const DSBI_CHECKBOXES: u32 = 256u32;
 pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
@@ -508,8 +581,10 @@ pub const DSBM_QUERYINSERT: u32 = 100u32;
 pub const DSBM_QUERYINSERTA: u32 = 101u32;
 pub const DSBM_QUERYINSERTW: u32 = 100u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[repr(C)]
 pub struct DSBROWSEINFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[repr(C)]
 pub struct DSBROWSEINFOW(i32);
 pub const DSBS_CHECKED: u32 = 1u32;
 pub const DSBS_HIDDEN: u32 = 2u32;
@@ -517,8 +592,11 @@ pub const DSBS_ROOT: u32 = 4u32;
 pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
 pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
 pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
+#[repr(C)]
 pub struct DSCLASSCREATIONINFO(i32);
+#[repr(C)]
 pub struct DSCOLUMN(i32);
+#[repr(C)]
 pub struct DSDISPLAYSPECOPTIONS(i32);
 pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
 pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
@@ -532,7 +610,9 @@ pub const DSGIF_ISMASK: u32 = 15u32;
 pub const DSGIF_ISNORMAL: u32 = 0u32;
 pub const DSGIF_ISOPEN: u32 = 1u32;
 pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
+#[repr(C)]
 pub struct DSOBJECT(i32);
+#[repr(C)]
 pub struct DSOBJECTNAMES(i32);
 pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
 pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
@@ -570,6 +650,7 @@ pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
 pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
+#[repr(C)]
 pub struct DSOP_FILTER_FLAGS(i32);
 pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
 pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
@@ -583,6 +664,7 @@ pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
 pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
 pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSOP_INIT_INFO(i32);
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
@@ -597,6 +679,7 @@ pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
 pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSOP_SCOPE_INIT_INFO(i32);
 pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
 pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
@@ -608,7 +691,9 @@ pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
 pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
 pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
 pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
+#[repr(C)]
 pub struct DSOP_UPLEVEL_FILTER_FLAGS(i32);
+#[repr(C)]
 pub struct DSPROPERTYPAGEINFO(i32);
 pub const DSPROVIDER_ADVANCED: u32 = 16u32;
 pub const DSPROVIDER_AD_LDS: u32 = 32u32;
@@ -625,23 +710,33 @@ pub const DSQPF_SAVELOCATION: u32 = 2u32;
 pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
 pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
 pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
+#[repr(C)]
 pub struct DSQUERYCLASSLIST(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSQUERYINITPARAMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSQUERYPARAMS(i32);
+#[repr(C)]
 pub struct DSROLE_MACHINE_ROLE(i32);
+#[repr(C)]
 pub struct DSROLE_OPERATION_STATE(i32);
+#[repr(C)]
 pub struct DSROLE_OPERATION_STATE_INFO(i32);
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC(i32);
+#[repr(C)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(i32);
 pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
 pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
 pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
+#[repr(C)]
 pub struct DSROLE_SERVER_STATE(i32);
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
+#[repr(C)]
 pub struct DSROLE_UPGRADE_STATUS_INFO(i32);
 pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
 pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
@@ -672,16 +767,22 @@ pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
 pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
 pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W(i32);
 pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
 pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
@@ -690,8 +791,10 @@ pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
 pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
 pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_TRUSTSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_DOMAIN_TRUSTSW(i32);
 pub const DS_DS_10_FLAG: u32 = 65536u32;
 pub const DS_DS_8_FLAG: u32 = 16384u32;
@@ -715,6 +818,7 @@ pub const DS_IS_DNS_NAME: u32 = 131072u32;
 pub const DS_IS_FLAT_NAME: u32 = 65536u32;
 pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
 pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
+#[repr(C)]
 pub struct DS_KCC_TASKID(i32);
 pub const DS_KDC_FLAG: u32 = 32u32;
 pub const DS_KDC_REQUIRED: u32 = 1024u32;
@@ -724,17 +828,25 @@ pub const DS_LDAP_FLAG: u32 = 8u32;
 pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
 pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
 pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
+#[repr(C)]
 pub struct DS_MANGLE_FOR(i32);
+#[repr(C)]
 pub struct DS_NAME_ERROR(i32);
+#[repr(C)]
 pub struct DS_NAME_FLAGS(i32);
+#[repr(C)]
 pub struct DS_NAME_FORMAT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_NAME_RESULTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_NAME_RESULTW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_NAME_RESULT_ITEMA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_NAME_RESULT_ITEMW(i32);
 pub const DS_NDNC_FLAG: u32 = 1024u32;
 pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
@@ -765,36 +877,53 @@ pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
 pub const DS_REPDEL_REF_OK: u32 = 64u32;
 pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_ATTR_META_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_ATTR_META_DATA_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_ATTR_META_DATA_BLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT(i32);
+#[repr(C)]
 pub struct DS_REPL_CURSOR(i32);
+#[repr(C)]
 pub struct DS_REPL_CURSORS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_CURSORS_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_CURSORS_3W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_CURSOR_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_CURSOR_3W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_CURSOR_BLOB(i32);
 pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
+#[repr(C)]
 pub struct DS_REPL_INFO_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_KCC_DSA_FAILURESW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_KCC_DSA_FAILUREW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB(i32);
 pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
 pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
@@ -815,33 +944,48 @@ pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
 pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
 pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_NEIGHBORSW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_NEIGHBORW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_NEIGHBORW_BLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_OBJ_META_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_OBJ_META_DATA_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_OPW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_OPW_BLOB(i32);
+#[repr(C)]
 pub struct DS_REPL_OP_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_PENDING_OPSW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_QUEUE_STATISTICSW(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_VALUE_META_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_VALUE_META_DATA_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPL_VALUE_META_DATA_EXT(i32);
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
 pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
@@ -855,23 +999,31 @@ pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
 pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPSYNCALL_ERRINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPSYNCALL_ERRINFOW(i32);
+#[repr(C)]
 pub struct DS_REPSYNCALL_ERROR(i32);
+#[repr(C)]
 pub struct DS_REPSYNCALL_EVENT(i32);
 pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
 pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
 pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPSYNCALL_SYNCA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPSYNCALL_SYNCW(i32);
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPSYNCALL_UPDATEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_REPSYNCALL_UPDATEW(i32);
 pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
 pub const DS_REPSYNC_ADD_REFERENCE: u32 = 512u32;
@@ -915,17 +1067,24 @@ pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
 pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_SCHEMA_GUID_MAPA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DS_SCHEMA_GUID_MAPW(i32);
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct DS_SELECTION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct DS_SELECTION_LIST(i32);
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
+#[repr(C)]
 pub struct DS_SITE_COST_INFO(i32);
+#[repr(C)]
 pub struct DS_SPN_NAME_TYPE(i32);
+#[repr(C)]
 pub struct DS_SPN_WRITE_OP(i32);
 pub const DS_TIMESERV_FLAG: u32 = 64u32;
 pub const DS_TIMESERV_REQUIRED: u32 = 2048u32;
@@ -934,6 +1093,7 @@ pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
 pub const DS_WRITABLE_FLAG: u32 = 256u32;
 pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
 pub const DS_WS_FLAG: u32 = 8192u32;
+#[repr(C)]
 pub struct Email(i32);
 pub const FACILITY_BACKUP: u32 = 2047u32;
 pub const FACILITY_NTDSB: u32 = 2048u32;
@@ -944,8 +1104,11 @@ pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
 pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
 pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
+#[repr(C)]
 pub struct FaxNumber(i32);
+#[repr(C)]
 pub struct GetDcContextHandle(i32);
+#[repr(C)]
 pub struct Hold(i32);
 #[repr(transparent)]
 pub struct IADs(pub *mut ::core::ffi::c_void);
@@ -1103,10 +1266,15 @@ pub struct IPrivateDispatch(pub *mut ::core::ffi::c_void);
 pub struct IPrivateUnknown(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IQueryForm(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LPCQADDFORMSPROC(i32);
+#[repr(C)]
 pub struct LPCQADDPAGESPROC(i32);
+#[repr(C)]
 pub struct LPCQPAGEPROC(i32);
+#[repr(C)]
 pub struct LPDSENUMATTRIBUTES(i32);
+#[repr(C)]
 pub struct LargeInteger(i32);
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;
@@ -1159,9 +1327,12 @@ pub const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2u32;
 pub const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1u32;
 pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
+#[repr(C)]
 pub struct NameTranslate(i32);
+#[repr(C)]
 pub struct NetAddress(i32);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[repr(C)]
 pub struct OPENQUERYWINDOW(i32);
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
 pub const OQWF_HIDEMENUS: u32 = 1024u32;
@@ -1175,17 +1346,26 @@ pub const OQWF_REMOVESCOPES: u32 = 16u32;
 pub const OQWF_SAVEQUERYONOK: u32 = 512u32;
 pub const OQWF_SHOWOPTIONAL: u32 = 128u32;
 pub const OQWF_SINGLESELECT: u32 = 4u32;
+#[repr(C)]
 pub struct OctetList(i32);
+#[repr(C)]
 pub struct Path(i32);
+#[repr(C)]
 pub struct Pathname(i32);
+#[repr(C)]
 pub struct PostalAddress(i32);
+#[repr(C)]
 pub struct PropertyEntry(i32);
+#[repr(C)]
 pub struct PropertyValue(i32);
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
+#[repr(C)]
 pub struct ReplicaPointer(i32);
+#[repr(C)]
 pub struct SCHEDULE(i32);
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
+#[repr(C)]
 pub struct SCHEDULE_HEADER(i32);
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
 pub const SCHEDULE_PRIORITY: u32 = 2u32;
@@ -1193,8 +1373,11 @@ pub const STATUS_SEVERITY_ERROR: u32 = 3u32;
 pub const STATUS_SEVERITY_INFORMATIONAL: u32 = 1u32;
 pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
+#[repr(C)]
 pub struct SecurityDescriptor(i32);
+#[repr(C)]
 pub struct Timestamp(i32);
+#[repr(C)]
 pub struct TypedName(i32);
 pub const WM_ADSPROP_NOTIFY_APPLY: u32 = 2128u32;
 pub const WM_ADSPROP_NOTIFY_CHANGE: u32 = 2127u32;
@@ -1204,8 +1387,11 @@ pub const WM_ADSPROP_NOTIFY_FOREGROUND: u32 = 2130u32;
 pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
+#[repr(C)]
 pub struct WinNTSystemInfo(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ads_search_column(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct ads_searchpref_info(i32);

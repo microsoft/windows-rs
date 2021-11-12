@@ -41,8 +41,10 @@ pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MANAGEMENT_REGISTRATION_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MANAGEMENT_SERVICE_INFO(i32);
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145910744i32 as _);
@@ -105,4 +107,5 @@ pub const MREGISTER_E_DEVICE_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::win
 pub const MREGISTER_E_DISCOVERY_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145845234i32 as _);
 pub const MREGISTER_E_DISCOVERY_REDIRECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145845236i32 as _);
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145845239i32 as _);
+#[repr(C)]
 pub struct REGISTRATION_INFORMATION_CLASS(i32);

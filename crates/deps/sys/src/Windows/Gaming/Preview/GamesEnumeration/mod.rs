@@ -3,11 +3,13 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct GameList(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameListCategory(i32);
 #[repr(transparent)]
 pub struct GameListChangedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GameListEntry(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameListEntryLaunchableState(i32);
 #[repr(transparent)]
 pub struct GameListRemovedEventHandler(pub *mut ::core::ffi::c_void);

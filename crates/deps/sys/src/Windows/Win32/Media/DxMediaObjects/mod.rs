@@ -51,6 +51,7 @@ pub const DMOCATEGORY_VIDEO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [190, 70, 61, 162, 245, 111, 16, 185],
 };
 pub const DMOCATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 869902176, data2: 37064, data3: 4560, data4: [189, 67, 0, 160, 201, 17, 206, 134] };
+#[repr(C)]
 pub struct DMO_ENUM_FLAGS(i32);
 pub const DMO_E_INVALIDSTREAMINDEX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const DMO_E_INVALIDTYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
@@ -59,9 +60,13 @@ pub const DMO_E_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const DMO_E_TYPE_NOT_ACCEPTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
 pub const DMO_E_TYPE_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DMO_MEDIA_TYPE(i32);
+#[repr(C)]
 pub struct DMO_OUTPUT_DATA_BUFFER(i32);
+#[repr(C)]
 pub struct DMO_PARTIAL_MEDIATYPE(i32);
+#[repr(C)]
 pub struct DMO_REGISTER_FLAGS(i32);
 #[repr(transparent)]
 pub struct IDMOQualityControl(pub *mut ::core::ffi::c_void);
@@ -75,13 +80,23 @@ pub struct IMediaBuffer(pub *mut ::core::ffi::c_void);
 pub struct IMediaObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMediaObjectInPlace(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct _DMO_INPLACE_PROCESS_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_INPUT_STATUS_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_INPUT_STREAM_INFO_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_PROCESS_OUTPUT_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_QUALITY_STATUS_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_SET_TYPE_FLAGS(i32);
+#[repr(C)]
 pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(i32);

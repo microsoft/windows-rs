@@ -11,9 +11,13 @@ pub struct CoreTextCompositionStartedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CoreTextEditContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreTextFormatUpdatingReason(i32);
+#[repr(C)]
 pub struct CoreTextFormatUpdatingResult(i32);
+#[repr(C)]
 pub struct CoreTextInputPaneDisplayPolicy(i32);
+#[repr(C)]
 pub struct CoreTextInputScope(i32);
 #[repr(transparent)]
 pub struct CoreTextLayoutBounds(pub *mut ::core::ffi::c_void);
@@ -21,6 +25,7 @@ pub struct CoreTextLayoutBounds(pub *mut ::core::ffi::c_void);
 pub struct CoreTextLayoutRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreTextLayoutRequestedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreTextRange(i32);
 #[repr(transparent)]
 pub struct CoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
@@ -28,6 +33,7 @@ pub struct CoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
 pub struct CoreTextSelectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreTextSelectionUpdatingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreTextSelectionUpdatingResult(i32);
 #[repr(transparent)]
 pub struct CoreTextServicesConstants(pub *mut ::core::ffi::c_void);
@@ -39,6 +45,7 @@ pub struct CoreTextTextRequest(pub *mut ::core::ffi::c_void);
 pub struct CoreTextTextRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreTextTextUpdatingEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CoreTextTextUpdatingResult(i32);
 #[repr(transparent)]
 pub struct ICoreTextCompositionCompletedEventArgs(pub *mut ::core::ffi::c_void);

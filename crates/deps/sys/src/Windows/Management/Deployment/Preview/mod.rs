@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ClassicAppManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DeploymentPreviewContract(i32);
 #[repr(transparent)]
 pub struct IClassicAppManagerStatics(pub *mut ::core::ffi::c_void);

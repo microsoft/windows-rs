@@ -39,10 +39,15 @@ pub const FHSVC_E_CONFIG_DISABLED_GP: ::windows_sys::core::HRESULT = ::windows_s
 pub const FHSVC_E_CONFIG_REHYDRATING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147219963i32 as _);
 pub const FHSVC_E_FATAL_CONFIG_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147219964i32 as _);
 pub const FHSVC_E_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147219967i32 as _);
+#[repr(C)]
 pub struct FH_BACKUP_STATUS(i32);
+#[repr(C)]
 pub struct FH_DEVICE_VALIDATION_RESULT(i32);
+#[repr(C)]
 pub struct FH_LOCAL_POLICY_TYPE(i32);
+#[repr(C)]
 pub struct FH_PROTECTED_ITEM_CATEGORY(i32);
+#[repr(C)]
 pub struct FH_RETENTION_TYPES(i32);
 pub const FH_STATE_BACKUP_NOT_SUPPORTED: u32 = 2064u32;
 pub const FH_STATE_DISABLED_BY_GP: u32 = 2u32;
@@ -63,10 +68,15 @@ pub const FH_STATE_TARGET_LOW_SPACE: u32 = 20u32;
 pub const FH_STATE_TARGET_LOW_SPACE_RETENTION_MAX: u32 = 19u32;
 pub const FH_STATE_TARGET_VOLUME_DIRTY: u32 = 15u32;
 pub const FH_STATE_TOO_MUCH_BEHIND: u32 = 240u32;
+#[repr(C)]
 pub struct FH_TARGET_DRIVE_TYPES(i32);
+#[repr(C)]
 pub struct FH_TARGET_PROPERTY_TYPE(i32);
+#[repr(C)]
 pub struct FhBackupStopReason(i32);
+#[repr(C)]
 pub struct FhConfigMgr(i32);
+#[repr(C)]
 pub struct FhReassociation(i32);
 #[repr(transparent)]
 pub struct IFhConfigMgr(pub *mut ::core::ffi::c_void);

@@ -1012,20 +1012,27 @@ extern "system" {
 pub const ALLOC_LOG_CONF: u32 = 2u32;
 pub const BASIC_LOG_CONF: u32 = 0u32;
 pub const BOOT_LOG_CONF: u32 = 3u32;
+#[repr(C)]
 pub struct BUSNUMBER_DES(i32);
+#[repr(C)]
 pub struct BUSNUMBER_RANGE(i32);
+#[repr(C)]
 pub struct BUSNUMBER_RESOURCE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CABINET_INFO_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CABINET_INFO_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CABINET_INFO_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CABINET_INFO_W(i32);
 pub const CM_ADD_ID_BITS: u32 = 1u32;
 pub const CM_ADD_ID_COMPATIBLE: u32 = 1u32;
@@ -1197,12 +1204,16 @@ pub const CM_LOCATE_DEVNODE_NOVALIDATION: u32 = 4u32;
 pub const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1u32;
 pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
 pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
+#[repr(C)]
 pub struct CM_NOTIFY_ACTION(i32);
+#[repr(C)]
 pub struct CM_NOTIFY_EVENT_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CM_NOTIFY_FILTER(i32);
 pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
 pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;
+#[repr(C)]
 pub struct CM_NOTIFY_FILTER_TYPE(i32);
 pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
 pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
@@ -1321,14 +1332,19 @@ pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1u32;
 pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COINSTALLER_CONTEXT_DATA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct COINSTALLER_CONTEXT_DATA(i32);
 pub const CONFIGMG_VERSION: u32 = 1024u32;
+#[repr(C)]
 pub struct CONFIGRET(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CONFLICT_DETAILS_A(i32);
+#[repr(C)]
 pub struct CONFLICT_DETAILS_W(i32);
 pub const COPYFLG_FORCE_FILE_IN_USE: u32 = 8u32;
 pub const COPYFLG_IN_USE_TRY_RENAME: u32 = 16384u32;
@@ -1343,9 +1359,13 @@ pub const COPYFLG_PROTECTED_WINDOWS_DRIVER_FILE: u32 = 256u32;
 pub const COPYFLG_REPLACEONLY: u32 = 1024u32;
 pub const COPYFLG_REPLACE_BOOT_FILE: u32 = 4096u32;
 pub const COPYFLG_WARN_IF_SKIP: u32 = 1u32;
+#[repr(C)]
 pub struct CS_DES(i32);
+#[repr(C)]
 pub struct CS_RESOURCE(i32);
+#[repr(C)]
 pub struct Connection_Des_s(i32);
+#[repr(C)]
 pub struct Connection_Resource_s(i32);
 pub const DELFLG_IN_USE: u32 = 1u32;
 pub const DELFLG_IN_USE1: u32 = 65536u32;
@@ -1544,8 +1564,11 @@ pub const DI_SHOWCOMPAT: i32 = 2i32;
 pub const DI_SHOWOEM: i32 = 1i32;
 pub const DI_UNREMOVEDEVICE_CONFIGSPECIFIC: u32 = 2u32;
 pub const DI_USECI_SELECTSTRINGS: i32 = 134217728i32;
+#[repr(C)]
 pub struct DMA_DES(i32);
+#[repr(C)]
 pub struct DMA_RANGE(i32);
+#[repr(C)]
 pub struct DMA_RESOURCE(i32);
 pub const DMI_BKCOLOR: u32 = 2u32;
 pub const DMI_MASK: u32 = 1u32;
@@ -1640,8 +1663,11 @@ pub const DYNAWIZ_FLAG_ANALYZE_HANDLECONFLICT: u32 = 8u32;
 pub const DYNAWIZ_FLAG_INSTALLDET_NEXT: u32 = 2u32;
 pub const DYNAWIZ_FLAG_INSTALLDET_PREV: u32 = 4u32;
 pub const DYNAWIZ_FLAG_PAGESADDED: u32 = 1u32;
+#[repr(C)]
 pub struct DevPrivate_Des_s(i32);
+#[repr(C)]
 pub struct DevPrivate_Range_s(i32);
+#[repr(C)]
 pub struct DevPrivate_Resource_s(i32);
 pub const ENABLECLASS_FAILURE: u32 = 2u32;
 pub const ENABLECLASS_QUERY: u32 = 0u32;
@@ -1655,27 +1681,35 @@ pub const FILEOP_RETRY: u32 = 1u32;
 pub const FILEOP_SKIP: u32 = 2u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_SIGNERINFO_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_SIGNERINFO_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_SIGNERINFO_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_SIGNERINFO_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILEPATHS_W(i32);
 pub const FILE_COMPRESSION_MSZIP: u32 = 2u32;
 pub const FILE_COMPRESSION_NONE: u32 = 0u32;
@@ -1683,15 +1717,19 @@ pub const FILE_COMPRESSION_NTCAB: u32 = 3u32;
 pub const FILE_COMPRESSION_WINLZA: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_IN_CABINET_INFO_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_IN_CABINET_INFO_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_IN_CABINET_INFO_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct FILE_IN_CABINET_INFO_W(i32);
 pub const FILTERED_LOG_CONF: u32 = 1u32;
 pub const FLG_ADDPROPERTY_AND: u32 = 16u32;
@@ -2188,9 +2226,12 @@ pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows_sys::core::GUID = ::windows_s
     data3: 16622,
     data4: [162, 210, 215, 12, 21, 248, 183, 91],
 };
+#[repr(C)]
 pub struct HCMNOTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct HWProfileInfo_sA(i32);
+#[repr(C)]
 pub struct HWProfileInfo_sW(i32);
 pub const IDD_DYNAWIZ_ANALYZEDEV_PAGE: u32 = 10010u32;
 pub const IDD_DYNAWIZ_ANALYZE_NEXTPAGE: u32 = 10004u32;
@@ -2227,8 +2268,10 @@ pub const IDI_RESOURCELAST: u32 = 161u32;
 pub const IDI_RESOURCEOVERLAYFIRST: u32 = 161u32;
 pub const IDI_RESOURCEOVERLAYLAST: u32 = 161u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct INFCONTEXT(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct INFCONTEXT(i32);
 pub const INFINFO_DEFAULT_SEARCH: u32 = 3u32;
 pub const INFINFO_INF_NAME_IS_ABSOLUTE: u32 = 2u32;
@@ -2247,13 +2290,21 @@ pub const IO_ALIAS_10_BIT_DECODE: u32 = 4u32;
 pub const IO_ALIAS_12_BIT_DECODE: u32 = 16u32;
 pub const IO_ALIAS_16_BIT_DECODE: u32 = 0u32;
 pub const IO_ALIAS_POSITIVE_DECODE: u32 = 255u32;
+#[repr(C)]
 pub struct IO_DES(i32);
+#[repr(C)]
 pub struct IO_RANGE(i32);
+#[repr(C)]
 pub struct IO_RESOURCE(i32);
+#[repr(C)]
 pub struct IRQ_DES_32(i32);
+#[repr(C)]
 pub struct IRQ_DES_64(i32);
+#[repr(C)]
 pub struct IRQ_RANGE(i32);
+#[repr(C)]
 pub struct IRQ_RESOURCE_32(i32);
+#[repr(C)]
 pub struct IRQ_RESOURCE_64(i32);
 pub const LCPRI_BOOTCONFIG: u32 = 1u32;
 pub const LCPRI_DESIRED: u32 = 8192u32;
@@ -2301,14 +2352,22 @@ pub const MAX_PROFILE_LEN: u32 = 80u32;
 pub const MAX_SERVICE_NAME_LEN: u32 = 256u32;
 pub const MAX_SUBTITLE_LEN: u32 = 256u32;
 pub const MAX_TITLE_LEN: u32 = 60u32;
+#[repr(C)]
 pub struct MEM_DES(i32);
+#[repr(C)]
 pub struct MEM_RANGE(i32);
+#[repr(C)]
 pub struct MEM_RESOURCE(i32);
+#[repr(C)]
 pub struct MFCARD_DES(i32);
+#[repr(C)]
 pub struct MFCARD_RESOURCE(i32);
 pub const MIN_IDD_DYNAWIZ_RESOURCE_ID: u32 = 10000u32;
+#[repr(C)]
 pub struct Mem_Large_Des_s(i32);
+#[repr(C)]
 pub struct Mem_Large_Range_s(i32);
+#[repr(C)]
 pub struct Mem_Large_Resource_s(i32);
 pub const NDW_INSTALLFLAG_CI_PICKED_OEM: u32 = 32768u32;
 pub const NDW_INSTALLFLAG_DIDFACTDEFS: u32 = 1u32;
@@ -2336,20 +2395,29 @@ pub const NUM_CM_PROB_V7: u32 = 55u32;
 pub const NUM_CM_PROB_V8: u32 = 57u32;
 pub const NUM_CM_PROB_V9: u32 = 58u32;
 pub const NUM_LOG_CONF: u32 = 6u32;
+#[repr(C)]
 pub struct OEM_SOURCE_MEDIA_TYPE(i32);
 pub const OVERRIDE_LOG_CONF: u32 = 5u32;
+#[repr(C)]
 pub struct PCCARD_DES(i32);
+#[repr(C)]
 pub struct PCCARD_RESOURCE(i32);
 pub const PCD_MAX_IO: u32 = 2u32;
 pub const PCD_MAX_MEMORY: u32 = 2u32;
+#[repr(C)]
 pub struct PCM_NOTIFY_CALLBACK(i32);
+#[repr(C)]
 pub struct PDETECT_PROGRESS_NOTIFY(i32);
+#[repr(C)]
 pub struct PNP_VETO_TYPE(i32);
 pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
+#[repr(C)]
 pub struct PSP_DETSIG_CMPPROC(i32);
+#[repr(C)]
 pub struct PSP_FILE_CALLBACK_A(i32);
+#[repr(C)]
 pub struct PSP_FILE_CALLBACK_W(i32);
 pub const ROLLBACK_BITS: u32 = 1u32;
 pub const ROLLBACK_FLAG_NO_UI: u32 = 1u32;
@@ -2375,7 +2443,9 @@ pub const ResType_PcCardConfig: u32 = 32770u32;
 pub const ResType_Reserved: u32 = 32768u32;
 pub const SCWMI_CLOBBER_SECURITY: u32 = 1u32;
 pub const SETDIRID_NOT_FULL_PATH: u32 = 1u32;
+#[repr(C)]
 pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(i32);
+#[repr(C)]
 pub struct SETUP_FILE_OPERATION(i32);
 pub const SIGNERSCORE_AUTHENTICODE: u32 = 251658240u32;
 pub const SIGNERSCORE_INBOX: u32 = 218103811u32;
@@ -2390,15 +2460,19 @@ pub const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472u32;
 pub const SIGNERSCORE_WHQL: u32 = 218103813u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOURCE_MEDIA_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOURCE_MEDIA_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOURCE_MEDIA_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SOURCE_MEDIA_W(i32);
 pub const SPCRP_CHARACTERISTICS: u32 = 27u32;
 pub const SPCRP_DEVTYPE: u32 = 25u32;
@@ -2561,251 +2635,348 @@ pub const SP_ALTPLATFORM_FLAGS_SUITE_MASK: u32 = 2u32;
 pub const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: u32 = 1u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[repr(C)]
 pub struct SP_ALTPLATFORM_INFO_V1(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[repr(C)]
 pub struct SP_ALTPLATFORM_INFO_V1(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[repr(C)]
 pub struct SP_ALTPLATFORM_INFO_V2(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[repr(C)]
 pub struct SP_ALTPLATFORM_INFO_V2(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_ALTPLATFORM_INFO_V3(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_ALTPLATFORM_INFO_V3(i32);
 pub const SP_BACKUP_BACKUPPASS: u32 = 1u32;
 pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
 pub const SP_BACKUP_DEMANDPASS: u32 = 2u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W(i32);
 pub const SP_BACKUP_SPECIAL: u32 = 4u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
+#[repr(C)]
 pub struct SP_CLASSIMAGELIST_DATA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_Controls")]
+#[repr(C)]
 pub struct SP_CLASSIMAGELIST_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_CLASSINSTALL_HEADER(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_CLASSINSTALL_HEADER(i32);
+#[repr(C)]
 pub struct SP_COPY_STYLE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DETECTDEVICE_PARAMS(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DETECTDEVICE_PARAMS(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_DEVICE_INTERFACE_DATA(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_DEVICE_INTERFACE_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_DEVINFO_DATA(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_DEVINFO_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINSTALL_PARAMS_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINSTALL_PARAMS_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINSTALL_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DEVINSTALL_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V1_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V1_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V1_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V1_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V2_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V2_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V2_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DATA_V2_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DETAIL_DATA_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DETAIL_DATA_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DETAIL_DATA_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_DRVINFO_DETAIL_DATA_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_DRVINSTALL_PARAMS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_DRVINSTALL_PARAMS(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_ENABLECLASS_PARAMS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_ENABLECLASS_PARAMS(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_FILE_COPY_PARAMS_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_FILE_COPY_PARAMS_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_FILE_COPY_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_FILE_COPY_PARAMS_W(i32);
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_INF_INFORMATION(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_INF_INFORMATION(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V1_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V1_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V1_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V1_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V2_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V2_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V2_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_INF_SIGNER_INFO_V2_W(i32);
+#[repr(C)]
 pub struct SP_INF_STYLE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct SP_INSTALLWIZARD_DATA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct SP_INSTALLWIZARD_DATA(i32);
 pub const SP_MAX_MACHINENAME_LENGTH: u32 = 263u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct SP_NEWDEVICEWIZARD_DATA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[repr(C)]
 pub struct SP_NEWDEVICEWIZARD_DATA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_ORIGINAL_FILE_INFO_A(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_ORIGINAL_FILE_INFO_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_ORIGINAL_FILE_INFO_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_ORIGINAL_FILE_INFO_W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_PROPCHANGE_PARAMS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_PROPCHANGE_PARAMS(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_PROPSHEETPAGE_REQUEST(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_PROPSHEETPAGE_REQUEST(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_REGISTER_CONTROL_STATUSA(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_REGISTER_CONTROL_STATUSA(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_REGISTER_CONTROL_STATUSW(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_REGISTER_CONTROL_STATUSW(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_REMOVEDEVICE_PARAMS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_REMOVEDEVICE_PARAMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_SELECTDEVICE_PARAMS_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_SELECTDEVICE_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_SELECTDEVICE_PARAMS_W(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[repr(C)]
 pub struct SP_UNREMOVEDEVICE_PARAMS(i32);
 #[cfg(any(target_arch = "x86",))]
+#[repr(C)]
 pub struct SP_UNREMOVEDEVICE_PARAMS(i32);
 pub const SRCINFO_DESCRIPTION: u32 = 3u32;
 pub const SRCINFO_FLAGS: u32 = 4u32;
@@ -2823,4 +2994,5 @@ pub const SRCLIST_USER: u32 = 32u32;
 pub const SRC_FLAGS_CABFILE: u32 = 16u32;
 pub const SUOI_FORCEDELETE: u32 = 1u32;
 pub const SUOI_INTERNAL1: u32 = 2u32;
+#[repr(C)]
 pub struct SetupFileLogInfo(i32);

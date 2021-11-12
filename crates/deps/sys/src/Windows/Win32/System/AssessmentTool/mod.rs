@@ -1,11 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct CAccessiblityWinSAT(i32);
+#[repr(C)]
 pub struct CInitiateWinSAT(i32);
+#[repr(C)]
 pub struct CProvideWinSATVisuals(i32);
+#[repr(C)]
 pub struct CQueryAllWinSAT(i32);
+#[repr(C)]
 pub struct CQueryOEMWinSATCustomization(i32);
+#[repr(C)]
 pub struct CQueryWinSAT(i32);
 #[repr(transparent)]
 pub struct IAccessibleWinSAT(pub *mut ::core::ffi::c_void);
@@ -25,7 +31,11 @@ pub struct IQueryOEMWinSATCustomization(pub *mut ::core::ffi::c_void);
 pub struct IQueryRecentWinSATAssessment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWinSATInitiateEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WINSAT_ASSESSMENT_STATE(i32);
+#[repr(C)]
 pub struct WINSAT_ASSESSMENT_TYPE(i32);
+#[repr(C)]
 pub struct WINSAT_BITMAP_SIZE(i32);
+#[repr(C)]
 pub struct WINSAT_OEM_DATA_TYPE(i32);

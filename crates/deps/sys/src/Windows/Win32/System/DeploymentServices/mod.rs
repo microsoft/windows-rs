@@ -171,6 +171,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: super::super::Foundation::PWSTR, params: *const i8) -> ::windows_sys::core::HRESULT;
 }
+#[repr(C)]
 pub struct CPU_ARCHITECTURE(i32);
 pub const EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801324i32 as _);
 pub const EVT_WDSMCS_E_CP_CLOSE_INSTANCE_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801320i32 as _);
@@ -246,15 +247,25 @@ pub struct IWdsTransportTftpClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWdsTransportTftpManager(pub *mut ::core::ffi::c_void);
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(i32);
+#[repr(C)]
 pub struct PFN_WdsCliCallback(i32);
+#[repr(C)]
 pub struct PFN_WdsCliTraceFunction(i32);
+#[repr(C)]
 pub struct PFN_WdsTransportClientReceiveContents(i32);
+#[repr(C)]
 pub struct PFN_WdsTransportClientReceiveMetadata(i32);
+#[repr(C)]
 pub struct PFN_WdsTransportClientSessionComplete(i32);
+#[repr(C)]
 pub struct PFN_WdsTransportClientSessionNegotiate(i32);
+#[repr(C)]
 pub struct PFN_WdsTransportClientSessionStart(i32);
+#[repr(C)]
 pub struct PFN_WdsTransportClientSessionStartEx(i32);
+#[repr(C)]
 pub struct PXE_ADDRESS(i32);
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
 pub const PXE_ADDR_USE_ADDR: u32 = 4u32;
@@ -269,18 +280,25 @@ pub const PXE_CALLBACK_RECV_REQUEST: u32 = 0u32;
 pub const PXE_CALLBACK_SERVICE_CONTROL: u32 = 2u32;
 pub const PXE_CALLBACK_SHUTDOWN: u32 = 1u32;
 pub const PXE_DHCPV6_CLIENT_PORT: u32 = 546u32;
+#[repr(C)]
 pub struct PXE_DHCPV6_MESSAGE(i32);
+#[repr(C)]
 pub struct PXE_DHCPV6_MESSAGE_HEADER(i32);
+#[repr(C)]
 pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE(i32);
+#[repr(C)]
 pub struct PXE_DHCPV6_OPTION(i32);
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
+#[repr(C)]
 pub struct PXE_DHCPV6_RELAY_MESSAGE(i32);
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
 pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
 pub const PXE_DHCP_FILE_SIZE: u32 = 128u32;
 pub const PXE_DHCP_HWAADR_SIZE: u32 = 16u32;
 pub const PXE_DHCP_MAGIC_COOKIE_SIZE: u32 = 4u32;
+#[repr(C)]
 pub struct PXE_DHCP_MESSAGE(i32);
+#[repr(C)]
 pub struct PXE_DHCP_OPTION(i32);
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
 pub const PXE_DHCP_SERVER_SIZE: u32 = 64u32;
@@ -288,6 +306,7 @@ pub const PXE_GSI_SERVER_DUID: u32 = 2u32;
 pub const PXE_GSI_TRACE_ENABLED: u32 = 1u32;
 pub const PXE_MAX_ADDRESS: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct PXE_PROVIDER(i32);
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
 pub const PXE_PROV_ATTR_FILTER_IPV6: u32 = 1u32;
@@ -303,8 +322,11 @@ pub const PXE_TRACE_FATAL: u32 = 1048576u32;
 pub const PXE_TRACE_INFO: u32 = 131072u32;
 pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
+#[repr(C)]
 pub struct TRANSPORTCLIENT_CALLBACK_ID(i32);
+#[repr(C)]
 pub struct TRANSPORTCLIENT_SESSION_INFO(i32);
+#[repr(C)]
 pub struct TRANSPORTPROVIDER_CALLBACK_ID(i32);
 pub const TRANSPORTPROVIDER_CURRENT_VERSION: u32 = 1u32;
 pub const WDSBP_OPTVAL_ACTION_ABORT: u32 = 5u32;
@@ -397,23 +419,39 @@ pub const WDSTPTMGMT_E_TFTP_VAR_WINDOW_NOT_SUPPORTED: ::windows_sys::core::HRESU
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_ROLE_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915770i32 as _);
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915757i32 as _);
 pub const WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915744i32 as _);
+#[repr(C)]
 pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_DISCONNECT_TYPE(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_FEATURE_FLAGS(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_NAMESPACE_TYPE(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_PROTOCOL_FLAGS(i32);
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
+#[repr(C)]
 pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_TFTP_CAPABILITY(i32);
+#[repr(C)]
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WDS_CLI_CRED(i32);
+#[repr(C)]
 pub struct WDS_CLI_FIRMWARE_TYPE(i32);
+#[repr(C)]
 pub struct WDS_CLI_IMAGE_PARAM_TYPE(i32);
+#[repr(C)]
 pub struct WDS_CLI_IMAGE_TYPE(i32);
 pub const WDS_CLI_NO_SPARSE_FILE: u32 = 2u32;
 pub const WDS_CLI_TRANSFER_ASYNCHRONOUS: u32 = 1u32;
@@ -451,39 +489,65 @@ pub const WDS_MC_TRACE_INFO: u32 = 131072u32;
 pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS(i32);
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_NO_CACHE: u32 = 0u32;
 pub const WDS_TRANSPORTCLIENT_PROTOCOL_MULTICAST: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST(i32);
+#[repr(C)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(i32);
 pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[repr(C)]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS(i32);
+#[repr(C)]
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS(i32);
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
 pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
+#[repr(C)]
 pub struct WdsTransportCacheable(i32);
+#[repr(C)]
 pub struct WdsTransportClient(i32);
+#[repr(C)]
 pub struct WdsTransportCollection(i32);
+#[repr(C)]
 pub struct WdsTransportConfigurationManager(i32);
+#[repr(C)]
 pub struct WdsTransportContent(i32);
+#[repr(C)]
 pub struct WdsTransportContentProvider(i32);
+#[repr(C)]
 pub struct WdsTransportDiagnosticsPolicy(i32);
+#[repr(C)]
 pub struct WdsTransportManager(i32);
+#[repr(C)]
 pub struct WdsTransportMulticastSessionPolicy(i32);
+#[repr(C)]
 pub struct WdsTransportNamespace(i32);
+#[repr(C)]
 pub struct WdsTransportNamespaceAutoCast(i32);
+#[repr(C)]
 pub struct WdsTransportNamespaceManager(i32);
+#[repr(C)]
 pub struct WdsTransportNamespaceScheduledCast(i32);
+#[repr(C)]
 pub struct WdsTransportNamespaceScheduledCastAutoStart(i32);
+#[repr(C)]
 pub struct WdsTransportNamespaceScheduledCastManualStart(i32);
+#[repr(C)]
 pub struct WdsTransportServer(i32);
+#[repr(C)]
 pub struct WdsTransportServicePolicy(i32);
+#[repr(C)]
 pub struct WdsTransportSession(i32);
+#[repr(C)]
 pub struct WdsTransportSetupManager(i32);
+#[repr(C)]
 pub struct WdsTransportTftpClient(i32);
+#[repr(C)]
 pub struct WdsTransportTftpManager(i32);

@@ -63,8 +63,11 @@ pub struct IOpcSignatureRelationshipReferenceSet(pub *mut ::core::ffi::c_void);
 pub struct IOpcSigningOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IOpcUri(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct OPC_CANONICALIZATION_METHOD(i32);
+#[repr(C)]
 pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(i32);
+#[repr(C)]
 pub struct OPC_COMPRESSION_OPTIONS(i32);
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142175212i32 as _);
 pub const OPC_E_COULD_NOT_RECOVER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142175154i32 as _);
@@ -168,12 +171,21 @@ pub const OPC_E_ZIP_MISSING_END_OF_CENTRAL_DIRECTORY: ::windows_sys::core::HRESU
 pub const OPC_E_ZIP_NAME_TOO_LARGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142171126i32 as _);
 pub const OPC_E_ZIP_REQUIRES_64_BIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142171120i32 as _);
 pub const OPC_E_ZIP_UNSUPPORTEDARCHIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142171128i32 as _);
+#[repr(C)]
 pub struct OPC_READ_FLAGS(i32);
+#[repr(C)]
 pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(i32);
+#[repr(C)]
 pub struct OPC_RELATIONSHIP_SELECTOR(i32);
+#[repr(C)]
 pub struct OPC_SIGNATURE_TIME_FORMAT(i32);
+#[repr(C)]
 pub struct OPC_SIGNATURE_VALIDATION_RESULT(i32);
+#[repr(C)]
 pub struct OPC_STREAM_IO_MODE(i32);
+#[repr(C)]
 pub struct OPC_URI_TARGET_MODE(i32);
+#[repr(C)]
 pub struct OPC_WRITE_FLAGS(i32);
+#[repr(C)]
 pub struct OpcFactory(i32);

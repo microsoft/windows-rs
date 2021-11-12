@@ -25,5 +25,7 @@ pub struct SpiConnectionSettings(pub *mut ::core::ffi::c_void);
 pub struct SpiController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpiDevice(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SpiMode(i32);
+#[repr(C)]
 pub struct SpiSharingMode(i32);

@@ -5,9 +5,13 @@ pub mod Core;
 extern "system" {}
 #[repr(transparent)]
 pub struct DisplayMonitor(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DisplayMonitorConnectionKind(i32);
+#[repr(C)]
 pub struct DisplayMonitorDescriptorKind(i32);
+#[repr(C)]
 pub struct DisplayMonitorPhysicalConnectorKind(i32);
+#[repr(C)]
 pub struct DisplayMonitorUsageKind(i32);
 #[repr(transparent)]
 pub struct IDisplayMonitor(pub *mut ::core::ffi::c_void);

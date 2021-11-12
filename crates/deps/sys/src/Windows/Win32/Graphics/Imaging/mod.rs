@@ -1183,71 +1183,133 @@ pub struct IWICProgressiveLevelControl(pub *mut ::core::ffi::c_void);
 pub struct IWICStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWICStreamProvider(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PFNProgressNotification(i32);
+#[repr(C)]
 pub struct WIC8BIMIptcDigestProperties(i32);
+#[repr(C)]
 pub struct WIC8BIMIptcProperties(i32);
+#[repr(C)]
 pub struct WIC8BIMResolutionInfoProperties(i32);
+#[repr(C)]
 pub struct WICBitmapAlphaChannelOption(i32);
+#[repr(C)]
 pub struct WICBitmapCreateCacheOption(i32);
+#[repr(C)]
 pub struct WICBitmapDecoderCapabilities(i32);
+#[repr(C)]
 pub struct WICBitmapDitherType(i32);
+#[repr(C)]
 pub struct WICBitmapEncoderCacheOption(i32);
+#[repr(C)]
 pub struct WICBitmapInterpolationMode(i32);
+#[repr(C)]
 pub struct WICBitmapLockFlags(i32);
+#[repr(C)]
 pub struct WICBitmapPaletteType(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WICBitmapPattern(i32);
+#[repr(C)]
 pub struct WICBitmapPlane(i32);
+#[repr(C)]
 pub struct WICBitmapPlaneDescription(i32);
+#[repr(C)]
 pub struct WICBitmapTransformOptions(i32);
+#[repr(C)]
 pub struct WICColorContextType(i32);
+#[repr(C)]
 pub struct WICComponentEnumerateOptions(i32);
+#[repr(C)]
 pub struct WICComponentSigning(i32);
+#[repr(C)]
 pub struct WICComponentType(i32);
+#[repr(C)]
 pub struct WICDdsAlphaMode(i32);
+#[repr(C)]
 pub struct WICDdsDimension(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct WICDdsFormatInfo(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[repr(C)]
 pub struct WICDdsParameters(i32);
+#[repr(C)]
 pub struct WICDecodeOptions(i32);
+#[repr(C)]
 pub struct WICGifApplicationExtensionProperties(i32);
+#[repr(C)]
 pub struct WICGifCommentExtensionProperties(i32);
+#[repr(C)]
 pub struct WICGifGraphicControlExtensionProperties(i32);
+#[repr(C)]
 pub struct WICGifImageDescriptorProperties(i32);
+#[repr(C)]
 pub struct WICGifLogicalScreenDescriptorProperties(i32);
+#[repr(C)]
 pub struct WICHeifHdrProperties(i32);
+#[repr(C)]
 pub struct WICHeifProperties(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[repr(C)]
 pub struct WICImageParameters(i32);
+#[repr(C)]
 pub struct WICJpegChrominanceProperties(i32);
+#[repr(C)]
 pub struct WICJpegCommentProperties(i32);
+#[repr(C)]
 pub struct WICJpegFrameHeader(i32);
+#[repr(C)]
 pub struct WICJpegIndexingOptions(i32);
+#[repr(C)]
 pub struct WICJpegLuminanceProperties(i32);
+#[repr(C)]
 pub struct WICJpegScanHeader(i32);
+#[repr(C)]
 pub struct WICJpegScanType(i32);
+#[repr(C)]
 pub struct WICJpegTransferMatrix(i32);
+#[repr(C)]
 pub struct WICJpegYCrCbSubsamplingOption(i32);
+#[repr(C)]
 pub struct WICMetadataCreationOptions(i32);
+#[repr(C)]
 pub struct WICMetadataHeader(i32);
+#[repr(C)]
 pub struct WICMetadataPattern(i32);
+#[repr(C)]
 pub struct WICNamedWhitePoint(i32);
+#[repr(C)]
 pub struct WICPersistOptions(i32);
+#[repr(C)]
 pub struct WICPixelFormatNumericRepresentation(i32);
+#[repr(C)]
 pub struct WICPlanarOptions(i32);
+#[repr(C)]
 pub struct WICPngBkgdProperties(i32);
+#[repr(C)]
 pub struct WICPngChrmProperties(i32);
+#[repr(C)]
 pub struct WICPngFilterOption(i32);
+#[repr(C)]
 pub struct WICPngGamaProperties(i32);
+#[repr(C)]
 pub struct WICPngHistProperties(i32);
+#[repr(C)]
 pub struct WICPngIccpProperties(i32);
+#[repr(C)]
 pub struct WICPngItxtProperties(i32);
+#[repr(C)]
 pub struct WICPngSrgbProperties(i32);
+#[repr(C)]
 pub struct WICPngTimeProperties(i32);
+#[repr(C)]
 pub struct WICProgressNotification(i32);
+#[repr(C)]
 pub struct WICProgressOperation(i32);
+#[repr(C)]
 pub struct WICRawCapabilities(i32);
+#[repr(C)]
 pub struct WICRawCapabilitiesInfo(i32);
 pub const WICRawChangeNotification_Contrast: u32 = 16u32;
 pub const WICRawChangeNotification_DestinationColorContext: u32 = 1024u32;
@@ -1263,15 +1325,25 @@ pub const WICRawChangeNotification_Saturation: u32 = 128u32;
 pub const WICRawChangeNotification_Sharpness: u32 = 64u32;
 pub const WICRawChangeNotification_Tint: u32 = 256u32;
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
+#[repr(C)]
 pub struct WICRawParameterSet(i32);
+#[repr(C)]
 pub struct WICRawRenderMode(i32);
+#[repr(C)]
 pub struct WICRawRotationCapabilities(i32);
+#[repr(C)]
 pub struct WICRawToneCurve(i32);
+#[repr(C)]
 pub struct WICRawToneCurvePoint(i32);
+#[repr(C)]
 pub struct WICRect(i32);
+#[repr(C)]
 pub struct WICSectionAccessLevel(i32);
+#[repr(C)]
 pub struct WICTiffCompressionOption(i32);
+#[repr(C)]
 pub struct WICWebpAnimProperties(i32);
+#[repr(C)]
 pub struct WICWebpAnmfProperties(i32);
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
 pub const WIC_JPEG_HUFFMAN_BASELINE_THREE: u32 = 1118464u32;

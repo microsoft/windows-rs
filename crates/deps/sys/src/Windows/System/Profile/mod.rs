@@ -53,11 +53,15 @@ pub struct IUnsupportedAppRequirement(pub *mut ::core::ffi::c_void);
 pub struct IWindowsIntegrityPolicyStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KnownRetailInfoProperties(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlatformDataCollectionLevel(i32);
 #[repr(transparent)]
 pub struct PlatformDiagnosticsAndUsageDataSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ProfileHardwareTokenContract(i32);
+#[repr(C)]
 pub struct ProfileRetailInfoContract(i32);
+#[repr(C)]
 pub struct ProfileSharedModeContract(i32);
 #[repr(transparent)]
 pub struct RetailInfo(pub *mut ::core::ffi::c_void);
@@ -67,12 +71,15 @@ pub struct SharedModeSettings(pub *mut ::core::ffi::c_void);
 pub struct SystemIdentification(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemIdentificationInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SystemIdentificationSource(i32);
+#[repr(C)]
 pub struct SystemOutOfBoxExperienceState(i32);
 #[repr(transparent)]
 pub struct SystemSetupInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UnsupportedAppRequirement(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UnsupportedAppRequirementReasons(i32);
 #[repr(transparent)]
 pub struct WindowsIntegrityPolicy(pub *mut ::core::ffi::c_void);

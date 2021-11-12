@@ -4,23 +4,33 @@ extern "system" {}
 pub const AUTO_WIDTH: i32 = -1i32;
 #[repr(transparent)]
 pub struct AppEvents(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppEventsDHTMLConnector(i32);
+#[repr(C)]
 pub struct Application(i32);
+#[repr(C)]
 pub struct CCM_COMMANDID_MASK_CONSTANTS(i32);
+#[repr(C)]
 pub struct CCM_INSERTIONALLOWED(i32);
+#[repr(C)]
 pub struct CCM_INSERTIONPOINTID(i32);
+#[repr(C)]
 pub struct CCM_SPECIAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CONTEXTMENUITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CONTEXTMENUITEM2(i32);
 #[repr(transparent)]
 pub struct Column(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Columns(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ConsolePower(i32);
 #[repr(transparent)]
 pub struct ContextMenu(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DATA_OBJECT_TYPES(i32);
 #[repr(transparent)]
 pub struct Document(pub *mut ::core::ffi::c_void);
@@ -130,9 +140,12 @@ pub struct IStringTable(pub *mut ::core::ffi::c_void);
 pub struct IToolbar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IViewExtensionCallback(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct IconIdentifier(i32);
+#[repr(C)]
 pub struct MENUBUTTONDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMCBUTTON(i32);
 pub const MMCLV_AUTO: i32 = -1i32;
 pub const MMCLV_NOICON: i32 = -1i32;
@@ -145,31 +158,46 @@ pub const MMCLV_VIEWSTYLE_ICON: u32 = 0u32;
 pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
 pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
+#[repr(C)]
 pub struct MMCVersionInfo(i32);
+#[repr(C)]
 pub struct MMC_ACTION_TYPE(i32);
+#[repr(C)]
 pub struct MMC_BUTTON_STATE(i32);
+#[repr(C)]
 pub struct MMC_COLUMN_DATA(i32);
+#[repr(C)]
 pub struct MMC_COLUMN_SET_DATA(i32);
+#[repr(C)]
 pub struct MMC_CONSOLE_VERB(i32);
+#[repr(C)]
 pub struct MMC_CONTROL_TYPE(i32);
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_EXPANDSYNC_STRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_EXT_VIEW_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_FILTERDATA(i32);
+#[repr(C)]
 pub struct MMC_FILTER_CHANGE_CODE(i32);
+#[repr(C)]
 pub struct MMC_FILTER_TYPE(i32);
 pub const MMC_IMAGECALLBACK: i32 = -1i32;
 pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
 pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_LISTPAD_INFO(i32);
+#[repr(C)]
 pub struct MMC_MENU_COMMAND_IDS(i32);
 pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
 pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
+#[repr(C)]
 pub struct MMC_NOTIFY_TYPE(i32);
 pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
 pub const MMC_NW_OPTION_NOACTIONPANE: u32 = 32u32;
@@ -178,6 +206,7 @@ pub const MMC_NW_OPTION_NOPERSIST: u32 = 16u32;
 pub const MMC_NW_OPTION_NOSCOPEPANE: u32 = 1u32;
 pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
 pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
+#[repr(C)]
 pub struct MMC_PROPERTY_ACTION(i32);
 pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
 pub const MMC_PROP_MODIFIABLE: u32 = 2u32;
@@ -188,21 +217,32 @@ pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
 pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
 pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_RESTORE_VIEW(i32);
+#[repr(C)]
 pub struct MMC_RESULT_VIEW_STYLE(i32);
+#[repr(C)]
 pub struct MMC_SCOPE_ITEM_STATE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[repr(C)]
 pub struct MMC_SNAPIN_PROPERTY(i32);
+#[repr(C)]
 pub struct MMC_SORT_DATA(i32);
+#[repr(C)]
 pub struct MMC_SORT_SET_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_TASK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_TASK_DISPLAY_BITMAP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_TASK_DISPLAY_OBJECT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MMC_TASK_DISPLAY_SYMBOL(i32);
+#[repr(C)]
 pub struct MMC_TASK_DISPLAY_TYPE(i32);
 pub const MMC_VER: u32 = 512u32;
 pub const MMC_VIEW_OPTIONS_CREATENEW: u32 = 16u32;
@@ -214,7 +254,9 @@ pub const MMC_VIEW_OPTIONS_NOLISTVIEWS: u32 = 1u32;
 pub const MMC_VIEW_OPTIONS_NONE: u32 = 0u32;
 pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
 pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
+#[repr(C)]
 pub struct MMC_VIEW_TYPE(i32);
+#[repr(C)]
 pub struct MMC_VISIBLE_COLUMNS(i32);
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
 #[repr(transparent)]
@@ -229,8 +271,10 @@ pub struct Properties(pub *mut ::core::ffi::c_void);
 pub struct Property(pub *mut ::core::ffi::c_void);
 pub const RDCI_ScopeItem: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RDCOMPARE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RDITEMHDR(i32);
 pub const RDI_IMAGE: u32 = 4u32;
 pub const RDI_INDENT: u32 = 64u32;
@@ -239,10 +283,13 @@ pub const RDI_PARAM: u32 = 16u32;
 pub const RDI_STATE: u32 = 8u32;
 pub const RDI_STR: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RESULTDATAITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RESULTFINDINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct RESULT_VIEW_TYPE_INFO(i32);
 pub const RFI_PARTIAL: u32 = 1u32;
 pub const RFI_WRAP: u32 = 2u32;
@@ -263,7 +310,9 @@ pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
 pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
 pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCOPEDATAITEM(i32);
+#[repr(C)]
 pub struct SColumnSetID(i32);
 pub const SDI_CHILDREN: u32 = 64u32;
 pub const SDI_FIRST: u32 = 134217728u32;
@@ -276,9 +325,13 @@ pub const SDI_PREVIOUS: u32 = 268435456u32;
 pub const SDI_STATE: u32 = 16u32;
 pub const SDI_STR: u32 = 2u32;
 #[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 pub struct SMMCDataObjects(i32);
+#[repr(C)]
 pub struct SMMCObjectTypes(i32);
+#[repr(C)]
 pub struct SNodeID(i32);
+#[repr(C)]
 pub struct SNodeID2(i32);
 pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
 pub const SPECIAL_COOKIE_MIN: i32 = -10i32;
@@ -298,10 +351,15 @@ pub struct Views(pub *mut ::core::ffi::c_void);
 pub struct _AppEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct _Application(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct _ColumnSortOrder(i32);
+#[repr(C)]
 pub struct _DocumentMode(i32);
 #[repr(transparent)]
 pub struct _EventConnector(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct _ExportListOptions(i32);
+#[repr(C)]
 pub struct _ListViewMode(i32);
+#[repr(C)]
 pub struct _ViewOptions(i32);

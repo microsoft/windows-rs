@@ -7,5 +7,7 @@ pub struct IPlaylist(pub *mut ::core::ffi::c_void);
 pub struct IPlaylistStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Playlist(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PlaylistFormat(i32);
+#[repr(C)]
 pub struct PlaylistsContract(i32);

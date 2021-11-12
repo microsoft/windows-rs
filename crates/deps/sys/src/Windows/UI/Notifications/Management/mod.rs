@@ -7,4 +7,5 @@ pub struct IUserNotificationListener(pub *mut ::core::ffi::c_void);
 pub struct IUserNotificationListenerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserNotificationListener(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserNotificationListenerAccessStatus(i32);

@@ -67,7 +67,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
-    quote! { pub struct #name(i32); }
+    quote! { #[repr(C)] pub struct #name(i32); }
 }
 
 fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
@@ -75,12 +75,12 @@ fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     let features = features(def, gen);
     let cfg = gen.gen_struct_cfg(def, &features);
 
-    quote! { #cfg pub struct #name(i32); }
+    quote! { #cfg #[repr(C)] pub struct #name(i32); }
 }
 
 fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
-    quote! { pub struct #name(i32); }
+    quote! { #[repr(C)] pub struct #name(i32); }
 }
 
 fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {

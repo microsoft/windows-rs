@@ -72,13 +72,16 @@ pub const DETECT_FLAT: u32 = 8u32;
 pub const DETECT_SCAN: u32 = 16u32;
 pub const DETECT_STOR: u32 = 4096u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICEDIALOGDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct DEVICEDIALOGDATA2(i32);
 pub const DEVICE_ATTENTION: u32 = 1024u32;
 pub const DUP: u32 = 4u32;
 pub const DUPLEX: u32 = 4u32;
 pub const DUP_READY: u32 = 4u32;
+#[repr(C)]
 pub struct DeviceDialogFunction(i32);
 pub const EFFECTMODE_BW: u32 = 2u32;
 pub const EFFECTMODE_SEPIA: u32 = 3u32;
@@ -220,6 +223,7 @@ pub const MCRO_STATUS_OK: u32 = 1u32;
 pub const MICR_READER: u32 = 1048576u32;
 pub const MICR_READER_READY: u32 = 65536u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct MINIDRV_TRANSFER_CONTEXT(i32);
 pub const MIRRORED: u32 = 1u32;
 pub const MULTIPLE_FEED: u32 = 512u32;
@@ -232,14 +236,17 @@ pub const PORTRAIT: u32 = 0u32;
 pub const POWERMODE_BATTERY: u32 = 2u32;
 pub const POWERMODE_LINE: u32 = 1u32;
 pub const PREFEED: u32 = 256u32;
+#[repr(C)]
 pub struct RANGEVALUE(i32);
 pub const RIGHT_JUSTIFIED: u32 = 2u32;
 pub const ROT180: u32 = 2u32;
 pub const ROT270: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SCANINFO(i32);
 pub const SCANMODE_FINALSCAN: u32 = 0u32;
 pub const SCANMODE_PREVIEWSCAN: u32 = 1u32;
+#[repr(C)]
 pub struct SCANWINDOW(i32);
 pub const SCAN_FINISHED: u32 = 30u32;
 pub const SCAN_FIRST: u32 = 10u32;
@@ -253,11 +260,13 @@ pub const SUPPORT_GRAYSCALE: u32 = 4u32;
 pub const TOP_JUSTIFIED: u32 = 0u32;
 pub const TRANSPARENCY_DYNAMIC_FRAME_SUPPORT: u32 = 1u32;
 pub const TRANSPARENCY_STATIC_FRAME_SUPPORT: u32 = 2u32;
+#[repr(C)]
 pub struct TWAIN_CAPABILITY(i32);
 pub const TYMED_CALLBACK: u32 = 128u32;
 pub const TYMED_MULTIPAGE_CALLBACK: u32 = 512u32;
 pub const TYMED_MULTIPAGE_FILE: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct VAL(i32);
 pub const WHITEBALANCE_AUTO: u32 = 2u32;
 pub const WHITEBALANCE_DAYLIGHT: u32 = 4u32;
@@ -267,12 +276,17 @@ pub const WHITEBALANCE_MANUAL: u32 = 1u32;
 pub const WHITEBALANCE_ONEPUSH_AUTO: u32 = 3u32;
 pub const WHITEBALANCE_TUNGSTEN: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIAS_CHANGED_VALUE_INFO(i32);
+#[repr(C)]
 pub struct WIAS_DOWN_SAMPLE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIAS_ENDORSER_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIAS_ENDORSER_VALUE(i32);
+#[repr(C)]
 pub struct WIAVIDEO_STATE(i32);
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
@@ -292,6 +306,7 @@ pub const WIA_AUTO_CROP_MULTI: u32 = 2u32;
 pub const WIA_AUTO_CROP_SINGLE: u32 = 1u32;
 pub const WIA_AUTO_DESKEW_OFF: u32 = 1u32;
 pub const WIA_AUTO_DESKEW_ON: u32 = 0u32;
+#[repr(C)]
 pub struct WIA_BARCODES(i32);
 pub const WIA_BARCODE_AUTO_SEARCH: u32 = 4u32;
 pub const WIA_BARCODE_AZTEC: u32 = 36u32;
@@ -317,6 +332,7 @@ pub const WIA_BARCODE_GS1DATABAR: u32 = 14u32;
 pub const WIA_BARCODE_HIGH_CAPACITY_COLOR: u32 = 26u32;
 pub const WIA_BARCODE_HORIZONTAL_SEARCH: u32 = 0u32;
 pub const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: u32 = 2u32;
+#[repr(C)]
 pub struct WIA_BARCODE_INFO(i32);
 pub const WIA_BARCODE_INTELLIGENT_MAIL: u32 = 23u32;
 pub const WIA_BARCODE_INTERLEAVED_2OF5: u32 = 4u32;
@@ -466,6 +482,7 @@ pub const WIA_COMPRESSION_JPEG2K: u32 = 7u32;
 pub const WIA_COMPRESSION_NONE: u32 = 0u32;
 pub const WIA_COMPRESSION_PNG: u32 = 8u32;
 pub const WIA_DATA_AUTO: u32 = 100u32;
+#[repr(C)]
 pub struct WIA_DATA_CALLBACK_HEADER(i32);
 pub const WIA_DATA_COLOR: u32 = 3u32;
 pub const WIA_DATA_COLOR_DITHER: u32 = 5u32;
@@ -480,6 +497,7 @@ pub const WIA_DATA_RAW_YUV: u32 = 8u32;
 pub const WIA_DATA_RAW_YUVK: u32 = 9u32;
 pub const WIA_DATA_THRESHOLD: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIA_DATA_TRANSFER_INFO(i32);
 pub const WIA_DEPTH_AUTO: u32 = 0u32;
 pub const WIA_DEVICE_COMMANDS: u32 = 1u32;
@@ -491,8 +509,10 @@ pub const WIA_DEVICE_NOT_CONNECTED: u32 = 0u32;
 pub const WIA_DEVINFO_ENUM_ALL: u32 = 15u32;
 pub const WIA_DEVINFO_ENUM_LOCAL: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIA_DEV_CAP(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIA_DEV_CAP_DRV(i32);
 pub const WIA_DIP_BAUDRATE: u32 = 12u32;
 pub const WIA_DIP_DEV_DESC: u32 = 4u32;
@@ -512,6 +532,7 @@ pub const WIA_DIP_UI_CLSID: u32 = 10u32;
 pub const WIA_DIP_VEND_DESC: u32 = 3u32;
 pub const WIA_DIP_WIA_VERSION: u32 = 14u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIA_DITHER_PATTERN_DATA(i32);
 pub const WIA_DONT_SHOW_PREVIEW_CONTROL: u32 = 1u32;
 pub const WIA_DONT_USE_SEGMENTATION_FILTER: u32 = 1u32;
@@ -743,6 +764,7 @@ pub const WIA_EVENT_TREE_UPDATED: ::windows_sys::core::GUID = ::windows_sys::GUI
     data4: [161, 252, 88, 46, 236, 85, 229, 133],
 };
 pub const WIA_EVENT_VOLUME_INSERT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2520300541, data2: 53693, data3: 4562, data4: [179, 31, 0, 192, 79, 104, 206, 97] };
+#[repr(C)]
 pub struct WIA_EXTENDED_TRANSFER_INFO(i32);
 pub const WIA_FEEDER_CONTROL_AUTO: u32 = 0u32;
 pub const WIA_FEEDER_CONTROL_MANUAL: u32 = 1u32;
@@ -753,6 +775,7 @@ pub const WIA_FINAL_SCAN: u32 = 0u32;
 pub const WIA_FLAG_NOM: u32 = 0u32;
 pub const WIA_FLAG_NUM_ELEMS: u32 = 2u32;
 pub const WIA_FLAG_VALUES: u32 = 1u32;
+#[repr(C)]
 pub struct WIA_FORMAT_INFO(i32);
 pub const WIA_INTENT_BEST_PREVIEW: u32 = 262144u32;
 pub const WIA_INTENT_IMAGE_TYPE_COLOR: u32 = 1u32;
@@ -930,7 +953,9 @@ pub const WIA_MAJOR_EVENT_DEVICE_DISCONNECT: u32 = 2u32;
 pub const WIA_MAJOR_EVENT_PICTURE_DELETED: u32 = 4u32;
 pub const WIA_MAJOR_EVENT_PICTURE_TAKEN: u32 = 3u32;
 pub const WIA_MAX_CTX_SIZE: u32 = 16777216u32;
+#[repr(C)]
 pub struct WIA_MICR(i32);
+#[repr(C)]
 pub struct WIA_MICR_INFO(i32);
 pub const WIA_MICR_READER_AUTO: u32 = 1u32;
 pub const WIA_MICR_READER_DISABLED: u32 = 0u32;
@@ -1012,6 +1037,7 @@ pub const WIA_PAGE_USLEDGER: u32 = 4u32;
 pub const WIA_PAGE_USLEGAL: u32 = 3u32;
 pub const WIA_PAGE_USLETTER: u32 = 1u32;
 pub const WIA_PAGE_USSTATEMENT: u32 = 5u32;
+#[repr(C)]
 pub struct WIA_PATCH_CODES(i32);
 pub const WIA_PATCH_CODE_1: u32 = 1u32;
 pub const WIA_PATCH_CODE_10: u32 = 10u32;
@@ -1027,6 +1053,7 @@ pub const WIA_PATCH_CODE_7: u32 = 7u32;
 pub const WIA_PATCH_CODE_8: u32 = 8u32;
 pub const WIA_PATCH_CODE_9: u32 = 9u32;
 pub const WIA_PATCH_CODE_CUSTOM_BASE: u32 = 32768u32;
+#[repr(C)]
 pub struct WIA_PATCH_CODE_INFO(i32);
 pub const WIA_PATCH_CODE_READER_AUTO: u32 = 1u32;
 pub const WIA_PATCH_CODE_READER_DISABLED: u32 = 0u32;
@@ -1101,10 +1128,13 @@ pub const WIA_PRINT_YEAR: u32 = 1u32;
 pub const WIA_PRIVATE_DEVPROP: u32 = 38914u32;
 pub const WIA_PRIVATE_ITEMPROP: u32 = 71682u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIA_PROPERTY_CONTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIA_PROPERTY_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct WIA_PROPID_TO_NAME(i32);
 pub const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2u32;
 pub const WIA_PROPPAGE_DEVICE_GENERAL: u32 = 4u32;
@@ -1122,6 +1152,7 @@ pub const WIA_RANGE_MIN: u32 = 0u32;
 pub const WIA_RANGE_NOM: u32 = 1u32;
 pub const WIA_RANGE_NUM_ELEMS: u32 = 4u32;
 pub const WIA_RANGE_STEP: u32 = 3u32;
+#[repr(C)]
 pub struct WIA_RAW_HEADER(i32);
 pub const WIA_REGISTER_EVENT_CALLBACK: u32 = 1u32;
 pub const WIA_RESERVED_FOR_NEW_PROPS: u32 = 1024u32;
@@ -1183,7 +1214,9 @@ pub const WiaAudFmt_WMA: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17295,
     data4: [147, 173, 33, 189, 72, 77, 182, 161],
 };
+#[repr(C)]
 pub struct WiaDevMgr(i32);
+#[repr(C)]
 pub struct WiaDevMgr2(i32);
 pub const WiaImgFmt_ASF: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2375323369,
@@ -1325,6 +1358,9 @@ pub const WiaItemTypeTransfer: u32 = 8192u32;
 pub const WiaItemTypeTwainCapabilityPassThrough: u32 = 131072u32;
 pub const WiaItemTypeVPanorama: u32 = 1024u32;
 pub const WiaItemTypeVideo: u32 = 65536u32;
+#[repr(C)]
 pub struct WiaLog(i32);
+#[repr(C)]
 pub struct WiaTransferParams(i32);
+#[repr(C)]
 pub struct WiaVideo(i32);

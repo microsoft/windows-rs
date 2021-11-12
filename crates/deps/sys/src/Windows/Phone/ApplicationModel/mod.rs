@@ -3,6 +3,7 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ApplicationProfile(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationProfileModes(i32);
 #[repr(transparent)]
 pub struct IApplicationProfileStatics(pub *mut ::core::ffi::c_void);

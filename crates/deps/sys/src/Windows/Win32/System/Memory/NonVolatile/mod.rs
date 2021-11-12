@@ -16,4 +16,5 @@ extern "system" {
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
     pub fn RtlWriteNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvdestination: *mut ::core::ffi::c_void, source: *const ::core::ffi::c_void, size: usize, flags: u32) -> u32;
 }
+#[repr(C)]
 pub struct NV_MEMORY_RANGE(i32);

@@ -63,6 +63,7 @@ pub mod WiFi;
 pub mod WiFiDirect;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct DevicesLowLevelContract(i32);
 #[repr(transparent)]
 pub struct ILowLevelDevicesAggregateProvider(pub *mut ::core::ffi::c_void);

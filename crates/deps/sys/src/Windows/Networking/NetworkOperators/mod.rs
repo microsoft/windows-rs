@@ -1,16 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct DataClasses(i32);
 #[repr(transparent)]
 pub struct ESim(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimAddedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimAuthenticationPreference(i32);
 #[repr(transparent)]
 pub struct ESimDiscoverEvent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimDiscoverResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimDiscoverResultKind(i32);
 #[repr(transparent)]
 pub struct ESimDownloadProfileMetadataResult(pub *mut ::core::ffi::c_void);
@@ -18,28 +21,35 @@ pub struct ESimDownloadProfileMetadataResult(pub *mut ::core::ffi::c_void);
 pub struct ESimManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimOperationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimOperationStatus(i32);
 #[repr(transparent)]
 pub struct ESimPolicy(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimProfile(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimProfileClass(i32);
+#[repr(C)]
 pub struct ESimProfileInstallProgress(i32);
 #[repr(transparent)]
 pub struct ESimProfileMetadata(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimProfileMetadataState(i32);
 #[repr(transparent)]
 pub struct ESimProfilePolicy(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimProfileState(i32);
 #[repr(transparent)]
 pub struct ESimRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimServiceInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimState(i32);
 #[repr(transparent)]
 pub struct ESimUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ESimWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ESimWatcherStatus(i32);
 #[repr(transparent)]
 pub struct FdnAccessManager(pub *mut ::core::ffi::c_void);
@@ -47,6 +57,7 @@ pub struct FdnAccessManager(pub *mut ::core::ffi::c_void);
 pub struct HotspotAuthenticationContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HotspotAuthenticationEventDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct HotspotAuthenticationResponseCode(i32);
 #[repr(transparent)]
 pub struct HotspotCredentialsAuthenticationResult(pub *mut ::core::ffi::c_void);
@@ -278,6 +289,7 @@ pub struct KnownRuimFilePaths(pub *mut ::core::ffi::c_void);
 pub struct KnownSimFilePaths(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KnownUSimFilePaths(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LegacyNetworkOperatorsContract(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandAccount(pub *mut ::core::ffi::c_void);
@@ -287,6 +299,7 @@ pub struct MobileBroadbandAccountEventArgs(pub *mut ::core::ffi::c_void);
 pub struct MobileBroadbandAccountUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandAccountWatcher(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MobileBroadbandAccountWatcherStatus(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandAntennaSar(pub *mut ::core::ffi::c_void);
@@ -322,6 +335,7 @@ pub struct MobileBroadbandDeviceServiceDataSession(pub *mut ::core::ffi::c_void)
 pub struct MobileBroadbandDeviceServiceInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MobileBroadbandDeviceType(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandModem(pub *mut ::core::ffi::c_void);
@@ -329,6 +343,7 @@ pub struct MobileBroadbandModem(pub *mut ::core::ffi::c_void);
 pub struct MobileBroadbandModemConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandModemIsolation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MobileBroadbandModemStatus(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandNetwork(pub *mut ::core::ffi::c_void);
@@ -342,7 +357,9 @@ pub struct MobileBroadbandPco(pub *mut ::core::ffi::c_void);
 pub struct MobileBroadbandPcoDataChangeTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandPin(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MobileBroadbandPinFormat(i32);
+#[repr(C)]
 pub struct MobileBroadbandPinLockState(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChange(pub *mut ::core::ffi::c_void);
@@ -352,7 +369,9 @@ pub struct MobileBroadbandPinLockStateChangeTriggerDetails(pub *mut ::core::ffi:
 pub struct MobileBroadbandPinManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandPinOperationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MobileBroadbandPinType(i32);
+#[repr(C)]
 pub struct MobileBroadbandRadioState(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChange(pub *mut ::core::ffi::c_void);
@@ -366,6 +385,7 @@ pub struct MobileBroadbandSlotInfo(pub *mut ::core::ffi::c_void);
 pub struct MobileBroadbandSlotInfoChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandSlotManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MobileBroadbandSlotState(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandTransmissionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -373,6 +393,7 @@ pub struct MobileBroadbandTransmissionStateChangedEventArgs(pub *mut ::core::ffi
 pub struct MobileBroadbandUicc(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandUiccApp(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MobileBroadbandUiccAppOperationStatus(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppReadRecordResult(pub *mut ::core::ffi::c_void);
@@ -380,10 +401,13 @@ pub struct MobileBroadbandUiccAppReadRecordResult(pub *mut ::core::ffi::c_void);
 pub struct MobileBroadbandUiccAppRecordDetailsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppsResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NetworkDeviceStatus(i32);
+#[repr(C)]
 pub struct NetworkOperatorDataUsageNotificationKind(i32);
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NetworkOperatorEventMessageType(i32);
 #[repr(transparent)]
 pub struct NetworkOperatorNotificationEventDetails(pub *mut ::core::ffi::c_void);
@@ -395,10 +419,14 @@ pub struct NetworkOperatorTetheringClient(pub *mut ::core::ffi::c_void);
 pub struct NetworkOperatorTetheringManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringOperationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct NetworkOperatorsFdnContract(i32);
+#[repr(C)]
 pub struct NetworkRegistrationState(i32);
+#[repr(C)]
 pub struct ProfileMediaType(i32);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct ProfileUsage(i32);
 #[repr(transparent)]
 pub struct ProvisionFromXmlDocumentResults(pub *mut ::core::ffi::c_void);
@@ -406,19 +434,27 @@ pub struct ProvisionFromXmlDocumentResults(pub *mut ::core::ffi::c_void);
 pub struct ProvisionedProfile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProvisioningAgent(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TetheringCapability(i32);
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TetheringOperationStatus(i32);
+#[repr(C)]
 pub struct TetheringOperationalState(i32);
+#[repr(C)]
 pub struct TetheringWiFiBand(i32);
+#[repr(C)]
 pub struct UiccAccessCondition(i32);
+#[repr(C)]
 pub struct UiccAppKind(i32);
+#[repr(C)]
 pub struct UiccAppRecordKind(i32);
 #[repr(transparent)]
 pub struct UssdMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UssdReply(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UssdResultCode(i32);
 #[repr(transparent)]
 pub struct UssdSession(pub *mut ::core::ffi::c_void);

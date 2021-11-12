@@ -79,6 +79,7 @@ pub const A2DP_SOURCE_SUPPORTED_FEATURES_PLAYER: u32 = 1u32;
 pub const A2DP_SOURCE_SUPPORTED_FEATURES_TUNER: u32 = 4u32;
 pub const AF_BTH: u16 = 32u16;
 pub const ATT_PROTOCOL_UUID16: u32 = 7u32;
+#[repr(C)]
 pub struct AUTHENTICATION_REQUIREMENTS(i32);
 pub const AVCTP_PROTOCOL_UUID16: u32 = 23u32;
 pub const AVDTP_PROTOCOL_UUID16: u32 = 25u32;
@@ -136,19 +137,28 @@ pub const BDIF_SSP_PAIRED: u32 = 512u32;
 pub const BDIF_SSP_SUPPORTED: u32 = 256u32;
 pub const BDIF_TX_POWER: u32 = 2147483648u32;
 pub const BDIF_VISIBLE: u32 = 128u32;
+#[repr(C)]
 pub struct BLUETOOTH_ADDRESS(i32);
+#[repr(C)]
 pub struct BLUETOOTH_AUTHENTICATE_RESPONSE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS(i32);
+#[repr(C)]
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(i32);
+#[repr(C)]
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BLUETOOTH_COD_PAIRS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BLUETOOTH_DEVICE_INFO(i32);
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS(i32);
+#[repr(C)]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS(i32);
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2u32;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_ENCRYPTED: u32 = 1u32;
@@ -158,19 +168,27 @@ pub const BLUETOOTH_GATT_FLAG_NONE: u32 = 0u32;
 pub const BLUETOOTH_GATT_FLAG_RETURN_ALL: u32 = 64u32;
 pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16u32;
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32u32;
+#[repr(C)]
 pub struct BLUETOOTH_IO_CAPABILITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO(i32);
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
 pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
 pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16u32;
 pub const BLUETOOTH_MAX_SERVICE_NAME_SIZE: u32 = 256u32;
+#[repr(C)]
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO(i32);
+#[repr(C)]
 pub struct BLUETOOTH_OOB_DATA_INFO(i32);
+#[repr(C)]
 pub struct BLUETOOTH_PASSKEY_INFO(i32);
+#[repr(C)]
 pub struct BLUETOOTH_PIN_INFO(i32);
+#[repr(C)]
 pub struct BLUETOOTH_RADIO_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS(i32);
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
 pub const BLUETOOTH_SERVICE_ENABLE: u32 = 1u32;
@@ -190,6 +208,7 @@ pub const BTH_ADDR_IAC_LAST: u32 = 10390335u32;
 pub const BTH_ADDR_LIAC: u32 = 10390272u32;
 pub const BTH_ADDR_STRING_SIZE: u32 = 12u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BTH_DEVICE_INFO(i32);
 pub const BTH_EIR_128_UUIDS_COMPLETE_ID: u32 = 7u32;
 pub const BTH_EIR_128_UUIDS_PARTIAL_ID: u32 = 6u32;
@@ -276,15 +295,19 @@ pub const BTH_ERROR_UNSPECIFIED_ERROR: u32 = 31u32;
 pub const BTH_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER: u32 = 17u32;
 pub const BTH_ERROR_UNSUPPORTED_LMP_PARM_VALUE: u32 = 32u32;
 pub const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: u32 = 26u32;
+#[repr(C)]
 pub struct BTH_HCI_EVENT_INFO(i32);
 pub const BTH_HOST_FEATURE_ENHANCED_RETRANSMISSION_MODE: u64 = 1u64;
 pub const BTH_HOST_FEATURE_LOW_ENERGY: u64 = 4u64;
 pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
 pub const BTH_HOST_FEATURE_SCO_HCIBYPASS: u64 = 16u64;
 pub const BTH_HOST_FEATURE_STREAMING_MODE: u64 = 2u64;
+#[repr(C)]
 pub struct BTH_INFO_REQ(i32);
+#[repr(C)]
 pub struct BTH_INFO_RSP(i32);
 pub const BTH_IOCTL_BASE: u32 = 0u32;
+#[repr(C)]
 pub struct BTH_L2CAP_EVENT_INFO(i32);
 pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 4096, data4: [128, 0, 0, 128, 95, 155, 52, 251] };
 pub const BTH_LE_ATT_CID: u32 = 4u32;
@@ -436,14 +459,20 @@ pub const BTH_MFG_WAVEPLUS_TECHNOLOGY_CO: u32 = 35u32;
 pub const BTH_MFG_WIDCOMM: u32 = 17u32;
 pub const BTH_MFG_ZEEVO: u32 = 18u32;
 pub const BTH_MINORVERSION: u32 = 1u32;
+#[repr(C)]
 pub struct BTH_PING_REQ(i32);
+#[repr(C)]
 pub struct BTH_PING_RSP(i32);
+#[repr(C)]
 pub struct BTH_QUERY_DEVICE(i32);
+#[repr(C)]
 pub struct BTH_QUERY_SERVICE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BTH_RADIO_IN_RANGE(i32);
 pub const BTH_SDP_VERSION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct BTH_SET_SERVICE(i32);
 pub const BTH_VID_DEFAULT_VALUE: u32 = 65535u32;
 pub const BT_PORT_DYN_FIRST: u32 = 4097u32;
@@ -636,6 +665,7 @@ pub const GenericAudioServiceClassID_UUID16: u32 = 4611u32;
 pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
 pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
+#[repr(C)]
 pub struct HANDLE_SDP_TYPE(i32);
 pub const HCCC_PROTOCOL_UUID16: u32 = 18u32;
 pub const HCDC_PROTOCOL_UUID16: u32 = 20u32;
@@ -660,6 +690,7 @@ pub const HealthDeviceProfileID_UUID16: u32 = 5120u32;
 pub const HealthDeviceProfileSinkServiceClassID_UUID16: u32 = 5122u32;
 pub const HealthDeviceProfileSourceServiceClassID_UUID16: u32 = 5121u32;
 pub const HumanInterfaceDeviceServiceClassID_UUID16: u32 = 4388u32;
+#[repr(C)]
 pub struct IO_CAPABILITY(i32);
 pub const IP_PROTOCOL_UUID16: u32 = 9u32;
 pub const ImagingAutomaticArchiveServiceClassID_UUID16: u32 = 4380u32;
@@ -692,6 +723,7 @@ pub const MessageAccessServerServiceClassID_UUID16: u32 = 4402u32;
 pub const MessageNotificationServerServiceClassID_UUID16: u32 = 4403u32;
 pub const NAPServiceClassID_UUID16: u32 = 4374u32;
 pub const NS_BTH: u32 = 16u32;
+#[repr(C)]
 pub struct NodeContainerType(i32);
 pub const OBEXFileTransferServiceClassID_UUID16: u32 = 4358u32;
 pub const OBEXObjectPushServiceClassID_UUID16: u32 = 4357u32;
@@ -704,9 +736,13 @@ pub const OBJECT_PUSH_FORMAT_VCARD_3_0: u32 = 2u32;
 pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6u32;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
+#[repr(C)]
 pub struct PFN_AUTHENTICATION_CALLBACK(i32);
+#[repr(C)]
 pub struct PFN_AUTHENTICATION_CALLBACK_EX(i32);
+#[repr(C)]
 pub struct PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK(i32);
+#[repr(C)]
 pub struct PFN_DEVICE_CALLBACK(i32);
 pub const PF_BTH: u16 = 32u16;
 pub const PSM_3DSP: u32 = 33u32;
@@ -736,12 +772,16 @@ pub const RFCOMM_CMD_RLS: u32 = 2u32;
 pub const RFCOMM_CMD_RPN: u32 = 3u32;
 pub const RFCOMM_CMD_RPN_REQUEST: u32 = 4u32;
 pub const RFCOMM_CMD_RPN_RESPONSE: u32 = 5u32;
+#[repr(C)]
 pub struct RFCOMM_COMMAND(i32);
 pub const RFCOMM_MAX_MTU: u32 = 1011u32;
 pub const RFCOMM_MIN_MTU: u32 = 23u32;
+#[repr(C)]
 pub struct RFCOMM_MSC_DATA(i32);
 pub const RFCOMM_PROTOCOL_UUID16: u32 = 3u32;
+#[repr(C)]
 pub struct RFCOMM_RLS_DATA(i32);
+#[repr(C)]
 pub struct RFCOMM_RPN_DATA(i32);
 pub const RLS_ERROR: u32 = 1u32;
 pub const RLS_FRAMING: u32 = 8u32;
@@ -859,6 +899,7 @@ pub const SDP_CONNECT_CACHE: u32 = 1u32;
 pub const SDP_DEFAULT_INQUIRY_MAX_RESPONSES: u32 = 255u32;
 pub const SDP_DEFAULT_INQUIRY_SECONDS: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct SDP_ELEMENT_DATA(i32);
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: u32 = 6u32;
 pub const SDP_ERROR_INVALID_CONTINUATION_STATE: u32 = 5u32;
@@ -866,6 +907,7 @@ pub const SDP_ERROR_INVALID_PDU_SIZE: u32 = 4u32;
 pub const SDP_ERROR_INVALID_RECORD_HANDLE: u32 = 2u32;
 pub const SDP_ERROR_INVALID_REQUEST_SYNTAX: u32 = 3u32;
 pub const SDP_ERROR_INVALID_SDP_VERSION: u32 = 1u32;
+#[repr(C)]
 pub struct SDP_LARGE_INTEGER_16(i32);
 pub const SDP_MAX_INQUIRY_SECONDS: u32 = 60u32;
 pub const SDP_PROTOCOL_UUID16: u32 = 1u32;
@@ -877,9 +919,13 @@ pub const SDP_SEARCH_NO_PARSE_CHECK: u32 = 1u32;
 pub const SDP_SERVICE_ATTRIBUTE_REQUEST: u32 = 2u32;
 pub const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3u32;
 pub const SDP_SERVICE_SEARCH_REQUEST: u32 = 1u32;
+#[repr(C)]
 pub struct SDP_SPECIFICTYPE(i32);
+#[repr(C)]
 pub struct SDP_STRING_TYPE_DATA(i32);
+#[repr(C)]
 pub struct SDP_TYPE(i32);
+#[repr(C)]
 pub struct SDP_ULARGE_INTEGER_16(i32);
 pub const SERVICE_OPTION_DO_NOT_PUBLISH: u32 = 2u32;
 pub const SERVICE_OPTION_DO_NOT_PUBLISH_EIR: u32 = 8u32;
@@ -892,6 +938,7 @@ pub const SERVICE_SECURITY_ENCRYPT_REQUIRED: u32 = 16u32;
 pub const SERVICE_SECURITY_NONE: u32 = 1u32;
 pub const SERVICE_SECURITY_NO_ASK: u32 = 536870912u32;
 pub const SERVICE_SECURITY_USE_DEFAULTS: u32 = 0u32;
+#[repr(C)]
 pub struct SOCKADDR_BTH(i32);
 pub const SOL_L2CAP: u32 = 256u32;
 pub const SOL_RFCOMM: u32 = 3u32;
@@ -909,8 +956,11 @@ pub const SYNCH_DATA_STORE_CALENDAR: u32 = 3u32;
 pub const SYNCH_DATA_STORE_MESSAGES: u32 = 6u32;
 pub const SYNCH_DATA_STORE_NOTES: u32 = 5u32;
 pub const SYNCH_DATA_STORE_PHONEBOOK: u32 = 1u32;
+#[repr(C)]
 pub struct SdpAttributeRange(i32);
+#[repr(C)]
 pub struct SdpQueryUuid(i32);
+#[repr(C)]
 pub struct SdpQueryUuidUnion(i32);
 pub const SerialPortServiceClassID_UUID16: u32 = 4353u32;
 pub const ServiceDiscoveryServerServiceClassID_UUID16: u32 = 4096u32;

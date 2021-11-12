@@ -18,8 +18,10 @@ extern "system" {
     pub fn RegisterHelper(pguidparentcontext: *const ::windows_sys::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CMD_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct CMD_GROUP_ENTRY(i32);
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
@@ -49,24 +51,42 @@ pub const NETSH_ERROR_END: u32 = 15019u32;
 pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
+#[repr(C)]
 pub struct NS_CMD_FLAGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct NS_CONTEXT_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct NS_EVENTS(i32);
+#[repr(C)]
 pub struct NS_HELPER_ATTRIBUTES(i32);
+#[repr(C)]
 pub struct NS_MODE_CHANGE(i32);
+#[repr(C)]
 pub struct NS_REQS(i32);
+#[repr(C)]
 pub struct PFN_HANDLE_CMD(i32);
+#[repr(C)]
 pub struct PGET_RESOURCE_STRING_FN(i32);
+#[repr(C)]
 pub struct PNS_CONTEXT_COMMIT_FN(i32);
+#[repr(C)]
 pub struct PNS_CONTEXT_CONNECT_FN(i32);
+#[repr(C)]
 pub struct PNS_CONTEXT_DUMP_FN(i32);
+#[repr(C)]
 pub struct PNS_DLL_INIT_FN(i32);
+#[repr(C)]
 pub struct PNS_DLL_STOP_FN(i32);
+#[repr(C)]
 pub struct PNS_HELPER_START_FN(i32);
+#[repr(C)]
 pub struct PNS_HELPER_STOP_FN(i32);
+#[repr(C)]
 pub struct PNS_OSVERSIONCHECK(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TAG_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+#[repr(C)]
 pub struct TOKEN_VALUE(i32);

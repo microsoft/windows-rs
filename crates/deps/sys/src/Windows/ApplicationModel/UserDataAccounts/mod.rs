@@ -29,14 +29,17 @@ pub struct IUserDataAccountStore3(pub *mut ::core::ffi::c_void);
 pub struct IUserDataAccountStoreChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataAccount(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataAccountContentKinds(i32);
 #[repr(transparent)]
 pub struct UserDataAccountManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataAccountManagerForUser(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataAccountOtherAppReadAccess(i32);
 #[repr(transparent)]
 pub struct UserDataAccountStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct UserDataAccountStoreAccessType(i32);
 #[repr(transparent)]
 pub struct UserDataAccountStoreChangedEventArgs(pub *mut ::core::ffi::c_void);

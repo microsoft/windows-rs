@@ -13,6 +13,9 @@ pub struct IInkDesktopHost(pub *mut ::core::ffi::c_void);
 pub struct IInkHostWorkItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IInkPresenterDesktop(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct INK_HIGH_CONTRAST_ADJUSTMENT(i32);
+#[repr(C)]
 pub struct InkD2DRenderer(i32);
+#[repr(C)]
 pub struct InkDesktopHost(i32);

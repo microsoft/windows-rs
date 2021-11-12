@@ -11,23 +11,29 @@ pub struct AggregateContactManager(pub *mut ::core::ffi::c_void);
 pub struct Contact(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactAddress(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactAddressKind(i32);
 #[repr(transparent)]
 pub struct ContactAnnotation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactAnnotationList(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactAnnotationOperations(i32);
 #[repr(transparent)]
 pub struct ContactAnnotationStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactAnnotationStoreAccessType(i32);
 #[repr(transparent)]
 pub struct ContactBatch(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactBatchStatus(i32);
 #[repr(transparent)]
 pub struct ContactCardDelayedDataLoader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactCardHeaderKind(i32);
 #[repr(transparent)]
 pub struct ContactCardOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactCardTabKind(i32);
 #[repr(transparent)]
 pub struct ContactChange(pub *mut ::core::ffi::c_void);
@@ -35,6 +41,7 @@ pub struct ContactChange(pub *mut ::core::ffi::c_void);
 pub struct ContactChangeReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactChangeTracker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactChangeType(i32);
 #[repr(transparent)]
 pub struct ContactChangedDeferral(pub *mut ::core::ffi::c_void);
@@ -44,15 +51,19 @@ pub struct ContactChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ContactConnectedServiceAccount(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactDate(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactDateKind(i32);
 #[repr(transparent)]
 pub struct ContactEmail(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactEmailKind(i32);
 #[repr(transparent)]
 pub struct ContactField(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactFieldCategory(i32);
 #[repr(transparent)]
 pub struct ContactFieldFactory(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactFieldType(i32);
 #[repr(transparent)]
 pub struct ContactGroup(pub *mut ::core::ffi::c_void);
@@ -68,12 +79,15 @@ pub struct ContactLaunchActionVerbs(pub *mut ::core::ffi::c_void);
 pub struct ContactList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactListLimitedWriteOperations(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactListOtherAppReadAccess(i32);
+#[repr(C)]
 pub struct ContactListOtherAppWriteAccess(i32);
 #[repr(transparent)]
 pub struct ContactListSyncConstraints(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactListSyncManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactListSyncStatus(i32);
 #[repr(transparent)]
 pub struct ContactLocationField(pub *mut ::core::ffi::c_void);
@@ -83,7 +97,9 @@ pub struct ContactManager(pub *mut ::core::ffi::c_void);
 pub struct ContactManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactMatchReason(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactMatchReasonKind(i32);
+#[repr(C)]
 pub struct ContactNameOrder(i32);
 #[repr(transparent)]
 pub struct ContactPanel(pub *mut ::core::ffi::c_void);
@@ -93,24 +109,31 @@ pub struct ContactPanelClosingEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactPhone(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactPhoneKind(i32);
 #[repr(transparent)]
 pub struct ContactPicker(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactQueryDesiredFields(i32);
 #[repr(transparent)]
 pub struct ContactQueryOptions(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactQuerySearchFields(i32);
+#[repr(C)]
 pub struct ContactQuerySearchScope(i32);
 #[repr(transparent)]
 pub struct ContactQueryTextSearch(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactRelationship(i32);
+#[repr(C)]
 pub struct ContactSelectionMode(i32);
 #[repr(transparent)]
 pub struct ContactSignificantOther(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ContactStoreAccessType(i32);
 #[repr(transparent)]
 pub struct ContactStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -274,4 +297,5 @@ pub struct KnownContactField(pub *mut ::core::ffi::c_void);
 pub struct PinnedContactIdsQueryResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PinnedContactManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PinnedContactSurface(i32);

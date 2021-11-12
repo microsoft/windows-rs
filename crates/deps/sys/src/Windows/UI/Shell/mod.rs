@@ -21,12 +21,17 @@ pub struct ITaskbarManager(pub *mut ::core::ffi::c_void);
 pub struct ITaskbarManager2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITaskbarManagerStatics(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SecurityAppKind(i32);
 #[repr(transparent)]
 pub struct SecurityAppManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SecurityAppManagerContract(i32);
+#[repr(C)]
 pub struct SecurityAppState(i32);
+#[repr(C)]
 pub struct SecurityAppSubstatus(i32);
+#[repr(C)]
 pub struct ShareWindowCommand(i32);
 #[repr(transparent)]
 pub struct ShareWindowCommandEventArgs(pub *mut ::core::ffi::c_void);

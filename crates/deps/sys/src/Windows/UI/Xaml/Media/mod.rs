@@ -7,14 +7,19 @@ pub mod Imaging;
 pub mod Media3D;
 #[link(name = "windows")]
 extern "system" {}
+#[repr(C)]
 pub struct AcrylicBackgroundSource(i32);
 #[repr(transparent)]
 pub struct AcrylicBrush(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AlignmentX(i32);
+#[repr(C)]
 pub struct AlignmentY(i32);
 #[repr(transparent)]
 pub struct ArcSegment(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AudioCategory(i32);
+#[repr(C)]
 pub struct AudioDeviceType(i32);
 #[repr(transparent)]
 pub struct BezierSegment(pub *mut ::core::ffi::c_void);
@@ -24,9 +29,11 @@ pub struct BitmapCache(pub *mut ::core::ffi::c_void);
 pub struct Brush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BrushCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct BrushMappingMode(i32);
 #[repr(transparent)]
 pub struct CacheMode(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ColorInterpolationMode(i32);
 #[repr(transparent)]
 pub struct CompositeTransform(pub *mut ::core::ffi::c_void);
@@ -34,10 +41,13 @@ pub struct CompositeTransform(pub *mut ::core::ffi::c_void);
 pub struct CompositionTarget(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DoubleCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ElementCompositeMode(i32);
 #[repr(transparent)]
 pub struct EllipseGeometry(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FastPlayFallbackBehaviour(i32);
+#[repr(C)]
 pub struct FillRule(i32);
 #[repr(transparent)]
 pub struct FontFamily(pub *mut ::core::ffi::c_void);
@@ -51,6 +61,7 @@ pub struct GeometryCollection(pub *mut ::core::ffi::c_void);
 pub struct GeometryGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GradientBrush(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GradientSpreadMethod(i32);
 #[repr(transparent)]
 pub struct GradientStop(pub *mut ::core::ffi::c_void);
@@ -330,9 +341,11 @@ pub struct LineSegment(pub *mut ::core::ffi::c_void);
 pub struct LinearGradientBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadCompletedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LoadedImageSourceLoadStatus(i32);
 #[repr(transparent)]
 pub struct LoadedImageSurface(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Matrix(i32);
 #[repr(transparent)]
 pub struct Matrix3DProjection(pub *mut ::core::ffi::c_void);
@@ -340,7 +353,9 @@ pub struct Matrix3DProjection(pub *mut ::core::ffi::c_void);
 pub struct MatrixHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MatrixTransform(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaCanPlayResponse(i32);
+#[repr(C)]
 pub struct MediaElementState(i32);
 #[repr(transparent)]
 pub struct MediaTransportControlsThumbnailRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -356,7 +371,9 @@ pub struct PathGeometry(pub *mut ::core::ffi::c_void);
 pub struct PathSegment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PathSegmentCollection(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PenLineCap(i32);
+#[repr(C)]
 pub struct PenLineJoin(i32);
 #[repr(transparent)]
 pub struct PlaneProjection(pub *mut ::core::ffi::c_void);
@@ -388,6 +405,7 @@ pub struct RevealBackgroundBrush(pub *mut ::core::ffi::c_void);
 pub struct RevealBorderBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RevealBrush(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct RevealBrushState(i32);
 #[repr(transparent)]
 pub struct RotateTransform(pub *mut ::core::ffi::c_void);
@@ -399,10 +417,15 @@ pub struct Shadow(pub *mut ::core::ffi::c_void);
 pub struct SkewTransform(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SolidColorBrush(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Stereo3DVideoPackingMode(i32);
+#[repr(C)]
 pub struct Stereo3DVideoRenderMode(i32);
+#[repr(C)]
 pub struct Stretch(i32);
+#[repr(C)]
 pub struct StyleSimulations(i32);
+#[repr(C)]
 pub struct SweepDirection(i32);
 #[repr(transparent)]
 pub struct ThemeShadow(pub *mut ::core::ffi::c_void);

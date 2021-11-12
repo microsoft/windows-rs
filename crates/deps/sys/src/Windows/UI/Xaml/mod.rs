@@ -33,13 +33,17 @@ extern "system" {}
 pub struct AdaptiveTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Application(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationHighContrastAdjustment(i32);
 #[repr(transparent)]
 pub struct ApplicationInitializationCallback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ApplicationInitializationCallbackParams(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ApplicationRequiresPointerMode(i32);
+#[repr(C)]
 pub struct ApplicationTheme(i32);
+#[repr(C)]
 pub struct AutomationTextAttributesEnum(i32);
 #[repr(transparent)]
 pub struct BindingFailedEventArgs(pub *mut ::core::ffi::c_void);
@@ -53,6 +57,7 @@ pub struct BringIntoViewRequestedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct BrushTransition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ColorPaletteResources(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CornerRadius(i32);
 #[repr(transparent)]
 pub struct CornerRadiusHelper(pub *mut ::core::ffi::c_void);
@@ -95,9 +100,11 @@ pub struct DragUIOverride(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DropCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation")]
+#[repr(C)]
 pub struct Duration(i32);
 #[repr(transparent)]
 pub struct DurationHelper(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct DurationType(i32);
 #[repr(transparent)]
 pub struct EffectiveViewportChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -105,13 +112,19 @@ pub struct EffectiveViewportChangedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ElementFactoryGetArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ElementFactoryRecycleArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ElementHighContrastAdjustment(i32);
+#[repr(C)]
 pub struct ElementSoundKind(i32);
+#[repr(C)]
 pub struct ElementSoundMode(i32);
 #[repr(transparent)]
 pub struct ElementSoundPlayer(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ElementSoundPlayerState(i32);
+#[repr(C)]
 pub struct ElementSpatialAudioMode(i32);
+#[repr(C)]
 pub struct ElementTheme(i32);
 #[repr(transparent)]
 pub struct EnteredBackgroundEventHandler(pub *mut ::core::ffi::c_void);
@@ -121,15 +134,25 @@ pub struct EventTrigger(pub *mut ::core::ffi::c_void);
 pub struct ExceptionRoutedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ExceptionRoutedEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FlowDirection(i32);
+#[repr(C)]
 pub struct FocusState(i32);
+#[repr(C)]
 pub struct FocusVisualKind(i32);
+#[repr(C)]
 pub struct FontCapitals(i32);
+#[repr(C)]
 pub struct FontEastAsianLanguage(i32);
+#[repr(C)]
 pub struct FontEastAsianWidths(i32);
+#[repr(C)]
 pub struct FontFraction(i32);
+#[repr(C)]
 pub struct FontNumeralAlignment(i32);
+#[repr(C)]
 pub struct FontNumeralStyle(i32);
+#[repr(C)]
 pub struct FontVariants(i32);
 #[repr(transparent)]
 pub struct FrameworkElement(pub *mut ::core::ffi::c_void);
@@ -139,10 +162,13 @@ pub struct FrameworkTemplate(pub *mut ::core::ffi::c_void);
 pub struct FrameworkView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FrameworkViewSource(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GridLength(i32);
 #[repr(transparent)]
 pub struct GridLengthHelper(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GridUnitType(i32);
+#[repr(C)]
 pub struct HorizontalAlignment(i32);
 #[repr(transparent)]
 pub struct IAdaptiveTrigger(pub *mut ::core::ffi::c_void);
@@ -494,9 +520,11 @@ pub struct IXamlRoot(pub *mut ::core::ffi::c_void);
 pub struct IXamlRootChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LeavingBackgroundEventHandler(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct LineStackingStrategy(i32);
 #[repr(transparent)]
 pub struct MediaFailedRoutedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct OpticalMarginAlignment(i32);
 #[repr(transparent)]
 pub struct PointHelper(pub *mut ::core::ffi::c_void);
@@ -540,11 +568,17 @@ pub struct Style(pub *mut ::core::ffi::c_void);
 pub struct SuspendingEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetPropertyPath(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct TextAlignment(i32);
+#[repr(C)]
 pub struct TextLineBounds(i32);
+#[repr(C)]
 pub struct TextReadingOrder(i32);
+#[repr(C)]
 pub struct TextTrimming(i32);
+#[repr(C)]
 pub struct TextWrapping(i32);
+#[repr(C)]
 pub struct Thickness(i32);
 #[repr(transparent)]
 pub struct ThicknessHelper(pub *mut ::core::ffi::c_void);
@@ -566,8 +600,11 @@ pub struct UnhandledExceptionEventArgs(pub *mut ::core::ffi::c_void);
 pub struct UnhandledExceptionEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Vector3Transition(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct Vector3TransitionComponents(i32);
+#[repr(C)]
 pub struct VerticalAlignment(i32);
+#[repr(C)]
 pub struct Visibility(i32);
 #[repr(transparent)]
 pub struct VisualState(pub *mut ::core::ffi::c_void);

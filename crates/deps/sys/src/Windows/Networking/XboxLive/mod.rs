@@ -31,10 +31,13 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult(pub *mut ::core::ffi::c
 pub struct XboxLiveDeviceAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XboxLiveEndpointPair(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XboxLiveEndpointPairCreationBehaviors(i32);
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XboxLiveEndpointPairCreationStatus(i32);
+#[repr(C)]
 pub struct XboxLiveEndpointPairState(i32);
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -42,14 +45,19 @@ pub struct XboxLiveEndpointPairStateChangedEventArgs(pub *mut ::core::ffi::c_voi
 pub struct XboxLiveEndpointPairTemplate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XboxLiveNetworkAccessKind(i32);
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurement(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(i32);
+#[repr(C)]
 pub struct XboxLiveQualityOfServiceMetric(i32);
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetricResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct XboxLiveSecureSocketsContract(i32);
+#[repr(C)]
 pub struct XboxLiveSocketKind(i32);

@@ -21,6 +21,7 @@ pub struct FrameExposureControl(pub *mut ::core::ffi::c_void);
 pub struct FrameFlashCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FrameFlashControl(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct FrameFlashMode(i32);
 #[repr(transparent)]
 pub struct FrameFocusCapabilities(pub *mut ::core::ffi::c_void);

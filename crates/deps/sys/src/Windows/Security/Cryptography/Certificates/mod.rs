@@ -5,6 +5,7 @@ extern "system" {}
 pub struct Certificate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CertificateChain(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CertificateChainPolicy(i32);
 #[repr(transparent)]
 pub struct CertificateEnrollmentManager(pub *mut ::core::ffi::c_void);
@@ -24,6 +25,7 @@ pub struct CertificateStores(pub *mut ::core::ffi::c_void);
 pub struct ChainBuildingParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChainValidationParameters(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ChainValidationResult(i32);
 #[repr(transparent)]
 pub struct CmsAttachedSignature(pub *mut ::core::ffi::c_void);
@@ -33,7 +35,9 @@ pub struct CmsDetachedSignature(pub *mut ::core::ffi::c_void);
 pub struct CmsSignerInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CmsTimestampInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct EnrollKeyUsages(i32);
+#[repr(C)]
 pub struct ExportOption(i32);
 #[repr(transparent)]
 pub struct ICertificate(pub *mut ::core::ffi::c_void);
@@ -121,17 +125,21 @@ pub struct IUserCertificateEnrollmentManager(pub *mut ::core::ffi::c_void);
 pub struct IUserCertificateEnrollmentManager2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserCertificateStore(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct InstallOptions(i32);
 #[repr(transparent)]
 pub struct KeyAlgorithmNames(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyAttestationHelper(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KeyProtectionLevel(i32);
+#[repr(C)]
 pub struct KeySize(i32);
 #[repr(transparent)]
 pub struct KeyStorageProviderNames(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PfxImportParameters(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct SignatureValidationResult(i32);
 #[repr(transparent)]
 pub struct StandardCertificateStoreNames(pub *mut ::core::ffi::c_void);

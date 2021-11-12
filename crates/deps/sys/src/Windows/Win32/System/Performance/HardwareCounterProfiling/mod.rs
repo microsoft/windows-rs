@@ -10,6 +10,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32;
 }
+#[repr(C)]
 pub struct HARDWARE_COUNTER_DATA(i32);
+#[repr(C)]
 pub struct HARDWARE_COUNTER_TYPE(i32);
+#[repr(C)]
 pub struct PERFORMANCE_DATA(i32);

@@ -15,13 +15,19 @@ pub struct AppBroadcastBackgroundService(pub *mut ::core::ffi::c_void);
 pub struct AppBroadcastBackgroundServiceSignInInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundServiceStreamInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastCameraCaptureState(i32);
 #[repr(transparent)]
 pub struct AppBroadcastCameraCaptureStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastCameraOverlayLocation(i32);
+#[repr(C)]
 pub struct AppBroadcastCameraOverlaySize(i32);
+#[repr(C)]
 pub struct AppBroadcastCaptureTargetType(i32);
+#[repr(C)]
 pub struct AppBroadcastContract(i32);
+#[repr(C)]
 pub struct AppBroadcastExitBroadcastModeReason(i32);
 #[repr(transparent)]
 pub struct AppBroadcastGlobalSettings(pub *mut ::core::ffi::c_void);
@@ -29,6 +35,7 @@ pub struct AppBroadcastGlobalSettings(pub *mut ::core::ffi::c_void);
 pub struct AppBroadcastHeartbeatRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastMicrophoneCaptureState(i32);
 #[repr(transparent)]
 pub struct AppBroadcastMicrophoneCaptureStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -36,11 +43,13 @@ pub struct AppBroadcastMicrophoneCaptureStateChangedEventArgs(pub *mut ::core::f
 pub struct AppBroadcastPlugIn(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastPlugInManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastPlugInState(i32);
 #[repr(transparent)]
 pub struct AppBroadcastPlugInStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastPreview(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastPreviewState(i32);
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -54,7 +63,9 @@ pub struct AppBroadcastPreviewStreamVideoHeader(pub *mut ::core::ffi::c_void);
 pub struct AppBroadcastProviderSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastServices(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastSignInResult(i32);
+#[repr(C)]
 pub struct AppBroadcastSignInState(i32);
 #[repr(transparent)]
 pub struct AppBroadcastSignInStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -66,6 +77,7 @@ pub struct AppBroadcastStreamAudioFrame(pub *mut ::core::ffi::c_void);
 pub struct AppBroadcastStreamAudioHeader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastStreamReader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastStreamState(i32);
 #[repr(transparent)]
 pub struct AppBroadcastStreamStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -73,10 +85,13 @@ pub struct AppBroadcastStreamStateChangedEventArgs(pub *mut ::core::ffi::c_void)
 pub struct AppBroadcastStreamVideoFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastStreamVideoHeader(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastTerminationReason(i32);
 #[repr(transparent)]
 pub struct AppBroadcastTriggerDetails(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppBroadcastVideoEncodingBitrateMode(i32);
+#[repr(C)]
 pub struct AppBroadcastVideoEncodingResolutionMode(i32);
 #[repr(transparent)]
 pub struct AppBroadcastViewerCountChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -84,23 +99,29 @@ pub struct AppBroadcastViewerCountChangedEventArgs(pub *mut ::core::ffi::c_void)
 pub struct AppCapture(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppCaptureAlternateShortcutKeys(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppCaptureContract(i32);
 #[repr(transparent)]
 pub struct AppCaptureDurationGeneratedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppCaptureFileGeneratedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppCaptureHistoricalBufferLengthUnit(i32);
 #[repr(transparent)]
 pub struct AppCaptureManager(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppCaptureMetadataContract(i32);
+#[repr(C)]
 pub struct AppCaptureMetadataPriority(i32);
 #[repr(transparent)]
 pub struct AppCaptureMetadataWriter(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppCaptureMicrophoneCaptureState(i32);
 #[repr(transparent)]
 pub struct AppCaptureMicrophoneCaptureStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppCaptureRecordOperation(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppCaptureRecordingState(i32);
 #[repr(transparent)]
 pub struct AppCaptureRecordingStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -110,20 +131,29 @@ pub struct AppCaptureServices(pub *mut ::core::ffi::c_void);
 pub struct AppCaptureSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppCaptureState(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct AppCaptureVideoEncodingBitrateMode(i32);
+#[repr(C)]
 pub struct AppCaptureVideoEncodingFrameRateMode(i32);
+#[repr(C)]
 pub struct AppCaptureVideoEncodingResolutionMode(i32);
 #[repr(transparent)]
 pub struct CameraCaptureUI(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CameraCaptureUIContract(i32);
+#[repr(C)]
 pub struct CameraCaptureUIMaxPhotoResolution(i32);
+#[repr(C)]
 pub struct CameraCaptureUIMaxVideoResolution(i32);
+#[repr(C)]
 pub struct CameraCaptureUIMode(i32);
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoCaptureSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CameraCaptureUIPhotoFormat(i32);
 #[repr(transparent)]
 pub struct CameraCaptureUIVideoCaptureSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct CameraCaptureUIVideoFormat(i32);
 #[repr(transparent)]
 pub struct CameraOptionsUI(pub *mut ::core::ffi::c_void);
@@ -133,14 +163,19 @@ pub struct CapturedFrame(pub *mut ::core::ffi::c_void);
 pub struct CapturedFrameControlValues(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CapturedPhoto(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct ForegroundActivationArgument(i32);
+#[repr(C)]
 pub struct GameBarCommand(i32);
+#[repr(C)]
 pub struct GameBarCommandOrigin(i32);
+#[repr(C)]
 pub struct GameBarContract(i32);
 #[repr(transparent)]
 pub struct GameBarServices(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GameBarServicesCommandEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameBarServicesDisplayMode(i32);
 #[repr(transparent)]
 pub struct GameBarServicesManager(pub *mut ::core::ffi::c_void);
@@ -148,6 +183,7 @@ pub struct GameBarServicesManager(pub *mut ::core::ffi::c_void);
 pub struct GameBarServicesManagerGameBarServicesCreatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GameBarServicesTargetInfo(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct GameBarTargetCapturePolicy(i32);
 #[repr(transparent)]
 pub struct IAdvancedCapturedPhoto(pub *mut ::core::ffi::c_void);
@@ -373,6 +409,7 @@ pub struct IScreenCaptureStatics(pub *mut ::core::ffi::c_void);
 pub struct ISourceSuspensionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVideoStreamConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct KnownVideoProfile(i32);
 #[repr(transparent)]
 pub struct LowLagMediaRecording(pub *mut ::core::ffi::c_void);
@@ -382,6 +419,7 @@ pub struct LowLagPhotoCapture(pub *mut ::core::ffi::c_void);
 pub struct LowLagPhotoSequenceCapture(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaCapture(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(i32);
 #[repr(transparent)]
 pub struct MediaCaptureDeviceExclusiveControlStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -393,6 +431,7 @@ pub struct MediaCaptureFailedEventHandler(pub *mut ::core::ffi::c_void);
 pub struct MediaCaptureFocusChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaCaptureInitializationSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaCaptureMemoryPreference(i32);
 #[repr(transparent)]
 pub struct MediaCapturePauseResult(pub *mut ::core::ffi::c_void);
@@ -400,23 +439,29 @@ pub struct MediaCapturePauseResult(pub *mut ::core::ffi::c_void);
 pub struct MediaCaptureRelativePanelWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaCaptureSettings(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaCaptureSharingMode(i32);
 #[repr(transparent)]
 pub struct MediaCaptureStopResult(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaCaptureThermalStatus(i32);
 #[repr(transparent)]
 pub struct MediaCaptureVideoProfile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaCaptureVideoProfileMediaDescription(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct MediaCategory(i32);
+#[repr(C)]
 pub struct MediaStreamType(i32);
 #[repr(transparent)]
 pub struct OptionalReferencePhotoCapturedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PhotoCaptureSource(i32);
 #[repr(transparent)]
 pub struct PhotoCapturedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhotoConfirmationCapturedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct PowerlineFrequency(i32);
 #[repr(transparent)]
 pub struct RecordLimitationExceededEventHandler(pub *mut ::core::ffi::c_void);
@@ -424,9 +469,13 @@ pub struct RecordLimitationExceededEventHandler(pub *mut ::core::ffi::c_void);
 pub struct ScreenCapture(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SourceSuspensionChangedEventArgs(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct StreamingCaptureMode(i32);
+#[repr(C)]
 pub struct VideoDeviceCharacteristic(i32);
+#[repr(C)]
 pub struct VideoRotation(i32);
 #[repr(transparent)]
 pub struct VideoStreamConfiguration(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 pub struct WhiteBalanceGain(i32);
