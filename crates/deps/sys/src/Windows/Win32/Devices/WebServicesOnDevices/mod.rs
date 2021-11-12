@@ -389,6 +389,11 @@ pub struct WSDXML_NODE {
     pub Next: *mut WSDXML_NODE,
 }
 #[cfg(feature = "Win32_Foundation")]
+impl WSDXML_NODE {
+    pub const ElementType: i32 = 0i32;
+    pub const TextType: i32 = 1i32;
+}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSDXML_NODE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSDXML_NODE {

@@ -190,7 +190,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         }
     };
 
-    // TODO: still needed after WhitePoint removed?
+    // TODO: add test for this? e.g. WSDXML_NODE
     let constants = def.fields().filter_map(|f| {
         if f.is_literal() {
             if let Some(constant) = f.constant() {

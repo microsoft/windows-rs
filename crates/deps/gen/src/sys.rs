@@ -179,7 +179,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     };
 
     let is_union = def.is_explicit();
-    //let has_union = fields.iter().any(|(_, signature, _)| signature.has_explicit());
 
     let fields = fields.iter().map(|(_, signature, name)| {
         let kind = gen_sys_sig(signature, gen);
@@ -196,11 +195,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     };
 
     let nested_structs = gen_nested_structs(struct_name, def, gen, &cfg);
-
-    // TODO: need field constants?
-
-    // TODO: unions with non-`Copy` fields other than `ManuallyDrop<T>` are unstable
-    // either add Copy or use ManuallyDrop for all struct fields?
+    let constants = gen_struct_constants(def, &name, &cfg);
 
     quote! {
         #repr
@@ -209,6 +204,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         pub #struct_or_union #name {
             #(#fields),*
         }
+        #constants
         #cfg
         impl ::core::marker::Copy for #name {}
         #cfg
@@ -219,6 +215,36 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         }
         #nested_structs
     }
+}
+
+fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &TokenStream) -> TokenStream {
+    let constants = def.fields().filter_map(|f| {
+        if f.is_literal() {
+            if let Some(constant) = f.constant() {
+                let name = to_ident(f.name());
+                let value = gen_constant_type_value(&constant.value());
+
+                return Some(quote! {
+                    pub const #name: #value;
+                });
+            }
+        }
+
+        None
+    });
+
+    let mut tokens = quote! { #(#constants)* };
+
+    if !tokens.is_empty() {
+        tokens = quote! {
+            #cfg
+            impl #struct_name {
+                #tokens
+            }
+        };
+    }
+
+    tokens
 }
 
 fn gen_nested_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, cfg: &TokenStream) -> TokenStream {
